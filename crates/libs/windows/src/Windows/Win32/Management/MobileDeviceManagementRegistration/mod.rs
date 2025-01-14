@@ -48,29 +48,29 @@ pub unsafe fn GetManagementAppHyperlink(pszhyperlink: &mut [u16]) -> windows_cor
     unsafe { GetManagementAppHyperlink(pszhyperlink.len().try_into().unwrap(), core::mem::transmute(pszhyperlink.as_ptr())).ok() }
 }
 #[inline]
-pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL, pszupn: Option<&mut [u16]>) -> windows_core::Result<()> {
-    windows_targets::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut super::super::Foundation:: BOOL, cchupn : u32, pszupn : windows_core::PWSTR) -> windows_core::HRESULT);
+pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut windows_core::BOOL, pszupn: Option<&mut [u16]>) -> windows_core::Result<()> {
+    windows_targets::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut windows_core::BOOL, cchupn : u32, pszupn : windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement as _, pszupn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszupn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
 }
 #[inline]
-pub unsafe fn IsManagementRegistrationAllowed() -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("mdmregistration.dll" "system" fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn IsManagementRegistrationAllowed() -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("mdmregistration.dll" "system" fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         IsManagementRegistrationAllowed(&mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[inline]
-pub unsafe fn IsMdmUxWithoutAadAllowed() -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("mdmregistration.dll" "system" fn IsMdmUxWithoutAadAllowed(isenrollmentallowed : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn IsMdmUxWithoutAadAllowed() -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("mdmregistration.dll" "system" fn IsMdmUxWithoutAadAllowed(isenrollmentallowed : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         IsMdmUxWithoutAadAllowed(&mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[inline]
-pub unsafe fn RegisterDeviceWithLocalManagement(alreadyregistered: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-    windows_targets::link!("mdmlocalmanagement.dll" "system" fn RegisterDeviceWithLocalManagement(alreadyregistered : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn RegisterDeviceWithLocalManagement(alreadyregistered: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
+    windows_targets::link!("mdmlocalmanagement.dll" "system" fn RegisterDeviceWithLocalManagement(alreadyregistered : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { RegisterDeviceWithLocalManagement(alreadyregistered.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -112,7 +112,7 @@ where
 }
 #[inline]
 pub unsafe fn SetManagedExternally(ismanagedexternally: bool) -> windows_core::Result<()> {
-    windows_targets::link!("mdmregistration.dll" "system" fn SetManagedExternally(ismanagedexternally : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("mdmregistration.dll" "system" fn SetManagedExternally(ismanagedexternally : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { SetManagedExternally(ismanagedexternally.into()).ok() }
 }
 #[inline]
@@ -137,7 +137,7 @@ pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = REGISTRA
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MANAGEMENT_REGISTRATION_INFO {
-    pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
+    pub fDeviceRegisteredWithManagement: windows_core::BOOL,
     pub dwDeviceRegistionKind: u32,
     pub pszUPN: windows_core::PWSTR,
     pub pszMDMServiceUri: windows_core::PWSTR,

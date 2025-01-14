@@ -7476,27 +7476,27 @@ impl IWbemPath {
     pub unsafe fn DeleteClassPart(&self, lflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteClassPart)(windows_core::Interface::as_raw(self), lflags).ok() }
     }
-    pub unsafe fn IsRelative<P0, P1>(&self, wszmachine: P0, wsznamespace: P1) -> super::super::Foundation::BOOL
+    pub unsafe fn IsRelative<P0, P1>(&self, wszmachine: P0, wsznamespace: P1) -> windows_core::BOOL
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsRelative)(windows_core::Interface::as_raw(self), wszmachine.param().abi(), wsznamespace.param().abi()) }
     }
-    pub unsafe fn IsRelativeOrChild<P0, P1>(&self, wszmachine: P0, wsznamespace: P1, lflags: i32) -> super::super::Foundation::BOOL
+    pub unsafe fn IsRelativeOrChild<P0, P1>(&self, wszmachine: P0, wsznamespace: P1, lflags: i32) -> windows_core::BOOL
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsRelativeOrChild)(windows_core::Interface::as_raw(self), wszmachine.param().abi(), wsznamespace.param().abi(), lflags) }
     }
-    pub unsafe fn IsLocal<P0>(&self, wszmachine: P0) -> super::super::Foundation::BOOL
+    pub unsafe fn IsLocal<P0>(&self, wszmachine: P0) -> windows_core::BOOL
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsLocal)(windows_core::Interface::as_raw(self), wszmachine.param().abi()) }
     }
-    pub unsafe fn IsSameClassName<P0>(&self, wszclass: P0) -> super::super::Foundation::BOOL
+    pub unsafe fn IsSameClassName<P0>(&self, wszclass: P0) -> windows_core::BOOL
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -7528,10 +7528,10 @@ pub struct IWbemPath_Vtbl {
     pub GetKeyList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateClassPart: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub DeleteClassPart: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub IsRelative: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> super::super::Foundation::BOOL,
-    pub IsRelativeOrChild: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32) -> super::super::Foundation::BOOL,
-    pub IsLocal: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> super::super::Foundation::BOOL,
-    pub IsSameClassName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> super::super::Foundation::BOOL,
+    pub IsRelative: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::BOOL,
+    pub IsRelativeOrChild: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32) -> windows_core::BOOL,
+    pub IsLocal: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::BOOL,
+    pub IsSameClassName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::BOOL,
 }
 pub trait IWbemPath_Impl: windows_core::IUnknownImpl {
     fn SetText(&self, umode: u32, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -7556,10 +7556,10 @@ pub trait IWbemPath_Impl: windows_core::IUnknownImpl {
     fn GetKeyList(&self) -> windows_core::Result<IWbemPathKeyList>;
     fn CreateClassPart(&self, lflags: i32, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn DeleteClassPart(&self, lflags: i32) -> windows_core::Result<()>;
-    fn IsRelative(&self, wszmachine: &windows_core::PCWSTR, wsznamespace: &windows_core::PCWSTR) -> super::super::Foundation::BOOL;
-    fn IsRelativeOrChild(&self, wszmachine: &windows_core::PCWSTR, wsznamespace: &windows_core::PCWSTR, lflags: i32) -> super::super::Foundation::BOOL;
-    fn IsLocal(&self, wszmachine: &windows_core::PCWSTR) -> super::super::Foundation::BOOL;
-    fn IsSameClassName(&self, wszclass: &windows_core::PCWSTR) -> super::super::Foundation::BOOL;
+    fn IsRelative(&self, wszmachine: &windows_core::PCWSTR, wsznamespace: &windows_core::PCWSTR) -> windows_core::BOOL;
+    fn IsRelativeOrChild(&self, wszmachine: &windows_core::PCWSTR, wsznamespace: &windows_core::PCWSTR, lflags: i32) -> windows_core::BOOL;
+    fn IsLocal(&self, wszmachine: &windows_core::PCWSTR) -> windows_core::BOOL;
+    fn IsSameClassName(&self, wszclass: &windows_core::PCWSTR) -> windows_core::BOOL;
 }
 impl IWbemPath_Vtbl {
     pub const fn new<Identity: IWbemPath_Impl, const OFFSET: isize>() -> Self {
@@ -7719,25 +7719,25 @@ impl IWbemPath_Vtbl {
                 IWbemPath_Impl::DeleteClassPart(this, core::mem::transmute_copy(&lflags)).into()
             }
         }
-        unsafe extern "system" fn IsRelative<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszmachine: windows_core::PCWSTR, wsznamespace: windows_core::PCWSTR) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsRelative<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszmachine: windows_core::PCWSTR, wsznamespace: windows_core::PCWSTR) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::IsRelative(this, core::mem::transmute(&wszmachine), core::mem::transmute(&wsznamespace))
             }
         }
-        unsafe extern "system" fn IsRelativeOrChild<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszmachine: windows_core::PCWSTR, wsznamespace: windows_core::PCWSTR, lflags: i32) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsRelativeOrChild<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszmachine: windows_core::PCWSTR, wsznamespace: windows_core::PCWSTR, lflags: i32) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::IsRelativeOrChild(this, core::mem::transmute(&wszmachine), core::mem::transmute(&wsznamespace), core::mem::transmute_copy(&lflags))
             }
         }
-        unsafe extern "system" fn IsLocal<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszmachine: windows_core::PCWSTR) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsLocal<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszmachine: windows_core::PCWSTR) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::IsLocal(this, core::mem::transmute(&wszmachine))
             }
         }
-        unsafe extern "system" fn IsSameClassName<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszclass: windows_core::PCWSTR) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsSameClassName<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszclass: windows_core::PCWSTR) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::IsSameClassName(this, core::mem::transmute(&wszclass))
@@ -11356,7 +11356,7 @@ pub struct SWbemAnalysisMatrix {
     pub m_uPropertyType: u32,
     pub m_uEntries: u32,
     pub m_pValues: *mut *mut core::ffi::c_void,
-    pub m_pbTruthTable: *mut super::super::Foundation::BOOL,
+    pub m_pbTruthTable: *mut windows_core::BOOL,
 }
 impl Default for SWbemAnalysisMatrix {
     fn default() -> Self {
@@ -11422,8 +11422,8 @@ pub struct SWbemQueryQualifiedName {
     pub m_uTokenType: u32,
     pub m_uNameListSize: u32,
     pub m_ppszNameList: *const windows_core::PCWSTR,
-    pub m_bArraysUsed: super::super::Foundation::BOOL,
-    pub m_pbArrayElUsed: *mut super::super::Foundation::BOOL,
+    pub m_bArraysUsed: windows_core::BOOL,
+    pub m_pbArrayElUsed: *mut windows_core::BOOL,
     pub m_puArrayIndex: *mut u32,
 }
 impl Default for SWbemQueryQualifiedName {
@@ -11437,7 +11437,7 @@ pub const SWbemRefresher: windows_core::GUID = windows_core::GUID::from_u128(0xd
 #[derive(Clone, Copy)]
 pub union SWbemRpnConst {
     pub m_pszStrVal: windows_core::PCWSTR,
-    pub m_bBoolVal: super::super::Foundation::BOOL,
+    pub m_bBoolVal: windows_core::BOOL,
     pub m_lLongVal: i32,
     pub m_uLongVal: u32,
     pub m_dblVal: f64,

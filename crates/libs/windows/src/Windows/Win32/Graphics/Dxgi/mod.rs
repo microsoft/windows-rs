@@ -664,7 +664,7 @@ pub struct DXGI_MODE_DESC1 {
     pub Format: Common::DXGI_FORMAT,
     pub ScanlineOrdering: Common::DXGI_MODE_SCANLINE_ORDER,
     pub Scaling: Common::DXGI_MODE_SCALING,
-    pub Stereo: super::super::Foundation::BOOL,
+    pub Stereo: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for DXGI_MODE_DESC1 {
@@ -1135,7 +1135,7 @@ pub const DXGI_OUTDUPL_COMPOSITED_UI_CAPTURE_ONLY: DXGI_OUTDUPL_FLAG = DXGI_OUTD
 pub struct DXGI_OUTDUPL_DESC {
     pub ModeDesc: Common::DXGI_MODE_DESC,
     pub Rotation: Common::DXGI_MODE_ROTATION,
-    pub DesktopImageInSystemMemory: super::super::Foundation::BOOL,
+    pub DesktopImageInSystemMemory: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for DXGI_OUTDUPL_DESC {
@@ -1185,8 +1185,8 @@ pub struct DXGI_OUTDUPL_FRAME_INFO {
     pub LastPresentTime: i64,
     pub LastMouseUpdateTime: i64,
     pub AccumulatedFrames: u32,
-    pub RectsCoalesced: super::super::Foundation::BOOL,
-    pub ProtectedContentMaskedOut: super::super::Foundation::BOOL,
+    pub RectsCoalesced: windows_core::BOOL,
+    pub ProtectedContentMaskedOut: windows_core::BOOL,
     pub PointerPosition: DXGI_OUTDUPL_POINTER_POSITION,
     pub TotalMetadataBufferSize: u32,
     pub PointerShapeBufferSize: u32,
@@ -1211,7 +1211,7 @@ impl Default for DXGI_OUTDUPL_MOVE_RECT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_POSITION {
     pub Position: super::super::Foundation::POINT,
-    pub Visible: super::super::Foundation::BOOL,
+    pub Visible: windows_core::BOOL,
 }
 impl Default for DXGI_OUTDUPL_POINTER_POSITION {
     fn default() -> Self {
@@ -1244,7 +1244,7 @@ pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: DXGI_OUTDUPL_POINTER_SHAPE
 pub struct DXGI_OUTPUT_DESC {
     pub DeviceName: [u16; 32],
     pub DesktopCoordinates: super::super::Foundation::RECT,
-    pub AttachedToDesktop: super::super::Foundation::BOOL,
+    pub AttachedToDesktop: windows_core::BOOL,
     pub Rotation: Common::DXGI_MODE_ROTATION,
     pub Monitor: super::Gdi::HMONITOR,
 }
@@ -1260,7 +1260,7 @@ impl Default for DXGI_OUTPUT_DESC {
 pub struct DXGI_OUTPUT_DESC1 {
     pub DeviceName: [u16; 32],
     pub DesktopCoordinates: super::super::Foundation::RECT,
-    pub AttachedToDesktop: super::super::Foundation::BOOL,
+    pub AttachedToDesktop: windows_core::BOOL,
     pub Rotation: Common::DXGI_MODE_ROTATION,
     pub Monitor: super::Gdi::HMONITOR,
     pub BitsPerColor: u32,
@@ -1574,7 +1574,7 @@ pub struct DXGI_SWAP_CHAIN_DESC {
     pub BufferUsage: DXGI_USAGE,
     pub BufferCount: u32,
     pub OutputWindow: super::super::Foundation::HWND,
-    pub Windowed: super::super::Foundation::BOOL,
+    pub Windowed: windows_core::BOOL,
     pub SwapEffect: DXGI_SWAP_EFFECT,
     pub Flags: u32,
 }
@@ -1591,7 +1591,7 @@ pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub Width: u32,
     pub Height: u32,
     pub Format: Common::DXGI_FORMAT,
-    pub Stereo: super::super::Foundation::BOOL,
+    pub Stereo: windows_core::BOOL,
     pub SampleDesc: Common::DXGI_SAMPLE_DESC,
     pub BufferUsage: DXGI_USAGE,
     pub BufferCount: u32,
@@ -1662,7 +1662,7 @@ pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     pub RefreshRate: Common::DXGI_RATIONAL,
     pub ScanlineOrdering: Common::DXGI_MODE_SCANLINE_ORDER,
     pub Scaling: Common::DXGI_MODE_SCALING,
-    pub Windowed: super::super::Foundation::BOOL,
+    pub Windowed: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
@@ -2119,7 +2119,7 @@ impl IDXGIDebug1 {
     pub unsafe fn DisableLeakTrackingForThread(&self) {
         unsafe { (windows_core::Interface::vtable(self).DisableLeakTrackingForThread)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn IsLeakTrackingEnabledForThread(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsLeakTrackingEnabledForThread(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsLeakTrackingEnabledForThread)(windows_core::Interface::as_raw(self)) }
     }
 }
@@ -2128,14 +2128,14 @@ pub struct IDXGIDebug1_Vtbl {
     pub base__: IDXGIDebug_Vtbl,
     pub EnableLeakTrackingForThread: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub DisableLeakTrackingForThread: unsafe extern "system" fn(*mut core::ffi::c_void),
-    pub IsLeakTrackingEnabledForThread: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsLeakTrackingEnabledForThread: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
 unsafe impl Send for IDXGIDebug1 {}
 unsafe impl Sync for IDXGIDebug1 {}
 pub trait IDXGIDebug1_Impl: IDXGIDebug_Impl {
     fn EnableLeakTrackingForThread(&self);
     fn DisableLeakTrackingForThread(&self);
-    fn IsLeakTrackingEnabledForThread(&self) -> super::super::Foundation::BOOL;
+    fn IsLeakTrackingEnabledForThread(&self) -> windows_core::BOOL;
 }
 impl IDXGIDebug1_Vtbl {
     pub const fn new<Identity: IDXGIDebug1_Impl, const OFFSET: isize>() -> Self {
@@ -2151,7 +2151,7 @@ impl IDXGIDebug1_Vtbl {
                 IDXGIDebug1_Impl::DisableLeakTrackingForThread(this)
             }
         }
-        unsafe extern "system" fn IsLeakTrackingEnabledForThread<Identity: IDXGIDebug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsLeakTrackingEnabledForThread<Identity: IDXGIDebug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDebug1_Impl::IsLeakTrackingEnabledForThread(this)
@@ -2509,7 +2509,7 @@ impl IDXGIDevice2 {
     pub unsafe fn OfferResources(&self, ppresources: &[Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OfferResources)(windows_core::Interface::as_raw(self), ppresources.len().try_into().unwrap(), core::mem::transmute(ppresources.as_ptr()), priority).ok() }
     }
-    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, pdiscarded: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
+    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, pdiscarded: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReclaimResources)(windows_core::Interface::as_raw(self), numresources, core::mem::transmute(ppresources), pdiscarded.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn EnqueueSetEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -2520,7 +2520,7 @@ impl IDXGIDevice2 {
 pub struct IDXGIDevice2_Vtbl {
     pub base__: IDXGIDevice1_Vtbl,
     pub OfferResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::HRESULT,
-    pub ReclaimResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ReclaimResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub EnqueueSetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 unsafe impl Send for IDXGIDevice2 {}
@@ -2528,7 +2528,7 @@ unsafe impl Sync for IDXGIDevice2 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIDevice2_Impl: IDXGIDevice1_Impl {
     fn OfferResources(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::Result<()>;
-    fn ReclaimResources(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, pdiscarded: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ReclaimResources(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, pdiscarded: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn EnqueueSetEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2540,7 +2540,7 @@ impl IDXGIDevice2_Vtbl {
                 IDXGIDevice2_Impl::OfferResources(this, core::mem::transmute_copy(&numresources), core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&priority)).into()
             }
         }
-        unsafe extern "system" fn ReclaimResources<Identity: IDXGIDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numresources: u32, ppresources: *const *mut core::ffi::c_void, pdiscarded: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReclaimResources<Identity: IDXGIDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numresources: u32, ppresources: *const *mut core::ffi::c_void, pdiscarded: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDevice2_Impl::ReclaimResources(this, core::mem::transmute_copy(&numresources), core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&pdiscarded)).into()
@@ -2707,7 +2707,7 @@ impl windows_core::RuntimeName for IDXGIDeviceSubObject {}
 windows_core::imp::define_interface!(IDXGIDisplayControl, IDXGIDisplayControl_Vtbl, 0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
 windows_core::imp::interface_hierarchy!(IDXGIDisplayControl, windows_core::IUnknown);
 impl IDXGIDisplayControl {
-    pub unsafe fn IsStereoEnabled(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsStereoEnabled(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsStereoEnabled)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn SetStereoEnabled(&self, enabled: bool) {
@@ -2717,24 +2717,24 @@ impl IDXGIDisplayControl {
 #[repr(C)]
 pub struct IDXGIDisplayControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
-    pub SetStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
+    pub IsStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
+    pub SetStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
 }
 unsafe impl Send for IDXGIDisplayControl {}
 unsafe impl Sync for IDXGIDisplayControl {}
 pub trait IDXGIDisplayControl_Impl: windows_core::IUnknownImpl {
-    fn IsStereoEnabled(&self) -> super::super::Foundation::BOOL;
-    fn SetStereoEnabled(&self, enabled: super::super::Foundation::BOOL);
+    fn IsStereoEnabled(&self) -> windows_core::BOOL;
+    fn SetStereoEnabled(&self, enabled: windows_core::BOOL);
 }
 impl IDXGIDisplayControl_Vtbl {
     pub const fn new<Identity: IDXGIDisplayControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsStereoEnabled<Identity: IDXGIDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsStereoEnabled<Identity: IDXGIDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDisplayControl_Impl::IsStereoEnabled(this)
             }
         }
-        unsafe extern "system" fn SetStereoEnabled<Identity: IDXGIDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetStereoEnabled<Identity: IDXGIDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDisplayControl_Impl::SetStereoEnabled(this, core::mem::transmute_copy(&enabled))
@@ -2892,7 +2892,7 @@ impl IDXGIFactory1 {
             (windows_core::Interface::vtable(self).EnumAdapters1)(windows_core::Interface::as_raw(self), adapter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsCurrent(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsCurrent)(windows_core::Interface::as_raw(self)) }
     }
 }
@@ -2900,14 +2900,14 @@ impl IDXGIFactory1 {
 pub struct IDXGIFactory1_Vtbl {
     pub base__: IDXGIFactory_Vtbl,
     pub EnumAdapters1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
 unsafe impl Send for IDXGIFactory1 {}
 unsafe impl Sync for IDXGIFactory1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory1_Impl: IDXGIFactory_Impl {
     fn EnumAdapters1(&self, adapter: u32) -> windows_core::Result<IDXGIAdapter1>;
-    fn IsCurrent(&self) -> super::super::Foundation::BOOL;
+    fn IsCurrent(&self) -> windows_core::BOOL;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDXGIFactory1_Vtbl {
@@ -2924,7 +2924,7 @@ impl IDXGIFactory1_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsCurrent<Identity: IDXGIFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsCurrent<Identity: IDXGIFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIFactory1_Impl::IsCurrent(this)
@@ -2947,7 +2947,7 @@ impl core::ops::Deref for IDXGIFactory2 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory2, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1);
 impl IDXGIFactory2 {
-    pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsWindowedStereoEnabled(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsWindowedStereoEnabled)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3024,7 +3024,7 @@ impl IDXGIFactory2 {
 #[repr(C)]
 pub struct IDXGIFactory2_Vtbl {
     pub base__: IDXGIFactory1_Vtbl,
-    pub IsWindowedStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsWindowedStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub CreateSwapChainForHwnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND, *const DXGI_SWAP_CHAIN_DESC1, *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3049,7 +3049,7 @@ unsafe impl Send for IDXGIFactory2 {}
 unsafe impl Sync for IDXGIFactory2 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory2_Impl: IDXGIFactory1_Impl {
-    fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL;
+    fn IsWindowedStereoEnabled(&self) -> windows_core::BOOL;
     fn CreateSwapChainForHwnd(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
     fn CreateSwapChainForCoreWindow(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, pwindow: windows_core::Ref<windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
     fn GetSharedResourceAdapterLuid(&self, hresource: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::LUID>;
@@ -3064,7 +3064,7 @@ pub trait IDXGIFactory2_Impl: IDXGIFactory1_Impl {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDXGIFactory2_Vtbl {
     pub const fn new<Identity: IDXGIFactory2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsWindowedStereoEnabled<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsWindowedStereoEnabled<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIFactory2_Impl::IsWindowedStereoEnabled(this)
@@ -3641,19 +3641,19 @@ impl IDXGIInfoQueue {
     pub unsafe fn SetBreakOnID(&self, producer: windows_core::GUID, id: i32, benable: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), id, benable.into()).ok() }
     }
-    pub unsafe fn GetBreakOnCategory(&self, producer: windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetBreakOnCategory(&self, producer: windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), category) }
     }
-    pub unsafe fn GetBreakOnSeverity(&self, producer: windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetBreakOnSeverity(&self, producer: windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetBreakOnSeverity)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), severity) }
     }
-    pub unsafe fn GetBreakOnID(&self, producer: windows_core::GUID, id: i32) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetBreakOnID(&self, producer: windows_core::GUID, id: i32) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), id) }
     }
     pub unsafe fn SetMuteDebugOutput(&self, producer: windows_core::GUID, bmute: bool) {
         unsafe { (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), bmute.into()) }
     }
-    pub unsafe fn GetMuteDebugOutput(&self, producer: windows_core::GUID) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetMuteDebugOutput(&self, producer: windows_core::GUID) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetMuteDebugOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
     }
 }
@@ -3689,14 +3689,14 @@ pub struct IDXGIInfoQueue_Vtbl {
     pub GetRetrievalFilterStackSize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> u32,
     pub AddMessage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_INFO_QUEUE_MESSAGE_CATEGORY, DXGI_INFO_QUEUE_MESSAGE_SEVERITY, i32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub AddApplicationMessage: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_INFO_QUEUE_MESSAGE_SEVERITY, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub SetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_INFO_QUEUE_MESSAGE_CATEGORY, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_INFO_QUEUE_MESSAGE_SEVERITY, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, i32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL,
-    pub GetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL,
-    pub GetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, i32) -> super::super::Foundation::BOOL,
-    pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, super::super::Foundation::BOOL),
-    pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> super::super::Foundation::BOOL,
+    pub SetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_INFO_QUEUE_MESSAGE_CATEGORY, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_INFO_QUEUE_MESSAGE_SEVERITY, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, i32, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> windows_core::BOOL,
+    pub GetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> windows_core::BOOL,
+    pub GetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, i32) -> windows_core::BOOL,
+    pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, windows_core::BOOL),
+    pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::BOOL,
 }
 unsafe impl Send for IDXGIInfoQueue {}
 unsafe impl Sync for IDXGIInfoQueue {}
@@ -3730,14 +3730,14 @@ pub trait IDXGIInfoQueue_Impl: windows_core::IUnknownImpl {
     fn GetRetrievalFilterStackSize(&self, producer: &windows_core::GUID) -> u32;
     fn AddMessage(&self, producer: &windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, id: i32, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn AddApplicationMessage(&self, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn SetBreakOnCategory(&self, producer: &windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetBreakOnSeverity(&self, producer: &windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetBreakOnID(&self, producer: &windows_core::GUID, id: i32, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetBreakOnCategory(&self, producer: &windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnSeverity(&self, producer: &windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnID(&self, producer: &windows_core::GUID, id: i32) -> super::super::Foundation::BOOL;
-    fn SetMuteDebugOutput(&self, producer: &windows_core::GUID, bmute: super::super::Foundation::BOOL);
-    fn GetMuteDebugOutput(&self, producer: &windows_core::GUID) -> super::super::Foundation::BOOL;
+    fn SetBreakOnCategory(&self, producer: &windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetBreakOnSeverity(&self, producer: &windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetBreakOnID(&self, producer: &windows_core::GUID, id: i32, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetBreakOnCategory(&self, producer: &windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> windows_core::BOOL;
+    fn GetBreakOnSeverity(&self, producer: &windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> windows_core::BOOL;
+    fn GetBreakOnID(&self, producer: &windows_core::GUID, id: i32) -> windows_core::BOOL;
+    fn SetMuteDebugOutput(&self, producer: &windows_core::GUID, bmute: windows_core::BOOL);
+    fn GetMuteDebugOutput(&self, producer: &windows_core::GUID) -> windows_core::BOOL;
 }
 impl IDXGIInfoQueue_Vtbl {
     pub const fn new<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>() -> Self {
@@ -3915,49 +3915,49 @@ impl IDXGIInfoQueue_Vtbl {
                 IDXGIInfoQueue_Impl::AddApplicationMessage(this, core::mem::transmute_copy(&severity), core::mem::transmute(&pdescription)).into()
             }
         }
-        unsafe extern "system" fn SetBreakOnCategory<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBreakOnCategory<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::SetBreakOnCategory(this, core::mem::transmute(&producer), core::mem::transmute_copy(&category), core::mem::transmute_copy(&benable)).into()
             }
         }
-        unsafe extern "system" fn SetBreakOnSeverity<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBreakOnSeverity<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::SetBreakOnSeverity(this, core::mem::transmute(&producer), core::mem::transmute_copy(&severity), core::mem::transmute_copy(&benable)).into()
             }
         }
-        unsafe extern "system" fn SetBreakOnID<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, id: i32, benable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBreakOnID<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, id: i32, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::SetBreakOnID(this, core::mem::transmute(&producer), core::mem::transmute_copy(&id), core::mem::transmute_copy(&benable)).into()
             }
         }
-        unsafe extern "system" fn GetBreakOnCategory<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetBreakOnCategory<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetBreakOnCategory(this, core::mem::transmute(&producer), core::mem::transmute_copy(&category))
             }
         }
-        unsafe extern "system" fn GetBreakOnSeverity<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetBreakOnSeverity<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetBreakOnSeverity(this, core::mem::transmute(&producer), core::mem::transmute_copy(&severity))
             }
         }
-        unsafe extern "system" fn GetBreakOnID<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, id: i32) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetBreakOnID<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, id: i32) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetBreakOnID(this, core::mem::transmute(&producer), core::mem::transmute_copy(&id))
             }
         }
-        unsafe extern "system" fn SetMuteDebugOutput<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, bmute: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetMuteDebugOutput<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, bmute: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::SetMuteDebugOutput(this, core::mem::transmute(&producer), core::mem::transmute_copy(&bmute))
             }
         }
-        unsafe extern "system" fn GetMuteDebugOutput<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetMuteDebugOutput<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetMuteDebugOutput(this, core::mem::transmute(&producer))
@@ -4223,7 +4223,7 @@ pub struct IDXGIOutput_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     FindClosestMatchingMode: usize,
     pub WaitForVBlank: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TakeOwnership: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub TakeOwnership: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub ReleaseOwnership: unsafe extern "system" fn(*mut core::ffi::c_void),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub GetGammaControlCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> windows_core::HRESULT,
@@ -4249,7 +4249,7 @@ pub trait IDXGIOutput_Impl: IDXGIObject_Impl {
     fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> windows_core::Result<()>;
     fn FindClosestMatchingMode(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn WaitForVBlank(&self) -> windows_core::Result<()>;
-    fn TakeOwnership(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, exclusive: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn TakeOwnership(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, exclusive: windows_core::BOOL) -> windows_core::Result<()>;
     fn ReleaseOwnership(&self);
     fn GetGammaControlCapabilities(&self, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> windows_core::Result<()>;
     fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> windows_core::Result<()>;
@@ -4291,7 +4291,7 @@ impl IDXGIOutput_Vtbl {
                 IDXGIOutput_Impl::WaitForVBlank(this).into()
             }
         }
-        unsafe extern "system" fn TakeOwnership<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, exclusive: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn TakeOwnership<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, exclusive: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIOutput_Impl::TakeOwnership(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&exclusive)).into()
@@ -4476,25 +4476,25 @@ impl core::ops::Deref for IDXGIOutput2 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput2, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1);
 impl IDXGIOutput2 {
-    pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn SupportsOverlays(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).SupportsOverlays)(windows_core::Interface::as_raw(self)) }
     }
 }
 #[repr(C)]
 pub struct IDXGIOutput2_Vtbl {
     pub base__: IDXGIOutput1_Vtbl,
-    pub SupportsOverlays: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub SupportsOverlays: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
 unsafe impl Send for IDXGIOutput2 {}
 unsafe impl Sync for IDXGIOutput2 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput2_Impl: IDXGIOutput1_Impl {
-    fn SupportsOverlays(&self) -> super::super::Foundation::BOOL;
+    fn SupportsOverlays(&self) -> windows_core::BOOL;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput2_Vtbl {
     pub const fn new<Identity: IDXGIOutput2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SupportsOverlays<Identity: IDXGIOutput2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn SupportsOverlays<Identity: IDXGIOutput2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIOutput2_Impl::SupportsOverlays(this)
@@ -5192,7 +5192,7 @@ impl IDXGISurface1 {
 pub struct IDXGISurface1_Vtbl {
     pub base__: IDXGISurface_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetDC: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut super::Gdi::HDC) -> windows_core::HRESULT,
+    pub GetDC: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut super::Gdi::HDC) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetDC: usize,
     pub ReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
@@ -5201,13 +5201,13 @@ unsafe impl Send for IDXGISurface1 {}
 unsafe impl Sync for IDXGISurface1 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGISurface1_Impl: IDXGISurface_Impl {
-    fn GetDC(&self, discard: super::super::Foundation::BOOL) -> windows_core::Result<super::Gdi::HDC>;
+    fn GetDC(&self, discard: windows_core::BOOL) -> windows_core::Result<super::Gdi::HDC>;
     fn ReleaseDC(&self, pdirtyrect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGISurface1_Vtbl {
     pub const fn new<Identity: IDXGISurface1_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDC<Identity: IDXGISurface1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, discard: super::super::Foundation::BOOL, phdc: *mut super::Gdi::HDC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDC<Identity: IDXGISurface1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, discard: windows_core::BOOL, phdc: *mut super::Gdi::HDC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISurface1_Impl::GetDC(this, core::mem::transmute_copy(&discard)) {
@@ -5303,7 +5303,7 @@ impl IDXGISwapChain {
     {
         unsafe { (windows_core::Interface::vtable(self).SetFullscreenState)(windows_core::Interface::as_raw(self), fullscreen.into(), ptarget.param().abi()).ok() }
     }
-    pub unsafe fn GetFullscreenState(&self, pfullscreen: Option<*mut super::super::Foundation::BOOL>, pptarget: Option<*mut Option<IDXGIOutput>>) -> windows_core::Result<()> {
+    pub unsafe fn GetFullscreenState(&self, pfullscreen: Option<*mut windows_core::BOOL>, pptarget: Option<*mut Option<IDXGIOutput>>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFullscreenState)(windows_core::Interface::as_raw(self), pfullscreen.unwrap_or(core::mem::zeroed()) as _, pptarget.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5342,8 +5342,8 @@ pub struct IDXGISwapChain_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     pub Present: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DXGI_PRESENT) -> windows_core::HRESULT,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetFullscreenState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetFullscreenState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetFullscreenState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetFullscreenState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_SWAP_CHAIN_DESC) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -5366,8 +5366,8 @@ unsafe impl Sync for IDXGISwapChain {}
 pub trait IDXGISwapChain_Impl: IDXGIDeviceSubObject_Impl {
     fn Present(&self, syncinterval: u32, flags: DXGI_PRESENT) -> windows_core::HRESULT;
     fn GetBuffer(&self, buffer: u32, riid: *const windows_core::GUID, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetFullscreenState(&self, fullscreen: super::super::Foundation::BOOL, ptarget: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<()>;
-    fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: windows_core::OutRef<'_, IDXGIOutput>) -> windows_core::Result<()>;
+    fn SetFullscreenState(&self, fullscreen: windows_core::BOOL, ptarget: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<()>;
+    fn GetFullscreenState(&self, pfullscreen: *mut windows_core::BOOL, pptarget: windows_core::OutRef<'_, IDXGIOutput>) -> windows_core::Result<()>;
     fn GetDesc(&self) -> windows_core::Result<DXGI_SWAP_CHAIN_DESC>;
     fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: &DXGI_SWAP_CHAIN_FLAG) -> windows_core::Result<()>;
     fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> windows_core::Result<()>;
@@ -5390,13 +5390,13 @@ impl IDXGISwapChain_Vtbl {
                 IDXGISwapChain_Impl::GetBuffer(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppsurface)).into()
             }
         }
-        unsafe extern "system" fn SetFullscreenState<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullscreen: super::super::Foundation::BOOL, ptarget: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFullscreenState<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullscreen: windows_core::BOOL, ptarget: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain_Impl::SetFullscreenState(this, core::mem::transmute_copy(&fullscreen), core::mem::transmute_copy(&ptarget)).into()
             }
         }
-        unsafe extern "system" fn GetFullscreenState<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFullscreenState<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfullscreen: *mut windows_core::BOOL, pptarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain_Impl::GetFullscreenState(this, core::mem::transmute_copy(&pfullscreen), core::mem::transmute_copy(&pptarget)).into()
@@ -5515,7 +5515,7 @@ impl IDXGISwapChain1 {
     pub unsafe fn Present1(&self, syncinterval: u32, presentflags: DXGI_PRESENT, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Present1)(windows_core::Interface::as_raw(self), syncinterval, presentflags, ppresentparameters) }
     }
-    pub unsafe fn IsTemporaryMonoSupported(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsTemporaryMonoSupported(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsTemporaryMonoSupported)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetRestrictToOutput(&self) -> windows_core::Result<IDXGIOutput> {
@@ -5559,7 +5559,7 @@ pub struct IDXGISwapChain1_Vtbl {
     pub GetHwnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub GetCoreWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Present1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DXGI_PRESENT, *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT,
-    pub IsTemporaryMonoSupported: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsTemporaryMonoSupported: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub GetRestrictToOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const DXGI_RGBA) -> windows_core::HRESULT,
     pub GetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_RGBA) -> windows_core::HRESULT,
@@ -5581,7 +5581,7 @@ pub trait IDXGISwapChain1_Impl: IDXGISwapChain_Impl {
     fn GetHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND>;
     fn GetCoreWindow(&self, refiid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Present1(&self, syncinterval: u32, presentflags: DXGI_PRESENT, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT;
-    fn IsTemporaryMonoSupported(&self) -> super::super::Foundation::BOOL;
+    fn IsTemporaryMonoSupported(&self) -> windows_core::BOOL;
     fn GetRestrictToOutput(&self) -> windows_core::Result<IDXGIOutput>;
     fn SetBackgroundColor(&self, pcolor: *const DXGI_RGBA) -> windows_core::Result<()>;
     fn GetBackgroundColor(&self) -> windows_core::Result<DXGI_RGBA>;
@@ -5639,7 +5639,7 @@ impl IDXGISwapChain1_Vtbl {
                 IDXGISwapChain1_Impl::Present1(this, core::mem::transmute_copy(&syncinterval), core::mem::transmute_copy(&presentflags), core::mem::transmute_copy(&ppresentparameters))
             }
         }
-        unsafe extern "system" fn IsTemporaryMonoSupported<Identity: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsTemporaryMonoSupported<Identity: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain1_Impl::IsTemporaryMonoSupported(this)

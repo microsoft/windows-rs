@@ -42,14 +42,14 @@ impl IInkD2DRenderer {
 #[repr(C)]
 pub struct IInkD2DRenderer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IInkD2DRenderer_Impl: windows_core::IUnknownImpl {
-    fn Draw(&self, pd2d1devicecontext: windows_core::Ref<windows_core::IUnknown>, pinkstrokeiterable: windows_core::Ref<windows_core::IUnknown>, fhighcontrast: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Draw(&self, pd2d1devicecontext: windows_core::Ref<windows_core::IUnknown>, pinkstrokeiterable: windows_core::Ref<windows_core::IUnknown>, fhighcontrast: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IInkD2DRenderer_Vtbl {
     pub const fn new<Identity: IInkD2DRenderer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Draw<Identity: IInkD2DRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd2d1devicecontext: *mut core::ffi::c_void, pinkstrokeiterable: *mut core::ffi::c_void, fhighcontrast: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Draw<Identity: IInkD2DRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd2d1devicecontext: *mut core::ffi::c_void, pinkstrokeiterable: *mut core::ffi::c_void, fhighcontrast: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkD2DRenderer_Impl::Draw(this, core::mem::transmute_copy(&pd2d1devicecontext), core::mem::transmute_copy(&pinkstrokeiterable), core::mem::transmute_copy(&fhighcontrast)).into()

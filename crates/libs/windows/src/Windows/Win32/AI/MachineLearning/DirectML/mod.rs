@@ -327,7 +327,7 @@ pub struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     pub WindowSize: *const u32,
     pub StartPadding: *const u32,
     pub EndPadding: *const u32,
-    pub IncludePadding: super::super::super::Foundation::BOOL,
+    pub IncludePadding: windows_core::BOOL,
 }
 impl Default for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     fn default() -> Self {
@@ -344,7 +344,7 @@ pub struct DML_AVERAGE_POOLING_OPERATOR_DESC {
     pub WindowSize: *const u32,
     pub StartPadding: *const u32,
     pub EndPadding: *const u32,
-    pub IncludePadding: super::super::super::Foundation::BOOL,
+    pub IncludePadding: windows_core::BOOL,
 }
 impl Default for DML_AVERAGE_POOLING_OPERATOR_DESC {
     fn default() -> Self {
@@ -383,7 +383,7 @@ pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     pub ScaleTensor: *const DML_TENSOR_DESC,
     pub BiasTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Spatial: super::super::super::Foundation::BOOL,
+    pub Spatial: windows_core::BOOL,
     pub Epsilon: f32,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
@@ -588,7 +588,7 @@ pub struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
     pub AxisDirection: DML_AXIS_DIRECTION,
-    pub HasExclusiveProduct: super::super::super::Foundation::BOOL,
+    pub HasExclusiveProduct: windows_core::BOOL,
 }
 impl Default for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     fn default() -> Self {
@@ -602,7 +602,7 @@ pub struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
     pub AxisDirection: DML_AXIS_DIRECTION,
-    pub HasExclusiveSum: super::super::super::Foundation::BOOL,
+    pub HasExclusiveSum: windows_core::BOOL,
 }
 impl Default for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     fn default() -> Self {
@@ -1476,7 +1476,7 @@ impl Default for DML_FEATURE_DATA_FEATURE_LEVELS {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
-    pub IsSupported: super::super::super::Foundation::BOOL,
+    pub IsSupported: windows_core::BOOL,
 }
 impl Default for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     fn default() -> Self {
@@ -1683,7 +1683,7 @@ pub struct DML_GRU_OPERATOR_DESC {
     pub ActivationDescCount: u32,
     pub ActivationDescs: *const DML_OPERATOR_DESC,
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
-    pub LinearBeforeReset: super::super::super::Foundation::BOOL,
+    pub LinearBeforeReset: windows_core::BOOL,
 }
 impl Default for DML_GRU_OPERATOR_DESC {
     fn default() -> Self {
@@ -1747,7 +1747,7 @@ pub struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
-    pub CrossChannel: super::super::super::Foundation::BOOL,
+    pub CrossChannel: windows_core::BOOL,
     pub LocalSize: u32,
     pub Alpha: f32,
     pub Beta: f32,
@@ -1763,7 +1763,7 @@ impl Default for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub CrossChannel: super::super::super::Foundation::BOOL,
+    pub CrossChannel: windows_core::BOOL,
     pub LocalSize: u32,
     pub Alpha: f32,
     pub Beta: f32,
@@ -1823,8 +1823,8 @@ pub struct DML_LSTM_OPERATOR_DESC {
     pub ActivationDescs: *const DML_OPERATOR_DESC,
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
     pub ClipThreshold: f32,
-    pub UseClipThreshold: super::super::super::Foundation::BOOL,
-    pub CoupleInputForget: super::super::super::Foundation::BOOL,
+    pub UseClipThreshold: windows_core::BOOL,
+    pub CoupleInputForget: windows_core::BOOL,
 }
 impl Default for DML_LSTM_OPERATOR_DESC {
     fn default() -> Self {
@@ -1940,7 +1940,7 @@ pub struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub AxisCount: u32,
     pub Axes: *const u32,
-    pub NormalizeVariance: super::super::super::Foundation::BOOL,
+    pub NormalizeVariance: windows_core::BOOL,
     pub Epsilon: f32,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
@@ -1956,8 +1956,8 @@ pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     pub ScaleTensor: *const DML_TENSOR_DESC,
     pub BiasTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub CrossChannel: super::super::super::Foundation::BOOL,
-    pub NormalizeVariance: super::super::super::Foundation::BOOL,
+    pub CrossChannel: windows_core::BOOL,
+    pub NormalizeVariance: windows_core::BOOL,
     pub Epsilon: f32,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
@@ -2395,7 +2395,7 @@ pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
     pub OutOfBoundsInputValue: f32,
     pub MinimumSamplesPerOutput: u32,
     pub MaximumSamplesPerOutput: u32,
-    pub AlignRegionsToCorners: super::super::super::Foundation::BOOL,
+    pub AlignRegionsToCorners: windows_core::BOOL,
 }
 impl Default for DML_ROI_ALIGN1_OPERATOR_DESC {
     fn default() -> Self {
@@ -2912,14 +2912,14 @@ impl IDMLDebugDevice {
 #[repr(C)]
 pub struct IDMLDebugDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL),
+    pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
 }
 pub trait IDMLDebugDevice_Impl: windows_core::IUnknownImpl {
-    fn SetMuteDebugOutput(&self, mute: super::super::super::Foundation::BOOL);
+    fn SetMuteDebugOutput(&self, mute: windows_core::BOOL);
 }
 impl IDMLDebugDevice_Vtbl {
     pub const fn new<Identity: IDMLDebugDevice_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetMuteDebugOutput<Identity: IDMLDebugDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mute: super::super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetMuteDebugOutput<Identity: IDMLDebugDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mute: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDMLDebugDevice_Impl::SetMuteDebugOutput(this, core::mem::transmute_copy(&mute))

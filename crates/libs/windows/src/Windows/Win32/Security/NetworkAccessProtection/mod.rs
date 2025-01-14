@@ -31,7 +31,7 @@ pub struct FailureCategory(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FailureCategoryMapping {
-    pub mappingCompliance: [super::super::Foundation::BOOL; 5],
+    pub mappingCompliance: [windows_core::BOOL; 5],
 }
 impl Default for FailureCategoryMapping {
     fn default() -> Self {

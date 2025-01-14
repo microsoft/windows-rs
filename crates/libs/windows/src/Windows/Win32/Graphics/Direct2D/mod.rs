@@ -53,14 +53,14 @@ pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Co
 }
 #[cfg(feature = "Foundation_Numerics")]
 #[inline]
-pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
-    windows_targets::link!("d2d1.dll" "system" fn D2D1InvertMatrix(matrix : *mut super::super::super::Foundation::Numerics:: Matrix3x2) -> super::super::Foundation:: BOOL);
+pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::BOOL {
+    windows_targets::link!("d2d1.dll" "system" fn D2D1InvertMatrix(matrix : *mut super::super::super::Foundation::Numerics:: Matrix3x2) -> windows_core::BOOL);
     unsafe { D2D1InvertMatrix(matrix as _) }
 }
 #[cfg(feature = "Foundation_Numerics")]
 #[inline]
-pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
-    windows_targets::link!("d2d1.dll" "system" fn D2D1IsMatrixInvertible(matrix : *const super::super::super::Foundation::Numerics:: Matrix3x2) -> super::super::Foundation:: BOOL);
+pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::BOOL {
+    windows_targets::link!("d2d1.dll" "system" fn D2D1IsMatrixInvertible(matrix : *const super::super::super::Foundation::Numerics:: Matrix3x2) -> windows_core::BOOL);
     unsafe { D2D1IsMatrixInvertible(matrix) }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -981,7 +981,7 @@ pub const D2D1_FEATURE_D3D10_X_HARDWARE_OPTIONS: D2D1_FEATURE = D2D1_FEATURE(1i3
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    pub computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x: super::super::Foundation::BOOL,
+    pub computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x: windows_core::BOOL,
 }
 impl Default for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     fn default() -> Self {
@@ -991,7 +991,7 @@ impl Default for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_FEATURE_DATA_DOUBLES {
-    pub doublePrecisionFloatShaderOps: super::super::Foundation::BOOL,
+    pub doublePrecisionFloatShaderOps: windows_core::BOOL,
 }
 impl Default for D2D1_FEATURE_DATA_DOUBLES {
     fn default() -> Self {
@@ -2269,7 +2269,7 @@ pub const D2D1_SVG_PATH_COMMAND_VERTICAL_RELATIVE: D2D1_SVG_PATH_COMMAND = D2D1_
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_SVG_PRESERVE_ASPECT_RATIO {
-    pub defer: super::super::Foundation::BOOL,
+    pub defer: windows_core::BOOL,
     pub align: D2D1_SVG_ASPECT_ALIGN,
     pub meetOrSlice: D2D1_SVG_ASPECT_SCALING,
 }
@@ -4411,13 +4411,13 @@ impl ID2D1ConcreteTransform {
 pub struct ID2D1ConcreteTransform_Vtbl {
     pub base__: ID2D1TransformNode_Vtbl,
     pub SetOutputBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION, D2D1_CHANNEL_DEPTH) -> windows_core::HRESULT,
-    pub SetCached: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
+    pub SetCached: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
 }
 unsafe impl Send for ID2D1ConcreteTransform {}
 unsafe impl Sync for ID2D1ConcreteTransform {}
 pub trait ID2D1ConcreteTransform_Impl: ID2D1TransformNode_Impl {
     fn SetOutputBuffer(&self, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> windows_core::Result<()>;
-    fn SetCached(&self, iscached: super::super::Foundation::BOOL);
+    fn SetCached(&self, iscached: windows_core::BOOL);
 }
 impl ID2D1ConcreteTransform_Vtbl {
     pub const fn new<Identity: ID2D1ConcreteTransform_Impl, const OFFSET: isize>() -> Self {
@@ -4427,7 +4427,7 @@ impl ID2D1ConcreteTransform_Vtbl {
                 ID2D1ConcreteTransform_Impl::SetOutputBuffer(this, core::mem::transmute_copy(&bufferprecision), core::mem::transmute_copy(&channeldepth)).into()
             }
         }
-        unsafe extern "system" fn SetCached<Identity: ID2D1ConcreteTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iscached: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetCached<Identity: ID2D1ConcreteTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iscached: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1ConcreteTransform_Impl::SetCached(this, core::mem::transmute_copy(&iscached))
@@ -5155,10 +5155,10 @@ impl ID2D1DeviceContext {
         }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn IsDxgiFormatSupported(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsDxgiFormatSupported(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsDxgiFormatSupported)(windows_core::Interface::as_raw(self), format) }
     }
-    pub unsafe fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsBufferPrecisionSupported)(windows_core::Interface::as_raw(self), bufferprecision) }
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -5342,10 +5342,10 @@ pub struct ID2D1DeviceContext_Vtbl {
     CreateBitmapBrush: usize,
     pub CreateCommandList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub IsDxgiFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL,
+    pub IsDxgiFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::Dxgi::Common::DXGI_FORMAT) -> windows_core::BOOL,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     IsDxgiFormatSupported: usize,
-    pub IsBufferPrecisionSupported: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL,
+    pub IsBufferPrecisionSupported: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION) -> windows_core::BOOL,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub GetImageLocalBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut Common::D2D_RECT_F) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -5426,8 +5426,8 @@ pub trait ID2D1DeviceContext_Impl: ID2D1RenderTarget_Impl {
     fn CreateImageBrush(&self, image: windows_core::Ref<ID2D1Image>, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> windows_core::Result<ID2D1ImageBrush>;
     fn CreateBitmapBrush(&self, bitmap: windows_core::Ref<ID2D1Bitmap>, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> windows_core::Result<ID2D1BitmapBrush1>;
     fn CreateCommandList(&self) -> windows_core::Result<ID2D1CommandList>;
-    fn IsDxgiFormatSupported(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL;
-    fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL;
+    fn IsDxgiFormatSupported(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> windows_core::BOOL;
+    fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> windows_core::BOOL;
     fn GetImageLocalBounds(&self, image: windows_core::Ref<ID2D1Image>) -> windows_core::Result<Common::D2D_RECT_F>;
     fn GetImageWorldBounds(&self, image: windows_core::Ref<ID2D1Image>) -> windows_core::Result<Common::D2D_RECT_F>;
     fn GetGlyphRunWorldBounds(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> windows_core::Result<Common::D2D_RECT_F>;
@@ -5586,13 +5586,13 @@ impl ID2D1DeviceContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsDxgiFormatSupported<Identity: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsDxgiFormatSupported<Identity: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: super::Dxgi::Common::DXGI_FORMAT) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1DeviceContext_Impl::IsDxgiFormatSupported(this, core::mem::transmute_copy(&format))
             }
         }
-        unsafe extern "system" fn IsBufferPrecisionSupported<Identity: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsBufferPrecisionSupported<Identity: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bufferprecision: D2D1_BUFFER_PRECISION) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1DeviceContext_Impl::IsBufferPrecisionSupported(this, core::mem::transmute_copy(&bufferprecision))
@@ -6328,11 +6328,11 @@ pub struct ID2D1DeviceContext4_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawSvgGlyphRun: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub GetColorBitmapGlyphImage: unsafe extern "system" fn(*mut core::ffi::c_void, super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, Common::D2D_POINT_2F, *mut core::ffi::c_void, f32, u16, super::super::Foundation::BOOL, *const super::super::super::Foundation::Numerics::Matrix3x2, f32, f32, *mut super::super::super::Foundation::Numerics::Matrix3x2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetColorBitmapGlyphImage: unsafe extern "system" fn(*mut core::ffi::c_void, super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, Common::D2D_POINT_2F, *mut core::ffi::c_void, f32, u16, windows_core::BOOL, *const super::super::super::Foundation::Numerics::Matrix3x2, f32, f32, *mut super::super::super::Foundation::Numerics::Matrix3x2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     GetColorBitmapGlyphImage: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub GetSvgGlyphImage: unsafe extern "system" fn(*mut core::ffi::c_void, Common::D2D_POINT_2F, *mut core::ffi::c_void, f32, u16, super::super::Foundation::BOOL, *const super::super::super::Foundation::Numerics::Matrix3x2, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut super::super::super::Foundation::Numerics::Matrix3x2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetSvgGlyphImage: unsafe extern "system" fn(*mut core::ffi::c_void, Common::D2D_POINT_2F, *mut core::ffi::c_void, f32, u16, windows_core::BOOL, *const super::super::super::Foundation::Numerics::Matrix3x2, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut super::super::super::Foundation::Numerics::Matrix3x2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     GetSvgGlyphImage: usize,
 }
@@ -6345,8 +6345,8 @@ pub trait ID2D1DeviceContext4_Impl: ID2D1DeviceContext3_Impl {
     fn DrawTextLayout(&self, origin: &Common::D2D_POINT_2F, textlayout: windows_core::Ref<super::DirectWrite::IDWriteTextLayout>, defaultfillbrush: windows_core::Ref<ID2D1Brush>, svgglyphstyle: windows_core::Ref<ID2D1SvgGlyphStyle>, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS);
     fn DrawColorBitmapGlyphRun(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
     fn DrawSvgGlyphRun(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: windows_core::Ref<ID2D1Brush>, svgglyphstyle: windows_core::Ref<ID2D1SvgGlyphStyle>, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
-    fn GetColorBitmapGlyphImage(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: &Common::D2D_POINT_2F, fontface: windows_core::Ref<super::DirectWrite::IDWriteFontFace>, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, dpix: f32, dpiy: f32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: windows_core::OutRef<'_, ID2D1Image>) -> windows_core::Result<()>;
-    fn GetSvgGlyphImage(&self, glyphorigin: &Common::D2D_POINT_2F, fontface: windows_core::Ref<super::DirectWrite::IDWriteFontFace>, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, defaultfillbrush: windows_core::Ref<ID2D1Brush>, svgglyphstyle: windows_core::Ref<ID2D1SvgGlyphStyle>, colorpaletteindex: u32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: windows_core::OutRef<'_, ID2D1CommandList>) -> windows_core::Result<()>;
+    fn GetColorBitmapGlyphImage(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: &Common::D2D_POINT_2F, fontface: windows_core::Ref<super::DirectWrite::IDWriteFontFace>, fontemsize: f32, glyphindex: u16, issideways: windows_core::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, dpix: f32, dpiy: f32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: windows_core::OutRef<'_, ID2D1Image>) -> windows_core::Result<()>;
+    fn GetSvgGlyphImage(&self, glyphorigin: &Common::D2D_POINT_2F, fontface: windows_core::Ref<super::DirectWrite::IDWriteFontFace>, fontemsize: f32, glyphindex: u16, issideways: windows_core::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, defaultfillbrush: windows_core::Ref<ID2D1Brush>, svgglyphstyle: windows_core::Ref<ID2D1SvgGlyphStyle>, colorpaletteindex: u32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: windows_core::OutRef<'_, ID2D1CommandList>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1DeviceContext4_Vtbl {
@@ -6387,13 +6387,13 @@ impl ID2D1DeviceContext4_Vtbl {
                 ID2D1DeviceContext4_Impl::DrawSvgGlyphRun(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&defaultfillbrush), core::mem::transmute_copy(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&measuringmode))
             }
         }
-        unsafe extern "system" fn GetColorBitmapGlyphImage<Identity: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: Common::D2D_POINT_2F, fontface: *mut core::ffi::c_void, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, dpix: f32, dpiy: f32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetColorBitmapGlyphImage<Identity: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: Common::D2D_POINT_2F, fontface: *mut core::ffi::c_void, fontemsize: f32, glyphindex: u16, issideways: windows_core::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, dpix: f32, dpiy: f32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1DeviceContext4_Impl::GetColorBitmapGlyphImage(this, core::mem::transmute_copy(&glyphimageformat), core::mem::transmute(&glyphorigin), core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&glyphindex), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&glyphtransform), core::mem::transmute_copy(&glyphimage)).into()
             }
         }
-        unsafe extern "system" fn GetSvgGlyphImage<Identity: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphorigin: Common::D2D_POINT_2F, fontface: *mut core::ffi::c_void, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, defaultfillbrush: *mut core::ffi::c_void, svgglyphstyle: *mut core::ffi::c_void, colorpaletteindex: u32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSvgGlyphImage<Identity: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphorigin: Common::D2D_POINT_2F, fontface: *mut core::ffi::c_void, fontemsize: f32, glyphindex: u16, issideways: windows_core::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, defaultfillbrush: *mut core::ffi::c_void, svgglyphstyle: *mut core::ffi::c_void, colorpaletteindex: u32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1DeviceContext4_Impl::GetSvgGlyphImage(this, core::mem::transmute(&glyphorigin), core::mem::transmute_copy(&fontface), core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&glyphindex), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&defaultfillbrush), core::mem::transmute_copy(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&glyphtransform), core::mem::transmute_copy(&glyphimage)).into()
@@ -7018,7 +7018,7 @@ impl ID2D1Effect {
 #[repr(C)]
 pub struct ID2D1Effect_Vtbl {
     pub base__: ID2D1Properties_Vtbl,
-    pub SetInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, super::super::Foundation::BOOL),
+    pub SetInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::BOOL),
     pub SetInputCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void),
     pub GetInputCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -7027,7 +7027,7 @@ pub struct ID2D1Effect_Vtbl {
 unsafe impl Send for ID2D1Effect {}
 unsafe impl Sync for ID2D1Effect {}
 pub trait ID2D1Effect_Impl: ID2D1Properties_Impl {
-    fn SetInput(&self, index: u32, input: windows_core::Ref<ID2D1Image>, invalidate: super::super::Foundation::BOOL);
+    fn SetInput(&self, index: u32, input: windows_core::Ref<ID2D1Image>, invalidate: windows_core::BOOL);
     fn SetInputCount(&self, inputcount: u32) -> windows_core::Result<()>;
     fn GetInput(&self, index: u32, input: windows_core::OutRef<'_, ID2D1Image>);
     fn GetInputCount(&self) -> u32;
@@ -7035,7 +7035,7 @@ pub trait ID2D1Effect_Impl: ID2D1Properties_Impl {
 }
 impl ID2D1Effect_Vtbl {
     pub const fn new<Identity: ID2D1Effect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetInput<Identity: ID2D1Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, input: *mut core::ffi::c_void, invalidate: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetInput<Identity: ID2D1Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, input: *mut core::ffi::c_void, invalidate: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1Effect_Impl::SetInput(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&input), core::mem::transmute_copy(&invalidate))
@@ -7140,7 +7140,7 @@ impl ID2D1EffectContext {
     pub unsafe fn LoadComputeShader(&self, resourceid: *const windows_core::GUID, shaderbuffer: &[u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).LoadComputeShader)(windows_core::Interface::as_raw(self), resourceid, core::mem::transmute(shaderbuffer.as_ptr()), shaderbuffer.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn IsShaderLoaded(&self, shaderid: *const windows_core::GUID) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsShaderLoaded(&self, shaderid: *const windows_core::GUID) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsShaderLoaded)(windows_core::Interface::as_raw(self), shaderid) }
     }
     pub unsafe fn CreateResourceTexture(&self, resourceid: Option<*const windows_core::GUID>, resourcetextureproperties: *const D2D1_RESOURCE_TEXTURE_PROPERTIES, data: Option<&[u8]>, strides: Option<*const u32>) -> windows_core::Result<ID2D1ResourceTexture> {
@@ -7196,7 +7196,7 @@ impl ID2D1EffectContext {
     pub unsafe fn CheckFeatureSupport(&self, feature: D2D1_FEATURE, featuresupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), feature, featuresupportdata as _, featuresupportdatasize).ok() }
     }
-    pub unsafe fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsBufferPrecisionSupported)(windows_core::Interface::as_raw(self), bufferprecision) }
     }
 }
@@ -7217,7 +7217,7 @@ pub struct ID2D1EffectContext_Vtbl {
     pub LoadPixelShader: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const u8, u32) -> windows_core::HRESULT,
     pub LoadVertexShader: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const u8, u32) -> windows_core::HRESULT,
     pub LoadComputeShader: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const u8, u32) -> windows_core::HRESULT,
-    pub IsShaderLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> super::super::Foundation::BOOL,
+    pub IsShaderLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::BOOL,
     pub CreateResourceTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const D2D1_RESOURCE_TEXTURE_PROPERTIES, *const u8, *const u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindResourceTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7232,7 +7232,7 @@ pub struct ID2D1EffectContext_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Imaging"))]
     CreateColorContextFromWicColorContext: usize,
     pub CheckFeatureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_FEATURE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub IsBufferPrecisionSupported: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL,
+    pub IsBufferPrecisionSupported: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION) -> windows_core::BOOL,
 }
 unsafe impl Send for ID2D1EffectContext {}
 unsafe impl Sync for ID2D1EffectContext {}
@@ -7249,7 +7249,7 @@ pub trait ID2D1EffectContext_Impl: windows_core::IUnknownImpl {
     fn LoadPixelShader(&self, shaderid: *const windows_core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> windows_core::Result<()>;
     fn LoadVertexShader(&self, resourceid: *const windows_core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> windows_core::Result<()>;
     fn LoadComputeShader(&self, resourceid: *const windows_core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> windows_core::Result<()>;
-    fn IsShaderLoaded(&self, shaderid: *const windows_core::GUID) -> super::super::Foundation::BOOL;
+    fn IsShaderLoaded(&self, shaderid: *const windows_core::GUID) -> windows_core::BOOL;
     fn CreateResourceTexture(&self, resourceid: *const windows_core::GUID, resourcetextureproperties: *const D2D1_RESOURCE_TEXTURE_PROPERTIES, data: *const u8, strides: *const u32, datasize: u32) -> windows_core::Result<ID2D1ResourceTexture>;
     fn FindResourceTexture(&self, resourceid: *const windows_core::GUID) -> windows_core::Result<ID2D1ResourceTexture>;
     fn CreateVertexBuffer(&self, vertexbufferproperties: *const D2D1_VERTEX_BUFFER_PROPERTIES, resourceid: *const windows_core::GUID, customvertexbufferproperties: *const D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES) -> windows_core::Result<ID2D1VertexBuffer>;
@@ -7258,7 +7258,7 @@ pub trait ID2D1EffectContext_Impl: windows_core::IUnknownImpl {
     fn CreateColorContextFromFilename(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<ID2D1ColorContext>;
     fn CreateColorContextFromWicColorContext(&self, wiccolorcontext: windows_core::Ref<super::Imaging::IWICColorContext>) -> windows_core::Result<ID2D1ColorContext>;
     fn CheckFeatureSupport(&self, feature: D2D1_FEATURE, featuresupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::Result<()>;
-    fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL;
+    fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> windows_core::BOOL;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1EffectContext_Vtbl {
@@ -7371,7 +7371,7 @@ impl ID2D1EffectContext_Vtbl {
                 ID2D1EffectContext_Impl::LoadComputeShader(this, core::mem::transmute_copy(&resourceid), core::mem::transmute_copy(&shaderbuffer), core::mem::transmute_copy(&shaderbuffercount)).into()
             }
         }
-        unsafe extern "system" fn IsShaderLoaded<Identity: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shaderid: *const windows_core::GUID) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsShaderLoaded<Identity: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shaderid: *const windows_core::GUID) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1EffectContext_Impl::IsShaderLoaded(this, core::mem::transmute_copy(&shaderid))
@@ -7467,7 +7467,7 @@ impl ID2D1EffectContext_Vtbl {
                 ID2D1EffectContext_Impl::CheckFeatureSupport(this, core::mem::transmute_copy(&feature), core::mem::transmute_copy(&featuresupportdata), core::mem::transmute_copy(&featuresupportdatasize)).into()
             }
         }
-        unsafe extern "system" fn IsBufferPrecisionSupported<Identity: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsBufferPrecisionSupported<Identity: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bufferprecision: D2D1_BUFFER_PRECISION) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1EffectContext_Impl::IsBufferPrecisionSupported(this, core::mem::transmute_copy(&bufferprecision))
@@ -9034,7 +9034,7 @@ impl ID2D1Geometry {
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn StrokeContainsPoint<P2>(&self, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: P2, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn StrokeContainsPoint<P2>(&self, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: P2, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<windows_core::BOOL>
     where
         P2: windows_core::Param<ID2D1StrokeStyle>,
     {
@@ -9044,7 +9044,7 @@ impl ID2D1Geometry {
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn FillContainsPoint(&self, point: Common::D2D_POINT_2F, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn FillContainsPoint(&self, point: Common::D2D_POINT_2F, worldtransform: Option<*const super::super::super::Foundation::Numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FillContainsPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(point), worldtransform.unwrap_or(core::mem::zeroed()) as _, flatteningtolerance, &mut result__).map(|| result__)
@@ -9128,11 +9128,11 @@ pub struct ID2D1Geometry_Vtbl {
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))]
     GetWidenedBounds: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub StrokeContainsPoint: unsafe extern "system" fn(*mut core::ffi::c_void, Common::D2D_POINT_2F, f32, *mut core::ffi::c_void, *const super::super::super::Foundation::Numerics::Matrix3x2, f32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub StrokeContainsPoint: unsafe extern "system" fn(*mut core::ffi::c_void, Common::D2D_POINT_2F, f32, *mut core::ffi::c_void, *const super::super::super::Foundation::Numerics::Matrix3x2, f32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))]
     StrokeContainsPoint: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub FillContainsPoint: unsafe extern "system" fn(*mut core::ffi::c_void, Common::D2D_POINT_2F, *const super::super::super::Foundation::Numerics::Matrix3x2, f32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub FillContainsPoint: unsafe extern "system" fn(*mut core::ffi::c_void, Common::D2D_POINT_2F, *const super::super::super::Foundation::Numerics::Matrix3x2, f32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))]
     FillContainsPoint: usize,
     #[cfg(feature = "Foundation_Numerics")]
@@ -9178,8 +9178,8 @@ unsafe impl Sync for ID2D1Geometry {}
 pub trait ID2D1Geometry_Impl: ID2D1Resource_Impl {
     fn GetBounds(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<Common::D2D_RECT_F>;
     fn GetWidenedBounds(&self, strokewidth: f32, strokestyle: windows_core::Ref<ID2D1StrokeStyle>, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> windows_core::Result<Common::D2D_RECT_F>;
-    fn StrokeContainsPoint(&self, point: &Common::D2D_POINT_2F, strokewidth: f32, strokestyle: windows_core::Ref<ID2D1StrokeStyle>, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn FillContainsPoint(&self, point: &Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn StrokeContainsPoint(&self, point: &Common::D2D_POINT_2F, strokewidth: f32, strokestyle: windows_core::Ref<ID2D1StrokeStyle>, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> windows_core::Result<windows_core::BOOL>;
+    fn FillContainsPoint(&self, point: &Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> windows_core::Result<windows_core::BOOL>;
     fn CompareWithGeometry(&self, inputgeometry: windows_core::Ref<ID2D1Geometry>, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32) -> windows_core::Result<D2D1_GEOMETRY_RELATION>;
     fn Simplify(&self, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: windows_core::Ref<Common::ID2D1SimplifiedGeometrySink>) -> windows_core::Result<()>;
     fn Tessellate(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: windows_core::Ref<ID2D1TessellationSink>) -> windows_core::Result<()>;
@@ -9217,7 +9217,7 @@ impl ID2D1Geometry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StrokeContainsPoint<Identity: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn StrokeContainsPoint<Identity: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Geometry_Impl::StrokeContainsPoint(this, core::mem::transmute(&point), core::mem::transmute_copy(&strokewidth), core::mem::transmute_copy(&strokestyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
@@ -9229,7 +9229,7 @@ impl ID2D1Geometry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FillContainsPoint<Identity: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point: Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn FillContainsPoint<Identity: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point: Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Geometry_Impl::FillContainsPoint(this, core::mem::transmute(&point), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
@@ -10050,7 +10050,7 @@ impl ID2D1ImageSource {
     pub unsafe fn OfferResources(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OfferResources)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn TryReclaimResources(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn TryReclaimResources(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TryReclaimResources)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -10061,13 +10061,13 @@ impl ID2D1ImageSource {
 pub struct ID2D1ImageSource_Vtbl {
     pub base__: ID2D1Image_Vtbl,
     pub OfferResources: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TryReclaimResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub TryReclaimResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 unsafe impl Send for ID2D1ImageSource {}
 unsafe impl Sync for ID2D1ImageSource {}
 pub trait ID2D1ImageSource_Impl: ID2D1Image_Impl {
     fn OfferResources(&self) -> windows_core::Result<()>;
-    fn TryReclaimResources(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn TryReclaimResources(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl ID2D1ImageSource_Vtbl {
     pub const fn new<Identity: ID2D1ImageSource_Impl, const OFFSET: isize>() -> Self {
@@ -10077,7 +10077,7 @@ impl ID2D1ImageSource_Vtbl {
                 ID2D1ImageSource_Impl::OfferResources(this).into()
             }
         }
-        unsafe extern "system" fn TryReclaimResources<Identity: ID2D1ImageSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcesdiscarded: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn TryReclaimResources<Identity: ID2D1ImageSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcesdiscarded: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1ImageSource_Impl::TryReclaimResources(this) {
@@ -10695,7 +10695,7 @@ impl windows_core::RuntimeName for ID2D1Mesh {}
 windows_core::imp::define_interface!(ID2D1Multithread, ID2D1Multithread_Vtbl, 0x31e6e7bc_e0ff_4d46_8c64_a0a8c41c15d3);
 windows_core::imp::interface_hierarchy!(ID2D1Multithread, windows_core::IUnknown);
 impl ID2D1Multithread {
-    pub unsafe fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn GetMultithreadProtected(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetMultithreadProtected)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Enter(&self) {
@@ -10708,20 +10708,20 @@ impl ID2D1Multithread {
 #[repr(C)]
 pub struct ID2D1Multithread_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub GetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub Enter: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub Leave: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
 unsafe impl Send for ID2D1Multithread {}
 unsafe impl Sync for ID2D1Multithread {}
 pub trait ID2D1Multithread_Impl: windows_core::IUnknownImpl {
-    fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL;
+    fn GetMultithreadProtected(&self) -> windows_core::BOOL;
     fn Enter(&self);
     fn Leave(&self);
 }
 impl ID2D1Multithread_Vtbl {
     pub const fn new<Identity: ID2D1Multithread_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetMultithreadProtected<Identity: ID2D1Multithread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn GetMultithreadProtected<Identity: ID2D1Multithread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1Multithread_Impl::GetMultithreadProtected(this)
@@ -11432,7 +11432,7 @@ pub struct ID2D1RenderInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetInputDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D2D1_INPUT_DESCRIPTION) -> windows_core::HRESULT,
     pub SetOutputBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION, D2D1_CHANNEL_DEPTH) -> windows_core::HRESULT,
-    pub SetCached: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
+    pub SetCached: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
     pub SetInstructionCountHint: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
 unsafe impl Send for ID2D1RenderInfo {}
@@ -11440,7 +11440,7 @@ unsafe impl Sync for ID2D1RenderInfo {}
 pub trait ID2D1RenderInfo_Impl: windows_core::IUnknownImpl {
     fn SetInputDescription(&self, inputindex: u32, inputdescription: &D2D1_INPUT_DESCRIPTION) -> windows_core::Result<()>;
     fn SetOutputBuffer(&self, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> windows_core::Result<()>;
-    fn SetCached(&self, iscached: super::super::Foundation::BOOL);
+    fn SetCached(&self, iscached: windows_core::BOOL);
     fn SetInstructionCountHint(&self, instructioncount: u32);
 }
 impl ID2D1RenderInfo_Vtbl {
@@ -11457,7 +11457,7 @@ impl ID2D1RenderInfo_Vtbl {
                 ID2D1RenderInfo_Impl::SetOutputBuffer(this, core::mem::transmute_copy(&bufferprecision), core::mem::transmute_copy(&channeldepth)).into()
             }
         }
-        unsafe extern "system" fn SetCached<Identity: ID2D1RenderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iscached: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn SetCached<Identity: ID2D1RenderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iscached: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1RenderInfo_Impl::SetCached(this, core::mem::transmute_copy(&iscached))
@@ -11807,7 +11807,7 @@ impl ID2D1RenderTarget {
         unsafe { (windows_core::Interface::vtable(self).GetMaximumBitmapSize)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn IsSupported(&self, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsSupported(&self, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsSupported)(windows_core::Interface::as_raw(self), rendertargetproperties) }
     }
 }
@@ -11963,7 +11963,7 @@ pub struct ID2D1RenderTarget_Vtbl {
     GetPixelSize: usize,
     pub GetMaximumBitmapSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_RENDER_TARGET_PROPERTIES) -> super::super::Foundation::BOOL,
+    pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_RENDER_TARGET_PROPERTIES) -> windows_core::BOOL,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))]
     IsSupported: usize,
 }
@@ -12023,7 +12023,7 @@ pub trait ID2D1RenderTarget_Impl: ID2D1Resource_Impl {
     fn GetSize(&self) -> Common::D2D_SIZE_F;
     fn GetPixelSize(&self) -> Common::D2D_SIZE_U;
     fn GetMaximumBitmapSize(&self) -> u32;
-    fn IsSupported(&self, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> super::super::Foundation::BOOL;
+    fn IsSupported(&self, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> windows_core::BOOL;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1RenderTarget_Vtbl {
@@ -12400,7 +12400,7 @@ impl ID2D1RenderTarget_Vtbl {
                 ID2D1RenderTarget_Impl::GetMaximumBitmapSize(this)
             }
         }
-        unsafe extern "system" fn IsSupported<Identity: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsSupported<Identity: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1RenderTarget_Impl::IsSupported(this, core::mem::transmute_copy(&rendertargetproperties))
@@ -13337,7 +13337,7 @@ impl ID2D1SvgElement {
     pub unsafe fn GetTagNameLength(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetTagNameLength)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn IsTextContent(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsTextContent(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsTextContent)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetParent(&self) -> windows_core::Result<ID2D1SvgElement> {
@@ -13347,7 +13347,7 @@ impl ID2D1SvgElement {
             windows_core::Type::from_abi(result__)
         }
     }
-    pub unsafe fn HasChildren(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn HasChildren(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).HasChildren)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetFirstChild(&self) -> windows_core::Result<ID2D1SvgElement> {
@@ -13417,7 +13417,7 @@ impl ID2D1SvgElement {
             (windows_core::Interface::vtable(self).CreateChild)(windows_core::Interface::as_raw(self), tagname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsAttributeSpecified<P0>(&self, name: P0, inherited: Option<*mut super::super::Foundation::BOOL>) -> super::super::Foundation::BOOL
+    pub unsafe fn IsAttributeSpecified<P0>(&self, name: P0, inherited: Option<*mut windows_core::BOOL>) -> windows_core::BOOL
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -13426,10 +13426,10 @@ impl ID2D1SvgElement {
     pub unsafe fn GetSpecifiedAttributeCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetSpecifiedAttributeCount)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetSpecifiedAttributeName(&self, index: u32, name: &mut [u16], inherited: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
+    pub unsafe fn GetSpecifiedAttributeName(&self, index: u32, name: &mut [u16], inherited: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSpecifiedAttributeName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap(), inherited.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn GetSpecifiedAttributeNameLength(&self, index: u32, namelength: *mut u32, inherited: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
+    pub unsafe fn GetSpecifiedAttributeNameLength(&self, index: u32, namelength: *mut u32, inherited: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSpecifiedAttributeNameLength)(windows_core::Interface::as_raw(self), index, namelength as _, inherited.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn RemoveAttribute<P0>(&self, name: P0) -> windows_core::Result<()>
@@ -13503,9 +13503,9 @@ pub struct ID2D1SvgElement_Vtbl {
     pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
     pub GetTagName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32) -> windows_core::HRESULT,
     pub GetTagNameLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub IsTextContent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsTextContent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
-    pub HasChildren: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub HasChildren: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub GetFirstChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
     pub GetLastChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
     pub GetPreviousChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13515,10 +13515,10 @@ pub struct ID2D1SvgElement_Vtbl {
     pub ReplaceChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateChild: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsAttributeSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
+    pub IsAttributeSpecified: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::BOOL,
     pub GetSpecifiedAttributeCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub GetSpecifiedAttributeName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetSpecifiedAttributeNameLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetSpecifiedAttributeName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetSpecifiedAttributeNameLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub RemoveAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetTextValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub GetTextValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32) -> windows_core::HRESULT,
@@ -13537,9 +13537,9 @@ pub trait ID2D1SvgElement_Impl: ID2D1Resource_Impl {
     fn GetDocument(&self, document: windows_core::OutRef<'_, ID2D1SvgDocument>);
     fn GetTagName(&self, name: windows_core::PWSTR, namecount: u32) -> windows_core::Result<()>;
     fn GetTagNameLength(&self) -> u32;
-    fn IsTextContent(&self) -> super::super::Foundation::BOOL;
+    fn IsTextContent(&self) -> windows_core::BOOL;
     fn GetParent(&self, parent: windows_core::OutRef<'_, ID2D1SvgElement>);
-    fn HasChildren(&self) -> super::super::Foundation::BOOL;
+    fn HasChildren(&self) -> windows_core::BOOL;
     fn GetFirstChild(&self, child: windows_core::OutRef<'_, ID2D1SvgElement>);
     fn GetLastChild(&self, child: windows_core::OutRef<'_, ID2D1SvgElement>);
     fn GetPreviousChild(&self, referencechild: windows_core::Ref<ID2D1SvgElement>) -> windows_core::Result<ID2D1SvgElement>;
@@ -13549,10 +13549,10 @@ pub trait ID2D1SvgElement_Impl: ID2D1Resource_Impl {
     fn ReplaceChild(&self, newchild: windows_core::Ref<ID2D1SvgElement>, oldchild: windows_core::Ref<ID2D1SvgElement>) -> windows_core::Result<()>;
     fn RemoveChild(&self, oldchild: windows_core::Ref<ID2D1SvgElement>) -> windows_core::Result<()>;
     fn CreateChild(&self, tagname: &windows_core::PCWSTR) -> windows_core::Result<ID2D1SvgElement>;
-    fn IsAttributeSpecified(&self, name: &windows_core::PCWSTR, inherited: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    fn IsAttributeSpecified(&self, name: &windows_core::PCWSTR, inherited: *mut windows_core::BOOL) -> windows_core::BOOL;
     fn GetSpecifiedAttributeCount(&self) -> u32;
-    fn GetSpecifiedAttributeName(&self, index: u32, name: windows_core::PWSTR, namecount: u32, inherited: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetSpecifiedAttributeNameLength(&self, index: u32, namelength: *mut u32, inherited: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetSpecifiedAttributeName(&self, index: u32, name: windows_core::PWSTR, namecount: u32, inherited: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetSpecifiedAttributeNameLength(&self, index: u32, namelength: *mut u32, inherited: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn RemoveAttribute(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetTextValue(&self, name: &windows_core::PCWSTR, namecount: u32) -> windows_core::Result<()>;
     fn GetTextValue(&self, name: windows_core::PWSTR, namecount: u32) -> windows_core::Result<()>;
@@ -13585,7 +13585,7 @@ impl ID2D1SvgElement_Vtbl {
                 ID2D1SvgElement_Impl::GetTagNameLength(this)
             }
         }
-        unsafe extern "system" fn IsTextContent<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsTextContent<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1SvgElement_Impl::IsTextContent(this)
@@ -13597,7 +13597,7 @@ impl ID2D1SvgElement_Vtbl {
                 ID2D1SvgElement_Impl::GetParent(this, core::mem::transmute_copy(&parent))
             }
         }
-        unsafe extern "system" fn HasChildren<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn HasChildren<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1SvgElement_Impl::HasChildren(this)
@@ -13675,7 +13675,7 @@ impl ID2D1SvgElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsAttributeSpecified<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, inherited: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsAttributeSpecified<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, inherited: *mut windows_core::BOOL) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1SvgElement_Impl::IsAttributeSpecified(this, core::mem::transmute(&name), core::mem::transmute_copy(&inherited))
@@ -13687,13 +13687,13 @@ impl ID2D1SvgElement_Vtbl {
                 ID2D1SvgElement_Impl::GetSpecifiedAttributeCount(this)
             }
         }
-        unsafe extern "system" fn GetSpecifiedAttributeName<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, name: windows_core::PWSTR, namecount: u32, inherited: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSpecifiedAttributeName<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, name: windows_core::PWSTR, namecount: u32, inherited: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1SvgElement_Impl::GetSpecifiedAttributeName(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&name), core::mem::transmute_copy(&namecount), core::mem::transmute_copy(&inherited)).into()
             }
         }
-        unsafe extern "system" fn GetSpecifiedAttributeNameLength<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, namelength: *mut u32, inherited: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSpecifiedAttributeNameLength<Identity: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, namelength: *mut u32, inherited: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1SvgElement_Impl::GetSpecifiedAttributeNameLength(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&namelength), core::mem::transmute_copy(&inherited)).into()

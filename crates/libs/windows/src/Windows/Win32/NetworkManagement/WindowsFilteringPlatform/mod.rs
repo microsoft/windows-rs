@@ -2015,7 +2015,7 @@ pub type FWPM_NET_EVENT_CALLBACK4 = Option<unsafe extern "system" fn(context: *m
 pub struct FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
-    pub isLoopback: super::super::Foundation::BOOL,
+    pub isLoopback: windows_core::BOOL,
 }
 impl Default for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     fn default() -> Self {
@@ -2027,7 +2027,7 @@ impl Default for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
 pub struct FWPM_NET_EVENT_CAPABILITY_DROP0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
-    pub isLoopback: super::super::Foundation::BOOL,
+    pub isLoopback: windows_core::BOOL,
 }
 impl Default for FWPM_NET_EVENT_CAPABILITY_DROP0 {
     fn default() -> Self {
@@ -2043,7 +2043,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     pub originalProfile: u32,
     pub currentProfile: u32,
     pub msFwpDirection: u32,
-    pub isLoopback: super::super::Foundation::BOOL,
+    pub isLoopback: windows_core::BOOL,
 }
 impl Default for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     fn default() -> Self {
@@ -2070,7 +2070,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
     pub originalProfile: u32,
     pub currentProfile: u32,
     pub msFwpDirection: u32,
-    pub isLoopback: super::super::Foundation::BOOL,
+    pub isLoopback: windows_core::BOOL,
 }
 impl Default for FWPM_NET_EVENT_CLASSIFY_DROP1 {
     fn default() -> Self {
@@ -2086,7 +2086,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
     pub originalProfile: u32,
     pub currentProfile: u32,
     pub msFwpDirection: u32,
-    pub isLoopback: super::super::Foundation::BOOL,
+    pub isLoopback: windows_core::BOOL,
     pub vSwitchId: FWP_BYTE_BLOB,
     pub vSwitchSourcePort: u32,
     pub vSwitchDestinationPort: u32,
@@ -2114,7 +2114,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     pub originalProfile: u32,
     pub currentProfile: u32,
     pub msFwpDirection: u32,
-    pub isLoopback: super::super::Foundation::BOOL,
+    pub isLoopback: windows_core::BOOL,
     pub vSwitchId: FWP_BYTE_BLOB,
     pub vSwitchSourcePort: u32,
     pub vSwitchDestinationPort: u32,
@@ -3002,7 +3002,7 @@ pub struct FWPM_SESSION0 {
     pub processId: u32,
     pub sid: *mut super::super::Security::SID,
     pub username: windows_core::PWSTR,
-    pub kernelMode: super::super::Foundation::BOOL,
+    pub kernelMode: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Security")]
 impl Default for FWPM_SESSION0 {
@@ -3213,7 +3213,7 @@ impl Default for FWPM_VSWITCH_EVENT0_0_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_VSWITCH_EVENT0_0_1 {
-    pub inRequiredPosition: super::super::Foundation::BOOL,
+    pub inRequiredPosition: windows_core::BOOL,
     pub numvSwitchFilterExtensions: u32,
     pub vSwitchFilterExtensions: *mut windows_core::PWSTR,
 }
@@ -5560,9 +5560,9 @@ impl Default for IPSEC_KEY_MANAGER_CALLBACKS0 {
     }
 }
 #[cfg(feature = "Win32_Security")]
-pub type IPSEC_KEY_MANAGER_DICTATE_KEY0 = Option<unsafe extern "system" fn(inboundsadetails: *mut IPSEC_SA_DETAILS1, outboundsadetails: *mut IPSEC_SA_DETAILS1, keyingmodulegenkey: *mut super::super::Foundation::BOOL) -> u32>;
+pub type IPSEC_KEY_MANAGER_DICTATE_KEY0 = Option<unsafe extern "system" fn(inboundsadetails: *mut IPSEC_SA_DETAILS1, outboundsadetails: *mut IPSEC_SA_DETAILS1, keyingmodulegenkey: *mut windows_core::BOOL) -> u32>;
 pub const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1u32;
-pub type IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = Option<unsafe extern "system" fn(iketraffic: *const IKEEXT_TRAFFIC0, willdictatekey: *mut super::super::Foundation::BOOL, weight: *mut u32)>;
+pub type IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = Option<unsafe extern "system" fn(iketraffic: *const IKEEXT_TRAFFIC0, willdictatekey: *mut windows_core::BOOL, weight: *mut u32)>;
 #[cfg(feature = "Win32_Security")]
 pub type IPSEC_KEY_MANAGER_NOTIFY_KEY0 = Option<unsafe extern "system" fn(inboundsa: *const IPSEC_SA_DETAILS1, outboundsa: *const IPSEC_SA_DETAILS1)>;
 pub const IPSEC_PFS_1: IPSEC_PFS_GROUP = IPSEC_PFS_GROUP(1i32);

@@ -6506,7 +6506,7 @@ pub struct IWMPEffects_Vtbl {
     pub SetCurrentPreset: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetCurrentPreset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub DisplayPropertyPage: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
-    pub GoFullscreen: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GoFullscreen: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub RenderFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimedLevel) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6520,7 +6520,7 @@ pub trait IWMPEffects_Impl: windows_core::IUnknownImpl {
     fn SetCurrentPreset(&self, npreset: i32) -> windows_core::Result<()>;
     fn GetCurrentPreset(&self, pnpreset: *mut i32) -> windows_core::Result<()>;
     fn DisplayPropertyPage(&self, hwndowner: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn GoFullscreen(&self, ffullscreen: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GoFullscreen(&self, ffullscreen: windows_core::BOOL) -> windows_core::Result<()>;
     fn RenderFullScreen(&self, plevels: *mut TimedLevel) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6580,7 +6580,7 @@ impl IWMPEffects_Vtbl {
                 IWMPEffects_Impl::DisplayPropertyPage(this, core::mem::transmute_copy(&hwndowner)).into()
             }
         }
-        unsafe extern "system" fn GoFullscreen<Identity: IWMPEffects_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffullscreen: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GoFullscreen<Identity: IWMPEffects_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffullscreen: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPEffects_Impl::GoFullscreen(this, core::mem::transmute_copy(&ffullscreen)).into()
@@ -6663,7 +6663,7 @@ pub struct IWMPEffects2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     NotifyNewMedia: usize,
     pub OnWindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT) -> windows_core::HRESULT,
-    pub RenderWindowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimedLevel, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub RenderWindowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimedLevel, windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IWMPEffects2_Impl: IWMPEffects_Impl {
@@ -6672,7 +6672,7 @@ pub trait IWMPEffects2_Impl: IWMPEffects_Impl {
     fn Destroy(&self) -> windows_core::Result<()>;
     fn NotifyNewMedia(&self, pmedia: windows_core::Ref<IWMPMedia>) -> windows_core::Result<()>;
     fn OnWindowMessage(&self, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresultparam: *mut super::super::Foundation::LRESULT) -> windows_core::Result<()>;
-    fn RenderWindowed(&self, pdata: *mut TimedLevel, frequiredrender: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn RenderWindowed(&self, pdata: *mut TimedLevel, frequiredrender: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IWMPEffects2_Vtbl {
@@ -6707,7 +6707,7 @@ impl IWMPEffects2_Vtbl {
                 IWMPEffects2_Impl::OnWindowMessage(this, core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam), core::mem::transmute_copy(&plresultparam)).into()
             }
         }
-        unsafe extern "system" fn RenderWindowed<Identity: IWMPEffects2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut TimedLevel, frequiredrender: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RenderWindowed<Identity: IWMPEffects2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut TimedLevel, frequiredrender: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPEffects2_Impl::RenderWindowed(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&frequiredrender)).into()
@@ -9735,13 +9735,13 @@ impl IWMPNodeRealEstate {
     pub unsafe fn SetWindowless(&self, fwindowless: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWindowless)(windows_core::Interface::as_raw(self), fwindowless.into()).ok() }
     }
-    pub unsafe fn GetWindowless(&self, pfwindowless: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetWindowless(&self, pfwindowless: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetWindowless)(windows_core::Interface::as_raw(self), pfwindowless as _).ok() }
     }
     pub unsafe fn SetFullScreen(&self, ffullscreen: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFullScreen)(windows_core::Interface::as_raw(self), ffullscreen.into()).ok() }
     }
-    pub unsafe fn GetFullScreen(&self, pffullscreen: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetFullScreen(&self, pffullscreen: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFullScreen)(windows_core::Interface::as_raw(self), pffullscreen as _).ok() }
     }
 }
@@ -9751,19 +9751,19 @@ pub struct IWMPNodeRealEstate_Vtbl {
     pub GetDesiredSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SIZE) -> windows_core::HRESULT,
     pub SetRects: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, *const super::super::Foundation::RECT, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub GetRects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::RECT, *mut super::super::Foundation::RECT, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
-    pub SetWindowless: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetWindowless: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetWindowless: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetWindowless: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWMPNodeRealEstate_Impl: windows_core::IUnknownImpl {
     fn GetDesiredSize(&self, psize: *mut super::super::Foundation::SIZE) -> windows_core::Result<()>;
     fn SetRects(&self, psrc: *const super::super::Foundation::RECT, pdest: *const super::super::Foundation::RECT, pclip: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn GetRects(&self, psrc: *mut super::super::Foundation::RECT, pdest: *mut super::super::Foundation::RECT, pclip: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn SetWindowless(&self, fwindowless: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetWindowless(&self, pfwindowless: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetFullScreen(&self, ffullscreen: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetFullScreen(&self, pffullscreen: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetWindowless(&self, fwindowless: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetWindowless(&self, pfwindowless: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetFullScreen(&self, ffullscreen: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetFullScreen(&self, pffullscreen: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IWMPNodeRealEstate_Vtbl {
     pub const fn new<Identity: IWMPNodeRealEstate_Impl, const OFFSET: isize>() -> Self {
@@ -9785,25 +9785,25 @@ impl IWMPNodeRealEstate_Vtbl {
                 IWMPNodeRealEstate_Impl::GetRects(this, core::mem::transmute_copy(&psrc), core::mem::transmute_copy(&pdest), core::mem::transmute_copy(&pclip)).into()
             }
         }
-        unsafe extern "system" fn SetWindowless<Identity: IWMPNodeRealEstate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fwindowless: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWindowless<Identity: IWMPNodeRealEstate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fwindowless: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPNodeRealEstate_Impl::SetWindowless(this, core::mem::transmute_copy(&fwindowless)).into()
             }
         }
-        unsafe extern "system" fn GetWindowless<Identity: IWMPNodeRealEstate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfwindowless: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetWindowless<Identity: IWMPNodeRealEstate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfwindowless: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPNodeRealEstate_Impl::GetWindowless(this, core::mem::transmute_copy(&pfwindowless)).into()
             }
         }
-        unsafe extern "system" fn SetFullScreen<Identity: IWMPNodeRealEstate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffullscreen: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFullScreen<Identity: IWMPNodeRealEstate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffullscreen: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPNodeRealEstate_Impl::SetFullScreen(this, core::mem::transmute_copy(&ffullscreen)).into()
             }
         }
-        unsafe extern "system" fn GetFullScreen<Identity: IWMPNodeRealEstate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffullscreen: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFullScreen<Identity: IWMPNodeRealEstate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pffullscreen: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPNodeRealEstate_Impl::GetFullScreen(this, core::mem::transmute_copy(&pffullscreen)).into()
@@ -9839,11 +9839,11 @@ impl IWMPNodeRealEstateHost {
 pub struct IWMPNodeRealEstateHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnDesiredSizeChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SIZE) -> windows_core::HRESULT,
-    pub OnFullScreenTransition: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub OnFullScreenTransition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWMPNodeRealEstateHost_Impl: windows_core::IUnknownImpl {
     fn OnDesiredSizeChange(&self, psize: *mut super::super::Foundation::SIZE) -> windows_core::Result<()>;
-    fn OnFullScreenTransition(&self, ffullscreen: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn OnFullScreenTransition(&self, ffullscreen: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IWMPNodeRealEstateHost_Vtbl {
     pub const fn new<Identity: IWMPNodeRealEstateHost_Impl, const OFFSET: isize>() -> Self {
@@ -9853,7 +9853,7 @@ impl IWMPNodeRealEstateHost_Vtbl {
                 IWMPNodeRealEstateHost_Impl::OnDesiredSizeChange(this, core::mem::transmute_copy(&psize)).into()
             }
         }
-        unsafe extern "system" fn OnFullScreenTransition<Identity: IWMPNodeRealEstateHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffullscreen: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnFullScreenTransition<Identity: IWMPNodeRealEstateHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffullscreen: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPNodeRealEstateHost_Impl::OnFullScreenTransition(this, core::mem::transmute_copy(&ffullscreen)).into()
@@ -9918,21 +9918,21 @@ impl windows_core::RuntimeName for IWMPNodeWindowed {}
 windows_core::imp::define_interface!(IWMPNodeWindowedHost, IWMPNodeWindowedHost_Vtbl, 0xa300415a_54aa_4081_adbf_3b13610d8958);
 windows_core::imp::interface_hierarchy!(IWMPNodeWindowedHost, windows_core::IUnknown);
 impl IWMPNodeWindowedHost {
-    pub unsafe fn OnWindowMessageFromRenderer(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn OnWindowMessageFromRenderer(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnWindowMessageFromRenderer)(windows_core::Interface::as_raw(self), umsg, wparam, lparam, plret as _, pfhandled as _).ok() }
     }
 }
 #[repr(C)]
 pub struct IWMPNodeWindowedHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub OnWindowMessageFromRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub OnWindowMessageFromRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWMPNodeWindowedHost_Impl: windows_core::IUnknownImpl {
-    fn OnWindowMessageFromRenderer(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn OnWindowMessageFromRenderer(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IWMPNodeWindowedHost_Vtbl {
     pub const fn new<Identity: IWMPNodeWindowedHost_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnWindowMessageFromRenderer<Identity: IWMPNodeWindowedHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnWindowMessageFromRenderer<Identity: IWMPNodeWindowedHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPNodeWindowedHost_Impl::OnWindowMessageFromRenderer(this, core::mem::transmute_copy(&umsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam), core::mem::transmute_copy(&plret), core::mem::transmute_copy(&pfhandled)).into()
@@ -9991,14 +9991,14 @@ impl IWMPNodeWindowlessHost {
 #[repr(C)]
 pub struct IWMPNodeWindowlessHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub InvalidateRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub InvalidateRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWMPNodeWindowlessHost_Impl: windows_core::IUnknownImpl {
-    fn InvalidateRect(&self, prc: *const super::super::Foundation::RECT, ferase: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn InvalidateRect(&self, prc: *const super::super::Foundation::RECT, ferase: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IWMPNodeWindowlessHost_Vtbl {
     pub const fn new<Identity: IWMPNodeWindowlessHost_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn InvalidateRect<Identity: IWMPNodeWindowlessHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *const super::super::Foundation::RECT, ferase: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvalidateRect<Identity: IWMPNodeWindowlessHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *const super::super::Foundation::RECT, ferase: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPNodeWindowlessHost_Impl::InvalidateRect(this, core::mem::transmute_copy(&prc), core::mem::transmute_copy(&ferase)).into()
@@ -11457,29 +11457,29 @@ impl IWMPPluginEnable {
     pub unsafe fn SetEnable(&self, fenable: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnable)(windows_core::Interface::as_raw(self), fenable.into()).ok() }
     }
-    pub unsafe fn GetEnable(&self, pfenable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetEnable(&self, pfenable: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetEnable)(windows_core::Interface::as_raw(self), pfenable as _).ok() }
     }
 }
 #[repr(C)]
 pub struct IWMPPluginEnable_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetEnable: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetEnable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetEnable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetEnable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWMPPluginEnable_Impl: windows_core::IUnknownImpl {
-    fn SetEnable(&self, fenable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetEnable(&self, pfenable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetEnable(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetEnable(&self, pfenable: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IWMPPluginEnable_Vtbl {
     pub const fn new<Identity: IWMPPluginEnable_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetEnable<Identity: IWMPPluginEnable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnable<Identity: IWMPPluginEnable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPPluginEnable_Impl::SetEnable(this, core::mem::transmute_copy(&fenable)).into()
             }
         }
-        unsafe extern "system" fn GetEnable<Identity: IWMPPluginEnable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEnable<Identity: IWMPPluginEnable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenable: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPPluginEnable_Impl::GetEnable(this, core::mem::transmute_copy(&pfenable)).into()
@@ -11770,29 +11770,29 @@ impl IWMPRenderConfig {
     pub unsafe fn SetinProcOnly(&self, finproc: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetinProcOnly)(windows_core::Interface::as_raw(self), finproc.into()).ok() }
     }
-    pub unsafe fn inProcOnly(&self, pfinproc: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn inProcOnly(&self, pfinproc: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).inProcOnly)(windows_core::Interface::as_raw(self), pfinproc as _).ok() }
     }
 }
 #[repr(C)]
 pub struct IWMPRenderConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetinProcOnly: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub inProcOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetinProcOnly: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub inProcOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWMPRenderConfig_Impl: windows_core::IUnknownImpl {
-    fn SetinProcOnly(&self, finproc: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn inProcOnly(&self, pfinproc: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetinProcOnly(&self, finproc: windows_core::BOOL) -> windows_core::Result<()>;
+    fn inProcOnly(&self, pfinproc: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IWMPRenderConfig_Vtbl {
     pub const fn new<Identity: IWMPRenderConfig_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetinProcOnly<Identity: IWMPRenderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, finproc: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetinProcOnly<Identity: IWMPRenderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, finproc: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPRenderConfig_Impl::SetinProcOnly(this, core::mem::transmute_copy(&finproc)).into()
             }
         }
-        unsafe extern "system" fn inProcOnly<Identity: IWMPRenderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfinproc: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn inProcOnly<Identity: IWMPRenderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfinproc: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPRenderConfig_Impl::inProcOnly(this, core::mem::transmute_copy(&pfinproc)).into()
@@ -12415,21 +12415,21 @@ windows_core::imp::define_interface!(IWMPSubscriptionService, IWMPSubscriptionSe
 windows_core::imp::interface_hierarchy!(IWMPSubscriptionService, windows_core::IUnknown);
 impl IWMPSubscriptionService {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn allowPlay<P1>(&self, hwnd: super::super::Foundation::HWND, pmedia: P1, pfallowplay: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
+    pub unsafe fn allowPlay<P1>(&self, hwnd: super::super::Foundation::HWND, pmedia: P1, pfallowplay: *mut windows_core::BOOL) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMPMedia>,
     {
         unsafe { (windows_core::Interface::vtable(self).allowPlay)(windows_core::Interface::as_raw(self), hwnd, pmedia.param().abi(), pfallowplay as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn allowCDBurn<P1>(&self, hwnd: super::super::Foundation::HWND, pplaylist: P1, pfallowburn: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
+    pub unsafe fn allowCDBurn<P1>(&self, hwnd: super::super::Foundation::HWND, pplaylist: P1, pfallowburn: *mut windows_core::BOOL) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMPPlaylist>,
     {
         unsafe { (windows_core::Interface::vtable(self).allowCDBurn)(windows_core::Interface::as_raw(self), hwnd, pplaylist.param().abi(), pfallowburn as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn allowPDATransfer<P1>(&self, hwnd: super::super::Foundation::HWND, pplaylist: P1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
+    pub unsafe fn allowPDATransfer<P1>(&self, hwnd: super::super::Foundation::HWND, pplaylist: P1, pfallowtransfer: *mut windows_core::BOOL) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMPPlaylist>,
     {
@@ -12443,42 +12443,42 @@ impl IWMPSubscriptionService {
 pub struct IWMPSubscriptionService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub allowPlay: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub allowPlay: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     allowPlay: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub allowCDBurn: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub allowCDBurn: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     allowCDBurn: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub allowPDATransfer: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub allowPDATransfer: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     allowPDATransfer: usize,
     pub startBackgroundProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPSubscriptionService_Impl: windows_core::IUnknownImpl {
-    fn allowPlay(&self, hwnd: super::super::Foundation::HWND, pmedia: windows_core::Ref<IWMPMedia>, pfallowplay: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn allowCDBurn(&self, hwnd: super::super::Foundation::HWND, pplaylist: windows_core::Ref<IWMPPlaylist>, pfallowburn: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn allowPDATransfer(&self, hwnd: super::super::Foundation::HWND, pplaylist: windows_core::Ref<IWMPPlaylist>, pfallowtransfer: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn allowPlay(&self, hwnd: super::super::Foundation::HWND, pmedia: windows_core::Ref<IWMPMedia>, pfallowplay: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn allowCDBurn(&self, hwnd: super::super::Foundation::HWND, pplaylist: windows_core::Ref<IWMPPlaylist>, pfallowburn: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn allowPDATransfer(&self, hwnd: super::super::Foundation::HWND, pplaylist: windows_core::Ref<IWMPPlaylist>, pfallowtransfer: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn startBackgroundProcessing(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPSubscriptionService_Vtbl {
     pub const fn new<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn allowPlay<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pmedia: *mut core::ffi::c_void, pfallowplay: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn allowPlay<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pmedia: *mut core::ffi::c_void, pfallowplay: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPSubscriptionService_Impl::allowPlay(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pmedia), core::mem::transmute_copy(&pfallowplay)).into()
             }
         }
-        unsafe extern "system" fn allowCDBurn<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pplaylist: *mut core::ffi::c_void, pfallowburn: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn allowCDBurn<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pplaylist: *mut core::ffi::c_void, pfallowburn: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPSubscriptionService_Impl::allowCDBurn(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pplaylist), core::mem::transmute_copy(&pfallowburn)).into()
             }
         }
-        unsafe extern "system" fn allowPDATransfer<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pplaylist: *mut core::ffi::c_void, pfallowtransfer: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn allowPDATransfer<Identity: IWMPSubscriptionService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pplaylist: *mut core::ffi::c_void, pfallowtransfer: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPSubscriptionService_Impl::allowPDATransfer(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pplaylist), core::mem::transmute_copy(&pfallowtransfer)).into()
@@ -13089,21 +13089,21 @@ impl windows_core::RuntimeName for IWMPVideoRenderConfig {}
 windows_core::imp::define_interface!(IWMPWindowMessageSink, IWMPWindowMessageSink_Vtbl, 0x3a0daa30_908d_4789_ba87_aed879b5c49b);
 windows_core::imp::interface_hierarchy!(IWMPWindowMessageSink, windows_core::IUnknown);
 impl IWMPWindowMessageSink {
-    pub unsafe fn OnWindowMessage(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn OnWindowMessage(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnWindowMessage)(windows_core::Interface::as_raw(self), umsg, wparam, lparam, plret as _, pfhandled as _).ok() }
     }
 }
 #[repr(C)]
 pub struct IWMPWindowMessageSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub OnWindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub OnWindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWMPWindowMessageSink_Impl: windows_core::IUnknownImpl {
-    fn OnWindowMessage(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn OnWindowMessage(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IWMPWindowMessageSink_Vtbl {
     pub const fn new<Identity: IWMPWindowMessageSink_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnWindowMessage<Identity: IWMPWindowMessageSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnWindowMessage<Identity: IWMPWindowMessageSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPWindowMessageSink_Impl::OnWindowMessage(this, core::mem::transmute_copy(&umsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam), core::mem::transmute_copy(&plret), core::mem::transmute_copy(&pfhandled)).into()
@@ -13248,7 +13248,7 @@ impl IXFeed {
     pub unsafe fn SetMaxItemCount(&self, uimaxitemcount: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxItemCount)(windows_core::Interface::as_raw(self), uimaxitemcount).ok() }
     }
-    pub unsafe fn DownloadEnclosuresAutomatically(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DownloadEnclosuresAutomatically(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DownloadEnclosuresAutomatically)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -13337,7 +13337,7 @@ impl IXFeed {
             (windows_core::Interface::vtable(self).Copyright)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsList(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsList(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -13394,8 +13394,8 @@ pub struct IXFeed_Vtbl {
     pub MarkAllItemsRead: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MaxItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetMaxItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub DownloadEnclosuresAutomatically: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetDownloadEnclosuresAutomatically: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub DownloadEnclosuresAutomatically: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetDownloadEnclosuresAutomatically: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub DownloadStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FEEDS_DOWNLOAD_STATUS) -> windows_core::HRESULT,
     pub LastDownloadError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FEEDS_DOWNLOAD_ERROR) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -13412,7 +13412,7 @@ pub struct IXFeed_Vtbl {
     pub Ttl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Copyright: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub IsList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, FEEDS_EVENTS_SCOPE, FEEDS_EVENTS_MASK, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnreadItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -13444,8 +13444,8 @@ pub trait IXFeed_Impl: windows_core::IUnknownImpl {
     fn MarkAllItemsRead(&self) -> windows_core::Result<()>;
     fn MaxItemCount(&self) -> windows_core::Result<u32>;
     fn SetMaxItemCount(&self, uimaxitemcount: u32) -> windows_core::Result<()>;
-    fn DownloadEnclosuresAutomatically(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetDownloadEnclosuresAutomatically(&self, bdownloadenclosuresautomatically: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn DownloadEnclosuresAutomatically(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetDownloadEnclosuresAutomatically(&self, bdownloadenclosuresautomatically: windows_core::BOOL) -> windows_core::Result<()>;
     fn DownloadStatus(&self) -> windows_core::Result<FEEDS_DOWNLOAD_STATUS>;
     fn LastDownloadError(&self) -> windows_core::Result<FEEDS_DOWNLOAD_ERROR>;
     fn Merge(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, pszurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -13459,7 +13459,7 @@ pub trait IXFeed_Impl: windows_core::IUnknownImpl {
     fn Ttl(&self) -> windows_core::Result<u32>;
     fn Language(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Copyright(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn IsList(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsList(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn UnreadItemCount(&self) -> windows_core::Result<u32>;
     fn ItemCount(&self) -> windows_core::Result<u32>;
@@ -13689,7 +13689,7 @@ impl IXFeed_Vtbl {
                 IXFeed_Impl::SetMaxItemCount(this, core::mem::transmute_copy(&uimaxitemcount)).into()
             }
         }
-        unsafe extern "system" fn DownloadEnclosuresAutomatically<Identity: IXFeed_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdownloadenclosuresautomatically: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DownloadEnclosuresAutomatically<Identity: IXFeed_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdownloadenclosuresautomatically: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::DownloadEnclosuresAutomatically(this) {
@@ -13701,7 +13701,7 @@ impl IXFeed_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDownloadEnclosuresAutomatically<Identity: IXFeed_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bdownloadenclosuresautomatically: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDownloadEnclosuresAutomatically<Identity: IXFeed_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bdownloadenclosuresautomatically: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeed_Impl::SetDownloadEnclosuresAutomatically(this, core::mem::transmute_copy(&bdownloadenclosuresautomatically)).into()
@@ -13857,7 +13857,7 @@ impl IXFeed_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsList<Identity: IXFeed_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbislist: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsList<Identity: IXFeed_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbislist: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::IsList(this) {
@@ -14521,13 +14521,13 @@ impl IXFeedFolder {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn ExistsFeed<P0>(&self, pszname: P0, pbfeedexists: *const super::super::Foundation::BOOL) -> windows_core::Result<()>
+    pub unsafe fn ExistsFeed<P0>(&self, pszname: P0, pbfeedexists: *const windows_core::BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).ExistsFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), pbfeedexists).ok() }
     }
-    pub unsafe fn ExistsSubfolder<P0>(&self, pszname: P0, pbsubfolderexists: *const super::super::Foundation::BOOL) -> windows_core::Result<()>
+    pub unsafe fn ExistsSubfolder<P0>(&self, pszname: P0, pbsubfolderexists: *const windows_core::BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -14583,7 +14583,7 @@ impl IXFeedFolder {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn IsRoot(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsRoot(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsRoot)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -14616,8 +14616,8 @@ pub struct IXFeedFolder_Vtbl {
     pub Subfolders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateSubfolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ExistsFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub ExistsSubfolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ExistsFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::BOOL) -> windows_core::HRESULT,
+    pub ExistsSubfolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::BOOL) -> windows_core::HRESULT,
     pub GetFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSubfolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14626,7 +14626,7 @@ pub struct IXFeedFolder_Vtbl {
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, FEEDS_EVENTS_SCOPE, FEEDS_EVENTS_MASK, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TotalUnreadItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub TotalItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -14636,8 +14636,8 @@ pub trait IXFeedFolder_Impl: windows_core::IUnknownImpl {
     fn Subfolders(&self) -> windows_core::Result<IXFeedsEnum>;
     fn CreateFeed(&self, pszname: &windows_core::PCWSTR, pszurl: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateSubfolder(&self, pszname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ExistsFeed(&self, pszname: &windows_core::PCWSTR, pbfeedexists: *const super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn ExistsSubfolder(&self, pszname: &windows_core::PCWSTR, pbsubfolderexists: *const super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ExistsFeed(&self, pszname: &windows_core::PCWSTR, pbfeedexists: *const windows_core::BOOL) -> windows_core::Result<()>;
+    fn ExistsSubfolder(&self, pszname: &windows_core::PCWSTR, pbsubfolderexists: *const windows_core::BOOL) -> windows_core::Result<()>;
     fn GetFeed(&self, pszname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetSubfolder(&self, pszname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
@@ -14646,7 +14646,7 @@ pub trait IXFeedFolder_Impl: windows_core::IUnknownImpl {
     fn Path(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Move(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Parent(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn IsRoot(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsRoot(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn TotalUnreadItemCount(&self) -> windows_core::Result<u32>;
     fn TotalItemCount(&self) -> windows_core::Result<u32>;
@@ -14689,13 +14689,13 @@ impl IXFeedFolder_Vtbl {
                 IXFeedFolder_Impl::CreateSubfolder(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn ExistsFeed<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, pbfeedexists: *const super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExistsFeed<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, pbfeedexists: *const windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedFolder_Impl::ExistsFeed(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&pbfeedexists)).into()
             }
         }
-        unsafe extern "system" fn ExistsSubfolder<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, pbsubfolderexists: *const super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExistsSubfolder<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, pbsubfolderexists: *const windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedFolder_Impl::ExistsSubfolder(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&pbsubfolderexists)).into()
@@ -14761,7 +14761,7 @@ impl IXFeedFolder_Vtbl {
                 IXFeedFolder_Impl::Parent(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn IsRoot<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisrootfeedfolder: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsRoot<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisrootfeedfolder: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedFolder_Impl::IsRoot(this) {
@@ -15153,7 +15153,7 @@ impl IXFeedItem {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).Enclosure)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn IsRead(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsRead(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsRead)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15212,8 +15212,8 @@ pub struct IXFeedItem_Vtbl {
     pub Comments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Author: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Enclosure: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsRead: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetIsRead: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsRead: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetIsRead: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub LocalId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15232,8 +15232,8 @@ pub trait IXFeedItem_Impl: windows_core::IUnknownImpl {
     fn Comments(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Author(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Enclosure(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn IsRead(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetIsRead(&self, bisread: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn IsRead(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetIsRead(&self, bisread: windows_core::BOOL) -> windows_core::Result<()>;
     fn LocalId(&self) -> windows_core::Result<u32>;
     fn Parent(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
@@ -15346,7 +15346,7 @@ impl IXFeedItem_Vtbl {
                 IXFeedItem_Impl::Enclosure(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn IsRead<Identity: IXFeedItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisread: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsRead<Identity: IXFeedItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisread: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::IsRead(this) {
@@ -15358,7 +15358,7 @@ impl IXFeedItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIsRead<Identity: IXFeedItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bisread: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIsRead<Identity: IXFeedItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bisread: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedItem_Impl::SetIsRead(this, core::mem::transmute_copy(&bisread)).into()
@@ -15563,7 +15563,7 @@ impl IXFeedsManager {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).RootFolder)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn IsSubscribed<P0>(&self, pszurl: P0) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn IsSubscribed<P0>(&self, pszurl: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -15572,7 +15572,7 @@ impl IXFeedsManager {
             (windows_core::Interface::vtable(self).IsSubscribed)(windows_core::Interface::as_raw(self), pszurl.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ExistsFeed<P0>(&self, pszpath: P0) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn ExistsFeed<P0>(&self, pszpath: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -15597,7 +15597,7 @@ impl IXFeedsManager {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetFeedByUrl)(windows_core::Interface::as_raw(self), pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn ExistsFolder<P0>(&self, pszpath: P0) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn ExistsFolder<P0>(&self, pszpath: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -15668,11 +15668,11 @@ impl IXFeedsManager {
 pub struct IXFeedsManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RootFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsSubscribed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub ExistsFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsSubscribed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub ExistsFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFeedByUrl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ExistsFolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ExistsFolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetFolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub DeleteFolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -15690,11 +15690,11 @@ pub struct IXFeedsManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXFeedsManager_Impl: windows_core::IUnknownImpl {
     fn RootFolder(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn IsSubscribed(&self, pszurl: &windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn ExistsFeed(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsSubscribed(&self, pszurl: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
+    fn ExistsFeed(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
     fn GetFeed(&self, pszpath: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetFeedByUrl(&self, pszurl: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ExistsFolder(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn ExistsFolder(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
     fn GetFolder(&self, pszpath: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn DeleteFeed(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn DeleteFolder(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -15715,7 +15715,7 @@ impl IXFeedsManager_Vtbl {
                 IXFeedsManager_Impl::RootFolder(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn IsSubscribed<Identity: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszurl: windows_core::PCWSTR, pbsubscribed: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSubscribed<Identity: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszurl: windows_core::PCWSTR, pbsubscribed: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedsManager_Impl::IsSubscribed(this, core::mem::transmute(&pszurl)) {
@@ -15727,7 +15727,7 @@ impl IXFeedsManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ExistsFeed<Identity: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, pbfeedexists: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExistsFeed<Identity: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, pbfeedexists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedsManager_Impl::ExistsFeed(this, core::mem::transmute(&pszpath)) {
@@ -15751,7 +15751,7 @@ impl IXFeedsManager_Vtbl {
                 IXFeedsManager_Impl::GetFeedByUrl(this, core::mem::transmute(&pszurl), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn ExistsFolder<Identity: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, pbfolderexists: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExistsFolder<Identity: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, pbfolderexists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedsManager_Impl::ExistsFolder(this, core::mem::transmute(&pszpath)) {

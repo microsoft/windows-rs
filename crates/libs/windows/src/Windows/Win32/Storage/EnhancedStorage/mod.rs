@@ -94,14 +94,14 @@ pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     pub CurrentUserFailures: u8,
     pub TotalUserAuthenticationCount: u32,
     pub TotalAdminAuthenticationCount: u32,
-    pub FipsCompliant: super::super::Foundation::BOOL,
-    pub SecurityIDAvailable: super::super::Foundation::BOOL,
-    pub InitializeInProgress: super::super::Foundation::BOOL,
-    pub ITMSArmed: super::super::Foundation::BOOL,
-    pub ITMSArmable: super::super::Foundation::BOOL,
-    pub UserCreated: super::super::Foundation::BOOL,
-    pub ResetOnPORDefault: super::super::Foundation::BOOL,
-    pub ResetOnPORCurrent: super::super::Foundation::BOOL,
+    pub FipsCompliant: windows_core::BOOL,
+    pub SecurityIDAvailable: windows_core::BOOL,
+    pub InitializeInProgress: windows_core::BOOL,
+    pub ITMSArmed: windows_core::BOOL,
+    pub ITMSArmable: windows_core::BOOL,
+    pub UserCreated: windows_core::BOOL,
+    pub ResetOnPORDefault: windows_core::BOOL,
+    pub ResetOnPORCurrent: windows_core::BOOL,
     pub MaxAdminFailures: u8,
     pub MaxUserFailures: u8,
     pub TimeToCompleteInitialization: u32,
@@ -352,7 +352,7 @@ impl IEnhancedStorageACT2 {
             (windows_core::Interface::vtable(self).GetDeviceName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsDeviceRemovable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsDeviceRemovable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDeviceRemovable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -363,11 +363,11 @@ impl IEnhancedStorageACT2 {
 pub struct IEnhancedStorageACT2_Vtbl {
     pub base__: IEnhancedStorageACT_Vtbl,
     pub GetDeviceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub IsDeviceRemovable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsDeviceRemovable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IEnhancedStorageACT2_Impl: IEnhancedStorageACT_Impl {
     fn GetDeviceName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn IsDeviceRemovable(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsDeviceRemovable(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IEnhancedStorageACT2_Vtbl {
     pub const fn new<Identity: IEnhancedStorageACT2_Impl, const OFFSET: isize>() -> Self {
@@ -383,7 +383,7 @@ impl IEnhancedStorageACT2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsDeviceRemovable<Identity: IEnhancedStorageACT2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisdeviceremovable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsDeviceRemovable<Identity: IEnhancedStorageACT2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisdeviceremovable: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageACT2_Impl::IsDeviceRemovable(this) {
@@ -418,13 +418,13 @@ impl IEnhancedStorageACT3 {
     pub unsafe fn UnauthorizeEx(&self, dwflags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UnauthorizeEx)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
-    pub unsafe fn IsQueueFrozen(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsQueueFrozen(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsQueueFrozen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetShellExtSupport(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetShellExtSupport(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetShellExtSupport)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -435,13 +435,13 @@ impl IEnhancedStorageACT3 {
 pub struct IEnhancedStorageACT3_Vtbl {
     pub base__: IEnhancedStorageACT2_Vtbl,
     pub UnauthorizeEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub IsQueueFrozen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetShellExtSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsQueueFrozen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetShellExtSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IEnhancedStorageACT3_Impl: IEnhancedStorageACT2_Impl {
     fn UnauthorizeEx(&self, dwflags: u32) -> windows_core::Result<()>;
-    fn IsQueueFrozen(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn GetShellExtSupport(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsQueueFrozen(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetShellExtSupport(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IEnhancedStorageACT3_Vtbl {
     pub const fn new<Identity: IEnhancedStorageACT3_Impl, const OFFSET: isize>() -> Self {
@@ -451,7 +451,7 @@ impl IEnhancedStorageACT3_Vtbl {
                 IEnhancedStorageACT3_Impl::UnauthorizeEx(this, core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn IsQueueFrozen<Identity: IEnhancedStorageACT3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisqueuefrozen: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsQueueFrozen<Identity: IEnhancedStorageACT3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisqueuefrozen: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageACT3_Impl::IsQueueFrozen(this) {
@@ -463,7 +463,7 @@ impl IEnhancedStorageACT3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetShellExtSupport<Identity: IEnhancedStorageACT3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshellextsupport: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetShellExtSupport<Identity: IEnhancedStorageACT3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshellextsupport: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageACT3_Impl::GetShellExtSupport(this) {

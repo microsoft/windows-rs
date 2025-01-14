@@ -14,7 +14,7 @@ pub const ATSC_ETT_TID: u32 = 204u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ATSC_FILTER_OPTIONS {
-    pub fSpecifyEtmId: super::super::super::Foundation::BOOL,
+    pub fSpecifyEtmId: windows_core::BOOL,
     pub EtmId: u32,
 }
 impl Default for ATSC_FILTER_OPTIONS {
@@ -496,8 +496,8 @@ pub const DSATTRIB_WMDRMProtectionInfo: windows_core::GUID = windows_core::GUID:
 pub struct DSHOW_STREAM_DESC {
     pub VersionNo: u32,
     pub StreamId: u32,
-    pub Default: super::super::super::Foundation::BOOL,
-    pub Creation: super::super::super::Foundation::BOOL,
+    pub Default: windows_core::BOOL,
+    pub Creation: windows_core::BOOL,
     pub Reserved: u32,
 }
 impl Default for DSHOW_STREAM_DESC {
@@ -522,20 +522,20 @@ impl Default for DSMCC_ELEMENT {
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DSMCC_FILTER_OPTIONS {
-    pub fSpecifyProtocol: super::super::super::Foundation::BOOL,
+    pub fSpecifyProtocol: windows_core::BOOL,
     pub Protocol: u8,
-    pub fSpecifyType: super::super::super::Foundation::BOOL,
+    pub fSpecifyType: windows_core::BOOL,
     pub Type: u8,
-    pub fSpecifyMessageId: super::super::super::Foundation::BOOL,
+    pub fSpecifyMessageId: windows_core::BOOL,
     pub MessageId: u16,
-    pub fSpecifyTransactionId: super::super::super::Foundation::BOOL,
-    pub fUseTrxIdMessageIdMask: super::super::super::Foundation::BOOL,
+    pub fSpecifyTransactionId: windows_core::BOOL,
+    pub fUseTrxIdMessageIdMask: windows_core::BOOL,
     pub TransactionId: u32,
-    pub fSpecifyModuleVersion: super::super::super::Foundation::BOOL,
+    pub fSpecifyModuleVersion: windows_core::BOOL,
     pub ModuleVersion: u8,
-    pub fSpecifyBlockNumber: super::super::super::Foundation::BOOL,
+    pub fSpecifyBlockNumber: windows_core::BOOL,
     pub BlockNumber: u16,
-    pub fGetModuleCall: super::super::super::Foundation::BOOL,
+    pub fGetModuleCall: windows_core::BOOL,
     pub NumberOfBlocksInModule: u16,
 }
 impl Default for DSMCC_FILTER_OPTIONS {
@@ -606,7 +606,7 @@ pub const DVBS_SCAN_TABLE_MAX_SIZE: u32 = 400u32;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVBScramblingControlSpanningEvent {
     pub ulPID: u32,
-    pub fScrambled: super::super::super::Foundation::BOOL,
+    pub fScrambled: windows_core::BOOL,
 }
 impl Default for DVBScramblingControlSpanningEvent {
     fn default() -> Self {
@@ -626,7 +626,7 @@ pub const DVB_EIT_ACTUAL_TID: u32 = 78u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DVB_EIT_FILTER_OPTIONS {
-    pub fSpecifySegment: super::super::super::Foundation::BOOL,
+    pub fSpecifySegment: windows_core::BOOL,
     pub bSegment: u8,
 }
 impl Default for DVB_EIT_FILTER_OPTIONS {
@@ -679,8 +679,8 @@ pub struct DVDTextStringType(pub i32);
 pub struct DVR_STREAM_DESC {
     pub Version: u32,
     pub StreamId: u32,
-    pub Default: super::super::super::Foundation::BOOL,
-    pub Creation: super::super::super::Foundation::BOOL,
+    pub Default: windows_core::BOOL,
+    pub Creation: windows_core::BOOL,
     pub Reserved: u32,
     pub guidSubMediaType: windows_core::GUID,
     pub guidFormatType: windows_core::GUID,
@@ -2238,31 +2238,31 @@ impl IATSC_VCT {
             (windows_core::Interface::vtable(self).GetRecordEtmLocation)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordIsAccessControlledBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetRecordIsAccessControlledBitSet(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordIsAccessControlledBitSet)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordIsHiddenBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetRecordIsHiddenBitSet(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordIsHiddenBitSet)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordIsPathSelectBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetRecordIsPathSelectBitSet(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordIsPathSelectBitSet)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordIsOutOfBandBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetRecordIsOutOfBandBitSet(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordIsOutOfBandBitSet)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordIsHideGuideBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetRecordIsHideGuideBitSet(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordIsHideGuideBitSet)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
@@ -2324,11 +2324,11 @@ pub struct IATSC_VCT_Vtbl {
     pub GetRecordTransportStreamId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16) -> windows_core::HRESULT,
     pub GetRecordProgramNumber: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16) -> windows_core::HRESULT,
     pub GetRecordEtmLocation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
-    pub GetRecordIsAccessControlledBitSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetRecordIsHiddenBitSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetRecordIsPathSelectBitSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetRecordIsOutOfBandBitSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetRecordIsHideGuideBitSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetRecordIsAccessControlledBitSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetRecordIsHiddenBitSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetRecordIsPathSelectBitSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetRecordIsOutOfBandBitSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetRecordIsHideGuideBitSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetRecordServiceType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
     pub GetRecordSourceId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16) -> windows_core::HRESULT,
     pub GetRecordCountOfDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -2352,11 +2352,11 @@ pub trait IATSC_VCT_Impl: windows_core::IUnknownImpl {
     fn GetRecordTransportStreamId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordProgramNumber(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordEtmLocation(&self, dwrecordindex: u32) -> windows_core::Result<u8>;
-    fn GetRecordIsAccessControlledBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn GetRecordIsHiddenBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn GetRecordIsPathSelectBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn GetRecordIsOutOfBandBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn GetRecordIsHideGuideBitSet(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetRecordIsAccessControlledBitSet(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL>;
+    fn GetRecordIsHiddenBitSet(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL>;
+    fn GetRecordIsPathSelectBitSet(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL>;
+    fn GetRecordIsOutOfBandBitSet(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL>;
+    fn GetRecordIsHideGuideBitSet(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL>;
     fn GetRecordServiceType(&self, dwrecordindex: u32) -> windows_core::Result<u8>;
     fn GetRecordSourceId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
@@ -2518,7 +2518,7 @@ impl IATSC_VCT_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordIsAccessControlledBitSet<Identity: IATSC_VCT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordIsAccessControlledBitSet<Identity: IATSC_VCT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordIsAccessControlledBitSet(this, core::mem::transmute_copy(&dwrecordindex)) {
@@ -2530,7 +2530,7 @@ impl IATSC_VCT_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordIsHiddenBitSet<Identity: IATSC_VCT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordIsHiddenBitSet<Identity: IATSC_VCT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordIsHiddenBitSet(this, core::mem::transmute_copy(&dwrecordindex)) {
@@ -2542,7 +2542,7 @@ impl IATSC_VCT_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordIsPathSelectBitSet<Identity: IATSC_VCT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordIsPathSelectBitSet<Identity: IATSC_VCT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordIsPathSelectBitSet(this, core::mem::transmute_copy(&dwrecordindex)) {
@@ -2554,7 +2554,7 @@ impl IATSC_VCT_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordIsOutOfBandBitSet<Identity: IATSC_VCT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordIsOutOfBandBitSet<Identity: IATSC_VCT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordIsOutOfBandBitSet(this, core::mem::transmute_copy(&dwrecordindex)) {
@@ -2566,7 +2566,7 @@ impl IATSC_VCT_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordIsHideGuideBitSet<Identity: IATSC_VCT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordIsHideGuideBitSet<Identity: IATSC_VCT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordIsHideGuideBitSet(this, core::mem::transmute_copy(&dwrecordindex)) {
@@ -3455,7 +3455,7 @@ pub struct IAtscPsipParser_Vtbl {
     pub GetPMT: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTSDT: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMGT: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetVCT: unsafe extern "system" fn(*mut core::ffi::c_void, u8, super::super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetVCT: unsafe extern "system" fn(*mut core::ffi::c_void, u8, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetEIT: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *const u16, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetETT: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *const u16, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSTT: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3468,7 +3468,7 @@ pub trait IAtscPsipParser_Impl: windows_core::IUnknownImpl {
     fn GetPMT(&self, pid: u16, pwprogramnumber: *const u16) -> windows_core::Result<IPMT>;
     fn GetTSDT(&self) -> windows_core::Result<ITSDT>;
     fn GetMGT(&self) -> windows_core::Result<IATSC_MGT>;
-    fn GetVCT(&self, tableid: u8, fgetnexttable: super::super::super::Foundation::BOOL) -> windows_core::Result<IATSC_VCT>;
+    fn GetVCT(&self, tableid: u8, fgetnexttable: windows_core::BOOL) -> windows_core::Result<IATSC_VCT>;
     fn GetEIT(&self, pid: u16, pwsourceid: *const u16, dwtimeout: u32) -> windows_core::Result<IATSC_EIT>;
     fn GetETT(&self, pid: u16, wsourceid: *const u16, pweventid: *const u16) -> windows_core::Result<IATSC_ETT>;
     fn GetSTT(&self) -> windows_core::Result<IATSC_STT>;
@@ -3542,7 +3542,7 @@ impl IAtscPsipParser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetVCT<Identity: IAtscPsipParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tableid: u8, fgetnexttable: super::super::super::Foundation::BOOL, ppvct: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVCT<Identity: IAtscPsipParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tableid: u8, fgetnexttable: windows_core::BOOL, ppvct: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAtscPsipParser_Impl::GetVCT(this, core::mem::transmute_copy(&tableid), core::mem::transmute_copy(&fgetnexttable)) {
@@ -5702,7 +5702,7 @@ impl IDTFilter {
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_BlockedRatingAttributes)(windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok() }
     }
-    pub unsafe fn BlockUnRated(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn BlockUnRated(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BlockUnRated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5728,8 +5728,8 @@ pub struct IDTFilter_Vtbl {
     pub GetCurrRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnTvRat_System, *mut EnTvRat_GenericLevel, *mut i32) -> windows_core::HRESULT,
     pub get_BlockedRatingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, EnTvRat_System, EnTvRat_GenericLevel, *mut i32) -> windows_core::HRESULT,
     pub put_BlockedRatingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, EnTvRat_System, EnTvRat_GenericLevel, i32) -> windows_core::HRESULT,
-    pub BlockUnRated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetBlockUnRated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub BlockUnRated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetBlockUnRated: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub BlockUnRatedDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetBlockUnRatedDelay: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
@@ -5738,8 +5738,8 @@ pub trait IDTFilter_Impl: windows_core::IUnknownImpl {
     fn GetCurrRating(&self, pensystem: *mut EnTvRat_System, penrating: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> windows_core::Result<()>;
     fn get_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel) -> windows_core::Result<i32>;
     fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> windows_core::Result<()>;
-    fn BlockUnRated(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetBlockUnRated(&self, fblockunratedshows: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn BlockUnRated(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetBlockUnRated(&self, fblockunratedshows: windows_core::BOOL) -> windows_core::Result<()>;
     fn BlockUnRatedDelay(&self) -> windows_core::Result<i32>;
     fn SetBlockUnRatedDelay(&self, msecsdelaybeforeblock: i32) -> windows_core::Result<()>;
 }
@@ -5781,7 +5781,7 @@ impl IDTFilter_Vtbl {
                 IDTFilter_Impl::put_BlockedRatingAttributes(this, core::mem::transmute_copy(&ensystem), core::mem::transmute_copy(&enlevel), core::mem::transmute_copy(&lbfattrs)).into()
             }
         }
-        unsafe extern "system" fn BlockUnRated<Identity: IDTFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfblockunratedshows: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn BlockUnRated<Identity: IDTFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfblockunratedshows: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDTFilter_Impl::BlockUnRated(this) {
@@ -5793,7 +5793,7 @@ impl IDTFilter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetBlockUnRated<Identity: IDTFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fblockunratedshows: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlockUnRated<Identity: IDTFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fblockunratedshows: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDTFilter_Impl::SetBlockUnRated(this, core::mem::transmute_copy(&fblockunratedshows)).into()
@@ -5930,7 +5930,7 @@ impl IDTFilter3 {
             (windows_core::Interface::vtable(self).GetProtectionType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LicenseHasExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn LicenseHasExpirationDate(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LicenseHasExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5944,12 +5944,12 @@ impl IDTFilter3 {
 pub struct IDTFilter3_Vtbl {
     pub base__: IDTFilter2_Vtbl,
     pub GetProtectionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProtType) -> windows_core::HRESULT,
-    pub LicenseHasExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub LicenseHasExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetRights: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDTFilter3_Impl: IDTFilter2_Impl {
     fn GetProtectionType(&self) -> windows_core::Result<ProtType>;
-    fn LicenseHasExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn LicenseHasExpirationDate(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetRights(&self, bstrrights: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IDTFilter3_Vtbl {
@@ -5966,7 +5966,7 @@ impl IDTFilter3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LicenseHasExpirationDate<Identity: IDTFilter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflicensehasexpirationdate: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn LicenseHasExpirationDate<Identity: IDTFilter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflicensehasexpirationdate: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDTFilter3_Impl::LicenseHasExpirationDate(this) {
@@ -7700,7 +7700,7 @@ impl IDVB_DIT {
     {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psectionlist.param().abi()).ok() }
     }
-    pub unsafe fn GetTransitionFlag(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetTransitionFlag(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTransitionFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7711,11 +7711,11 @@ impl IDVB_DIT {
 pub struct IDVB_DIT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetTransitionFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetTransitionFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IDVB_DIT_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>) -> windows_core::Result<()>;
-    fn GetTransitionFlag(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetTransitionFlag(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IDVB_DIT_Vtbl {
     pub const fn new<Identity: IDVB_DIT_Impl, const OFFSET: isize>() -> Self {
@@ -7725,7 +7725,7 @@ impl IDVB_DIT_Vtbl {
                 IDVB_DIT_Impl::Initialize(this, core::mem::transmute_copy(&psectionlist)).into()
             }
         }
-        unsafe extern "system" fn GetTransitionFlag<Identity: IDVB_DIT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTransitionFlag<Identity: IDVB_DIT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_DIT_Impl::GetTransitionFlag(this) {
@@ -7824,7 +7824,7 @@ impl IDVB_EIT {
             (windows_core::Interface::vtable(self).GetRecordRunningStatus)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordFreeCAMode)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
@@ -7882,7 +7882,7 @@ pub struct IDVB_EIT_Vtbl {
     pub GetRecordStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MPEG_DATE_AND_TIME) -> windows_core::HRESULT,
     pub GetRecordDuration: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MPEG_TIME) -> windows_core::HRESULT,
     pub GetRecordRunningStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
-    pub GetRecordFreeCAMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetRecordFreeCAMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetRecordCountOfDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetRecordDescriptorByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7905,7 +7905,7 @@ pub trait IDVB_EIT_Impl: windows_core::IUnknownImpl {
     fn GetRecordStartTime(&self, dwrecordindex: u32) -> windows_core::Result<MPEG_DATE_AND_TIME>;
     fn GetRecordDuration(&self, dwrecordindex: u32) -> windows_core::Result<MPEG_TIME>;
     fn GetRecordRunningStatus(&self, dwrecordindex: u32) -> windows_core::Result<u8>;
-    fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
     fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
@@ -8055,7 +8055,7 @@ impl IDVB_EIT_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordFreeCAMode<Identity: IDVB_EIT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordFreeCAMode<Identity: IDVB_EIT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetRecordFreeCAMode(this, core::mem::transmute_copy(&dwrecordindex)) {
@@ -8759,13 +8759,13 @@ impl IDVB_SDT {
             (windows_core::Interface::vtable(self).GetRecordServiceId)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordEITScheduleFlag(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetRecordEITScheduleFlag(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordEITScheduleFlag)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordEITPresentFollowingFlag(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetRecordEITPresentFollowingFlag(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordEITPresentFollowingFlag)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
@@ -8777,7 +8777,7 @@ impl IDVB_SDT {
             (windows_core::Interface::vtable(self).GetRecordRunningStatus)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordFreeCAMode)(windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).map(|| result__)
@@ -8829,10 +8829,10 @@ pub struct IDVB_SDT_Vtbl {
     pub GetOriginalNetworkId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetRecordServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16) -> windows_core::HRESULT,
-    pub GetRecordEITScheduleFlag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetRecordEITPresentFollowingFlag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetRecordEITScheduleFlag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetRecordEITPresentFollowingFlag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetRecordRunningStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
-    pub GetRecordFreeCAMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetRecordFreeCAMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetRecordCountOfDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetRecordDescriptorByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8849,10 +8849,10 @@ pub trait IDVB_SDT_Impl: windows_core::IUnknownImpl {
     fn GetOriginalNetworkId(&self) -> windows_core::Result<u16>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u32>;
     fn GetRecordServiceId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
-    fn GetRecordEITScheduleFlag(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn GetRecordEITPresentFollowingFlag(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetRecordEITScheduleFlag(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL>;
+    fn GetRecordEITPresentFollowingFlag(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL>;
     fn GetRecordRunningStatus(&self, dwrecordindex: u32) -> windows_core::Result<u8>;
-    fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
     fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
@@ -8930,7 +8930,7 @@ impl IDVB_SDT_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordEITScheduleFlag<Identity: IDVB_SDT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordEITScheduleFlag<Identity: IDVB_SDT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetRecordEITScheduleFlag(this, core::mem::transmute_copy(&dwrecordindex)) {
@@ -8942,7 +8942,7 @@ impl IDVB_SDT_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordEITPresentFollowingFlag<Identity: IDVB_SDT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordEITPresentFollowingFlag<Identity: IDVB_SDT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetRecordEITPresentFollowingFlag(this, core::mem::transmute_copy(&dwrecordindex)) {
@@ -8966,7 +8966,7 @@ impl IDVB_SDT_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordFreeCAMode<Identity: IDVB_SDT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordFreeCAMode<Identity: IDVB_SDT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrecordindex: u32, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetRecordFreeCAMode(this, core::mem::transmute_copy(&dwrecordindex)) {
@@ -12408,13 +12408,13 @@ impl IDvbServiceAttributeDescriptor {
             (windows_core::Interface::vtable(self).GetRecordServiceId)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordNumericSelectionFlag(&self, brecordindex: u8) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetRecordNumericSelectionFlag(&self, brecordindex: u8) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordNumericSelectionFlag)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordVisibleServiceFlag(&self, brecordindex: u8) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetRecordVisibleServiceFlag(&self, brecordindex: u8) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordVisibleServiceFlag)(windows_core::Interface::as_raw(self), brecordindex, &mut result__).map(|| result__)
@@ -12428,16 +12428,16 @@ pub struct IDvbServiceAttributeDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRecordServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u16) -> windows_core::HRESULT,
-    pub GetRecordNumericSelectionFlag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetRecordVisibleServiceFlag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetRecordNumericSelectionFlag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetRecordVisibleServiceFlag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IDvbServiceAttributeDescriptor_Impl: windows_core::IUnknownImpl {
     fn GetTag(&self) -> windows_core::Result<u8>;
     fn GetLength(&self) -> windows_core::Result<u8>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u8>;
     fn GetRecordServiceId(&self, brecordindex: u8) -> windows_core::Result<u16>;
-    fn GetRecordNumericSelectionFlag(&self, brecordindex: u8) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn GetRecordVisibleServiceFlag(&self, brecordindex: u8) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetRecordNumericSelectionFlag(&self, brecordindex: u8) -> windows_core::Result<windows_core::BOOL>;
+    fn GetRecordVisibleServiceFlag(&self, brecordindex: u8) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IDvbServiceAttributeDescriptor_Vtbl {
     pub const fn new<Identity: IDvbServiceAttributeDescriptor_Impl, const OFFSET: isize>() -> Self {
@@ -12489,7 +12489,7 @@ impl IDvbServiceAttributeDescriptor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordNumericSelectionFlag<Identity: IDvbServiceAttributeDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brecordindex: u8, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordNumericSelectionFlag<Identity: IDvbServiceAttributeDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brecordindex: u8, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceAttributeDescriptor_Impl::GetRecordNumericSelectionFlag(this, core::mem::transmute_copy(&brecordindex)) {
@@ -12501,7 +12501,7 @@ impl IDvbServiceAttributeDescriptor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordVisibleServiceFlag<Identity: IDvbServiceAttributeDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brecordindex: u8, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordVisibleServiceFlag<Identity: IDvbServiceAttributeDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brecordindex: u8, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceAttributeDescriptor_Impl::GetRecordVisibleServiceFlag(this, core::mem::transmute_copy(&brecordindex)) {
@@ -14548,13 +14548,13 @@ impl IESFileExpiryDateEvent {
             (windows_core::Interface::vtable(self).GetMaxRenewalCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsEntitlementTokenPresent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn IsEntitlementTokenPresent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsEntitlementTokenPresent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DoesExpireAfterFirstUse(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn DoesExpireAfterFirstUse(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoesExpireAfterFirstUse)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -14568,8 +14568,8 @@ pub struct IESFileExpiryDateEvent_Vtbl {
     pub GetExpiryDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetFinalExpiryDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetMaxRenewalCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub IsEntitlementTokenPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub DoesExpireAfterFirstUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsEntitlementTokenPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub DoesExpireAfterFirstUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IESFileExpiryDateEvent_Impl: super::IESEvent_Impl {
@@ -14577,8 +14577,8 @@ pub trait IESFileExpiryDateEvent_Impl: super::IESEvent_Impl {
     fn GetExpiryDate(&self) -> windows_core::Result<u64>;
     fn GetFinalExpiryDate(&self) -> windows_core::Result<u64>;
     fn GetMaxRenewalCount(&self) -> windows_core::Result<u32>;
-    fn IsEntitlementTokenPresent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn DoesExpireAfterFirstUse(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn IsEntitlementTokenPresent(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn DoesExpireAfterFirstUse(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IESFileExpiryDateEvent_Vtbl {
@@ -14631,7 +14631,7 @@ impl IESFileExpiryDateEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsEntitlementTokenPresent<Identity: IESFileExpiryDateEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenttokenpresent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsEntitlementTokenPresent<Identity: IESFileExpiryDateEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenttokenpresent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESFileExpiryDateEvent_Impl::IsEntitlementTokenPresent(this) {
@@ -14643,7 +14643,7 @@ impl IESFileExpiryDateEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DoesExpireAfterFirstUse<Identity: IESFileExpiryDateEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfexpireafterfirstuse: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoesExpireAfterFirstUse<Identity: IESFileExpiryDateEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfexpireafterfirstuse: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESFileExpiryDateEvent_Impl::DoesExpireAfterFirstUse(this) {
@@ -14810,13 +14810,13 @@ impl IESLicenseRenewalResultEvent {
             (windows_core::Interface::vtable(self).GetFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IsRenewalSuccessful(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn IsRenewalSuccessful(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsRenewalSuccessful)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsCheckEntitlementCallRequired(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn IsCheckEntitlementCallRequired(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsCheckEntitlementCallRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -14871,8 +14871,8 @@ pub struct IESLicenseRenewalResultEvent_Vtbl {
     pub base__: super::IESEvent_Vtbl,
     pub GetCallersId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsRenewalSuccessful: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsCheckEntitlementCallRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsRenewalSuccessful: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsCheckEntitlementCallRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetDescrambledStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetRenewalResultCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetCASFailureCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -14888,8 +14888,8 @@ pub struct IESLicenseRenewalResultEvent_Vtbl {
 pub trait IESLicenseRenewalResultEvent_Impl: super::IESEvent_Impl {
     fn GetCallersId(&self) -> windows_core::Result<u32>;
     fn GetFileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn IsRenewalSuccessful(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn IsCheckEntitlementCallRequired(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn IsRenewalSuccessful(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsCheckEntitlementCallRequired(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetDescrambledStatus(&self) -> windows_core::Result<u32>;
     fn GetRenewalResultCode(&self) -> windows_core::Result<u32>;
     fn GetCASFailureCode(&self) -> windows_core::Result<u32>;
@@ -14925,7 +14925,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsRenewalSuccessful<Identity: IESLicenseRenewalResultEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrenewalsuccessful: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsRenewalSuccessful<Identity: IESLicenseRenewalResultEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrenewalsuccessful: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::IsRenewalSuccessful(this) {
@@ -14937,7 +14937,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsCheckEntitlementCallRequired<Identity: IESLicenseRenewalResultEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcheckenttokencallneeded: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsCheckEntitlementCallRequired<Identity: IESLicenseRenewalResultEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcheckenttokencallneeded: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::IsCheckEntitlementCallRequired(this) {
@@ -15370,14 +15370,14 @@ pub struct IETFilter_Vtbl {
     pub GetCurrRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnTvRat_System, *mut EnTvRat_GenericLevel, *mut i32) -> windows_core::HRESULT,
     pub GetCurrLicenseExpDate: unsafe extern "system" fn(*mut core::ffi::c_void, *const ProtType, *mut i32) -> windows_core::HRESULT,
     pub GetLastErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetRecordingOn: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetRecordingOn: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IETFilter_Impl: windows_core::IUnknownImpl {
     fn EvalRatObjOK(&self) -> windows_core::Result<windows_core::HRESULT>;
     fn GetCurrRating(&self, pensystem: *mut EnTvRat_System, penrating: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> windows_core::Result<()>;
     fn GetCurrLicenseExpDate(&self, prottype: *const ProtType) -> windows_core::Result<i32>;
     fn GetLastErrorCode(&self) -> windows_core::Result<()>;
-    fn SetRecordingOn(&self, frecstate: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetRecordingOn(&self, frecstate: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IETFilter_Vtbl {
     pub const fn new<Identity: IETFilter_Impl, const OFFSET: isize>() -> Self {
@@ -15417,7 +15417,7 @@ impl IETFilter_Vtbl {
                 IETFilter_Impl::GetLastErrorCode(this).into()
             }
         }
-        unsafe extern "system" fn SetRecordingOn<Identity: IETFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frecstate: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRecordingOn<Identity: IETFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frecstate: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IETFilter_Impl::SetRecordingOn(this, core::mem::transmute_copy(&frecstate)).into()
@@ -16123,7 +16123,7 @@ impl IEvalRat {
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_BlockedRatingAttributes)(windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok() }
     }
-    pub unsafe fn BlockUnRated(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn BlockUnRated(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BlockUnRated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -16145,8 +16145,8 @@ pub struct IEvalRat_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_BlockedRatingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, EnTvRat_System, EnTvRat_GenericLevel, *mut i32) -> windows_core::HRESULT,
     pub put_BlockedRatingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, EnTvRat_System, EnTvRat_GenericLevel, i32) -> windows_core::HRESULT,
-    pub BlockUnRated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetBlockUnRated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub BlockUnRated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetBlockUnRated: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub MostRestrictiveRating: unsafe extern "system" fn(*mut core::ffi::c_void, EnTvRat_System, EnTvRat_GenericLevel, i32, EnTvRat_System, EnTvRat_GenericLevel, i32, *mut EnTvRat_System, *mut EnTvRat_GenericLevel, *mut i32) -> windows_core::HRESULT,
     pub TestRating: unsafe extern "system" fn(*mut core::ffi::c_void, EnTvRat_System, EnTvRat_GenericLevel, i32) -> windows_core::HRESULT,
 }
@@ -16154,8 +16154,8 @@ pub struct IEvalRat_Vtbl {
 pub trait IEvalRat_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn get_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel) -> windows_core::Result<i32>;
     fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> windows_core::Result<()>;
-    fn BlockUnRated(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetBlockUnRated(&self, fblockunratedshows: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn BlockUnRated(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetBlockUnRated(&self, fblockunratedshows: windows_core::BOOL) -> windows_core::Result<()>;
     fn MostRestrictiveRating(&self, ensystem1: EnTvRat_System, enenlevel1: EnTvRat_GenericLevel, lbfenattr1: i32, ensystem2: EnTvRat_System, enenlevel2: EnTvRat_GenericLevel, lbfenattr2: i32, pensystem: *mut EnTvRat_System, penenlevel: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> windows_core::Result<()>;
     fn TestRating(&self, enshowsystem: EnTvRat_System, enshowlevel: EnTvRat_GenericLevel, lbfenshowattributes: i32) -> windows_core::Result<()>;
 }
@@ -16180,7 +16180,7 @@ impl IEvalRat_Vtbl {
                 IEvalRat_Impl::put_BlockedRatingAttributes(this, core::mem::transmute_copy(&ensystem), core::mem::transmute_copy(&enlevel), core::mem::transmute_copy(&lbfattrs)).into()
             }
         }
-        unsafe extern "system" fn BlockUnRated<Identity: IEvalRat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfblockunratedshows: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn BlockUnRated<Identity: IEvalRat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfblockunratedshows: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEvalRat_Impl::BlockUnRated(this) {
@@ -16192,7 +16192,7 @@ impl IEvalRat_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetBlockUnRated<Identity: IEvalRat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fblockunratedshows: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlockUnRated<Identity: IEvalRat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fblockunratedshows: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEvalRat_Impl::SetBlockUnRated(this, core::mem::transmute_copy(&fblockunratedshows)).into()
@@ -18632,13 +18632,13 @@ impl IIsdbAudioComponentDescriptor {
             (windows_core::Interface::vtable(self).GetSimulcastGroupTag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetESMultiLingualFlag(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetESMultiLingualFlag(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetESMultiLingualFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMainComponentFlag(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetMainComponentFlag(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMainComponentFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -18679,8 +18679,8 @@ pub struct IIsdbAudioComponentDescriptor_Vtbl {
     pub GetComponentTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetStreamType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetSimulcastGroupTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetESMultiLingualFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetMainComponentFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetESMultiLingualFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetMainComponentFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetQualityIndicator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetSamplingRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -18695,8 +18695,8 @@ pub trait IIsdbAudioComponentDescriptor_Impl: windows_core::IUnknownImpl {
     fn GetComponentTag(&self) -> windows_core::Result<u8>;
     fn GetStreamType(&self) -> windows_core::Result<u8>;
     fn GetSimulcastGroupTag(&self) -> windows_core::Result<u8>;
-    fn GetESMultiLingualFlag(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn GetMainComponentFlag(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetESMultiLingualFlag(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetMainComponentFlag(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetQualityIndicator(&self) -> windows_core::Result<u8>;
     fn GetSamplingRate(&self) -> windows_core::Result<u8>;
     fn GetLanguageCode(&self, pszcode: *mut u8) -> windows_core::Result<()>;
@@ -18789,7 +18789,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetESMultiLingualFlag<Identity: IIsdbAudioComponentDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetESMultiLingualFlag<Identity: IIsdbAudioComponentDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetESMultiLingualFlag(this) {
@@ -18801,7 +18801,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetMainComponentFlag<Identity: IIsdbAudioComponentDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfval: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMainComponentFlag<Identity: IIsdbAudioComponentDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetMainComponentFlag(this) {
@@ -19967,7 +19967,7 @@ impl IIsdbDownloadContentDescriptor {
             (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetFlags(&self, pfreboot: *mut super::super::super::Foundation::BOOL, pfaddon: *mut super::super::super::Foundation::BOOL, pfcompatibility: *mut super::super::super::Foundation::BOOL, pfmoduleinfo: *mut super::super::super::Foundation::BOOL, pftextinfo: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetFlags(&self, pfreboot: *mut windows_core::BOOL, pfaddon: *mut windows_core::BOOL, pfcompatibility: *mut windows_core::BOOL, pfmoduleinfo: *mut windows_core::BOOL, pftextinfo: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pfreboot as _, pfaddon as _, pfcompatibility as _, pfmoduleinfo as _, pftextinfo as _).ok() }
     }
     pub unsafe fn GetComponentSize(&self) -> windows_core::Result<u32> {
@@ -20057,7 +20057,7 @@ pub struct IIsdbDownloadContentDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL, *mut super::super::super::Foundation::BOOL, *mut super::super::super::Foundation::BOOL, *mut super::super::super::Foundation::BOOL, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut windows_core::BOOL, *mut windows_core::BOOL, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetComponentSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDownloadId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetTimeOutValueDII: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -20076,7 +20076,7 @@ pub struct IIsdbDownloadContentDescriptor_Vtbl {
 pub trait IIsdbDownloadContentDescriptor_Impl: windows_core::IUnknownImpl {
     fn GetTag(&self) -> windows_core::Result<u8>;
     fn GetLength(&self) -> windows_core::Result<u8>;
-    fn GetFlags(&self, pfreboot: *mut super::super::super::Foundation::BOOL, pfaddon: *mut super::super::super::Foundation::BOOL, pfcompatibility: *mut super::super::super::Foundation::BOOL, pfmoduleinfo: *mut super::super::super::Foundation::BOOL, pftextinfo: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetFlags(&self, pfreboot: *mut windows_core::BOOL, pfaddon: *mut windows_core::BOOL, pfcompatibility: *mut windows_core::BOOL, pfmoduleinfo: *mut windows_core::BOOL, pftextinfo: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetComponentSize(&self) -> windows_core::Result<u32>;
     fn GetDownloadId(&self) -> windows_core::Result<u32>;
     fn GetTimeOutValueDII(&self) -> windows_core::Result<u32>;
@@ -20118,7 +20118,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetFlags<Identity: IIsdbDownloadContentDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfreboot: *mut super::super::super::Foundation::BOOL, pfaddon: *mut super::super::super::Foundation::BOOL, pfcompatibility: *mut super::super::super::Foundation::BOOL, pfmoduleinfo: *mut super::super::super::Foundation::BOOL, pftextinfo: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFlags<Identity: IIsdbDownloadContentDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfreboot: *mut windows_core::BOOL, pfaddon: *mut windows_core::BOOL, pfcompatibility: *mut windows_core::BOOL, pfmoduleinfo: *mut windows_core::BOOL, pftextinfo: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IIsdbDownloadContentDescriptor_Impl::GetFlags(this, core::mem::transmute_copy(&pfreboot), core::mem::transmute_copy(&pfaddon), core::mem::transmute_copy(&pfcompatibility), core::mem::transmute_copy(&pfmoduleinfo), core::mem::transmute_copy(&pftextinfo)).into()
@@ -21149,7 +21149,7 @@ impl IIsdbSeriesDescriptor {
             (windows_core::Interface::vtable(self).GetProgramPattern)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetExpireDate(&self, pfvalid: *mut super::super::super::Foundation::BOOL, pmdtval: *mut MPEG_DATE_AND_TIME) -> windows_core::Result<()> {
+    pub unsafe fn GetExpireDate(&self, pfvalid: *mut windows_core::BOOL, pmdtval: *mut MPEG_DATE_AND_TIME) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetExpireDate)(windows_core::Interface::as_raw(self), pfvalid as _, pmdtval as _).ok() }
     }
     pub unsafe fn GetEpisodeNumber(&self) -> windows_core::Result<u16> {
@@ -21179,7 +21179,7 @@ pub struct IIsdbSeriesDescriptor_Vtbl {
     pub GetSeriesId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetRepeatLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetProgramPattern: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub GetExpireDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL, *mut MPEG_DATE_AND_TIME) -> windows_core::HRESULT,
+    pub GetExpireDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut MPEG_DATE_AND_TIME) -> windows_core::HRESULT,
     pub GetEpisodeNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetLastEpisodeNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetSeriesNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21190,7 +21190,7 @@ pub trait IIsdbSeriesDescriptor_Impl: windows_core::IUnknownImpl {
     fn GetSeriesId(&self) -> windows_core::Result<u16>;
     fn GetRepeatLabel(&self) -> windows_core::Result<u8>;
     fn GetProgramPattern(&self) -> windows_core::Result<u8>;
-    fn GetExpireDate(&self, pfvalid: *mut super::super::super::Foundation::BOOL, pmdtval: *mut MPEG_DATE_AND_TIME) -> windows_core::Result<()>;
+    fn GetExpireDate(&self, pfvalid: *mut windows_core::BOOL, pmdtval: *mut MPEG_DATE_AND_TIME) -> windows_core::Result<()>;
     fn GetEpisodeNumber(&self) -> windows_core::Result<u16>;
     fn GetLastEpisodeNumber(&self) -> windows_core::Result<u16>;
     fn GetSeriesNameW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR>;
@@ -21257,7 +21257,7 @@ impl IIsdbSeriesDescriptor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetExpireDate<Identity: IIsdbSeriesDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfvalid: *mut super::super::super::Foundation::BOOL, pmdtval: *mut MPEG_DATE_AND_TIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExpireDate<Identity: IIsdbSeriesDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfvalid: *mut windows_core::BOOL, pmdtval: *mut MPEG_DATE_AND_TIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IIsdbSeriesDescriptor_Impl::GetExpireDate(this, core::mem::transmute_copy(&pfvalid), core::mem::transmute_copy(&pmdtval)).into()
@@ -34258,16 +34258,16 @@ impl IPTFilterLicenseRenewal {
 #[repr(C)]
 pub struct IPTFilterLicenseRenewal_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub RenewLicenses: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub RenewLicenses: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub CancelLicenseRenewal: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPTFilterLicenseRenewal_Impl: windows_core::IUnknownImpl {
-    fn RenewLicenses(&self, wszfilename: &windows_core::PCWSTR, wszexpiredkid: &windows_core::PCWSTR, dwcallersid: u32, bhighpriority: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn RenewLicenses(&self, wszfilename: &windows_core::PCWSTR, wszexpiredkid: &windows_core::PCWSTR, dwcallersid: u32, bhighpriority: windows_core::BOOL) -> windows_core::Result<()>;
     fn CancelLicenseRenewal(&self) -> windows_core::Result<()>;
 }
 impl IPTFilterLicenseRenewal_Vtbl {
     pub const fn new<Identity: IPTFilterLicenseRenewal_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RenewLicenses<Identity: IPTFilterLicenseRenewal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszfilename: windows_core::PCWSTR, wszexpiredkid: windows_core::PCWSTR, dwcallersid: u32, bhighpriority: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RenewLicenses<Identity: IPTFilterLicenseRenewal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszfilename: windows_core::PCWSTR, wszexpiredkid: windows_core::PCWSTR, dwcallersid: u32, bhighpriority: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPTFilterLicenseRenewal_Impl::RenewLicenses(this, core::mem::transmute(&wszfilename), core::mem::transmute(&wszexpiredkid), core::mem::transmute_copy(&dwcallersid), core::mem::transmute_copy(&bhighpriority)).into()
@@ -34732,21 +34732,21 @@ impl windows_core::RuntimeName for ISBE2FileScan {}
 windows_core::imp::define_interface!(ISBE2GlobalEvent, ISBE2GlobalEvent_Vtbl, 0xcaede759_b6b1_11db_a578_0018f3fa24c6);
 windows_core::imp::interface_hierarchy!(ISBE2GlobalEvent, windows_core::IUnknown);
 impl ISBE2GlobalEvent {
-    pub unsafe fn GetEvent(&self, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8) -> windows_core::Result<()> {
+    pub unsafe fn GetEvent(&self, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut windows_core::BOOL, pcb: *mut u32, pb: *mut u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), idevt, param1, param2, param3, param4, pspanning as _, pcb as _, pb as _).ok() }
     }
 }
 #[repr(C)]
 pub struct ISBE2GlobalEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, u32, u32, *mut super::super::super::Foundation::BOOL, *mut u32, *mut u8) -> windows_core::HRESULT,
+    pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, u32, u32, *mut windows_core::BOOL, *mut u32, *mut u8) -> windows_core::HRESULT,
 }
 pub trait ISBE2GlobalEvent_Impl: windows_core::IUnknownImpl {
-    fn GetEvent(&self, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8) -> windows_core::Result<()>;
+    fn GetEvent(&self, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut windows_core::BOOL, pcb: *mut u32, pb: *mut u8) -> windows_core::Result<()>;
 }
 impl ISBE2GlobalEvent_Vtbl {
     pub const fn new<Identity: ISBE2GlobalEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetEvent<Identity: ISBE2GlobalEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEvent<Identity: ISBE2GlobalEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut windows_core::BOOL, pcb: *mut u32, pb: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISBE2GlobalEvent_Impl::GetEvent(this, core::mem::transmute_copy(&idevt), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4), core::mem::transmute_copy(&pspanning), core::mem::transmute_copy(&pcb), core::mem::transmute_copy(&pb)).into()
@@ -34768,21 +34768,21 @@ impl core::ops::Deref for ISBE2GlobalEvent2 {
 }
 windows_core::imp::interface_hierarchy!(ISBE2GlobalEvent2, windows_core::IUnknown, ISBE2GlobalEvent);
 impl ISBE2GlobalEvent2 {
-    pub unsafe fn GetEventEx(&self, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8, pstreamtime: *mut i64) -> windows_core::Result<()> {
+    pub unsafe fn GetEventEx(&self, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut windows_core::BOOL, pcb: *mut u32, pb: *mut u8, pstreamtime: *mut i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetEventEx)(windows_core::Interface::as_raw(self), idevt, param1, param2, param3, param4, pspanning as _, pcb as _, pb as _, pstreamtime as _).ok() }
     }
 }
 #[repr(C)]
 pub struct ISBE2GlobalEvent2_Vtbl {
     pub base__: ISBE2GlobalEvent_Vtbl,
-    pub GetEventEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, u32, u32, *mut super::super::super::Foundation::BOOL, *mut u32, *mut u8, *mut i64) -> windows_core::HRESULT,
+    pub GetEventEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, u32, u32, *mut windows_core::BOOL, *mut u32, *mut u8, *mut i64) -> windows_core::HRESULT,
 }
 pub trait ISBE2GlobalEvent2_Impl: ISBE2GlobalEvent_Impl {
-    fn GetEventEx(&self, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8, pstreamtime: *mut i64) -> windows_core::Result<()>;
+    fn GetEventEx(&self, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut windows_core::BOOL, pcb: *mut u32, pb: *mut u8, pstreamtime: *mut i64) -> windows_core::Result<()>;
 }
 impl ISBE2GlobalEvent2_Vtbl {
     pub const fn new<Identity: ISBE2GlobalEvent2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetEventEx<Identity: ISBE2GlobalEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8, pstreamtime: *mut i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEventEx<Identity: ISBE2GlobalEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut windows_core::BOOL, pcb: *mut u32, pb: *mut u8, pstreamtime: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISBE2GlobalEvent2_Impl::GetEventEx(this, core::mem::transmute_copy(&idevt), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4), core::mem::transmute_copy(&pspanning), core::mem::transmute_copy(&pcb), core::mem::transmute_copy(&pb), core::mem::transmute_copy(&pstreamtime)).into()
@@ -35616,7 +35616,7 @@ impl ISIInbandEPG {
     pub unsafe fn StopSIEPGScan(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StopSIEPGScan)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn IsSIEPGScanRunning(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn IsSIEPGScanRunning(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSIEPGScanRunning)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -35628,12 +35628,12 @@ pub struct ISIInbandEPG_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartSIEPGScan: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopSIEPGScan: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsSIEPGScanRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsSIEPGScanRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ISIInbandEPG_Impl: windows_core::IUnknownImpl {
     fn StartSIEPGScan(&self) -> windows_core::Result<()>;
     fn StopSIEPGScan(&self) -> windows_core::Result<()>;
-    fn IsSIEPGScanRunning(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn IsSIEPGScanRunning(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl ISIInbandEPG_Vtbl {
     pub const fn new<Identity: ISIInbandEPG_Impl, const OFFSET: isize>() -> Self {
@@ -35649,7 +35649,7 @@ impl ISIInbandEPG_Vtbl {
                 ISIInbandEPG_Impl::StopSIEPGScan(this).into()
             }
         }
-        unsafe extern "system" fn IsSIEPGScanRunning<Identity: ISIInbandEPG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brunning: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSIEPGScanRunning<Identity: ISIInbandEPG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brunning: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISIInbandEPG_Impl::IsSIEPGScanRunning(this) {
@@ -36379,7 +36379,7 @@ impl IStreamBufferConfigure3 {
     pub unsafe fn SetStartRecConfig(&self, fstartstopscur: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetStartRecConfig)(windows_core::Interface::as_raw(self), fstartstopscur.into()).ok() }
     }
-    pub unsafe fn GetStartRecConfig(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetStartRecConfig(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStartRecConfig)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -36401,26 +36401,26 @@ impl IStreamBufferConfigure3 {
 #[repr(C)]
 pub struct IStreamBufferConfigure3_Vtbl {
     pub base__: IStreamBufferConfigure2_Vtbl,
-    pub SetStartRecConfig: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetStartRecConfig: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetStartRecConfig: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetStartRecConfig: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IStreamBufferConfigure3_Impl: IStreamBufferConfigure2_Impl {
-    fn SetStartRecConfig(&self, fstartstopscur: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetStartRecConfig(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn SetStartRecConfig(&self, fstartstopscur: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetStartRecConfig(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetNamespace(&self, psznamespace: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetNamespace(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl IStreamBufferConfigure3_Vtbl {
     pub const fn new<Identity: IStreamBufferConfigure3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetStartRecConfig<Identity: IStreamBufferConfigure3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fstartstopscur: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStartRecConfig<Identity: IStreamBufferConfigure3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fstartstopscur: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStreamBufferConfigure3_Impl::SetStartRecConfig(this, core::mem::transmute_copy(&fstartstopscur)).into()
             }
         }
-        unsafe extern "system" fn GetStartRecConfig<Identity: IStreamBufferConfigure3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfstartstopscur: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStartRecConfig<Identity: IStreamBufferConfigure3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfstartstopscur: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStreamBufferConfigure3_Impl::GetStartRecConfig(this) {
@@ -36735,7 +36735,7 @@ impl IStreamBufferRecordControl {
     pub unsafe fn Stop(&self, rtstop: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), rtstop).ok() }
     }
-    pub unsafe fn GetRecordingStatus(&self, phresult: *mut windows_core::HRESULT, pbstarted: *mut super::super::super::Foundation::BOOL, pbstopped: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetRecordingStatus(&self, phresult: *mut windows_core::HRESULT, pbstarted: *mut windows_core::BOOL, pbstopped: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetRecordingStatus)(windows_core::Interface::as_raw(self), phresult as _, pbstarted as _, pbstopped as _).ok() }
     }
 }
@@ -36744,12 +36744,12 @@ pub struct IStreamBufferRecordControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    pub GetRecordingStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut super::super::super::Foundation::BOOL, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetRecordingStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut windows_core::BOOL, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IStreamBufferRecordControl_Impl: windows_core::IUnknownImpl {
     fn Start(&self, prtstart: *mut i64) -> windows_core::Result<()>;
     fn Stop(&self, rtstop: i64) -> windows_core::Result<()>;
-    fn GetRecordingStatus(&self, phresult: *mut windows_core::HRESULT, pbstarted: *mut super::super::super::Foundation::BOOL, pbstopped: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetRecordingStatus(&self, phresult: *mut windows_core::HRESULT, pbstarted: *mut windows_core::BOOL, pbstopped: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IStreamBufferRecordControl_Vtbl {
     pub const fn new<Identity: IStreamBufferRecordControl_Impl, const OFFSET: isize>() -> Self {
@@ -36765,7 +36765,7 @@ impl IStreamBufferRecordControl_Vtbl {
                 IStreamBufferRecordControl_Impl::Stop(this, core::mem::transmute_copy(&rtstop)).into()
             }
         }
-        unsafe extern "system" fn GetRecordingStatus<Identity: IStreamBufferRecordControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phresult: *mut windows_core::HRESULT, pbstarted: *mut super::super::super::Foundation::BOOL, pbstopped: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordingStatus<Identity: IStreamBufferRecordControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phresult: *mut windows_core::HRESULT, pbstarted: *mut windows_core::BOOL, pbstopped: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStreamBufferRecordControl_Impl::GetRecordingStatus(this, core::mem::transmute_copy(&phresult), core::mem::transmute_copy(&pbstarted), core::mem::transmute_copy(&pbstopped)).into()
@@ -39814,7 +39814,7 @@ pub const KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE: KSPROPERTY_BDA_FREQUENCY_FILTER
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
-    pub AutoDetect: super::super::super::Foundation::BOOL,
+    pub AutoDetect: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl Default for KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
@@ -40018,20 +40018,20 @@ pub const MPEG2TuneRequestFactory: windows_core::GUID = windows_core::GUID::from
 pub struct MPEG2_FILTER {
     pub bVersionNumber: u8,
     pub wFilterSize: u16,
-    pub fUseRawFilteringBits: super::super::super::Foundation::BOOL,
+    pub fUseRawFilteringBits: windows_core::BOOL,
     pub Filter: [u8; 16],
     pub Mask: [u8; 16],
-    pub fSpecifyTableIdExtension: super::super::super::Foundation::BOOL,
+    pub fSpecifyTableIdExtension: windows_core::BOOL,
     pub TableIdExtension: u16,
-    pub fSpecifyVersion: super::super::super::Foundation::BOOL,
+    pub fSpecifyVersion: windows_core::BOOL,
     pub Version: u8,
-    pub fSpecifySectionNumber: super::super::super::Foundation::BOOL,
+    pub fSpecifySectionNumber: windows_core::BOOL,
     pub SectionNumber: u8,
-    pub fSpecifyCurrentNext: super::super::super::Foundation::BOOL,
-    pub fNext: super::super::super::Foundation::BOOL,
-    pub fSpecifyDsmccOptions: super::super::super::Foundation::BOOL,
+    pub fSpecifyCurrentNext: windows_core::BOOL,
+    pub fNext: windows_core::BOOL,
+    pub fSpecifyDsmccOptions: windows_core::BOOL,
     pub Dsmcc: DSMCC_FILTER_OPTIONS,
-    pub fSpecifyAtscOptions: super::super::super::Foundation::BOOL,
+    pub fSpecifyAtscOptions: windows_core::BOOL,
     pub Atsc: ATSC_FILTER_OPTIONS,
 }
 impl Default for MPEG2_FILTER {
@@ -40043,7 +40043,7 @@ impl Default for MPEG2_FILTER {
 #[derive(Clone, Copy)]
 pub struct MPEG2_FILTER2 {
     pub Anonymous: MPEG2_FILTER2_0,
-    pub fSpecifyDvbEitOptions: super::super::super::Foundation::BOOL,
+    pub fSpecifyDvbEitOptions: windows_core::BOOL,
     pub DvbEit: DVB_EIT_FILTER_OPTIONS,
 }
 impl Default for MPEG2_FILTER2 {
@@ -40067,20 +40067,20 @@ impl Default for MPEG2_FILTER2_0 {
 pub struct MPEG2_FILTER2_0_0 {
     pub bVersionNumber: u8,
     pub wFilterSize: u16,
-    pub fUseRawFilteringBits: super::super::super::Foundation::BOOL,
+    pub fUseRawFilteringBits: windows_core::BOOL,
     pub Filter: [u8; 16],
     pub Mask: [u8; 16],
-    pub fSpecifyTableIdExtension: super::super::super::Foundation::BOOL,
+    pub fSpecifyTableIdExtension: windows_core::BOOL,
     pub TableIdExtension: u16,
-    pub fSpecifyVersion: super::super::super::Foundation::BOOL,
+    pub fSpecifyVersion: windows_core::BOOL,
     pub Version: u8,
-    pub fSpecifySectionNumber: super::super::super::Foundation::BOOL,
+    pub fSpecifySectionNumber: windows_core::BOOL,
     pub SectionNumber: u8,
-    pub fSpecifyCurrentNext: super::super::super::Foundation::BOOL,
-    pub fNext: super::super::super::Foundation::BOOL,
-    pub fSpecifyDsmccOptions: super::super::super::Foundation::BOOL,
+    pub fSpecifyCurrentNext: windows_core::BOOL,
+    pub fNext: windows_core::BOOL,
+    pub fSpecifyDsmccOptions: windows_core::BOOL,
     pub Dsmcc: DSMCC_FILTER_OPTIONS,
-    pub fSpecifyAtscOptions: super::super::super::Foundation::BOOL,
+    pub fSpecifyAtscOptions: windows_core::BOOL,
     pub Atsc: ATSC_FILTER_OPTIONS,
 }
 impl Default for MPEG2_FILTER2_0_0 {
@@ -40278,7 +40278,7 @@ impl Default for MPEG_STREAM_BUFFER {
 pub struct MPEG_STREAM_FILTER {
     pub wPidValue: u16,
     pub dwFilterSize: u32,
-    pub fCrcEnabled: super::super::super::Foundation::BOOL,
+    pub fCrcEnabled: windows_core::BOOL,
     pub rgchFilter: [u8; 16],
     pub rgchMask: [u8; 16],
 }
@@ -40890,7 +40890,7 @@ pub struct UDCR_TAG {
     pub KID: [u8; 25],
     pub ullBaseCounter: u64,
     pub ullBaseCounterRange: u64,
-    pub fScrambled: super::super::super::Foundation::BOOL,
+    pub fScrambled: windows_core::BOOL,
     pub bStreamMark: u8,
     pub dwReserved1: u32,
     pub dwReserved2: u32,

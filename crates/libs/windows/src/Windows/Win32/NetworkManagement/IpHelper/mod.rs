@@ -5,8 +5,8 @@ pub unsafe fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: 
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    windows_targets::link!("iphlpapi.dll" "system" fn CancelIPChangeNotify(notifyoverlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+pub unsafe fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System::IO::OVERLAPPED) -> windows_core::BOOL {
+    windows_targets::link!("iphlpapi.dll" "system" fn CancelIPChangeNotify(notifyoverlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_core::BOOL);
     unsafe { CancelIPChangeNotify(notifyoverlapped) }
 }
 #[inline]
@@ -353,12 +353,12 @@ pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> super::super::Found
 }
 #[inline]
 pub unsafe fn GetExtendedTcpTable(ptcptable: Option<*mut core::ffi::c_void>, pdwsize: *mut u32, border: bool, ulaf: u32, tableclass: TCP_TABLE_CLASS, reserved: u32) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetExtendedTcpTable(ptcptable : *mut core::ffi::c_void, pdwsize : *mut u32, border : super::super::Foundation:: BOOL, ulaf : u32, tableclass : TCP_TABLE_CLASS, reserved : u32) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetExtendedTcpTable(ptcptable : *mut core::ffi::c_void, pdwsize : *mut u32, border : windows_core::BOOL, ulaf : u32, tableclass : TCP_TABLE_CLASS, reserved : u32) -> u32);
     unsafe { GetExtendedTcpTable(ptcptable.unwrap_or(core::mem::zeroed()) as _, pdwsize as _, border.into(), ulaf, tableclass, reserved) }
 }
 #[inline]
 pub unsafe fn GetExtendedUdpTable(pudptable: Option<*mut core::ffi::c_void>, pdwsize: *mut u32, border: bool, ulaf: u32, tableclass: UDP_TABLE_CLASS, reserved: u32) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetExtendedUdpTable(pudptable : *mut core::ffi::c_void, pdwsize : *mut u32, border : super::super::Foundation:: BOOL, ulaf : u32, tableclass : UDP_TABLE_CLASS, reserved : u32) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetExtendedUdpTable(pudptable : *mut core::ffi::c_void, pdwsize : *mut u32, border : windows_core::BOOL, ulaf : u32, tableclass : UDP_TABLE_CLASS, reserved : u32) -> u32);
     unsafe { GetExtendedUdpTable(pudptable.unwrap_or(core::mem::zeroed()) as _, pdwsize as _, border.into(), ulaf, tableclass, reserved) }
 }
 #[inline]
@@ -400,7 +400,7 @@ pub unsafe fn GetIfStackTable(table: *mut *mut MIB_IFSTACK_TABLE) -> super::supe
 }
 #[inline]
 pub unsafe fn GetIfTable(piftable: Option<*mut MIB_IFTABLE>, pdwsize: *mut u32, border: bool) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetIfTable(piftable : *mut MIB_IFTABLE, pdwsize : *mut u32, border : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetIfTable(piftable : *mut MIB_IFTABLE, pdwsize : *mut u32, border : windows_core::BOOL) -> u32);
     unsafe { GetIfTable(piftable.unwrap_or(core::mem::zeroed()) as _, pdwsize as _, border.into()) }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -456,7 +456,7 @@ pub unsafe fn GetInvertedIfStackTable(table: *mut *mut MIB_INVERTEDIFSTACK_TABLE
 }
 #[inline]
 pub unsafe fn GetIpAddrTable(pipaddrtable: Option<*mut MIB_IPADDRTABLE>, pdwsize: *mut u32, border: bool) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetIpAddrTable(pipaddrtable : *mut MIB_IPADDRTABLE, pdwsize : *mut u32, border : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetIpAddrTable(pipaddrtable : *mut MIB_IPADDRTABLE, pdwsize : *mut u32, border : windows_core::BOOL) -> u32);
     unsafe { GetIpAddrTable(pipaddrtable.unwrap_or(core::mem::zeroed()) as _, pdwsize as _, border.into()) }
 }
 #[inline]
@@ -473,7 +473,7 @@ pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> super::super::
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetIpForwardTable(pipforwardtable: Option<*mut MIB_IPFORWARDTABLE>, pdwsize: *mut u32, border: bool) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetIpForwardTable(pipforwardtable : *mut MIB_IPFORWARDTABLE, pdwsize : *mut u32, border : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetIpForwardTable(pipforwardtable : *mut MIB_IPFORWARDTABLE, pdwsize : *mut u32, border : windows_core::BOOL) -> u32);
     unsafe { GetIpForwardTable(pipforwardtable.unwrap_or(core::mem::zeroed()) as _, pdwsize as _, border.into()) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -502,7 +502,7 @@ pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> super::super::Foundati
 }
 #[inline]
 pub unsafe fn GetIpNetTable(ipnettable: Option<*mut MIB_IPNETTABLE>, sizepointer: *mut u32, order: bool) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetIpNetTable(ipnettable : *mut MIB_IPNETTABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetIpNetTable(ipnettable : *mut MIB_IPNETTABLE, sizepointer : *mut u32, order : windows_core::BOOL) -> u32);
     unsafe { GetIpNetTable(ipnettable.unwrap_or(core::mem::zeroed()) as _, sizepointer as _, order.into()) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -655,7 +655,7 @@ pub unsafe fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: T
 }
 #[inline]
 pub unsafe fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> windows_core::Result<()> {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetRTTAndHopCount(destipaddress : u32, hopcount : *mut u32, maxhops : u32, rtt : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetRTTAndHopCount(destipaddress : u32, hopcount : *mut u32, maxhops : u32, rtt : *mut u32) -> windows_core::BOOL);
     unsafe { GetRTTAndHopCount(destipaddress, hopcount as _, maxhops, rtt as _).ok() }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -667,13 +667,13 @@ pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> super::Ndis::NET_IF_COM
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetTcp6Table(tcptable: *mut MIB_TCP6TABLE, sizepointer: *mut u32, order: bool) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetTcp6Table(tcptable : *mut MIB_TCP6TABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetTcp6Table(tcptable : *mut MIB_TCP6TABLE, sizepointer : *mut u32, order : windows_core::BOOL) -> u32);
     unsafe { GetTcp6Table(tcptable as _, sizepointer as _, order.into()) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetTcp6Table2(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut u32, order: bool) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetTcp6Table2(tcptable : *mut MIB_TCP6TABLE2, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetTcp6Table2(tcptable : *mut MIB_TCP6TABLE2, sizepointer : *mut u32, order : windows_core::BOOL) -> u32);
     unsafe { GetTcp6Table2(tcptable as _, sizepointer as _, order.into()) }
 }
 #[inline]
@@ -693,12 +693,12 @@ pub unsafe fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: u32) -
 }
 #[inline]
 pub unsafe fn GetTcpTable(tcptable: Option<*mut MIB_TCPTABLE>, sizepointer: *mut u32, order: bool) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetTcpTable(tcptable : *mut MIB_TCPTABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetTcpTable(tcptable : *mut MIB_TCPTABLE, sizepointer : *mut u32, order : windows_core::BOOL) -> u32);
     unsafe { GetTcpTable(tcptable.unwrap_or(core::mem::zeroed()) as _, sizepointer as _, order.into()) }
 }
 #[inline]
 pub unsafe fn GetTcpTable2(tcptable: Option<*mut MIB_TCPTABLE2>, sizepointer: *mut u32, order: bool) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetTcpTable2(tcptable : *mut MIB_TCPTABLE2, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetTcpTable2(tcptable : *mut MIB_TCPTABLE2, sizepointer : *mut u32, order : windows_core::BOOL) -> u32);
     unsafe { GetTcpTable2(tcptable.unwrap_or(core::mem::zeroed()) as _, sizepointer as _, order.into()) }
 }
 #[inline]
@@ -709,7 +709,7 @@ pub unsafe fn GetTeredoPort(port: *mut u16) -> super::super::Foundation::WIN32_E
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetUdp6Table(udp6table: Option<*mut MIB_UDP6TABLE>, sizepointer: *mut u32, order: bool) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetUdp6Table(udp6table : *mut MIB_UDP6TABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetUdp6Table(udp6table : *mut MIB_UDP6TABLE, sizepointer : *mut u32, order : windows_core::BOOL) -> u32);
     unsafe { GetUdp6Table(udp6table.unwrap_or(core::mem::zeroed()) as _, sizepointer as _, order.into()) }
 }
 #[inline]
@@ -729,7 +729,7 @@ pub unsafe fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: u32) -
 }
 #[inline]
 pub unsafe fn GetUdpTable(udptable: Option<*mut MIB_UDPTABLE>, sizepointer: *mut u32, order: bool) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetUdpTable(udptable : *mut MIB_UDPTABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetUdpTable(udptable : *mut MIB_UDPTABLE, sizepointer : *mut u32, order : windows_core::BOOL) -> u32);
     unsafe { GetUdpTable(udptable.unwrap_or(core::mem::zeroed()) as _, sizepointer as _, order.into()) }
 }
 #[inline]
@@ -768,7 +768,7 @@ pub unsafe fn Icmp6SendEcho2(icmphandle: super::super::Foundation::HANDLE, event
 }
 #[inline]
 pub unsafe fn IcmpCloseHandle(icmphandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_targets::link!("iphlpapi.dll" "system" fn IcmpCloseHandle(icmphandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("iphlpapi.dll" "system" fn IcmpCloseHandle(icmphandle : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { IcmpCloseHandle(icmphandle).ok() }
 }
 #[inline]
@@ -839,7 +839,7 @@ pub unsafe fn LookupPersistentUdpPortReservation(startport: u16, numberofports: 
 }
 #[inline]
 pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack(pptable: *mut *mut IP_INTERFACE_NAME_INFO_W2KSP1, pdwcount: *mut u32, border: bool, hheap: super::super::Foundation::HANDLE, dwflags: u32) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn NhpAllocateAndGetInterfaceInfoFromStack(pptable : *mut *mut IP_INTERFACE_NAME_INFO_W2KSP1, pdwcount : *mut u32, border : super::super::Foundation:: BOOL, hheap : super::super::Foundation:: HANDLE, dwflags : u32) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn NhpAllocateAndGetInterfaceInfoFromStack(pptable : *mut *mut IP_INTERFACE_NAME_INFO_W2KSP1, pdwcount : *mut u32, border : windows_core::BOOL, hheap : super::super::Foundation:: HANDLE, dwflags : u32) -> u32);
     unsafe { NhpAllocateAndGetInterfaceInfoFromStack(pptable as _, pdwcount as _, border.into(), hheap, dwflags) }
 }
 #[cfg(feature = "Win32_System_IO")]
@@ -925,7 +925,7 @@ pub unsafe fn PfBindInterfaceToIndex(pinterface: *mut core::ffi::c_void, dwindex
 }
 #[inline]
 pub unsafe fn PfCreateInterface(dwname: u32, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: bool, bmustbeunique: bool, ppinterface: *mut *mut core::ffi::c_void) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn PfCreateInterface(dwname : u32, inaction : PFFORWARD_ACTION, outaction : PFFORWARD_ACTION, buselog : super::super::Foundation:: BOOL, bmustbeunique : super::super::Foundation:: BOOL, ppinterface : *mut *mut core::ffi::c_void) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn PfCreateInterface(dwname : u32, inaction : PFFORWARD_ACTION, outaction : PFFORWARD_ACTION, buselog : windows_core::BOOL, bmustbeunique : windows_core::BOOL, ppinterface : *mut *mut core::ffi::c_void) -> u32);
     unsafe { PfCreateInterface(dwname, inaction, outaction, buselog.into(), bmustbeunique.into(), ppinterface as _) }
 }
 #[inline]
@@ -940,7 +940,7 @@ pub unsafe fn PfDeleteLog() -> u32 {
 }
 #[inline]
 pub unsafe fn PfGetInterfaceStatistics(pinterface: *mut core::ffi::c_void, ppfstats: *mut PF_INTERFACE_STATS, pdwbuffersize: *mut u32, fresetcounters: bool) -> u32 {
-    windows_targets::link!("iphlpapi.dll" "system" fn PfGetInterfaceStatistics(pinterface : *mut core::ffi::c_void, ppfstats : *mut PF_INTERFACE_STATS, pdwbuffersize : *mut u32, fresetcounters : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn PfGetInterfaceStatistics(pinterface : *mut core::ffi::c_void, ppfstats : *mut PF_INTERFACE_STATS, pdwbuffersize : *mut u32, fresetcounters : windows_core::BOOL) -> u32);
     unsafe { PfGetInterfaceStatistics(pinterface as _, ppfstats as _, pdwbuffersize as _, fresetcounters.into()) }
 }
 #[inline]
@@ -2163,7 +2163,7 @@ pub struct IP_ADAPTER_INFO {
     pub IpAddressList: IP_ADDR_STRING,
     pub GatewayList: IP_ADDR_STRING,
     pub DhcpServer: IP_ADDR_STRING,
-    pub HaveWins: super::super::Foundation::BOOL,
+    pub HaveWins: windows_core::BOOL,
     pub PrimaryWinsServer: IP_ADDR_STRING,
     pub SecondaryWinsServer: IP_ADDR_STRING,
     pub LeaseObtained: i64,
@@ -2836,8 +2836,8 @@ pub struct MIB_IFSTATUS {
     pub dwIfIndex: u32,
     pub dwAdminStatus: u32,
     pub dwOperationalStatus: u32,
-    pub bMHbeatActive: super::super::Foundation::BOOL,
-    pub bMHbeatAlive: super::super::Foundation::BOOL,
+    pub bMHbeatActive: windows_core::BOOL,
+    pub bMHbeatAlive: windows_core::BOOL,
 }
 impl Default for MIB_IFSTATUS {
     fn default() -> Self {
@@ -3832,7 +3832,7 @@ impl Default for MIB_PROXYARP {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIB_ROUTESTATE {
-    pub bRoutesSetToStack: super::super::Foundation::BOOL,
+    pub bRoutesSetToStack: windows_core::BOOL,
 }
 impl Default for MIB_ROUTESTATE {
     fn default() -> Self {

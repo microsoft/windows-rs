@@ -629,7 +629,7 @@ pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
     pub hDrop: super::super::super::Foundation::HANDLE,
     pub cp: i32,
-    pub fProtected: super::super::super::Foundation::BOOL,
+    pub fProtected: windows_core::BOOL,
 }
 #[cfg(target_arch = "x86")]
 impl Default for ENDROPFILES {
@@ -644,7 +644,7 @@ pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
     pub hDrop: super::super::super::Foundation::HANDLE,
     pub cp: i32,
-    pub fProtected: super::super::super::Foundation::BOOL,
+    pub fProtected: windows_core::BOOL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for ENDROPFILES {
@@ -1049,7 +1049,7 @@ pub struct GETTEXTEX {
     pub flags: GETTEXTEX_FLAGS,
     pub codepage: u32,
     pub lpDefaultChar: windows_core::PCSTR,
-    pub lpUsedDefChar: *mut super::super::super::Foundation::BOOL,
+    pub lpUsedDefChar: *mut windows_core::BOOL,
 }
 #[cfg(target_arch = "x86")]
 impl Default for GETTEXTEX {
@@ -1065,7 +1065,7 @@ pub struct GETTEXTEX {
     pub flags: GETTEXTEX_FLAGS,
     pub codepage: u32,
     pub lpDefaultChar: windows_core::PCSTR,
-    pub lpUsedDefChar: *mut super::super::super::Foundation::BOOL,
+    pub lpUsedDefChar: *mut windows_core::BOOL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for GETTEXTEX {
@@ -1127,7 +1127,7 @@ impl core::ops::Not for GETTEXTLENGTHEX_FLAGS {
 #[derive(Clone, Copy)]
 pub struct GROUPTYPINGCHANGE {
     pub nmhdr: super::NMHDR,
-    pub fGroupTyping: super::super::super::Foundation::BOOL,
+    pub fGroupTyping: windows_core::BOOL,
 }
 impl Default for GROUPTYPINGCHANGE {
     fn default() -> Self {
@@ -1324,7 +1324,7 @@ pub struct IRichEditOle_Vtbl {
     pub ConvertObject: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, windows_core::PCSTR) -> windows_core::HRESULT,
     pub ActivateAs: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID) -> windows_core::HRESULT,
     pub SetHostNames: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub SetLinkAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetLinkAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetDvaspect: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32) -> windows_core::HRESULT,
     pub HandsOffStorage: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1332,7 +1332,7 @@ pub struct IRichEditOle_Vtbl {
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     SaveCompleted: usize,
     pub InPlaceDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ContextSensitiveHelp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ContextSensitiveHelp: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetClipboardData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CHARRANGE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1352,12 +1352,12 @@ pub trait IRichEditOle_Impl: windows_core::IUnknownImpl {
     fn ConvertObject(&self, iob: i32, rclsidnew: *const windows_core::GUID, lpstrusertypenew: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn ActivateAs(&self, rclsid: *const windows_core::GUID, rclsidas: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SetHostNames(&self, lpstrcontainerapp: &windows_core::PCSTR, lpstrcontainerobj: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn SetLinkAvailable(&self, iob: i32, favailable: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetLinkAvailable(&self, iob: i32, favailable: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetDvaspect(&self, iob: i32, dvaspect: u32) -> windows_core::Result<()>;
     fn HandsOffStorage(&self, iob: i32) -> windows_core::Result<()>;
     fn SaveCompleted(&self, iob: i32, lpstg: windows_core::Ref<super::super::super::System::Com::StructuredStorage::IStorage>) -> windows_core::Result<()>;
     fn InPlaceDeactivate(&self) -> windows_core::Result<()>;
-    fn ContextSensitiveHelp(&self, fentermode: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ContextSensitiveHelp(&self, fentermode: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: windows_core::OutRef<'_, super::super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
     fn ImportDataObject(&self, lpdataobj: windows_core::Ref<super::super::super::System::Com::IDataObject>, cf: u16, hmetapict: super::super::super::Foundation::HGLOBAL) -> windows_core::Result<()>;
 }
@@ -1418,7 +1418,7 @@ impl IRichEditOle_Vtbl {
                 IRichEditOle_Impl::SetHostNames(this, core::mem::transmute(&lpstrcontainerapp), core::mem::transmute(&lpstrcontainerobj)).into()
             }
         }
-        unsafe extern "system" fn SetLinkAvailable<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iob: i32, favailable: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLinkAvailable<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iob: i32, favailable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRichEditOle_Impl::SetLinkAvailable(this, core::mem::transmute_copy(&iob), core::mem::transmute_copy(&favailable)).into()
@@ -1448,7 +1448,7 @@ impl IRichEditOle_Vtbl {
                 IRichEditOle_Impl::InPlaceDeactivate(this).into()
             }
         }
-        unsafe extern "system" fn ContextSensitiveHelp<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fentermode: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ContextSensitiveHelp<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fentermode: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRichEditOle_Impl::ContextSensitiveHelp(this, core::mem::transmute_copy(&fentermode)).into()
@@ -1560,7 +1560,7 @@ pub struct IRichEditOleCallback_Vtbl {
     pub GetInPlaceContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::super::super::System::Ole::OLEINPLACEFRAMEINFO) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging")))]
     GetInPlaceContext: usize,
-    pub ShowContainerUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ShowContainerUI: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub QueryInsertObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
@@ -1570,16 +1570,16 @@ pub struct IRichEditOleCallback_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     DeleteObject: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-    pub QueryAcceptData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u16, super::super::super::System::SystemServices::RECO_FLAGS, super::super::super::Foundation::BOOL, super::super::super::Foundation::HGLOBAL) -> windows_core::HRESULT,
+    pub QueryAcceptData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u16, super::super::super::System::SystemServices::RECO_FLAGS, windows_core::BOOL, super::super::super::Foundation::HGLOBAL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices")))]
     QueryAcceptData: usize,
-    pub ContextSensitiveHelp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ContextSensitiveHelp: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetClipboardData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CHARRANGE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetClipboardData: usize,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_SystemServices"))]
-    pub GetDragDropEffect: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL, super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::HRESULT,
+    pub GetDragDropEffect: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_SystemServices")))]
     GetDragDropEffect: usize,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1591,13 +1591,13 @@ pub struct IRichEditOleCallback_Vtbl {
 pub trait IRichEditOleCallback_Impl: windows_core::IUnknownImpl {
     fn GetNewStorage(&self) -> windows_core::Result<super::super::super::System::Com::StructuredStorage::IStorage>;
     fn GetInPlaceContext(&self, lplpframe: windows_core::OutRef<'_, super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: windows_core::OutRef<'_, super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OLEINPLACEFRAMEINFO) -> windows_core::Result<()>;
-    fn ShowContainerUI(&self, fshow: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ShowContainerUI(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn QueryInsertObject(&self, lpclsid: *mut windows_core::GUID, lpstg: windows_core::Ref<super::super::super::System::Com::StructuredStorage::IStorage>, cp: i32) -> windows_core::Result<()>;
     fn DeleteObject(&self, lpoleobj: windows_core::Ref<super::super::super::System::Ole::IOleObject>) -> windows_core::Result<()>;
-    fn QueryAcceptData(&self, lpdataobj: windows_core::Ref<super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: super::super::super::Foundation::HGLOBAL) -> windows_core::Result<()>;
-    fn ContextSensitiveHelp(&self, fentermode: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn QueryAcceptData(&self, lpdataobj: windows_core::Ref<super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: windows_core::BOOL, hmetapict: super::super::super::Foundation::HGLOBAL) -> windows_core::Result<()>;
+    fn ContextSensitiveHelp(&self, fentermode: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: windows_core::OutRef<'_, super::super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
-    fn GetDragDropEffect(&self, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()>;
+    fn GetDragDropEffect(&self, fdrag: windows_core::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()>;
     fn GetContextMenu(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: windows_core::Ref<super::super::super::System::Ole::IOleObject>, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1621,7 +1621,7 @@ impl IRichEditOleCallback_Vtbl {
                 IRichEditOleCallback_Impl::GetInPlaceContext(this, core::mem::transmute_copy(&lplpframe), core::mem::transmute_copy(&lplpdoc), core::mem::transmute_copy(&lpframeinfo)).into()
             }
         }
-        unsafe extern "system" fn ShowContainerUI<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ShowContainerUI<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRichEditOleCallback_Impl::ShowContainerUI(this, core::mem::transmute_copy(&fshow)).into()
@@ -1639,13 +1639,13 @@ impl IRichEditOleCallback_Vtbl {
                 IRichEditOleCallback_Impl::DeleteObject(this, core::mem::transmute_copy(&lpoleobj)).into()
             }
         }
-        unsafe extern "system" fn QueryAcceptData<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdataobj: *mut core::ffi::c_void, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: super::super::super::Foundation::HGLOBAL) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryAcceptData<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdataobj: *mut core::ffi::c_void, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: windows_core::BOOL, hmetapict: super::super::super::Foundation::HGLOBAL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRichEditOleCallback_Impl::QueryAcceptData(this, core::mem::transmute_copy(&lpdataobj), core::mem::transmute_copy(&lpcfformat), core::mem::transmute_copy(&reco), core::mem::transmute_copy(&freally), core::mem::transmute_copy(&hmetapict)).into()
             }
         }
-        unsafe extern "system" fn ContextSensitiveHelp<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fentermode: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ContextSensitiveHelp<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fentermode: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRichEditOleCallback_Impl::ContextSensitiveHelp(this, core::mem::transmute_copy(&fentermode)).into()
@@ -1657,7 +1657,7 @@ impl IRichEditOleCallback_Vtbl {
                 IRichEditOleCallback_Impl::GetClipboardData(this, core::mem::transmute_copy(&lpchrg), core::mem::transmute_copy(&reco), core::mem::transmute_copy(&lplpdataobj)).into()
             }
         }
-        unsafe extern "system" fn GetDragDropEffect<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDragDropEffect<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdrag: windows_core::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRichEditOleCallback_Impl::GetDragDropEffect(this, core::mem::transmute_copy(&fdrag), core::mem::transmute_copy(&grfkeystate), core::mem::transmute_copy(&pdweffect)).into()
@@ -5102,17 +5102,17 @@ impl ITextHost {
     pub unsafe fn TxReleaseDC(&self, hdc: super::super::super::Graphics::Gdi::HDC) -> i32 {
         unsafe { (windows_core::Interface::vtable(self).TxReleaseDC)(windows_core::Interface::as_raw(self), hdc) }
     }
-    pub unsafe fn TxShowScrollBar(&self, fnbar: i32, fshow: bool) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn TxShowScrollBar(&self, fnbar: i32, fshow: bool) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxShowScrollBar)(windows_core::Interface::as_raw(self), fnbar, fshow.into()) }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: i32) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: i32) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxEnableScrollBar)(windows_core::Interface::as_raw(self), fusbflags, fuarrowflags) }
     }
-    pub unsafe fn TxSetScrollRange(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: bool) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn TxSetScrollRange(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: bool) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxSetScrollRange)(windows_core::Interface::as_raw(self), fnbar, nminpos, nmaxpos, fredraw.into()) }
     }
-    pub unsafe fn TxSetScrollPos(&self, fnbar: i32, npos: i32, fredraw: bool) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn TxSetScrollPos(&self, fnbar: i32, npos: i32, fredraw: bool) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxSetScrollPos)(windows_core::Interface::as_raw(self), fnbar, npos, fredraw.into()) }
     }
     pub unsafe fn TxInvalidateRect(&self, prc: *mut super::super::super::Foundation::RECT, fmode: bool) {
@@ -5122,16 +5122,16 @@ impl ITextHost {
         unsafe { (windows_core::Interface::vtable(self).TxViewChange)(windows_core::Interface::as_raw(self), fupdate.into()) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn TxCreateCaret(&self, hbmp: super::super::super::Graphics::Gdi::HBITMAP, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn TxCreateCaret(&self, hbmp: super::super::super::Graphics::Gdi::HBITMAP, xwidth: i32, yheight: i32) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxCreateCaret)(windows_core::Interface::as_raw(self), hbmp, xwidth, yheight) }
     }
-    pub unsafe fn TxShowCaret(&self, fshow: bool) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn TxShowCaret(&self, fshow: bool) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxShowCaret)(windows_core::Interface::as_raw(self), fshow.into()) }
     }
-    pub unsafe fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn TxSetCaretPos(&self, x: i32, y: i32) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxSetCaretPos)(windows_core::Interface::as_raw(self), x, y) }
     }
-    pub unsafe fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxSetTimer)(windows_core::Interface::as_raw(self), idtimer, utimeout) }
     }
     pub unsafe fn TxKillTimer(&self, idtimer: u32) {
@@ -5151,10 +5151,10 @@ impl ITextHost {
     pub unsafe fn TxSetCursor(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: bool) {
         unsafe { (windows_core::Interface::vtable(self).TxSetCursor)(windows_core::Interface::as_raw(self), hcur, ftext.into()) }
     }
-    pub unsafe fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxScreenToClient)(windows_core::Interface::as_raw(self), lppt as _) }
     }
-    pub unsafe fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxClientToScreen)(windows_core::Interface::as_raw(self), lppt as _) }
     }
     pub unsafe fn TxActivate(&self, ploldstate: *mut i32) -> windows_core::Result<()> {
@@ -5237,35 +5237,35 @@ pub struct ITextHost_Vtbl {
     pub TxReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Graphics::Gdi::HDC) -> i32,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     TxReleaseDC: usize,
-    pub TxShowScrollBar: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL,
+    pub TxShowScrollBar: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::BOOL) -> windows_core::BOOL,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub TxEnableScrollBar: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, i32) -> super::super::super::Foundation::BOOL,
+    pub TxEnableScrollBar: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, i32) -> windows_core::BOOL,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     TxEnableScrollBar: usize,
-    pub TxSetScrollRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL,
-    pub TxSetScrollPos: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL,
-    pub TxInvalidateRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::RECT, super::super::super::Foundation::BOOL),
-    pub TxViewChange: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL),
+    pub TxSetScrollRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, windows_core::BOOL) -> windows_core::BOOL,
+    pub TxSetScrollPos: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, windows_core::BOOL) -> windows_core::BOOL,
+    pub TxInvalidateRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::RECT, windows_core::BOOL),
+    pub TxViewChange: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub TxCreateCaret: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Graphics::Gdi::HBITMAP, i32, i32) -> super::super::super::Foundation::BOOL,
+    pub TxCreateCaret: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Graphics::Gdi::HBITMAP, i32, i32) -> windows_core::BOOL,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     TxCreateCaret: usize,
-    pub TxShowCaret: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL,
-    pub TxSetCaretPos: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> super::super::super::Foundation::BOOL,
-    pub TxSetTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> super::super::super::Foundation::BOOL,
+    pub TxShowCaret: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::BOOL,
+    pub TxSetCaretPos: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::BOOL,
+    pub TxSetTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
     pub TxKillTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub TxScrollWindowEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut super::super::super::Foundation::RECT, *mut super::super::super::Foundation::RECT, super::super::super::Graphics::Gdi::HRGN, *mut super::super::super::Foundation::RECT, super::super::WindowsAndMessaging::SCROLL_WINDOW_FLAGS),
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging")))]
     TxScrollWindowEx: usize,
-    pub TxSetCapture: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL),
+    pub TxSetCapture: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
     pub TxSetFocus: unsafe extern "system" fn(*mut core::ffi::c_void),
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub TxSetCursor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::WindowsAndMessaging::HCURSOR, super::super::super::Foundation::BOOL),
+    pub TxSetCursor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::WindowsAndMessaging::HCURSOR, windows_core::BOOL),
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     TxSetCursor: usize,
-    pub TxScreenToClient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL,
-    pub TxClientToScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL,
+    pub TxScreenToClient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::POINT) -> windows_core::BOOL,
+    pub TxClientToScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::POINT) -> windows_core::BOOL,
     pub TxActivate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub TxDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub TxGetClientRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::RECT) -> windows_core::HRESULT,
@@ -5306,23 +5306,23 @@ pub struct ITextHost_Vtbl {
 pub trait ITextHost_Impl: windows_core::IUnknownImpl {
     fn TxGetDC(&self) -> super::super::super::Graphics::Gdi::HDC;
     fn TxReleaseDC(&self, hdc: super::super::super::Graphics::Gdi::HDC) -> i32;
-    fn TxShowScrollBar(&self, fnbar: i32, fshow: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-    fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: i32) -> super::super::super::Foundation::BOOL;
-    fn TxSetScrollRange(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-    fn TxSetScrollPos(&self, fnbar: i32, npos: i32, fredraw: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-    fn TxInvalidateRect(&self, prc: *mut super::super::super::Foundation::RECT, fmode: super::super::super::Foundation::BOOL);
-    fn TxViewChange(&self, fupdate: super::super::super::Foundation::BOOL);
-    fn TxCreateCaret(&self, hbmp: super::super::super::Graphics::Gdi::HBITMAP, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL;
-    fn TxShowCaret(&self, fshow: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-    fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL;
-    fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL;
+    fn TxShowScrollBar(&self, fnbar: i32, fshow: windows_core::BOOL) -> windows_core::BOOL;
+    fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: i32) -> windows_core::BOOL;
+    fn TxSetScrollRange(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: windows_core::BOOL) -> windows_core::BOOL;
+    fn TxSetScrollPos(&self, fnbar: i32, npos: i32, fredraw: windows_core::BOOL) -> windows_core::BOOL;
+    fn TxInvalidateRect(&self, prc: *mut super::super::super::Foundation::RECT, fmode: windows_core::BOOL);
+    fn TxViewChange(&self, fupdate: windows_core::BOOL);
+    fn TxCreateCaret(&self, hbmp: super::super::super::Graphics::Gdi::HBITMAP, xwidth: i32, yheight: i32) -> windows_core::BOOL;
+    fn TxShowCaret(&self, fshow: windows_core::BOOL) -> windows_core::BOOL;
+    fn TxSetCaretPos(&self, x: i32, y: i32) -> windows_core::BOOL;
+    fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> windows_core::BOOL;
     fn TxKillTimer(&self, idtimer: u32);
     fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SCROLL_WINDOW_FLAGS);
-    fn TxSetCapture(&self, fcapture: super::super::super::Foundation::BOOL);
+    fn TxSetCapture(&self, fcapture: windows_core::BOOL);
     fn TxSetFocus(&self);
-    fn TxSetCursor(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: super::super::super::Foundation::BOOL);
-    fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
-    fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
+    fn TxSetCursor(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: windows_core::BOOL);
+    fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL;
+    fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL;
     fn TxActivate(&self, ploldstate: *mut i32) -> windows_core::Result<()>;
     fn TxDeactivate(&self, lnewstate: i32) -> windows_core::Result<()>;
     fn TxGetClientRect(&self, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()>;
@@ -5359,61 +5359,61 @@ impl ITextHost_Vtbl {
                 ITextHost_Impl::TxReleaseDC(this, core::mem::transmute_copy(&hdc))
             }
         }
-        unsafe extern "system" fn TxShowScrollBar<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fnbar: i32, fshow: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn TxShowScrollBar<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fnbar: i32, fshow: windows_core::BOOL) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxShowScrollBar(this, core::mem::transmute_copy(&fnbar), core::mem::transmute_copy(&fshow))
             }
         }
-        unsafe extern "system" fn TxEnableScrollBar<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: i32) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn TxEnableScrollBar<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: i32) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxEnableScrollBar(this, core::mem::transmute_copy(&fusbflags), core::mem::transmute_copy(&fuarrowflags))
             }
         }
-        unsafe extern "system" fn TxSetScrollRange<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn TxSetScrollRange<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: windows_core::BOOL) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxSetScrollRange(this, core::mem::transmute_copy(&fnbar), core::mem::transmute_copy(&nminpos), core::mem::transmute_copy(&nmaxpos), core::mem::transmute_copy(&fredraw))
             }
         }
-        unsafe extern "system" fn TxSetScrollPos<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fnbar: i32, npos: i32, fredraw: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn TxSetScrollPos<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fnbar: i32, npos: i32, fredraw: windows_core::BOOL) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxSetScrollPos(this, core::mem::transmute_copy(&fnbar), core::mem::transmute_copy(&npos), core::mem::transmute_copy(&fredraw))
             }
         }
-        unsafe extern "system" fn TxInvalidateRect<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *mut super::super::super::Foundation::RECT, fmode: super::super::super::Foundation::BOOL) {
+        unsafe extern "system" fn TxInvalidateRect<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *mut super::super::super::Foundation::RECT, fmode: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxInvalidateRect(this, core::mem::transmute_copy(&prc), core::mem::transmute_copy(&fmode))
             }
         }
-        unsafe extern "system" fn TxViewChange<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fupdate: super::super::super::Foundation::BOOL) {
+        unsafe extern "system" fn TxViewChange<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fupdate: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxViewChange(this, core::mem::transmute_copy(&fupdate))
             }
         }
-        unsafe extern "system" fn TxCreateCaret<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hbmp: super::super::super::Graphics::Gdi::HBITMAP, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn TxCreateCaret<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hbmp: super::super::super::Graphics::Gdi::HBITMAP, xwidth: i32, yheight: i32) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxCreateCaret(this, core::mem::transmute_copy(&hbmp), core::mem::transmute_copy(&xwidth), core::mem::transmute_copy(&yheight))
             }
         }
-        unsafe extern "system" fn TxShowCaret<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn TxShowCaret<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: windows_core::BOOL) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxShowCaret(this, core::mem::transmute_copy(&fshow))
             }
         }
-        unsafe extern "system" fn TxSetCaretPos<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn TxSetCaretPos<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxSetCaretPos(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y))
             }
         }
-        unsafe extern "system" fn TxSetTimer<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn TxSetTimer<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idtimer: u32, utimeout: u32) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxSetTimer(this, core::mem::transmute_copy(&idtimer), core::mem::transmute_copy(&utimeout))
@@ -5431,7 +5431,7 @@ impl ITextHost_Vtbl {
                 ITextHost_Impl::TxScrollWindowEx(this, core::mem::transmute_copy(&dx), core::mem::transmute_copy(&dy), core::mem::transmute_copy(&lprcscroll), core::mem::transmute_copy(&lprcclip), core::mem::transmute_copy(&hrgnupdate), core::mem::transmute_copy(&lprcupdate), core::mem::transmute_copy(&fuscroll))
             }
         }
-        unsafe extern "system" fn TxSetCapture<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fcapture: super::super::super::Foundation::BOOL) {
+        unsafe extern "system" fn TxSetCapture<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fcapture: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxSetCapture(this, core::mem::transmute_copy(&fcapture))
@@ -5443,19 +5443,19 @@ impl ITextHost_Vtbl {
                 ITextHost_Impl::TxSetFocus(this)
             }
         }
-        unsafe extern "system" fn TxSetCursor<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: super::super::super::Foundation::BOOL) {
+        unsafe extern "system" fn TxSetCursor<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxSetCursor(this, core::mem::transmute_copy(&hcur), core::mem::transmute_copy(&ftext))
             }
         }
-        unsafe extern "system" fn TxScreenToClient<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn TxScreenToClient<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lppt: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxScreenToClient(this, core::mem::transmute_copy(&lppt))
             }
         }
-        unsafe extern "system" fn TxClientToScreen<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn TxClientToScreen<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lppt: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxClientToScreen(this, core::mem::transmute_copy(&lppt))
@@ -5645,7 +5645,7 @@ impl core::ops::Deref for ITextHost2 {
 }
 windows_core::imp::interface_hierarchy!(ITextHost2, windows_core::IUnknown, ITextHost);
 impl ITextHost2 {
-    pub unsafe fn TxIsDoubleClickPending(&self) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn TxIsDoubleClickPending(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxIsDoubleClickPending)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn TxGetWindow(&self, phwnd: *mut super::super::super::Foundation::HWND) -> windows_core::Result<()> {
@@ -5688,7 +5688,7 @@ impl ITextHost2 {
 #[repr(C)]
 pub struct ITextHost2_Vtbl {
     pub base__: ITextHost_Vtbl,
-    pub TxIsDoubleClickPending: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::super::Foundation::BOOL,
+    pub TxIsDoubleClickPending: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub TxGetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub TxSetForegroundWindow: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5697,14 +5697,14 @@ pub struct ITextHost2_Vtbl {
     TxGetPalette: usize,
     pub TxGetEastAsianFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub TxSetCursor2: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::WindowsAndMessaging::HCURSOR, super::super::super::Foundation::BOOL) -> super::super::WindowsAndMessaging::HCURSOR,
+    pub TxSetCursor2: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::WindowsAndMessaging::HCURSOR, windows_core::BOOL) -> super::super::WindowsAndMessaging::HCURSOR,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     TxSetCursor2: usize,
     pub TxFreeTextServicesNotification: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub TxGetEditStyle: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub TxGetWindowStyles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub TxShowDropCaret: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL, super::super::super::Graphics::Gdi::HDC, *mut super::super::super::Foundation::RECT) -> windows_core::HRESULT,
+    pub TxShowDropCaret: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, super::super::super::Graphics::Gdi::HDC, *mut super::super::super::Foundation::RECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     TxShowDropCaret: usize,
     pub TxDestroyCaret: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5712,23 +5712,23 @@ pub struct ITextHost2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ITextHost2_Impl: ITextHost_Impl {
-    fn TxIsDoubleClickPending(&self) -> super::super::super::Foundation::BOOL;
+    fn TxIsDoubleClickPending(&self) -> windows_core::BOOL;
     fn TxGetWindow(&self, phwnd: *mut super::super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn TxSetForegroundWindow(&self) -> windows_core::Result<()>;
     fn TxGetPalette(&self) -> super::super::super::Graphics::Gdi::HPALETTE;
     fn TxGetEastAsianFlags(&self, pflags: *mut i32) -> windows_core::Result<()>;
-    fn TxSetCursor2(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, btext: super::super::super::Foundation::BOOL) -> super::super::WindowsAndMessaging::HCURSOR;
+    fn TxSetCursor2(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, btext: windows_core::BOOL) -> super::super::WindowsAndMessaging::HCURSOR;
     fn TxFreeTextServicesNotification(&self);
     fn TxGetEditStyle(&self, dwitem: u32, pdwdata: *mut u32) -> windows_core::Result<()>;
     fn TxGetWindowStyles(&self, pdwstyle: *mut u32, pdwexstyle: *mut u32) -> windows_core::Result<()>;
-    fn TxShowDropCaret(&self, fshow: super::super::super::Foundation::BOOL, hdc: super::super::super::Graphics::Gdi::HDC, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn TxShowDropCaret(&self, fshow: windows_core::BOOL, hdc: super::super::super::Graphics::Gdi::HDC, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn TxDestroyCaret(&self) -> windows_core::Result<()>;
     fn TxGetHorzExtent(&self, plhorzextent: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ITextHost2_Vtbl {
     pub const fn new<Identity: ITextHost2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TxIsDoubleClickPending<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn TxIsDoubleClickPending<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost2_Impl::TxIsDoubleClickPending(this)
@@ -5758,7 +5758,7 @@ impl ITextHost2_Vtbl {
                 ITextHost2_Impl::TxGetEastAsianFlags(this, core::mem::transmute_copy(&pflags)).into()
             }
         }
-        unsafe extern "system" fn TxSetCursor2<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hcur: super::super::WindowsAndMessaging::HCURSOR, btext: super::super::super::Foundation::BOOL) -> super::super::WindowsAndMessaging::HCURSOR {
+        unsafe extern "system" fn TxSetCursor2<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hcur: super::super::WindowsAndMessaging::HCURSOR, btext: windows_core::BOOL) -> super::super::WindowsAndMessaging::HCURSOR {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost2_Impl::TxSetCursor2(this, core::mem::transmute_copy(&hcur), core::mem::transmute_copy(&btext))
@@ -5782,7 +5782,7 @@ impl ITextHost2_Vtbl {
                 ITextHost2_Impl::TxGetWindowStyles(this, core::mem::transmute_copy(&pdwstyle), core::mem::transmute_copy(&pdwexstyle)).into()
             }
         }
-        unsafe extern "system" fn TxShowDropCaret<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: super::super::super::Foundation::BOOL, hdc: super::super::super::Graphics::Gdi::HDC, prc: *mut super::super::super::Foundation::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxShowDropCaret<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: windows_core::BOOL, hdc: super::super::super::Graphics::Gdi::HDC, prc: *mut super::super::super::Foundation::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost2_Impl::TxShowDropCaret(this, core::mem::transmute_copy(&fshow), core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&prc)).into()
@@ -9708,10 +9708,10 @@ impl ITextServices {
     pub unsafe fn TxDraw(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TxDraw)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect as _, ptd as _, hdcdraw, hictargetdev, lprcbounds as _, lprcwbounds as _, lprcupdate as _, pfncontinue, dwcontinue, lviewid).ok() }
     }
-    pub unsafe fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TxGetHScroll)(windows_core::Interface::as_raw(self), plmin as _, plmax as _, plpos as _, plpage as _, pfenabled as _).ok() }
     }
-    pub unsafe fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TxGetVScroll)(windows_core::Interface::as_raw(self), plmin as _, plmax as _, plpos as _, plpage as _, pfenabled as _).ok() }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -9775,8 +9775,8 @@ pub struct ITextServices_Vtbl {
     pub TxDraw: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Com::DVASPECT, i32, *mut core::ffi::c_void, *mut super::super::super::System::Com::DVTARGETDEVICE, super::super::super::Graphics::Gdi::HDC, super::super::super::Graphics::Gdi::HDC, *mut super::super::super::Foundation::RECTL, *mut super::super::super::Foundation::RECTL, *mut super::super::super::Foundation::RECT, isize, u32, i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
     TxDraw: usize,
-    pub TxGetHScroll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub TxGetVScroll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub TxGetHScroll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub TxGetVScroll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub OnTxSetCursor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Com::DVASPECT, i32, *mut core::ffi::c_void, *mut super::super::super::System::Com::DVTARGETDEVICE, super::super::super::Graphics::Gdi::HDC, super::super::super::Graphics::Gdi::HDC, *mut super::super::super::Foundation::RECT, i32, i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
@@ -9808,8 +9808,8 @@ pub struct ITextServices_Vtbl {
 pub trait ITextServices_Impl: windows_core::IUnknownImpl {
     fn TxSendMessage(&self, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>;
     fn TxDraw(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> windows_core::Result<()>;
-    fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn OnTxSetCursor(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> windows_core::Result<()>;
     fn TxQueryHitPoint(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::Result<()>;
     fn OnTxInPlaceActivate(&self, prcclient: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()>;
@@ -9840,13 +9840,13 @@ impl ITextServices_Vtbl {
                 ITextServices_Impl::TxDraw(this, core::mem::transmute_copy(&dwdrawaspect), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&pvaspect), core::mem::transmute_copy(&ptd), core::mem::transmute_copy(&hdcdraw), core::mem::transmute_copy(&hictargetdev), core::mem::transmute_copy(&lprcbounds), core::mem::transmute_copy(&lprcwbounds), core::mem::transmute_copy(&lprcupdate), core::mem::transmute_copy(&pfncontinue), core::mem::transmute_copy(&dwcontinue), core::mem::transmute_copy(&lviewid)).into()
             }
         }
-        unsafe extern "system" fn TxGetHScroll<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxGetHScroll<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextServices_Impl::TxGetHScroll(this, core::mem::transmute_copy(&plmin), core::mem::transmute_copy(&plmax), core::mem::transmute_copy(&plpos), core::mem::transmute_copy(&plpage), core::mem::transmute_copy(&pfenabled)).into()
             }
         }
-        unsafe extern "system" fn TxGetVScroll<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxGetVScroll<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextServices_Impl::TxGetVScroll(this, core::mem::transmute_copy(&plmin), core::mem::transmute_copy(&plmax), core::mem::transmute_copy(&plpos), core::mem::transmute_copy(&plpage), core::mem::transmute_copy(&pfenabled)).into()

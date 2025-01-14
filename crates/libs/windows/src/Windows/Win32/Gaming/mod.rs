@@ -1,17 +1,17 @@
 #[inline]
-pub unsafe fn CheckGamingPrivilegeSilently(privilegeid: u32, scope: &windows_core::HSTRING, policy: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::BOOL> {
-    windows_targets::link!("api-ms-win-gaming-tcui-l1-1-1.dll" "system" fn CheckGamingPrivilegeSilently(privilegeid : u32, scope : * mut core::ffi::c_void, policy : * mut core::ffi::c_void, hasprivilege : *mut super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn CheckGamingPrivilegeSilently(privilegeid: u32, scope: &windows_core::HSTRING, policy: &windows_core::HSTRING) -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("api-ms-win-gaming-tcui-l1-1-1.dll" "system" fn CheckGamingPrivilegeSilently(privilegeid : u32, scope : * mut core::ffi::c_void, policy : * mut core::ffi::c_void, hasprivilege : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CheckGamingPrivilegeSilently(privilegeid, core::mem::transmute_copy(scope), core::mem::transmute_copy(policy), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[inline]
-pub unsafe fn CheckGamingPrivilegeSilentlyForUser<P0>(user: P0, privilegeid: u32, scope: &windows_core::HSTRING, policy: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::BOOL>
+pub unsafe fn CheckGamingPrivilegeSilentlyForUser<P0>(user: P0, privilegeid: u32, scope: &windows_core::HSTRING, policy: &windows_core::HSTRING) -> windows_core::Result<windows_core::BOOL>
 where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
-    windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn CheckGamingPrivilegeSilentlyForUser(user : * mut core::ffi::c_void, privilegeid : u32, scope : * mut core::ffi::c_void, policy : * mut core::ffi::c_void, hasprivilege : *mut super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn CheckGamingPrivilegeSilentlyForUser(user : * mut core::ffi::c_void, privilegeid : u32, scope : * mut core::ffi::c_void, policy : * mut core::ffi::c_void, hasprivilege : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CheckGamingPrivilegeSilentlyForUser(user.param().abi(), privilegeid, core::mem::transmute_copy(scope), core::mem::transmute_copy(policy), &mut result__).map(|| core::mem::transmute(result__))
@@ -47,8 +47,8 @@ pub unsafe fn GetGamingDeviceModelInformation() -> windows_core::Result<GAMING_D
     }
 }
 #[inline]
-pub unsafe fn HasExpandedResources() -> windows_core::Result<super::Foundation::BOOL> {
-    windows_targets::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn HasExpandedResources(hasexpandedresources : *mut super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn HasExpandedResources() -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn HasExpandedResources(hasexpandedresources : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         HasExpandedResources(&mut result__).map(|| core::mem::transmute(result__))
@@ -56,7 +56,7 @@ pub unsafe fn HasExpandedResources() -> windows_core::Result<super::Foundation::
 }
 #[inline]
 pub unsafe fn ProcessPendingGameUI(waitforcompletion: bool) -> windows_core::Result<()> {
-    windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ProcessPendingGameUI(waitforcompletion : super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ProcessPendingGameUI(waitforcompletion : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { ProcessPendingGameUI(waitforcompletion.into()).ok() }
 }
 #[inline]
@@ -195,8 +195,8 @@ where
     unsafe { ShowUserSettingsUIForUser(user.param().abi(), completionroutine, context.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
-    windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn TryCancelPendingGameUI() -> super::Foundation:: BOOL);
+pub unsafe fn TryCancelPendingGameUI() -> windows_core::BOOL {
+    windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn TryCancelPendingGameUI() -> windows_core::BOOL);
     unsafe { TryCancelPendingGameUI() }
 }
 pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(0i32);
@@ -259,7 +259,7 @@ impl IGameExplorer {
     pub unsafe fn UpdateGame(&self, guidinstanceid: windows_core::GUID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateGame)(windows_core::Interface::as_raw(self), core::mem::transmute(guidinstanceid)).ok() }
     }
-    pub unsafe fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR) -> windows_core::Result<super::Foundation::BOOL> {
+    pub unsafe fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VerifyAccess)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgdfbinarypath), &mut result__).map(|| result__)
@@ -272,13 +272,13 @@ pub struct IGameExplorer_Vtbl {
     pub AddGame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, GAME_INSTALL_SCOPE, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub RemoveGame: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub UpdateGame: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
-    pub VerifyAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub VerifyAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IGameExplorer_Impl: windows_core::IUnknownImpl {
     fn AddGame(&self, bstrgdfbinarypath: &windows_core::BSTR, bstrgameinstalldirectory: &windows_core::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn RemoveGame(&self, guidinstanceid: &windows_core::GUID) -> windows_core::Result<()>;
     fn UpdateGame(&self, guidinstanceid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR) -> windows_core::Result<super::Foundation::BOOL>;
+    fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IGameExplorer_Vtbl {
     pub const fn new<Identity: IGameExplorer_Impl, const OFFSET: isize>() -> Self {
@@ -300,7 +300,7 @@ impl IGameExplorer_Vtbl {
                 IGameExplorer_Impl::UpdateGame(this, core::mem::transmute(&guidinstanceid)).into()
             }
         }
-        unsafe extern "system" fn VerifyAccess<Identity: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgdfbinarypath: *mut core::ffi::c_void, pfhasaccess: *mut super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn VerifyAccess<Identity: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgdfbinarypath: *mut core::ffi::c_void, pfhasaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameExplorer_Impl::VerifyAccess(this, core::mem::transmute(&bstrgdfbinarypath)) {
@@ -341,7 +341,7 @@ impl IGameExplorer2 {
     {
         unsafe { (windows_core::Interface::vtable(self).UninstallGame)(windows_core::Interface::as_raw(self), binarygdfpath.param().abi()).ok() }
     }
-    pub unsafe fn CheckAccess<P0>(&self, binarygdfpath: P0) -> windows_core::Result<super::Foundation::BOOL>
+    pub unsafe fn CheckAccess<P0>(&self, binarygdfpath: P0) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -356,12 +356,12 @@ pub struct IGameExplorer2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InstallGame: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, GAME_INSTALL_SCOPE) -> windows_core::HRESULT,
     pub UninstallGame: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub CheckAccess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CheckAccess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IGameExplorer2_Impl: windows_core::IUnknownImpl {
     fn InstallGame(&self, binarygdfpath: &windows_core::PCWSTR, installdirectory: &windows_core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> windows_core::Result<()>;
     fn UninstallGame(&self, binarygdfpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn CheckAccess(&self, binarygdfpath: &windows_core::PCWSTR) -> windows_core::Result<super::Foundation::BOOL>;
+    fn CheckAccess(&self, binarygdfpath: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IGameExplorer2_Vtbl {
     pub const fn new<Identity: IGameExplorer2_Impl, const OFFSET: isize>() -> Self {
@@ -377,7 +377,7 @@ impl IGameExplorer2_Vtbl {
                 IGameExplorer2_Impl::UninstallGame(this, core::mem::transmute(&binarygdfpath)).into()
             }
         }
-        unsafe extern "system" fn CheckAccess<Identity: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, binarygdfpath: windows_core::PCWSTR, phasaccess: *mut super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckAccess<Identity: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, binarygdfpath: windows_core::PCWSTR, phasaccess: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameExplorer2_Impl::CheckAccess(this, core::mem::transmute(&binarygdfpath)) {
@@ -481,7 +481,7 @@ pub struct IGameStatistics_Vtbl {
     pub GetCategoryTitle: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetStatistic: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetStatistic: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetLastPlayedCategory: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetLastPlayedCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
@@ -495,7 +495,7 @@ pub trait IGameStatistics_Impl: windows_core::IUnknownImpl {
     fn GetCategoryTitle(&self, categoryindex: u16) -> windows_core::Result<windows_core::PWSTR>;
     fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: *mut windows_core::PWSTR, pvalue: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn SetStatistic(&self, categoryindex: u16, statindex: u16, name: &windows_core::PCWSTR, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Save(&self, trackchanges: super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Save(&self, trackchanges: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetLastPlayedCategory(&self, categoryindex: u32) -> windows_core::Result<()>;
     fn GetLastPlayedCategory(&self) -> windows_core::Result<u32>;
 }
@@ -591,7 +591,7 @@ impl IGameStatistics_Vtbl {
                 IGameStatistics_Impl::SetStatistic(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute_copy(&statindex), core::mem::transmute(&name), core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn Save<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, trackchanges: super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Save<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, trackchanges: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IGameStatistics_Impl::Save(this, core::mem::transmute_copy(&trackchanges)).into()
@@ -743,7 +743,7 @@ pub struct IXblIdpAuthManager_Vtbl {
     pub SetAppViewInitialized: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetSandbox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetTokenAndSignatureWithTokenResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const u8, u32, super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetTokenAndSignatureWithTokenResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const u8, u32, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IXblIdpAuthManager_Impl: windows_core::IUnknownImpl {
     fn SetGamerAccount(&self, msaaccountid: &windows_core::PCWSTR, xuid: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -751,7 +751,7 @@ pub trait IXblIdpAuthManager_Impl: windows_core::IUnknownImpl {
     fn SetAppViewInitialized(&self, appsid: &windows_core::PCWSTR, msaaccountid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetEnvironment(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetSandbox(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetTokenAndSignatureWithTokenResult(&self, msaaccountid: &windows_core::PCWSTR, appsid: &windows_core::PCWSTR, msatarget: &windows_core::PCWSTR, msapolicy: &windows_core::PCWSTR, httpmethod: &windows_core::PCWSTR, uri: &windows_core::PCWSTR, headers: &windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL) -> windows_core::Result<IXblIdpAuthTokenResult>;
+    fn GetTokenAndSignatureWithTokenResult(&self, msaaccountid: &windows_core::PCWSTR, appsid: &windows_core::PCWSTR, msatarget: &windows_core::PCWSTR, msapolicy: &windows_core::PCWSTR, httpmethod: &windows_core::PCWSTR, uri: &windows_core::PCWSTR, headers: &windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: windows_core::BOOL) -> windows_core::Result<IXblIdpAuthTokenResult>;
 }
 impl IXblIdpAuthManager_Vtbl {
     pub const fn new<Identity: IXblIdpAuthManager_Impl, const OFFSET: isize>() -> Self {
@@ -797,7 +797,7 @@ impl IXblIdpAuthManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetTokenAndSignatureWithTokenResult<Identity: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msaaccountid: windows_core::PCWSTR, appsid: windows_core::PCWSTR, msatarget: windows_core::PCWSTR, msapolicy: windows_core::PCWSTR, httpmethod: windows_core::PCWSTR, uri: windows_core::PCWSTR, headers: windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTokenAndSignatureWithTokenResult<Identity: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msaaccountid: windows_core::PCWSTR, appsid: windows_core::PCWSTR, msatarget: windows_core::PCWSTR, msapolicy: windows_core::PCWSTR, httpmethod: windows_core::PCWSTR, uri: windows_core::PCWSTR, headers: windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: windows_core::BOOL, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthManager_Impl::GetTokenAndSignatureWithTokenResult(this, core::mem::transmute(&msaaccountid), core::mem::transmute(&appsid), core::mem::transmute(&msatarget), core::mem::transmute(&msapolicy), core::mem::transmute(&httpmethod), core::mem::transmute(&uri), core::mem::transmute(&headers), core::mem::transmute_copy(&body), core::mem::transmute_copy(&bodysize), core::mem::transmute_copy(&forcerefresh)) {
@@ -845,14 +845,14 @@ impl IXblIdpAuthManager2 {
 #[repr(C)]
 pub struct IXblIdpAuthManager2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetUserlessTokenAndSignatureWithTokenResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const u8, u32, super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetUserlessTokenAndSignatureWithTokenResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const u8, u32, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IXblIdpAuthManager2_Impl: windows_core::IUnknownImpl {
-    fn GetUserlessTokenAndSignatureWithTokenResult(&self, appsid: &windows_core::PCWSTR, msatarget: &windows_core::PCWSTR, msapolicy: &windows_core::PCWSTR, httpmethod: &windows_core::PCWSTR, uri: &windows_core::PCWSTR, headers: &windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL) -> windows_core::Result<IXblIdpAuthTokenResult>;
+    fn GetUserlessTokenAndSignatureWithTokenResult(&self, appsid: &windows_core::PCWSTR, msatarget: &windows_core::PCWSTR, msapolicy: &windows_core::PCWSTR, httpmethod: &windows_core::PCWSTR, uri: &windows_core::PCWSTR, headers: &windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: windows_core::BOOL) -> windows_core::Result<IXblIdpAuthTokenResult>;
 }
 impl IXblIdpAuthManager2_Vtbl {
     pub const fn new<Identity: IXblIdpAuthManager2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetUserlessTokenAndSignatureWithTokenResult<Identity: IXblIdpAuthManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appsid: windows_core::PCWSTR, msatarget: windows_core::PCWSTR, msapolicy: windows_core::PCWSTR, httpmethod: windows_core::PCWSTR, uri: windows_core::PCWSTR, headers: windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetUserlessTokenAndSignatureWithTokenResult<Identity: IXblIdpAuthManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appsid: windows_core::PCWSTR, msatarget: windows_core::PCWSTR, msapolicy: windows_core::PCWSTR, httpmethod: windows_core::PCWSTR, uri: windows_core::PCWSTR, headers: windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: windows_core::BOOL, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthManager2_Impl::GetUserlessTokenAndSignatureWithTokenResult(this, core::mem::transmute(&appsid), core::mem::transmute(&msatarget), core::mem::transmute(&msapolicy), core::mem::transmute(&httpmethod), core::mem::transmute(&uri), core::mem::transmute(&headers), core::mem::transmute_copy(&body), core::mem::transmute_copy(&bodysize), core::mem::transmute_copy(&forcerefresh)) {

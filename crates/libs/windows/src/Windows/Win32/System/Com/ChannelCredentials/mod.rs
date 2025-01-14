@@ -43,7 +43,7 @@ impl IChannelCredentials {
 #[repr(C)]
 pub struct IChannelCredentials_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub SetWindowsCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetWindowsCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetUserNameCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub SetClientCertificateFromStore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Variant::VARIANT) -> windows_core::HRESULT,
@@ -62,7 +62,7 @@ pub struct IChannelCredentials_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IChannelCredentials_Impl: super::IDispatch_Impl {
-    fn SetWindowsCredential(&self, domain: &windows_core::BSTR, username: &windows_core::BSTR, password: &windows_core::BSTR, impersonationlevel: i32, allowntlm: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetWindowsCredential(&self, domain: &windows_core::BSTR, username: &windows_core::BSTR, password: &windows_core::BSTR, impersonationlevel: i32, allowntlm: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetUserNameCredential(&self, username: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetClientCertificateFromStore(&self, storelocation: &windows_core::BSTR, storename: &windows_core::BSTR, findyype: &windows_core::BSTR, findvalue: &super::super::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetClientCertificateFromStoreByName(&self, subjectname: &windows_core::BSTR, storelocation: &windows_core::BSTR, storename: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -76,7 +76,7 @@ pub trait IChannelCredentials_Impl: super::IDispatch_Impl {
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IChannelCredentials_Vtbl {
     pub const fn new<Identity: IChannelCredentials_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetWindowsCredential<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domain: *mut core::ffi::c_void, username: *mut core::ffi::c_void, password: *mut core::ffi::c_void, impersonationlevel: i32, allowntlm: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWindowsCredential<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domain: *mut core::ffi::c_void, username: *mut core::ffi::c_void, password: *mut core::ffi::c_void, impersonationlevel: i32, allowntlm: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IChannelCredentials_Impl::SetWindowsCredential(this, core::mem::transmute(&domain), core::mem::transmute(&username), core::mem::transmute(&password), core::mem::transmute_copy(&impersonationlevel), core::mem::transmute_copy(&allowntlm)).into()

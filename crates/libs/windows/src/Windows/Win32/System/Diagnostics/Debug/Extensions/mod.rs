@@ -657,7 +657,7 @@ pub const DEBUG_DATA_SuiteMask: u32 = 100024u32;
 pub struct DEBUG_DECODE_ERROR {
     pub SizeOfStruct: u32,
     pub Code: u32,
-    pub TreatAsStatus: super::super::super::super::Foundation::BOOL,
+    pub TreatAsStatus: windows_core::BOOL,
     pub Source: [i8; 64],
     pub Message: [i8; 260],
 }
@@ -672,7 +672,7 @@ pub struct DEBUG_DEVICE_OBJECT_INFO {
     pub SizeOfStruct: u32,
     pub DevObjAddress: u64,
     pub ReferenceCount: u32,
-    pub QBusy: super::super::super::super::Foundation::BOOL,
+    pub QBusy: windows_core::BOOL,
     pub DriverObject: u64,
     pub CurrentIrp: u64,
     pub DevExtension: u64,
@@ -2394,7 +2394,7 @@ pub struct DEBUG_STACK_FRAME {
     pub FuncTableEntry: u64,
     pub Params: [u64; 4],
     pub Reserved: [u64; 6],
-    pub Virtual: super::super::super::super::Foundation::BOOL,
+    pub Virtual: windows_core::BOOL,
     pub FrameNumber: u32,
 }
 impl Default for DEBUG_STACK_FRAME {
@@ -2415,7 +2415,7 @@ pub struct DEBUG_STACK_FRAME_EX {
     pub FuncTableEntry: u64,
     pub Params: [u64; 4],
     pub Reserved: [u64; 6],
-    pub Virtual: super::super::super::super::Foundation::BOOL,
+    pub Virtual: windows_core::BOOL,
     pub FrameNumber: u32,
     pub InlineFrameContext: u32,
     pub Reserved1: u32,
@@ -2674,7 +2674,7 @@ impl Default for DEBUG_VALUE_0 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_VALUE_0_0 {
     pub I64: u64,
-    pub Nat: super::super::super::super::Foundation::BOOL,
+    pub Nat: windows_core::BOOL,
 }
 impl Default for DEBUG_VALUE_0_0 {
     fn default() -> Self {
@@ -16475,7 +16475,7 @@ impl IDebugControl {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds).ok() }
     }
-    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _).ok() }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
@@ -16915,8 +16915,8 @@ pub struct IDebugControl_Vtbl {
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub CloseLogFile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -17016,8 +17016,8 @@ pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
     fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()>;
-    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::Result<()>;
     fn CloseLogFile(&self) -> windows_core::Result<()>;
     fn GetLogMask(&self) -> windows_core::Result<u32>;
     fn SetLogMask(&self, mask: u32) -> windows_core::Result<()>;
@@ -17138,13 +17138,13 @@ impl IDebugControl_Vtbl {
                 IDebugControl_Impl::SetInterruptTimeout(this, core::mem::transmute_copy(&seconds)).into()
             }
         }
-        unsafe extern "system" fn GetLogFile<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogFile<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl_Impl::GetLogFile(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&filesize), core::mem::transmute_copy(&append)).into()
             }
         }
-        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl_Impl::OpenLogFile(this, core::mem::transmute(&file), core::mem::transmute_copy(&append)).into()
@@ -17936,7 +17936,7 @@ impl IDebugControl2 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds).ok() }
     }
-    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _).ok() }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
@@ -18432,8 +18432,8 @@ pub struct IDebugControl2_Vtbl {
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub CloseLogFile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -18541,8 +18541,8 @@ pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
     fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()>;
-    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::Result<()>;
     fn CloseLogFile(&self) -> windows_core::Result<()>;
     fn GetLogMask(&self) -> windows_core::Result<u32>;
     fn SetLogMask(&self, mask: u32) -> windows_core::Result<()>;
@@ -18671,13 +18671,13 @@ impl IDebugControl2_Vtbl {
                 IDebugControl2_Impl::SetInterruptTimeout(this, core::mem::transmute_copy(&seconds)).into()
             }
         }
-        unsafe extern "system" fn GetLogFile<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogFile<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl2_Impl::GetLogFile(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&filesize), core::mem::transmute_copy(&append)).into()
             }
         }
-        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl2_Impl::OpenLogFile(this, core::mem::transmute(&file), core::mem::transmute_copy(&append)).into()
@@ -19549,7 +19549,7 @@ impl IDebugControl3 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds).ok() }
     }
-    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _).ok() }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
@@ -20120,8 +20120,8 @@ pub struct IDebugControl3_Vtbl {
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub CloseLogFile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -20242,8 +20242,8 @@ pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
     fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()>;
-    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::Result<()>;
     fn CloseLogFile(&self) -> windows_core::Result<()>;
     fn GetLogMask(&self) -> windows_core::Result<u32>;
     fn SetLogMask(&self, mask: u32) -> windows_core::Result<()>;
@@ -20385,13 +20385,13 @@ impl IDebugControl3_Vtbl {
                 IDebugControl3_Impl::SetInterruptTimeout(this, core::mem::transmute_copy(&seconds)).into()
             }
         }
-        unsafe extern "system" fn GetLogFile<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogFile<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl3_Impl::GetLogFile(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&filesize), core::mem::transmute_copy(&append)).into()
             }
         }
-        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl3_Impl::OpenLogFile(this, core::mem::transmute(&file), core::mem::transmute_copy(&append)).into()
@@ -21390,7 +21390,7 @@ impl IDebugControl4 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds).ok() }
     }
-    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _).ok() }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
@@ -21953,7 +21953,7 @@ impl IDebugControl4 {
             (windows_core::Interface::vtable(self).SetNextEventIndex)(windows_core::Interface::as_raw(self), relation, value, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _).ok() }
     }
     pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
@@ -22261,8 +22261,8 @@ pub struct IDebugControl4_Vtbl {
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub CloseLogFile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -22376,8 +22376,8 @@ pub struct IDebugControl4_Vtbl {
     pub GetEventIndexDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetCurrentEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetNextEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub OpenLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub OpenLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub InputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OutputWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -22436,8 +22436,8 @@ pub trait IDebugControl4_Impl: windows_core::IUnknownImpl {
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
     fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()>;
-    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::Result<()>;
     fn CloseLogFile(&self) -> windows_core::Result<()>;
     fn GetLogMask(&self) -> windows_core::Result<u32>;
     fn SetLogMask(&self, mask: u32) -> windows_core::Result<()>;
@@ -22545,8 +22545,8 @@ pub trait IDebugControl4_Impl: windows_core::IUnknownImpl {
     fn GetEventIndexDescription(&self, index: u32, which: u32, buffer: &windows_core::PCSTR, buffersize: u32, descsize: *mut u32) -> windows_core::Result<()>;
     fn GetCurrentEventIndex(&self) -> windows_core::Result<u32>;
     fn SetNextEventIndex(&self, relation: u32, value: u32) -> windows_core::Result<u32>;
-    fn GetLogFileWide(&self, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OpenLogFileWide(&self, file: &windows_core::PCWSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFileWide(&self, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OpenLogFileWide(&self, file: &windows_core::PCWSTR, append: windows_core::BOOL) -> windows_core::Result<()>;
     fn InputWide(&self, buffer: windows_core::PWSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInputWide(&self, buffer: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputWide(&self, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -22632,13 +22632,13 @@ impl IDebugControl4_Vtbl {
                 IDebugControl4_Impl::SetInterruptTimeout(this, core::mem::transmute_copy(&seconds)).into()
             }
         }
-        unsafe extern "system" fn GetLogFile<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogFile<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl4_Impl::GetLogFile(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&filesize), core::mem::transmute_copy(&append)).into()
             }
         }
-        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl4_Impl::OpenLogFile(this, core::mem::transmute(&file), core::mem::transmute_copy(&append)).into()
@@ -23496,13 +23496,13 @@ impl IDebugControl4_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetLogFileWide<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogFileWide<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl4_Impl::GetLogFileWide(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&filesize), core::mem::transmute_copy(&append)).into()
             }
         }
-        unsafe extern "system" fn OpenLogFileWide<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCWSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenLogFileWide<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCWSTR, append: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl4_Impl::OpenLogFileWide(this, core::mem::transmute(&file), core::mem::transmute_copy(&append)).into()
@@ -24050,7 +24050,7 @@ impl IDebugControl5 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds).ok() }
     }
-    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _).ok() }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
@@ -24613,7 +24613,7 @@ impl IDebugControl5 {
             (windows_core::Interface::vtable(self).SetNextEventIndex)(windows_core::Interface::as_raw(self), relation, value, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _).ok() }
     }
     pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
@@ -24939,8 +24939,8 @@ pub struct IDebugControl5_Vtbl {
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub CloseLogFile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -25054,8 +25054,8 @@ pub struct IDebugControl5_Vtbl {
     pub GetEventIndexDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetCurrentEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetNextEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub OpenLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub OpenLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub InputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OutputWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -25119,8 +25119,8 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
     fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()>;
-    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::Result<()>;
     fn CloseLogFile(&self) -> windows_core::Result<()>;
     fn GetLogMask(&self) -> windows_core::Result<u32>;
     fn SetLogMask(&self, mask: u32) -> windows_core::Result<()>;
@@ -25228,8 +25228,8 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn GetEventIndexDescription(&self, index: u32, which: u32, buffer: &windows_core::PCSTR, buffersize: u32, descsize: *mut u32) -> windows_core::Result<()>;
     fn GetCurrentEventIndex(&self) -> windows_core::Result<u32>;
     fn SetNextEventIndex(&self, relation: u32, value: u32) -> windows_core::Result<u32>;
-    fn GetLogFileWide(&self, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OpenLogFileWide(&self, file: &windows_core::PCWSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFileWide(&self, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OpenLogFileWide(&self, file: &windows_core::PCWSTR, append: windows_core::BOOL) -> windows_core::Result<()>;
     fn InputWide(&self, buffer: windows_core::PWSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInputWide(&self, buffer: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputWide(&self, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -25320,13 +25320,13 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::SetInterruptTimeout(this, core::mem::transmute_copy(&seconds)).into()
             }
         }
-        unsafe extern "system" fn GetLogFile<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogFile<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::GetLogFile(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&filesize), core::mem::transmute_copy(&append)).into()
             }
         }
-        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::OpenLogFile(this, core::mem::transmute(&file), core::mem::transmute_copy(&append)).into()
@@ -26184,13 +26184,13 @@ impl IDebugControl5_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetLogFileWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogFileWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::GetLogFileWide(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&filesize), core::mem::transmute_copy(&append)).into()
             }
         }
-        unsafe extern "system" fn OpenLogFileWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCWSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenLogFileWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCWSTR, append: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::OpenLogFileWide(this, core::mem::transmute(&file), core::mem::transmute_copy(&append)).into()
@@ -26779,7 +26779,7 @@ impl IDebugControl6 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds).ok() }
     }
-    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _).ok() }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
@@ -27342,7 +27342,7 @@ impl IDebugControl6 {
             (windows_core::Interface::vtable(self).SetNextEventIndex)(windows_core::Interface::as_raw(self), relation, value, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _).ok() }
     }
     pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
@@ -27677,8 +27677,8 @@ pub struct IDebugControl6_Vtbl {
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub CloseLogFile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -27792,8 +27792,8 @@ pub struct IDebugControl6_Vtbl {
     pub GetEventIndexDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetCurrentEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetNextEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub OpenLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub OpenLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub InputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OutputWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -27859,8 +27859,8 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
     fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()>;
-    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::Result<()>;
     fn CloseLogFile(&self) -> windows_core::Result<()>;
     fn GetLogMask(&self) -> windows_core::Result<u32>;
     fn SetLogMask(&self, mask: u32) -> windows_core::Result<()>;
@@ -27968,8 +27968,8 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn GetEventIndexDescription(&self, index: u32, which: u32, buffer: &windows_core::PCSTR, buffersize: u32, descsize: *mut u32) -> windows_core::Result<()>;
     fn GetCurrentEventIndex(&self) -> windows_core::Result<u32>;
     fn SetNextEventIndex(&self, relation: u32, value: u32) -> windows_core::Result<u32>;
-    fn GetLogFileWide(&self, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OpenLogFileWide(&self, file: &windows_core::PCWSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFileWide(&self, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OpenLogFileWide(&self, file: &windows_core::PCWSTR, append: windows_core::BOOL) -> windows_core::Result<()>;
     fn InputWide(&self, buffer: windows_core::PWSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInputWide(&self, buffer: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputWide(&self, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -28062,13 +28062,13 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::SetInterruptTimeout(this, core::mem::transmute_copy(&seconds)).into()
             }
         }
-        unsafe extern "system" fn GetLogFile<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogFile<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::GetLogFile(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&filesize), core::mem::transmute_copy(&append)).into()
             }
         }
-        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::OpenLogFile(this, core::mem::transmute(&file), core::mem::transmute_copy(&append)).into()
@@ -28926,13 +28926,13 @@ impl IDebugControl6_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetLogFileWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogFileWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::GetLogFileWide(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&filesize), core::mem::transmute_copy(&append)).into()
             }
         }
-        unsafe extern "system" fn OpenLogFileWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCWSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenLogFileWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCWSTR, append: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::OpenLogFileWide(this, core::mem::transmute(&file), core::mem::transmute_copy(&append)).into()
@@ -29541,7 +29541,7 @@ impl IDebugControl7 {
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds).ok() }
     }
-    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _).ok() }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
@@ -30104,7 +30104,7 @@ impl IDebugControl7 {
             (windows_core::Interface::vtable(self).SetNextEventIndex)(windows_core::Interface::as_raw(self), relation, value, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _).ok() }
     }
     pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::Result<()>
@@ -30442,8 +30442,8 @@ pub struct IDebugControl7_Vtbl {
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub OpenLogFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub CloseLogFile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLogMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -30557,8 +30557,8 @@ pub struct IDebugControl7_Vtbl {
     pub GetEventIndexDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetCurrentEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetNextEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub OpenLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub OpenLogFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub InputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OutputWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -30625,8 +30625,8 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
     fn SetInterruptTimeout(&self, seconds: u32) -> windows_core::Result<()>;
-    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFile(&self, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OpenLogFile(&self, file: &windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::Result<()>;
     fn CloseLogFile(&self) -> windows_core::Result<()>;
     fn GetLogMask(&self) -> windows_core::Result<u32>;
     fn SetLogMask(&self, mask: u32) -> windows_core::Result<()>;
@@ -30734,8 +30734,8 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn GetEventIndexDescription(&self, index: u32, which: u32, buffer: &windows_core::PCSTR, buffersize: u32, descsize: *mut u32) -> windows_core::Result<()>;
     fn GetCurrentEventIndex(&self) -> windows_core::Result<u32>;
     fn SetNextEventIndex(&self, relation: u32, value: u32) -> windows_core::Result<u32>;
-    fn GetLogFileWide(&self, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn OpenLogFileWide(&self, file: &windows_core::PCWSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFileWide(&self, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OpenLogFileWide(&self, file: &windows_core::PCWSTR, append: windows_core::BOOL) -> windows_core::Result<()>;
     fn InputWide(&self, buffer: windows_core::PWSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInputWide(&self, buffer: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputWide(&self, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -30829,13 +30829,13 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::SetInterruptTimeout(this, core::mem::transmute_copy(&seconds)).into()
             }
         }
-        unsafe extern "system" fn GetLogFile<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogFile<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::GetLogFile(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&filesize), core::mem::transmute_copy(&append)).into()
             }
         }
-        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenLogFile<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCSTR, append: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::OpenLogFile(this, core::mem::transmute(&file), core::mem::transmute_copy(&append)).into()
@@ -31693,13 +31693,13 @@ impl IDebugControl7_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetLogFileWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogFileWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PWSTR, buffersize: u32, filesize: *mut u32, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::GetLogFileWide(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&filesize), core::mem::transmute_copy(&append)).into()
             }
         }
-        unsafe extern "system" fn OpenLogFileWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCWSTR, append: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenLogFileWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: windows_core::PCWSTR, append: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::OpenLogFileWide(this, core::mem::transmute(&file), core::mem::transmute_copy(&append)).into()
@@ -34641,7 +34641,7 @@ impl IDebugFAEntryTags {
             (windows_core::Interface::vtable(self).GetTagByName)(windows_core::Interface::as_raw(self), pluginid.param().abi(), tagname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsValidTagToSet(&self, tag: DEBUG_FLR_PARAM_TYPE) -> super::super::super::super::Foundation::BOOL {
+    pub unsafe fn IsValidTagToSet(&self, tag: DEBUG_FLR_PARAM_TYPE) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsValidTagToSet)(windows_core::Interface::as_raw(self), tag) }
     }
 }
@@ -34652,7 +34652,7 @@ pub struct IDebugFAEntryTags_Vtbl {
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PSTR, *mut u32, windows_core::PSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub SetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PCSTR, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub GetTagByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::PCSTR, *mut DEBUG_FLR_PARAM_TYPE) -> windows_core::HRESULT,
-    pub IsValidTagToSet: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE) -> super::super::super::super::Foundation::BOOL,
+    pub IsValidTagToSet: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE) -> windows_core::BOOL,
 }
 pub trait IDebugFAEntryTags_Impl {
     fn GetType(&self, tag: DEBUG_FLR_PARAM_TYPE) -> FA_ENTRY_TYPE;
@@ -34660,7 +34660,7 @@ pub trait IDebugFAEntryTags_Impl {
     fn GetProperties(&self, tag: DEBUG_FLR_PARAM_TYPE, name: windows_core::PSTR, namesize: *mut u32, description: windows_core::PSTR, descsize: *mut u32, flags: *mut u32) -> windows_core::Result<()>;
     fn SetProperties(&self, tag: DEBUG_FLR_PARAM_TYPE, name: &windows_core::PCSTR, description: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn GetTagByName(&self, pluginid: &windows_core::PCSTR, tagname: &windows_core::PCSTR) -> windows_core::Result<DEBUG_FLR_PARAM_TYPE>;
-    fn IsValidTagToSet(&self, tag: DEBUG_FLR_PARAM_TYPE) -> super::super::super::super::Foundation::BOOL;
+    fn IsValidTagToSet(&self, tag: DEBUG_FLR_PARAM_TYPE) -> windows_core::BOOL;
 }
 impl IDebugFAEntryTags_Vtbl {
     pub const fn new<Identity: IDebugFAEntryTags_Impl>() -> Self {
@@ -34705,7 +34705,7 @@ impl IDebugFAEntryTags_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsValidTagToSet<Identity: IDebugFAEntryTags_Impl>(this: *mut core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> super::super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsValidTagToSet<Identity: IDebugFAEntryTags_Impl>(this: *mut core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> windows_core::BOOL {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -39236,7 +39236,7 @@ pub struct IDebugSymbolGroup_Vtbl {
     pub RemoveSymbolByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetSymbolName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSymbolParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SYMBOL_PARAMETERS) -> windows_core::HRESULT,
-    pub ExpandSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ExpandSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub OutputSymbols: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32) -> windows_core::HRESULT,
     pub WriteSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub OutputAsType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -39248,7 +39248,7 @@ pub trait IDebugSymbolGroup_Impl: windows_core::IUnknownImpl {
     fn RemoveSymbolByIndex(&self, index: u32) -> windows_core::Result<()>;
     fn GetSymbolName(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, namesize: *mut u32) -> windows_core::Result<()>;
     fn GetSymbolParameters(&self, start: u32, count: u32, params: *mut DEBUG_SYMBOL_PARAMETERS) -> windows_core::Result<()>;
-    fn ExpandSymbol(&self, index: u32, expand: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ExpandSymbol(&self, index: u32, expand: windows_core::BOOL) -> windows_core::Result<()>;
     fn OutputSymbols(&self, outputcontrol: u32, flags: u32, start: u32, count: u32) -> windows_core::Result<()>;
     fn WriteSymbol(&self, index: u32, value: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn OutputAsType(&self, index: u32, r#type: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -39297,7 +39297,7 @@ impl IDebugSymbolGroup_Vtbl {
                 IDebugSymbolGroup_Impl::GetSymbolParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn ExpandSymbol<Identity: IDebugSymbolGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, expand: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExpandSymbol<Identity: IDebugSymbolGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, expand: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbolGroup_Impl::ExpandSymbol(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&expand)).into()
@@ -39458,7 +39458,7 @@ pub struct IDebugSymbolGroup2_Vtbl {
     pub RemoveSymbolByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetSymbolName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSymbolParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SYMBOL_PARAMETERS) -> windows_core::HRESULT,
-    pub ExpandSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ExpandSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub OutputSymbols: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32) -> windows_core::HRESULT,
     pub WriteSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub OutputAsType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -39483,7 +39483,7 @@ pub trait IDebugSymbolGroup2_Impl: windows_core::IUnknownImpl {
     fn RemoveSymbolByIndex(&self, index: u32) -> windows_core::Result<()>;
     fn GetSymbolName(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, namesize: *mut u32) -> windows_core::Result<()>;
     fn GetSymbolParameters(&self, start: u32, count: u32, params: *mut DEBUG_SYMBOL_PARAMETERS) -> windows_core::Result<()>;
-    fn ExpandSymbol(&self, index: u32, expand: super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ExpandSymbol(&self, index: u32, expand: windows_core::BOOL) -> windows_core::Result<()>;
     fn OutputSymbols(&self, outputcontrol: u32, flags: u32, start: u32, count: u32) -> windows_core::Result<()>;
     fn WriteSymbol(&self, index: u32, value: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn OutputAsType(&self, index: u32, r#type: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -39545,7 +39545,7 @@ impl IDebugSymbolGroup2_Vtbl {
                 IDebugSymbolGroup2_Impl::GetSymbolParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn ExpandSymbol<Identity: IDebugSymbolGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, expand: super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExpandSymbol<Identity: IDebugSymbolGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, expand: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbolGroup2_Impl::ExpandSymbol(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&expand)).into()
@@ -52178,7 +52178,7 @@ pub struct KDEXTS_LOCK_INFO {
     pub SizeOfStruct: u32,
     pub Address: u64,
     pub OwningThread: u64,
-    pub ExclusiveOwned: super::super::super::super::Foundation::BOOL,
+    pub ExclusiveOwned: windows_core::BOOL,
     pub NumOwners: u32,
     pub ContentionCount: u32,
     pub NumExclusiveWaiters: u32,

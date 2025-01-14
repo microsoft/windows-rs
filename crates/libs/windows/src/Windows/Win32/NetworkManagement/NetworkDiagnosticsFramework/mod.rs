@@ -54,7 +54,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("ndfapi.dll" "system" fn NdfCreatePnrpIncident(cloudname : windows_core::PCWSTR, peername : windows_core::PCWSTR, diagnosepublish : super::super::Foundation:: BOOL, appid : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("ndfapi.dll" "system" fn NdfCreatePnrpIncident(cloudname : windows_core::PCWSTR, peername : windows_core::PCWSTR, diagnosepublish : windows_core::BOOL, appid : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { NdfCreatePnrpIncident(cloudname.param().abi(), peername.param().abi(), diagnosepublish.into(), appid.param().abi(), handle as _).ok() }
 }
 #[inline]
@@ -79,7 +79,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncidentEx(url : windows_core::PCWSTR, usewinhttp : super::super::Foundation:: BOOL, modulename : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncidentEx(url : windows_core::PCWSTR, usewinhttp : windows_core::BOOL, modulename : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { NdfCreateWebIncidentEx(url.param().abi(), usewinhttp.into(), modulename.param().abi(), handle as _).ok() }
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
@@ -181,7 +181,7 @@ impl Default for HELPER_ATTRIBUTE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union HELPER_ATTRIBUTE_0 {
-    pub Boolean: super::super::Foundation::BOOL,
+    pub Boolean: windows_core::BOOL,
     pub Char: u8,
     pub Byte: u8,
     pub Short: i16,

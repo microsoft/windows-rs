@@ -313,25 +313,25 @@ pub struct IVdsAdvancedDisk_Vtbl {
     pub GetPartitionProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut VDS_PARTITION_PROP) -> windows_core::HRESULT,
     pub QueryPartitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut VDS_PARTITION_PROP, *mut i32) -> windows_core::HRESULT,
     pub CreatePartition: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *const CREATE_PARTITION_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeletePartition: unsafe extern "system" fn(*mut core::ffi::c_void, u64, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub DeletePartition: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub ChangeAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const CHANGE_ATTRIBUTES_PARAMETERS) -> windows_core::HRESULT,
     pub AssignDriveLetter: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u16) -> windows_core::HRESULT,
     pub DeleteDriveLetter: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u16) -> windows_core::HRESULT,
     pub GetDriveLetter: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PWSTR) -> windows_core::HRESULT,
-    pub FormatPartition: unsafe extern "system" fn(*mut core::ffi::c_void, u64, VDS_FILE_SYSTEM_TYPE, windows_core::PCWSTR, u32, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Clean: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatPartition: unsafe extern "system" fn(*mut core::ffi::c_void, u64, VDS_FILE_SYSTEM_TYPE, windows_core::PCWSTR, u32, windows_core::BOOL, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Clean: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsAdvancedDisk_Impl: windows_core::IUnknownImpl {
     fn GetPartitionProperties(&self, ulloffset: u64, ppartitionprop: *mut VDS_PARTITION_PROP) -> windows_core::Result<()>;
     fn QueryPartitions(&self, pppartitionproparray: *mut *mut VDS_PARTITION_PROP, plnumberofpartitions: *mut i32) -> windows_core::Result<()>;
     fn CreatePartition(&self, ulloffset: u64, ullsize: u64, para: *const CREATE_PARTITION_PARAMETERS) -> windows_core::Result<IVdsAsync>;
-    fn DeletePartition(&self, ulloffset: u64, bforce: super::super::Foundation::BOOL, bforceprotected: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn DeletePartition(&self, ulloffset: u64, bforce: windows_core::BOOL, bforceprotected: windows_core::BOOL) -> windows_core::Result<()>;
     fn ChangeAttributes(&self, ulloffset: u64, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> windows_core::Result<()>;
     fn AssignDriveLetter(&self, ulloffset: u64, wcletter: u16) -> windows_core::Result<()>;
     fn DeleteDriveLetter(&self, ulloffset: u64, wcletter: u16) -> windows_core::Result<()>;
     fn GetDriveLetter(&self, ulloffset: u64, pwcletter: windows_core::PWSTR) -> windows_core::Result<()>;
-    fn FormatPartition(&self, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: u32, bforce: super::super::Foundation::BOOL, bquickformat: super::super::Foundation::BOOL, benablecompression: super::super::Foundation::BOOL) -> windows_core::Result<IVdsAsync>;
-    fn Clean(&self, bforce: super::super::Foundation::BOOL, bforceoem: super::super::Foundation::BOOL, bfullclean: super::super::Foundation::BOOL) -> windows_core::Result<IVdsAsync>;
+    fn FormatPartition(&self, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: u32, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
+    fn Clean(&self, bforce: windows_core::BOOL, bforceoem: windows_core::BOOL, bfullclean: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
 }
 impl IVdsAdvancedDisk_Vtbl {
     pub const fn new<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>() -> Self {
@@ -359,7 +359,7 @@ impl IVdsAdvancedDisk_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DeletePartition<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: u64, bforce: super::super::Foundation::BOOL, bforceprotected: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeletePartition<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: u64, bforce: windows_core::BOOL, bforceprotected: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVdsAdvancedDisk_Impl::DeletePartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bforceprotected)).into()
@@ -389,7 +389,7 @@ impl IVdsAdvancedDisk_Vtbl {
                 IVdsAdvancedDisk_Impl::GetDriveLetter(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&pwcletter)).into()
             }
         }
-        unsafe extern "system" fn FormatPartition<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: windows_core::PCWSTR, dwunitallocationsize: u32, bforce: super::super::Foundation::BOOL, bquickformat: super::super::Foundation::BOOL, benablecompression: super::super::Foundation::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatPartition<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: windows_core::PCWSTR, dwunitallocationsize: u32, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsAdvancedDisk_Impl::FormatPartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&r#type), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
@@ -401,7 +401,7 @@ impl IVdsAdvancedDisk_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Clean<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforce: super::super::Foundation::BOOL, bforceoem: super::super::Foundation::BOOL, bfullclean: super::super::Foundation::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clean<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforce: windows_core::BOOL, bforceoem: windows_core::BOOL, bfullclean: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsAdvancedDisk_Impl::Clean(this, core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bforceoem), core::mem::transmute_copy(&bfullclean)) {
@@ -442,14 +442,14 @@ impl IVdsAdvancedDisk2 {
 #[repr(C)]
 pub struct IVdsAdvancedDisk2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub ChangePartitionType: unsafe extern "system" fn(*mut core::ffi::c_void, u64, super::super::Foundation::BOOL, *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::HRESULT,
+    pub ChangePartitionType: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::BOOL, *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::HRESULT,
 }
 pub trait IVdsAdvancedDisk2_Impl: windows_core::IUnknownImpl {
-    fn ChangePartitionType(&self, ulloffset: u64, bforce: super::super::Foundation::BOOL, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::Result<()>;
+    fn ChangePartitionType(&self, ulloffset: u64, bforce: windows_core::BOOL, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::Result<()>;
 }
 impl IVdsAdvancedDisk2_Vtbl {
     pub const fn new<Identity: IVdsAdvancedDisk2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ChangePartitionType<Identity: IVdsAdvancedDisk2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: u64, bforce: super::super::Foundation::BOOL, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChangePartitionType<Identity: IVdsAdvancedDisk2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: u64, bforce: windows_core::BOOL, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVdsAdvancedDisk2_Impl::ChangePartitionType(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&para)).into()
@@ -1039,14 +1039,14 @@ impl IVdsDisk2 {
 #[repr(C)]
 pub struct IVdsDisk2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetSANMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetSANMode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IVdsDisk2_Impl: windows_core::IUnknownImpl {
-    fn SetSANMode(&self, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetSANMode(&self, benable: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IVdsDisk2_Vtbl {
     pub const fn new<Identity: IVdsDisk2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetSANMode<Identity: IVdsDisk2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSANMode<Identity: IVdsDisk2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVdsDisk2_Impl::SetSANMode(this, core::mem::transmute_copy(&benable)).into()
@@ -1177,13 +1177,13 @@ pub struct IVdsDiskPartitionMF_Vtbl {
     pub GetPartitionFileSystemProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut VDS_FILE_SYSTEM_PROP) -> windows_core::HRESULT,
     pub GetPartitionFileSystemTypeName: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub QueryPartitionFileSystemFormatSupport: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, *mut i32) -> windows_core::HRESULT,
-    pub FormatPartitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, u16, u32, windows_core::PCWSTR, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatPartitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, u16, u32, windows_core::PCWSTR, windows_core::BOOL, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsDiskPartitionMF_Impl: windows_core::IUnknownImpl {
     fn GetPartitionFileSystemProperties(&self, ulloffset: u64, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::Result<()>;
     fn GetPartitionFileSystemTypeName(&self, ulloffset: u64) -> windows_core::Result<windows_core::PWSTR>;
     fn QueryPartitionFileSystemFormatSupport(&self, ulloffset: u64, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> windows_core::Result<()>;
-    fn FormatPartitionEx(&self, ulloffset: u64, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, bforce: super::super::Foundation::BOOL, bquickformat: super::super::Foundation::BOOL, benablecompression: super::super::Foundation::BOOL) -> windows_core::Result<IVdsAsync>;
+    fn FormatPartitionEx(&self, ulloffset: u64, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
 }
 impl IVdsDiskPartitionMF_Vtbl {
     pub const fn new<Identity: IVdsDiskPartitionMF_Impl, const OFFSET: isize>() -> Self {
@@ -1211,7 +1211,7 @@ impl IVdsDiskPartitionMF_Vtbl {
                 IVdsDiskPartitionMF_Impl::QueryPartitionFileSystemFormatSupport(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ppfilesystemsupportprops), core::mem::transmute_copy(&plnumberoffilesystems)).into()
             }
         }
-        unsafe extern "system" fn FormatPartitionEx<Identity: IVdsDiskPartitionMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: u64, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: windows_core::PCWSTR, bforce: super::super::Foundation::BOOL, bquickformat: super::super::Foundation::BOOL, benablecompression: super::super::Foundation::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatPartitionEx<Identity: IVdsDiskPartitionMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffset: u64, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsDiskPartitionMF_Impl::FormatPartitionEx(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
@@ -1789,13 +1789,13 @@ pub struct IVdsIscsiInitiatorAdapter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> windows_core::HRESULT,
     pub QueryInitiatorPortals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LoginToTarget: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_ISCSI_LOGIN_TYPE, windows_core::GUID, windows_core::GUID, windows_core::GUID, u32, super::super::Foundation::BOOL, super::super::Foundation::BOOL, VDS_ISCSI_AUTH_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LoginToTarget: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_ISCSI_LOGIN_TYPE, windows_core::GUID, windows_core::GUID, windows_core::GUID, u32, windows_core::BOOL, windows_core::BOOL, VDS_ISCSI_AUTH_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LogoutFromTarget: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsIscsiInitiatorAdapter_Impl: windows_core::IUnknownImpl {
     fn GetProperties(&self, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> windows_core::Result<()>;
     fn QueryInitiatorPortals(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: &windows_core::GUID, targetportalid: &windows_core::GUID, initiatorportalid: &windows_core::GUID, ulloginflags: u32, bheaderdigest: super::super::Foundation::BOOL, bdatadigest: super::super::Foundation::BOOL, authtype: VDS_ISCSI_AUTH_TYPE) -> windows_core::Result<IVdsAsync>;
+    fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: &windows_core::GUID, targetportalid: &windows_core::GUID, initiatorportalid: &windows_core::GUID, ulloginflags: u32, bheaderdigest: windows_core::BOOL, bdatadigest: windows_core::BOOL, authtype: VDS_ISCSI_AUTH_TYPE) -> windows_core::Result<IVdsAsync>;
     fn LogoutFromTarget(&self, targetid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
 }
 impl IVdsIscsiInitiatorAdapter_Vtbl {
@@ -1818,7 +1818,7 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LoginToTarget<Identity: IVdsIscsiInitiatorAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: windows_core::GUID, targetportalid: windows_core::GUID, initiatorportalid: windows_core::GUID, ulloginflags: u32, bheaderdigest: super::super::Foundation::BOOL, bdatadigest: super::super::Foundation::BOOL, authtype: VDS_ISCSI_AUTH_TYPE, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoginToTarget<Identity: IVdsIscsiInitiatorAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: windows_core::GUID, targetportalid: windows_core::GUID, initiatorportalid: windows_core::GUID, ulloginflags: u32, bheaderdigest: windows_core::BOOL, bdatadigest: windows_core::BOOL, authtype: VDS_ISCSI_AUTH_TYPE, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiInitiatorAdapter_Impl::LoginToTarget(this, core::mem::transmute_copy(&logintype), core::mem::transmute(&targetid), core::mem::transmute(&targetportalid), core::mem::transmute(&initiatorportalid), core::mem::transmute_copy(&ulloginflags), core::mem::transmute_copy(&bheaderdigest), core::mem::transmute_copy(&bdatadigest), core::mem::transmute_copy(&authtype)) {
@@ -3400,7 +3400,7 @@ impl IVdsPack {
     pub unsafe fn AddDisk(&self, diskid: windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddDisk)(windows_core::Interface::as_raw(self), core::mem::transmute(diskid), partitionstyle, bashotspare.into()).ok() }
     }
-    pub unsafe fn MigrateDisks(&self, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: windows_core::GUID, bforce: bool, bqueryonly: bool, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn MigrateDisks(&self, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: windows_core::GUID, bforce: bool, bqueryonly: bool, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).MigrateDisks)(windows_core::Interface::as_raw(self), pdiskarray, lnumberofdisks, core::mem::transmute(targetpack), bforce.into(), bqueryonly.into(), presults as _, pbrebootneeded as _).ok() }
     }
     pub unsafe fn ReplaceDisk(&self, olddiskid: windows_core::GUID, newdiskid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
@@ -3427,8 +3427,8 @@ pub struct IVdsPack_Vtbl {
     pub QueryVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub QueryDisks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateVolume: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_VOLUME_TYPE, *const VDS_INPUT_DISK, i32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddDisk: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, VDS_PARTITION_STYLE, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub MigrateDisks: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, i32, windows_core::GUID, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut windows_core::HRESULT, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AddDisk: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, VDS_PARTITION_STYLE, windows_core::BOOL) -> windows_core::HRESULT,
+    pub MigrateDisks: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, i32, windows_core::GUID, windows_core::BOOL, windows_core::BOOL, *mut windows_core::HRESULT, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub ReplaceDisk: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveMissingDisk: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub Recover: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3439,8 +3439,8 @@ pub trait IVdsPack_Impl: windows_core::IUnknownImpl {
     fn QueryVolumes(&self) -> windows_core::Result<IEnumVdsObject>;
     fn QueryDisks(&self) -> windows_core::Result<IEnumVdsObject>;
     fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: i32, ulstripesize: u32) -> windows_core::Result<IVdsAsync>;
-    fn AddDisk(&self, diskid: &windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn MigrateDisks(&self, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: &windows_core::GUID, bforce: super::super::Foundation::BOOL, bqueryonly: super::super::Foundation::BOOL, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn AddDisk(&self, diskid: &windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: windows_core::BOOL) -> windows_core::Result<()>;
+    fn MigrateDisks(&self, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: &windows_core::GUID, bforce: windows_core::BOOL, bqueryonly: windows_core::BOOL, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn ReplaceDisk(&self, olddiskid: &windows_core::GUID, newdiskid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
     fn RemoveMissingDisk(&self, diskid: &windows_core::GUID) -> windows_core::Result<()>;
     fn Recover(&self) -> windows_core::Result<IVdsAsync>;
@@ -3501,13 +3501,13 @@ impl IVdsPack_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddDisk<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, diskid: windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddDisk<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, diskid: windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVdsPack_Impl::AddDisk(this, core::mem::transmute(&diskid), core::mem::transmute_copy(&partitionstyle), core::mem::transmute_copy(&bashotspare)).into()
             }
         }
-        unsafe extern "system" fn MigrateDisks<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: windows_core::GUID, bforce: super::super::Foundation::BOOL, bqueryonly: super::super::Foundation::BOOL, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MigrateDisks<Identity: IVdsPack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: windows_core::GUID, bforce: windows_core::BOOL, bqueryonly: windows_core::BOOL, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVdsPack_Impl::MigrateDisks(this, core::mem::transmute_copy(&pdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute(&targetpack), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bqueryonly), core::mem::transmute_copy(&presults), core::mem::transmute_copy(&pbrebootneeded)).into()
@@ -3656,12 +3656,12 @@ pub struct IVdsProviderPrivate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, VDS_OBJECT_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnLoad: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub OnUnload: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub OnUnload: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IVdsProviderPrivate_Impl: windows_core::IUnknownImpl {
     fn GetObject(&self, objectid: &windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> windows_core::Result<windows_core::IUnknown>;
     fn OnLoad(&self, pwszmachinename: &windows_core::PCWSTR, pcallbackobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn OnUnload(&self, bforceunload: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn OnUnload(&self, bforceunload: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IVdsProviderPrivate_Vtbl {
     pub const fn new<Identity: IVdsProviderPrivate_Impl, const OFFSET: isize>() -> Self {
@@ -3683,7 +3683,7 @@ impl IVdsProviderPrivate_Vtbl {
                 IVdsProviderPrivate_Impl::OnLoad(this, core::mem::transmute(&pwszmachinename), core::mem::transmute_copy(&pcallbackobject)).into()
             }
         }
-        unsafe extern "system" fn OnUnload<Identity: IVdsProviderPrivate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforceunload: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnUnload<Identity: IVdsProviderPrivate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforceunload: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVdsProviderPrivate_Impl::OnUnload(this, core::mem::transmute_copy(&bforceunload)).into()
@@ -5500,8 +5500,8 @@ pub struct IVdsVolume_Vtbl {
     pub AddPlex: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BreakPlex: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemovePlex: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub ClearFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IVdsVolume_Impl: windows_core::IUnknownImpl {
@@ -5513,8 +5513,8 @@ pub trait IVdsVolume_Impl: windows_core::IUnknownImpl {
     fn AddPlex(&self, volumeid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
     fn BreakPlex(&self, plexid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
     fn RemovePlex(&self, plexid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
-    fn Delete(&self, bforce: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetFlags(&self, ulflags: u32, brevertonclose: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Delete(&self, bforce: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetFlags(&self, ulflags: u32, brevertonclose: windows_core::BOOL) -> windows_core::Result<()>;
     fn ClearFlags(&self, ulflags: u32) -> windows_core::Result<()>;
 }
 impl IVdsVolume_Vtbl {
@@ -5609,13 +5609,13 @@ impl IVdsVolume_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Delete<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforce: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforce: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVdsVolume_Impl::Delete(this, core::mem::transmute_copy(&bforce)).into()
             }
         }
-        unsafe extern "system" fn SetFlags<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: u32, brevertonclose: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFlags<Identity: IVdsVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: u32, brevertonclose: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVdsVolume_Impl::SetFlags(this, core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&brevertonclose)).into()
@@ -5727,25 +5727,25 @@ impl IVdsVolumeMF {
 pub struct IVdsVolumeMF_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFileSystemProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_FILE_SYSTEM_PROP) -> windows_core::HRESULT,
-    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_FILE_SYSTEM_TYPE, windows_core::PCWSTR, u32, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_FILE_SYSTEM_TYPE, windows_core::PCWSTR, u32, windows_core::BOOL, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddAccessPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub QueryAccessPaths: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::PWSTR, *mut i32) -> windows_core::HRESULT,
     pub QueryReparsePoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut VDS_REPARSE_POINT_PROP, *mut i32) -> windows_core::HRESULT,
-    pub DeleteAccessPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub DeleteAccessPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub Mount: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Dismount: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Dismount: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetFileSystemFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ClearFileSystemFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IVdsVolumeMF_Impl: windows_core::IUnknownImpl {
     fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::Result<()>;
-    fn Format(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: u32, bforce: super::super::Foundation::BOOL, bquickformat: super::super::Foundation::BOOL, benablecompression: super::super::Foundation::BOOL) -> windows_core::Result<IVdsAsync>;
+    fn Format(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: u32, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
     fn AddAccessPath(&self, pwszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn QueryAccessPaths(&self, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut i32) -> windows_core::Result<()>;
     fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut i32) -> windows_core::Result<()>;
-    fn DeleteAccessPath(&self, pwszpath: &windows_core::PCWSTR, bforce: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn DeleteAccessPath(&self, pwszpath: &windows_core::PCWSTR, bforce: windows_core::BOOL) -> windows_core::Result<()>;
     fn Mount(&self) -> windows_core::Result<()>;
-    fn Dismount(&self, bforce: super::super::Foundation::BOOL, bpermanent: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Dismount(&self, bforce: windows_core::BOOL, bpermanent: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetFileSystemFlags(&self, ulflags: u32) -> windows_core::Result<()>;
     fn ClearFileSystemFlags(&self, ulflags: u32) -> windows_core::Result<()>;
 }
@@ -5757,7 +5757,7 @@ impl IVdsVolumeMF_Vtbl {
                 IVdsVolumeMF_Impl::GetFileSystemProperties(this, core::mem::transmute_copy(&pfilesystemprop)).into()
             }
         }
-        unsafe extern "system" fn Format<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: windows_core::PCWSTR, dwunitallocationsize: u32, bforce: super::super::Foundation::BOOL, bquickformat: super::super::Foundation::BOOL, benablecompression: super::super::Foundation::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Format<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: windows_core::PCWSTR, dwunitallocationsize: u32, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVolumeMF_Impl::Format(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
@@ -5787,7 +5787,7 @@ impl IVdsVolumeMF_Vtbl {
                 IVdsVolumeMF_Impl::QueryReparsePoints(this, core::mem::transmute_copy(&ppreparsepointprops), core::mem::transmute_copy(&plnumberofreparsepointprops)).into()
             }
         }
-        unsafe extern "system" fn DeleteAccessPath<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpath: windows_core::PCWSTR, bforce: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteAccessPath<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpath: windows_core::PCWSTR, bforce: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVdsVolumeMF_Impl::DeleteAccessPath(this, core::mem::transmute(&pwszpath), core::mem::transmute_copy(&bforce)).into()
@@ -5799,7 +5799,7 @@ impl IVdsVolumeMF_Vtbl {
                 IVdsVolumeMF_Impl::Mount(this).into()
             }
         }
-        unsafe extern "system" fn Dismount<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforce: super::super::Foundation::BOOL, bpermanent: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Dismount<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforce: windows_core::BOOL, bpermanent: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVdsVolumeMF_Impl::Dismount(this, core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bpermanent)).into()
@@ -5864,12 +5864,12 @@ pub struct IVdsVolumeMF2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFileSystemTypeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub QueryFileSystemFormatSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, *mut i32) -> windows_core::HRESULT,
-    pub FormatEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, u32, windows_core::PCWSTR, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, u32, windows_core::PCWSTR, windows_core::BOOL, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsVolumeMF2_Impl: windows_core::IUnknownImpl {
     fn GetFileSystemTypeName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn QueryFileSystemFormatSupport(&self, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> windows_core::Result<()>;
-    fn FormatEx(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, bforce: super::super::Foundation::BOOL, bquickformat: super::super::Foundation::BOOL, benablecompression: super::super::Foundation::BOOL) -> windows_core::Result<IVdsAsync>;
+    fn FormatEx(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
 }
 impl IVdsVolumeMF2_Vtbl {
     pub const fn new<Identity: IVdsVolumeMF2_Impl, const OFFSET: isize>() -> Self {
@@ -5891,7 +5891,7 @@ impl IVdsVolumeMF2_Vtbl {
                 IVdsVolumeMF2_Impl::QueryFileSystemFormatSupport(this, core::mem::transmute_copy(&ppfilesystemsupportprops), core::mem::transmute_copy(&plnumberoffilesystems)).into()
             }
         }
-        unsafe extern "system" fn FormatEx<Identity: IVdsVolumeMF2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: windows_core::PCWSTR, bforce: super::super::Foundation::BOOL, bquickformat: super::super::Foundation::BOOL, benablecompression: super::super::Foundation::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatEx<Identity: IVdsVolumeMF2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilesystemtypename: windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVolumeMF2_Impl::FormatEx(this, core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
@@ -6630,7 +6630,7 @@ pub struct VDS_DRIVE_EXTENT {
     pub id: windows_core::GUID,
     pub LunId: windows_core::GUID,
     pub ullSize: u64,
-    pub bUsed: super::super::Foundation::BOOL,
+    pub bUsed: windows_core::BOOL,
 }
 impl Default for VDS_DRIVE_EXTENT {
     fn default() -> Self {
@@ -6661,7 +6661,7 @@ pub struct VDS_DRIVE_LETTER_PROP {
     pub wcLetter: u16,
     pub volumeId: windows_core::GUID,
     pub ulFlags: u32,
-    pub bUsed: super::super::Foundation::BOOL,
+    pub bUsed: windows_core::BOOL,
 }
 impl Default for VDS_DRIVE_LETTER_PROP {
     fn default() -> Self {
@@ -7230,15 +7230,15 @@ pub struct VDS_HINTS {
     pub ulOptimalWriteAlignment: u32,
     pub ulMaximumDriveCount: u32,
     pub ulStripeSize: u32,
-    pub bFastCrashRecoveryRequired: super::super::Foundation::BOOL,
-    pub bMostlyReads: super::super::Foundation::BOOL,
-    pub bOptimizeForSequentialReads: super::super::Foundation::BOOL,
-    pub bOptimizeForSequentialWrites: super::super::Foundation::BOOL,
-    pub bRemapEnabled: super::super::Foundation::BOOL,
-    pub bReadBackVerifyEnabled: super::super::Foundation::BOOL,
-    pub bWriteThroughCachingEnabled: super::super::Foundation::BOOL,
-    pub bHardwareChecksumEnabled: super::super::Foundation::BOOL,
-    pub bIsYankable: super::super::Foundation::BOOL,
+    pub bFastCrashRecoveryRequired: windows_core::BOOL,
+    pub bMostlyReads: windows_core::BOOL,
+    pub bOptimizeForSequentialReads: windows_core::BOOL,
+    pub bOptimizeForSequentialWrites: windows_core::BOOL,
+    pub bRemapEnabled: windows_core::BOOL,
+    pub bReadBackVerifyEnabled: windows_core::BOOL,
+    pub bWriteThroughCachingEnabled: windows_core::BOOL,
+    pub bHardwareChecksumEnabled: windows_core::BOOL,
+    pub bIsYankable: windows_core::BOOL,
     pub sRebuildPriority: i16,
 }
 impl Default for VDS_HINTS {
@@ -7260,25 +7260,25 @@ pub struct VDS_HINTS2 {
     pub ulReserved1: u32,
     pub ulReserved2: u32,
     pub ulReserved3: u32,
-    pub bFastCrashRecoveryRequired: super::super::Foundation::BOOL,
-    pub bMostlyReads: super::super::Foundation::BOOL,
-    pub bOptimizeForSequentialReads: super::super::Foundation::BOOL,
-    pub bOptimizeForSequentialWrites: super::super::Foundation::BOOL,
-    pub bRemapEnabled: super::super::Foundation::BOOL,
-    pub bReadBackVerifyEnabled: super::super::Foundation::BOOL,
-    pub bWriteThroughCachingEnabled: super::super::Foundation::BOOL,
-    pub bHardwareChecksumEnabled: super::super::Foundation::BOOL,
-    pub bIsYankable: super::super::Foundation::BOOL,
-    pub bAllocateHotSpare: super::super::Foundation::BOOL,
-    pub bUseMirroredCache: super::super::Foundation::BOOL,
-    pub bReadCachingEnabled: super::super::Foundation::BOOL,
-    pub bWriteCachingEnabled: super::super::Foundation::BOOL,
-    pub bMediaScanEnabled: super::super::Foundation::BOOL,
-    pub bConsistencyCheckEnabled: super::super::Foundation::BOOL,
+    pub bFastCrashRecoveryRequired: windows_core::BOOL,
+    pub bMostlyReads: windows_core::BOOL,
+    pub bOptimizeForSequentialReads: windows_core::BOOL,
+    pub bOptimizeForSequentialWrites: windows_core::BOOL,
+    pub bRemapEnabled: windows_core::BOOL,
+    pub bReadBackVerifyEnabled: windows_core::BOOL,
+    pub bWriteThroughCachingEnabled: windows_core::BOOL,
+    pub bHardwareChecksumEnabled: windows_core::BOOL,
+    pub bIsYankable: windows_core::BOOL,
+    pub bAllocateHotSpare: windows_core::BOOL,
+    pub bUseMirroredCache: windows_core::BOOL,
+    pub bReadCachingEnabled: windows_core::BOOL,
+    pub bWriteCachingEnabled: windows_core::BOOL,
+    pub bMediaScanEnabled: windows_core::BOOL,
+    pub bConsistencyCheckEnabled: windows_core::BOOL,
     pub BusType: VDS_STORAGE_BUS_TYPE,
-    pub bReserved1: super::super::Foundation::BOOL,
-    pub bReserved2: super::super::Foundation::BOOL,
-    pub bReserved3: super::super::Foundation::BOOL,
+    pub bReserved1: windows_core::BOOL,
+    pub bReserved2: windows_core::BOOL,
+    pub bReserved3: windows_core::BOOL,
     pub sRebuildPriority: i16,
 }
 impl Default for VDS_HINTS2 {
@@ -7519,7 +7519,7 @@ pub struct VDS_ISCSI_TARGET_PROP {
     pub id: windows_core::GUID,
     pub pwszIscsiName: windows_core::PWSTR,
     pub pwszFriendlyName: windows_core::PWSTR,
-    pub bChapEnabled: super::super::Foundation::BOOL,
+    pub bChapEnabled: windows_core::BOOL,
 }
 impl Default for VDS_ISCSI_TARGET_PROP {
     fn default() -> Self {
@@ -7625,7 +7625,7 @@ pub struct VDS_LUN_INFORMATION {
     pub m_version: u32,
     pub m_DeviceType: u8,
     pub m_DeviceTypeModifier: u8,
-    pub m_bCommandQueueing: super::super::Foundation::BOOL,
+    pub m_bCommandQueueing: windows_core::BOOL,
     pub m_BusType: VDS_STORAGE_BUS_TYPE,
     pub m_szVendorId: *mut u8,
     pub m_szProductId: *mut u8,
@@ -8068,7 +8068,7 @@ impl Default for VDS_PATH_INFO_2 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PATH_POLICY {
     pub pathId: VDS_PATH_ID,
-    pub bPrimaryPath: super::super::Foundation::BOOL,
+    pub bPrimaryPath: windows_core::BOOL,
     pub ulWeight: u32,
 }
 impl Default for VDS_PATH_POLICY {
@@ -8101,10 +8101,10 @@ pub struct VDS_POOL_ATTRIBUTES {
     pub raidType: VDS_RAID_TYPE,
     pub busType: VDS_STORAGE_BUS_TYPE,
     pub pwszIntendedUsage: windows_core::PWSTR,
-    pub bSpinDown: super::super::Foundation::BOOL,
-    pub bIsThinProvisioned: super::super::Foundation::BOOL,
+    pub bSpinDown: windows_core::BOOL,
+    pub bIsThinProvisioned: windows_core::BOOL,
     pub ullProvisionedSpace: u64,
-    pub bNoSinglePointOfFailure: super::super::Foundation::BOOL,
+    pub bNoSinglePointOfFailure: windows_core::BOOL,
     pub ulDataRedundancyMax: u32,
     pub ulDataRedundancyMin: u32,
     pub ulDataRedundancyDefault: u32,
@@ -8129,8 +8129,8 @@ pub struct VDS_POOL_ATTRIBUTES {
     pub ulStorageEfficiencyHint: u32,
     pub ulNumOfCustomAttributes: u32,
     pub pPoolCustomAttributes: *mut VDS_POOL_CUSTOM_ATTRIBUTES,
-    pub bReserved1: super::super::Foundation::BOOL,
-    pub bReserved2: super::super::Foundation::BOOL,
+    pub bReserved1: windows_core::BOOL,
+    pub bReserved2: windows_core::BOOL,
     pub ulReserved1: u32,
     pub ulReserved2: u32,
     pub ullReserved1: u64,
@@ -8446,7 +8446,7 @@ pub struct VDS_STORAGE_IDENTIFIER_TYPE(pub i32);
 pub struct VDS_STORAGE_POOL_DRIVE_EXTENT {
     pub id: windows_core::GUID,
     pub ullSize: u64,
-    pub bUsed: super::super::Foundation::BOOL,
+    pub bUsed: windows_core::BOOL,
 }
 impl Default for VDS_STORAGE_POOL_DRIVE_EXTENT {
     fn default() -> Self {
@@ -8616,7 +8616,7 @@ pub struct VDS_VDISK_PROPERTIES {
     pub pPath: windows_core::PWSTR,
     pub pDeviceName: windows_core::PWSTR,
     pub DiskFlag: super::Vhd::DEPENDENT_DISK_FLAG,
-    pub bIsChild: super::super::Foundation::BOOL,
+    pub bIsChild: windows_core::BOOL,
     pub pParentPath: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_Storage_Vhd")]

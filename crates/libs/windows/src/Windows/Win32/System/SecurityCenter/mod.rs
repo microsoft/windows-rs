@@ -214,7 +214,7 @@ impl IWscProduct {
             (windows_core::Interface::vtable(self).ProductGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ProductIsDefault(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn ProductIsDefault(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductIsDefault)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -231,7 +231,7 @@ pub struct IWscProduct_Vtbl {
     pub RemediationPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProductStateTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProductGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ProductIsDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ProductIsDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWscProduct_Impl: super::Com::IDispatch_Impl {
@@ -241,7 +241,7 @@ pub trait IWscProduct_Impl: super::Com::IDispatch_Impl {
     fn RemediationPath(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ProductStateTimestamp(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ProductGuid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ProductIsDefault(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn ProductIsDefault(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWscProduct_Vtbl {
@@ -318,7 +318,7 @@ impl IWscProduct_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ProductIsDefault<Identity: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProductIsDefault<Identity: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWscProduct_Impl::ProductIsDefault(this) {

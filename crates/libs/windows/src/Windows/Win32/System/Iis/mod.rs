@@ -1,11 +1,11 @@
 #[inline]
-pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL {
-    windows_targets::link!("rpcproxy.dll" "system" fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> windows_core::BOOL {
+    windows_targets::link!("rpcproxy.dll" "system" fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> windows_core::BOOL);
     unsafe { GetExtensionVersion(pver as _) }
 }
 #[inline]
-pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL {
-    windows_targets::link!("rpcproxy.dll" "system" fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> windows_core::BOOL {
+    windows_targets::link!("rpcproxy.dll" "system" fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> windows_core::BOOL);
     unsafe { GetFilterVersion(pver as _) }
 }
 #[inline]
@@ -41,7 +41,7 @@ impl AsyncIFtpAuthenticationProvider {
     {
         unsafe { (windows_core::Interface::vtable(self).Begin_AuthenticateUser)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi(), pszpassword.param().abi()).ok() }
     }
-    pub unsafe fn Finish_AuthenticateUser(&self, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn Finish_AuthenticateUser(&self, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Finish_AuthenticateUser)(windows_core::Interface::as_raw(self), ppszcanonicalusername as _, pfauthenticated as _).ok() }
     }
 }
@@ -49,11 +49,11 @@ impl AsyncIFtpAuthenticationProvider {
 pub struct AsyncIFtpAuthenticationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub Finish_AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Finish_AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait AsyncIFtpAuthenticationProvider_Impl: windows_core::IUnknownImpl {
     fn Begin_AuthenticateUser(&self, pszsessionid: &windows_core::PCWSTR, pszsitename: &windows_core::PCWSTR, pszusername: &windows_core::PCWSTR, pszpassword: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Finish_AuthenticateUser(&self, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Finish_AuthenticateUser(&self, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl AsyncIFtpAuthenticationProvider_Vtbl {
     pub const fn new<Identity: AsyncIFtpAuthenticationProvider_Impl, const OFFSET: isize>() -> Self {
@@ -63,7 +63,7 @@ impl AsyncIFtpAuthenticationProvider_Vtbl {
                 AsyncIFtpAuthenticationProvider_Impl::Begin_AuthenticateUser(this, core::mem::transmute(&pszsessionid), core::mem::transmute(&pszsitename), core::mem::transmute(&pszusername), core::mem::transmute(&pszpassword)).into()
             }
         }
-        unsafe extern "system" fn Finish_AuthenticateUser<Identity: AsyncIFtpAuthenticationProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_AuthenticateUser<Identity: AsyncIFtpAuthenticationProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 AsyncIFtpAuthenticationProvider_Impl::Finish_AuthenticateUser(this, core::mem::transmute_copy(&ppszcanonicalusername), core::mem::transmute_copy(&pfauthenticated)).into()
@@ -364,7 +364,7 @@ impl AsyncIFtpRoleProvider {
     {
         unsafe { (windows_core::Interface::vtable(self).Begin_IsUserInRole)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi(), pszrole.param().abi()).ok() }
     }
-    pub unsafe fn Finish_IsUserInRole(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn Finish_IsUserInRole(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Finish_IsUserInRole)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -375,11 +375,11 @@ impl AsyncIFtpRoleProvider {
 pub struct AsyncIFtpRoleProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_IsUserInRole: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub Finish_IsUserInRole: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Finish_IsUserInRole: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait AsyncIFtpRoleProvider_Impl: windows_core::IUnknownImpl {
     fn Begin_IsUserInRole(&self, pszsessionid: &windows_core::PCWSTR, pszsitename: &windows_core::PCWSTR, pszusername: &windows_core::PCWSTR, pszrole: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Finish_IsUserInRole(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Finish_IsUserInRole(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl AsyncIFtpRoleProvider_Vtbl {
     pub const fn new<Identity: AsyncIFtpRoleProvider_Impl, const OFFSET: isize>() -> Self {
@@ -389,7 +389,7 @@ impl AsyncIFtpRoleProvider_Vtbl {
                 AsyncIFtpRoleProvider_Impl::Begin_IsUserInRole(this, core::mem::transmute(&pszsessionid), core::mem::transmute(&pszsitename), core::mem::transmute(&pszusername), core::mem::transmute(&pszrole)).into()
             }
         }
-        unsafe extern "system" fn Finish_IsUserInRole<Identity: AsyncIFtpRoleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisinrole: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_IsUserInRole<Identity: AsyncIFtpRoleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisinrole: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match AsyncIFtpRoleProvider_Impl::Finish_IsUserInRole(this) {
@@ -614,7 +614,7 @@ pub const HSE_APP_FLAG_POOLED_OOP: u32 = 2u32;
 pub struct HSE_CUSTOM_ERROR_INFO {
     pub pszStatus: windows_core::PSTR,
     pub uHttpSubError: u16,
-    pub fAsync: super::super::Foundation::BOOL,
+    pub fAsync: windows_core::BOOL,
 }
 impl Default for HSE_CUSTOM_ERROR_INFO {
     fn default() -> Self {
@@ -777,7 +777,7 @@ pub struct HSE_SEND_HEADER_EX_INFO {
     pub pszHeader: windows_core::PCSTR,
     pub cchStatus: u32,
     pub cchHeader: u32,
-    pub fKeepConn: super::super::Foundation::BOOL,
+    pub fKeepConn: windows_core::BOOL,
 }
 impl Default for HSE_SEND_HEADER_EX_INFO {
     fn default() -> Self {
@@ -813,7 +813,7 @@ impl Default for HSE_TF_INFO {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_TRACE_INFO {
-    pub fTraceRequest: super::super::Foundation::BOOL,
+    pub fTraceRequest: windows_core::BOOL,
     pub TraceContextId: [u8; 16],
     pub dwReserved1: u32,
     pub dwReserved2: u32,
@@ -923,7 +923,7 @@ pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub AddHeader: isize,
     pub GetUserToken: isize,
     pub HttpStatus: u32,
-    pub fResetAuth: super::super::Foundation::BOOL,
+    pub fResetAuth: windows_core::BOOL,
     pub dwReserved: u32,
 }
 impl Default for HTTP_FILTER_AUTH_COMPLETE_INFO {
@@ -938,7 +938,7 @@ pub struct HTTP_FILTER_CONTEXT {
     pub Revision: u32,
     pub ServerContext: *mut core::ffi::c_void,
     pub ulReserved: u32,
-    pub fIsSecurePort: super::super::Foundation::BOOL,
+    pub fIsSecurePort: windows_core::BOOL,
     pub pFilterContext: *mut core::ffi::c_void,
     pub GetServerVariable: isize,
     pub AddResponseHeaders: isize,
@@ -1045,7 +1045,7 @@ pub struct HTTP_TRACE_CONFIGURATION {
     pub pProviderGuid: *const windows_core::GUID,
     pub dwAreas: u32,
     pub dwVerbosity: u32,
-    pub fProviderEnabled: super::super::Foundation::BOOL,
+    pub fProviderEnabled: windows_core::BOOL,
 }
 impl Default for HTTP_TRACE_CONFIGURATION {
     fn default() -> Self {
@@ -1166,7 +1166,7 @@ impl windows_core::RuntimeName for IADMEXT {}
 windows_core::imp::define_interface!(IFtpAuthenticationProvider, IFtpAuthenticationProvider_Vtbl, 0x4659f95c_d5a8_4707_b2fc_6fd5794246cf);
 windows_core::imp::interface_hierarchy!(IFtpAuthenticationProvider, windows_core::IUnknown);
 impl IFtpAuthenticationProvider {
-    pub unsafe fn AuthenticateUser<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2, pszpassword: P3, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
+    pub unsafe fn AuthenticateUser<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2, pszpassword: P3, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut windows_core::BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1179,14 +1179,14 @@ impl IFtpAuthenticationProvider {
 #[repr(C)]
 pub struct IFtpAuthenticationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IFtpAuthenticationProvider_Impl: windows_core::IUnknownImpl {
-    fn AuthenticateUser(&self, pszsessionid: &windows_core::PCWSTR, pszsitename: &windows_core::PCWSTR, pszusername: &windows_core::PCWSTR, pszpassword: &windows_core::PCWSTR, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn AuthenticateUser(&self, pszsessionid: &windows_core::PCWSTR, pszsitename: &windows_core::PCWSTR, pszusername: &windows_core::PCWSTR, pszpassword: &windows_core::PCWSTR, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IFtpAuthenticationProvider_Vtbl {
     pub const fn new<Identity: IFtpAuthenticationProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AuthenticateUser<Identity: IFtpAuthenticationProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsessionid: windows_core::PCWSTR, pszsitename: windows_core::PCWSTR, pszusername: windows_core::PCWSTR, pszpassword: windows_core::PCWSTR, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AuthenticateUser<Identity: IFtpAuthenticationProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsessionid: windows_core::PCWSTR, pszsitename: windows_core::PCWSTR, pszusername: windows_core::PCWSTR, pszpassword: windows_core::PCWSTR, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFtpAuthenticationProvider_Impl::AuthenticateUser(this, core::mem::transmute(&pszsessionid), core::mem::transmute(&pszsitename), core::mem::transmute(&pszusername), core::mem::transmute(&pszpassword), core::mem::transmute_copy(&ppszcanonicalusername), core::mem::transmute_copy(&pfauthenticated)).into()
@@ -1436,7 +1436,7 @@ impl windows_core::RuntimeName for IFtpProviderConstruct {}
 windows_core::imp::define_interface!(IFtpRoleProvider, IFtpRoleProvider_Vtbl, 0x909c850d_8ca0_4674_96b8_cc2941535725);
 windows_core::imp::interface_hierarchy!(IFtpRoleProvider, windows_core::IUnknown);
 impl IFtpRoleProvider {
-    pub unsafe fn IsUserInRole<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2, pszrole: P3) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn IsUserInRole<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2, pszrole: P3) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1452,14 +1452,14 @@ impl IFtpRoleProvider {
 #[repr(C)]
 pub struct IFtpRoleProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsUserInRole: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsUserInRole: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IFtpRoleProvider_Impl: windows_core::IUnknownImpl {
-    fn IsUserInRole(&self, pszsessionid: &windows_core::PCWSTR, pszsitename: &windows_core::PCWSTR, pszusername: &windows_core::PCWSTR, pszrole: &windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsUserInRole(&self, pszsessionid: &windows_core::PCWSTR, pszsitename: &windows_core::PCWSTR, pszusername: &windows_core::PCWSTR, pszrole: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IFtpRoleProvider_Vtbl {
     pub const fn new<Identity: IFtpRoleProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsUserInRole<Identity: IFtpRoleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsessionid: windows_core::PCWSTR, pszsitename: windows_core::PCWSTR, pszusername: windows_core::PCWSTR, pszrole: windows_core::PCWSTR, pfisinrole: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsUserInRole<Identity: IFtpRoleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsessionid: windows_core::PCWSTR, pszsitename: windows_core::PCWSTR, pszusername: windows_core::PCWSTR, pszrole: windows_core::PCWSTR, pfisinrole: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFtpRoleProvider_Impl::IsUserInRole(this, core::mem::transmute(&pszsessionid), core::mem::transmute(&pszsitename), core::mem::transmute(&pszusername), core::mem::transmute(&pszrole)) {
@@ -1961,7 +1961,7 @@ pub struct IMSAdminBaseW_Vtbl {
     pub DeleteKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub DeleteChildKeys: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub EnumKeys: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PWSTR, u32) -> windows_core::HRESULT,
-    pub CopyKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, windows_core::PCWSTR, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CopyKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, windows_core::PCWSTR, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub RenameKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut METADATA_RECORD) -> windows_core::HRESULT,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut METADATA_RECORD, *mut u32) -> windows_core::HRESULT,
@@ -1969,7 +1969,7 @@ pub struct IMSAdminBaseW_Vtbl {
     pub EnumData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut METADATA_RECORD, u32, *mut u32) -> windows_core::HRESULT,
     pub GetAllData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, u32, u32, *mut u32, *mut u32, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub DeleteAllData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
-    pub CopyData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, u32, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CopyData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, u32, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetDataPaths: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, u32, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
     pub OpenKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, u32, *mut u32) -> windows_core::HRESULT,
     pub CloseKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -1978,8 +1978,8 @@ pub struct IMSAdminBaseW_Vtbl {
     pub GetHandleInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut METADATA_HANDLE_INFO) -> windows_core::HRESULT,
     pub GetSystemChangeNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDataSetNumber: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
-    pub SetLastChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const super::super::Foundation::FILETIME, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetLastChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut super::super::Foundation::FILETIME, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetLastChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const super::super::Foundation::FILETIME, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetLastChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut super::super::Foundation::FILETIME, windows_core::BOOL) -> windows_core::HRESULT,
     pub KeyExchangePhase1: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub KeyExchangePhase2: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Backup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
@@ -1994,7 +1994,7 @@ pub trait IMSAdminBaseW_Impl: windows_core::IUnknownImpl {
     fn DeleteKey(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn DeleteChildKeys(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn EnumKeys(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, pszmdname: windows_core::PWSTR, dwmdenumobjectindex: u32) -> windows_core::Result<()>;
-    fn CopyKey(&self, hmdsourcehandle: u32, pszmdsourcepath: &windows_core::PCWSTR, hmddesthandle: u32, pszmddestpath: &windows_core::PCWSTR, bmdoverwriteflag: super::super::Foundation::BOOL, bmdcopyflag: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn CopyKey(&self, hmdsourcehandle: u32, pszmdsourcepath: &windows_core::PCWSTR, hmddesthandle: u32, pszmddestpath: &windows_core::PCWSTR, bmdoverwriteflag: windows_core::BOOL, bmdcopyflag: windows_core::BOOL) -> windows_core::Result<()>;
     fn RenameKey(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, pszmdnewname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetData(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, pmdrmddata: *mut METADATA_RECORD) -> windows_core::Result<()>;
     fn GetData(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> windows_core::Result<()>;
@@ -2002,7 +2002,7 @@ pub trait IMSAdminBaseW_Impl: windows_core::IUnknownImpl {
     fn EnumData(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> windows_core::Result<()>;
     fn GetAllData(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> windows_core::Result<()>;
     fn DeleteAllData(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, dwmdusertype: u32, dwmddatatype: u32) -> windows_core::Result<()>;
-    fn CopyData(&self, hmdsourcehandle: u32, pszmdsourcepath: &windows_core::PCWSTR, hmddesthandle: u32, pszmddestpath: &windows_core::PCWSTR, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn CopyData(&self, hmdsourcehandle: u32, pszmdsourcepath: &windows_core::PCWSTR, hmddesthandle: u32, pszmddestpath: &windows_core::PCWSTR, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDataPaths(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: windows_core::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> windows_core::Result<()>;
     fn OpenKey(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, dwmdaccessrequested: u32, dwmdtimeout: u32) -> windows_core::Result<u32>;
     fn CloseKey(&self, hmdhandle: u32) -> windows_core::Result<()>;
@@ -2011,8 +2011,8 @@ pub trait IMSAdminBaseW_Impl: windows_core::IUnknownImpl {
     fn GetHandleInfo(&self, hmdhandle: u32) -> windows_core::Result<METADATA_HANDLE_INFO>;
     fn GetSystemChangeNumber(&self) -> windows_core::Result<u32>;
     fn GetDataSetNumber(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR) -> windows_core::Result<u32>;
-    fn SetLastChangeTime(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetLastChangeTime(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetLastChangeTime(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetLastChangeTime(&self, hmdhandle: u32, pszmdpath: &windows_core::PCWSTR, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: windows_core::BOOL) -> windows_core::Result<()>;
     fn KeyExchangePhase1(&self) -> windows_core::Result<()>;
     fn KeyExchangePhase2(&self) -> windows_core::Result<()>;
     fn Backup(&self, pszmdbackuplocation: &windows_core::PCWSTR, dwmdversion: u32, dwmdflags: u32) -> windows_core::Result<()>;
@@ -2048,7 +2048,7 @@ impl IMSAdminBaseW_Vtbl {
                 IMSAdminBaseW_Impl::EnumKeys(this, core::mem::transmute_copy(&hmdhandle), core::mem::transmute(&pszmdpath), core::mem::transmute_copy(&pszmdname), core::mem::transmute_copy(&dwmdenumobjectindex)).into()
             }
         }
-        unsafe extern "system" fn CopyKey<Identity: IMSAdminBaseW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmdsourcehandle: u32, pszmdsourcepath: windows_core::PCWSTR, hmddesthandle: u32, pszmddestpath: windows_core::PCWSTR, bmdoverwriteflag: super::super::Foundation::BOOL, bmdcopyflag: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyKey<Identity: IMSAdminBaseW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmdsourcehandle: u32, pszmdsourcepath: windows_core::PCWSTR, hmddesthandle: u32, pszmddestpath: windows_core::PCWSTR, bmdoverwriteflag: windows_core::BOOL, bmdcopyflag: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMSAdminBaseW_Impl::CopyKey(this, core::mem::transmute_copy(&hmdsourcehandle), core::mem::transmute(&pszmdsourcepath), core::mem::transmute_copy(&hmddesthandle), core::mem::transmute(&pszmddestpath), core::mem::transmute_copy(&bmdoverwriteflag), core::mem::transmute_copy(&bmdcopyflag)).into()
@@ -2096,7 +2096,7 @@ impl IMSAdminBaseW_Vtbl {
                 IMSAdminBaseW_Impl::DeleteAllData(this, core::mem::transmute_copy(&hmdhandle), core::mem::transmute(&pszmdpath), core::mem::transmute_copy(&dwmdusertype), core::mem::transmute_copy(&dwmddatatype)).into()
             }
         }
-        unsafe extern "system" fn CopyData<Identity: IMSAdminBaseW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmdsourcehandle: u32, pszmdsourcepath: windows_core::PCWSTR, hmddesthandle: u32, pszmddestpath: windows_core::PCWSTR, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyData<Identity: IMSAdminBaseW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmdsourcehandle: u32, pszmdsourcepath: windows_core::PCWSTR, hmddesthandle: u32, pszmddestpath: windows_core::PCWSTR, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMSAdminBaseW_Impl::CopyData(this, core::mem::transmute_copy(&hmdsourcehandle), core::mem::transmute(&pszmdsourcepath), core::mem::transmute_copy(&hmddesthandle), core::mem::transmute(&pszmddestpath), core::mem::transmute_copy(&dwmdattributes), core::mem::transmute_copy(&dwmdusertype), core::mem::transmute_copy(&dwmddatatype), core::mem::transmute_copy(&bmdcopyflag)).into()
@@ -2174,13 +2174,13 @@ impl IMSAdminBaseW_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLastChangeTime<Identity: IMSAdminBaseW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmdhandle: u32, pszmdpath: windows_core::PCWSTR, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLastChangeTime<Identity: IMSAdminBaseW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmdhandle: u32, pszmdpath: windows_core::PCWSTR, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMSAdminBaseW_Impl::SetLastChangeTime(this, core::mem::transmute_copy(&hmdhandle), core::mem::transmute(&pszmdpath), core::mem::transmute_copy(&pftmdlastchangetime), core::mem::transmute_copy(&blocaltime)).into()
             }
         }
-        unsafe extern "system" fn GetLastChangeTime<Identity: IMSAdminBaseW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmdhandle: u32, pszmdpath: windows_core::PCWSTR, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLastChangeTime<Identity: IMSAdminBaseW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmdhandle: u32, pszmdpath: windows_core::PCWSTR, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMSAdminBaseW_Impl::GetLastChangeTime(this, core::mem::transmute_copy(&hmdhandle), core::mem::transmute(&pszmdpath), core::mem::transmute_copy(&pftmdlastchangetime), core::mem::transmute_copy(&blocaltime)).into()
@@ -3089,16 +3089,16 @@ pub const MSCS_MD_ID_END_RESERVED: u32 = 57343u32;
 pub const MULTISZ_METADATA: METADATATYPES = METADATATYPES(5i32);
 pub const NNTP_MD_ID_BEGIN_RESERVED: u32 = 45056u32;
 pub const NNTP_MD_ID_END_RESERVED: u32 = 49151u32;
-pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> windows_core::BOOL>;
 pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = Option<unsafe extern "system" fn(pszurl: windows_core::PCWSTR) -> windows_core::HRESULT>;
 pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = Option<unsafe extern "system" fn(pszprotocolmanagerdll: windows_core::PCWSTR, pszprotocolmanagerdllinitfunction: windows_core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type PFN_HSE_IO_COMPLETION = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut core::ffi::c_void, cbio: u32, dwerror: u32)>;
 pub type PFN_HTTPEXTENSIONPROC = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
-pub type PFN_IIS_GETSERVERVARIABLE = Option<unsafe extern "system" fn(param0: HCONN, param1: windows_core::PCSTR, param2: *mut core::ffi::c_void, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_READCLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_SERVERSUPPORTFUNCTION = Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_WRITECLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32, param3: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_IIS_GETSERVERVARIABLE = Option<unsafe extern "system" fn(param0: HCONN, param1: windows_core::PCSTR, param2: *mut core::ffi::c_void, param3: *mut u32) -> windows_core::BOOL>;
+pub type PFN_IIS_READCLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32) -> windows_core::BOOL>;
+pub type PFN_IIS_SERVERSUPPORTFUNCTION = Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> windows_core::BOOL>;
+pub type PFN_IIS_WRITECLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32, param3: u32) -> windows_core::BOOL>;
+pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: u32) -> windows_core::BOOL>;
 pub type PFN_WEB_CORE_ACTIVATE = Option<unsafe extern "system" fn(pszapphostconfigfile: windows_core::PCWSTR, pszrootwebconfigfile: windows_core::PCWSTR, pszinstancename: windows_core::PCWSTR) -> windows_core::HRESULT>;
 pub type PFN_WEB_CORE_SET_METADATA_DLL_ENTRY = Option<unsafe extern "system" fn(pszmetadatatype: windows_core::PCWSTR, pszvalue: windows_core::PCWSTR) -> windows_core::HRESULT>;
 pub type PFN_WEB_CORE_SHUTDOWN = Option<unsafe extern "system" fn(fimmediate: u32) -> windows_core::HRESULT>;

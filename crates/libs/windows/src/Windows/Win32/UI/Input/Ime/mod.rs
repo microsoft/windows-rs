@@ -4,20 +4,20 @@ pub unsafe fn ImmAssociateContext(param0: super::super::super::Foundation::HWND,
     unsafe { ImmAssociateContext(param0, param1) }
 }
 #[inline]
-pub unsafe fn ImmAssociateContextEx(param0: super::super::super::Foundation::HWND, param1: HIMC, param2: u32) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmAssociateContextEx(param0 : super::super::super::Foundation:: HWND, param1 : HIMC, param2 : u32) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmAssociateContextEx(param0: super::super::super::Foundation::HWND, param1: HIMC, param2: u32) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmAssociateContextEx(param0 : super::super::super::Foundation:: HWND, param1 : HIMC, param2 : u32) -> windows_core::BOOL);
     unsafe { ImmAssociateContextEx(param0, param1, param2) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmConfigureIMEA(param0: super::KeyboardAndMouse::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::KeyboardAndMouse:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmConfigureIMEA(param0: super::KeyboardAndMouse::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::KeyboardAndMouse:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ImmConfigureIMEA(param0, param1, param2, param3 as _) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmConfigureIMEW(param0: super::KeyboardAndMouse::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::KeyboardAndMouse:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmConfigureIMEW(param0: super::KeyboardAndMouse::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::KeyboardAndMouse:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ImmConfigureIMEW(param0, param1, param2, param3 as _) }
 }
 #[inline]
@@ -36,8 +36,8 @@ pub unsafe fn ImmCreateSoftKeyboard(param0: u32, param1: super::super::super::Fo
     unsafe { ImmCreateSoftKeyboard(param0, param1, param2, param3) }
 }
 #[inline]
-pub unsafe fn ImmDestroyContext(param0: HIMC) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : HIMC) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmDestroyContext(param0: HIMC) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : HIMC) -> windows_core::BOOL);
     unsafe { ImmDestroyContext(param0) }
 }
 #[inline]
@@ -46,28 +46,28 @@ pub unsafe fn ImmDestroyIMCC(param0: HIMCC) -> HIMCC {
     unsafe { ImmDestroyIMCC(param0) }
 }
 #[inline]
-pub unsafe fn ImmDestroySoftKeyboard(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmDestroySoftKeyboard(param0 : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmDestroySoftKeyboard(param0: super::super::super::Foundation::HWND) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmDestroySoftKeyboard(param0 : super::super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { ImmDestroySoftKeyboard(param0) }
 }
 #[inline]
-pub unsafe fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmDisableIME(param0 : u32) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmDisableIME(param0: u32) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmDisableIME(param0 : u32) -> windows_core::BOOL);
     unsafe { ImmDisableIME(param0) }
 }
 #[inline]
-pub unsafe fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmDisableLegacyIME() -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmDisableLegacyIME() -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmDisableLegacyIME() -> windows_core::BOOL);
     unsafe { ImmDisableLegacyIME() }
 }
 #[inline]
-pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmDisableTextFrameService(idthread : u32) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmDisableTextFrameService(idthread : u32) -> windows_core::BOOL);
     unsafe { ImmDisableTextFrameService(idthread) }
 }
 #[inline]
-pub unsafe fn ImmEnumInputContext(idthread: u32, lpfn: IMCENUMPROC, lparam: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : u32, lpfn : IMCENUMPROC, lparam : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmEnumInputContext(idthread: u32, lpfn: IMCENUMPROC, lparam: super::super::super::Foundation::LPARAM) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : u32, lpfn : IMCENUMPROC, lparam : super::super::super::Foundation:: LPARAM) -> windows_core::BOOL);
     unsafe { ImmEnumInputContext(idthread, lpfn, lparam) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -103,8 +103,8 @@ pub unsafe fn ImmEscapeW(param0: super::KeyboardAndMouse::HKL, param1: HIMC, par
     unsafe { ImmEscapeW(param0, param1, param2, param3 as _) }
 }
 #[inline]
-pub unsafe fn ImmGenerateMessage(param0: HIMC) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmGenerateMessage(param0 : HIMC) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmGenerateMessage(param0: HIMC) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmGenerateMessage(param0 : HIMC) -> windows_core::BOOL);
     unsafe { ImmGenerateMessage(param0) }
 }
 #[inline]
@@ -128,20 +128,20 @@ pub unsafe fn ImmGetCandidateListW(param0: HIMC, deindex: u32, lpcandlist: Optio
     unsafe { ImmGetCandidateListW(param0, deindex, lpcandlist.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[inline]
-pub unsafe fn ImmGetCandidateWindow(param0: HIMC, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : u32, lpcandidate : *mut CANDIDATEFORM) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmGetCandidateWindow(param0: HIMC, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : u32, lpcandidate : *mut CANDIDATEFORM) -> windows_core::BOOL);
     unsafe { ImmGetCandidateWindow(param0, param1, lpcandidate as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImmGetCompositionFontA(param0: HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTA) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmGetCompositionFontA(param0: HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTA) -> windows_core::BOOL);
     unsafe { ImmGetCompositionFontA(param0, lplf as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImmGetCompositionFontW(param0: HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTW) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmGetCompositionFontW(param0: HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTW) -> windows_core::BOOL);
     unsafe { ImmGetCompositionFontW(param0, lplf as _) }
 }
 #[inline]
@@ -155,8 +155,8 @@ pub unsafe fn ImmGetCompositionStringW(param0: HIMC, param1: IME_COMPOSITION_STR
     unsafe { ImmGetCompositionStringW(param0, param1, lpbuf.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[inline]
-pub unsafe fn ImmGetCompositionWindow(param0: HIMC, lpcompform: *mut COMPOSITIONFORM) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : HIMC, lpcompform : *mut COMPOSITIONFORM) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmGetCompositionWindow(param0: HIMC, lpcompform: *mut COMPOSITIONFORM) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : HIMC, lpcompform : *mut COMPOSITIONFORM) -> windows_core::BOOL);
     unsafe { ImmGetCompositionWindow(param0, lpcompform as _) }
 }
 #[inline]
@@ -183,8 +183,8 @@ where
     unsafe { ImmGetConversionListW(param0, param1, lpsrc.param().abi(), lpdst as _, dwbuflen, uflag) }
 }
 #[inline]
-pub unsafe fn ImmGetConversionStatus(param0: HIMC, lpfdwconversion: Option<*mut IME_CONVERSION_MODE>, lpfdwsentence: Option<*mut IME_SENTENCE_MODE>) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : *mut IME_CONVERSION_MODE, lpfdwsentence : *mut IME_SENTENCE_MODE) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmGetConversionStatus(param0: HIMC, lpfdwconversion: Option<*mut IME_CONVERSION_MODE>, lpfdwsentence: Option<*mut IME_SENTENCE_MODE>) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : *mut IME_CONVERSION_MODE, lpfdwsentence : *mut IME_SENTENCE_MODE) -> windows_core::BOOL);
     unsafe { ImmGetConversionStatus(param0, lpfdwconversion.unwrap_or(core::mem::zeroed()) as _, lpfdwsentence.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -216,8 +216,8 @@ pub unsafe fn ImmGetGuideLineW(param0: HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut super::KeyboardAndMouse::HKL) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut super::KeyboardAndMouse:: HKL) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut super::KeyboardAndMouse::HKL) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut super::KeyboardAndMouse:: HKL) -> windows_core::BOOL);
     unsafe { ImmGetHotKey(param0, lpumodifiers as _, lpuvkey as _, phkl as _) }
 }
 #[inline]
@@ -260,8 +260,8 @@ pub unsafe fn ImmGetImeMenuItemsW(param0: HIMC, param1: u32, param2: u32, lpimep
     unsafe { ImmGetImeMenuItemsW(param0, param1, param2, lpimeparentmenu.unwrap_or(core::mem::zeroed()) as _, lpimemenu.unwrap_or(core::mem::zeroed()) as _, dwsize) }
 }
 #[inline]
-pub unsafe fn ImmGetOpenStatus(param0: HIMC) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmGetOpenStatus(param0 : HIMC) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmGetOpenStatus(param0: HIMC) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmGetOpenStatus(param0 : HIMC) -> windows_core::BOOL);
     unsafe { ImmGetOpenStatus(param0) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -283,8 +283,8 @@ pub unsafe fn ImmGetRegisterWordStyleW(param0: super::KeyboardAndMouse::HKL, lps
     unsafe { ImmGetRegisterWordStyleW(param0, lpstylebuf.len().try_into().unwrap(), core::mem::transmute(lpstylebuf.as_ptr())) }
 }
 #[inline]
-pub unsafe fn ImmGetStatusWindowPos(param0: HIMC, lpptpos: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : HIMC, lpptpos : *mut super::super::super::Foundation:: POINT) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmGetStatusWindowPos(param0: HIMC, lpptpos: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : HIMC, lpptpos : *mut super::super::super::Foundation:: POINT) -> windows_core::BOOL);
     unsafe { ImmGetStatusWindowPos(param0, lpptpos as _) }
 }
 #[inline]
@@ -314,18 +314,18 @@ where
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmIsIME(param0: super::KeyboardAndMouse::HKL) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmIsIME(param0 : super::KeyboardAndMouse:: HKL) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmIsIME(param0: super::KeyboardAndMouse::HKL) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmIsIME(param0 : super::KeyboardAndMouse:: HKL) -> windows_core::BOOL);
     unsafe { ImmIsIME(param0) }
 }
 #[inline]
-pub unsafe fn ImmIsUIMessageA(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageA(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmIsUIMessageA(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageA(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> windows_core::BOOL);
     unsafe { ImmIsUIMessageA(param0, param1, param2, param3) }
 }
 #[inline]
-pub unsafe fn ImmIsUIMessageW(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageW(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmIsUIMessageW(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageW(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> windows_core::BOOL);
     unsafe { ImmIsUIMessageW(param0, param1, param2, param3) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -340,8 +340,8 @@ pub unsafe fn ImmLockIMCC(param0: HIMCC) -> *mut core::ffi::c_void {
     unsafe { ImmLockIMCC(param0) }
 }
 #[inline]
-pub unsafe fn ImmNotifyIME(param0: HIMC, dwaction: NOTIFY_IME_ACTION, dwindex: NOTIFY_IME_INDEX, dwvalue: u32) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmNotifyIME(param0 : HIMC, dwaction : NOTIFY_IME_ACTION, dwindex : NOTIFY_IME_INDEX, dwvalue : u32) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmNotifyIME(param0: HIMC, dwaction: NOTIFY_IME_ACTION, dwindex: NOTIFY_IME_INDEX, dwvalue: u32) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmNotifyIME(param0 : HIMC, dwaction : NOTIFY_IME_ACTION, dwindex : NOTIFY_IME_INDEX, dwvalue : u32) -> windows_core::BOOL);
     unsafe { ImmNotifyIME(param0, dwaction, dwindex, dwvalue) }
 }
 #[inline]
@@ -351,27 +351,27 @@ pub unsafe fn ImmReSizeIMCC(param0: HIMCC, param1: u32) -> HIMCC {
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmRegisterWordA<P1, P3>(param0: super::KeyboardAndMouse::HKL, lpszreading: P1, param2: u32, lpszregister: P3) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmRegisterWordA<P1, P3>(param0: super::KeyboardAndMouse::HKL, lpszreading: P1, param2: u32, lpszregister: P3) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszregister : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszregister : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { ImmRegisterWordA(param0, lpszreading.param().abi(), param2, lpszregister.param().abi()) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmRegisterWordW<P1, P3>(param0: super::KeyboardAndMouse::HKL, lpszreading: P1, param2: u32, lpszregister: P3) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmRegisterWordW<P1, P3>(param0: super::KeyboardAndMouse::HKL, lpszreading: P1, param2: u32, lpszregister: P3) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszregister : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszregister : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { ImmRegisterWordW(param0, lpszreading.param().abi(), param2, lpszregister.param().abi()) }
 }
 #[inline]
-pub unsafe fn ImmReleaseContext(param0: super::super::super::Foundation::HWND, param1: HIMC) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmReleaseContext(param0 : super::super::super::Foundation:: HWND, param1 : HIMC) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmReleaseContext(param0: super::super::super::Foundation::HWND, param1: HIMC) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmReleaseContext(param0 : super::super::super::Foundation:: HWND, param1 : HIMC) -> windows_core::BOOL);
     unsafe { ImmReleaseContext(param0, param1) }
 }
 #[inline]
@@ -385,96 +385,96 @@ pub unsafe fn ImmRequestMessageW(param0: HIMC, param1: super::super::super::Foun
     unsafe { ImmRequestMessageW(param0, param1, param2) }
 }
 #[inline]
-pub unsafe fn ImmSetCandidateWindow(param0: HIMC, lpcandidate: *const CANDIDATEFORM) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : *const CANDIDATEFORM) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmSetCandidateWindow(param0: HIMC, lpcandidate: *const CANDIDATEFORM) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : *const CANDIDATEFORM) -> windows_core::BOOL);
     unsafe { ImmSetCandidateWindow(param0, lpcandidate) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImmSetCompositionFontA(param0: HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTA) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmSetCompositionFontA(param0: HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTA) -> windows_core::BOOL);
     unsafe { ImmSetCompositionFontA(param0, lplf) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImmSetCompositionFontW(param0: HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTW) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmSetCompositionFontW(param0: HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTW) -> windows_core::BOOL);
     unsafe { ImmSetCompositionFontW(param0, lplf) }
 }
 #[inline]
-pub unsafe fn ImmSetCompositionStringA(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Option<*const core::ffi::c_void>, dwcomplen: u32, lpread: Option<*const core::ffi::c_void>, dwreadlen: u32) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmSetCompositionStringA(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Option<*const core::ffi::c_void>, dwcomplen: u32, lpread: Option<*const core::ffi::c_void>, dwreadlen: u32) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_core::BOOL);
     unsafe { ImmSetCompositionStringA(param0, dwindex, lpcomp.unwrap_or(core::mem::zeroed()) as _, dwcomplen, lpread.unwrap_or(core::mem::zeroed()) as _, dwreadlen) }
 }
 #[inline]
-pub unsafe fn ImmSetCompositionStringW(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Option<*const core::ffi::c_void>, dwcomplen: u32, lpread: Option<*const core::ffi::c_void>, dwreadlen: u32) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmSetCompositionStringW(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Option<*const core::ffi::c_void>, dwcomplen: u32, lpread: Option<*const core::ffi::c_void>, dwreadlen: u32) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_core::BOOL);
     unsafe { ImmSetCompositionStringW(param0, dwindex, lpcomp.unwrap_or(core::mem::zeroed()) as _, dwcomplen, lpread.unwrap_or(core::mem::zeroed()) as _, dwreadlen) }
 }
 #[inline]
-pub unsafe fn ImmSetCompositionWindow(param0: HIMC, lpcompform: *const COMPOSITIONFORM) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : *const COMPOSITIONFORM) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmSetCompositionWindow(param0: HIMC, lpcompform: *const COMPOSITIONFORM) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : *const COMPOSITIONFORM) -> windows_core::BOOL);
     unsafe { ImmSetCompositionWindow(param0, lpcompform) }
 }
 #[inline]
-pub unsafe fn ImmSetConversionStatus(param0: HIMC, param1: IME_CONVERSION_MODE, param2: IME_SENTENCE_MODE) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmSetConversionStatus(param0 : HIMC, param1 : IME_CONVERSION_MODE, param2 : IME_SENTENCE_MODE) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmSetConversionStatus(param0: HIMC, param1: IME_CONVERSION_MODE, param2: IME_SENTENCE_MODE) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmSetConversionStatus(param0 : HIMC, param1 : IME_CONVERSION_MODE, param2 : IME_SENTENCE_MODE) -> windows_core::BOOL);
     unsafe { ImmSetConversionStatus(param0, param1, param2) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmSetHotKey(param0: u32, param1: u32, param2: u32, param3: super::KeyboardAndMouse::HKL) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmSetHotKey(param0 : u32, param1 : u32, param2 : u32, param3 : super::KeyboardAndMouse:: HKL) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmSetHotKey(param0: u32, param1: u32, param2: u32, param3: super::KeyboardAndMouse::HKL) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmSetHotKey(param0 : u32, param1 : u32, param2 : u32, param3 : super::KeyboardAndMouse:: HKL) -> windows_core::BOOL);
     unsafe { ImmSetHotKey(param0, param1, param2, param3) }
 }
 #[inline]
-pub unsafe fn ImmSetOpenStatus(param0: HIMC, param1: bool) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmSetOpenStatus(param0 : HIMC, param1 : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmSetOpenStatus(param0: HIMC, param1: bool) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmSetOpenStatus(param0 : HIMC, param1 : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { ImmSetOpenStatus(param0, param1.into()) }
 }
 #[inline]
-pub unsafe fn ImmSetStatusWindowPos(param0: HIMC, lpptpos: *const super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : *const super::super::super::Foundation:: POINT) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmSetStatusWindowPos(param0: HIMC, lpptpos: *const super::super::super::Foundation::POINT) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : *const super::super::super::Foundation:: POINT) -> windows_core::BOOL);
     unsafe { ImmSetStatusWindowPos(param0, lpptpos) }
 }
 #[inline]
-pub unsafe fn ImmShowSoftKeyboard(param0: super::super::super::Foundation::HWND, param1: i32) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmShowSoftKeyboard(param0 : super::super::super::Foundation:: HWND, param1 : i32) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmShowSoftKeyboard(param0: super::super::super::Foundation::HWND, param1: i32) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmShowSoftKeyboard(param0 : super::super::super::Foundation:: HWND, param1 : i32) -> windows_core::BOOL);
     unsafe { ImmShowSoftKeyboard(param0, param1) }
 }
 #[inline]
-pub unsafe fn ImmSimulateHotKey(param0: super::super::super::Foundation::HWND, param1: IME_HOTKEY_IDENTIFIER) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::super::super::Foundation:: HWND, param1 : IME_HOTKEY_IDENTIFIER) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmSimulateHotKey(param0: super::super::super::Foundation::HWND, param1: IME_HOTKEY_IDENTIFIER) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::super::super::Foundation:: HWND, param1 : IME_HOTKEY_IDENTIFIER) -> windows_core::BOOL);
     unsafe { ImmSimulateHotKey(param0, param1) }
 }
 #[inline]
-pub unsafe fn ImmUnlockIMC(param0: HIMC) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmUnlockIMC(param0 : HIMC) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmUnlockIMC(param0: HIMC) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmUnlockIMC(param0 : HIMC) -> windows_core::BOOL);
     unsafe { ImmUnlockIMC(param0) }
 }
 #[inline]
-pub unsafe fn ImmUnlockIMCC(param0: HIMCC) -> super::super::super::Foundation::BOOL {
-    windows_targets::link!("imm32.dll" "system" fn ImmUnlockIMCC(param0 : HIMCC) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmUnlockIMCC(param0: HIMCC) -> windows_core::BOOL {
+    windows_targets::link!("imm32.dll" "system" fn ImmUnlockIMCC(param0 : HIMCC) -> windows_core::BOOL);
     unsafe { ImmUnlockIMCC(param0) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmUnregisterWordA<P1, P3>(param0: super::KeyboardAndMouse::HKL, lpszreading: P1, param2: u32, lpszunregister: P3) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmUnregisterWordA<P1, P3>(param0: super::KeyboardAndMouse::HKL, lpszreading: P1, param2: u32, lpszunregister: P3) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszunregister : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszunregister : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { ImmUnregisterWordA(param0, lpszreading.param().abi(), param2, lpszunregister.param().abi()) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmUnregisterWordW<P1, P3>(param0: super::KeyboardAndMouse::HKL, lpszreading: P1, param2: u32, lpszunregister: P3) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmUnregisterWordW<P1, P3>(param0: super::KeyboardAndMouse::HKL, lpszreading: P1, param2: u32, lpszunregister: P3) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszunregister : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
+    windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszunregister : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { ImmUnregisterWordW(param0, lpszreading.param().abi(), param2, lpszunregister.param().abi()) }
 }
 #[repr(C)]
@@ -875,10 +875,10 @@ pub struct IActiveIME_Vtbl {
     Configure: usize,
     pub Destroy: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, u32, *mut core::ffi::c_void, *mut super::super::super::Foundation::LRESULT) -> windows_core::HRESULT,
-    pub SetActiveContext: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetActiveContext: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, windows_core::BOOL) -> windows_core::HRESULT,
     pub ProcessKey: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, u32, u32, *const u8) -> windows_core::HRESULT,
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, u32, u32, u32) -> windows_core::HRESULT,
-    pub Select: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Select: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetCompositionString: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, u32, *const core::ffi::c_void, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ToAsciiEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8, u32, HIMC, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub RegisterWord: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -895,10 +895,10 @@ pub trait IActiveIME_Impl: windows_core::IUnknownImpl {
     fn Configure(&self, hkl: super::KeyboardAndMouse::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pregisterword: *const REGISTERWORDW) -> windows_core::Result<()>;
     fn Destroy(&self, ureserved: u32) -> windows_core::Result<()>;
     fn Escape(&self, himc: HIMC, uescape: u32, pdata: *mut core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>;
-    fn SetActiveContext(&self, himc: HIMC, fflag: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetActiveContext(&self, himc: HIMC, fflag: windows_core::BOOL) -> windows_core::Result<()>;
     fn ProcessKey(&self, himc: HIMC, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> windows_core::Result<()>;
     fn Notify(&self, himc: HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> windows_core::Result<()>;
-    fn Select(&self, himc: HIMC, fselect: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Select(&self, himc: HIMC, fselect: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetCompositionString(&self, himc: HIMC, dwindex: u32, pcomp: *const core::ffi::c_void, dwcomplen: u32, pread: *const core::ffi::c_void, dwreadlen: u32) -> windows_core::Result<()>;
     fn ToAsciiEx(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: HIMC, pdwtransbuf: *mut u32, pusize: *mut u32) -> windows_core::Result<()>;
     fn RegisterWord(&self, szreading: &windows_core::PCWSTR, dwstyle: u32, szstring: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -941,7 +941,7 @@ impl IActiveIME_Vtbl {
                 IActiveIME_Impl::Escape(this, core::mem::transmute_copy(&himc), core::mem::transmute_copy(&uescape), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&plresult)).into()
             }
         }
-        unsafe extern "system" fn SetActiveContext<Identity: IActiveIME_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, himc: HIMC, fflag: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetActiveContext<Identity: IActiveIME_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, himc: HIMC, fflag: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IActiveIME_Impl::SetActiveContext(this, core::mem::transmute_copy(&himc), core::mem::transmute_copy(&fflag)).into()
@@ -959,7 +959,7 @@ impl IActiveIME_Vtbl {
                 IActiveIME_Impl::Notify(this, core::mem::transmute_copy(&himc), core::mem::transmute_copy(&dwaction), core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&dwvalue)).into()
             }
         }
-        unsafe extern "system" fn Select<Identity: IActiveIME_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, himc: HIMC, fselect: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Select<Identity: IActiveIME_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, himc: HIMC, fselect: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IActiveIME_Impl::Select(this, core::mem::transmute_copy(&himc), core::mem::transmute_copy(&fselect)).into()
@@ -1078,12 +1078,12 @@ impl IActiveIME2 {
 pub struct IActiveIME2_Vtbl {
     pub base__: IActiveIME_Vtbl,
     pub Sleep: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Unsleep: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Unsleep: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 pub trait IActiveIME2_Impl: IActiveIME_Impl {
     fn Sleep(&self) -> windows_core::Result<()>;
-    fn Unsleep(&self, fdead: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Unsleep(&self, fdead: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl IActiveIME2_Vtbl {
@@ -1094,7 +1094,7 @@ impl IActiveIME2_Vtbl {
                 IActiveIME2_Impl::Sleep(this).into()
             }
         }
-        unsafe extern "system" fn Unsleep<Identity: IActiveIME2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdead: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Unsleep<Identity: IActiveIME2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdead: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IActiveIME2_Impl::Unsleep(this, core::mem::transmute_copy(&fdead)).into()
@@ -1556,7 +1556,7 @@ pub struct IActiveIMMApp_Vtbl {
     pub SetCompositionStringW: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, u32, *const core::ffi::c_void, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetCompositionWindow: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, *const COMPOSITIONFORM) -> windows_core::HRESULT,
     pub SetConversionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, u32, u32) -> windows_core::HRESULT,
-    pub SetOpenStatus: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetOpenStatus: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetStatusWindowPos: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, *const super::super::super::Foundation::POINT) -> windows_core::HRESULT,
     pub SimulateHotKey: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -1567,7 +1567,7 @@ pub struct IActiveIMMApp_Vtbl {
     pub UnregisterWordW: unsafe extern "system" fn(*mut core::ffi::c_void, super::KeyboardAndMouse::HKL, windows_core::PCWSTR, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Input_KeyboardAndMouse"))]
     UnregisterWordW: usize,
-    pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnDefWindowProc: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, u32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM, *mut super::super::super::Foundation::LRESULT) -> windows_core::HRESULT,
     pub FilterClientWindows: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, u32) -> windows_core::HRESULT,
@@ -1645,12 +1645,12 @@ pub trait IActiveIMMApp_Impl: windows_core::IUnknownImpl {
     fn SetCompositionStringW(&self, himc: HIMC, dwindex: u32, pcomp: *const core::ffi::c_void, dwcomplen: u32, pread: *const core::ffi::c_void, dwreadlen: u32) -> windows_core::Result<()>;
     fn SetCompositionWindow(&self, himc: HIMC, pcompform: *const COMPOSITIONFORM) -> windows_core::Result<()>;
     fn SetConversionStatus(&self, himc: HIMC, fdwconversion: u32, fdwsentence: u32) -> windows_core::Result<()>;
-    fn SetOpenStatus(&self, himc: HIMC, fopen: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetOpenStatus(&self, himc: HIMC, fopen: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetStatusWindowPos(&self, himc: HIMC, pptpos: *const super::super::super::Foundation::POINT) -> windows_core::Result<()>;
     fn SimulateHotKey(&self, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> windows_core::Result<()>;
     fn UnregisterWordA(&self, hkl: super::KeyboardAndMouse::HKL, szreading: &windows_core::PCSTR, dwstyle: u32, szunregister: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn UnregisterWordW(&self, hkl: super::KeyboardAndMouse::HKL, szreading: &windows_core::PCWSTR, dwstyle: u32, szunregister: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Activate(&self, frestorelayout: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn Activate(&self, frestorelayout: windows_core::BOOL) -> windows_core::Result<()>;
     fn Deactivate(&self) -> windows_core::Result<()>;
     fn OnDefWindowProc(&self, hwnd: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<super::super::super::Foundation::LRESULT>;
     fn FilterClientWindows(&self, aaclasslist: *const u16, usize: u32) -> windows_core::Result<()>;
@@ -2043,7 +2043,7 @@ impl IActiveIMMApp_Vtbl {
                 IActiveIMMApp_Impl::SetConversionStatus(this, core::mem::transmute_copy(&himc), core::mem::transmute_copy(&fdwconversion), core::mem::transmute_copy(&fdwsentence)).into()
             }
         }
-        unsafe extern "system" fn SetOpenStatus<Identity: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, himc: HIMC, fopen: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOpenStatus<Identity: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, himc: HIMC, fopen: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IActiveIMMApp_Impl::SetOpenStatus(this, core::mem::transmute_copy(&himc), core::mem::transmute_copy(&fopen)).into()
@@ -2073,7 +2073,7 @@ impl IActiveIMMApp_Vtbl {
                 IActiveIMMApp_Impl::UnregisterWordW(this, core::mem::transmute_copy(&hkl), core::mem::transmute(&szreading), core::mem::transmute_copy(&dwstyle), core::mem::transmute(&szunregister)).into()
             }
         }
-        unsafe extern "system" fn Activate<Identity: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frestorelayout: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Activate<Identity: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frestorelayout: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IActiveIMMApp_Impl::Activate(this, core::mem::transmute_copy(&frestorelayout)).into()
@@ -2782,7 +2782,7 @@ pub struct IActiveIMMIME_Vtbl {
     pub SetCompositionStringW: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, u32, *const core::ffi::c_void, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetCompositionWindow: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, *const COMPOSITIONFORM) -> windows_core::HRESULT,
     pub SetConversionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, u32, u32) -> windows_core::HRESULT,
-    pub SetOpenStatus: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetOpenStatus: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetStatusWindowPos: unsafe extern "system" fn(*mut core::ffi::c_void, HIMC, *const super::super::super::Foundation::POINT) -> windows_core::HRESULT,
     pub SimulateHotKey: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -2900,7 +2900,7 @@ pub trait IActiveIMMIME_Impl: windows_core::IUnknownImpl {
     fn SetCompositionStringW(&self, himc: HIMC, dwindex: u32, pcomp: *const core::ffi::c_void, dwcomplen: u32, pread: *const core::ffi::c_void, dwreadlen: u32) -> windows_core::Result<()>;
     fn SetCompositionWindow(&self, himc: HIMC, pcompform: *const COMPOSITIONFORM) -> windows_core::Result<()>;
     fn SetConversionStatus(&self, himc: HIMC, fdwconversion: u32, fdwsentence: u32) -> windows_core::Result<()>;
-    fn SetOpenStatus(&self, himc: HIMC, fopen: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetOpenStatus(&self, himc: HIMC, fopen: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetStatusWindowPos(&self, himc: HIMC, pptpos: *const super::super::super::Foundation::POINT) -> windows_core::Result<()>;
     fn SimulateHotKey(&self, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> windows_core::Result<()>;
     fn UnregisterWordA(&self, hkl: super::KeyboardAndMouse::HKL, szreading: &windows_core::PCSTR, dwstyle: u32, szunregister: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -3318,7 +3318,7 @@ impl IActiveIMMIME_Vtbl {
                 IActiveIMMIME_Impl::SetConversionStatus(this, core::mem::transmute_copy(&himc), core::mem::transmute_copy(&fdwconversion), core::mem::transmute_copy(&fdwsentence)).into()
             }
         }
-        unsafe extern "system" fn SetOpenStatus<Identity: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, himc: HIMC, fopen: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOpenStatus<Identity: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, himc: HIMC, fopen: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IActiveIMMIME_Impl::SetOpenStatus(this, core::mem::transmute_copy(&himc), core::mem::transmute_copy(&fopen)).into()
@@ -4866,7 +4866,7 @@ impl IImeSpecifyApplets_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IImeSpecifyApplets {}
-pub type IMCENUMPROC = Option<unsafe extern "system" fn(param0: HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL>;
+pub type IMCENUMPROC = Option<unsafe extern "system" fn(param0: HIMC, param1: super::super::super::Foundation::LPARAM) -> windows_core::BOOL>;
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
 pub const IMC_GETCANDIDATEPOS: u32 = 7u32;
 pub const IMC_GETCOMPOSITIONFONT: u32 = 9u32;
@@ -5160,7 +5160,7 @@ impl Default for IMEKMSKMP {
 pub struct IMEKMSNTFY {
     pub cbSize: i32,
     pub hIMC: HIMC,
-    pub fSelect: super::super::super::Foundation::BOOL,
+    pub fSelect: windows_core::BOOL,
 }
 impl Default for IMEKMSNTFY {
     fn default() -> Self {
@@ -5640,7 +5640,7 @@ pub const INIT_STATUSWNDPOS: u32 = 1u32;
 #[derive(Clone, Copy)]
 pub struct INPUTCONTEXT {
     pub hWnd: super::super::super::Foundation::HWND,
-    pub fOpen: super::super::super::Foundation::BOOL,
+    pub fOpen: windows_core::BOOL,
     pub ptStatusWndPos: super::super::super::Foundation::POINT,
     pub ptSoftKbdPos: super::super::super::Foundation::POINT,
     pub fdwConversion: u32,
@@ -5954,7 +5954,7 @@ pub struct NOTIFY_IME_ACTION(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFY_IME_INDEX(pub u32);
-pub type PFNLOG = Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: windows_core::HRESULT) -> super::super::super::Foundation::BOOL>;
+pub type PFNLOG = Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: windows_core::HRESULT) -> windows_core::BOOL>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct POSTBL {

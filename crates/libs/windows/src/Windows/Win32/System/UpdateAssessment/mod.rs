@@ -40,7 +40,7 @@ impl windows_core::RuntimeName for IWaaSAssessor {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OSUpdateAssessment {
-    pub isEndOfSupport: super::super::Foundation::BOOL,
+    pub isEndOfSupport: windows_core::BOOL,
     pub assessmentForCurrent: UpdateAssessment,
     pub assessmentForUpToDate: UpdateAssessment,
     pub securityStatus: UpdateAssessmentStatus,

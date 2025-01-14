@@ -3115,7 +3115,7 @@ impl IPortableDeviceValues {
     pub unsafe fn SetBoolValue(&self, key: *const super::super::Foundation::PROPERTYKEY, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBoolValue)(windows_core::Interface::as_raw(self), key, value.into()).ok() }
     }
-    pub unsafe fn GetBoolValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetBoolValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBoolValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
@@ -3249,8 +3249,8 @@ pub struct IPortableDeviceValues_Vtbl {
     pub GetErrorValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub SetKeyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY, *const super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
     pub GetKeyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY, *mut super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
-    pub SetBoolValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetBoolValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetBoolValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetBoolValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetIUnknownValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetIUnknownValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetGuidValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -3298,8 +3298,8 @@ pub trait IPortableDeviceValues_Impl: windows_core::IUnknownImpl {
     fn GetErrorValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<windows_core::HRESULT>;
     fn SetKeyValue(&self, key: *const super::super::Foundation::PROPERTYKEY, value: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
     fn GetKeyValue(&self, key: *const super::super::Foundation::PROPERTYKEY, pvalue: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
-    fn SetBoolValue(&self, key: *const super::super::Foundation::PROPERTYKEY, value: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetBoolValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn SetBoolValue(&self, key: *const super::super::Foundation::PROPERTYKEY, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetBoolValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<windows_core::BOOL>;
     fn SetIUnknownValue(&self, key: *const super::super::Foundation::PROPERTYKEY, pvalue: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetIUnknownValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<windows_core::IUnknown>;
     fn SetGuidValue(&self, key: *const super::super::Foundation::PROPERTYKEY, value: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -3490,13 +3490,13 @@ impl IPortableDeviceValues_Vtbl {
                 IPortableDeviceValues_Impl::GetKeyValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&pvalue)).into()
             }
         }
-        unsafe extern "system" fn SetBoolValue<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::Foundation::PROPERTYKEY, value: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBoolValue<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::Foundation::PROPERTYKEY, value: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPortableDeviceValues_Impl::SetBoolValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn GetBoolValue<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::Foundation::PROPERTYKEY, pvalue: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBoolValue<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::Foundation::PROPERTYKEY, pvalue: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetBoolValue(this, core::mem::transmute_copy(&key)) {
@@ -3897,10 +3897,10 @@ impl IRadioInstance {
     pub unsafe fn SetRadioState(&self, radiostate: DEVICE_RADIO_STATE, utimeoutsec: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRadioState)(windows_core::Interface::as_raw(self), radiostate, utimeoutsec).ok() }
     }
-    pub unsafe fn IsMultiComm(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsMultiComm(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsMultiComm)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn IsAssociatingDevice(&self) -> super::super::Foundation::BOOL {
+    pub unsafe fn IsAssociatingDevice(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsAssociatingDevice)(windows_core::Interface::as_raw(self)) }
     }
 }
@@ -3912,8 +3912,8 @@ pub struct IRadioInstance_Vtbl {
     pub GetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRadioState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEVICE_RADIO_STATE) -> windows_core::HRESULT,
     pub SetRadioState: unsafe extern "system" fn(*mut core::ffi::c_void, DEVICE_RADIO_STATE, u32) -> windows_core::HRESULT,
-    pub IsMultiComm: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
-    pub IsAssociatingDevice: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsMultiComm: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
+    pub IsAssociatingDevice: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
 pub trait IRadioInstance_Impl: windows_core::IUnknownImpl {
     fn GetRadioManagerSignature(&self) -> windows_core::Result<windows_core::GUID>;
@@ -3921,8 +3921,8 @@ pub trait IRadioInstance_Impl: windows_core::IUnknownImpl {
     fn GetFriendlyName(&self, lcid: u32) -> windows_core::Result<windows_core::BSTR>;
     fn GetRadioState(&self) -> windows_core::Result<DEVICE_RADIO_STATE>;
     fn SetRadioState(&self, radiostate: DEVICE_RADIO_STATE, utimeoutsec: u32) -> windows_core::Result<()>;
-    fn IsMultiComm(&self) -> super::super::Foundation::BOOL;
-    fn IsAssociatingDevice(&self) -> super::super::Foundation::BOOL;
+    fn IsMultiComm(&self) -> windows_core::BOOL;
+    fn IsAssociatingDevice(&self) -> windows_core::BOOL;
 }
 impl IRadioInstance_Vtbl {
     pub const fn new<Identity: IRadioInstance_Impl, const OFFSET: isize>() -> Self {
@@ -3980,13 +3980,13 @@ impl IRadioInstance_Vtbl {
                 IRadioInstance_Impl::SetRadioState(this, core::mem::transmute_copy(&radiostate), core::mem::transmute_copy(&utimeoutsec)).into()
             }
         }
-        unsafe extern "system" fn IsMultiComm<Identity: IRadioInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsMultiComm<Identity: IRadioInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRadioInstance_Impl::IsMultiComm(this)
             }
         }
-        unsafe extern "system" fn IsAssociatingDevice<Identity: IRadioInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsAssociatingDevice<Identity: IRadioInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRadioInstance_Impl::IsAssociatingDevice(this)

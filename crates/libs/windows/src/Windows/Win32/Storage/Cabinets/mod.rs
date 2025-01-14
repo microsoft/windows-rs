@@ -1,10 +1,10 @@
 #[inline]
-pub unsafe fn FCIAddFile<P1, P2>(hfci: *const core::ffi::c_void, pszsourcefile: P1, pszfilename: P2, fexecute: bool, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> super::super::Foundation::BOOL
+pub unsafe fn FCIAddFile<P1, P2>(hfci: *const core::ffi::c_void, pszsourcefile: P1, pszfilename: P2, fexecute: bool, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("cabinet.dll" "cdecl" fn FCIAddFile(hfci : *const core::ffi::c_void, pszsourcefile : windows_core::PCSTR, pszfilename : windows_core::PCSTR, fexecute : super::super::Foundation:: BOOL, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS, pfnfcigoi : PFNFCIGETOPENINFO, typecompress : u16) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("cabinet.dll" "cdecl" fn FCIAddFile(hfci : *const core::ffi::c_void, pszsourcefile : windows_core::PCSTR, pszfilename : windows_core::PCSTR, fexecute : windows_core::BOOL, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS, pfnfcigoi : PFNFCIGETOPENINFO, typecompress : u16) -> windows_core::BOOL);
     unsafe { FCIAddFile(hfci, pszsourcefile.param().abi(), pszfilename.param().abi(), fexecute.into(), pfnfcignc, pfnfcis, pfnfcigoi, typecompress) }
 }
 #[inline]
@@ -13,27 +13,27 @@ pub unsafe fn FCICreate(perf: *const ERF, pfnfcifp: PFNFCIFILEPLACED, pfna: PFNF
     unsafe { FCICreate(perf, pfnfcifp, pfna, pfnf, pfnopen, pfnread, pfnwrite, pfnclose, pfnseek, pfndelete, pfnfcigtf, pccab, pv.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FCIDestroy(hfci: *const core::ffi::c_void) -> super::super::Foundation::BOOL {
-    windows_targets::link!("cabinet.dll" "cdecl" fn FCIDestroy(hfci : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn FCIDestroy(hfci: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_targets::link!("cabinet.dll" "cdecl" fn FCIDestroy(hfci : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { FCIDestroy(hfci) }
 }
 #[inline]
-pub unsafe fn FCIFlushCabinet(hfci: *const core::ffi::c_void, fgetnextcab: bool, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL {
-    windows_targets::link!("cabinet.dll" "cdecl" fn FCIFlushCabinet(hfci : *const core::ffi::c_void, fgetnextcab : super::super::Foundation:: BOOL, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS) -> super::super::Foundation:: BOOL);
+pub unsafe fn FCIFlushCabinet(hfci: *const core::ffi::c_void, fgetnextcab: bool, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> windows_core::BOOL {
+    windows_targets::link!("cabinet.dll" "cdecl" fn FCIFlushCabinet(hfci : *const core::ffi::c_void, fgetnextcab : windows_core::BOOL, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS) -> windows_core::BOOL);
     unsafe { FCIFlushCabinet(hfci, fgetnextcab.into(), pfnfcignc, pfnfcis) }
 }
 #[inline]
-pub unsafe fn FCIFlushFolder(hfci: *const core::ffi::c_void, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL {
-    windows_targets::link!("cabinet.dll" "cdecl" fn FCIFlushFolder(hfci : *const core::ffi::c_void, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS) -> super::super::Foundation:: BOOL);
+pub unsafe fn FCIFlushFolder(hfci: *const core::ffi::c_void, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> windows_core::BOOL {
+    windows_targets::link!("cabinet.dll" "cdecl" fn FCIFlushFolder(hfci : *const core::ffi::c_void, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS) -> windows_core::BOOL);
     unsafe { FCIFlushFolder(hfci, pfnfcignc, pfnfcis) }
 }
 #[inline]
-pub unsafe fn FDICopy<P1, P2>(hfdi: *const core::ffi::c_void, pszcabinet: P1, pszcabpath: P2, flags: i32, pfnfdin: PFNFDINOTIFY, pfnfdid: PFNFDIDECRYPT, pvuser: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
+pub unsafe fn FDICopy<P1, P2>(hfdi: *const core::ffi::c_void, pszcabinet: P1, pszcabpath: P2, flags: i32, pfnfdin: PFNFDINOTIFY, pfnfdid: PFNFDIDECRYPT, pvuser: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("cabinet.dll" "cdecl" fn FDICopy(hfdi : *const core::ffi::c_void, pszcabinet : windows_core::PCSTR, pszcabpath : windows_core::PCSTR, flags : i32, pfnfdin : PFNFDINOTIFY, pfnfdid : PFNFDIDECRYPT, pvuser : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("cabinet.dll" "cdecl" fn FDICopy(hfdi : *const core::ffi::c_void, pszcabinet : windows_core::PCSTR, pszcabpath : windows_core::PCSTR, flags : i32, pfnfdin : PFNFDINOTIFY, pfnfdid : PFNFDIDECRYPT, pvuser : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { FDICopy(hfdi, pszcabinet.param().abi(), pszcabpath.param().abi(), flags, pfnfdin, pfnfdid, pvuser.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -42,21 +42,21 @@ pub unsafe fn FDICreate(pfnalloc: PFNALLOC, pfnfree: PFNFREE, pfnopen: PFNOPEN, 
     unsafe { FDICreate(pfnalloc, pfnfree, pfnopen, pfnread, pfnwrite, pfnclose, pfnseek, cputype, perf as _) }
 }
 #[inline]
-pub unsafe fn FDIDestroy(hfdi: *const core::ffi::c_void) -> super::super::Foundation::BOOL {
-    windows_targets::link!("cabinet.dll" "cdecl" fn FDIDestroy(hfdi : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn FDIDestroy(hfdi: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_targets::link!("cabinet.dll" "cdecl" fn FDIDestroy(hfdi : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { FDIDestroy(hfdi) }
 }
 #[inline]
-pub unsafe fn FDIIsCabinet(hfdi: *const core::ffi::c_void, hf: isize, pfdici: Option<*mut FDICABINETINFO>) -> super::super::Foundation::BOOL {
-    windows_targets::link!("cabinet.dll" "cdecl" fn FDIIsCabinet(hfdi : *const core::ffi::c_void, hf : isize, pfdici : *mut FDICABINETINFO) -> super::super::Foundation:: BOOL);
+pub unsafe fn FDIIsCabinet(hfdi: *const core::ffi::c_void, hf: isize, pfdici: Option<*mut FDICABINETINFO>) -> windows_core::BOOL {
+    windows_targets::link!("cabinet.dll" "cdecl" fn FDIIsCabinet(hfdi : *const core::ffi::c_void, hf : isize, pfdici : *mut FDICABINETINFO) -> windows_core::BOOL);
     unsafe { FDIIsCabinet(hfdi, hf, pfdici.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FDITruncateCabinet<P1>(hfdi: *const core::ffi::c_void, pszcabinetname: P1, ifoldertodelete: u16) -> super::super::Foundation::BOOL
+pub unsafe fn FDITruncateCabinet<P1>(hfdi: *const core::ffi::c_void, pszcabinetname: P1, ifoldertodelete: u16) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("cabinet.dll" "cdecl" fn FDITruncateCabinet(hfdi : *const core::ffi::c_void, pszcabinetname : windows_core::PCSTR, ifoldertodelete : u16) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("cabinet.dll" "cdecl" fn FDITruncateCabinet(hfdi : *const core::ffi::c_void, pszcabinetname : windows_core::PCSTR, ifoldertodelete : u16) -> windows_core::BOOL);
     unsafe { FDITruncateCabinet(hfdi, pszcabinetname.param().abi(), ifoldertodelete) }
 }
 pub const CB_MAX_CABINET_NAME: u32 = 256u32;
@@ -90,7 +90,7 @@ impl Default for CCAB {
 pub struct ERF {
     pub erfOper: i32,
     pub erfType: i32,
-    pub fError: super::super::Foundation::BOOL,
+    pub fError: windows_core::BOOL,
 }
 impl Default for ERF {
     fn default() -> Self {
@@ -118,9 +118,9 @@ pub struct FDICABINETINFO {
     pub cFiles: u16,
     pub setID: u16,
     pub iCabinet: u16,
-    pub fReserve: super::super::Foundation::BOOL,
-    pub hasprev: super::super::Foundation::BOOL,
-    pub hasnext: super::super::Foundation::BOOL,
+    pub fReserve: windows_core::BOOL,
+    pub hasprev: windows_core::BOOL,
+    pub hasnext: windows_core::BOOL,
 }
 impl Default for FDICABINETINFO {
     fn default() -> Self {
@@ -174,7 +174,7 @@ pub struct FDIDECRYPT_0_2 {
     pub cbDataReserve: u16,
     pub pbData: *mut core::ffi::c_void,
     pub cbData: u16,
-    pub fSplit: super::super::Foundation::BOOL,
+    pub fSplit: windows_core::BOOL,
     pub cbPartial: u16,
 }
 impl Default for FDIDECRYPT_0_2 {
@@ -272,11 +272,11 @@ pub type PFNCLOSE = Option<unsafe extern "system" fn(hf: isize) -> i32>;
 pub type PFNFCIALLOC = Option<unsafe extern "system" fn(cb: u32) -> *mut core::ffi::c_void>;
 pub type PFNFCICLOSE = Option<unsafe extern "system" fn(hf: isize, err: *mut i32, pv: *mut core::ffi::c_void) -> i32>;
 pub type PFNFCIDELETE = Option<unsafe extern "system" fn(pszfile: windows_core::PCSTR, err: *mut i32, pv: *mut core::ffi::c_void) -> i32>;
-pub type PFNFCIFILEPLACED = Option<unsafe extern "system" fn(pccab: *mut CCAB, pszfile: windows_core::PCSTR, cbfile: i32, fcontinuation: super::super::Foundation::BOOL, pv: *mut core::ffi::c_void) -> i32>;
+pub type PFNFCIFILEPLACED = Option<unsafe extern "system" fn(pccab: *mut CCAB, pszfile: windows_core::PCSTR, cbfile: i32, fcontinuation: windows_core::BOOL, pv: *mut core::ffi::c_void) -> i32>;
 pub type PFNFCIFREE = Option<unsafe extern "system" fn(memory: *mut core::ffi::c_void)>;
-pub type PFNFCIGETNEXTCABINET = Option<unsafe extern "system" fn(pccab: *mut CCAB, cbprevcab: u32, pv: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFNFCIGETNEXTCABINET = Option<unsafe extern "system" fn(pccab: *mut CCAB, cbprevcab: u32, pv: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type PFNFCIGETOPENINFO = Option<unsafe extern "system" fn(pszname: windows_core::PCSTR, pdate: *mut u16, ptime: *mut u16, pattribs: *mut u16, err: *mut i32, pv: *mut core::ffi::c_void) -> isize>;
-pub type PFNFCIGETTEMPFILE = Option<unsafe extern "system" fn(psztempname: windows_core::PSTR, cbtempname: i32, pv: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFNFCIGETTEMPFILE = Option<unsafe extern "system" fn(psztempname: windows_core::PSTR, cbtempname: i32, pv: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type PFNFCIOPEN = Option<unsafe extern "system" fn(pszfile: windows_core::PCSTR, oflag: i32, pmode: i32, err: *mut i32, pv: *mut core::ffi::c_void) -> isize>;
 pub type PFNFCIREAD = Option<unsafe extern "system" fn(hf: isize, memory: *mut core::ffi::c_void, cb: u32, err: *mut i32, pv: *mut core::ffi::c_void) -> u32>;
 pub type PFNFCISEEK = Option<unsafe extern "system" fn(hf: isize, dist: i32, seektype: i32, err: *mut i32, pv: *mut core::ffi::c_void) -> i32>;

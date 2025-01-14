@@ -231,12 +231,12 @@ pub unsafe fn DdqGetTranscriptConfiguration(hsession: HDIAGNOSTIC_DATA_QUERY_SES
     }
 }
 #[inline]
-pub unsafe fn DdqIsDiagnosticRecordSampledIn<P3, P5>(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup: *const windows_core::GUID, providerid: Option<*const windows_core::GUID>, providername: P3, eventid: Option<*const u32>, eventname: P5, eventversion: Option<*const u32>, eventkeywords: Option<*const u64>) -> windows_core::Result<super::super::Foundation::BOOL>
+pub unsafe fn DdqIsDiagnosticRecordSampledIn<P3, P5>(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup: *const windows_core::GUID, providerid: Option<*const windows_core::GUID>, providername: P3, eventid: Option<*const u32>, eventname: P5, eventversion: Option<*const u32>, eventkeywords: Option<*const u64>) -> windows_core::Result<windows_core::BOOL>
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqIsDiagnosticRecordSampledIn(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const windows_core::GUID, providerid : *const windows_core::GUID, providername : windows_core::PCWSTR, eventid : *const u32, eventname : windows_core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqIsDiagnosticRecordSampledIn(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const windows_core::GUID, providerid : *const windows_core::GUID, providername : windows_core::PCWSTR, eventid : *const u32, eventname : windows_core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         DdqIsDiagnosticRecordSampledIn(hsession, providergroup, providerid.unwrap_or(core::mem::zeroed()) as _, providername.param().abi(), eventid.unwrap_or(core::mem::zeroed()) as _, eventname.param().abi(), eventversion.unwrap_or(core::mem::zeroed()) as _, eventkeywords.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
@@ -345,7 +345,7 @@ pub struct DIAGNOSTIC_DATA_RECORD {
     pub privacyTagCount: u32,
     pub categoryIds: *mut i32,
     pub categoryIdCount: u32,
-    pub isCoreData: super::super::Foundation::BOOL,
+    pub isCoreData: windows_core::BOOL,
     pub extra1: windows_core::PWSTR,
     pub extra2: windows_core::PWSTR,
     pub extra3: windows_core::PWSTR,
@@ -365,7 +365,7 @@ pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub categoryIdCount: u32,
     pub privacyTags: *const i32,
     pub privacyTagCount: u32,
-    pub coreDataOnly: super::super::Foundation::BOOL,
+    pub coreDataOnly: windows_core::BOOL,
 }
 impl Default for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     fn default() -> Self {

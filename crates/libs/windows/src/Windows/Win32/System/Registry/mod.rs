@@ -348,7 +348,7 @@ where
 }
 #[inline]
 pub unsafe fn RegNotifyChangeKeyValue(hkey: HKEY, bwatchsubtree: bool, dwnotifyfilter: REG_NOTIFY_FILTER, hevent: Option<super::super::Foundation::HANDLE>, fasynchronous: bool) -> super::super::Foundation::WIN32_ERROR {
-    windows_targets::link!("advapi32.dll" "system" fn RegNotifyChangeKeyValue(hkey : HKEY, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : REG_NOTIFY_FILTER, hevent : super::super::Foundation:: HANDLE, fasynchronous : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+    windows_targets::link!("advapi32.dll" "system" fn RegNotifyChangeKeyValue(hkey : HKEY, bwatchsubtree : windows_core::BOOL, dwnotifyfilter : REG_NOTIFY_FILTER, hevent : super::super::Foundation:: HANDLE, fasynchronous : windows_core::BOOL) -> super::super::Foundation:: WIN32_ERROR);
     unsafe { RegNotifyChangeKeyValue(hkey, bwatchsubtree.into(), dwnotifyfilter, hevent.unwrap_or(core::mem::zeroed()) as _, fasynchronous.into()) }
 }
 #[inline]
@@ -465,8 +465,8 @@ pub unsafe fn RegQueryMultipleValuesW(hkey: HKEY, val_list: &mut [VALENTW], lpva
     unsafe { RegQueryMultipleValuesW(hkey, core::mem::transmute(val_list.as_ptr()), val_list.len().try_into().unwrap(), lpvaluebuf.unwrap_or(core::mem::zeroed()) as _, ldwtotsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RegQueryReflectionKey(hbase: HKEY, bisreflectiondisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR {
-    windows_targets::link!("advapi32.dll" "system" fn RegQueryReflectionKey(hbase : HKEY, bisreflectiondisabled : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+pub unsafe fn RegQueryReflectionKey(hbase: HKEY, bisreflectiondisabled: *mut windows_core::BOOL) -> super::super::Foundation::WIN32_ERROR {
+    windows_targets::link!("advapi32.dll" "system" fn RegQueryReflectionKey(hbase : HKEY, bisreflectiondisabled : *mut windows_core::BOOL) -> super::super::Foundation:: WIN32_ERROR);
     unsafe { RegQueryReflectionKey(hbase, bisreflectiondisabled as _) }
 }
 #[inline]

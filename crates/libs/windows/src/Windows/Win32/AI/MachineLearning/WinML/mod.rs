@@ -1892,7 +1892,7 @@ pub struct WINML_VARIABLE_DESC {
     pub Name: windows_core::PWSTR,
     pub Description: windows_core::PWSTR,
     pub FeatureType: WINML_FEATURE_TYPE,
-    pub Required: super::super::super::Foundation::BOOL,
+    pub Required: windows_core::BOOL,
     pub Anonymous: WINML_VARIABLE_DESC_0,
 }
 impl Default for WINML_VARIABLE_DESC {

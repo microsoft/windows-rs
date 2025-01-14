@@ -15,17 +15,17 @@ pub unsafe fn BluetoothAuthenticateMultipleDevices(hwndparent: Option<super::sup
 }
 #[inline]
 pub unsafe fn BluetoothDisplayDeviceProperties(hwndparent: Option<super::super::Foundation::HWND>, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> windows_core::Result<()> {
-    windows_targets::link!("bthprops.cpl" "system" fn BluetoothDisplayDeviceProperties(hwndparent : super::super::Foundation:: HWND, pbtdi : *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("bthprops.cpl" "system" fn BluetoothDisplayDeviceProperties(hwndparent : super::super::Foundation:: HWND, pbtdi : *mut BLUETOOTH_DEVICE_INFO) -> windows_core::BOOL);
     unsafe { BluetoothDisplayDeviceProperties(hwndparent.unwrap_or(core::mem::zeroed()) as _, pbtdi as _).ok() }
 }
 #[inline]
-pub unsafe fn BluetoothEnableDiscovery(hradio: Option<super::super::Foundation::HANDLE>, fenabled: bool) -> super::super::Foundation::BOOL {
-    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothEnableDiscovery(hradio : super::super::Foundation:: HANDLE, fenabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+pub unsafe fn BluetoothEnableDiscovery(hradio: Option<super::super::Foundation::HANDLE>, fenabled: bool) -> windows_core::BOOL {
+    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothEnableDiscovery(hradio : super::super::Foundation:: HANDLE, fenabled : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { BluetoothEnableDiscovery(hradio.unwrap_or(core::mem::zeroed()) as _, fenabled.into()) }
 }
 #[inline]
-pub unsafe fn BluetoothEnableIncomingConnections(hradio: Option<super::super::Foundation::HANDLE>, fenabled: bool) -> super::super::Foundation::BOOL {
-    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothEnableIncomingConnections(hradio : super::super::Foundation:: HANDLE, fenabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+pub unsafe fn BluetoothEnableIncomingConnections(hradio: Option<super::super::Foundation::HANDLE>, fenabled: bool) -> windows_core::BOOL {
+    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothEnableIncomingConnections(hradio : super::super::Foundation:: HANDLE, fenabled : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { BluetoothEnableIncomingConnections(hradio.unwrap_or(core::mem::zeroed()) as _, fenabled.into()) }
 }
 #[inline]
@@ -35,7 +35,7 @@ pub unsafe fn BluetoothEnumerateInstalledServices(hradio: Option<super::super::F
 }
 #[inline]
 pub unsafe fn BluetoothFindDeviceClose(hfind: HBLUETOOTH_DEVICE_FIND) -> windows_core::Result<()> {
-    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindDeviceClose(hfind : HBLUETOOTH_DEVICE_FIND) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindDeviceClose(hfind : HBLUETOOTH_DEVICE_FIND) -> windows_core::BOOL);
     unsafe { BluetoothFindDeviceClose(hfind).ok() }
 }
 #[inline]
@@ -52,17 +52,17 @@ pub unsafe fn BluetoothFindFirstRadio(pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS
 }
 #[inline]
 pub unsafe fn BluetoothFindNextDevice(hfind: HBLUETOOTH_DEVICE_FIND, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> windows_core::Result<()> {
-    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindNextDevice(hfind : HBLUETOOTH_DEVICE_FIND, pbtdi : *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindNextDevice(hfind : HBLUETOOTH_DEVICE_FIND, pbtdi : *mut BLUETOOTH_DEVICE_INFO) -> windows_core::BOOL);
     unsafe { BluetoothFindNextDevice(hfind, pbtdi as _).ok() }
 }
 #[inline]
 pub unsafe fn BluetoothFindNextRadio(hfind: HBLUETOOTH_RADIO_FIND, phradio: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindNextRadio(hfind : HBLUETOOTH_RADIO_FIND, phradio : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindNextRadio(hfind : HBLUETOOTH_RADIO_FIND, phradio : *mut super::super::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { BluetoothFindNextRadio(hfind, phradio as _).ok() }
 }
 #[inline]
 pub unsafe fn BluetoothFindRadioClose(hfind: HBLUETOOTH_RADIO_FIND) -> windows_core::Result<()> {
-    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindRadioClose(hfind : HBLUETOOTH_RADIO_FIND) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindRadioClose(hfind : HBLUETOOTH_RADIO_FIND) -> windows_core::BOOL);
     unsafe { BluetoothFindRadioClose(hfind).ok() }
 }
 #[inline]
@@ -141,18 +141,18 @@ pub unsafe fn BluetoothGetRadioInfo(hradio: super::super::Foundation::HANDLE, pr
     unsafe { BluetoothGetRadioInfo(hradio, pradioinfo as _) }
 }
 #[inline]
-pub unsafe fn BluetoothIsConnectable(hradio: Option<super::super::Foundation::HANDLE>) -> super::super::Foundation::BOOL {
-    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothIsConnectable(hradio : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+pub unsafe fn BluetoothIsConnectable(hradio: Option<super::super::Foundation::HANDLE>) -> windows_core::BOOL {
+    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothIsConnectable(hradio : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { BluetoothIsConnectable(hradio.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn BluetoothIsDiscoverable(hradio: Option<super::super::Foundation::HANDLE>) -> super::super::Foundation::BOOL {
-    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothIsDiscoverable(hradio : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+pub unsafe fn BluetoothIsDiscoverable(hradio: Option<super::super::Foundation::HANDLE>) -> windows_core::BOOL {
+    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothIsDiscoverable(hradio : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { BluetoothIsDiscoverable(hradio.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) -> super::super::Foundation::BOOL {
-    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothIsVersionAvailable(majorversion : u8, minorversion : u8) -> super::super::Foundation:: BOOL);
+pub unsafe fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) -> windows_core::BOOL {
+    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothIsVersionAvailable(majorversion : u8, minorversion : u8) -> windows_core::BOOL);
     unsafe { BluetoothIsVersionAvailable(majorversion, minorversion) }
 }
 #[inline]
@@ -172,7 +172,7 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {
 }
 #[inline]
 pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: &[u8], pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: *const core::ffi::c_void) -> windows_core::Result<()> {
-    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSdpEnumAttributes(psdpstream : *const u8, cbstreamsize : u32, pfncallback : PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSdpEnumAttributes(psdpstream : *const u8, cbstreamsize : u32, pfncallback : PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { BluetoothSdpEnumAttributes(core::mem::transmute(psdpstream.as_ptr()), psdpstream.len().try_into().unwrap(), pfncallback, pvparam).ok() }
 }
 #[inline]
@@ -197,12 +197,12 @@ pub unsafe fn BluetoothSdpGetString(precordstream: &[u8], pstringdata: Option<*c
 }
 #[inline]
 pub unsafe fn BluetoothSelectDevices(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> windows_core::Result<()> {
-    windows_targets::link!("bthprops.cpl" "system" fn BluetoothSelectDevices(pbtsdp : *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("bthprops.cpl" "system" fn BluetoothSelectDevices(pbtsdp : *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> windows_core::BOOL);
     unsafe { BluetoothSelectDevices(pbtsdp as _).ok() }
 }
 #[inline]
-pub unsafe fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL {
-    windows_targets::link!("bthprops.cpl" "system" fn BluetoothSelectDevicesFree(pbtsdp : *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation:: BOOL);
+pub unsafe fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> windows_core::BOOL {
+    windows_targets::link!("bthprops.cpl" "system" fn BluetoothSelectDevicesFree(pbtsdp : *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> windows_core::BOOL);
     unsafe { BluetoothSelectDevicesFree(pbtsdp as _) }
 }
 #[inline]
@@ -230,7 +230,7 @@ pub unsafe fn BluetoothSetServiceState(hradio: Option<super::super::Foundation::
 }
 #[inline]
 pub unsafe fn BluetoothUnregisterAuthentication(hreghandle: isize) -> windows_core::Result<()> {
-    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothUnregisterAuthentication(hreghandle : isize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothUnregisterAuthentication(hreghandle : isize) -> windows_core::BOOL);
     unsafe { BluetoothUnregisterAuthentication(hreghandle).ok() }
 }
 #[inline]
@@ -406,9 +406,9 @@ pub struct BLUETOOTH_DEVICE_INFO {
     pub dwSize: u32,
     pub Address: BLUETOOTH_ADDRESS,
     pub ulClassofDevice: u32,
-    pub fConnected: super::super::Foundation::BOOL,
-    pub fRemembered: super::super::Foundation::BOOL,
-    pub fAuthenticated: super::super::Foundation::BOOL,
+    pub fConnected: windows_core::BOOL,
+    pub fRemembered: windows_core::BOOL,
+    pub fAuthenticated: windows_core::BOOL,
     pub stLastSeen: super::super::Foundation::SYSTEMTIME,
     pub stLastUsed: super::super::Foundation::SYSTEMTIME,
     pub szName: [u16; 248],
@@ -423,11 +423,11 @@ pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256u32;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub dwSize: u32,
-    pub fReturnAuthenticated: super::super::Foundation::BOOL,
-    pub fReturnRemembered: super::super::Foundation::BOOL,
-    pub fReturnUnknown: super::super::Foundation::BOOL,
-    pub fReturnConnected: super::super::Foundation::BOOL,
-    pub fIssueInquiry: super::super::Foundation::BOOL,
+    pub fReturnAuthenticated: windows_core::BOOL,
+    pub fReturnRemembered: windows_core::BOOL,
+    pub fReturnUnknown: windows_core::BOOL,
+    pub fReturnConnected: windows_core::BOOL,
+    pub fIssueInquiry: windows_core::BOOL,
     pub cTimeoutMultiplier: u8,
     pub hRadio: super::super::Foundation::HANDLE,
 }
@@ -488,7 +488,7 @@ pub const BLUETOOTH_IO_CAPABILITY_UNDEFINED: BLUETOOTH_IO_CAPABILITY = BLUETOOTH
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
-    pub Enabled: super::super::Foundation::BOOL,
+    pub Enabled: windows_core::BOOL,
     pub btAddr: BLUETOOTH_ADDRESS,
     pub szName: [u16; 256],
     pub szDeviceString: [u16; 256],
@@ -574,12 +574,12 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub prgClassOfDevices: *mut BLUETOOTH_COD_PAIRS,
     pub pszInfo: windows_core::PWSTR,
     pub hwndParent: super::super::Foundation::HWND,
-    pub fForceAuthentication: super::super::Foundation::BOOL,
-    pub fShowAuthenticated: super::super::Foundation::BOOL,
-    pub fShowRemembered: super::super::Foundation::BOOL,
-    pub fShowUnknown: super::super::Foundation::BOOL,
-    pub fAddNewDeviceWizard: super::super::Foundation::BOOL,
-    pub fSkipServicesPage: super::super::Foundation::BOOL,
+    pub fForceAuthentication: windows_core::BOOL,
+    pub fShowAuthenticated: windows_core::BOOL,
+    pub fShowRemembered: windows_core::BOOL,
+    pub fShowUnknown: windows_core::BOOL,
+    pub fAddNewDeviceWizard: windows_core::BOOL,
+    pub fSkipServicesPage: windows_core::BOOL,
     pub pfnDeviceCallback: PFN_DEVICE_CALLBACK,
     pub pvParam: *mut core::ffi::c_void,
     pub cNumDevices: u32,
@@ -1504,10 +1504,10 @@ pub const OBJECT_PUSH_FORMAT_VMESSAGE: u32 = 6u32;
 pub const OBJECT_PUSH_FORMAT_VNOTE: u32 = 5u32;
 pub const PANUServiceClassID_UUID16: u32 = 4373u32;
 pub type PFNBLUETOOTH_GATT_EVENT_CALLBACK = Option<unsafe extern "system" fn(eventtype: BTH_LE_GATT_EVENT_TYPE, eventoutparameter: *const core::ffi::c_void, context: *const core::ffi::c_void)>;
-pub type PFN_AUTHENTICATION_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
-pub type PFN_AUTHENTICATION_CALLBACK_EX = Option<unsafe extern "system" fn(pvparam: *const core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> super::super::Foundation::BOOL>;
-pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = Option<unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFN_DEVICE_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHENTICATION_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> windows_core::BOOL>;
+pub type PFN_AUTHENTICATION_CALLBACK_EX = Option<unsafe extern "system" fn(pvparam: *const core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> windows_core::BOOL>;
+pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = Option<unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const core::ffi::c_void) -> windows_core::BOOL>;
+pub type PFN_DEVICE_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> windows_core::BOOL>;
 pub const PF_BTH: u16 = 32u16;
 pub const PSM_3DSP: u32 = 33u32;
 pub const PSM_ATT: u32 = 31u32;

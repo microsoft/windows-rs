@@ -194,7 +194,7 @@ impl windows_core::RuntimeName for IWPCProviderSupport {}
 windows_core::imp::define_interface!(IWPCSettings, IWPCSettings_Vtbl, 0x8fdf6ca1_0189_47e4_b670_1a8a4636e340);
 windows_core::imp::interface_hierarchy!(IWPCSettings, windows_core::IUnknown);
 impl IWPCSettings {
-    pub unsafe fn IsLoggingRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsLoggingRequired(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsLoggingRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -216,18 +216,18 @@ impl IWPCSettings {
 #[repr(C)]
 pub struct IWPCSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsLoggingRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsLoggingRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetLastSettingsChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
     pub GetRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WPCFLAG_RESTRICTION) -> windows_core::HRESULT,
 }
 pub trait IWPCSettings_Impl: windows_core::IUnknownImpl {
-    fn IsLoggingRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsLoggingRequired(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetLastSettingsChangeTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME>;
     fn GetRestrictions(&self) -> windows_core::Result<WPCFLAG_RESTRICTION>;
 }
 impl IWPCSettings_Vtbl {
     pub const fn new<Identity: IWPCSettings_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsLoggingRequired<Identity: IWPCSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrequired: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsLoggingRequired<Identity: IWPCSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrequired: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWPCSettings_Impl::IsLoggingRequired(this) {
@@ -290,7 +290,7 @@ impl IWPCWebSettings {
             (windows_core::Interface::vtable(self).GetSettings)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RequestURLOverride<P1>(&self, hwnd: Option<super::super::Foundation::HWND>, pcszurl: P1, ppcszsuburls: Option<&[windows_core::PCWSTR]>) -> windows_core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn RequestURLOverride<P1>(&self, hwnd: Option<super::super::Foundation::HWND>, pcszurl: P1, ppcszsuburls: Option<&[windows_core::PCWSTR]>) -> windows_core::Result<windows_core::BOOL>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -304,11 +304,11 @@ impl IWPCWebSettings {
 pub struct IWPCWebSettings_Vtbl {
     pub base__: IWPCSettings_Vtbl,
     pub GetSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WPCFLAG_WEB_SETTING) -> windows_core::HRESULT,
-    pub RequestURLOverride: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub RequestURLOverride: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWPCWebSettings_Impl: IWPCSettings_Impl {
     fn GetSettings(&self) -> windows_core::Result<WPCFLAG_WEB_SETTING>;
-    fn RequestURLOverride(&self, hwnd: super::super::Foundation::HWND, pcszurl: &windows_core::PCWSTR, curls: u32, ppcszsuburls: *const windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn RequestURLOverride(&self, hwnd: super::super::Foundation::HWND, pcszurl: &windows_core::PCWSTR, curls: u32, ppcszsuburls: *const windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IWPCWebSettings_Vtbl {
     pub const fn new<Identity: IWPCWebSettings_Impl, const OFFSET: isize>() -> Self {
@@ -324,7 +324,7 @@ impl IWPCWebSettings_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RequestURLOverride<Identity: IWPCWebSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pcszurl: windows_core::PCWSTR, curls: u32, ppcszsuburls: *const windows_core::PCWSTR, pfchanged: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RequestURLOverride<Identity: IWPCWebSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pcszurl: windows_core::PCWSTR, curls: u32, ppcszsuburls: *const windows_core::PCWSTR, pfchanged: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWPCWebSettings_Impl::RequestURLOverride(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&pcszurl), core::mem::transmute_copy(&curls), core::mem::transmute_copy(&ppcszsuburls)) {

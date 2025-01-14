@@ -771,7 +771,7 @@ pub struct IUIAnimationManager2_Vtbl {
     pub SetAnimationMode: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_MODE) -> windows_core::HRESULT,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetManagerEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetManagerEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetCancelPriorityComparison: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTrimPriorityComparison: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCompressPriorityComparison: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -794,7 +794,7 @@ pub trait IUIAnimationManager2_Impl: windows_core::IUnknownImpl {
     fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
-    fn SetManagerEventHandler(&self, handler: windows_core::Ref<IUIAnimationManagerEventHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetManagerEventHandler(&self, handler: windows_core::Ref<IUIAnimationManagerEventHandler2>, fregisterfornextanimationevent: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetCancelPriorityComparison(&self, comparison: windows_core::Ref<IUIAnimationPriorityComparison2>) -> windows_core::Result<()>;
     fn SetTrimPriorityComparison(&self, comparison: windows_core::Ref<IUIAnimationPriorityComparison2>) -> windows_core::Result<()>;
     fn SetCompressPriorityComparison(&self, comparison: windows_core::Ref<IUIAnimationPriorityComparison2>) -> windows_core::Result<()>;
@@ -930,7 +930,7 @@ impl IUIAnimationManager2_Vtbl {
                 IUIAnimationManager2_Impl::Resume(this).into()
             }
         }
-        unsafe extern "system" fn SetManagerEventHandler<Identity: IUIAnimationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetManagerEventHandler<Identity: IUIAnimationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, fregisterfornextanimationevent: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUIAnimationManager2_Impl::SetManagerEventHandler(this, core::mem::transmute_copy(&handler), core::mem::transmute_copy(&fregisterfornextanimationevent)).into()
@@ -1565,7 +1565,7 @@ pub struct IUIAnimationStoryboard2_Vtbl {
     pub AddKeyframeAfterTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut UI_ANIMATION_KEYFRAME) -> windows_core::HRESULT,
     pub AddTransitionAtKeyframe: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_KEYFRAME) -> windows_core::HRESULT,
     pub AddTransitionBetweenKeyframes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_KEYFRAME, UI_ANIMATION_KEYFRAME) -> windows_core::HRESULT,
-    pub RepeatBetweenKeyframes: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_KEYFRAME, UI_ANIMATION_KEYFRAME, f64, UI_ANIMATION_REPEAT_MODE, *mut core::ffi::c_void, usize, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub RepeatBetweenKeyframes: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_KEYFRAME, UI_ANIMATION_KEYFRAME, f64, UI_ANIMATION_REPEAT_MODE, *mut core::ffi::c_void, usize, windows_core::BOOL) -> windows_core::HRESULT,
     pub HoldVariable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLongestAcceptableDelay: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub SetSkipDuration: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -1577,7 +1577,7 @@ pub struct IUIAnimationStoryboard2_Vtbl {
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UI_ANIMATION_STORYBOARD_STATUS) -> windows_core::HRESULT,
     pub GetElapsedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetStoryboardEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetStoryboardEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IUIAnimationStoryboard2_Impl: windows_core::IUnknownImpl {
     fn AddTransition(&self, variable: windows_core::Ref<IUIAnimationVariable2>, transition: windows_core::Ref<IUIAnimationTransition2>) -> windows_core::Result<()>;
@@ -1585,7 +1585,7 @@ pub trait IUIAnimationStoryboard2_Impl: windows_core::IUnknownImpl {
     fn AddKeyframeAfterTransition(&self, transition: windows_core::Ref<IUIAnimationTransition2>) -> windows_core::Result<UI_ANIMATION_KEYFRAME>;
     fn AddTransitionAtKeyframe(&self, variable: windows_core::Ref<IUIAnimationVariable2>, transition: windows_core::Ref<IUIAnimationTransition2>, startkeyframe: UI_ANIMATION_KEYFRAME) -> windows_core::Result<()>;
     fn AddTransitionBetweenKeyframes(&self, variable: windows_core::Ref<IUIAnimationVariable2>, transition: windows_core::Ref<IUIAnimationTransition2>, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> windows_core::Result<()>;
-    fn RepeatBetweenKeyframes(&self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: windows_core::Ref<IUIAnimationLoopIterationChangeHandler2>, id: usize, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn RepeatBetweenKeyframes(&self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: windows_core::Ref<IUIAnimationLoopIterationChangeHandler2>, id: usize, fregisterfornextanimationevent: windows_core::BOOL) -> windows_core::Result<()>;
     fn HoldVariable(&self, variable: windows_core::Ref<IUIAnimationVariable2>) -> windows_core::Result<()>;
     fn SetLongestAcceptableDelay(&self, delay: f64) -> windows_core::Result<()>;
     fn SetSkipDuration(&self, secondsduration: f64) -> windows_core::Result<()>;
@@ -1597,7 +1597,7 @@ pub trait IUIAnimationStoryboard2_Impl: windows_core::IUnknownImpl {
     fn GetTag(&self, object: windows_core::OutRef<'_, windows_core::IUnknown>, id: *mut u32) -> windows_core::Result<()>;
     fn GetStatus(&self) -> windows_core::Result<UI_ANIMATION_STORYBOARD_STATUS>;
     fn GetElapsedTime(&self) -> windows_core::Result<f64>;
-    fn SetStoryboardEventHandler(&self, handler: windows_core::Ref<IUIAnimationStoryboardEventHandler2>, fregisterstatuschangefornextanimationevent: super::super::Foundation::BOOL, fregisterupdatefornextanimationevent: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetStoryboardEventHandler(&self, handler: windows_core::Ref<IUIAnimationStoryboardEventHandler2>, fregisterstatuschangefornextanimationevent: windows_core::BOOL, fregisterupdatefornextanimationevent: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IUIAnimationStoryboard2_Vtbl {
     pub const fn new<Identity: IUIAnimationStoryboard2_Impl, const OFFSET: isize>() -> Self {
@@ -1643,7 +1643,7 @@ impl IUIAnimationStoryboard2_Vtbl {
                 IUIAnimationStoryboard2_Impl::AddTransitionBetweenKeyframes(this, core::mem::transmute_copy(&variable), core::mem::transmute_copy(&transition), core::mem::transmute_copy(&startkeyframe), core::mem::transmute_copy(&endkeyframe)).into()
             }
         }
-        unsafe extern "system" fn RepeatBetweenKeyframes<Identity: IUIAnimationStoryboard2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: *mut core::ffi::c_void, id: usize, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RepeatBetweenKeyframes<Identity: IUIAnimationStoryboard2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: *mut core::ffi::c_void, id: usize, fregisterfornextanimationevent: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUIAnimationStoryboard2_Impl::RepeatBetweenKeyframes(this, core::mem::transmute_copy(&startkeyframe), core::mem::transmute_copy(&endkeyframe), core::mem::transmute_copy(&crepetition), core::mem::transmute_copy(&repeatmode), core::mem::transmute_copy(&piterationchangehandler), core::mem::transmute_copy(&id), core::mem::transmute_copy(&fregisterfornextanimationevent)).into()
@@ -1727,7 +1727,7 @@ impl IUIAnimationStoryboard2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetStoryboardEventHandler<Identity: IUIAnimationStoryboard2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, fregisterstatuschangefornextanimationevent: super::super::Foundation::BOOL, fregisterupdatefornextanimationevent: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStoryboardEventHandler<Identity: IUIAnimationStoryboard2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, fregisterstatuschangefornextanimationevent: windows_core::BOOL, fregisterupdatefornextanimationevent: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUIAnimationStoryboard2_Impl::SetStoryboardEventHandler(this, core::mem::transmute_copy(&handler), core::mem::transmute_copy(&fregisterstatuschangefornextanimationevent), core::mem::transmute_copy(&fregisterupdatefornextanimationevent)).into()
@@ -3532,8 +3532,8 @@ pub struct IUIAnimationVariable2_Vtbl {
     pub SetRoundingMode: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_ROUNDING_MODE) -> windows_core::HRESULT,
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetVariableChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetVariableIntegerChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetVariableChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetVariableIntegerChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetVariableCurveChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_DirectComposition")]
@@ -3561,8 +3561,8 @@ pub trait IUIAnimationVariable2_Impl: windows_core::IUnknownImpl {
     fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> windows_core::Result<()>;
     fn SetTag(&self, object: windows_core::Ref<windows_core::IUnknown>, id: u32) -> windows_core::Result<()>;
     fn GetTag(&self, object: windows_core::OutRef<'_, windows_core::IUnknown>, id: *mut u32) -> windows_core::Result<()>;
-    fn SetVariableChangeHandler(&self, handler: windows_core::Ref<IUIAnimationVariableChangeHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetVariableIntegerChangeHandler(&self, handler: windows_core::Ref<IUIAnimationVariableIntegerChangeHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetVariableChangeHandler(&self, handler: windows_core::Ref<IUIAnimationVariableChangeHandler2>, fregisterfornextanimationevent: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetVariableIntegerChangeHandler(&self, handler: windows_core::Ref<IUIAnimationVariableIntegerChangeHandler2>, fregisterfornextanimationevent: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetVariableCurveChangeHandler(&self, handler: windows_core::Ref<IUIAnimationVariableCurveChangeHandler2>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_DirectComposition")]
@@ -3754,13 +3754,13 @@ impl IUIAnimationVariable2_Vtbl {
                 IUIAnimationVariable2_Impl::GetTag(this, core::mem::transmute_copy(&object), core::mem::transmute_copy(&id)).into()
             }
         }
-        unsafe extern "system" fn SetVariableChangeHandler<Identity: IUIAnimationVariable2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVariableChangeHandler<Identity: IUIAnimationVariable2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, fregisterfornextanimationevent: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUIAnimationVariable2_Impl::SetVariableChangeHandler(this, core::mem::transmute_copy(&handler), core::mem::transmute_copy(&fregisterfornextanimationevent)).into()
             }
         }
-        unsafe extern "system" fn SetVariableIntegerChangeHandler<Identity: IUIAnimationVariable2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVariableIntegerChangeHandler<Identity: IUIAnimationVariable2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, fregisterfornextanimationevent: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUIAnimationVariable2_Impl::SetVariableIntegerChangeHandler(this, core::mem::transmute_copy(&handler), core::mem::transmute_copy(&fregisterfornextanimationevent)).into()

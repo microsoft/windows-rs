@@ -234,28 +234,28 @@ pub const GNSS_CustomCommand: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(
 pub struct GNSS_DEVICE_CAPABILITY {
     pub Size: u32,
     pub Version: u32,
-    pub SupportMultipleFixSessions: super::super::Foundation::BOOL,
-    pub SupportMultipleAppSessions: super::super::Foundation::BOOL,
-    pub RequireAGnssInjection: super::super::Foundation::BOOL,
+    pub SupportMultipleFixSessions: windows_core::BOOL,
+    pub SupportMultipleAppSessions: windows_core::BOOL,
+    pub RequireAGnssInjection: windows_core::BOOL,
     pub AgnssFormatSupported: u32,
     pub AgnssFormatPreferred: u32,
-    pub SupportDistanceTracking: super::super::Foundation::BOOL,
-    pub SupportContinuousTracking: super::super::Foundation::BOOL,
+    pub SupportDistanceTracking: windows_core::BOOL,
+    pub SupportContinuousTracking: windows_core::BOOL,
     pub Reserved1: u32,
-    pub Reserved2: super::super::Foundation::BOOL,
-    pub Reserved3: super::super::Foundation::BOOL,
-    pub Reserved4: super::super::Foundation::BOOL,
-    pub Reserved5: super::super::Foundation::BOOL,
+    pub Reserved2: windows_core::BOOL,
+    pub Reserved3: windows_core::BOOL,
+    pub Reserved4: windows_core::BOOL,
+    pub Reserved5: windows_core::BOOL,
     pub GeofencingSupport: u32,
-    pub Reserved6: super::super::Foundation::BOOL,
-    pub Reserved7: super::super::Foundation::BOOL,
-    pub SupportCpLocation: super::super::Foundation::BOOL,
-    pub SupportUplV2: super::super::Foundation::BOOL,
-    pub SupportSuplV1: super::super::Foundation::BOOL,
-    pub SupportSuplV2: super::super::Foundation::BOOL,
+    pub Reserved6: windows_core::BOOL,
+    pub Reserved7: windows_core::BOOL,
+    pub SupportCpLocation: windows_core::BOOL,
+    pub SupportUplV2: windows_core::BOOL,
+    pub SupportSuplV1: windows_core::BOOL,
+    pub SupportSuplV2: windows_core::BOOL,
     pub SupportedSuplVersion: GNSS_SUPL_VERSION,
     pub MaxGeofencesSupported: u32,
-    pub SupportMultipleSuplRootCert: super::super::Foundation::BOOL,
+    pub SupportMultipleSuplRootCert: windows_core::BOOL,
     pub GnssBreadCrumbPayloadVersion: u32,
     pub MaxGnssBreadCrumbFixes: u32,
     pub Unused: [u8; 496],
@@ -324,7 +324,7 @@ pub struct GNSS_ERRORINFO {
     pub Size: u32,
     pub Version: u32,
     pub ErrorCode: u32,
-    pub IsRecoverable: super::super::Foundation::BOOL,
+    pub IsRecoverable: windows_core::BOOL,
     pub ErrorDescription: [u16; 256],
     pub Unused: [u8; 512],
 }
@@ -423,7 +423,7 @@ pub struct GNSS_FIXDATA {
     pub Version: u32,
     pub FixSessionID: u32,
     pub FixTimeStamp: super::super::Foundation::FILETIME,
-    pub IsFinalFix: super::super::Foundation::BOOL,
+    pub IsFinalFix: windows_core::BOOL,
     pub FixStatus: super::super::Foundation::NTSTATUS,
     pub FixLevelOfDetails: u32,
     pub BasicData: GNSS_FIXDATA_BASIC,
@@ -442,7 +442,7 @@ pub struct GNSS_FIXDATA_2 {
     pub Version: u32,
     pub FixSessionID: u32,
     pub FixTimeStamp: super::super::Foundation::FILETIME,
-    pub IsFinalFix: super::super::Foundation::BOOL,
+    pub IsFinalFix: windows_core::BOOL,
     pub FixStatus: super::super::Foundation::NTSTATUS,
     pub FixLevelOfDetails: u32,
     pub BasicData: GNSS_FIXDATA_BASIC_2,
@@ -752,7 +752,7 @@ pub struct GNSS_NI_REQUEST_PARAM {
     pub RequestPlaneType: GNSS_NI_PLANE_TYPE,
     pub Anonymous: GNSS_NI_REQUEST_PARAM_0,
     pub ResponseTimeInSec: u32,
-    pub EmergencyLocation: super::super::Foundation::BOOL,
+    pub EmergencyLocation: windows_core::BOOL,
 }
 impl Default for GNSS_NI_REQUEST_PARAM {
     fn default() -> Self {
@@ -823,7 +823,7 @@ pub const GNSS_OPERMODE_OTDOA: u32 = 32u32;
 pub struct GNSS_PLATFORM_CAPABILITY {
     pub Size: u32,
     pub Version: u32,
-    pub SupportAgnssInjection: super::super::Foundation::BOOL,
+    pub SupportAgnssInjection: windows_core::BOOL,
     pub AgnssFormatSupported: u32,
     pub Unused: [u8; 516],
 }
@@ -838,7 +838,7 @@ pub const GNSS_ResetGeofencesTracking: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMM
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SATELLITEINFO {
     pub SatelliteId: u32,
-    pub UsedInPositiong: super::super::Foundation::BOOL,
+    pub UsedInPositiong: windows_core::BOOL,
     pub Elevation: f64,
     pub Azimuth: f64,
     pub SignalToNoiseRatio: f64,
@@ -1923,7 +1923,7 @@ pub struct ILocation_Vtbl {
     pub SetDesiredAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_Sensors"))]
     SetDesiredAccuracy: usize,
-    pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::GUID, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::GUID, u32, windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Devices_Sensors")]
 pub trait ILocation_Impl: windows_core::IUnknownImpl {
@@ -1935,7 +1935,7 @@ pub trait ILocation_Impl: windows_core::IUnknownImpl {
     fn SetReportInterval(&self, reporttype: *const windows_core::GUID, millisecondsrequested: u32) -> windows_core::Result<()>;
     fn GetDesiredAccuracy(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<super::Sensors::LOCATION_DESIRED_ACCURACY>;
     fn SetDesiredAccuracy(&self, reporttype: *const windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::Result<()>;
-    fn RequestPermissions(&self, hparent: super::super::Foundation::HWND, preporttypes: *const windows_core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn RequestPermissions(&self, hparent: super::super::Foundation::HWND, preporttypes: *const windows_core::GUID, count: u32, fmodal: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Devices_Sensors")]
 impl ILocation_Vtbl {
@@ -2012,7 +2012,7 @@ impl ILocation_Vtbl {
                 ILocation_Impl::SetDesiredAccuracy(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&desiredaccuracy)).into()
             }
         }
-        unsafe extern "system" fn RequestPermissions<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hparent: super::super::Foundation::HWND, preporttypes: *const windows_core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RequestPermissions<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hparent: super::super::Foundation::HWND, preporttypes: *const windows_core::GUID, count: u32, fmodal: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ILocation_Impl::RequestPermissions(this, core::mem::transmute_copy(&hparent), core::mem::transmute_copy(&preporttypes), core::mem::transmute_copy(&count), core::mem::transmute_copy(&fmodal)).into()

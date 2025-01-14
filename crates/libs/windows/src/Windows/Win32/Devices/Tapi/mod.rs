@@ -7395,7 +7395,7 @@ impl ITAllocatorProperties {
     pub unsafe fn SetAllocateBuffers(&self, ballocbuffers: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllocateBuffers)(windows_core::Interface::as_raw(self), ballocbuffers.into()).ok() }
     }
-    pub unsafe fn GetAllocateBuffers(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetAllocateBuffers(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAllocateBuffers)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7422,8 +7422,8 @@ pub struct ITAllocatorProperties_Vtbl {
     pub GetAllocatorProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Media::DirectShow::ALLOCATOR_PROPERTIES) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     GetAllocatorProperties: usize,
-    pub SetAllocateBuffers: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetAllocateBuffers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetAllocateBuffers: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetAllocateBuffers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
@@ -7431,8 +7431,8 @@ pub struct ITAllocatorProperties_Vtbl {
 pub trait ITAllocatorProperties_Impl: windows_core::IUnknownImpl {
     fn SetAllocatorProperties(&self, pallocproperties: *const super::super::Media::DirectShow::ALLOCATOR_PROPERTIES) -> windows_core::Result<()>;
     fn GetAllocatorProperties(&self) -> windows_core::Result<super::super::Media::DirectShow::ALLOCATOR_PROPERTIES>;
-    fn SetAllocateBuffers(&self, ballocbuffers: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetAllocateBuffers(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn SetAllocateBuffers(&self, ballocbuffers: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetAllocateBuffers(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetBufferSize(&self, buffersize: u32) -> windows_core::Result<()>;
     fn GetBufferSize(&self) -> windows_core::Result<u32>;
 }
@@ -7457,13 +7457,13 @@ impl ITAllocatorProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAllocateBuffers<Identity: ITAllocatorProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ballocbuffers: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAllocateBuffers<Identity: ITAllocatorProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ballocbuffers: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITAllocatorProperties_Impl::SetAllocateBuffers(this, core::mem::transmute_copy(&ballocbuffers)).into()
             }
         }
-        unsafe extern "system" fn GetAllocateBuffers<Identity: ITAllocatorProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pballocbuffers: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAllocateBuffers<Identity: ITAllocatorProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pballocbuffers: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAllocatorProperties_Impl::GetAllocateBuffers(this) {

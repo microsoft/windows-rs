@@ -1,26 +1,26 @@
 #[inline]
 pub unsafe fn CloseHandle(hobject: HANDLE) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> windows_core::BOOL);
     unsafe { CloseHandle(hobject).ok() }
 }
 #[inline]
-pub unsafe fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL {
-    windows_targets::link!("api-ms-win-core-handle-l1-1-0.dll" "system" fn CompareObjectHandles(hfirstobjecthandle : HANDLE, hsecondobjecthandle : HANDLE) -> BOOL);
+pub unsafe fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> windows_core::BOOL {
+    windows_targets::link!("api-ms-win-core-handle-l1-1-0.dll" "system" fn CompareObjectHandles(hfirstobjecthandle : HANDLE, hsecondobjecthandle : HANDLE) -> windows_core::BOOL);
     unsafe { CompareObjectHandles(hfirstobjecthandle, hsecondobjecthandle) }
 }
 #[inline]
 pub unsafe fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: bool, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : windows_core::BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> windows_core::BOOL);
     unsafe { DuplicateHandle(hsourceprocesshandle, hsourcehandle, htargetprocesshandle, lptargethandle as _, dwdesiredaccess, binherithandle.into(), dwoptions).ok() }
 }
 #[inline]
 pub unsafe fn FreeLibrary(hlibmodule: HMODULE) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> windows_core::BOOL);
     unsafe { FreeLibrary(hlibmodule).ok() }
 }
 #[inline]
 pub unsafe fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> windows_core::BOOL);
     unsafe { GetHandleInformation(hobject, lpdwflags as _).ok() }
 }
 #[inline]
@@ -46,7 +46,7 @@ pub unsafe fn RtlNtStatusToDosError(status: NTSTATUS) -> u32 {
 }
 #[inline]
 pub unsafe fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> windows_core::Result<()> {
-    windows_targets::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> windows_core::BOOL);
     unsafe { SetHandleInformation(hobject, dwmask, dwflags).ok() }
 }
 #[inline]
@@ -163,10 +163,6 @@ impl Default for APP_LOCAL_DEVICE_ID {
     }
 }
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
-#[must_use]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BOOL(pub i32);
 pub const BT_E_SPURIOUS_ACTIVATION: windows_core::HRESULT = windows_core::HRESULT(0x80080300_u32 as _);
 pub const CACHE_E_FIRST: i32 = -2147221136i32;
 pub const CACHE_E_LAST: i32 = -2147221121i32;
@@ -4906,7 +4902,7 @@ pub const FACILITY_WIN32K_NTGDI: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE
 pub const FACILITY_WIN32K_NTUSER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(62u32);
 pub const FACILITY_XVS: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(94u32);
 pub const FACILTIY_MUI_ERROR_CODE: u32 = 11u32;
-pub const FALSE: BOOL = BOOL(0i32);
+pub const FALSE: windows_core::BOOL = windows_core::BOOL(0i32);
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
 pub const FA_E_HOMEGROUP_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80270222_u32 as _);
 pub const FA_E_MAX_PERSISTED_ITEMS_REACHED: windows_core::HRESULT = windows_core::HRESULT(0x80270220_u32 as _);
@@ -10337,7 +10333,7 @@ pub const TPM_E_WRITE_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80
 pub const TPM_E_WRONGPCRVAL: windows_core::HRESULT = windows_core::HRESULT(0x80280018_u32 as _);
 pub const TPM_E_WRONG_ENTITYTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80280025_u32 as _);
 pub const TPM_E_ZERO_EXHAUST_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0x80290500_u32 as _);
-pub const TRUE: BOOL = BOOL(1i32);
+pub const TRUE: windows_core::BOOL = windows_core::BOOL(1i32);
 pub const TRUST_E_ACTION_UNKNOWN: windows_core::HRESULT = windows_core::HRESULT(0x800B0002_u32 as _);
 pub const TRUST_E_BAD_DIGEST: windows_core::HRESULT = windows_core::HRESULT(0x80096010_u32 as _);
 pub const TRUST_E_BASIC_CONSTRAINTS: windows_core::HRESULT = windows_core::HRESULT(0x80096019_u32 as _);

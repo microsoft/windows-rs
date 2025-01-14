@@ -224,21 +224,21 @@ impl core::ops::Deref for IDxcBlobEncoding {
 }
 windows_core::imp::interface_hierarchy!(IDxcBlobEncoding, windows_core::IUnknown, IDxcBlob);
 impl IDxcBlobEncoding {
-    pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> windows_core::Result<()> {
+    pub unsafe fn GetEncoding(&self, pknown: *mut windows_core::BOOL, pcodepage: *mut DXC_CP) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetEncoding)(windows_core::Interface::as_raw(self), pknown as _, pcodepage as _).ok() }
     }
 }
 #[repr(C)]
 pub struct IDxcBlobEncoding_Vtbl {
     pub base__: IDxcBlob_Vtbl,
-    pub GetEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL, *mut DXC_CP) -> windows_core::HRESULT,
+    pub GetEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut DXC_CP) -> windows_core::HRESULT,
 }
 pub trait IDxcBlobEncoding_Impl: IDxcBlob_Impl {
-    fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> windows_core::Result<()>;
+    fn GetEncoding(&self, pknown: *mut windows_core::BOOL, pcodepage: *mut DXC_CP) -> windows_core::Result<()>;
 }
 impl IDxcBlobEncoding_Vtbl {
     pub const fn new<Identity: IDxcBlobEncoding_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetEncoding<Identity: IDxcBlobEncoding_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEncoding<Identity: IDxcBlobEncoding_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pknown: *mut windows_core::BOOL, pcodepage: *mut DXC_CP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDxcBlobEncoding_Impl::GetEncoding(this, core::mem::transmute_copy(&pknown), core::mem::transmute_copy(&pcodepage)).into()
@@ -1663,7 +1663,7 @@ impl IDxcPdbUtils {
             (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IsFullPDB(&self) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn IsFullPDB(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsFullPDB)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetFullPDB(&self) -> windows_core::Result<IDxcBlob> {
@@ -1720,7 +1720,7 @@ pub struct IDxcPdbUtils_Vtbl {
     pub GetMainFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsFullPDB: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::super::Foundation::BOOL,
+    pub IsFullPDB: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub GetFullPDB: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVersionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCompiler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1746,7 +1746,7 @@ pub trait IDxcPdbUtils_Impl: windows_core::IUnknownImpl {
     fn GetMainFileName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetHash(&self) -> windows_core::Result<IDxcBlob>;
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn IsFullPDB(&self) -> super::super::super::Foundation::BOOL;
+    fn IsFullPDB(&self) -> windows_core::BOOL;
     fn GetFullPDB(&self) -> windows_core::Result<IDxcBlob>;
     fn GetVersionInfo(&self) -> windows_core::Result<IDxcVersionInfo>;
     fn SetCompiler(&self, pcompiler: windows_core::Ref<IDxcCompiler3>) -> windows_core::Result<()>;
@@ -1948,7 +1948,7 @@ impl IDxcPdbUtils_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsFullPDB<Identity: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsFullPDB<Identity: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDxcPdbUtils_Impl::IsFullPDB(this)
@@ -2050,7 +2050,7 @@ impl core::ops::Deref for IDxcResult {
 }
 windows_core::imp::interface_hierarchy!(IDxcResult, windows_core::IUnknown, IDxcOperationResult);
 impl IDxcResult {
-    pub unsafe fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL {
+    pub unsafe fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).HasOutput)(windows_core::Interface::as_raw(self), dxcoutkind) }
     }
     pub unsafe fn GetOutput<T>(&self, dxcoutkind: DXC_OUT_KIND, ppoutputname: *mut Option<IDxcBlobUtf16>, result__: *mut Option<T>) -> windows_core::Result<()>
@@ -2072,14 +2072,14 @@ impl IDxcResult {
 #[repr(C)]
 pub struct IDxcResult_Vtbl {
     pub base__: IDxcOperationResult_Vtbl,
-    pub HasOutput: unsafe extern "system" fn(*mut core::ffi::c_void, DXC_OUT_KIND) -> super::super::super::Foundation::BOOL,
+    pub HasOutput: unsafe extern "system" fn(*mut core::ffi::c_void, DXC_OUT_KIND) -> windows_core::BOOL,
     pub GetOutput: unsafe extern "system" fn(*mut core::ffi::c_void, DXC_OUT_KIND, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNumOutputs: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetOutputByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> DXC_OUT_KIND,
     pub PrimaryOutput: unsafe extern "system" fn(*mut core::ffi::c_void) -> DXC_OUT_KIND,
 }
 pub trait IDxcResult_Impl: IDxcOperationResult_Impl {
-    fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL;
+    fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> windows_core::BOOL;
     fn GetOutput(&self, dxcoutkind: DXC_OUT_KIND, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, ppoutputname: windows_core::OutRef<'_, IDxcBlobUtf16>) -> windows_core::Result<()>;
     fn GetNumOutputs(&self) -> u32;
     fn GetOutputByIndex(&self, index: u32) -> DXC_OUT_KIND;
@@ -2087,7 +2087,7 @@ pub trait IDxcResult_Impl: IDxcOperationResult_Impl {
 }
 impl IDxcResult_Vtbl {
     pub const fn new<Identity: IDxcResult_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn HasOutput<Identity: IDxcResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL {
+        unsafe extern "system" fn HasOutput<Identity: IDxcResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxcoutkind: DXC_OUT_KIND) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDxcResult_Impl::HasOutput(this, core::mem::transmute_copy(&dxcoutkind))

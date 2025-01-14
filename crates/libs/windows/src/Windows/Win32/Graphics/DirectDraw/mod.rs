@@ -1207,7 +1207,7 @@ pub struct DDHAL_BLTDATA {
     pub bltFX: DDBLTFX,
     pub ddRVal: windows_core::HRESULT,
     pub Blt: LPDDHALSURFCB_BLT,
-    pub IsClipped: super::super::Foundation::BOOL,
+    pub IsClipped: windows_core::BOOL,
     pub rOrigDest: super::super::Foundation::RECTL,
     pub rOrigSrc: super::super::Foundation::RECTL,
     pub dwRectCnt: u32,
@@ -1348,7 +1348,7 @@ pub struct DDHAL_CREATEPALETTEDATA {
     pub lpColorTable: *mut super::Gdi::PALETTEENTRY,
     pub ddRVal: windows_core::HRESULT,
     pub CreatePalette: LPDDHAL_CREATEPALETTE,
-    pub is_excl: super::super::Foundation::BOOL,
+    pub is_excl: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDHAL_CREATEPALETTEDATA {
@@ -2025,7 +2025,7 @@ impl Default for DDHAL_GETVPORTCONNECTDATA {
 pub struct DDHAL_GETVPORTFIELDDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
-    pub bField: super::super::Foundation::BOOL,
+    pub bField: windows_core::BOOL,
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortField: LPDDHALVPORTCB_GETFIELD,
 }
@@ -2282,8 +2282,8 @@ pub struct DDHAL_SETMODEDATA {
     pub dwModeIndex: u32,
     pub ddRVal: windows_core::HRESULT,
     pub SetMode: LPDDHAL_SETMODE,
-    pub inexcl: super::super::Foundation::BOOL,
-    pub useRefreshRate: super::super::Foundation::BOOL,
+    pub inexcl: windows_core::BOOL,
+    pub useRefreshRate: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDHAL_SETMODEDATA {
@@ -2318,7 +2318,7 @@ pub struct DDHAL_SETPALETTEDATA {
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_GBL,
     pub ddRVal: windows_core::HRESULT,
     pub SetPalette: LPDDHALSURFCB_SETPALETTE,
-    pub Attach: super::super::Foundation::BOOL,
+    pub Attach: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDHAL_SETPALETTEDATA {
@@ -3974,7 +3974,7 @@ impl Default for DDSETSTATEININFO {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDSETSTATEOUTINFO {
-    pub bSoftwareAutoflip: super::super::Foundation::BOOL,
+    pub bSoftwareAutoflip: windows_core::BOOL,
     pub dwSurfaceIndex: u32,
     pub dwVBISurfaceIndex: u32,
 }
@@ -4010,7 +4010,7 @@ pub struct DDSTEREOMODE {
     pub dwWidth: u32,
     pub dwBpp: u32,
     pub dwRefreshRate: u32,
-    pub bSupported: super::super::Foundation::BOOL,
+    pub bSupported: windows_core::BOOL,
 }
 impl Default for DDSTEREOMODE {
     fn default() -> Self {
@@ -4363,7 +4363,7 @@ impl Default for DDVIDEOPORTNOTIFY {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDVIDEOPORTSTATUS {
     pub dwSize: u32,
-    pub bInUse: super::super::Foundation::BOOL,
+    pub bInUse: windows_core::BOOL,
     pub dwFlags: u32,
     pub dwReserved1: u32,
     pub VideoPortType: DDVIDEOPORTCONNECT,
@@ -4528,7 +4528,7 @@ pub struct DD_BLTDATA {
     pub bltFX: DDBLTFX,
     pub ddRVal: windows_core::HRESULT,
     pub Blt: *mut core::ffi::c_void,
-    pub IsClipped: super::super::Foundation::BOOL,
+    pub IsClipped: windows_core::BOOL,
     pub rOrigDest: super::super::Foundation::RECTL,
     pub rOrigSrc: super::super::Foundation::RECTL,
     pub dwRectCnt: u32,
@@ -4669,7 +4669,7 @@ pub struct DD_CREATEPALETTEDATA {
     pub lpColorTable: *mut super::Gdi::PALETTEENTRY,
     pub ddRVal: windows_core::HRESULT,
     pub CreatePalette: *mut core::ffi::c_void,
-    pub is_excl: super::super::Foundation::BOOL,
+    pub is_excl: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DD_CREATEPALETTEDATA {
@@ -5118,7 +5118,7 @@ impl Default for DD_GETVPORTCONNECTDATA {
 pub struct DD_GETVPORTFIELDDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
-    pub bField: super::super::Foundation::BOOL,
+    pub bField: windows_core::BOOL,
     pub ddRVal: windows_core::HRESULT,
     pub GetVideoPortField: *mut core::ffi::c_void,
 }
@@ -5268,7 +5268,7 @@ impl Default for DD_LOCKDATA {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DD_MAPMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
-    pub bMap: super::super::Foundation::BOOL,
+    pub bMap: windows_core::BOOL,
     pub hProcess: super::super::Foundation::HANDLE,
     pub fpProcess: usize,
     pub ddRVal: windows_core::HRESULT,
@@ -5581,7 +5581,7 @@ pub struct DD_SETPALETTEDATA {
     pub lpDDPalette: *mut DD_PALETTE_GLOBAL,
     pub ddRVal: windows_core::HRESULT,
     pub SetPalette: *mut core::ffi::c_void,
-    pub Attach: super::super::Foundation::BOOL,
+    pub Attach: windows_core::BOOL,
 }
 impl Default for DD_SETPALETTEDATA {
     fn default() -> Self {
@@ -5596,7 +5596,7 @@ pub struct DD_STEREOMODE {
     pub dwWidth: u32,
     pub dwBpp: u32,
     pub dwRefreshRate: u32,
-    pub bSupported: super::super::Foundation::BOOL,
+    pub bSupported: windows_core::BOOL,
 }
 impl Default for DD_STEREOMODE {
     fn default() -> Self {
@@ -6206,7 +6206,7 @@ impl IDirectDraw {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
     pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()> {
@@ -6245,7 +6245,7 @@ pub struct IDirectDraw_Vtbl {
     pub GetGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMonitorFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetScanLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
@@ -6268,7 +6268,7 @@ pub trait IDirectDraw_Impl: windows_core::IUnknownImpl {
     fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface>;
     fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()>;
     fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()>;
-    fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn RestoreDisplayMode(&self) -> windows_core::Result<()>;
     fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()>;
@@ -6374,7 +6374,7 @@ impl IDirectDraw_Vtbl {
                 IDirectDraw_Impl::GetScanLine(this, core::mem::transmute_copy(&param0)).into()
             }
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectDraw_Impl::GetVerticalBlankStatus(this, core::mem::transmute_copy(&param0)).into()
@@ -6504,7 +6504,7 @@ impl IDirectDraw2 {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
     pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()> {
@@ -6546,7 +6546,7 @@ pub struct IDirectDraw2_Vtbl {
     pub GetGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMonitorFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetScanLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
@@ -6570,7 +6570,7 @@ pub trait IDirectDraw2_Impl: windows_core::IUnknownImpl {
     fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface>;
     fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()>;
     fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()>;
-    fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn RestoreDisplayMode(&self) -> windows_core::Result<()>;
     fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()>;
@@ -6677,7 +6677,7 @@ impl IDirectDraw2_Vtbl {
                 IDirectDraw2_Impl::GetScanLine(this, core::mem::transmute_copy(&param0)).into()
             }
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectDraw2_Impl::GetVerticalBlankStatus(this, core::mem::transmute_copy(&param0)).into()
@@ -6814,7 +6814,7 @@ impl IDirectDraw4 {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
     pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()> {
@@ -6872,7 +6872,7 @@ pub struct IDirectDraw4_Vtbl {
     pub GetGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMonitorFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetScanLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
@@ -6903,7 +6903,7 @@ pub trait IDirectDraw4_Impl: windows_core::IUnknownImpl {
     fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface4>;
     fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()>;
     fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()>;
-    fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn RestoreDisplayMode(&self) -> windows_core::Result<()>;
     fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()>;
@@ -7014,7 +7014,7 @@ impl IDirectDraw4_Vtbl {
                 IDirectDraw4_Impl::GetScanLine(this, core::mem::transmute_copy(&param0)).into()
             }
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectDraw4_Impl::GetVerticalBlankStatus(this, core::mem::transmute_copy(&param0)).into()
@@ -7185,7 +7185,7 @@ impl IDirectDraw7 {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetScanLine)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetVerticalBlankStatus)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
     pub unsafe fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()> {
@@ -7249,7 +7249,7 @@ pub struct IDirectDraw7_Vtbl {
     pub GetGDISurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMonitorFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetScanLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
@@ -7282,7 +7282,7 @@ pub trait IDirectDraw7_Impl: windows_core::IUnknownImpl {
     fn GetGDISurface(&self) -> windows_core::Result<IDirectDrawSurface7>;
     fn GetMonitorFrequency(&self, param0: *mut u32) -> windows_core::Result<()>;
     fn GetScanLine(&self, param0: *mut u32) -> windows_core::Result<()>;
-    fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn Initialize(&self, param0: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn RestoreDisplayMode(&self) -> windows_core::Result<()>;
     fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()>;
@@ -7395,7 +7395,7 @@ impl IDirectDraw7_Vtbl {
                 IDirectDraw7_Impl::GetScanLine(this, core::mem::transmute_copy(&param0)).into()
             }
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectDraw7_Impl::GetVerticalBlankStatus(this, core::mem::transmute_copy(&param0)).into()
@@ -7532,7 +7532,7 @@ impl IDirectDrawClipper {
     {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
     }
-    pub unsafe fn IsClipListChanged(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn IsClipListChanged(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsClipListChanged)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7552,7 +7552,7 @@ pub struct IDirectDrawClipper_Vtbl {
     GetClipList: usize,
     pub GetHWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub IsClipListChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsClipListChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub SetClipList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Gdi::RGNDATA, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
@@ -7564,7 +7564,7 @@ pub trait IDirectDrawClipper_Impl: windows_core::IUnknownImpl {
     fn GetClipList(&self, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> windows_core::Result<()>;
     fn GetHWnd(&self, param0: *mut super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn Initialize(&self, param0: windows_core::Ref<IDirectDraw>, param1: u32) -> windows_core::Result<()>;
-    fn IsClipListChanged(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn IsClipListChanged(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn SetClipList(&self, param0: *mut super::Gdi::RGNDATA, param1: u32) -> windows_core::Result<()>;
     fn SetHWnd(&self, param0: u32, param1: super::super::Foundation::HWND) -> windows_core::Result<()>;
 }
@@ -7589,7 +7589,7 @@ impl IDirectDrawClipper_Vtbl {
                 IDirectDrawClipper_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
-        unsafe extern "system" fn IsClipListChanged<Identity: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsClipListChanged<Identity: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectDrawClipper_Impl::IsClipListChanged(this, core::mem::transmute_copy(&param0)).into()
@@ -10651,7 +10651,7 @@ impl IDirectDrawVideoPort {
     pub unsafe fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: Option<*mut DDPIXELFORMAT>, param3: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetOutputFormats)(windows_core::Interface::as_raw(self), param0 as _, lpnumformats as _, param2.unwrap_or(core::mem::zeroed()) as _, param3).ok() }
     }
-    pub unsafe fn GetFieldPolarity(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetFieldPolarity(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFieldPolarity)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
     pub unsafe fn GetVideoLine(&self, param0: *mut u32) -> windows_core::Result<()> {
@@ -10690,7 +10690,7 @@ pub struct IDirectDrawVideoPort_Vtbl {
     pub GetColorControls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDCOLORCONTROL) -> windows_core::HRESULT,
     pub GetInputFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut DDPIXELFORMAT, u32) -> windows_core::HRESULT,
     pub GetOutputFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDPIXELFORMAT, *mut u32, *mut DDPIXELFORMAT, u32) -> windows_core::HRESULT,
-    pub GetFieldPolarity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetFieldPolarity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetVideoLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetVideoSignalStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetColorControls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDCOLORCONTROL) -> windows_core::HRESULT,
@@ -10706,7 +10706,7 @@ pub trait IDirectDrawVideoPort_Impl: windows_core::IUnknownImpl {
     fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::Result<()>;
     fn GetInputFormats(&self, lpnumformats: *mut u32, param1: *mut DDPIXELFORMAT, param2: u32) -> windows_core::Result<()>;
     fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: *mut DDPIXELFORMAT, param3: u32) -> windows_core::Result<()>;
-    fn GetFieldPolarity(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetFieldPolarity(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetVideoLine(&self, param0: *mut u32) -> windows_core::Result<()>;
     fn GetVideoSignalStatus(&self, param0: *mut u32) -> windows_core::Result<()>;
     fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::Result<()>;
@@ -10748,7 +10748,7 @@ impl IDirectDrawVideoPort_Vtbl {
                 IDirectDrawVideoPort_Impl::GetOutputFormats(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&lpnumformats), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
             }
         }
-        unsafe extern "system" fn GetFieldPolarity<Identity: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFieldPolarity<Identity: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectDrawVideoPort_Impl::GetFieldPolarity(this, core::mem::transmute_copy(&param0)).into()
@@ -10886,12 +10886,12 @@ impl Default for IUNKNOWN_LIST {
 }
 pub type LPCLIPPERCALLBACK = Option<unsafe extern "system" fn(lpddclipper: Option<IDirectDrawClipper>, hwnd: super::super::Foundation::HWND, code: u32, lpcontext: *mut core::ffi::c_void) -> u32>;
 pub type LPDD32BITDRIVERINIT = Option<unsafe extern "system" fn(dwcontext: u32) -> u32>;
-pub type LPDDENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDDENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> windows_core::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPDDENUMCALLBACKEXA = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL>;
+pub type LPDDENUMCALLBACKEXA = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void, param4: super::Gdi::HMONITOR) -> windows_core::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPDDENUMCALLBACKEXW = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL>;
-pub type LPDDENUMCALLBACKW = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDDENUMCALLBACKEXW = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void, param4: super::Gdi::HMONITOR) -> windows_core::BOOL>;
+pub type LPDDENUMCALLBACKW = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPDDENUMMODESCALLBACK = Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC, param1: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type LPDDENUMMODESCALLBACK2 = Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC2, param1: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type LPDDENUMSURFACESCALLBACK = Option<unsafe extern "system" fn(param0: Option<IDirectDrawSurface>, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
@@ -11024,7 +11024,7 @@ pub type LPDDHAL_SETCOLORKEY = Option<unsafe extern "system" fn(param0: *mut DDH
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type LPDDHAL_SETEXCLUSIVEMODE = Option<unsafe extern "system" fn(param0: *mut DDHAL_SETEXCLUSIVEMODEDATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPDDHAL_SETINFO = Option<unsafe extern "system" fn(lpddhalinfo: *mut DDHALINFO, reset: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
+pub type LPDDHAL_SETINFO = Option<unsafe extern "system" fn(lpddhalinfo: *mut DDHALINFO, reset: windows_core::BOOL) -> windows_core::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type LPDDHAL_SETMODE = Option<unsafe extern "system" fn(param0: *mut DDHAL_SETMODEDATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -11036,7 +11036,7 @@ pub type LPDDHAL_VIDMEMFREE = Option<unsafe extern "system" fn(lpdd: *mut DDRAWI
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type LPDDHAL_WAITFORVERTICALBLANK = Option<unsafe extern "system" fn(param0: *mut DDHAL_WAITFORVERTICALBLANKDATA) -> u32>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPDDHEL_INIT = Option<unsafe extern "system" fn(param0: *mut DDRAWI_DIRECTDRAW_GBL, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
+pub type LPDDHEL_INIT = Option<unsafe extern "system" fn(param0: *mut DDRAWI_DIRECTDRAW_GBL, param1: windows_core::BOOL) -> windows_core::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type LPDIRECTDRAWENUMERATEEXA = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -11375,7 +11375,7 @@ pub struct VMEML {
     pub next: *mut VMEML,
     pub ptr: usize,
     pub size: u32,
-    pub bDiscardable: super::super::Foundation::BOOL,
+    pub bDiscardable: windows_core::BOOL,
 }
 impl Default for VMEML {
     fn default() -> Self {
@@ -11399,7 +11399,7 @@ pub struct VMEMR {
     pub cy: u32,
     pub flags: u32,
     pub pBits: usize,
-    pub bDiscardable: super::super::Foundation::BOOL,
+    pub bDiscardable: windows_core::BOOL,
 }
 impl Default for VMEMR {
     fn default() -> Self {

@@ -25,12 +25,12 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetyp
 }
 #[inline]
 pub unsafe fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Option<super::super::Foundation::HWND>, messagecode: Option<u32>, callbackroutine: Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>, userdata: Option<*const core::ffi::c_void>, asynchronousopen: bool, frameworkhandle: Option<*mut u32>) -> windows_core::Result<()> {
-    windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenFramework(notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : super::super::Foundation:: BOOL, frameworkhandle : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenFramework(notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : windows_core::BOOL, frameworkhandle : *mut u32) -> windows_core::HRESULT);
     unsafe { WinBioAsyncOpenFramework(notificationmethod, targetwindow.unwrap_or(core::mem::zeroed()) as _, messagecode.unwrap_or(core::mem::zeroed()) as _, callbackroutine.unwrap_or(core::mem::zeroed()) as _, userdata.unwrap_or(core::mem::zeroed()) as _, asynchronousopen.into(), frameworkhandle.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: Option<&[u32]>, databaseid: Option<*const windows_core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Option<super::super::Foundation::HWND>, messagecode: Option<u32>, callbackroutine: Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>, userdata: Option<*const core::ffi::c_void>, asynchronousopen: bool, sessionhandle: Option<*mut u32>) -> windows_core::Result<()> {
-    windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const windows_core::GUID, notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : super::super::Foundation:: BOOL, sessionhandle : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const windows_core::GUID, notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : windows_core::BOOL, sessionhandle : *mut u32) -> windows_core::HRESULT);
     unsafe {
         WinBioAsyncOpenSession(
             factor,
@@ -1453,7 +1453,7 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     pub GridPointCompletionPercent: u32,
     pub GridPointIndex: u16,
     pub Point3D: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0,
-    pub StopCaptureAndShowCriticalFeedback: super::super::Foundation::BOOL,
+    pub StopCaptureAndShowCriticalFeedback: windows_core::BOOL,
 }
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     fn default() -> Self {
@@ -1729,7 +1729,7 @@ pub const WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT: windows_core::HRESULT 
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINBIO_FP_BU_STATE {
-    pub SensorAttached: super::super::Foundation::BOOL,
+    pub SensorAttached: windows_core::BOOL,
     pub CreationResult: windows_core::HRESULT,
 }
 impl Default for WINBIO_FP_BU_STATE {

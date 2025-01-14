@@ -1,11 +1,11 @@
 #[inline]
 pub unsafe fn AVIBuildFilterA(lpszfilter: &mut [u8], fsaving: bool) -> windows_core::Result<()> {
-    windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : windows_core::PSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : windows_core::PSTR, cbfilter : i32, fsaving : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { AVIBuildFilterA(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()).ok() }
 }
 #[inline]
 pub unsafe fn AVIBuildFilterW(lpszfilter: &mut [u16], fsaving: bool) -> windows_core::Result<()> {
-    windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : windows_core::PWSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : windows_core::PWSTR, cbfilter : i32, fsaving : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { AVIBuildFilterW(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()).ok() }
 }
 #[inline]
@@ -402,30 +402,30 @@ pub unsafe fn DefDriverProc(dwdriveridentifier: usize, hdrvr: HDRVR, umsg: u32, 
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibBegin(hdd: isize, hdc: Option<super::super::Graphics::Gdi::HDC>, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn DrawDibBegin(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn DrawDibBegin(hdd: isize, hdc: Option<super::super::Graphics::Gdi::HDC>, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibBegin(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> windows_core::BOOL);
     unsafe { DrawDibBegin(hdd, hdc.unwrap_or(core::mem::zeroed()) as _, dxdst, dydst, lpbi, dxsrc, dysrc, wflags) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, lppe: &[super::super::Graphics::Gdi::PALETTEENTRY]) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : isize, istart : i32, ilen : i32, lppe : *const super::super::Graphics::Gdi:: PALETTEENTRY) -> super::super::Foundation:: BOOL);
+pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, lppe: &[super::super::Graphics::Gdi::PALETTEENTRY]) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : isize, istart : i32, ilen : i32, lppe : *const super::super::Graphics::Gdi:: PALETTEENTRY) -> windows_core::BOOL);
     unsafe { DrawDibChangePalette(hdd, istart, lppe.len().try_into().unwrap(), core::mem::transmute(lppe.as_ptr())) }
 }
 #[inline]
-pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn DrawDibClose(hdd : isize) -> super::super::Foundation:: BOOL);
+pub unsafe fn DrawDibClose(hdd: isize) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibClose(hdd : isize) -> windows_core::BOOL);
     unsafe { DrawDibClose(hdd) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibDraw(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpbits: Option<*const core::ffi::c_void>, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn DrawDibDraw(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpbits: Option<*const core::ffi::c_void>, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> windows_core::BOOL);
     unsafe { DrawDibDraw(hdd, hdc, xdst, ydst, dxdst, dydst, lpbi.unwrap_or(core::mem::zeroed()) as _, lpbits.unwrap_or(core::mem::zeroed()) as _, xsrc, ysrc, dxsrc, dysrc, wflags) }
 }
 #[inline]
-pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn DrawDibEnd(hdd : isize) -> super::super::Foundation:: BOOL);
+pub unsafe fn DrawDibEnd(hdd: isize) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibEnd(hdd : isize) -> windows_core::BOOL);
     unsafe { DrawDibEnd(hdd) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -454,33 +454,33 @@ pub unsafe fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BI
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawDibRealize(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, fbackground: bool) -> u32 {
-    windows_targets::link!("msvfw32.dll" "system" fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, fbackground : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, fbackground : windows_core::BOOL) -> u32);
     unsafe { DrawDibRealize(hdd, hdc, fbackground.into()) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibSetPalette(hdd: isize, hpal: Option<super::super::Graphics::Gdi::HPALETTE>) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn DrawDibSetPalette(hdd : isize, hpal : super::super::Graphics::Gdi:: HPALETTE) -> super::super::Foundation:: BOOL);
+pub unsafe fn DrawDibSetPalette(hdd: isize, hpal: Option<super::super::Graphics::Gdi::HPALETTE>) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibSetPalette(hdd : isize, hpal : super::super::Graphics::Gdi:: HPALETTE) -> windows_core::BOOL);
     unsafe { DrawDibSetPalette(hdd, hpal.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn DrawDibStart(hdd : isize, rate : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibStart(hdd : isize, rate : u32) -> windows_core::BOOL);
     unsafe { DrawDibStart(hdd, rate) }
 }
 #[inline]
-pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn DrawDibStop(hdd : isize) -> super::super::Foundation:: BOOL);
+pub unsafe fn DrawDibStop(hdd: isize) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibStop(hdd : isize) -> windows_core::BOOL);
     unsafe { DrawDibStop(hdd) }
 }
 #[inline]
-pub unsafe fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn DrawDibTime(hdd : isize, lpddtime : *mut DRAWDIBTIME) -> super::super::Foundation:: BOOL);
+pub unsafe fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibTime(hdd : isize, lpddtime : *mut DRAWDIBTIME) -> windows_core::BOOL);
     unsafe { DrawDibTime(hdd, lpddtime as _) }
 }
 #[inline]
-pub unsafe fn DriverCallback(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL {
-    windows_targets::link!("winmm.dll" "system" fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> super::super::Foundation:: BOOL);
+pub unsafe fn DriverCallback(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> windows_core::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> windows_core::BOOL);
     unsafe { DriverCallback(dwcallback, dwflags, hdevice, dwmsg, dwuser, dwparam1, dwparam2) }
 }
 #[inline]
@@ -565,26 +565,26 @@ pub unsafe fn GetDriverModuleHandle(hdriver: HDRVR) -> super::super::Foundation:
 }
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 #[inline]
-pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> windows_core::BOOL);
     unsafe { GetOpenFileNamePreviewA(lpofn as _) }
 }
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 #[inline]
-pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> windows_core::BOOL);
     unsafe { GetOpenFileNamePreviewW(lpofn as _) }
 }
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 #[inline]
-pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> windows_core::BOOL);
     unsafe { GetSaveFileNamePreviewA(lpofn as _) }
 }
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 #[inline]
-pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> windows_core::BOOL);
     unsafe { GetSaveFileNamePreviewW(lpofn as _) }
 }
 #[inline]
@@ -600,11 +600,11 @@ pub unsafe fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICCompressorChoose<P5>(hwnd: Option<super::super::Foundation::HWND>, uiflags: u32, pvin: Option<*const core::ffi::c_void>, lpdata: Option<*const core::ffi::c_void>, pc: *mut COMPVARS, lpsztitle: P5) -> super::super::Foundation::BOOL
+pub unsafe fn ICCompressorChoose<P5>(hwnd: Option<super::super::Foundation::HWND>, uiflags: u32, pvin: Option<*const core::ffi::c_void>, lpdata: Option<*const core::ffi::c_void>, pc: *mut COMPVARS, lpsztitle: P5) -> windows_core::BOOL
 where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { ICCompressorChoose(hwnd.unwrap_or(core::mem::zeroed()) as _, uiflags, pvin.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, pc as _, lpsztitle.param().abi()) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -654,16 +654,16 @@ pub unsafe fn ICImageDecompress(hic: Option<HIC>, uiflags: u32, lpbiin: *const s
     unsafe { ICImageDecompress(hic.unwrap_or(core::mem::zeroed()) as _, uiflags, lpbiin, lpbits, lpbiout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn ICInfo(fcctype : u32, fcchandler : u32, lpicinfo : *mut ICINFO) -> super::super::Foundation:: BOOL);
+pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn ICInfo(fcctype : u32, fcchandler : u32, lpicinfo : *mut ICINFO) -> windows_core::BOOL);
     unsafe { ICInfo(fcctype, fcchandler, lpicinfo as _) }
 }
 #[inline]
-pub unsafe fn ICInstall<P3>(fcctype: u32, fcchandler: u32, lparam: super::super::Foundation::LPARAM, szdesc: P3, wflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn ICInstall<P3>(fcctype: u32, fcchandler: u32, lparam: super::super::Foundation::LPARAM, szdesc: P3, wflags: u32) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("msvfw32.dll" "system" fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::super::Foundation:: LPARAM, szdesc : windows_core::PCSTR, wflags : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("msvfw32.dll" "system" fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::super::Foundation:: LPARAM, szdesc : windows_core::PCSTR, wflags : u32) -> windows_core::BOOL);
     unsafe { ICInstall(fcctype, fcchandler, lparam, szdesc.param().abi(), wflags) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -683,8 +683,8 @@ pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhand
     unsafe { ICOpenFunction(fcctype, fcchandler, wmode, lpfnhandler) }
 }
 #[inline]
-pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn ICRemove(fcctype : u32, fcchandler : u32, wflags : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn ICRemove(fcctype : u32, fcchandler : u32, wflags : u32) -> windows_core::BOOL);
     unsafe { ICRemove(fcctype, fcchandler, wflags) }
 }
 #[inline]
@@ -694,8 +694,8 @@ pub unsafe fn ICSendMessage(hic: HIC, msg: u32, dw1: usize, dw2: usize) -> super
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: Option<u32>, lpbits: *const core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: Option<*mut i32>) -> *mut core::ffi::c_void {
-    windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const core::ffi::c_void, pfkey : *mut super::super::Foundation:: BOOL, plsize : *mut i32) -> *mut core::ffi::c_void);
+pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: Option<u32>, lpbits: *const core::ffi::c_void, pfkey: *mut windows_core::BOOL, plsize: Option<*mut i32>) -> *mut core::ffi::c_void {
+    windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const core::ffi::c_void, pfkey : *mut windows_core::BOOL, plsize : *mut i32) -> *mut core::ffi::c_void);
     unsafe { ICSeqCompressFrame(pc, uiflags.unwrap_or(core::mem::zeroed()) as _, lpbits, pfkey as _, plsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -706,8 +706,8 @@ pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: BOOL);
+pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO) -> windows_core::BOOL);
     unsafe { ICSeqCompressFrameStart(pc, lpbiin) }
 }
 #[inline]
@@ -727,8 +727,8 @@ where
     unsafe { MCIWndCreateW(hwndparent.unwrap_or(core::mem::zeroed()) as _, hinstance.unwrap_or(core::mem::zeroed()) as _, dwstyle, szfile.param().abi()) }
 }
 #[inline]
-pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
-    windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndRegisterClass() -> super::super::Foundation:: BOOL);
+pub unsafe fn MCIWndRegisterClass() -> windows_core::BOOL {
+    windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndRegisterClass() -> windows_core::BOOL);
     unsafe { MCIWndRegisterClass() }
 }
 #[inline]
@@ -767,13 +767,13 @@ where
     unsafe { capCreateCaptureWindowW(lpszwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.unwrap_or(core::mem::zeroed()) as _, nid) }
 }
 #[inline]
-pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> super::super::Foundation::BOOL {
-    windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : windows_core::PSTR, cbname : i32, lpszver : windows_core::PSTR, cbver : i32) -> super::super::Foundation:: BOOL);
+pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> windows_core::BOOL {
+    windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : windows_core::PSTR, cbname : i32, lpszver : windows_core::PSTR, cbver : i32) -> windows_core::BOOL);
     unsafe { capGetDriverDescriptionA(wdriverindex, core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> super::super::Foundation::BOOL {
-    windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : windows_core::PWSTR, cbname : i32, lpszver : windows_core::PWSTR, cbver : i32) -> super::super::Foundation:: BOOL);
+pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> windows_core::BOOL {
+    windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : windows_core::PWSTR, cbname : i32, lpszver : windows_core::PWSTR, cbver : i32) -> windows_core::BOOL);
     unsafe { capGetDriverDescriptionW(wdriverindex, core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap()) }
 }
 #[inline]
@@ -813,7 +813,7 @@ pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
 }
 #[inline]
 pub unsafe fn joySetCapture(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: bool) -> u32 {
-    windows_targets::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::super::Foundation:: HWND, ujoyid : u32, uperiod : u32, fchanged : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::super::Foundation:: HWND, ujoyid : u32, uperiod : u32, fchanged : windows_core::BOOL) -> u32);
     unsafe { joySetCapture(hwnd, ujoyid, uperiod, fchanged.into()) }
 }
 #[inline]
@@ -822,8 +822,8 @@ pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
     unsafe { joySetThreshold(ujoyid, uthreshold) }
 }
 #[inline]
-pub unsafe fn mciDriverNotify(hwndcallback: super::super::Foundation::HANDLE, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::super::Foundation:: HANDLE, wdeviceid : u32, ustatus : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn mciDriverNotify(hwndcallback: super::super::Foundation::HANDLE, wdeviceid: u32, ustatus: u32) -> windows_core::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::super::Foundation:: HANDLE, wdeviceid : u32, ustatus : u32) -> windows_core::BOOL);
     unsafe { mciDriverNotify(hwndcallback, wdeviceid, ustatus) }
 }
 #[inline]
@@ -832,8 +832,8 @@ pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
     unsafe { mciDriverYield(wdeviceid) }
 }
 #[inline]
-pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("winmm.dll" "system" fn mciFreeCommandResource(wtable : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn mciFreeCommandResource(wtable: u32) -> windows_core::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mciFreeCommandResource(wtable : u32) -> windows_core::BOOL);
     unsafe { mciFreeCommandResource(wtable) }
 }
 #[inline]
@@ -879,13 +879,13 @@ pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
     unsafe { mciGetDriverData(wdeviceid) }
 }
 #[inline]
-pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: &mut [u8]) -> super::super::Foundation::BOOL {
-    windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : u32, psztext : windows_core::PSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: &mut [u8]) -> windows_core::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : u32, psztext : windows_core::PSTR, cchtext : u32) -> windows_core::BOOL);
     unsafe { mciGetErrorStringA(mcierr, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: &mut [u16]) -> super::super::Foundation::BOOL {
-    windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : u32, psztext : windows_core::PWSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: &mut [u16]) -> windows_core::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : u32, psztext : windows_core::PWSTR, cchtext : u32) -> windows_core::BOOL);
     unsafe { mciGetErrorStringW(mcierr, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
@@ -928,13 +928,13 @@ where
     unsafe { mciSendStringW(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL {
-    windows_targets::link!("winmm.dll" "system" fn mciSetDriverData(wdeviceid : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
+pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> windows_core::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mciSetDriverData(wdeviceid : u32, dwdata : usize) -> windows_core::BOOL);
     unsafe { mciSetDriverData(wdeviceid, dwdata) }
 }
 #[inline]
-pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: Option<YIELDPROC>, dwyielddata: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: Option<YIELDPROC>, dwyielddata: u32) -> windows_core::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> windows_core::BOOL);
     unsafe { mciSetYieldProc(mciid, fpyieldproc.unwrap_or(core::mem::zeroed()) as _, dwyielddata) }
 }
 #[inline]
@@ -961,8 +961,8 @@ pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundat
     unsafe { mmTaskCreate(lpfn, lph as _, dwinst) }
 }
 #[inline]
-pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
-    windows_targets::link!("winmm.dll" "system" fn mmTaskSignal(h : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn mmTaskSignal(h: u32) -> windows_core::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mmTaskSignal(h : u32) -> windows_core::BOOL);
     unsafe { mmTaskSignal(h) }
 }
 #[inline]
@@ -1274,7 +1274,7 @@ pub const AVIFILEINFO_WASCAPTUREFILE: u32 = 65536u32;
 pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
 pub const AVIIF_CONTROLFRAME: i32 = 512i32;
 pub const AVIIF_TWOCC: i32 = 2i32;
-pub type AVISAVECALLBACK = Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
+pub type AVISAVECALLBACK = Option<unsafe extern "system" fn(param0: i32) -> windows_core::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AVISTREAMINFOA {
@@ -1340,12 +1340,12 @@ pub type CAPCONTROLCALLBACK = Option<unsafe extern "system" fn(hwnd: super::supe
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAPDRIVERCAPS {
     pub wDeviceIndex: u32,
-    pub fHasOverlay: super::super::Foundation::BOOL,
-    pub fHasDlgVideoSource: super::super::Foundation::BOOL,
-    pub fHasDlgVideoFormat: super::super::Foundation::BOOL,
-    pub fHasDlgVideoDisplay: super::super::Foundation::BOOL,
-    pub fCaptureInitialized: super::super::Foundation::BOOL,
-    pub fDriverSuppliesPalettes: super::super::Foundation::BOOL,
+    pub fHasOverlay: windows_core::BOOL,
+    pub fHasDlgVideoSource: windows_core::BOOL,
+    pub fHasDlgVideoFormat: windows_core::BOOL,
+    pub fHasDlgVideoDisplay: windows_core::BOOL,
+    pub fCaptureInitialized: windows_core::BOOL,
+    pub fDriverSuppliesPalettes: windows_core::BOOL,
     pub hVideoIn: super::super::Foundation::HANDLE,
     pub hVideoOut: super::super::Foundation::HANDLE,
     pub hVideoExtIn: super::super::Foundation::HANDLE,
@@ -1376,19 +1376,19 @@ impl Default for CAPINFOCHUNK {
 pub struct CAPSTATUS {
     pub uiImageWidth: u32,
     pub uiImageHeight: u32,
-    pub fLiveWindow: super::super::Foundation::BOOL,
-    pub fOverlayWindow: super::super::Foundation::BOOL,
-    pub fScale: super::super::Foundation::BOOL,
+    pub fLiveWindow: windows_core::BOOL,
+    pub fOverlayWindow: windows_core::BOOL,
+    pub fScale: windows_core::BOOL,
     pub ptScroll: super::super::Foundation::POINT,
-    pub fUsingDefaultPalette: super::super::Foundation::BOOL,
-    pub fAudioHardware: super::super::Foundation::BOOL,
-    pub fCapFileExists: super::super::Foundation::BOOL,
+    pub fUsingDefaultPalette: windows_core::BOOL,
+    pub fAudioHardware: windows_core::BOOL,
+    pub fCapFileExists: windows_core::BOOL,
     pub dwCurrentVideoFrame: u32,
     pub dwCurrentVideoFramesDropped: u32,
     pub dwCurrentWaveSamples: u32,
     pub dwCurrentTimeElapsedMS: u32,
     pub hPalCurrent: super::super::Graphics::Gdi::HPALETTE,
-    pub fCapturingNow: super::super::Foundation::BOOL,
+    pub fCapturingNow: windows_core::BOOL,
     pub dwReturn: u32,
     pub wNumVideoAllocated: u32,
     pub wNumAudioAllocated: u32,
@@ -1405,28 +1405,28 @@ pub type CAPSTATUSCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::supe
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAPTUREPARMS {
     pub dwRequestMicroSecPerFrame: u32,
-    pub fMakeUserHitOKToCapture: super::super::Foundation::BOOL,
+    pub fMakeUserHitOKToCapture: windows_core::BOOL,
     pub wPercentDropForError: u32,
-    pub fYield: super::super::Foundation::BOOL,
+    pub fYield: windows_core::BOOL,
     pub dwIndexSize: u32,
     pub wChunkGranularity: u32,
-    pub fUsingDOSMemory: super::super::Foundation::BOOL,
+    pub fUsingDOSMemory: windows_core::BOOL,
     pub wNumVideoRequested: u32,
-    pub fCaptureAudio: super::super::Foundation::BOOL,
+    pub fCaptureAudio: windows_core::BOOL,
     pub wNumAudioRequested: u32,
     pub vKeyAbort: u32,
-    pub fAbortLeftMouse: super::super::Foundation::BOOL,
-    pub fAbortRightMouse: super::super::Foundation::BOOL,
-    pub fLimitEnabled: super::super::Foundation::BOOL,
+    pub fAbortLeftMouse: windows_core::BOOL,
+    pub fAbortRightMouse: windows_core::BOOL,
+    pub fLimitEnabled: windows_core::BOOL,
     pub wTimeLimit: u32,
-    pub fMCIControl: super::super::Foundation::BOOL,
-    pub fStepMCIDevice: super::super::Foundation::BOOL,
+    pub fMCIControl: windows_core::BOOL,
+    pub fStepMCIDevice: windows_core::BOOL,
     pub dwMCIStartTime: u32,
     pub dwMCIStopTime: u32,
-    pub fStepCaptureAt2x: super::super::Foundation::BOOL,
+    pub fStepCaptureAt2x: windows_core::BOOL,
     pub wStepCaptureAverageFrames: u32,
     pub dwAudioBufferSize: u32,
-    pub fDisableWriteCache: super::super::Foundation::BOOL,
+    pub fDisableWriteCache: windows_core::BOOL,
     pub AVStreamMaster: u32,
 }
 impl Default for CAPTUREPARMS {
@@ -3271,7 +3271,7 @@ pub const JPEG_Y: u32 = 1u32;
 pub const JPEG_YCbCr: u32 = 2u32;
 pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: windows_core::GUID = windows_core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
 #[cfg(feature = "Win32_System_IO")]
-pub type LPFNEXTDEVIO = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
+pub type LPFNEXTDEVIO = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::BOOL>;
 pub type LPMMIOPROC = Option<unsafe extern "system" fn(lpmmioinfo: windows_core::PCSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 pub type LPTASKCALLBACK = Option<unsafe extern "system" fn(dwinst: usize)>;
 pub const MCIERR_AVI_AUDIOERROR: u32 = 619u32;

@@ -133,7 +133,7 @@ impl windows_core::RuntimeName for IPrintDocumentPackageTarget {}
 windows_core::imp::define_interface!(IPrintDocumentPackageTarget2, IPrintDocumentPackageTarget2_Vtbl, 0xc560298a_535c_48f9_866a_632540660cb4);
 windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTarget2, windows_core::IUnknown);
 impl IPrintDocumentPackageTarget2 {
-    pub unsafe fn GetIsTargetIppPrinter(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetIsTargetIppPrinter(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIsTargetIppPrinter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -150,16 +150,16 @@ impl IPrintDocumentPackageTarget2 {
 #[repr(C)]
 pub struct IPrintDocumentPackageTarget2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetIsTargetIppPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetIsTargetIppPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetTargetIppPrintDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPrintDocumentPackageTarget2_Impl: windows_core::IUnknownImpl {
-    fn GetIsTargetIppPrinter(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsTargetIppPrinter(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetTargetIppPrintDevice(&self, riid: *const windows_core::GUID, ppvtarget: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IPrintDocumentPackageTarget2_Vtbl {
     pub const fn new<Identity: IPrintDocumentPackageTarget2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIsTargetIppPrinter<Identity: IPrintDocumentPackageTarget2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isippprinter: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIsTargetIppPrinter<Identity: IPrintDocumentPackageTarget2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isippprinter: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintDocumentPackageTarget2_Impl::GetIsTargetIppPrinter(this) {

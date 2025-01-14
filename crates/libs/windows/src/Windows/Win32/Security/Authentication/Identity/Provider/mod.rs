@@ -134,7 +134,7 @@ impl AsyncIConnectedIdentityProvider {
     pub unsafe fn Begin_IsConnected(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Begin_IsConnected)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Finish_IsConnected(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL> {
+    pub unsafe fn Finish_IsConnected(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Finish_IsConnected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -169,7 +169,7 @@ pub struct AsyncIConnectedIdentityProvider_Vtbl {
     pub Begin_DisconnectIdentity: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Finish_DisconnectIdentity: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Begin_IsConnected: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Finish_IsConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub Finish_IsConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Begin_GetUrl: unsafe extern "system" fn(*mut core::ffi::c_void, IDENTITY_URL, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -188,7 +188,7 @@ pub trait AsyncIConnectedIdentityProvider_Impl: windows_core::IUnknownImpl {
     fn Begin_DisconnectIdentity(&self) -> windows_core::Result<()>;
     fn Finish_DisconnectIdentity(&self) -> windows_core::Result<()>;
     fn Begin_IsConnected(&self) -> windows_core::Result<()>;
-    fn Finish_IsConnected(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
+    fn Finish_IsConnected(&self) -> windows_core::Result<windows_core::BOOL>;
     fn Begin_GetUrl(&self, identifier: IDENTITY_URL, context: windows_core::Ref<super::super::super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
     fn Finish_GetUrl(&self, postdata: *mut super::super::super::super::System::Variant::VARIANT, url: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn Begin_GetAccountState(&self) -> windows_core::Result<()>;
@@ -227,7 +227,7 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
                 AsyncIConnectedIdentityProvider_Impl::Begin_IsConnected(this).into()
             }
         }
-        unsafe extern "system" fn Finish_IsConnected<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connected: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_IsConnected<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connected: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match AsyncIConnectedIdentityProvider_Impl::Finish_IsConnected(this) {
@@ -1093,7 +1093,7 @@ impl IConnectedIdentityProvider {
     pub unsafe fn DisconnectIdentity(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DisconnectIdentity)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn IsConnected(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL> {
+    pub unsafe fn IsConnected(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsConnected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1118,7 +1118,7 @@ pub struct IConnectedIdentityProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
     pub DisconnectIdentity: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetUrl: unsafe extern "system" fn(*mut core::ffi::c_void, IDENTITY_URL, *mut core::ffi::c_void, *mut super::super::super::super::System::Variant::VARIANT, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
@@ -1129,7 +1129,7 @@ pub struct IConnectedIdentityProvider_Vtbl {
 pub trait IConnectedIdentityProvider_Impl: windows_core::IUnknownImpl {
     fn ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> windows_core::Result<()>;
     fn DisconnectIdentity(&self) -> windows_core::Result<()>;
-    fn IsConnected(&self) -> windows_core::Result<super::super::super::super::Foundation::BOOL>;
+    fn IsConnected(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetUrl(&self, identifier: IDENTITY_URL, context: windows_core::Ref<super::super::super::super::System::Com::IBindCtx>, postdata: *mut super::super::super::super::System::Variant::VARIANT, url: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetAccountState(&self) -> windows_core::Result<ACCOUNT_STATE>;
 }
@@ -1148,7 +1148,7 @@ impl IConnectedIdentityProvider_Vtbl {
                 IConnectedIdentityProvider_Impl::DisconnectIdentity(this).into()
             }
         }
-        unsafe extern "system" fn IsConnected<Identity: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connected: *mut super::super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsConnected<Identity: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connected: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IConnectedIdentityProvider_Impl::IsConnected(this) {

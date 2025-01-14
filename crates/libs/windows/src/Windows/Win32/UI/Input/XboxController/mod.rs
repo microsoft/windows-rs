@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn XInputEnable(enable: bool) {
-    windows_targets::link!("xinput1_4.dll" "system" fn XInputEnable(enable : super::super::super::Foundation:: BOOL));
+    windows_targets::link!("xinput1_4.dll" "system" fn XInputEnable(enable : windows_core::BOOL));
     unsafe { XInputEnable(enable.into()) }
 }
 #[inline]

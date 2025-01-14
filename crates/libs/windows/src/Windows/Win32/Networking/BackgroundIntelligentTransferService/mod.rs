@@ -321,7 +321,7 @@ impl Default for BG_FILE_INFO {
 pub struct BG_FILE_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
-    pub Completed: super::super::Foundation::BOOL,
+    pub Completed: windows_core::BOOL,
 }
 impl Default for BG_FILE_PROGRESS {
     fn default() -> Self {
@@ -478,7 +478,7 @@ pub const BITS_JOB_PROPERTY_USE_STORED_CREDENTIALS: BITS_JOB_PROPERTY_ID = BITS_
 pub union BITS_JOB_PROPERTY_VALUE {
     pub Dword: u32,
     pub ClsID: windows_core::GUID,
-    pub Enable: super::super::Foundation::BOOL,
+    pub Enable: windows_core::BOOL,
     pub Uint64: u64,
     pub Target: BG_AUTH_TARGET,
 }
@@ -1180,13 +1180,13 @@ impl IBackgroundCopyFile3 {
     pub unsafe fn SetValidationState(&self, state: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetValidationState)(windows_core::Interface::as_raw(self), state.into()).ok() }
     }
-    pub unsafe fn GetValidationState(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetValidationState(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValidationState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsDownloadedFromPeer(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsDownloadedFromPeer(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDownloadedFromPeer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1197,15 +1197,15 @@ impl IBackgroundCopyFile3 {
 pub struct IBackgroundCopyFile3_Vtbl {
     pub base__: IBackgroundCopyFile2_Vtbl,
     pub GetTemporaryName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub SetValidationState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetValidationState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsDownloadedFromPeer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetValidationState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetValidationState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsDownloadedFromPeer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IBackgroundCopyFile3_Impl: IBackgroundCopyFile2_Impl {
     fn GetTemporaryName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn SetValidationState(&self, state: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetValidationState(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsDownloadedFromPeer(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn SetValidationState(&self, state: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetValidationState(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsDownloadedFromPeer(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IBackgroundCopyFile3_Vtbl {
     pub const fn new<Identity: IBackgroundCopyFile3_Impl, const OFFSET: isize>() -> Self {
@@ -1221,13 +1221,13 @@ impl IBackgroundCopyFile3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetValidationState<Identity: IBackgroundCopyFile3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValidationState<Identity: IBackgroundCopyFile3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyFile3_Impl::SetValidationState(this, core::mem::transmute_copy(&state)).into()
             }
         }
-        unsafe extern "system" fn GetValidationState<Identity: IBackgroundCopyFile3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValidationState<Identity: IBackgroundCopyFile3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyFile3_Impl::GetValidationState(this) {
@@ -1239,7 +1239,7 @@ impl IBackgroundCopyFile3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsDownloadedFromPeer<Identity: IBackgroundCopyFile3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsDownloadedFromPeer<Identity: IBackgroundCopyFile3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyFile3_Impl::IsDownloadedFromPeer(this) {
@@ -2666,7 +2666,7 @@ impl IBackgroundCopyJob4 {
             (windows_core::Interface::vtable(self).GetOwnerIntegrityLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetOwnerElevationState(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn GetOwnerElevationState(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOwnerElevationState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2688,7 +2688,7 @@ pub struct IBackgroundCopyJob4_Vtbl {
     pub SetPeerCachingFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetPeerCachingFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetOwnerIntegrityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetOwnerElevationState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub GetOwnerElevationState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetMaximumDownloadTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetMaximumDownloadTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
@@ -2696,7 +2696,7 @@ pub trait IBackgroundCopyJob4_Impl: IBackgroundCopyJob3_Impl {
     fn SetPeerCachingFlags(&self, flags: u32) -> windows_core::Result<()>;
     fn GetPeerCachingFlags(&self) -> windows_core::Result<u32>;
     fn GetOwnerIntegrityLevel(&self) -> windows_core::Result<u32>;
-    fn GetOwnerElevationState(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn GetOwnerElevationState(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetMaximumDownloadTime(&self, timeout: u32) -> windows_core::Result<()>;
     fn GetMaximumDownloadTime(&self) -> windows_core::Result<u32>;
 }
@@ -2732,7 +2732,7 @@ impl IBackgroundCopyJob4_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetOwnerElevationState<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pelevated: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOwnerElevationState<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pelevated: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob4_Impl::GetOwnerElevationState(this) {
@@ -3325,13 +3325,13 @@ impl IBitsPeer {
             (windows_core::Interface::vtable(self).GetPeerName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsAuthenticated(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsAuthenticated(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsAuthenticated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsAvailable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsAvailable(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3342,13 +3342,13 @@ impl IBitsPeer {
 pub struct IBitsPeer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPeerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub IsAuthenticated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsAuthenticated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IBitsPeer_Impl: windows_core::IUnknownImpl {
     fn GetPeerName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn IsAuthenticated(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn IsAvailable(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn IsAuthenticated(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsAvailable(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IBitsPeer_Vtbl {
     pub const fn new<Identity: IBitsPeer_Impl, const OFFSET: isize>() -> Self {
@@ -3364,7 +3364,7 @@ impl IBitsPeer_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsAuthenticated<Identity: IBitsPeer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pauth: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsAuthenticated<Identity: IBitsPeer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pauth: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeer_Impl::IsAuthenticated(this) {
@@ -3376,7 +3376,7 @@ impl IBitsPeer_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsAvailable<Identity: IBitsPeer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ponline: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsAvailable<Identity: IBitsPeer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ponline: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeer_Impl::IsAvailable(this) {

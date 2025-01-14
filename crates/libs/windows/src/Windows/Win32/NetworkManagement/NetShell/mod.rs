@@ -7,12 +7,12 @@ where
     unsafe { MatchEnumTag(hmodule, pwcarg.param().abi(), dwnumarg, penumtable, pdwvalue as _) }
 }
 #[inline]
-pub unsafe fn MatchToken<P0, P1>(pwszusertoken: P0, pwszcmdtoken: P1) -> super::super::Foundation::BOOL
+pub unsafe fn MatchToken<P0, P1>(pwszusertoken: P0, pwszcmdtoken: P1) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("netsh.dll" "system" fn MatchToken(pwszusertoken : windows_core::PCWSTR, pwszcmdtoken : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("netsh.dll" "system" fn MatchToken(pwszusertoken : windows_core::PCWSTR, pwszcmdtoken : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { MatchToken(pwszusertoken.param().abi(), pwszcmdtoken.param().abi()) }
 }
 #[inline]
@@ -225,7 +225,7 @@ pub const NS_REQ_ONE_OR_MORE: NS_REQS = NS_REQS(3i32);
 pub const NS_REQ_PRESENT: NS_REQS = NS_REQS(1i32);
 pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
 pub type PFN_CUSTOM_HELP = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HANDLE, pwszcmdtoken: windows_core::PCWSTR)>;
-pub type PFN_HANDLE_CMD = Option<unsafe extern "system" fn(pwszmachine: windows_core::PCWSTR, ppwcarguments: *mut windows_core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PFN_HANDLE_CMD = Option<unsafe extern "system" fn(pwszmachine: windows_core::PCWSTR, ppwcarguments: *mut windows_core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const core::ffi::c_void, pbdone: *mut windows_core::BOOL) -> u32>;
 pub type PGET_RESOURCE_STRING_FN = Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: windows_core::PCWSTR, nbuffermax: u32) -> u32>;
 pub type PNS_CONTEXT_COMMIT_FN = Option<unsafe extern "system" fn(dwaction: u32) -> u32>;
 pub type PNS_CONTEXT_CONNECT_FN = Option<unsafe extern "system" fn(pwszmachine: windows_core::PCWSTR) -> u32>;
@@ -234,13 +234,13 @@ pub type PNS_DLL_INIT_FN = Option<unsafe extern "system" fn(dwnetshversion: u32,
 pub type PNS_DLL_STOP_FN = Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
 pub type PNS_HELPER_START_FN = Option<unsafe extern "system" fn(pguidparent: *const windows_core::GUID, dwversion: u32) -> u32>;
 pub type PNS_HELPER_STOP_FN = Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
-pub type PNS_OSVERSIONCHECK = Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: windows_core::PCWSTR, cimosbuildnumber: windows_core::PCWSTR, cimservicepackmajorversion: windows_core::PCWSTR, cimservicepackminorversion: windows_core::PCWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;
+pub type PNS_OSVERSIONCHECK = Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: windows_core::PCWSTR, cimosbuildnumber: windows_core::PCWSTR, cimservicepackmajorversion: windows_core::PCWSTR, cimservicepackminorversion: windows_core::PCWSTR, uireserved: u32, dwreserved: u32) -> windows_core::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAG_TYPE {
     pub pwszTag: windows_core::PCWSTR,
     pub dwRequired: u32,
-    pub bPresent: super::super::Foundation::BOOL,
+    pub bPresent: windows_core::BOOL,
 }
 impl Default for TAG_TYPE {
     fn default() -> Self {

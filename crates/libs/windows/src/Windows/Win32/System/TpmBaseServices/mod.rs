@@ -1,11 +1,11 @@
 #[inline]
-pub unsafe fn GetDeviceID(pbwindowsaik: Option<&mut [u8]>, pcbresult: *mut u32, pfprotectedbytpm: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-    windows_targets::link!("tbs.dll" "system" fn GetDeviceID(pbwindowsaik : *mut u8, cbwindowsaik : u32, pcbresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn GetDeviceID(pbwindowsaik: Option<&mut [u8]>, pcbresult: *mut u32, pfprotectedbytpm: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
+    windows_targets::link!("tbs.dll" "system" fn GetDeviceID(pbwindowsaik : *mut u8, cbwindowsaik : u32, pcbresult : *mut u32, pfprotectedbytpm : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { GetDeviceID(core::mem::transmute(pbwindowsaik.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbwindowsaik.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, pfprotectedbytpm.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn GetDeviceIDString(pszwindowsaik: Option<&mut [u16]>, pcchresult: *mut u32, pfprotectedbytpm: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-    windows_targets::link!("tbs.dll" "system" fn GetDeviceIDString(pszwindowsaik : windows_core::PWSTR, cchwindowsaik : u32, pcchresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn GetDeviceIDString(pszwindowsaik: Option<&mut [u16]>, pcchresult: *mut u32, pfprotectedbytpm: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
+    windows_targets::link!("tbs.dll" "system" fn GetDeviceIDString(pszwindowsaik : windows_core::PWSTR, cchwindowsaik : u32, pcchresult : *mut u32, pfprotectedbytpm : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { GetDeviceIDString(core::mem::transmute(pszwindowsaik.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszwindowsaik.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchresult as _, pfprotectedbytpm.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -39,8 +39,8 @@ pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: Option<*mut u8>, pcbou
     unsafe { Tbsi_Get_TCG_Log_Ex(logtype, pboutput.unwrap_or(core::mem::zeroed()) as _, pcboutput as _) }
 }
 #[inline]
-pub unsafe fn Tbsi_Is_Tpm_Present() -> super::super::Foundation::BOOL {
-    windows_targets::link!("tbs.dll" "system" fn Tbsi_Is_Tpm_Present() -> super::super::Foundation:: BOOL);
+pub unsafe fn Tbsi_Is_Tpm_Present() -> windows_core::BOOL {
+    windows_targets::link!("tbs.dll" "system" fn Tbsi_Is_Tpm_Present() -> windows_core::BOOL);
     unsafe { Tbsi_Is_Tpm_Present() }
 }
 #[inline]

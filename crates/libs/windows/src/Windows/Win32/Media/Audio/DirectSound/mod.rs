@@ -357,8 +357,8 @@ impl Default for DSCEFFECTDESC {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSCFXAec {
-    pub fEnable: super::super::super::Foundation::BOOL,
-    pub fNoiseFill: super::super::super::Foundation::BOOL,
+    pub fEnable: windows_core::BOOL,
+    pub fNoiseFill: windows_core::BOOL,
     pub dwMode: u32,
 }
 impl Default for DSCFXAec {
@@ -369,7 +369,7 @@ impl Default for DSCFXAec {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSCFXNoiseSuppress {
-    pub fEnable: super::super::super::Foundation::BOOL,
+    pub fEnable: windows_core::BOOL,
 }
 impl Default for DSCFXNoiseSuppress {
     fn default() -> Self {
@@ -2854,6 +2854,6 @@ impl IDirectSoundNotify_Vtbl {
 impl windows_core::RuntimeName for IDirectSoundNotify {}
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;
 pub const KSPROPERTY_SUPPORT_SET: u32 = 2u32;
-pub type LPDSENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-pub type LPDSENUMCALLBACKW = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+pub type LPDSENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> windows_core::BOOL>;
+pub type LPDSENUMCALLBACKW = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub const _FACDS: u32 = 2168u32;

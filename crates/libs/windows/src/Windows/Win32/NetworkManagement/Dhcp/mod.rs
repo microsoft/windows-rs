@@ -3,7 +3,7 @@ pub unsafe fn DhcpAddFilterV4<P0>(serveripaddress: P0, addfilterinfo: *const DHC
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAddFilterV4(serveripaddress : windows_core::PCWSTR, addfilterinfo : *const DHCP_FILTER_ADD_INFO, forceflag : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpAddFilterV4(serveripaddress : windows_core::PCWSTR, addfilterinfo : *const DHCP_FILTER_ADD_INFO, forceflag : windows_core::BOOL) -> u32);
     unsafe { DhcpAddFilterV4(serveripaddress.param().abi(), addfilterinfo, forceflag.into()) }
 }
 #[inline]
@@ -715,7 +715,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4Policy(policyname : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnet : u32, processingorder : u32, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_core::PCWSTR, enabled : super::super::Foundation:: BOOL, policy : *mut *mut DHCP_POLICY) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4Policy(policyname : windows_core::PCWSTR, fglobalpolicy : windows_core::BOOL, subnet : u32, processingorder : u32, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_core::PCWSTR, enabled : windows_core::BOOL, policy : *mut *mut DHCP_POLICY) -> u32);
     unsafe { DhcpHlprCreateV4Policy(policyname.param().abi(), fglobalpolicy.into(), subnet, processingorder, rootoperator, description.param().abi(), enabled.into(), policy as _) }
 }
 #[inline]
@@ -724,7 +724,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4PolicyEx(policyname : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnet : u32, processingorder : u32, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_core::PCWSTR, enabled : super::super::Foundation:: BOOL, policy : *mut *mut DHCP_POLICY_EX) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprCreateV4PolicyEx(policyname : windows_core::PCWSTR, fglobalpolicy : windows_core::BOOL, subnet : u32, processingorder : u32, rootoperator : DHCP_POL_LOGIC_OPER, description : windows_core::PCWSTR, enabled : windows_core::BOOL, policy : *mut *mut DHCP_POLICY_EX) -> u32);
     unsafe { DhcpHlprCreateV4PolicyEx(policyname.param().abi(), fglobalpolicy.into(), subnet, processingorder, rootoperator, description.param().abi(), enabled.into(), policy as _) }
 }
 #[inline]
@@ -763,8 +763,8 @@ pub unsafe fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARR
     unsafe { DhcpHlprFreeV4PolicyExArray(policyexarray as _) }
 }
 #[inline]
-pub unsafe fn DhcpHlprIsV4PolicySingleUC(policy: *const DHCP_POLICY) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprIsV4PolicySingleUC(policy : *const DHCP_POLICY) -> super::super::Foundation:: BOOL);
+pub unsafe fn DhcpHlprIsV4PolicySingleUC(policy: *const DHCP_POLICY) -> windows_core::BOOL {
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprIsV4PolicySingleUC(policy : *const DHCP_POLICY) -> windows_core::BOOL);
     unsafe { DhcpHlprIsV4PolicySingleUC(policy) }
 }
 #[inline]
@@ -773,8 +773,8 @@ pub unsafe fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32 {
     unsafe { DhcpHlprIsV4PolicyValid(ppolicy) }
 }
 #[inline]
-pub unsafe fn DhcpHlprIsV4PolicyWellFormed(ppolicy: *const DHCP_POLICY) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprIsV4PolicyWellFormed(ppolicy : *const DHCP_POLICY) -> super::super::Foundation:: BOOL);
+pub unsafe fn DhcpHlprIsV4PolicyWellFormed(ppolicy: *const DHCP_POLICY) -> windows_core::BOOL {
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpHlprIsV4PolicyWellFormed(ppolicy : *const DHCP_POLICY) -> windows_core::BOOL);
     unsafe { DhcpHlprIsV4PolicyWellFormed(ppolicy) }
 }
 #[inline]
@@ -1235,7 +1235,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetSuperScopeV4(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, superscopename : windows_core::PCWSTR, changeexisting : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpSetSuperScopeV4(serveripaddress : windows_core::PCWSTR, subnetaddress : u32, superscopename : windows_core::PCWSTR, changeexisting : windows_core::BOOL) -> u32);
     unsafe { DhcpSetSuperScopeV4(serveripaddress.param().abi(), subnetaddress, superscopename.param().abi(), changeexisting.into()) }
 }
 #[inline]
@@ -1299,7 +1299,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4DeletePolicy(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4DeletePolicy(serveripaddress : windows_core::PCWSTR, fglobalpolicy : windows_core::BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR) -> u32);
     unsafe { DhcpV4DeletePolicy(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, policyname.param().abi()) }
 }
 #[inline]
@@ -1307,7 +1307,7 @@ pub unsafe fn DhcpV4EnumPolicies<P0>(serveripaddress: P0, resumehandle: *mut u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4EnumPolicies(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enuminfo : *mut *mut DHCP_POLICY_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4EnumPolicies(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, fglobalpolicy : windows_core::BOOL, subnetaddress : u32, enuminfo : *mut *mut DHCP_POLICY_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
     unsafe { DhcpV4EnumPolicies(serveripaddress.param().abi(), resumehandle as _, preferredmaximum, fglobalpolicy.into(), subnetaddress, enuminfo as _, elementsread as _, elementstotal as _) }
 }
 #[inline]
@@ -1315,7 +1315,7 @@ pub unsafe fn DhcpV4EnumPoliciesEx<P0>(serveripaddress: P0, resumehandle: *mut u
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4EnumPoliciesEx(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, globalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enuminfo : *mut *mut DHCP_POLICY_EX_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4EnumPoliciesEx(serveripaddress : windows_core::PCWSTR, resumehandle : *mut u32, preferredmaximum : u32, globalpolicy : windows_core::BOOL, subnetaddress : u32, enuminfo : *mut *mut DHCP_POLICY_EX_ARRAY, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
     unsafe { DhcpV4EnumPoliciesEx(serveripaddress.param().abi(), resumehandle as _, preferredmaximum, globalpolicy.into(), subnetaddress, enuminfo as _, elementsread as _, elementstotal as _) }
 }
 #[inline]
@@ -1497,7 +1497,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetPolicy(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *mut *mut DHCP_POLICY) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetPolicy(serveripaddress : windows_core::PCWSTR, fglobalpolicy : windows_core::BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *mut *mut DHCP_POLICY) -> u32);
     unsafe { DhcpV4GetPolicy(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, policyname.param().abi(), policy as _) }
 }
 #[inline]
@@ -1506,15 +1506,15 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetPolicyEx(serveripaddress : windows_core::PCWSTR, globalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *mut *mut DHCP_POLICY_EX) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4GetPolicyEx(serveripaddress : windows_core::PCWSTR, globalpolicy : windows_core::BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *mut *mut DHCP_POLICY_EX) -> u32);
     unsafe { DhcpV4GetPolicyEx(serveripaddress.param().abi(), globalpolicy.into(), subnetaddress, policyname.param().abi(), policy as _) }
 }
 #[inline]
-pub unsafe fn DhcpV4QueryPolicyEnforcement<P0>(serveripaddress: P0, fglobalpolicy: bool, subnetaddress: u32, enabled: *mut super::super::Foundation::BOOL) -> u32
+pub unsafe fn DhcpV4QueryPolicyEnforcement<P0>(serveripaddress: P0, fglobalpolicy: bool, subnetaddress: u32, enabled: *mut windows_core::BOOL) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4QueryPolicyEnforcement(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enabled : *mut super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4QueryPolicyEnforcement(serveripaddress : windows_core::PCWSTR, fglobalpolicy : windows_core::BOOL, subnetaddress : u32, enabled : *mut windows_core::BOOL) -> u32);
     unsafe { DhcpV4QueryPolicyEnforcement(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, enabled as _) }
 }
 #[inline]
@@ -1562,7 +1562,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicy(serveripaddress : windows_core::PCWSTR, fieldsmodified : u32, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *const DHCP_POLICY) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicy(serveripaddress : windows_core::PCWSTR, fieldsmodified : u32, fglobalpolicy : windows_core::BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *const DHCP_POLICY) -> u32);
     unsafe { DhcpV4SetPolicy(serveripaddress.param().abi(), fieldsmodified, fglobalpolicy.into(), subnetaddress, policyname.param().abi(), policy) }
 }
 #[inline]
@@ -1570,7 +1570,7 @@ pub unsafe fn DhcpV4SetPolicyEnforcement<P0>(serveripaddress: P0, fglobalpolicy:
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicyEnforcement(serveripaddress : windows_core::PCWSTR, fglobalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, enable : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicyEnforcement(serveripaddress : windows_core::PCWSTR, fglobalpolicy : windows_core::BOOL, subnetaddress : u32, enable : windows_core::BOOL) -> u32);
     unsafe { DhcpV4SetPolicyEnforcement(serveripaddress.param().abi(), fglobalpolicy.into(), subnetaddress, enable.into()) }
 }
 #[inline]
@@ -1579,7 +1579,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicyEx(serveripaddress : windows_core::PCWSTR, fieldsmodified : u32, globalpolicy : super::super::Foundation:: BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *const DHCP_POLICY_EX) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV4SetPolicyEx(serveripaddress : windows_core::PCWSTR, fieldsmodified : u32, globalpolicy : windows_core::BOOL, subnetaddress : u32, policyname : windows_core::PCWSTR, policy : *const DHCP_POLICY_EX) -> u32);
     unsafe { DhcpV4SetPolicyEx(serveripaddress.param().abi(), fieldsmodified, globalpolicy.into(), subnetaddress, policyname.param().abi(), policy) }
 }
 #[inline]
@@ -1611,7 +1611,7 @@ pub unsafe fn DhcpV6GetStatelessStoreParams<P0>(serveripaddress: P0, fserverleve
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV6GetStatelessStoreParams(serveripaddress : windows_core::PCWSTR, fserverlevel : super::super::Foundation:: BOOL, subnetaddress : DHCP_IPV6_ADDRESS, params : *mut *mut DHCPV6_STATELESS_PARAMS) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV6GetStatelessStoreParams(serveripaddress : windows_core::PCWSTR, fserverlevel : windows_core::BOOL, subnetaddress : DHCP_IPV6_ADDRESS, params : *mut *mut DHCPV6_STATELESS_PARAMS) -> u32);
     unsafe { DhcpV6GetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), core::mem::transmute(subnetaddress), params as _) }
 }
 #[inline]
@@ -1619,7 +1619,7 @@ pub unsafe fn DhcpV6SetStatelessStoreParams<P0>(serveripaddress: P0, fserverleve
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV6SetStatelessStoreParams(serveripaddress : windows_core::PCWSTR, fserverlevel : super::super::Foundation:: BOOL, subnetaddress : DHCP_IPV6_ADDRESS, fieldmodified : u32, params : *const DHCPV6_STATELESS_PARAMS) -> u32);
+    windows_targets::link!("dhcpsapi.dll" "system" fn DhcpV6SetStatelessStoreParams(serveripaddress : windows_core::PCWSTR, fserverlevel : windows_core::BOOL, subnetaddress : DHCP_IPV6_ADDRESS, fieldmodified : u32, params : *const DHCPV6_STATELESS_PARAMS) -> u32);
     unsafe { DhcpV6SetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), core::mem::transmute(subnetaddress), fieldmodified, params) }
 }
 #[inline]
@@ -1653,7 +1653,7 @@ pub unsafe fn Dhcpv6RequestParams<P2>(forcenewinform: bool, reserved: *mut core:
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6RequestParams(forcenewinform : super::super::Foundation:: BOOL, reserved : *mut core::ffi::c_void, adaptername : windows_core::PCWSTR, classid : *mut DHCPV6CAPI_CLASSID, recdparams : DHCPV6CAPI_PARAMS_ARRAY, buffer : *mut u8, psize : *mut u32) -> u32);
+    windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6RequestParams(forcenewinform : windows_core::BOOL, reserved : *mut core::ffi::c_void, adaptername : windows_core::PCWSTR, classid : *mut DHCPV6CAPI_CLASSID, recdparams : DHCPV6CAPI_PARAMS_ARRAY, buffer : *mut u8, psize : *mut u32) -> u32);
     unsafe { Dhcpv6RequestParams(forcenewinform.into(), reserved as _, adaptername.param().abi(), classid as _, core::mem::transmute(recdparams), buffer as _, psize as _) }
 }
 #[inline]
@@ -1692,7 +1692,7 @@ pub const DEFAULTQUARSETTING: QuarantineStatus = QuarantineStatus(5i32);
 pub struct DHCPAPI_PARAMS {
     pub Flags: u32,
     pub OptionId: u32,
-    pub IsVendor: super::super::Foundation::BOOL,
+    pub IsVendor: windows_core::BOOL,
     pub Data: *mut u8,
     pub nBytesData: u32,
 }
@@ -1773,7 +1773,7 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO {
     pub AddressState: u8,
     pub Status: QuarantineStatus,
     pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
+    pub QuarantineCapable: windows_core::BOOL,
     pub SentPotExpTime: u32,
     pub AckPotExpTime: u32,
     pub RecvPotExpTime: u32,
@@ -1814,7 +1814,7 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
     pub AddressState: u8,
     pub Status: QuarantineStatus,
     pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
+    pub QuarantineCapable: windows_core::BOOL,
     pub SentPotExpTime: u32,
     pub AckPotExpTime: u32,
     pub RecvPotExpTime: u32,
@@ -1848,7 +1848,7 @@ impl Default for DHCPV6CAPI_CLASSID {
 pub struct DHCPV6CAPI_PARAMS {
     pub Flags: u32,
     pub OptionId: u32,
-    pub IsVendor: super::super::Foundation::BOOL,
+    pub IsVendor: windows_core::BOOL,
     pub Data: *mut u8,
     pub nBytesData: u32,
 }
@@ -1905,7 +1905,7 @@ impl Default for DHCPV6PrefixLeaseInformation {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_BIND_ELEMENT {
     pub Flags: u32,
-    pub fBoundToDHCPServer: super::super::Foundation::BOOL,
+    pub fBoundToDHCPServer: windows_core::BOOL,
     pub AdapterPrimaryAddress: DHCP_IPV6_ADDRESS,
     pub AdapterSubnetAddress: DHCP_IPV6_ADDRESS,
     pub IfDescription: windows_core::PWSTR,
@@ -1964,7 +1964,7 @@ pub const DHCPV6_OPTION_VENDOR_OPTS: u32 = 17u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_STATELESS_PARAMS {
-    pub Status: super::super::Foundation::BOOL,
+    pub Status: windows_core::BOOL,
     pub PurgeInterval: u32,
 }
 impl Default for DHCPV6_STATELESS_PARAMS {
@@ -2001,9 +2001,9 @@ impl Default for DHCPV6_STATELESS_STATS {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ADDR_PATTERN {
-    pub MatchHWType: super::super::Foundation::BOOL,
+    pub MatchHWType: windows_core::BOOL,
     pub HWType: u8,
-    pub IsWildcard: super::super::Foundation::BOOL,
+    pub IsWildcard: windows_core::BOOL,
     pub Length: u8,
     pub Pattern: [u8; 255],
 }
@@ -2054,7 +2054,7 @@ impl Default for DHCP_ALL_OPTION_VALUES {
 pub struct DHCP_ALL_OPTION_VALUES_0 {
     pub ClassName: windows_core::PWSTR,
     pub VendorName: windows_core::PWSTR,
-    pub IsVendor: super::super::Foundation::BOOL,
+    pub IsVendor: windows_core::BOOL,
     pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
 }
 impl Default for DHCP_ALL_OPTION_VALUES_0 {
@@ -2079,7 +2079,7 @@ impl Default for DHCP_ALL_OPTION_VALUES_PB {
 pub struct DHCP_ALL_OPTION_VALUES_PB_0 {
     pub PolicyName: windows_core::PWSTR,
     pub VendorName: windows_core::PWSTR,
-    pub IsVendor: super::super::Foundation::BOOL,
+    pub IsVendor: windows_core::BOOL,
     pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
 }
 impl Default for DHCP_ALL_OPTION_VALUES_PB_0 {
@@ -2102,7 +2102,7 @@ impl Default for DHCP_ATTRIB {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DHCP_ATTRIB_0 {
-    pub DhcpAttribBool: super::super::Foundation::BOOL,
+    pub DhcpAttribBool: windows_core::BOOL,
     pub DhcpAttribUlong: u32,
 }
 impl Default for DHCP_ATTRIB_0 {
@@ -2144,7 +2144,7 @@ impl Default for DHCP_BINARY_DATA {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_BIND_ELEMENT {
     pub Flags: u32,
-    pub fBoundToDHCPServer: super::super::Foundation::BOOL,
+    pub fBoundToDHCPServer: windows_core::BOOL,
     pub AdapterPrimaryAddress: u32,
     pub AdapterSubnetAddress: u32,
     pub IfDescription: windows_core::PWSTR,
@@ -2208,7 +2208,7 @@ pub struct DHCP_CLASS_INFO {
     pub ClassName: windows_core::PWSTR,
     pub ClassComment: windows_core::PWSTR,
     pub ClassDataLength: u32,
-    pub IsVendor: super::super::Foundation::BOOL,
+    pub IsVendor: windows_core::BOOL,
     pub Flags: u32,
     pub ClassData: *mut u8,
 }
@@ -2245,7 +2245,7 @@ pub struct DHCP_CLASS_INFO_V6 {
     pub ClassName: windows_core::PWSTR,
     pub ClassComment: windows_core::PWSTR,
     pub ClassDataLength: u32,
-    pub IsVendor: super::super::Foundation::BOOL,
+    pub IsVendor: windows_core::BOOL,
     pub EnterpriseNumber: u32,
     pub Flags: u32,
     pub ClassData: *mut u8,
@@ -2271,7 +2271,7 @@ pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
     pub AddressState: u8,
     pub Status: QuarantineStatus,
     pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
+    pub QuarantineCapable: windows_core::BOOL,
     pub FilterStatus: u32,
 }
 impl Default for DHCP_CLIENT_FILTER_STATUS_INFO {
@@ -2375,7 +2375,7 @@ pub struct DHCP_CLIENT_INFO_EX {
     pub AddressState: u8,
     pub Status: QuarantineStatus,
     pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
+    pub QuarantineCapable: windows_core::BOOL,
     pub FilterStatus: u32,
     pub PolicyName: windows_core::PWSTR,
     pub Properties: *mut DHCP_PROPERTY_ARRAY,
@@ -2410,7 +2410,7 @@ pub struct DHCP_CLIENT_INFO_PB {
     pub AddressState: u8,
     pub Status: QuarantineStatus,
     pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
+    pub QuarantineCapable: windows_core::BOOL,
     pub FilterStatus: u32,
     pub PolicyName: windows_core::PWSTR,
 }
@@ -2497,7 +2497,7 @@ pub struct DHCP_CLIENT_INFO_VQ {
     pub AddressState: u8,
     pub Status: QuarantineStatus,
     pub ProbationEnds: DATE_TIME,
-    pub QuarantineCapable: super::super::Foundation::BOOL,
+    pub QuarantineCapable: windows_core::BOOL,
 }
 impl Default for DHCP_CLIENT_INFO_VQ {
     fn default() -> Self {
@@ -2606,8 +2606,8 @@ impl Default for DHCP_FILTER_ENUM_INFO {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FILTER_GLOBAL_INFO {
-    pub EnforceAllowList: super::super::Foundation::BOOL,
-    pub EnforceDenyList: super::super::Foundation::BOOL,
+    pub EnforceAllowList: windows_core::BOOL,
+    pub EnforceDenyList: windows_core::BOOL,
 }
 impl Default for DHCP_FILTER_GLOBAL_INFO {
     fn default() -> Self {
@@ -3065,14 +3065,14 @@ impl Default for DHCP_PERF_STATS {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POLICY {
     pub PolicyName: windows_core::PWSTR,
-    pub IsGlobalPolicy: super::super::Foundation::BOOL,
+    pub IsGlobalPolicy: windows_core::BOOL,
     pub Subnet: u32,
     pub ProcessingOrder: u32,
     pub Conditions: *mut DHCP_POL_COND_ARRAY,
     pub Expressions: *mut DHCP_POL_EXPR_ARRAY,
     pub Ranges: *mut DHCP_IP_RANGE_ARRAY,
     pub Description: windows_core::PWSTR,
-    pub Enabled: super::super::Foundation::BOOL,
+    pub Enabled: windows_core::BOOL,
 }
 impl Default for DHCP_POLICY {
     fn default() -> Self {
@@ -3094,14 +3094,14 @@ impl Default for DHCP_POLICY_ARRAY {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POLICY_EX {
     pub PolicyName: windows_core::PWSTR,
-    pub IsGlobalPolicy: super::super::Foundation::BOOL,
+    pub IsGlobalPolicy: windows_core::BOOL,
     pub Subnet: u32,
     pub ProcessingOrder: u32,
     pub Conditions: *mut DHCP_POL_COND_ARRAY,
     pub Expressions: *mut DHCP_POL_EXPR_ARRAY,
     pub Ranges: *mut DHCP_IP_RANGE_ARRAY,
     pub Description: windows_core::PWSTR,
-    pub Enabled: super::super::Foundation::BOOL,
+    pub Enabled: windows_core::BOOL,
     pub Properties: *mut DHCP_PROPERTY_ARRAY,
 }
 impl Default for DHCP_POLICY_EX {
@@ -3373,7 +3373,7 @@ pub struct DHCP_SERVER_CONFIG_INFO_V4 {
     pub dwPingRetries: u32,
     pub cbBootTableString: u32,
     pub wszBootTableString: windows_core::PWSTR,
-    pub fAuditLog: super::super::Foundation::BOOL,
+    pub fAuditLog: windows_core::BOOL,
 }
 impl Default for DHCP_SERVER_CONFIG_INFO_V4 {
     fn default() -> Self {
@@ -3383,15 +3383,15 @@ impl Default for DHCP_SERVER_CONFIG_INFO_V4 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SERVER_CONFIG_INFO_V6 {
-    pub UnicastFlag: super::super::Foundation::BOOL,
-    pub RapidCommitFlag: super::super::Foundation::BOOL,
+    pub UnicastFlag: windows_core::BOOL,
+    pub RapidCommitFlag: windows_core::BOOL,
     pub PreferredLifetime: u32,
     pub ValidLifetime: u32,
     pub T1: u32,
     pub T2: u32,
     pub PreferredLifetimeIATA: u32,
     pub ValidLifetimeIATA: u32,
-    pub fAuditLog: super::super::Foundation::BOOL,
+    pub fAuditLog: windows_core::BOOL,
 }
 impl Default for DHCP_SERVER_CONFIG_INFO_V6 {
     fn default() -> Self {
@@ -3413,10 +3413,10 @@ pub struct DHCP_SERVER_CONFIG_INFO_VQ {
     pub dwPingRetries: u32,
     pub cbBootTableString: u32,
     pub wszBootTableString: windows_core::PWSTR,
-    pub fAuditLog: super::super::Foundation::BOOL,
-    pub QuarantineOn: super::super::Foundation::BOOL,
+    pub fAuditLog: windows_core::BOOL,
+    pub QuarantineOn: windows_core::BOOL,
     pub QuarDefFail: u32,
-    pub QuarRuntimeStatus: super::super::Foundation::BOOL,
+    pub QuarRuntimeStatus: windows_core::BOOL,
 }
 impl Default for DHCP_SERVER_CONFIG_INFO_VQ {
     fn default() -> Self {
@@ -3927,7 +3927,7 @@ pub type LPDHCP_DROP_SEND = Option<unsafe extern "system" fn(packet: *mut *mut u
 pub type LPDHCP_ENTRY_POINT_FUNC = Option<unsafe extern "system" fn(chaindlls: windows_core::PCWSTR, calloutversion: u32, callouttbl: *mut DHCP_CALLOUT_TABLE) -> u32>;
 pub type LPDHCP_GIVE_ADDRESS = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, addrtype: u32, leasetime: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
 pub type LPDHCP_HANDLE_OPTIONS = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void, serveroptions: *mut DHCP_SERVER_OPTIONS) -> u32>;
-pub type LPDHCP_NEWPKT = Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut *mut core::ffi::c_void, processit: *mut super::super::Foundation::BOOL) -> u32>;
+pub type LPDHCP_NEWPKT = Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut *mut core::ffi::c_void, processit: *mut windows_core::BOOL) -> u32>;
 pub type LPDHCP_PROB = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
 pub const LoadBalance: DHCP_FAILOVER_MODE = DHCP_FAILOVER_MODE(0i32);
 pub const MAC_ADDRESS_LENGTH: u32 = 6u32;

@@ -30,8 +30,8 @@ pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> windows_core::Result<(
 }
 #[cfg(feature = "Win32_Storage_Packaging_Appx")]
 #[inline]
-pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID) -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("srpapi.dll" "system" fn SrpDoesPolicyAllowAppExecution(packageid : *const super::super::Storage::Packaging::Appx:: PACKAGE_ID, isallowed : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID) -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("srpapi.dll" "system" fn SrpDoesPolicyAllowAppExecution(packageid : *const super::super::Storage::Packaging::Appx:: PACKAGE_ID, isallowed : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         SrpDoesPolicyAllowAppExecution(packageid, &mut result__).map(|| core::mem::transmute(result__))

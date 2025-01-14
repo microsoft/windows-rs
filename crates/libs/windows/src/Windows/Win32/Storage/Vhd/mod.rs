@@ -944,8 +944,8 @@ pub union GET_VIRTUAL_DISK_INFO_0 {
     pub ParentTimestamp: u32,
     pub VirtualStorageType: VIRTUAL_STORAGE_TYPE,
     pub ProviderSubtype: u32,
-    pub Is4kAligned: super::super::Foundation::BOOL,
-    pub IsLoaded: super::super::Foundation::BOOL,
+    pub Is4kAligned: windows_core::BOOL,
+    pub IsLoaded: windows_core::BOOL,
     pub PhysicalDisk: GET_VIRTUAL_DISK_INFO_0_2,
     pub VhdPhysicalSectorSize: u32,
     pub SmallestSafeVirtualSize: u64,
@@ -961,8 +961,8 @@ impl Default for GET_VIRTUAL_DISK_INFO_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
-    pub Enabled: super::super::Foundation::BOOL,
-    pub NewerChanges: super::super::Foundation::BOOL,
+    pub Enabled: windows_core::BOOL,
+    pub NewerChanges: windows_core::BOOL,
     pub MostRecentId: [u16; 1],
 }
 impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
@@ -973,7 +973,7 @@ impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_1 {
-    pub ParentResolved: super::super::Foundation::BOOL,
+    pub ParentResolved: windows_core::BOOL,
     pub ParentLocationBuffer: [u16; 1],
 }
 impl Default for GET_VIRTUAL_DISK_INFO_0_1 {
@@ -986,7 +986,7 @@ impl Default for GET_VIRTUAL_DISK_INFO_0_1 {
 pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub LogicalSectorSize: u32,
     pub PhysicalSectorSize: u32,
-    pub IsRemote: super::super::Foundation::BOOL,
+    pub IsRemote: windows_core::BOOL,
 }
 impl Default for GET_VIRTUAL_DISK_INFO_0_2 {
     fn default() -> Self {
@@ -1353,8 +1353,8 @@ impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
-    pub GetInfoOnly: super::super::Foundation::BOOL,
-    pub ReadOnly: super::super::Foundation::BOOL,
+    pub GetInfoOnly: windows_core::BOOL,
+    pub ReadOnly: windows_core::BOOL,
     pub ResiliencyGuid: windows_core::GUID,
 }
 impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
@@ -1365,8 +1365,8 @@ impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
-    pub GetInfoOnly: super::super::Foundation::BOOL,
-    pub ReadOnly: super::super::Foundation::BOOL,
+    pub GetInfoOnly: windows_core::BOOL,
+    pub ReadOnly: windows_core::BOOL,
     pub ResiliencyGuid: windows_core::GUID,
     pub SnapshotId: windows_core::GUID,
 }
@@ -1493,7 +1493,7 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    pub RSVDHandle: super::super::Foundation::BOOL,
+    pub RSVDHandle: windows_core::BOOL,
     pub DataIn: u8,
     pub CdbLength: u8,
     pub SenseInfoLength: u8,
@@ -1640,7 +1640,7 @@ pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ParentPathWithDepthInfo: SET_VIRTUAL_DISK_INFO_0_0,
     pub VhdPhysicalSectorSize: u32,
     pub VirtualDiskId: windows_core::GUID,
-    pub ChangeTrackingEnabled: super::super::Foundation::BOOL,
+    pub ChangeTrackingEnabled: windows_core::BOOL,
     pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_1,
 }
 impl Default for SET_VIRTUAL_DISK_INFO_0 {

@@ -51,7 +51,7 @@ pub struct APOInitSystemEffects2 {
     pub nSoftwareIoDeviceInCollection: u32,
     pub nSoftwareIoConnectorIndex: u32,
     pub AudioProcessingMode: windows_core::GUID,
-    pub InitializeForDiscoveryOnly: super::super::super::Foundation::BOOL,
+    pub InitializeForDiscoveryOnly: windows_core::BOOL,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for APOInitSystemEffects2 {
@@ -70,7 +70,7 @@ pub struct APOInitSystemEffects3 {
     pub nSoftwareIoDeviceInCollection: u32,
     pub nSoftwareIoConnectorIndex: u32,
     pub AudioProcessingMode: windows_core::GUID,
-    pub InitializeForDiscoveryOnly: super::super::super::Foundation::BOOL,
+    pub InitializeForDiscoveryOnly: windows_core::BOOL,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl Default for APOInitSystemEffects3 {
@@ -329,13 +329,13 @@ impl Default for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
 pub struct AUDIO_MICROPHONE_BOOST_NOTIFICATION {
     pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub eventContext: windows_core::GUID,
-    pub microphoneBoostEnabled: super::super::super::Foundation::BOOL,
+    pub microphoneBoostEnabled: windows_core::BOOL,
     pub levelInDb: f32,
     pub levelMinInDb: f32,
     pub levelMaxInDb: f32,
     pub levelStepInDb: f32,
-    pub muteSupported: super::super::super::Foundation::BOOL,
-    pub mute: super::super::super::Foundation::BOOL,
+    pub muteSupported: windows_core::BOOL,
+    pub mute: windows_core::BOOL,
 }
 impl Default for AUDIO_MICROPHONE_BOOST_NOTIFICATION {
     fn default() -> Self {
@@ -348,7 +348,7 @@ pub const AUDIO_MIN_FRAMERATE: f64 = 10f64;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECT {
     pub id: windows_core::GUID,
-    pub canSetState: super::super::super::Foundation::BOOL,
+    pub canSetState: windows_core::BOOL,
     pub state: AUDIO_SYSTEMEFFECT_STATE,
 }
 impl Default for AUDIO_SYSTEMEFFECT {
@@ -584,7 +584,7 @@ impl windows_core::RuntimeName for IAudioDeviceModulesClient {}
 windows_core::imp::define_interface!(IAudioMediaType, IAudioMediaType_Vtbl, 0x4e997f73_b71f_4798_873b_ed7dfcf15b4d);
 windows_core::imp::interface_hierarchy!(IAudioMediaType, windows_core::IUnknown);
 impl IAudioMediaType {
-    pub unsafe fn IsCompressedFormat(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn IsCompressedFormat(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsCompressedFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -609,20 +609,20 @@ impl IAudioMediaType {
 #[repr(C)]
 pub struct IAudioMediaType_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsCompressedFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub IsCompressedFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetAudioFormat: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut super::WAVEFORMATEX,
     pub GetUncompressedAudioFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UNCOMPRESSEDAUDIOFORMAT) -> windows_core::HRESULT,
 }
 pub trait IAudioMediaType_Impl: windows_core::IUnknownImpl {
-    fn IsCompressedFormat(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn IsCompressedFormat(&self) -> windows_core::Result<windows_core::BOOL>;
     fn IsEqual(&self, piaudiotype: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<u32>;
     fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX;
     fn GetUncompressedAudioFormat(&self, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> windows_core::Result<()>;
 }
 impl IAudioMediaType_Vtbl {
     pub const fn new<Identity: IAudioMediaType_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsCompressedFormat<Identity: IAudioMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcompressed: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsCompressedFormat<Identity: IAudioMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcompressed: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioMediaType_Impl::IsCompressedFormat(this) {

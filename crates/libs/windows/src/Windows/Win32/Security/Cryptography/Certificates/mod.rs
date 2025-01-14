@@ -55,11 +55,11 @@ pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut core::ffi::c_void) -> windows_
     unsafe { CertSrvBackupTruncateLogs(hbc as _).ok() }
 }
 #[inline]
-pub unsafe fn CertSrvIsServerOnlineW<P0>(pwszservername: P0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>
+pub unsafe fn CertSrvIsServerOnlineW<P0>(pwszservername: P0, pfserveronline: *mut windows_core::BOOL) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("certadm.dll" "system" fn CertSrvIsServerOnlineW(pwszservername : windows_core::PCWSTR, pfserveronline : *mut super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    windows_targets::link!("certadm.dll" "system" fn CertSrvIsServerOnlineW(pwszservername : windows_core::PCWSTR, pfserveronline : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { CertSrvIsServerOnlineW(pwszservername.param().abi(), pfserveronline as _).ok() }
 }
 #[inline]
@@ -126,7 +126,7 @@ pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrusted
 }
 #[inline]
 pub unsafe fn PstGetCertificates(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: Option<&[super::CERT_SELECT_CRITERIA]>, bisclient: bool, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS {
-    windows_targets::link!("certpoleng.dll" "system" fn PstGetCertificates(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, bisclient : super::super::super::Foundation:: BOOL, pdwcertchaincontextcount : *mut u32, ppcertchaincontexts : *mut *mut *mut super:: CERT_CHAIN_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("certpoleng.dll" "system" fn PstGetCertificates(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, bisclient : windows_core::BOOL, pdwcertchaincontextcount : *mut u32, ppcertchaincontexts : *mut *mut *mut super:: CERT_CHAIN_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
     unsafe { PstGetCertificates(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), bisclient.into(), pdwcertchaincontextcount as _, ppcertchaincontexts as _) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
@@ -154,7 +154,7 @@ pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninforma
 }
 #[inline]
 pub unsafe fn PstValidate(ptargetname: Option<*const super::super::super::Foundation::UNICODE_STRING>, bisclient: bool, prequestedissuancepolicy: Option<*const super::CERT_USAGE_MATCH>, phadditionalcertstore: Option<*const super::HCERTSTORE>, pcert: *const super::CERT_CONTEXT, pprovguid: Option<*mut windows_core::GUID>) -> super::super::super::Foundation::NTSTATUS {
-    windows_targets::link!("certpoleng.dll" "system" fn PstValidate(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, bisclient : super::super::super::Foundation:: BOOL, prequestedissuancepolicy : *const super:: CERT_USAGE_MATCH, phadditionalcertstore : *const super:: HCERTSTORE, pcert : *const super:: CERT_CONTEXT, pprovguid : *mut windows_core::GUID) -> super::super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("certpoleng.dll" "system" fn PstValidate(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, bisclient : windows_core::BOOL, prequestedissuancepolicy : *const super:: CERT_USAGE_MATCH, phadditionalcertstore : *const super:: HCERTSTORE, pcert : *const super:: CERT_CONTEXT, pprovguid : *mut windows_core::GUID) -> super::super::super::Foundation:: NTSTATUS);
     unsafe { PstValidate(ptargetname.unwrap_or(core::mem::zeroed()) as _, bisclient.into(), prequestedissuancepolicy.unwrap_or(core::mem::zeroed()) as _, phadditionalcertstore.unwrap_or(core::mem::zeroed()) as _, pcert, pprovguid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(transparent)]
@@ -936,7 +936,7 @@ pub type FNCERTSRVBACKUPOPENFILEW = Option<unsafe extern "system" fn(hbc: *mut c
 pub type FNCERTSRVBACKUPPREPAREW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, grbitjet: u32, dwbackupflags: u32, phbc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type FNCERTSRVBACKUPREAD = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, pvbuffer: *mut core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> windows_core::HRESULT>;
 pub type FNCERTSRVBACKUPTRUNCATELOGS = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type FNCERTSRVISSERVERONLINEW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT>;
+pub type FNCERTSRVISSERVERONLINEW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, pfserveronline: *mut windows_core::BOOL) -> windows_core::HRESULT>;
 pub type FNCERTSRVRESTOREEND = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type FNCERTSRVRESTOREGETDATABASELOCATIONSW = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, ppwszzdatabaselocationlist: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
 pub type FNCERTSRVRESTOREPREPAREW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, dwrestoreflags: u32, phbc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
@@ -1665,7 +1665,7 @@ impl ICEnroll {
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetProviderFlags)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
-    pub unsafe fn UseExistingKeySet(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn UseExistingKeySet(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UseExistingKeySet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1683,7 +1683,7 @@ impl ICEnroll {
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetGenKeyFlags)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
-    pub unsafe fn DeleteRequestCert(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn DeleteRequestCert(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeleteRequestCert)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1692,7 +1692,7 @@ impl ICEnroll {
     pub unsafe fn SetDeleteRequestCert(&self, fdelete: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDeleteRequestCert)(windows_core::Interface::as_raw(self), fdelete.into()).ok() }
     }
-    pub unsafe fn WriteCertToCSP(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn WriteCertToCSP(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WriteCertToCSP)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1775,14 +1775,14 @@ pub struct ICEnroll_Vtbl {
     pub SetKeySpec: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ProviderFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetProviderFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub UseExistingKeySet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetUseExistingKeySet: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub UseExistingKeySet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetUseExistingKeySet: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GenKeyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetGenKeyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub DeleteRequestCert: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetDeleteRequestCert: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub WriteCertToCSP: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetWriteCertToCSP: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub DeleteRequestCert: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetDeleteRequestCert: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub WriteCertToCSP: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetWriteCertToCSP: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SPCFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSPCFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PVKFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1834,14 +1834,14 @@ pub trait ICEnroll_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn SetKeySpec(&self, dw: i32) -> windows_core::Result<()>;
     fn ProviderFlags(&self) -> windows_core::Result<i32>;
     fn SetProviderFlags(&self, dwflags: i32) -> windows_core::Result<()>;
-    fn UseExistingKeySet(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetUseExistingKeySet(&self, fuseexistingkeys: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn UseExistingKeySet(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetUseExistingKeySet(&self, fuseexistingkeys: windows_core::BOOL) -> windows_core::Result<()>;
     fn GenKeyFlags(&self) -> windows_core::Result<i32>;
     fn SetGenKeyFlags(&self, dwflags: i32) -> windows_core::Result<()>;
-    fn DeleteRequestCert(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetDeleteRequestCert(&self, fdelete: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn WriteCertToCSP(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetWriteCertToCSP(&self, fbool: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn DeleteRequestCert(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetDeleteRequestCert(&self, fdelete: windows_core::BOOL) -> windows_core::Result<()>;
+    fn WriteCertToCSP(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetWriteCertToCSP(&self, fbool: windows_core::BOOL) -> windows_core::Result<()>;
     fn SPCFileName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetSPCFileName(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()>;
     fn PVKFileName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2230,7 +2230,7 @@ impl ICEnroll_Vtbl {
                 ICEnroll_Impl::SetProviderFlags(this, core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn UseExistingKeySet<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuseexistingkeys: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn UseExistingKeySet<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuseexistingkeys: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::UseExistingKeySet(this) {
@@ -2242,7 +2242,7 @@ impl ICEnroll_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetUseExistingKeySet<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuseexistingkeys: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetUseExistingKeySet<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuseexistingkeys: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICEnroll_Impl::SetUseExistingKeySet(this, core::mem::transmute_copy(&fuseexistingkeys)).into()
@@ -2266,7 +2266,7 @@ impl ICEnroll_Vtbl {
                 ICEnroll_Impl::SetGenKeyFlags(this, core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn DeleteRequestCert<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdelete: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteRequestCert<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdelete: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::DeleteRequestCert(this) {
@@ -2278,13 +2278,13 @@ impl ICEnroll_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDeleteRequestCert<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdelete: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDeleteRequestCert<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdelete: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICEnroll_Impl::SetDeleteRequestCert(this, core::mem::transmute_copy(&fdelete)).into()
             }
         }
-        unsafe extern "system" fn WriteCertToCSP<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteCertToCSP<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::WriteCertToCSP(this) {
@@ -2296,7 +2296,7 @@ impl ICEnroll_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetWriteCertToCSP<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWriteCertToCSP<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICEnroll_Impl::SetWriteCertToCSP(this, core::mem::transmute_copy(&fbool)).into()
@@ -2441,7 +2441,7 @@ impl ICEnroll2 {
     pub unsafe fn addNameValuePairToSignature(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).addNameValuePairToSignature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn WriteCertToUserDS(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn WriteCertToUserDS(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WriteCertToUserDS)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2450,7 +2450,7 @@ impl ICEnroll2 {
     pub unsafe fn SetWriteCertToUserDS(&self, fbool: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWriteCertToUserDS)(windows_core::Interface::as_raw(self), fbool.into()).ok() }
     }
-    pub unsafe fn EnableT61DNEncoding(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn EnableT61DNEncoding(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnableT61DNEncoding)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2466,19 +2466,19 @@ pub struct ICEnroll2_Vtbl {
     pub base__: ICEnroll_Vtbl,
     pub addCertTypeToRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub addNameValuePairToSignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub WriteCertToUserDS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetWriteCertToUserDS: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub EnableT61DNEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetEnableT61DNEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub WriteCertToUserDS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetWriteCertToUserDS: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub EnableT61DNEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetEnableT61DNEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICEnroll2_Impl: ICEnroll_Impl {
     fn addCertTypeToRequest(&self, certtype: &windows_core::BSTR) -> windows_core::Result<()>;
     fn addNameValuePairToSignature(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn WriteCertToUserDS(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetWriteCertToUserDS(&self, fbool: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn EnableT61DNEncoding(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetEnableT61DNEncoding(&self, fbool: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn WriteCertToUserDS(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetWriteCertToUserDS(&self, fbool: windows_core::BOOL) -> windows_core::Result<()>;
+    fn EnableT61DNEncoding(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetEnableT61DNEncoding(&self, fbool: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICEnroll2_Vtbl {
@@ -2495,7 +2495,7 @@ impl ICEnroll2_Vtbl {
                 ICEnroll2_Impl::addNameValuePairToSignature(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn WriteCertToUserDS<Identity: ICEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteCertToUserDS<Identity: ICEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll2_Impl::WriteCertToUserDS(this) {
@@ -2507,13 +2507,13 @@ impl ICEnroll2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetWriteCertToUserDS<Identity: ICEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWriteCertToUserDS<Identity: ICEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICEnroll2_Impl::SetWriteCertToUserDS(this, core::mem::transmute_copy(&fbool)).into()
             }
         }
-        unsafe extern "system" fn EnableT61DNEncoding<Identity: ICEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableT61DNEncoding<Identity: ICEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll2_Impl::EnableT61DNEncoding(this) {
@@ -2525,7 +2525,7 @@ impl ICEnroll2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEnableT61DNEncoding<Identity: ICEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnableT61DNEncoding<Identity: ICEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICEnroll2_Impl::SetEnableT61DNEncoding(this, core::mem::transmute_copy(&fbool)).into()
@@ -2593,7 +2593,7 @@ impl ICEnroll3 {
     pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetReuseHardwareKeyIfUnableToGenNew)(windows_core::Interface::as_raw(self), freusehardwarekeyifunabletogennew.into()).ok() }
     }
-    pub unsafe fn ReuseHardwareKeyIfUnableToGenNew(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn ReuseHardwareKeyIfUnableToGenNew(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReuseHardwareKeyIfUnableToGenNew)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2611,7 +2611,7 @@ impl ICEnroll3 {
     pub unsafe fn SetLimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLimitExchangeKeyToEncipherment)(windows_core::Interface::as_raw(self), flimitexchangekeytoencipherment.into()).ok() }
     }
-    pub unsafe fn LimitExchangeKeyToEncipherment(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn LimitExchangeKeyToEncipherment(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LimitExchangeKeyToEncipherment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2620,7 +2620,7 @@ impl ICEnroll3 {
     pub unsafe fn SetEnableSMIMECapabilities(&self, fenablesmimecapabilities: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnableSMIMECapabilities)(windows_core::Interface::as_raw(self), fenablesmimecapabilities.into()).ok() }
     }
-    pub unsafe fn EnableSMIMECapabilities(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn EnableSMIMECapabilities(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnableSMIMECapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2634,34 +2634,34 @@ pub struct ICEnroll3_Vtbl {
     pub InstallPKCS7: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSupportedKeySpec: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub GetKeyLen: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL, super::super::super::Foundation::BOOL, *mut i32) -> windows_core::HRESULT,
+    pub GetKeyLen: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, *mut i32) -> windows_core::HRESULT,
     pub EnumAlgs: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
     pub GetAlgName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetReuseHardwareKeyIfUnableToGenNew: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub ReuseHardwareKeyIfUnableToGenNew: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetReuseHardwareKeyIfUnableToGenNew: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub ReuseHardwareKeyIfUnableToGenNew: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetHashAlgID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub HashAlgID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetLimitExchangeKeyToEncipherment: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub LimitExchangeKeyToEncipherment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetEnableSMIMECapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub EnableSMIMECapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetLimitExchangeKeyToEncipherment: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub LimitExchangeKeyToEncipherment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetEnableSMIMECapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub EnableSMIMECapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICEnroll3_Impl: ICEnroll2_Impl {
     fn InstallPKCS7(&self, pkcs7: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn GetSupportedKeySpec(&self) -> windows_core::Result<i32>;
-    fn GetKeyLen(&self, fmin: super::super::super::Foundation::BOOL, fexchange: super::super::super::Foundation::BOOL) -> windows_core::Result<i32>;
+    fn GetKeyLen(&self, fmin: windows_core::BOOL, fexchange: windows_core::BOOL) -> windows_core::Result<i32>;
     fn EnumAlgs(&self, dwindex: i32, algclass: i32) -> windows_core::Result<i32>;
     fn GetAlgName(&self, algid: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn SetReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn ReuseHardwareKeyIfUnableToGenNew(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn SetReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: windows_core::BOOL) -> windows_core::Result<()>;
+    fn ReuseHardwareKeyIfUnableToGenNew(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetHashAlgID(&self, hashalgid: i32) -> windows_core::Result<()>;
     fn HashAlgID(&self) -> windows_core::Result<i32>;
-    fn SetLimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn LimitExchangeKeyToEncipherment(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn SetEnableSMIMECapabilities(&self, fenablesmimecapabilities: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn EnableSMIMECapabilities(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn SetLimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: windows_core::BOOL) -> windows_core::Result<()>;
+    fn LimitExchangeKeyToEncipherment(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetEnableSMIMECapabilities(&self, fenablesmimecapabilities: windows_core::BOOL) -> windows_core::Result<()>;
+    fn EnableSMIMECapabilities(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICEnroll3_Vtbl {
@@ -2690,7 +2690,7 @@ impl ICEnroll3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetKeyLen<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmin: super::super::super::Foundation::BOOL, fexchange: super::super::super::Foundation::BOOL, pdwkeysize: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetKeyLen<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmin: windows_core::BOOL, fexchange: windows_core::BOOL, pdwkeysize: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll3_Impl::GetKeyLen(this, core::mem::transmute_copy(&fmin), core::mem::transmute_copy(&fexchange)) {
@@ -2726,13 +2726,13 @@ impl ICEnroll3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetReuseHardwareKeyIfUnableToGenNew<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, freusehardwarekeyifunabletogennew: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetReuseHardwareKeyIfUnableToGenNew<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, freusehardwarekeyifunabletogennew: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICEnroll3_Impl::SetReuseHardwareKeyIfUnableToGenNew(this, core::mem::transmute_copy(&freusehardwarekeyifunabletogennew)).into()
             }
         }
-        unsafe extern "system" fn ReuseHardwareKeyIfUnableToGenNew<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, freusehardwarekeyifunabletogennew: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReuseHardwareKeyIfUnableToGenNew<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, freusehardwarekeyifunabletogennew: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll3_Impl::ReuseHardwareKeyIfUnableToGenNew(this) {
@@ -2762,13 +2762,13 @@ impl ICEnroll3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLimitExchangeKeyToEncipherment<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flimitexchangekeytoencipherment: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLimitExchangeKeyToEncipherment<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flimitexchangekeytoencipherment: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICEnroll3_Impl::SetLimitExchangeKeyToEncipherment(this, core::mem::transmute_copy(&flimitexchangekeytoencipherment)).into()
             }
         }
-        unsafe extern "system" fn LimitExchangeKeyToEncipherment<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flimitexchangekeytoencipherment: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn LimitExchangeKeyToEncipherment<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flimitexchangekeytoencipherment: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll3_Impl::LimitExchangeKeyToEncipherment(this) {
@@ -2780,13 +2780,13 @@ impl ICEnroll3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEnableSMIMECapabilities<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenablesmimecapabilities: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnableSMIMECapabilities<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenablesmimecapabilities: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICEnroll3_Impl::SetEnableSMIMECapabilities(this, core::mem::transmute_copy(&fenablesmimecapabilities)).into()
             }
         }
-        unsafe extern "system" fn EnableSMIMECapabilities<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenablesmimecapabilities: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableSMIMECapabilities<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenablesmimecapabilities: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll3_Impl::EnableSMIMECapabilities(this) {
@@ -2971,7 +2971,7 @@ impl ICEnroll4 {
     pub unsafe fn SetIncludeSubjectKeyID(&self, finclude: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIncludeSubjectKeyID)(windows_core::Interface::as_raw(self), finclude.into()).ok() }
     }
-    pub unsafe fn IncludeSubjectKeyID(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn IncludeSubjectKeyID(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IncludeSubjectKeyID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3009,15 +3009,15 @@ pub struct ICEnroll4_Vtbl {
     pub removePendingRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetKeyLenEx: unsafe extern "system" fn(*mut core::ffi::c_void, XEKL_KEYSIZE, XEKL_KEYSPEC, *mut i32) -> windows_core::HRESULT,
     pub InstallPKCS7Ex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub addCertTypeToRequestEx: unsafe extern "system" fn(*mut core::ffi::c_void, ADDED_CERT_TYPE, *mut core::ffi::c_void, i32, super::super::super::Foundation::BOOL, i32) -> windows_core::HRESULT,
+    pub addCertTypeToRequestEx: unsafe extern "system" fn(*mut core::ffi::c_void, ADDED_CERT_TYPE, *mut core::ffi::c_void, i32, windows_core::BOOL, i32) -> windows_core::HRESULT,
     pub getProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetSignerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetClientId: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ClientId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub addBlobPropertyToCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub resetBlobProperties: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetIncludeSubjectKeyID: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IncludeSubjectKeyID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetIncludeSubjectKeyID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub IncludeSubjectKeyID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICEnroll4_Impl: ICEnroll3_Impl {
@@ -3045,15 +3045,15 @@ pub trait ICEnroll4_Impl: ICEnroll3_Impl {
     fn removePendingRequest(&self, strthumbprint: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetKeyLenEx(&self, lsizespec: XEKL_KEYSIZE, lkeyspec: XEKL_KEYSPEC) -> windows_core::Result<i32>;
     fn InstallPKCS7Ex(&self, pkcs7: &windows_core::BSTR) -> windows_core::Result<i32>;
-    fn addCertTypeToRequestEx(&self, ltype: ADDED_CERT_TYPE, bstroidorname: &windows_core::BSTR, lmajorversion: i32, fminorversion: super::super::super::Foundation::BOOL, lminorversion: i32) -> windows_core::Result<()>;
+    fn addCertTypeToRequestEx(&self, ltype: ADDED_CERT_TYPE, bstroidorname: &windows_core::BSTR, lmajorversion: i32, fminorversion: windows_core::BOOL, lminorversion: i32) -> windows_core::Result<()>;
     fn getProviderType(&self, strprovname: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn SetSignerCertificate(&self, bstrcert: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetClientId(&self, lclientid: i32) -> windows_core::Result<()>;
     fn ClientId(&self) -> windows_core::Result<i32>;
     fn addBlobPropertyToCertificate(&self, lpropertyid: i32, lreserved: i32, bstrproperty: &windows_core::BSTR) -> windows_core::Result<()>;
     fn resetBlobProperties(&self) -> windows_core::Result<()>;
-    fn SetIncludeSubjectKeyID(&self, finclude: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn IncludeSubjectKeyID(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn SetIncludeSubjectKeyID(&self, finclude: windows_core::BOOL) -> windows_core::Result<()>;
+    fn IncludeSubjectKeyID(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICEnroll4_Vtbl {
@@ -3268,7 +3268,7 @@ impl ICEnroll4_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn addCertTypeToRequestEx<Identity: ICEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltype: ADDED_CERT_TYPE, bstroidorname: *mut core::ffi::c_void, lmajorversion: i32, fminorversion: super::super::super::Foundation::BOOL, lminorversion: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn addCertTypeToRequestEx<Identity: ICEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltype: ADDED_CERT_TYPE, bstroidorname: *mut core::ffi::c_void, lmajorversion: i32, fminorversion: windows_core::BOOL, lminorversion: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICEnroll4_Impl::addCertTypeToRequestEx(this, core::mem::transmute_copy(&ltype), core::mem::transmute(&bstroidorname), core::mem::transmute_copy(&lmajorversion), core::mem::transmute_copy(&fminorversion), core::mem::transmute_copy(&lminorversion)).into()
@@ -3322,13 +3322,13 @@ impl ICEnroll4_Vtbl {
                 ICEnroll4_Impl::resetBlobProperties(this).into()
             }
         }
-        unsafe extern "system" fn SetIncludeSubjectKeyID<Identity: ICEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, finclude: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIncludeSubjectKeyID<Identity: ICEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, finclude: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICEnroll4_Impl::SetIncludeSubjectKeyID(this, core::mem::transmute_copy(&finclude)).into()
             }
         }
-        unsafe extern "system" fn IncludeSubjectKeyID<Identity: ICEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfinclude: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IncludeSubjectKeyID<Identity: ICEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfinclude: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll4_Impl::IncludeSubjectKeyID(this) {
@@ -11034,7 +11034,7 @@ impl IEnroll {
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetProviderFlags)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
-    pub unsafe fn UseExistingKeySet(&self, fuseexistingkeys: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn UseExistingKeySet(&self, fuseexistingkeys: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UseExistingKeySet)(windows_core::Interface::as_raw(self), fuseexistingkeys as _).ok() }
     }
     pub unsafe fn SetUseExistingKeySet(&self, fuseexistingkeys: bool) -> windows_core::Result<()> {
@@ -11046,25 +11046,25 @@ impl IEnroll {
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetGenKeyFlags)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
-    pub unsafe fn DeleteRequestCert(&self, fdelete: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn DeleteRequestCert(&self, fdelete: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteRequestCert)(windows_core::Interface::as_raw(self), fdelete as _).ok() }
     }
     pub unsafe fn SetDeleteRequestCert(&self, fdelete: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDeleteRequestCert)(windows_core::Interface::as_raw(self), fdelete.into()).ok() }
     }
-    pub unsafe fn WriteCertToUserDS(&self, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn WriteCertToUserDS(&self, fbool: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteCertToUserDS)(windows_core::Interface::as_raw(self), fbool as _).ok() }
     }
     pub unsafe fn SetWriteCertToUserDS(&self, fbool: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWriteCertToUserDS)(windows_core::Interface::as_raw(self), fbool.into()).ok() }
     }
-    pub unsafe fn EnableT61DNEncoding(&self, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn EnableT61DNEncoding(&self, fbool: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnableT61DNEncoding)(windows_core::Interface::as_raw(self), fbool as _).ok() }
     }
     pub unsafe fn SetEnableT61DNEncoding(&self, fbool: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnableT61DNEncoding)(windows_core::Interface::as_raw(self), fbool.into()).ok() }
     }
-    pub unsafe fn WriteCertToCSP(&self, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn WriteCertToCSP(&self, fbool: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteCertToCSP)(windows_core::Interface::as_raw(self), fbool as _).ok() }
     }
     pub unsafe fn SetWriteCertToCSP(&self, fbool: bool) -> windows_core::Result<()> {
@@ -11174,18 +11174,18 @@ pub struct IEnroll_Vtbl {
     pub SetKeySpec: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ProviderFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetProviderFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub UseExistingKeySet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetUseExistingKeySet: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub UseExistingKeySet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetUseExistingKeySet: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GenKeyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetGenKeyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub DeleteRequestCert: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetDeleteRequestCert: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub WriteCertToUserDS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetWriteCertToUserDS: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub EnableT61DNEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetEnableT61DNEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub WriteCertToCSP: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetWriteCertToCSP: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub DeleteRequestCert: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetDeleteRequestCert: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub WriteCertToUserDS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetWriteCertToUserDS: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub EnableT61DNEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetEnableT61DNEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub WriteCertToCSP: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetWriteCertToCSP: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SPCFileNameWStr: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetSPCFileNameWStr: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub PVKFileNameWStr: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -11246,18 +11246,18 @@ pub trait IEnroll_Impl: windows_core::IUnknownImpl {
     fn SetKeySpec(&self, dw: i32) -> windows_core::Result<()>;
     fn ProviderFlags(&self, pdwflags: *mut i32) -> windows_core::Result<()>;
     fn SetProviderFlags(&self, dwflags: i32) -> windows_core::Result<()>;
-    fn UseExistingKeySet(&self, fuseexistingkeys: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetUseExistingKeySet(&self, fuseexistingkeys: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn UseExistingKeySet(&self, fuseexistingkeys: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetUseExistingKeySet(&self, fuseexistingkeys: windows_core::BOOL) -> windows_core::Result<()>;
     fn GenKeyFlags(&self, pdwflags: *mut i32) -> windows_core::Result<()>;
     fn SetGenKeyFlags(&self, dwflags: i32) -> windows_core::Result<()>;
-    fn DeleteRequestCert(&self, fdelete: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetDeleteRequestCert(&self, fdelete: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn WriteCertToUserDS(&self, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetWriteCertToUserDS(&self, fbool: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn EnableT61DNEncoding(&self, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetEnableT61DNEncoding(&self, fbool: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn WriteCertToCSP(&self, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetWriteCertToCSP(&self, fbool: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn DeleteRequestCert(&self, fdelete: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetDeleteRequestCert(&self, fdelete: windows_core::BOOL) -> windows_core::Result<()>;
+    fn WriteCertToUserDS(&self, fbool: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetWriteCertToUserDS(&self, fbool: windows_core::BOOL) -> windows_core::Result<()>;
+    fn EnableT61DNEncoding(&self, fbool: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetEnableT61DNEncoding(&self, fbool: windows_core::BOOL) -> windows_core::Result<()>;
+    fn WriteCertToCSP(&self, fbool: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetWriteCertToCSP(&self, fbool: windows_core::BOOL) -> windows_core::Result<()>;
     fn SPCFileNameWStr(&self, szw: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn SetSPCFileNameWStr(&self, szw: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn PVKFileNameWStr(&self, szw: *mut windows_core::PWSTR) -> windows_core::Result<()>;
@@ -11544,13 +11544,13 @@ impl IEnroll_Vtbl {
                 IEnroll_Impl::SetProviderFlags(this, core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn UseExistingKeySet<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuseexistingkeys: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn UseExistingKeySet<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuseexistingkeys: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll_Impl::UseExistingKeySet(this, core::mem::transmute_copy(&fuseexistingkeys)).into()
             }
         }
-        unsafe extern "system" fn SetUseExistingKeySet<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuseexistingkeys: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetUseExistingKeySet<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuseexistingkeys: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll_Impl::SetUseExistingKeySet(this, core::mem::transmute_copy(&fuseexistingkeys)).into()
@@ -11568,49 +11568,49 @@ impl IEnroll_Vtbl {
                 IEnroll_Impl::SetGenKeyFlags(this, core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn DeleteRequestCert<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdelete: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteRequestCert<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdelete: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll_Impl::DeleteRequestCert(this, core::mem::transmute_copy(&fdelete)).into()
             }
         }
-        unsafe extern "system" fn SetDeleteRequestCert<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdelete: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDeleteRequestCert<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdelete: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll_Impl::SetDeleteRequestCert(this, core::mem::transmute_copy(&fdelete)).into()
             }
         }
-        unsafe extern "system" fn WriteCertToUserDS<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteCertToUserDS<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll_Impl::WriteCertToUserDS(this, core::mem::transmute_copy(&fbool)).into()
             }
         }
-        unsafe extern "system" fn SetWriteCertToUserDS<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWriteCertToUserDS<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll_Impl::SetWriteCertToUserDS(this, core::mem::transmute_copy(&fbool)).into()
             }
         }
-        unsafe extern "system" fn EnableT61DNEncoding<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableT61DNEncoding<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll_Impl::EnableT61DNEncoding(this, core::mem::transmute_copy(&fbool)).into()
             }
         }
-        unsafe extern "system" fn SetEnableT61DNEncoding<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnableT61DNEncoding<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll_Impl::SetEnableT61DNEncoding(this, core::mem::transmute_copy(&fbool)).into()
             }
         }
-        unsafe extern "system" fn WriteCertToCSP<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteCertToCSP<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll_Impl::WriteCertToCSP(this, core::mem::transmute_copy(&fbool)).into()
             }
         }
-        unsafe extern "system" fn SetWriteCertToCSP<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWriteCertToCSP<Identity: IEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fbool: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll_Impl::SetWriteCertToCSP(this, core::mem::transmute_copy(&fbool)).into()
@@ -11803,7 +11803,7 @@ impl IEnroll2 {
     pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetReuseHardwareKeyIfUnableToGenNew)(windows_core::Interface::as_raw(self), freusehardwarekeyifunabletogennew.into()).ok() }
     }
-    pub unsafe fn ReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn ReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReuseHardwareKeyIfUnableToGenNew)(windows_core::Interface::as_raw(self), freusehardwarekeyifunabletogennew as _).ok() }
     }
     pub unsafe fn SetHashAlgID(&self, hashalgid: i32) -> windows_core::Result<()> {
@@ -11827,13 +11827,13 @@ impl IEnroll2 {
     pub unsafe fn SetLimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLimitExchangeKeyToEncipherment)(windows_core::Interface::as_raw(self), flimitexchangekeytoencipherment.into()).ok() }
     }
-    pub unsafe fn LimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn LimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).LimitExchangeKeyToEncipherment)(windows_core::Interface::as_raw(self), flimitexchangekeytoencipherment as _).ok() }
     }
     pub unsafe fn SetEnableSMIMECapabilities(&self, fenablesmimecapabilities: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnableSMIMECapabilities)(windows_core::Interface::as_raw(self), fenablesmimecapabilities.into()).ok() }
     }
-    pub unsafe fn EnableSMIMECapabilities(&self, fenablesmimecapabilities: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn EnableSMIMECapabilities(&self, fenablesmimecapabilities: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnableSMIMECapabilities)(windows_core::Interface::as_raw(self), fenablesmimecapabilities as _).ok() }
     }
 }
@@ -11843,41 +11843,41 @@ pub struct IEnroll2_Vtbl {
     pub InstallPKCS7Blob: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::CRYPT_INTEGER_BLOB) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSupportedKeySpec: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub GetKeyLen: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL, super::super::super::Foundation::BOOL, *mut i32) -> windows_core::HRESULT,
+    pub GetKeyLen: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, *mut i32) -> windows_core::HRESULT,
     pub EnumAlgs: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
     pub GetAlgNameWStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub SetReuseHardwareKeyIfUnableToGenNew: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub ReuseHardwareKeyIfUnableToGenNew: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetReuseHardwareKeyIfUnableToGenNew: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub ReuseHardwareKeyIfUnableToGenNew: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetHashAlgID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub HashAlgID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetHStoreMy: unsafe extern "system" fn(*mut core::ffi::c_void, super::HCERTSTORE) -> windows_core::HRESULT,
     pub SetHStoreCA: unsafe extern "system" fn(*mut core::ffi::c_void, super::HCERTSTORE) -> windows_core::HRESULT,
     pub SetHStoreROOT: unsafe extern "system" fn(*mut core::ffi::c_void, super::HCERTSTORE) -> windows_core::HRESULT,
     pub SetHStoreRequest: unsafe extern "system" fn(*mut core::ffi::c_void, super::HCERTSTORE) -> windows_core::HRESULT,
-    pub SetLimitExchangeKeyToEncipherment: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub LimitExchangeKeyToEncipherment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetEnableSMIMECapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub EnableSMIMECapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetLimitExchangeKeyToEncipherment: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub LimitExchangeKeyToEncipherment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetEnableSMIMECapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub EnableSMIMECapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IEnroll2_Impl: IEnroll_Impl {
     fn InstallPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn GetSupportedKeySpec(&self, pdwkeyspec: *mut i32) -> windows_core::Result<()>;
-    fn GetKeyLen(&self, fmin: super::super::super::Foundation::BOOL, fexchange: super::super::super::Foundation::BOOL, pdwkeysize: *mut i32) -> windows_core::Result<()>;
+    fn GetKeyLen(&self, fmin: windows_core::BOOL, fexchange: windows_core::BOOL, pdwkeysize: *mut i32) -> windows_core::Result<()>;
     fn EnumAlgs(&self, dwindex: i32, algclass: i32, pdwalgid: *mut i32) -> windows_core::Result<()>;
     fn GetAlgNameWStr(&self, algid: i32, ppwsz: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn SetReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn ReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: windows_core::BOOL) -> windows_core::Result<()>;
+    fn ReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn SetHashAlgID(&self, hashalgid: i32) -> windows_core::Result<()>;
     fn HashAlgID(&self, hashalgid: *mut i32) -> windows_core::Result<()>;
     fn SetHStoreMy(&self, hstore: super::HCERTSTORE) -> windows_core::Result<()>;
     fn SetHStoreCA(&self, hstore: super::HCERTSTORE) -> windows_core::Result<()>;
     fn SetHStoreROOT(&self, hstore: super::HCERTSTORE) -> windows_core::Result<()>;
     fn SetHStoreRequest(&self, hstore: super::HCERTSTORE) -> windows_core::Result<()>;
-    fn SetLimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn LimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn SetEnableSMIMECapabilities(&self, fenablesmimecapabilities: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn EnableSMIMECapabilities(&self, fenablesmimecapabilities: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetLimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: windows_core::BOOL) -> windows_core::Result<()>;
+    fn LimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetEnableSMIMECapabilities(&self, fenablesmimecapabilities: windows_core::BOOL) -> windows_core::Result<()>;
+    fn EnableSMIMECapabilities(&self, fenablesmimecapabilities: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IEnroll2_Vtbl {
     pub const fn new<Identity: IEnroll2_Impl, const OFFSET: isize>() -> Self {
@@ -11899,7 +11899,7 @@ impl IEnroll2_Vtbl {
                 IEnroll2_Impl::GetSupportedKeySpec(this, core::mem::transmute_copy(&pdwkeyspec)).into()
             }
         }
-        unsafe extern "system" fn GetKeyLen<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmin: super::super::super::Foundation::BOOL, fexchange: super::super::super::Foundation::BOOL, pdwkeysize: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetKeyLen<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmin: windows_core::BOOL, fexchange: windows_core::BOOL, pdwkeysize: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll2_Impl::GetKeyLen(this, core::mem::transmute_copy(&fmin), core::mem::transmute_copy(&fexchange), core::mem::transmute_copy(&pdwkeysize)).into()
@@ -11917,13 +11917,13 @@ impl IEnroll2_Vtbl {
                 IEnroll2_Impl::GetAlgNameWStr(this, core::mem::transmute_copy(&algid), core::mem::transmute_copy(&ppwsz)).into()
             }
         }
-        unsafe extern "system" fn SetReuseHardwareKeyIfUnableToGenNew<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, freusehardwarekeyifunabletogennew: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetReuseHardwareKeyIfUnableToGenNew<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, freusehardwarekeyifunabletogennew: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll2_Impl::SetReuseHardwareKeyIfUnableToGenNew(this, core::mem::transmute_copy(&freusehardwarekeyifunabletogennew)).into()
             }
         }
-        unsafe extern "system" fn ReuseHardwareKeyIfUnableToGenNew<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, freusehardwarekeyifunabletogennew: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReuseHardwareKeyIfUnableToGenNew<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, freusehardwarekeyifunabletogennew: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll2_Impl::ReuseHardwareKeyIfUnableToGenNew(this, core::mem::transmute_copy(&freusehardwarekeyifunabletogennew)).into()
@@ -11965,25 +11965,25 @@ impl IEnroll2_Vtbl {
                 IEnroll2_Impl::SetHStoreRequest(this, core::mem::transmute_copy(&hstore)).into()
             }
         }
-        unsafe extern "system" fn SetLimitExchangeKeyToEncipherment<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flimitexchangekeytoencipherment: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLimitExchangeKeyToEncipherment<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flimitexchangekeytoencipherment: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll2_Impl::SetLimitExchangeKeyToEncipherment(this, core::mem::transmute_copy(&flimitexchangekeytoencipherment)).into()
             }
         }
-        unsafe extern "system" fn LimitExchangeKeyToEncipherment<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flimitexchangekeytoencipherment: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn LimitExchangeKeyToEncipherment<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flimitexchangekeytoencipherment: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll2_Impl::LimitExchangeKeyToEncipherment(this, core::mem::transmute_copy(&flimitexchangekeytoencipherment)).into()
             }
         }
-        unsafe extern "system" fn SetEnableSMIMECapabilities<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenablesmimecapabilities: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnableSMIMECapabilities<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenablesmimecapabilities: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll2_Impl::SetEnableSMIMECapabilities(this, core::mem::transmute_copy(&fenablesmimecapabilities)).into()
             }
         }
-        unsafe extern "system" fn EnableSMIMECapabilities<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenablesmimecapabilities: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableSMIMECapabilities<Identity: IEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenablesmimecapabilities: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll2_Impl::EnableSMIMECapabilities(this, core::mem::transmute_copy(&fenablesmimecapabilities)).into()
@@ -12164,7 +12164,7 @@ impl IEnroll4 {
     pub unsafe fn SetIncludeSubjectKeyID(&self, finclude: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIncludeSubjectKeyID)(windows_core::Interface::as_raw(self), finclude.into()).ok() }
     }
-    pub unsafe fn IncludeSubjectKeyID(&self, pfinclude: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn IncludeSubjectKeyID(&self, pfinclude: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IncludeSubjectKeyID)(windows_core::Interface::as_raw(self), pfinclude as _).ok() }
     }
 }
@@ -12195,14 +12195,14 @@ pub struct IEnroll4_Vtbl {
     pub removePendingRequestWStr: unsafe extern "system" fn(*mut core::ffi::c_void, super::CRYPT_INTEGER_BLOB) -> windows_core::HRESULT,
     pub GetKeyLenEx: unsafe extern "system" fn(*mut core::ffi::c_void, XEKL_KEYSIZE, XEKL_KEYSPEC, *mut i32) -> windows_core::HRESULT,
     pub InstallPKCS7BlobEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::CRYPT_INTEGER_BLOB, *mut i32) -> windows_core::HRESULT,
-    pub AddCertTypeToRequestWStrEx: unsafe extern "system" fn(*mut core::ffi::c_void, ADDED_CERT_TYPE, windows_core::PCWSTR, i32, super::super::super::Foundation::BOOL, i32) -> windows_core::HRESULT,
+    pub AddCertTypeToRequestWStrEx: unsafe extern "system" fn(*mut core::ffi::c_void, ADDED_CERT_TYPE, windows_core::PCWSTR, i32, windows_core::BOOL, i32) -> windows_core::HRESULT,
     pub getProviderTypeWStr: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut i32) -> windows_core::HRESULT,
     pub addBlobPropertyToCertificateWStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut super::CRYPT_INTEGER_BLOB) -> windows_core::HRESULT,
     pub SetSignerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::CERT_CONTEXT) -> windows_core::HRESULT,
     pub SetClientId: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ClientId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetIncludeSubjectKeyID: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub IncludeSubjectKeyID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetIncludeSubjectKeyID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
+    pub IncludeSubjectKeyID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IEnroll4_Impl: IEnroll2_Impl {
     fn SetThumbPrintWStr(&self, thumbprintblob: &super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()>;
@@ -12229,14 +12229,14 @@ pub trait IEnroll4_Impl: IEnroll2_Impl {
     fn removePendingRequestWStr(&self, thumbprintblob: &super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()>;
     fn GetKeyLenEx(&self, lsizespec: XEKL_KEYSIZE, lkeyspec: XEKL_KEYSPEC, pdwkeysize: *mut i32) -> windows_core::Result<()>;
     fn InstallPKCS7BlobEx(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB, plcertinstalled: *mut i32) -> windows_core::Result<()>;
-    fn AddCertTypeToRequestWStrEx(&self, ltype: ADDED_CERT_TYPE, pwszoidorname: &windows_core::PCWSTR, lmajorversion: i32, fminorversion: super::super::super::Foundation::BOOL, lminorversion: i32) -> windows_core::Result<()>;
+    fn AddCertTypeToRequestWStrEx(&self, ltype: ADDED_CERT_TYPE, pwszoidorname: &windows_core::PCWSTR, lmajorversion: i32, fminorversion: windows_core::BOOL, lminorversion: i32) -> windows_core::Result<()>;
     fn getProviderTypeWStr(&self, pwszprovname: &windows_core::PCWSTR, plprovtype: *mut i32) -> windows_core::Result<()>;
     fn addBlobPropertyToCertificateWStr(&self, lpropertyid: i32, lreserved: i32, pblobproperty: *mut super::CRYPT_INTEGER_BLOB) -> windows_core::Result<()>;
     fn SetSignerCertificate(&self, psignercert: *const super::CERT_CONTEXT) -> windows_core::Result<()>;
     fn SetClientId(&self, lclientid: i32) -> windows_core::Result<()>;
     fn ClientId(&self, plclientid: *mut i32) -> windows_core::Result<()>;
-    fn SetIncludeSubjectKeyID(&self, finclude: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn IncludeSubjectKeyID(&self, pfinclude: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetIncludeSubjectKeyID(&self, finclude: windows_core::BOOL) -> windows_core::Result<()>;
+    fn IncludeSubjectKeyID(&self, pfinclude: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IEnroll4_Vtbl {
     pub const fn new<Identity: IEnroll4_Impl, const OFFSET: isize>() -> Self {
@@ -12384,7 +12384,7 @@ impl IEnroll4_Vtbl {
                 IEnroll4_Impl::InstallPKCS7BlobEx(this, core::mem::transmute_copy(&pblobpkcs7), core::mem::transmute_copy(&plcertinstalled)).into()
             }
         }
-        unsafe extern "system" fn AddCertTypeToRequestWStrEx<Identity: IEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltype: ADDED_CERT_TYPE, pwszoidorname: windows_core::PCWSTR, lmajorversion: i32, fminorversion: super::super::super::Foundation::BOOL, lminorversion: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddCertTypeToRequestWStrEx<Identity: IEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltype: ADDED_CERT_TYPE, pwszoidorname: windows_core::PCWSTR, lmajorversion: i32, fminorversion: windows_core::BOOL, lminorversion: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll4_Impl::AddCertTypeToRequestWStrEx(this, core::mem::transmute_copy(&ltype), core::mem::transmute(&pwszoidorname), core::mem::transmute_copy(&lmajorversion), core::mem::transmute_copy(&fminorversion), core::mem::transmute_copy(&lminorversion)).into()
@@ -12420,13 +12420,13 @@ impl IEnroll4_Vtbl {
                 IEnroll4_Impl::ClientId(this, core::mem::transmute_copy(&plclientid)).into()
             }
         }
-        unsafe extern "system" fn SetIncludeSubjectKeyID<Identity: IEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, finclude: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIncludeSubjectKeyID<Identity: IEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, finclude: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll4_Impl::SetIncludeSubjectKeyID(this, core::mem::transmute_copy(&finclude)).into()
             }
         }
-        unsafe extern "system" fn IncludeSubjectKeyID<Identity: IEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfinclude: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IncludeSubjectKeyID<Identity: IEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfinclude: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnroll4_Impl::IncludeSubjectKeyID(this, core::mem::transmute_copy(&pfinclude)).into()
@@ -13089,7 +13089,7 @@ impl INDESPolicy {
             (windows_core::Interface::vtable(self).GenerateChallenge)(windows_core::Interface::as_raw(self), pwsztemplate.param().abi(), pwszparams.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn VerifyRequest<P2, P3>(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: P2, pwsztransactionid: P3) -> windows_core::Result<super::super::super::Foundation::BOOL>
+    pub unsafe fn VerifyRequest<P2, P3>(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: P2, pwsztransactionid: P3) -> windows_core::Result<windows_core::BOOL>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
@@ -13113,14 +13113,14 @@ pub struct INDESPolicy_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GenerateChallenge: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub VerifyRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CERTTRANSBLOB, *mut CERTTRANSBLOB, windows_core::PCWSTR, windows_core::PCWSTR, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub VerifyRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CERTTRANSBLOB, *mut CERTTRANSBLOB, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, X509SCEPDisposition, i32, *mut CERTTRANSBLOB) -> windows_core::HRESULT,
 }
 pub trait INDESPolicy_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self) -> windows_core::Result<()>;
     fn Uninitialize(&self) -> windows_core::Result<()>;
     fn GenerateChallenge(&self, pwsztemplate: &windows_core::PCWSTR, pwszparams: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
-    fn VerifyRequest(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: &windows_core::PCWSTR, pwsztransactionid: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn VerifyRequest(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: &windows_core::PCWSTR, pwsztransactionid: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
     fn Notify(&self, pwszchallenge: &windows_core::PCWSTR, pwsztransactionid: &windows_core::PCWSTR, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> windows_core::Result<()>;
 }
 impl INDESPolicy_Vtbl {
@@ -13149,7 +13149,7 @@ impl INDESPolicy_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn VerifyRequest<Identity: INDESPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: windows_core::PCWSTR, pwsztransactionid: windows_core::PCWSTR, pfverified: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn VerifyRequest<Identity: INDESPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: windows_core::PCWSTR, pwsztransactionid: windows_core::PCWSTR, pfverified: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDESPolicy_Impl::VerifyRequest(this, core::mem::transmute_copy(&pctbrequest), core::mem::transmute_copy(&pctbsigningcertencoded), core::mem::transmute(&pwsztemplate), core::mem::transmute(&pwsztransactionid)) {

@@ -206,7 +206,7 @@ impl ISideShowContent {
             (windows_core::Interface::vtable(self).ContentId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DifferentiateContent(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DifferentiateContent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DifferentiateContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -218,12 +218,12 @@ pub struct ISideShowContent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
     pub ContentId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub DifferentiateContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub DifferentiateContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ISideShowContent_Impl: windows_core::IUnknownImpl {
     fn GetContent(&self, in_picapabilities: windows_core::Ref<ISideShowCapabilities>, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> windows_core::Result<()>;
     fn ContentId(&self) -> windows_core::Result<u32>;
-    fn DifferentiateContent(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn DifferentiateContent(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl ISideShowContent_Vtbl {
     pub const fn new<Identity: ISideShowContent_Impl, const OFFSET: isize>() -> Self {
@@ -245,7 +245,7 @@ impl ISideShowContent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DifferentiateContent<Identity: ISideShowContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, out_pfdifferentiatecontent: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DifferentiateContent<Identity: ISideShowContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, out_pfdifferentiatecontent: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISideShowContent_Impl::DifferentiateContent(this) {

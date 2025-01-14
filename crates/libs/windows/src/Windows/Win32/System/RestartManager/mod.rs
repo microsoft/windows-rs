@@ -125,7 +125,7 @@ pub struct RM_PROCESS_INFO {
     pub ApplicationType: RM_APP_TYPE,
     pub AppStatus: u32,
     pub TSSessionId: u32,
-    pub bRestartable: super::super::Foundation::BOOL,
+    pub bRestartable: windows_core::BOOL,
 }
 impl Default for RM_PROCESS_INFO {
     fn default() -> Self {

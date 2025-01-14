@@ -77,11 +77,11 @@ where
     unsafe { ADsOpenObject(lpszpathname.param().abi(), lpszusername.param().abi(), lpszpassword.param().abi(), dwreserved, riid, ppobject as _).ok() }
 }
 #[inline]
-pub unsafe fn ADsPropCheckIfWritable<P0>(pwzattr: P0, pwritableattrs: *const ADS_ATTR_INFO) -> super::super::Foundation::BOOL
+pub unsafe fn ADsPropCheckIfWritable<P0>(pwzattr: P0, pwritableattrs: *const ADS_ATTR_INFO) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dsprop.dll" "system" fn ADsPropCheckIfWritable(pwzattr : windows_core::PCWSTR, pwritableattrs : *const ADS_ATTR_INFO) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("dsprop.dll" "system" fn ADsPropCheckIfWritable(pwzattr : windows_core::PCWSTR, pwritableattrs : *const ADS_ATTR_INFO) -> windows_core::BOOL);
     unsafe { ADsPropCheckIfWritable(pwzattr.param().abi(), pwritableattrs) }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -95,28 +95,28 @@ where
     unsafe { ADsPropCreateNotifyObj(pappthddataobj.param().abi(), pwzadsobjname.param().abi(), phnotifyobj as _).ok() }
 }
 #[inline]
-pub unsafe fn ADsPropGetInitInfo(hnotifyobj: super::super::Foundation::HWND, pinitparams: *mut ADSPROPINITPARAMS) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dsprop.dll" "system" fn ADsPropGetInitInfo(hnotifyobj : super::super::Foundation:: HWND, pinitparams : *mut ADSPROPINITPARAMS) -> super::super::Foundation:: BOOL);
+pub unsafe fn ADsPropGetInitInfo(hnotifyobj: super::super::Foundation::HWND, pinitparams: *mut ADSPROPINITPARAMS) -> windows_core::BOOL {
+    windows_targets::link!("dsprop.dll" "system" fn ADsPropGetInitInfo(hnotifyobj : super::super::Foundation:: HWND, pinitparams : *mut ADSPROPINITPARAMS) -> windows_core::BOOL);
     unsafe { ADsPropGetInitInfo(hnotifyobj, core::mem::transmute(pinitparams)) }
 }
 #[inline]
-pub unsafe fn ADsPropSendErrorMessage(hnotifyobj: super::super::Foundation::HWND, perror: *mut ADSPROPERROR) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dsprop.dll" "system" fn ADsPropSendErrorMessage(hnotifyobj : super::super::Foundation:: HWND, perror : *mut ADSPROPERROR) -> super::super::Foundation:: BOOL);
+pub unsafe fn ADsPropSendErrorMessage(hnotifyobj: super::super::Foundation::HWND, perror: *mut ADSPROPERROR) -> windows_core::BOOL {
+    windows_targets::link!("dsprop.dll" "system" fn ADsPropSendErrorMessage(hnotifyobj : super::super::Foundation:: HWND, perror : *mut ADSPROPERROR) -> windows_core::BOOL);
     unsafe { ADsPropSendErrorMessage(hnotifyobj, perror as _) }
 }
 #[inline]
-pub unsafe fn ADsPropSetHwnd(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dsprop.dll" "system" fn ADsPropSetHwnd(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+pub unsafe fn ADsPropSetHwnd(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND) -> windows_core::BOOL {
+    windows_targets::link!("dsprop.dll" "system" fn ADsPropSetHwnd(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { ADsPropSetHwnd(hnotifyobj, hpage) }
 }
 #[inline]
-pub unsafe fn ADsPropSetHwndWithTitle(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND, ptztitle: *const i8) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dsprop.dll" "system" fn ADsPropSetHwndWithTitle(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND, ptztitle : *const i8) -> super::super::Foundation:: BOOL);
+pub unsafe fn ADsPropSetHwndWithTitle(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND, ptztitle: *const i8) -> windows_core::BOOL {
+    windows_targets::link!("dsprop.dll" "system" fn ADsPropSetHwndWithTitle(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND, ptztitle : *const i8) -> windows_core::BOOL);
     unsafe { ADsPropSetHwndWithTitle(hnotifyobj, hpage, ptztitle) }
 }
 #[inline]
-pub unsafe fn ADsPropShowErrorDialog(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dsprop.dll" "system" fn ADsPropShowErrorDialog(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+pub unsafe fn ADsPropShowErrorDialog(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND) -> windows_core::BOOL {
+    windows_targets::link!("dsprop.dll" "system" fn ADsPropShowErrorDialog(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { ADsPropShowErrorDialog(hnotifyobj, hpage) }
 }
 #[inline]
@@ -425,13 +425,13 @@ where
     unsafe { DsCrackSpnW(pszspn.param().abi(), pcserviceclass.unwrap_or(core::mem::zeroed()) as _, serviceclass.unwrap_or(core::mem::zeroed()) as _, pcservicename.unwrap_or(core::mem::zeroed()) as _, servicename.unwrap_or(core::mem::zeroed()) as _, pcinstancename.unwrap_or(core::mem::zeroed()) as _, instancename.unwrap_or(core::mem::zeroed()) as _, pinstanceport.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DsCrackUnquotedMangledRdnA(pszrdn: &[u8], pguid: Option<*mut windows_core::GUID>, pedsmanglefor: Option<*mut DS_MANGLE_FOR>) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnA(pszrdn : windows_core::PCSTR, cchrdn : u32, pguid : *mut windows_core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+pub unsafe fn DsCrackUnquotedMangledRdnA(pszrdn: &[u8], pguid: Option<*mut windows_core::GUID>, pedsmanglefor: Option<*mut DS_MANGLE_FOR>) -> windows_core::BOOL {
+    windows_targets::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnA(pszrdn : windows_core::PCSTR, cchrdn : u32, pguid : *mut windows_core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_core::BOOL);
     unsafe { DsCrackUnquotedMangledRdnA(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), pguid.unwrap_or(core::mem::zeroed()) as _, pedsmanglefor.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DsCrackUnquotedMangledRdnW(pszrdn: &[u16], pguid: Option<*mut windows_core::GUID>, pedsmanglefor: Option<*mut DS_MANGLE_FOR>) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnW(pszrdn : windows_core::PCWSTR, cchrdn : u32, pguid : *mut windows_core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+pub unsafe fn DsCrackUnquotedMangledRdnW(pszrdn: &[u16], pguid: Option<*mut windows_core::GUID>, pedsmanglefor: Option<*mut DS_MANGLE_FOR>) -> windows_core::BOOL {
+    windows_targets::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnW(pszrdn : windows_core::PCWSTR, cchrdn : u32, pguid : *mut windows_core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_core::BOOL);
     unsafe { DsCrackUnquotedMangledRdnW(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), pguid.unwrap_or(core::mem::zeroed()) as _, pedsmanglefor.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -691,29 +691,29 @@ where
     unsafe { DsInheritSecurityIdentityW(hds, flags.unwrap_or(core::mem::zeroed()) as _, srcprincipal.param().abi(), dstprincipal.param().abi()) }
 }
 #[inline]
-pub unsafe fn DsIsMangledDnA<P0>(pszdn: P0, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL
+pub unsafe fn DsIsMangledDnA<P0>(pszdn: P0, edsmanglefor: DS_MANGLE_FOR) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("dsparse.dll" "system" fn DsIsMangledDnA(pszdn : windows_core::PCSTR, edsmanglefor : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("dsparse.dll" "system" fn DsIsMangledDnA(pszdn : windows_core::PCSTR, edsmanglefor : DS_MANGLE_FOR) -> windows_core::BOOL);
     unsafe { DsIsMangledDnA(pszdn.param().abi(), edsmanglefor) }
 }
 #[inline]
-pub unsafe fn DsIsMangledDnW<P0>(pszdn: P0, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL
+pub unsafe fn DsIsMangledDnW<P0>(pszdn: P0, edsmanglefor: DS_MANGLE_FOR) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dsparse.dll" "system" fn DsIsMangledDnW(pszdn : windows_core::PCWSTR, edsmanglefor : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("dsparse.dll" "system" fn DsIsMangledDnW(pszdn : windows_core::PCWSTR, edsmanglefor : DS_MANGLE_FOR) -> windows_core::BOOL);
     unsafe { DsIsMangledDnW(pszdn.param().abi(), edsmanglefor) }
 }
 #[inline]
-pub unsafe fn DsIsMangledRdnValueA(pszrdn: &[u8], edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dsparse.dll" "system" fn DsIsMangledRdnValueA(pszrdn : windows_core::PCSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+pub unsafe fn DsIsMangledRdnValueA(pszrdn: &[u8], edsmanglefordesired: DS_MANGLE_FOR) -> windows_core::BOOL {
+    windows_targets::link!("dsparse.dll" "system" fn DsIsMangledRdnValueA(pszrdn : windows_core::PCSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> windows_core::BOOL);
     unsafe { DsIsMangledRdnValueA(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), edsmanglefordesired) }
 }
 #[inline]
-pub unsafe fn DsIsMangledRdnValueW(pszrdn: &[u16], edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
-    windows_targets::link!("dsparse.dll" "system" fn DsIsMangledRdnValueW(pszrdn : windows_core::PCWSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+pub unsafe fn DsIsMangledRdnValueW(pszrdn: &[u16], edsmanglefordesired: DS_MANGLE_FOR) -> windows_core::BOOL {
+    windows_targets::link!("dsparse.dll" "system" fn DsIsMangledRdnValueW(pszrdn : windows_core::PCWSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> windows_core::BOOL);
     unsafe { DsIsMangledRdnValueW(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), edsmanglefordesired) }
 }
 #[inline]
@@ -911,21 +911,21 @@ where
     unsafe { DsRemoveDsDomainW(hds, domaindn.param().abi()) }
 }
 #[inline]
-pub unsafe fn DsRemoveDsServerA<P1, P2>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut super::super::Foundation::BOOL>, fcommit: bool) -> u32
+pub unsafe fn DsRemoveDsServerA<P1, P2>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut windows_core::BOOL>, fcommit: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::super::Foundation:: HANDLE, serverdn : windows_core::PCSTR, domaindn : windows_core::PCSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::super::Foundation:: HANDLE, serverdn : windows_core::PCSTR, domaindn : windows_core::PCSTR, flastdcindomain : *mut windows_core::BOOL, fcommit : windows_core::BOOL) -> u32);
     unsafe { DsRemoveDsServerA(hds, serverdn.param().abi(), domaindn.param().abi(), flastdcindomain.unwrap_or(core::mem::zeroed()) as _, fcommit.into()) }
 }
 #[inline]
-pub unsafe fn DsRemoveDsServerW<P1, P2>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut super::super::Foundation::BOOL>, fcommit: bool) -> u32
+pub unsafe fn DsRemoveDsServerW<P1, P2>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut windows_core::BOOL>, fcommit: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::super::Foundation:: HANDLE, serverdn : windows_core::PCWSTR, domaindn : windows_core::PCWSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
+    windows_targets::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::super::Foundation:: HANDLE, serverdn : windows_core::PCWSTR, domaindn : windows_core::PCWSTR, flastdcindomain : *mut windows_core::BOOL, fcommit : windows_core::BOOL) -> u32);
     unsafe { DsRemoveDsServerW(hds, serverdn.param().abi(), domaindn.param().abi(), flastdcindomain.unwrap_or(core::mem::zeroed()) as _, fcommit.into()) }
 }
 #[inline]
@@ -1166,16 +1166,16 @@ where
     unsafe { DsWriteAccountSpnW(hds, operation, pszaccount.param().abi(), rpszspn.len().try_into().unwrap(), core::mem::transmute(rpszspn.as_ptr())) }
 }
 #[inline]
-pub unsafe fn FreeADsMem(pmem: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
-    windows_targets::link!("activeds.dll" "system" fn FreeADsMem(pmem : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn FreeADsMem(pmem: *mut core::ffi::c_void) -> windows_core::BOOL {
+    windows_targets::link!("activeds.dll" "system" fn FreeADsMem(pmem : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { FreeADsMem(pmem as _) }
 }
 #[inline]
-pub unsafe fn FreeADsStr<P0>(pstr: P0) -> super::super::Foundation::BOOL
+pub unsafe fn FreeADsStr<P0>(pstr: P0) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("activeds.dll" "system" fn FreeADsStr(pstr : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("activeds.dll" "system" fn FreeADsStr(pstr : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { FreeADsStr(pstr.param().abi()) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1190,11 +1190,11 @@ pub unsafe fn ReallocADsMem(poldmem: *mut core::ffi::c_void, cbold: u32, cbnew: 
     unsafe { ReallocADsMem(poldmem as _, cbold, cbnew) }
 }
 #[inline]
-pub unsafe fn ReallocADsStr<P1>(ppstr: *mut windows_core::PWSTR, pstr: P1) -> super::super::Foundation::BOOL
+pub unsafe fn ReallocADsStr<P1>(ppstr: *mut windows_core::PWSTR, pstr: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("activeds.dll" "system" fn ReallocADsStr(ppstr : *mut windows_core::PWSTR, pstr : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("activeds.dll" "system" fn ReallocADsStr(ppstr : *mut windows_core::PWSTR, pstr : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { ReallocADsStr(ppstr as _, pstr.param().abi()) }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1397,7 +1397,7 @@ pub struct ADS_ATTR_DEF {
     pub dwADsType: ADSTYPE,
     pub dwMinRange: u32,
     pub dwMaxRange: u32,
-    pub fMultiValued: super::super::Foundation::BOOL,
+    pub fMultiValued: windows_core::BOOL,
 }
 impl Default for ADS_ATTR_DEF {
     fn default() -> Self {
@@ -1465,7 +1465,7 @@ pub struct ADS_CLASS_DEF {
     pub ppszNamingAttrs: *mut *mut windows_core::PWSTR,
     pub dwSuperClasses: u32,
     pub ppszSuperClasses: *mut *mut windows_core::PWSTR,
-    pub fIsContainer: super::super::Foundation::BOOL,
+    pub fIsContainer: windows_core::BOOL,
 }
 impl Default for ADS_CLASS_DEF {
     fn default() -> Self {
@@ -2065,7 +2065,7 @@ pub struct DOMAINDESC {
     pub pszTrustParent: windows_core::PWSTR,
     pub pszObjectClass: windows_core::PWSTR,
     pub ulFlags: u32,
-    pub fDownLevel: super::super::Foundation::BOOL,
+    pub fDownLevel: windows_core::BOOL,
     pub pdChildList: *mut DOMAINDESC,
     pub pdNextSibling: *mut DOMAINDESC,
 }
@@ -2635,8 +2635,8 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
     pub SiteName: windows_core::PSTR,
     pub ComputerObjectName: windows_core::PSTR,
     pub ServerObjectName: windows_core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_core::BOOL,
+    pub fDsEnabled: windows_core::BOOL,
 }
 impl Default for DS_DOMAIN_CONTROLLER_INFO_1A {
     fn default() -> Self {
@@ -2651,8 +2651,8 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
     pub SiteName: windows_core::PWSTR,
     pub ComputerObjectName: windows_core::PWSTR,
     pub ServerObjectName: windows_core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_core::BOOL,
+    pub fDsEnabled: windows_core::BOOL,
 }
 impl Default for DS_DOMAIN_CONTROLLER_INFO_1W {
     fn default() -> Self {
@@ -2669,9 +2669,9 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
     pub ComputerObjectName: windows_core::PSTR,
     pub ServerObjectName: windows_core::PSTR,
     pub NtdsDsaObjectName: windows_core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_core::BOOL,
+    pub fDsEnabled: windows_core::BOOL,
+    pub fIsGc: windows_core::BOOL,
     pub SiteObjectGuid: windows_core::GUID,
     pub ComputerObjectGuid: windows_core::GUID,
     pub ServerObjectGuid: windows_core::GUID,
@@ -2692,9 +2692,9 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
     pub ComputerObjectName: windows_core::PWSTR,
     pub ServerObjectName: windows_core::PWSTR,
     pub NtdsDsaObjectName: windows_core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_core::BOOL,
+    pub fDsEnabled: windows_core::BOOL,
+    pub fIsGc: windows_core::BOOL,
     pub SiteObjectGuid: windows_core::GUID,
     pub ComputerObjectGuid: windows_core::GUID,
     pub ServerObjectGuid: windows_core::GUID,
@@ -2715,10 +2715,10 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
     pub ComputerObjectName: windows_core::PSTR,
     pub ServerObjectName: windows_core::PSTR,
     pub NtdsDsaObjectName: windows_core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub fIsRodc: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_core::BOOL,
+    pub fDsEnabled: windows_core::BOOL,
+    pub fIsGc: windows_core::BOOL,
+    pub fIsRodc: windows_core::BOOL,
     pub SiteObjectGuid: windows_core::GUID,
     pub ComputerObjectGuid: windows_core::GUID,
     pub ServerObjectGuid: windows_core::GUID,
@@ -2739,10 +2739,10 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub ComputerObjectName: windows_core::PWSTR,
     pub ServerObjectName: windows_core::PWSTR,
     pub NtdsDsaObjectName: windows_core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub fIsRodc: super::super::Foundation::BOOL,
+    pub fIsPdc: windows_core::BOOL,
+    pub fDsEnabled: windows_core::BOOL,
+    pub fIsGc: windows_core::BOOL,
+    pub fIsRodc: windows_core::BOOL,
     pub SiteObjectGuid: windows_core::GUID,
     pub ComputerObjectGuid: windows_core::GUID,
     pub ServerObjectGuid: windows_core::GUID,
@@ -16570,16 +16570,16 @@ impl IDsAdminNewObj {
 #[repr(C)]
 pub struct IDsAdminNewObj_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetButtons: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub SetButtons: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetPageCounts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IDsAdminNewObj_Impl: windows_core::IUnknownImpl {
-    fn SetButtons(&self, ncurrindex: u32, bvalid: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn SetButtons(&self, ncurrindex: u32, bvalid: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetPageCounts(&self, pntotal: *mut i32, pnstartindex: *mut i32) -> windows_core::Result<()>;
 }
 impl IDsAdminNewObj_Vtbl {
     pub const fn new<Identity: IDsAdminNewObj_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetButtons<Identity: IDsAdminNewObj_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncurrindex: u32, bvalid: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetButtons<Identity: IDsAdminNewObj_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncurrindex: u32, bvalid: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDsAdminNewObj_Impl::SetButtons(this, core::mem::transmute_copy(&ncurrindex), core::mem::transmute_copy(&bvalid)).into()
@@ -16982,7 +16982,7 @@ impl IDsDisplaySpecifier {
     {
         unsafe { (windows_core::Interface::vtable(self).GetFriendlyAttributeName)(windows_core::Interface::as_raw(self), pszobjectclass.param().abi(), pszattributename.param().abi(), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn IsClassContainer<P0, P1>(&self, pszobjectclass: P0, pszadspath: P1, dwflags: u32) -> super::super::Foundation::BOOL
+    pub unsafe fn IsClassContainer<P0, P1>(&self, pszobjectclass: P0, pszadspath: P1, dwflags: u32) -> windows_core::BOOL
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -17021,7 +17021,7 @@ pub struct IDsDisplaySpecifier_Vtbl {
     GetIcon: usize,
     pub GetFriendlyClassName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PWSTR, i32) -> windows_core::HRESULT,
     pub GetFriendlyAttributeName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PWSTR, u32) -> windows_core::HRESULT,
-    pub IsClassContainer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> super::super::Foundation::BOOL,
+    pub IsClassContainer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::BOOL,
     pub GetClassCreationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut DSCLASSCREATIONINFO) -> windows_core::HRESULT,
     pub EnumClassAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, LPDSENUMATTRIBUTES, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
     pub GetAttributeADsType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> ADSTYPE,
@@ -17035,7 +17035,7 @@ pub trait IDsDisplaySpecifier_Impl: windows_core::IUnknownImpl {
     fn GetIcon(&self, pszobjectclass: &windows_core::PCWSTR, dwflags: u32, cxicon: i32, cyicon: i32) -> super::super::UI::WindowsAndMessaging::HICON;
     fn GetFriendlyClassName(&self, pszobjectclass: &windows_core::PCWSTR, pszbuffer: windows_core::PWSTR, cchbuffer: i32) -> windows_core::Result<()>;
     fn GetFriendlyAttributeName(&self, pszobjectclass: &windows_core::PCWSTR, pszattributename: &windows_core::PCWSTR, pszbuffer: windows_core::PWSTR, cchbuffer: u32) -> windows_core::Result<()>;
-    fn IsClassContainer(&self, pszobjectclass: &windows_core::PCWSTR, pszadspath: &windows_core::PCWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
+    fn IsClassContainer(&self, pszobjectclass: &windows_core::PCWSTR, pszadspath: &windows_core::PCWSTR, dwflags: u32) -> windows_core::BOOL;
     fn GetClassCreationInfo(&self, pszobjectclass: &windows_core::PCWSTR, ppdscci: *mut *mut DSCLASSCREATIONINFO) -> windows_core::Result<()>;
     fn EnumClassAttributes(&self, pszobjectclass: &windows_core::PCWSTR, pcbenum: LPDSENUMATTRIBUTES, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn GetAttributeADsType(&self, pszattributename: &windows_core::PCWSTR) -> ADSTYPE;
@@ -17085,7 +17085,7 @@ impl IDsDisplaySpecifier_Vtbl {
                 IDsDisplaySpecifier_Impl::GetFriendlyAttributeName(this, core::mem::transmute(&pszobjectclass), core::mem::transmute(&pszattributename), core::mem::transmute_copy(&pszbuffer), core::mem::transmute_copy(&cchbuffer)).into()
             }
         }
-        unsafe extern "system" fn IsClassContainer<Identity: IDsDisplaySpecifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectclass: windows_core::PCWSTR, pszadspath: windows_core::PCWSTR, dwflags: u32) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsClassContainer<Identity: IDsDisplaySpecifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectclass: windows_core::PCWSTR, pszadspath: windows_core::PCWSTR, dwflags: u32) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDsDisplaySpecifier_Impl::IsClassContainer(this, core::mem::transmute(&pszobjectclass), core::mem::transmute(&pszadspath), core::mem::transmute_copy(&dwflags))

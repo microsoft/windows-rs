@@ -1,11 +1,11 @@
 #[inline]
 pub unsafe fn ApplicationRecoveryFinished(bsuccess: bool) {
-    windows_targets::link!("kernel32.dll" "system" fn ApplicationRecoveryFinished(bsuccess : super::super::Foundation:: BOOL));
+    windows_targets::link!("kernel32.dll" "system" fn ApplicationRecoveryFinished(bsuccess : windows_core::BOOL));
     unsafe { ApplicationRecoveryFinished(bsuccess.into()) }
 }
 #[inline]
-pub unsafe fn ApplicationRecoveryInProgress() -> windows_core::Result<super::super::Foundation::BOOL> {
-    windows_targets::link!("kernel32.dll" "system" fn ApplicationRecoveryInProgress(pbcancelled : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+pub unsafe fn ApplicationRecoveryInProgress() -> windows_core::Result<windows_core::BOOL> {
+    windows_targets::link!("kernel32.dll" "system" fn ApplicationRecoveryInProgress(pbcancelled : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         ApplicationRecoveryInProgress(&mut result__).map(|| core::mem::transmute(result__))

@@ -181,7 +181,7 @@ impl Default for DXGI_GAMMA_CONTROL {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_GAMMA_CONTROL_CAPABILITIES {
-    pub ScaleAndOffsetSupported: super::super::super::Foundation::BOOL,
+    pub ScaleAndOffsetSupported: windows_core::BOOL,
     pub MaxConvertedValue: f32,
     pub MinConvertedValue: f32,
     pub NumGammaControlPoints: u32,

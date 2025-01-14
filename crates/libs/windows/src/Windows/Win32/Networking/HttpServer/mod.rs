@@ -116,8 +116,8 @@ pub unsafe fn HttpInitialize(version: HTTPAPI_VERSION, flags: HTTP_INITIALIZE, p
     unsafe { HttpInitialize(core::mem::transmute(version), flags, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super::Foundation::BOOL {
-    windows_targets::link!("httpapi.dll" "system" fn HttpIsFeatureSupported(featureid : HTTP_FEATURE_ID) -> super::super::Foundation:: BOOL);
+pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> windows_core::BOOL {
+    windows_targets::link!("httpapi.dll" "system" fn HttpIsFeatureSupported(featureid : HTTP_FEATURE_ID) -> windows_core::BOOL);
     unsafe { HttpIsFeatureSupported(featureid) }
 }
 #[inline]

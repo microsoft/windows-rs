@@ -145,12 +145,12 @@ impl IFunctionDiscovery {
 #[repr(C)]
 pub struct IFunctionDiscovery_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetInstanceCollection: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetInstanceCollection: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetInstance: usize,
-    pub CreateInstanceCollectionQuery: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, super::super::Foundation::BOOL, *mut core::ffi::c_void, *mut u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstanceCollectionQuery: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::BOOL, *mut core::ffi::c_void, *mut u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateInstanceQuery: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub AddInstance: unsafe extern "system" fn(*mut core::ffi::c_void, SystemVisibilityFlags, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -160,9 +160,9 @@ pub struct IFunctionDiscovery_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionDiscovery_Impl: windows_core::IUnknownImpl {
-    fn GetInstanceCollection(&self, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL) -> windows_core::Result<IFunctionInstanceCollection>;
+    fn GetInstanceCollection(&self, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, fincludeallsubcategories: windows_core::BOOL) -> windows_core::Result<IFunctionInstanceCollection>;
     fn GetInstance(&self, pszfunctioninstanceidentity: &windows_core::PCWSTR) -> windows_core::Result<IFunctionInstance>;
-    fn CreateInstanceCollectionQuery(&self, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, pifunctiondiscoverynotification: windows_core::Ref<IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceCollectionQuery>;
+    fn CreateInstanceCollectionQuery(&self, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, fincludeallsubcategories: windows_core::BOOL, pifunctiondiscoverynotification: windows_core::Ref<IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceCollectionQuery>;
     fn CreateInstanceQuery(&self, pszfunctioninstanceidentity: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceQuery>;
     fn AddInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, pszcategoryidentity: &windows_core::PCWSTR) -> windows_core::Result<IFunctionInstance>;
     fn RemoveInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, pszcategoryidentity: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -170,7 +170,7 @@ pub trait IFunctionDiscovery_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "Win32_System_Com")]
 impl IFunctionDiscovery_Vtbl {
     pub const fn new<Identity: IFunctionDiscovery_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetInstanceCollection<Identity: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategory: windows_core::PCWSTR, pszsubcategory: windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, ppifunctioninstancecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInstanceCollection<Identity: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategory: windows_core::PCWSTR, pszsubcategory: windows_core::PCWSTR, fincludeallsubcategories: windows_core::BOOL, ppifunctioninstancecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionDiscovery_Impl::GetInstanceCollection(this, core::mem::transmute(&pszcategory), core::mem::transmute(&pszsubcategory), core::mem::transmute_copy(&fincludeallsubcategories)) {
@@ -194,7 +194,7 @@ impl IFunctionDiscovery_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateInstanceCollectionQuery<Identity: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategory: windows_core::PCWSTR, pszsubcategory: windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, pifunctiondiscoverynotification: *mut core::ffi::c_void, pfdqcquerycontext: *mut u64, ppifunctioninstancecollectionquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateInstanceCollectionQuery<Identity: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategory: windows_core::PCWSTR, pszsubcategory: windows_core::PCWSTR, fincludeallsubcategories: windows_core::BOOL, pifunctiondiscoverynotification: *mut core::ffi::c_void, pfdqcquerycontext: *mut u64, ppifunctioninstancecollectionquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionDiscovery_Impl::CreateInstanceCollectionQuery(this, core::mem::transmute(&pszcategory), core::mem::transmute(&pszsubcategory), core::mem::transmute_copy(&fincludeallsubcategories), core::mem::transmute_copy(&pifunctiondiscoverynotification), core::mem::transmute_copy(&pfdqcquerycontext)) {
@@ -627,10 +627,10 @@ impl windows_core::RuntimeName for IFunctionDiscoveryProviderFactory {}
 windows_core::imp::define_interface!(IFunctionDiscoveryProviderQuery, IFunctionDiscoveryProviderQuery_Vtbl, 0x6876ea98_baec_46db_bc20_75a76e267a3a);
 windows_core::imp::interface_hierarchy!(IFunctionDiscoveryProviderQuery, windows_core::IUnknown);
 impl IFunctionDiscoveryProviderQuery {
-    pub unsafe fn IsInstanceQuery(&self, pisinstancequery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::Result<()> {
+    pub unsafe fn IsInstanceQuery(&self, pisinstancequery: *mut windows_core::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsInstanceQuery)(windows_core::Interface::as_raw(self), pisinstancequery as _, ppszconstraintvalue as _).ok() }
     }
-    pub unsafe fn IsSubcategoryQuery(&self, pissubcategoryquery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::Result<()> {
+    pub unsafe fn IsSubcategoryQuery(&self, pissubcategoryquery: *mut windows_core::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsSubcategoryQuery)(windows_core::Interface::as_raw(self), pissubcategoryquery as _, ppszconstraintvalue as _).ok() }
     }
     pub unsafe fn GetQueryConstraints(&self) -> windows_core::Result<IProviderQueryConstraintCollection> {
@@ -649,26 +649,26 @@ impl IFunctionDiscoveryProviderQuery {
 #[repr(C)]
 pub struct IFunctionDiscoveryProviderQuery_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsInstanceQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut *mut u16) -> windows_core::HRESULT,
-    pub IsSubcategoryQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut *mut u16) -> windows_core::HRESULT,
+    pub IsInstanceQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut u16) -> windows_core::HRESULT,
+    pub IsSubcategoryQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut u16) -> windows_core::HRESULT,
     pub GetQueryConstraints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPropertyConstraints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IFunctionDiscoveryProviderQuery_Impl: windows_core::IUnknownImpl {
-    fn IsInstanceQuery(&self, pisinstancequery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::Result<()>;
-    fn IsSubcategoryQuery(&self, pissubcategoryquery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::Result<()>;
+    fn IsInstanceQuery(&self, pisinstancequery: *mut windows_core::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::Result<()>;
+    fn IsSubcategoryQuery(&self, pissubcategoryquery: *mut windows_core::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::Result<()>;
     fn GetQueryConstraints(&self) -> windows_core::Result<IProviderQueryConstraintCollection>;
     fn GetPropertyConstraints(&self) -> windows_core::Result<IProviderPropertyConstraintCollection>;
 }
 impl IFunctionDiscoveryProviderQuery_Vtbl {
     pub const fn new<Identity: IFunctionDiscoveryProviderQuery_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsInstanceQuery<Identity: IFunctionDiscoveryProviderQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisinstancequery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsInstanceQuery<Identity: IFunctionDiscoveryProviderQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisinstancequery: *mut windows_core::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFunctionDiscoveryProviderQuery_Impl::IsInstanceQuery(this, core::mem::transmute_copy(&pisinstancequery), core::mem::transmute_copy(&ppszconstraintvalue)).into()
             }
         }
-        unsafe extern "system" fn IsSubcategoryQuery<Identity: IFunctionDiscoveryProviderQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pissubcategoryquery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSubcategoryQuery<Identity: IFunctionDiscoveryProviderQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pissubcategoryquery: *mut windows_core::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFunctionDiscoveryProviderQuery_Impl::IsSubcategoryQuery(this, core::mem::transmute_copy(&pissubcategoryquery), core::mem::transmute_copy(&ppszconstraintvalue)).into()

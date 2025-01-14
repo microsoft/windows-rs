@@ -1946,7 +1946,7 @@ impl IWiaItem2 {
             (windows_core::Interface::vtable(self).EnumDeviceCapabilities)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CheckExtension(&self, lflags: i32, bstrname: &windows_core::BSTR, riidextensioninterface: *const windows_core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn CheckExtension(&self, lflags: i32, bstrname: &windows_core::BSTR, riidextensioninterface: *const windows_core::GUID, pbextensionexists: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CheckExtension)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrname), riidextensioninterface, pbextensionexists as _).ok() }
     }
     pub unsafe fn GetExtension(&self, lflags: i32, bstrname: &windows_core::BSTR, riidextensioninterface: *const windows_core::GUID, ppout: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -1992,7 +1992,7 @@ pub struct IWiaItem2_Vtbl {
     pub DeviceDlg: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::super::Foundation::HWND, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, *mut *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeviceCommand: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CheckExtension: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CheckExtension: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetExtension: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetParentItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRootItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2010,7 +2010,7 @@ pub trait IWiaItem2_Impl: windows_core::IUnknownImpl {
     fn DeviceDlg(&self, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: &windows_core::BSTR, bstrfilename: &windows_core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: windows_core::OutRef<'_, IWiaItem2>) -> windows_core::Result<()>;
     fn DeviceCommand(&self, lflags: i32, pcmdguid: *const windows_core::GUID, ppiwiaitem2: windows_core::OutRef<'_, IWiaItem2>) -> windows_core::Result<()>;
     fn EnumDeviceCapabilities(&self, lflags: i32) -> windows_core::Result<IEnumWIA_DEV_CAPS>;
-    fn CheckExtension(&self, lflags: i32, bstrname: &windows_core::BSTR, riidextensioninterface: *const windows_core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn CheckExtension(&self, lflags: i32, bstrname: &windows_core::BSTR, riidextensioninterface: *const windows_core::GUID, pbextensionexists: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetExtension(&self, lflags: i32, bstrname: &windows_core::BSTR, riidextensioninterface: *const windows_core::GUID, ppout: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetParentItem(&self) -> windows_core::Result<IWiaItem2>;
     fn GetRootItem(&self) -> windows_core::Result<IWiaItem2>;
@@ -2110,7 +2110,7 @@ impl IWiaItem2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CheckExtension<Identity: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrname: *mut core::ffi::c_void, riidextensioninterface: *const windows_core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckExtension<Identity: IWiaItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, bstrname: *mut core::ffi::c_void, riidextensioninterface: *const windows_core::GUID, pbextensionexists: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWiaItem2_Impl::CheckExtension(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrname), core::mem::transmute_copy(&riidextensioninterface), core::mem::transmute_copy(&pbextensionexists)).into()
@@ -3501,7 +3501,7 @@ impl windows_core::RuntimeName for IWiaUIExtension2 {}
 windows_core::imp::define_interface!(IWiaVideo, IWiaVideo_Vtbl, 0xd52920aa_db88_41f0_946c_e00dc0a19cfa);
 windows_core::imp::interface_hierarchy!(IWiaVideo, windows_core::IUnknown);
 impl IWiaVideo {
-    pub unsafe fn PreviewVisible(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn PreviewVisible(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PreviewVisible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3556,38 +3556,38 @@ impl IWiaVideo {
 #[repr(C)]
 pub struct IWiaVideo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub PreviewVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SetPreviewVisible: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub PreviewVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetPreviewVisible: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub ImagesDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetImagesDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateVideoByWiaDevID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CreateVideoByDevNum: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HWND, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub CreateVideoByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub CreateVideoByWiaDevID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
+    pub CreateVideoByDevNum: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HWND, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
+    pub CreateVideoByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub DestroyVideo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Play: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TakePicture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ResizeVideo: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    pub ResizeVideo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetCurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WIAVIDEO_STATE) -> windows_core::HRESULT,
 }
 pub trait IWiaVideo_Impl: windows_core::IUnknownImpl {
-    fn PreviewVisible(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
-    fn SetPreviewVisible(&self, bpreviewvisible: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn PreviewVisible(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetPreviewVisible(&self, bpreviewvisible: windows_core::BOOL) -> windows_core::Result<()>;
     fn ImagesDirectory(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetImagesDirectory(&self, bstrimagedirectory: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CreateVideoByWiaDevID(&self, bstrwiadeviceid: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn CreateVideoByDevNum(&self, uidevicenumber: u32, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn CreateVideoByName(&self, bstrfriendlyname: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn CreateVideoByWiaDevID(&self, bstrwiadeviceid: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: windows_core::BOOL, bautobeginplayback: windows_core::BOOL) -> windows_core::Result<()>;
+    fn CreateVideoByDevNum(&self, uidevicenumber: u32, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: windows_core::BOOL, bautobeginplayback: windows_core::BOOL) -> windows_core::Result<()>;
+    fn CreateVideoByName(&self, bstrfriendlyname: &windows_core::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: windows_core::BOOL, bautobeginplayback: windows_core::BOOL) -> windows_core::Result<()>;
     fn DestroyVideo(&self) -> windows_core::Result<()>;
     fn Play(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn TakePicture(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ResizeVideo(&self, bstretchtofitparent: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn ResizeVideo(&self, bstretchtofitparent: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetCurrentState(&self) -> windows_core::Result<WIAVIDEO_STATE>;
 }
 impl IWiaVideo_Vtbl {
     pub const fn new<Identity: IWiaVideo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn PreviewVisible<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpreviewvisible: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn PreviewVisible<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbpreviewvisible: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaVideo_Impl::PreviewVisible(this) {
@@ -3599,7 +3599,7 @@ impl IWiaVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPreviewVisible<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bpreviewvisible: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPreviewVisible<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bpreviewvisible: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWiaVideo_Impl::SetPreviewVisible(this, core::mem::transmute_copy(&bpreviewvisible)).into()
@@ -3623,19 +3623,19 @@ impl IWiaVideo_Vtbl {
                 IWiaVideo_Impl::SetImagesDirectory(this, core::mem::transmute(&bstrimagedirectory)).into()
             }
         }
-        unsafe extern "system" fn CreateVideoByWiaDevID<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrwiadeviceid: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVideoByWiaDevID<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrwiadeviceid: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: windows_core::BOOL, bautobeginplayback: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWiaVideo_Impl::CreateVideoByWiaDevID(this, core::mem::transmute(&bstrwiadeviceid), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&bstretchtofitparent), core::mem::transmute_copy(&bautobeginplayback)).into()
             }
         }
-        unsafe extern "system" fn CreateVideoByDevNum<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uidevicenumber: u32, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVideoByDevNum<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uidevicenumber: u32, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: windows_core::BOOL, bautobeginplayback: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWiaVideo_Impl::CreateVideoByDevNum(this, core::mem::transmute_copy(&uidevicenumber), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&bstretchtofitparent), core::mem::transmute_copy(&bautobeginplayback)).into()
             }
         }
-        unsafe extern "system" fn CreateVideoByName<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfriendlyname: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVideoByName<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfriendlyname: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: windows_core::BOOL, bautobeginplayback: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWiaVideo_Impl::CreateVideoByName(this, core::mem::transmute(&bstrfriendlyname), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&bstretchtofitparent), core::mem::transmute_copy(&bautobeginplayback)).into()
@@ -3671,7 +3671,7 @@ impl IWiaVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ResizeVideo<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstretchtofitparent: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResizeVideo<Identity: IWiaVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstretchtofitparent: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWiaVideo_Impl::ResizeVideo(this, core::mem::transmute_copy(&bstretchtofitparent)).into()
@@ -3753,8 +3753,8 @@ pub struct MINIDRV_TRANSFER_CONTEXT {
     pub lNumBuffers: i32,
     pub pBaseBuffer: *mut u8,
     pub pTransferBuffer: *mut u8,
-    pub bTransferDataCB: super::super::Foundation::BOOL,
-    pub bClassDrvAllocBuf: super::super::Foundation::BOOL,
+    pub bTransferDataCB: windows_core::BOOL,
+    pub bClassDrvAllocBuf: windows_core::BOOL,
     pub lClientAddress: isize,
     pub pIWiaMiniDrvCallBack: core::mem::ManuallyDrop<Option<IWiaMiniDrvCallBack>>,
     pub lImageSize: i32,
@@ -3916,7 +3916,7 @@ pub const WHITEBALANCE_ONEPUSH_AUTO: u32 = 3u32;
 pub const WHITEBALANCE_TUNGSTEN: u32 = 6u32;
 #[repr(C)]
 pub struct WIAS_CHANGED_VALUE_INFO {
-    pub bChanged: super::super::Foundation::BOOL,
+    pub bChanged: windows_core::BOOL,
     pub vt: i32,
     pub Old: WIAS_CHANGED_VALUE_INFO_0,
     pub Current: WIAS_CHANGED_VALUE_INFO_1,
@@ -4202,7 +4202,7 @@ pub struct WIA_DATA_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulSection: u32,
     pub ulBufferSize: u32,
-    pub bDoubleBuffer: super::super::Foundation::BOOL,
+    pub bDoubleBuffer: windows_core::BOOL,
     pub ulReserved1: u32,
     pub ulReserved2: u32,
     pub ulReserved3: u32,
@@ -5119,7 +5119,7 @@ pub const WIA_PRIVATE_ITEMPROP: u32 = 71682u32;
 pub struct WIA_PROPERTY_CONTEXT {
     pub cProps: u32,
     pub pProps: *mut u32,
-    pub pChanged: *mut super::super::Foundation::BOOL,
+    pub pChanged: *mut windows_core::BOOL,
 }
 impl Default for WIA_PROPERTY_CONTEXT {
     fn default() -> Self {
