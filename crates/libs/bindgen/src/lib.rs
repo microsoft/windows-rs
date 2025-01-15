@@ -61,6 +61,7 @@ struct Config {
     pub sys: bool,
     pub implement: bool,
     pub derive: Derive,
+    pub link: String,
 }
 
 /// The Windows code generator.
@@ -88,6 +89,7 @@ where
     let mut rustfmt = String::new();
     let mut output = String::new();
     let mut sys = false;
+    let mut link = "windows_link".to_string();
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -110,6 +112,7 @@ where
                 "--package" => package = true,
                 "--sys" => sys = true,
                 "--implement" => implement = true,
+                "--link" => kind = ArgKind::Link,
                 _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
@@ -134,6 +137,7 @@ where
                 derive.push(arg.as_str());
             }
             ArgKind::Rustfmt => rustfmt = arg.to_string(),
+            ArgKind::Link => link = arg.to_string(),
         }
     }
 
@@ -179,6 +183,7 @@ where
         output,
         sys,
         implement,
+        link,
     }));
 
     let tree = TypeTree::new(&config.types);
@@ -199,6 +204,7 @@ enum ArgKind {
     Rustfmt,
     Reference,
     Derive,
+    Link,
 }
 
 #[track_caller]
