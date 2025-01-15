@@ -7,7 +7,7 @@ publish = false
 [build-dependencies]
 cc = "1.0"
 
-[dependencies.windows-targets]
+[dependencies.windows-link]
 workspace = true
 
 # TODO: this causes a warning about lack of linkage target. The point is to ensure that this binary dependency is built first but 

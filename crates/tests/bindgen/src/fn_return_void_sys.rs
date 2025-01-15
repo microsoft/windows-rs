@@ -6,7 +6,7 @@
     clippy::all
 )]
 
-windows_targets::link!("kernel32.dll" "system" fn GlobalMemoryStatus(lpbuffer : *mut MEMORYSTATUS));
+windows_link::link!("kernel32.dll" "system" fn GlobalMemoryStatus(lpbuffer : *mut MEMORYSTATUS));
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MEMORYSTATUS {

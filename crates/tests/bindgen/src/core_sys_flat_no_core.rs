@@ -6,7 +6,7 @@
     clippy::all
 )]
 
-windows_targets::link!("ole32.dll" "system" fn CoCreateGuid(pguid : *mut GUID) -> HRESULT);
+windows_link::link!("ole32.dll" "system" fn CoCreateGuid(pguid : *mut GUID) -> HRESULT);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GUID {
