@@ -34,23 +34,14 @@ fn test_factory() {
 
         assert_eq!(
             CLASS_E_CLASSNOTAVAILABLE,
-            callback(
-                // transmute_copy is required here since Ref doesn't have a lifetime parameter and thus is unsafe
-                // to implement From or construct a Ref without unsafe code.
-                std::mem::transmute_copy(h!("invalid")),
-                // OutRef provides a safe From implementation since it includes a lifetime parameter.
-                OutRef::from(&mut factory)
-            )
+            callback(h!("invalid").into(), OutRef::from(&mut factory))
         );
 
         assert!(factory.is_none());
 
         assert_eq!(
             S_OK,
-            callback(
-                std::mem::transmute_copy(h!("Factory")),
-                OutRef::from(&mut factory)
-            )
+            callback(h!("Factory").into(), OutRef::from(&mut factory))
         );
 
         assert_eq!(

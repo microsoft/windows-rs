@@ -21,7 +21,7 @@ impl windows_core::RuntimeName for IReference {
 pub trait IReference_Impl: windows_core::IUnknownImpl {
     fn Method(
         &self,
-        stringable: windows_core::Ref<windows::Foundation::IStringable>,
+        stringable: windows_core::Ref<'_, windows::Foundation::IStringable>,
     ) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IReference_Vtbl {
