@@ -7,4 +7,4 @@ publish = false
 [dependencies]
 regex = "1.7"
 windows-bindgen = { workspace = true }
-windows-targets = { workspace = true }
+windows-link = { workspace = true }
