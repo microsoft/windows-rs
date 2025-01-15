@@ -2794,8 +2794,8 @@ pub const EXTDLL_DATA_QUERY_BUILD_WOW64BINDIR_SYMSRV: u32 = 14u32;
 pub const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR: u32 = 3u32;
 pub const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR_SYMSRV: u32 = 13u32;
 pub type EXTDLL_ITERATERTLBALANCEDNODES = Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut core::ffi::c_void)>;
-pub type EXTDLL_QUERYDATABYTAG = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> windows_core::HRESULT>;
-pub type EXTDLL_QUERYDATABYTAGEX = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> windows_core::HRESULT>;
+pub type EXTDLL_QUERYDATABYTAG = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> windows_core::HRESULT>;
+pub type EXTDLL_QUERYDATABYTAGEX = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTSTACKTRACE {
@@ -2837,8 +2837,8 @@ impl Default for EXTSTACKTRACE64 {
 }
 pub type EXTS_JOB_PROCESS_CALLBACK = Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut core::ffi::c_void) -> bool>;
 pub type EXTS_TABLE_ENTRY_CALLBACK = Option<unsafe extern "system" fn(entry: u64, context: *mut core::ffi::c_void) -> bool>;
-pub type EXT_ANALYSIS_PLUGIN = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: Option<IDebugFailureAnalysis2>) -> windows_core::HRESULT>;
-pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: Option<IDebugClient>, bucketsuffix: windows_core::PSTR, cbbucketsuffix: u32, debugtext: windows_core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: Option<IDebugFailureAnalysis>) -> windows_core::HRESULT>;
+pub type EXT_ANALYSIS_PLUGIN = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: windows_core::Ref<IDebugFailureAnalysis2>) -> windows_core::HRESULT>;
+pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, bucketsuffix: windows_core::PSTR, cbbucketsuffix: u32, debugtext: windows_core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: windows_core::Ref<IDebugFailureAnalysis>) -> windows_core::HRESULT>;
 pub const EXT_ANALYZER_FLAG_ID: u32 = 2u32;
 pub const EXT_ANALYZER_FLAG_MOD: u32 = 1u32;
 #[repr(C)]
@@ -2908,11 +2908,11 @@ impl Default for EXT_FIND_FILE {
     }
 }
 pub const EXT_FIND_FILE_ALLOW_GIVEN_PATH: u32 = 1u32;
-pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, flags: u32, classid: windows_core::GUID, ppanalysis: *mut Option<IDebugFailureAnalysis2>) -> windows_core::HRESULT>;
+pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, flags: u32, classid: windows_core::GUID, ppanalysis: windows_core::OutRef<'_, IDebugFailureAnalysis2>) -> windows_core::HRESULT>;
 pub type EXT_GET_ENVIRONMENT_VARIABLE = Option<unsafe extern "system" fn(peb: u64, variable: windows_core::PCSTR, buffer: windows_core::PCSTR, buffersize: u32) -> windows_core::HRESULT>;
-pub type EXT_GET_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, flags: u32, ppanalysis: *mut Option<IDebugFailureAnalysis>) -> windows_core::HRESULT>;
-pub type EXT_GET_FA_ENTRIES_DATA = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, count: *mut u32, entries: *mut *mut FA_ENTRY) -> windows_core::HRESULT>;
-pub type EXT_GET_HANDLE_TRACE = Option<unsafe extern "system" fn(client: Option<IDebugClient>, tracetype: u32, startindex: u32, handlevalue: *mut u64, stackfunctions: *mut u64, stacktracesize: u32) -> windows_core::HRESULT>;
+pub type EXT_GET_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, flags: u32, ppanalysis: windows_core::OutRef<'_, IDebugFailureAnalysis>) -> windows_core::HRESULT>;
+pub type EXT_GET_FA_ENTRIES_DATA = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, count: *mut u32, entries: *mut *mut FA_ENTRY) -> windows_core::HRESULT>;
+pub type EXT_GET_HANDLE_TRACE = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, tracetype: u32, startindex: u32, handlevalue: *mut u64, stackfunctions: *mut u64, stacktracesize: u32) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXT_MATCH_PATTERN_A {
@@ -2925,8 +2925,8 @@ impl Default for EXT_MATCH_PATTERN_A {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type EXT_RELOAD_TRIAGER = Option<unsafe extern "system" fn(client: Option<IDebugClient4>) -> windows_core::HRESULT>;
-pub type EXT_TARGET_INFO = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, ptargetinfo: *mut TARGET_DEBUG_INFO) -> windows_core::HRESULT>;
+pub type EXT_RELOAD_TRIAGER = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>) -> windows_core::HRESULT>;
+pub type EXT_TARGET_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, ptargetinfo: *mut TARGET_DEBUG_INFO) -> windows_core::HRESULT>;
 pub const EXT_TDF_PHYSICAL_CACHED: u32 = 4u32;
 pub const EXT_TDF_PHYSICAL_DEFAULT: u32 = 2u32;
 pub const EXT_TDF_PHYSICAL_MEMORY: u32 = 14u32;
@@ -2955,7 +2955,7 @@ pub const EXT_TDOP_SET_FROM_EXPR: EXT_TDOP = EXT_TDOP(2i32);
 pub const EXT_TDOP_SET_FROM_TYPE_ID_AND_U64: EXT_TDOP = EXT_TDOP(17i32);
 pub const EXT_TDOP_SET_FROM_U64_EXPR: EXT_TDOP = EXT_TDOP(3i32);
 pub const EXT_TDOP_SET_PTR_FROM_TYPE_ID_AND_U64: EXT_TDOP = EXT_TDOP(18i32);
-pub type EXT_TRIAGE_FOLLOWUP = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, symbolname: windows_core::PCSTR, ownerinfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32>;
+pub type EXT_TRIAGE_FOLLOWUP = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, symbolname: windows_core::PCSTR, ownerinfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXT_TYPED_DATA {
@@ -2982,7 +2982,7 @@ impl Default for EXT_TYPED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type EXT_XML_DATA = Option<unsafe extern "system" fn(client: Option<IDebugClient4>, pxmpdata: *mut EXT_CAB_XML_DATA) -> windows_core::HRESULT>;
+pub type EXT_XML_DATA = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, pxmpdata: *mut EXT_CAB_XML_DATA) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ErrorClass(pub i32);
@@ -52409,39 +52409,39 @@ pub const ObjectPropertyAccessor: ModelObjectKind = ModelObjectKind(0i32);
 pub const ObjectSynthetic: ModelObjectKind = ModelObjectKind(4i32);
 pub const ObjectTargetObject: ModelObjectKind = ModelObjectKind(2i32);
 pub const ObjectTargetObjectReference: ModelObjectKind = ModelObjectKind(3i32);
-pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: Option<IDebugClient>, args: windows_core::PCSTR) -> windows_core::HRESULT>;
+pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, args: windows_core::PCSTR) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_CANUNLOAD = Option<unsafe extern "system" fn() -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_INITIALIZE = Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_KNOWN_STRUCT = Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: windows_core::PCSTR, buffer: windows_core::PSTR, bufferchars: *mut u32) -> windows_core::HRESULT>;
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: Option<IDebugClient>, flags: u32, offset: u64, typename: windows_core::PCSTR, buffer: windows_core::PSTR, bufferchars: *mut u32) -> windows_core::HRESULT>;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, offset: u64, typename: windows_core::PCSTR, buffer: windows_core::PSTR, bufferchars: *mut u32) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_NOTIFY = Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
-pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(client: Option<IDebugClient>, flags: u32, name: windows_core::PCWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> windows_core::HRESULT>;
-pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: Option<IDebugClient>, flags: u32, buffer: windows_core::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_core::HRESULT>;
+pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, name: windows_core::PCWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> windows_core::HRESULT>;
+pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, buffer: windows_core::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_UNINITIALIZE = Option<unsafe extern "system" fn()>;
 pub type PDEBUG_EXTENSION_UNLOAD = Option<unsafe extern "system" fn()>;
 pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn() -> windows_core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> windows_core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> windows_core::HRESULT>;
-pub type PENUMERATE_HANDLES = Option<unsafe extern "system" fn(client: Option<IDebugClient>, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PENUMERATE_HASH_TABLE = Option<unsafe extern "system" fn(client: Option<IDebugClient>, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PENUMERATE_JOB_PROCESSES = Option<unsafe extern "system" fn(client: Option<IDebugClient>, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PENUMERATE_SYSTEM_LOCKS = Option<unsafe extern "system" fn(client: Option<IDebugClient>, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PFIND_FILELOCK_OWNERINFO = Option<unsafe extern "system" fn(client: Option<IDebugClient>, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> windows_core::HRESULT>;
-pub type PFIND_MATCHING_PROCESS = Option<unsafe extern "system" fn(client: Option<IDebugClient>, processinfo: *const KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> windows_core::HRESULT>;
-pub type PFIND_MATCHING_THREAD = Option<unsafe extern "system" fn(client: Option<IDebugClient>, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> windows_core::HRESULT>;
-pub type PGET_CPU_MICROCODE_VERSION = Option<unsafe extern "system" fn(client: Option<IDebugClient>, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> windows_core::HRESULT>;
-pub type PGET_CPU_PSPEED_INFO = Option<unsafe extern "system" fn(client: Option<IDebugClient>, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> windows_core::HRESULT>;
-pub type PGET_DEVICE_OBJECT_INFO = Option<unsafe extern "system" fn(client: Option<IDebugClient>, deviceobject: u64, pdevobjinfo: *mut DEBUG_DEVICE_OBJECT_INFO) -> windows_core::HRESULT>;
-pub type PGET_DRIVER_OBJECT_INFO = Option<unsafe extern "system" fn(client: Option<IDebugClient>, driverobject: u64, pdrvobjinfo: *mut DEBUG_DRIVER_OBJECT_INFO) -> windows_core::HRESULT>;
-pub type PGET_FULL_IMAGE_NAME = Option<unsafe extern "system" fn(client: Option<IDebugClient>, process: u64, fullimagename: *mut windows_core::PSTR) -> windows_core::HRESULT>;
-pub type PGET_IRP_INFO = Option<unsafe extern "system" fn(client: Option<IDebugClient>, irp: u64, irpinfo: *mut DEBUG_IRP_INFO) -> windows_core::HRESULT>;
-pub type PGET_PNP_TRIAGE_INFO = Option<unsafe extern "system" fn(client: Option<IDebugClient>, ppnptriageinfo: *mut DEBUG_PNP_TRIAGE_INFO) -> windows_core::HRESULT>;
-pub type PGET_POOL_DATA = Option<unsafe extern "system" fn(client: Option<IDebugClient>, pool: u64, pooldata: *mut DEBUG_POOL_DATA) -> windows_core::HRESULT>;
-pub type PGET_POOL_REGION = Option<unsafe extern "system" fn(client: Option<IDebugClient>, pool: u64, poolregion: *mut DEBUG_POOL_REGION) -> windows_core::HRESULT>;
+pub type PENUMERATE_HANDLES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PENUMERATE_HASH_TABLE = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PENUMERATE_JOB_PROCESSES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PENUMERATE_SYSTEM_LOCKS = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PFIND_FILELOCK_OWNERINFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> windows_core::HRESULT>;
+pub type PFIND_MATCHING_PROCESS = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, processinfo: *const KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> windows_core::HRESULT>;
+pub type PFIND_MATCHING_THREAD = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> windows_core::HRESULT>;
+pub type PGET_CPU_MICROCODE_VERSION = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> windows_core::HRESULT>;
+pub type PGET_CPU_PSPEED_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> windows_core::HRESULT>;
+pub type PGET_DEVICE_OBJECT_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, deviceobject: u64, pdevobjinfo: *mut DEBUG_DEVICE_OBJECT_INFO) -> windows_core::HRESULT>;
+pub type PGET_DRIVER_OBJECT_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, driverobject: u64, pdrvobjinfo: *mut DEBUG_DRIVER_OBJECT_INFO) -> windows_core::HRESULT>;
+pub type PGET_FULL_IMAGE_NAME = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, process: u64, fullimagename: *mut windows_core::PSTR) -> windows_core::HRESULT>;
+pub type PGET_IRP_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, irp: u64, irpinfo: *mut DEBUG_IRP_INFO) -> windows_core::HRESULT>;
+pub type PGET_PNP_TRIAGE_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, ppnptriageinfo: *mut DEBUG_PNP_TRIAGE_INFO) -> windows_core::HRESULT>;
+pub type PGET_POOL_DATA = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pool: u64, pooldata: *mut DEBUG_POOL_DATA) -> windows_core::HRESULT>;
+pub type PGET_POOL_REGION = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pool: u64, poolregion: *mut DEBUG_POOL_REGION) -> windows_core::HRESULT>;
 pub type PGET_POOL_TAG_DESCRIPTION = Option<unsafe extern "system" fn(pooltag: u32, pdescription: *mut DEBUG_POOLTAG_DESCRIPTION) -> windows_core::HRESULT>;
-pub type PGET_PROCESS_COMMIT = Option<unsafe extern "system" fn(client: Option<IDebugClient>, totalcommitcharge: *mut u64, numberofprocesses: *mut u32, commitdata: *mut *mut PROCESS_COMMIT_USAGE) -> windows_core::HRESULT>;
-pub type PGET_SMBIOS_INFO = Option<unsafe extern "system" fn(client: Option<IDebugClient>, psmbiosinfo: *mut DEBUG_SMBIOS_INFO) -> windows_core::HRESULT>;
+pub type PGET_PROCESS_COMMIT = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, totalcommitcharge: *mut u64, numberofprocesses: *mut u32, commitdata: *mut *mut PROCESS_COMMIT_USAGE) -> windows_core::HRESULT>;
+pub type PGET_SMBIOS_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, psmbiosinfo: *mut DEBUG_SMBIOS_INFO) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL {
@@ -52483,7 +52483,7 @@ pub const PHYS_FLAG_CACHED: u32 = 1u32;
 pub const PHYS_FLAG_DEFAULT: u32 = 0u32;
 pub const PHYS_FLAG_UNCACHED: u32 = 2u32;
 pub const PHYS_FLAG_WRITE_COMBINED: u32 = 3u32;
-pub type PKDEXTS_GET_PTE_INFO = Option<unsafe extern "system" fn(client: Option<IDebugClient>, r#virtual: u64, pteinfo: *mut KDEXTS_PTE_INFO) -> windows_core::HRESULT>;
+pub type PKDEXTS_GET_PTE_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, r#virtual: u64, pteinfo: *mut KDEXTS_PTE_INFO) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTER_SEARCH_PHYSICAL {
@@ -53175,4 +53175,4 @@ impl Default for XML_DRIVER_NODE_INFO {
     }
 }
 pub const _EXTSAPI_VER_: u32 = 10u32;
-pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: Option<IDebugClient>, args: windows_core::PCWSTR, flags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, args: windows_core::PCWSTR, flags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;

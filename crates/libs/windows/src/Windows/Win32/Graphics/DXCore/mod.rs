@@ -457,6 +457,6 @@ pub const KmdModelVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(4u32);
 pub const Local: DXCoreSegmentGroup = DXCoreSegmentGroup(0u32);
 pub const MinimumPower: DXCoreAdapterPreference = DXCoreAdapterPreference(1u32);
 pub const NonLocal: DXCoreSegmentGroup = DXCoreSegmentGroup(1u32);
-pub type PFN_DXCORE_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: Option<windows_core::IUnknown>, context: *const core::ffi::c_void)>;
+pub type PFN_DXCORE_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: windows_core::Ref<windows_core::IUnknown>, context: *const core::ffi::c_void)>;
 pub const SharedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(9u32);
 pub const _FACDXCORE: u32 = 2176u32;

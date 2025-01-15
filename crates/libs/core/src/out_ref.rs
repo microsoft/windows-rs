@@ -23,3 +23,9 @@ impl<T: Type<T>> OutRef<'_, T> {
         }
     }
 }
+
+impl<'a, T: Type<T>> From<&'a mut T::Default> for OutRef<'a, T> {
+    fn from(from: &'a mut T::Default) -> Self {
+        unsafe { core::mem::transmute(from) }
+    }
+}
