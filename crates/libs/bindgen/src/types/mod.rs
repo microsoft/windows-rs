@@ -365,6 +365,10 @@ impl Type {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        if writer.config.sys && self.is_interface() {
+            return quote! { *mut core::ffi::c_void };
+        }
+
         match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::Bool => quote! { bool },
@@ -386,12 +390,8 @@ impl Type {
                 quote! { #name BSTR }
             }
             Self::IUnknown => {
-                if writer.config.sys {
-                    quote! { *mut core::ffi::c_void }
-                } else {
-                    let name = writer.write_core();
-                    quote! { #name IUnknown }
-                }
+                let name = writer.write_core();
+                quote! { #name IUnknown }
             }
             Self::GUID => {
                 let name = writer.write_core();
@@ -410,12 +410,8 @@ impl Type {
                 quote! { #name HSTRING }
             }
             Self::Object => {
-                if writer.config.sys {
-                    quote! { *mut core::ffi::c_void }
-                } else {
-                    let name = writer.write_core();
-                    quote! { #name IInspectable }
-                }
+                let name = writer.write_core();
+                quote! { #name IInspectable }
             }
             Self::PSTR => {
                 let name = writer.write_core();
@@ -475,6 +471,10 @@ impl Type {
     }
 
     pub fn write_default(&self, writer: &Writer) -> TokenStream {
+        if writer.config.sys {
+            return self.write_name(writer);
+        }
+
         if let Self::Array(ty) = self {
             ty.write_default(writer)
         } else {
@@ -482,7 +482,7 @@ impl Type {
 
             if matches!(self, Self::Param(_)) {
                 quote! { <#tokens as windows_core::Type<#tokens>>::Default }
-            } else if self.is_interface() && !writer.config.sys {
+            } else if self.is_interface() {
                 quote! { Option<#tokens> }
             } else {
                 tokens
@@ -504,7 +504,7 @@ impl Type {
 
     pub fn write_abi(&self, writer: &Writer) -> TokenStream {
         if writer.config.sys {
-            return self.write_default(writer);
+            return self.write_name(writer);
         }
 
         match self {

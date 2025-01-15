@@ -2489,7 +2489,7 @@ impl IWebAuthenticationCoreManagerInterop_Vtbl {
 }
 impl windows_core::RuntimeName for IWebAuthenticationCoreManagerInterop {}
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
-pub type PFNGETACTIVATIONFACTORY = Option<unsafe extern "system" fn(param0: windows_core::HSTRING, param1: *mut Option<IActivationFactory>) -> windows_core::HRESULT>;
+pub type PFNGETACTIVATIONFACTORY = Option<unsafe extern "system" fn(param0: windows_core::Ref<windows_core::HSTRING>, param1: windows_core::OutRef<'_, IActivationFactory>) -> windows_core::HRESULT>;
 pub type PINSPECT_HSTRING_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> windows_core::HRESULT>;
 pub type PINSPECT_HSTRING_CALLBACK2 = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> windows_core::HRESULT>;
 pub type PINSPECT_MEMORY_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> windows_core::HRESULT>;

@@ -49,11 +49,11 @@ impl CppDelegate {
         let method = self.method();
         let signature = method.signature(type_name.namespace(), &[]);
 
-        let params = signature.params.iter().map(|(ty, param)| {
-            let name = to_ident(&param.name().to_lowercase());
-            let ty = ty.write_default(writer);
-            quote! { #name: #ty }
-        });
+        let mut params = quote! {};
+
+        for (ty, param) in &signature.params {
+            params.combine(write_param(writer, ty, *param));
+        }
 
         let return_sig = writer.write_return_sig(method, &signature, false);
         let arches = write_arches(self.def);
@@ -62,7 +62,7 @@ impl CppDelegate {
         quote! {
             #arches
             #cfg
-            pub type #name = Option<unsafe extern "system" fn(#(#params),*) #return_sig>;
+            pub type #name = Option<unsafe extern "system" fn(#params) #return_sig>;
         }
     }
 
@@ -70,5 +70,27 @@ impl CppDelegate {
         self.method()
             .signature(self.def.namespace(), &[])
             .dependencies(dependencies);
+    }
+}
+
+fn write_param(writer: &Writer, ty: &Type, param: Param) -> TokenStream {
+    let name = to_ident(&param.name().to_lowercase());
+    let type_name = ty.write_name(writer);
+
+    if writer.config.sys {
+        return quote! { #name: #type_name, };
+    }
+
+    if param.flags().contains(ParamAttributes::Out) {
+        if ty.deref().is_interface() {
+            let type_name = ty.deref().write_name(writer);
+            quote! { #name: windows_core::OutRef<'_, #type_name>, }
+        } else {
+            quote! { #name: #type_name, }
+        }
+    } else if ty.is_copyable() {
+        quote! { #name: #type_name, }
+    } else {
+        quote! { #name: windows_core::Ref<#type_name>, }
     }
 }

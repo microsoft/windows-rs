@@ -412,7 +412,7 @@ impl Default for ADRPARM {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type CALLERRELEASE = Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: Option<ITableData>, lpvue: Option<IMAPITable>)>;
+pub type CALLERRELEASE = Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: windows_core::Ref<ITableData>, lpvue: windows_core::Ref<IMAPITable>)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DTBLBUTTON {
@@ -3513,15 +3513,15 @@ pub type LPFREEBUFFER = Option<unsafe extern "system" fn(lpbuffer: *mut core::ff
 #[cfg(feature = "Win32_System_Com")]
 pub type LPNOTIFCALLBACK = Option<unsafe extern "system" fn(lpvcontext: *mut core::ffi::c_void, cnotification: u32, lpnotifications: *mut NOTIFICATION) -> i32>;
 #[cfg(feature = "Win32_System_Com")]
-pub type LPOPENSTREAMONFILE = Option<unsafe extern "system" fn(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut Option<super::Com::IStream>) -> windows_core::HRESULT>;
+pub type LPOPENSTREAMONFILE = Option<unsafe extern "system" fn(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: windows_core::OutRef<'_, super::Com::IStream>) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPWABACTIONITEM(pub isize);
-pub type LPWABALLOCATEBUFFER = Option<unsafe extern "system" fn(lpwabobject: Option<IWABObject>, cbsize: u32, lppbuffer: *mut *mut core::ffi::c_void) -> i32>;
-pub type LPWABALLOCATEMORE = Option<unsafe extern "system" fn(lpwabobject: Option<IWABObject>, cbsize: u32, lpobject: *mut core::ffi::c_void, lppbuffer: *mut *mut core::ffi::c_void) -> i32>;
-pub type LPWABFREEBUFFER = Option<unsafe extern "system" fn(lpwabobject: Option<IWABObject>, lpbuffer: *mut core::ffi::c_void) -> u32>;
-pub type LPWABOPEN = Option<unsafe extern "system" fn(lppadrbook: *mut Option<IAddrBook>, lppwabobject: *mut Option<IWABObject>, lpwp: *mut WAB_PARAM, reserved2: u32) -> windows_core::HRESULT>;
-pub type LPWABOPENEX = Option<unsafe extern "system" fn(lppadrbook: *mut Option<IAddrBook>, lppwabobject: *mut Option<IWABObject>, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: LPALLOCATEBUFFER, fnallocatemore: LPALLOCATEMORE, fnfreebuffer: LPFREEBUFFER) -> windows_core::HRESULT>;
+pub type LPWABALLOCATEBUFFER = Option<unsafe extern "system" fn(lpwabobject: windows_core::Ref<IWABObject>, cbsize: u32, lppbuffer: *mut *mut core::ffi::c_void) -> i32>;
+pub type LPWABALLOCATEMORE = Option<unsafe extern "system" fn(lpwabobject: windows_core::Ref<IWABObject>, cbsize: u32, lpobject: *mut core::ffi::c_void, lppbuffer: *mut *mut core::ffi::c_void) -> i32>;
+pub type LPWABFREEBUFFER = Option<unsafe extern "system" fn(lpwabobject: windows_core::Ref<IWABObject>, lpbuffer: *mut core::ffi::c_void) -> u32>;
+pub type LPWABOPEN = Option<unsafe extern "system" fn(lppadrbook: windows_core::OutRef<'_, IAddrBook>, lppwabobject: windows_core::OutRef<'_, IWABObject>, lpwp: *mut WAB_PARAM, reserved2: u32) -> windows_core::HRESULT>;
+pub type LPWABOPENEX = Option<unsafe extern "system" fn(lppadrbook: windows_core::OutRef<'_, IAddrBook>, lppwabobject: windows_core::OutRef<'_, IWABObject>, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: LPALLOCATEBUFFER, fnallocatemore: LPALLOCATEMORE, fnfreebuffer: LPFREEBUFFER) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAPIERROR {

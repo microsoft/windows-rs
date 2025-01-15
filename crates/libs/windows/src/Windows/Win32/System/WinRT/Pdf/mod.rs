@@ -91,4 +91,4 @@ impl Default for PDF_RENDER_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-pub type PFN_PDF_CREATE_RENDERER = Option<unsafe extern "system" fn(param0: Option<super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: *mut Option<IPdfRendererNative>) -> windows_core::HRESULT>;
+pub type PFN_PDF_CREATE_RENDERER = Option<unsafe extern "system" fn(param0: windows_core::Ref<super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: windows_core::OutRef<'_, IPdfRendererNative>) -> windows_core::HRESULT>;

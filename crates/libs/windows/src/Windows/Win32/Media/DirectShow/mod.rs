@@ -35830,7 +35830,7 @@ pub const PBDA_Encoder_Video_H264: u32 = 1u32;
 pub const PBDA_Encoder_Video_MPEG2PartII: u32 = 0u32;
 pub const PBDA_Encoder_Video_MPEG4Part10: u32 = 1u32;
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
-pub type PDXVA2SW_CREATEVIDEOPROCESSDEVICE = Option<unsafe extern "system" fn(pd3dd9: Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxsubstreams: u32, phdevice: *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT>;
+pub type PDXVA2SW_CREATEVIDEOPROCESSDEVICE = Option<unsafe extern "system" fn(pd3dd9: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DDevice9>, pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxsubstreams: u32, phdevice: *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT>;
 pub type PDXVA2SW_DESTROYVIDEOPROCESSDEVICE = Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE) -> windows_core::HRESULT>;
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub type PDXVA2SW_GETFILTERPROPERTYRANGE = Option<unsafe extern "system" fn(pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, filtersetting: u32, prange: *mut super::MediaFoundation::DXVA2_ValueRange) -> windows_core::HRESULT>;
@@ -35851,7 +35851,7 @@ pub type PDXVA2SW_VIDEOPROCESSBEGINFRAME = Option<unsafe extern "system" fn(hdev
 pub type PDXVA2SW_VIDEOPROCESSBLT = Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pblt: *const DXVA2_VIDEOPROCESSBLT) -> windows_core::HRESULT>;
 pub type PDXVA2SW_VIDEOPROCESSENDFRAME = Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, phandlecomplete: *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type PDXVA2SW_VIDEOPROCESSSETRENDERTARGET = Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, prendertarget: Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>) -> windows_core::HRESULT>;
+pub type PDXVA2SW_VIDEOPROCESSSETRENDERTARGET = Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, prendertarget: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DSurface9>) -> windows_core::HRESULT>;
 pub const PID_ELEMENTARY_STREAM: MUX_PID_TYPE = MUX_PID_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

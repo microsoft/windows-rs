@@ -8660,7 +8660,7 @@ pub const MOD_WAVETABLE: u32 = 6u32;
 pub const Microphone: EndpointFormFactor = EndpointFormFactor(4i32);
 pub const Muted: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(0i32);
 pub const Out: DataFlow = DataFlow(1i32);
-pub type PAudioStateMonitorCallback = Option<unsafe extern "system" fn(audiostatemonitor: Option<IAudioStateMonitor>, context: *const core::ffi::c_void)>;
+pub type PAudioStateMonitorCallback = Option<unsafe extern "system" fn(audiostatemonitor: windows_core::Ref<IAudioStateMonitor>, context: *const core::ffi::c_void)>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PCMWAVEFORMAT {
