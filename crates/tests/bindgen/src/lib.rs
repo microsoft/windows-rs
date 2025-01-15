@@ -21,6 +21,7 @@ pub mod default_assumed;
 pub mod default_default;
 pub mod delegate;
 pub mod delegate_cpp;
+pub mod delegate_cpp_ref;
 pub mod delegate_generic;
 pub mod deps;
 pub mod derive_cpp_enum;
