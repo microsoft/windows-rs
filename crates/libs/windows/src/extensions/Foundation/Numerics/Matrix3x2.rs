@@ -13,7 +13,7 @@ impl Matrix3x2 {
             pub x: f32,
             pub y: f32,
         }
-        windows_targets::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle: f32, center: D2D_POINT_2F, matrix: *mut Matrix3x2));
+        windows_link::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle: f32, center: D2D_POINT_2F, matrix: *mut Matrix3x2));
         let mut matrix = Self::default();
         unsafe {
             D2D1MakeRotateMatrix(angle, D2D_POINT_2F { x, y }, &mut matrix);
