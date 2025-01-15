@@ -77,13 +77,13 @@ impl IActivationFactory_Vtbl {
 impl windows_core::RuntimeName for IActivationFactory {}
 pub type PFNGETACTIVATIONFACTORY = Option<
     unsafe extern "system" fn(
-        param0: windows_core::Ref<windows_core::HSTRING>,
+        param0: windows_core::Ref<'_, windows_core::HSTRING>,
         param1: windows_core::OutRef<'_, IActivationFactory>,
     ) -> windows_core::HRESULT,
 >;
 pub type PFN_D3D12_CREATE_DEVICE = Option<
     unsafe extern "system" fn(
-        param0: windows_core::Ref<windows_core::IUnknown>,
+        param0: windows_core::Ref<'_, windows_core::IUnknown>,
         param1: D3D_FEATURE_LEVEL,
         param2: *const windows_core::GUID,
         param3: *mut *mut core::ffi::c_void,
