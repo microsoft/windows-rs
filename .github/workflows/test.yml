@@ -333,6 +333,8 @@ jobs:
         run:  cargo test -p windows-implement --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-interface
         run:  cargo test -p windows-interface --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-link
+        run:  cargo test -p windows-link --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-registry
         run:  cargo test -p windows-registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-result
@@ -359,6 +361,8 @@ jobs:
         run:  cargo test -p windows_x86_64_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_x86_64_gnullvm
         run:  cargo test -p windows_x86_64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test windows_x86_64_msvc
         run:  cargo test -p windows_x86_64_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Check diff
