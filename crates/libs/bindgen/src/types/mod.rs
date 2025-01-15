@@ -172,6 +172,7 @@ impl Type {
             TypeName::IUnknown => Remap::Type(Self::IUnknown),
             TypeName::Type => Remap::Type(Self::Type),
             TypeName::EventRegistrationToken => Remap::Type(Type::I64),
+            TypeName::EventRegistrationToken2 => Remap::Type(Type::I64),
 
             TypeName::D2D_MATRIX_3X2_F => Remap::Name(TypeName::Matrix3x2),
             TypeName::D3DMATRIX => Remap::Name(TypeName::Matrix4x4),

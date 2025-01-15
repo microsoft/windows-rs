@@ -25,6 +25,8 @@ impl TypeName {
 
     pub const HResult: Self = Self("Windows.Foundation", "HResult");
     pub const EventRegistrationToken: Self = Self("Windows.Foundation", "EventRegistrationToken");
+    pub const EventRegistrationToken2: Self =
+        Self("Windows.Win32.System.WinRT", "EventRegistrationToken");
 
     pub const IAsyncAction: Self = Self("Windows.Foundation", "IAsyncAction");
     pub const IAsyncActionWithProgress: Self =
