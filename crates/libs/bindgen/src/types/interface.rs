@@ -500,11 +500,7 @@ impl Interface {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        if writer.config.sys {
-            quote! { *mut core::ffi::c_void }
-        } else {
-            self.type_name().write(writer, &self.generics)
-        }
+        self.type_name().write(writer, &self.generics)
     }
 
     fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
