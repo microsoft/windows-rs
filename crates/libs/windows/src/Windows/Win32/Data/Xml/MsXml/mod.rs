@@ -810,12 +810,12 @@ pub trait IMXNamespaceManager_Impl: windows_core::IUnknownImpl {
     fn getAllowOverride(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn reset(&self) -> windows_core::Result<()>;
     fn pushContext(&self) -> windows_core::Result<()>;
-    fn pushNodeContext(&self, contextnode: windows_core::Ref<IXMLDOMNode>, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn pushNodeContext(&self, contextnode: windows_core::Ref<'_, IXMLDOMNode>, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn popContext(&self) -> windows_core::Result<()>;
     fn declarePrefix(&self, prefix: &windows_core::PCWSTR, namespaceuri: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn getDeclaredPrefix(&self, nindex: i32, pwchprefix: windows_core::PWSTR, pcchprefix: *mut i32) -> windows_core::Result<()>;
     fn getPrefix(&self, pwsznamespaceuri: &windows_core::PCWSTR, nindex: i32, pwchprefix: windows_core::PWSTR, pcchprefix: *mut i32) -> windows_core::Result<()>;
-    fn getURI(&self, pwchprefix: &windows_core::PCWSTR, pcontextnode: windows_core::Ref<IXMLDOMNode>, pwchuri: windows_core::PWSTR, pcchuri: *mut i32) -> windows_core::Result<()>;
+    fn getURI(&self, pwchprefix: &windows_core::PCWSTR, pcontextnode: windows_core::Ref<'_, IXMLDOMNode>, pwchuri: windows_core::PWSTR, pcchuri: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMXNamespaceManager_Vtbl {
@@ -1103,7 +1103,7 @@ pub struct IMXSchemaDeclHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMXSchemaDeclHandler_Impl: super::super::super::System::Com::IDispatch_Impl {
-    fn schemaElementDecl(&self, oschemaelement: windows_core::Ref<ISchemaElement>) -> windows_core::Result<()>;
+    fn schemaElementDecl(&self, oschemaelement: windows_core::Ref<'_, ISchemaElement>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXSchemaDeclHandler_Vtbl {
@@ -1553,13 +1553,13 @@ pub trait IMXXMLFilter_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn getProperty(&self, strname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn putProperty(&self, strname: &windows_core::BSTR, varvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn entityResolver(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn putref_entityResolver(&self, oresolver: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn putref_entityResolver(&self, oresolver: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn contentHandler(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn putref_contentHandler(&self, ohandler: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn putref_contentHandler(&self, ohandler: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn dtdHandler(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn putref_dtdHandler(&self, ohandler: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn putref_dtdHandler(&self, ohandler: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn errorHandler(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn putref_errorHandler(&self, ohandler: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn putref_errorHandler(&self, ohandler: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXXMLFilter_Vtbl {
@@ -2006,12 +2006,12 @@ pub struct ISAXContentHandler_Vtbl {
     pub skippedEntity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
 pub trait ISAXContentHandler_Impl: windows_core::IUnknownImpl {
-    fn putDocumentLocator(&self, plocator: windows_core::Ref<ISAXLocator>) -> windows_core::Result<()>;
+    fn putDocumentLocator(&self, plocator: windows_core::Ref<'_, ISAXLocator>) -> windows_core::Result<()>;
     fn startDocument(&self) -> windows_core::Result<()>;
     fn endDocument(&self) -> windows_core::Result<()>;
     fn startPrefixMapping(&self, pwchprefix: &windows_core::PCWSTR, cchprefix: i32, pwchuri: &windows_core::PCWSTR, cchuri: i32) -> windows_core::Result<()>;
     fn endPrefixMapping(&self, pwchprefix: &windows_core::PCWSTR, cchprefix: i32) -> windows_core::Result<()>;
-    fn startElement(&self, pwchnamespaceuri: &windows_core::PCWSTR, cchnamespaceuri: i32, pwchlocalname: &windows_core::PCWSTR, cchlocalname: i32, pwchqname: &windows_core::PCWSTR, cchqname: i32, pattributes: windows_core::Ref<ISAXAttributes>) -> windows_core::Result<()>;
+    fn startElement(&self, pwchnamespaceuri: &windows_core::PCWSTR, cchnamespaceuri: i32, pwchlocalname: &windows_core::PCWSTR, cchlocalname: i32, pwchqname: &windows_core::PCWSTR, cchqname: i32, pattributes: windows_core::Ref<'_, ISAXAttributes>) -> windows_core::Result<()>;
     fn endElement(&self, pwchnamespaceuri: &windows_core::PCWSTR, cchnamespaceuri: i32, pwchlocalname: &windows_core::PCWSTR, cchlocalname: i32, pwchqname: &windows_core::PCWSTR, cchqname: i32) -> windows_core::Result<()>;
     fn characters(&self, pwchchars: &windows_core::PCWSTR, cchchars: i32) -> windows_core::Result<()>;
     fn ignorableWhitespace(&self, pwchchars: &windows_core::PCWSTR, cchchars: i32) -> windows_core::Result<()>;
@@ -2334,9 +2334,9 @@ pub struct ISAXErrorHandler_Vtbl {
     pub ignorableWarning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait ISAXErrorHandler_Impl: windows_core::IUnknownImpl {
-    fn error(&self, plocator: windows_core::Ref<ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn fatalError(&self, plocator: windows_core::Ref<ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn ignorableWarning(&self, plocator: windows_core::Ref<ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn error(&self, plocator: windows_core::Ref<'_, ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn fatalError(&self, plocator: windows_core::Ref<'_, ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn ignorableWarning(&self, plocator: windows_core::Ref<'_, ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl ISAXErrorHandler_Vtbl {
     pub const fn new<Identity: ISAXErrorHandler_Impl, const OFFSET: isize>() -> Self {
@@ -2625,7 +2625,7 @@ pub struct ISAXXMLFilter_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISAXXMLFilter_Impl: ISAXXMLReader_Impl {
     fn getParent(&self) -> windows_core::Result<ISAXXMLReader>;
-    fn putParent(&self, preader: windows_core::Ref<ISAXXMLReader>) -> windows_core::Result<()>;
+    fn putParent(&self, preader: windows_core::Ref<'_, ISAXXMLReader>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISAXXMLFilter_Vtbl {
@@ -2812,13 +2812,13 @@ pub trait ISAXXMLReader_Impl: windows_core::IUnknownImpl {
     fn getProperty(&self, pwchname: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn putProperty(&self, pwchname: &windows_core::PCWSTR, varvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn getEntityResolver(&self) -> windows_core::Result<ISAXEntityResolver>;
-    fn putEntityResolver(&self, presolver: windows_core::Ref<ISAXEntityResolver>) -> windows_core::Result<()>;
+    fn putEntityResolver(&self, presolver: windows_core::Ref<'_, ISAXEntityResolver>) -> windows_core::Result<()>;
     fn getContentHandler(&self) -> windows_core::Result<ISAXContentHandler>;
-    fn putContentHandler(&self, phandler: windows_core::Ref<ISAXContentHandler>) -> windows_core::Result<()>;
+    fn putContentHandler(&self, phandler: windows_core::Ref<'_, ISAXContentHandler>) -> windows_core::Result<()>;
     fn getDTDHandler(&self) -> windows_core::Result<ISAXDTDHandler>;
-    fn putDTDHandler(&self, phandler: windows_core::Ref<ISAXDTDHandler>) -> windows_core::Result<()>;
+    fn putDTDHandler(&self, phandler: windows_core::Ref<'_, ISAXDTDHandler>) -> windows_core::Result<()>;
     fn getErrorHandler(&self) -> windows_core::Result<ISAXErrorHandler>;
-    fn putErrorHandler(&self, phandler: windows_core::Ref<ISAXErrorHandler>) -> windows_core::Result<()>;
+    fn putErrorHandler(&self, phandler: windows_core::Ref<'_, ISAXErrorHandler>) -> windows_core::Result<()>;
     fn getBaseURL(&self) -> windows_core::Result<*mut u16>;
     fn putBaseURL(&self, pwchbaseurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn getSecureBaseURL(&self) -> windows_core::Result<*mut u16>;
@@ -4152,7 +4152,7 @@ pub trait ISchemaItem_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn id(&self) -> windows_core::Result<windows_core::BSTR>;
     fn itemType(&self) -> windows_core::Result<SOMITEMTYPE>;
     fn unhandledAttributes(&self) -> windows_core::Result<IVBSAXAttributes>;
-    fn writeAnnotation(&self, annotationsink: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
+    fn writeAnnotation(&self, annotationsink: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaItem_Vtbl {
@@ -5393,13 +5393,13 @@ pub trait IVBMXNamespaceManager_Impl: super::super::super::System::Com::IDispatc
     fn allowOverride(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn reset(&self) -> windows_core::Result<()>;
     fn pushContext(&self) -> windows_core::Result<()>;
-    fn pushNodeContext(&self, contextnode: windows_core::Ref<IXMLDOMNode>, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn pushNodeContext(&self, contextnode: windows_core::Ref<'_, IXMLDOMNode>, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn popContext(&self) -> windows_core::Result<()>;
     fn declarePrefix(&self, prefix: &windows_core::BSTR, namespaceuri: &windows_core::BSTR) -> windows_core::Result<()>;
     fn getDeclaredPrefixes(&self) -> windows_core::Result<IMXNamespacePrefixes>;
     fn getPrefixes(&self, namespaceuri: &windows_core::BSTR) -> windows_core::Result<IMXNamespacePrefixes>;
     fn getURI(&self, prefix: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
-    fn getURIFromNode(&self, strprefix: &windows_core::BSTR, contextnode: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn getURIFromNode(&self, strprefix: &windows_core::BSTR, contextnode: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBMXNamespaceManager_Vtbl {
@@ -5879,12 +5879,12 @@ pub struct IVBSAXContentHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IVBSAXContentHandler_Impl: super::super::super::System::Com::IDispatch_Impl {
-    fn putref_documentLocator(&self, olocator: windows_core::Ref<IVBSAXLocator>) -> windows_core::Result<()>;
+    fn putref_documentLocator(&self, olocator: windows_core::Ref<'_, IVBSAXLocator>) -> windows_core::Result<()>;
     fn startDocument(&self) -> windows_core::Result<()>;
     fn endDocument(&self) -> windows_core::Result<()>;
     fn startPrefixMapping(&self, strprefix: *mut windows_core::BSTR, struri: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn endPrefixMapping(&self, strprefix: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn startElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR, oattributes: windows_core::Ref<IVBSAXAttributes>) -> windows_core::Result<()>;
+    fn startElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR, oattributes: windows_core::Ref<'_, IVBSAXAttributes>) -> windows_core::Result<()>;
     fn endElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn characters(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn ignorableWhitespace(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()>;
@@ -6222,9 +6222,9 @@ pub struct IVBSAXErrorHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IVBSAXErrorHandler_Impl: super::super::super::System::Com::IDispatch_Impl {
-    fn error(&self, olocator: windows_core::Ref<IVBSAXLocator>, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>;
-    fn fatalError(&self, olocator: windows_core::Ref<IVBSAXLocator>, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>;
-    fn ignorableWarning(&self, olocator: windows_core::Ref<IVBSAXLocator>, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>;
+    fn error(&self, olocator: windows_core::Ref<'_, IVBSAXLocator>, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>;
+    fn fatalError(&self, olocator: windows_core::Ref<'_, IVBSAXLocator>, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>;
+    fn ignorableWarning(&self, olocator: windows_core::Ref<'_, IVBSAXLocator>, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXErrorHandler_Vtbl {
@@ -6534,7 +6534,7 @@ pub struct IVBSAXXMLFilter_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IVBSAXXMLFilter_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn parent(&self) -> windows_core::Result<IVBSAXXMLReader>;
-    fn putref_parent(&self, oreader: windows_core::Ref<IVBSAXXMLReader>) -> windows_core::Result<()>;
+    fn putref_parent(&self, oreader: windows_core::Ref<'_, IVBSAXXMLReader>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXXMLFilter_Vtbl {
@@ -6715,13 +6715,13 @@ pub trait IVBSAXXMLReader_Impl: super::super::super::System::Com::IDispatch_Impl
     fn getProperty(&self, strname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn putProperty(&self, strname: &windows_core::BSTR, varvalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn entityResolver(&self) -> windows_core::Result<IVBSAXEntityResolver>;
-    fn putref_entityResolver(&self, oresolver: windows_core::Ref<IVBSAXEntityResolver>) -> windows_core::Result<()>;
+    fn putref_entityResolver(&self, oresolver: windows_core::Ref<'_, IVBSAXEntityResolver>) -> windows_core::Result<()>;
     fn contentHandler(&self) -> windows_core::Result<IVBSAXContentHandler>;
-    fn putref_contentHandler(&self, ohandler: windows_core::Ref<IVBSAXContentHandler>) -> windows_core::Result<()>;
+    fn putref_contentHandler(&self, ohandler: windows_core::Ref<'_, IVBSAXContentHandler>) -> windows_core::Result<()>;
     fn dtdHandler(&self) -> windows_core::Result<IVBSAXDTDHandler>;
-    fn putref_dtdHandler(&self, ohandler: windows_core::Ref<IVBSAXDTDHandler>) -> windows_core::Result<()>;
+    fn putref_dtdHandler(&self, ohandler: windows_core::Ref<'_, IVBSAXDTDHandler>) -> windows_core::Result<()>;
     fn errorHandler(&self) -> windows_core::Result<IVBSAXErrorHandler>;
-    fn putref_errorHandler(&self, ohandler: windows_core::Ref<IVBSAXErrorHandler>) -> windows_core::Result<()>;
+    fn putref_errorHandler(&self, ohandler: windows_core::Ref<'_, IVBSAXErrorHandler>) -> windows_core::Result<()>;
     fn baseURL(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetbaseURL(&self, strbaseurl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn secureBaseURL(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -7558,7 +7558,7 @@ pub trait IXMLDOMDocument_Impl: IXMLDOMNode_Impl {
     fn doctype(&self) -> windows_core::Result<IXMLDOMDocumentType>;
     fn implementation(&self) -> windows_core::Result<IXMLDOMImplementation>;
     fn documentElement(&self) -> windows_core::Result<IXMLDOMElement>;
-    fn putref_documentElement(&self, domelement: windows_core::Ref<IXMLDOMElement>) -> windows_core::Result<()>;
+    fn putref_documentElement(&self, domelement: windows_core::Ref<'_, IXMLDOMElement>) -> windows_core::Result<()>;
     fn createElement(&self, tagname: &windows_core::BSTR) -> windows_core::Result<IXMLDOMElement>;
     fn createDocumentFragment(&self) -> windows_core::Result<IXMLDOMDocumentFragment>;
     fn createTextNode(&self, data: &windows_core::BSTR) -> windows_core::Result<IXMLDOMText>;
@@ -8171,8 +8171,8 @@ pub struct IXMLDOMDocument3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IXMLDOMDocument3_Impl: IXMLDOMDocument2_Impl {
-    fn validateNode(&self, node: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<IXMLDOMParseError>;
-    fn importNode(&self, node: windows_core::Ref<IXMLDOMNode>, deep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IXMLDOMNode>;
+    fn validateNode(&self, node: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<IXMLDOMParseError>;
+    fn importNode(&self, node: windows_core::Ref<'_, IXMLDOMNode>, deep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IXMLDOMNode>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMDocument3_Vtbl {
@@ -8434,8 +8434,8 @@ pub trait IXMLDOMElement_Impl: IXMLDOMNode_Impl {
     fn setAttribute(&self, name: &windows_core::BSTR, value: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn removeAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
     fn getAttributeNode(&self, name: &windows_core::BSTR) -> windows_core::Result<IXMLDOMAttribute>;
-    fn setAttributeNode(&self, domattribute: windows_core::Ref<IXMLDOMAttribute>) -> windows_core::Result<IXMLDOMAttribute>;
-    fn removeAttributeNode(&self, domattribute: windows_core::Ref<IXMLDOMAttribute>) -> windows_core::Result<IXMLDOMAttribute>;
+    fn setAttributeNode(&self, domattribute: windows_core::Ref<'_, IXMLDOMAttribute>) -> windows_core::Result<IXMLDOMAttribute>;
+    fn removeAttributeNode(&self, domattribute: windows_core::Ref<'_, IXMLDOMAttribute>) -> windows_core::Result<IXMLDOMAttribute>;
     fn getElementsByTagName(&self, tagname: &windows_core::BSTR) -> windows_core::Result<IXMLDOMNodeList>;
     fn normalize(&self) -> windows_core::Result<()>;
 }
@@ -8831,7 +8831,7 @@ pub struct IXMLDOMNamedNodeMap_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IXMLDOMNamedNodeMap_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn getNamedItem(&self, name: &windows_core::BSTR) -> windows_core::Result<IXMLDOMNode>;
-    fn setNamedItem(&self, newitem: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<IXMLDOMNode>;
+    fn setNamedItem(&self, newitem: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<IXMLDOMNode>;
     fn removeNamedItem(&self, name: &windows_core::BSTR) -> windows_core::Result<IXMLDOMNode>;
     fn get_item(&self, index: i32) -> windows_core::Result<IXMLDOMNode>;
     fn length(&self) -> windows_core::Result<i32>;
@@ -9294,10 +9294,10 @@ pub trait IXMLDOMNode_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn previousSibling(&self) -> windows_core::Result<IXMLDOMNode>;
     fn nextSibling(&self) -> windows_core::Result<IXMLDOMNode>;
     fn attributes(&self) -> windows_core::Result<IXMLDOMNamedNodeMap>;
-    fn insertBefore(&self, newchild: windows_core::Ref<IXMLDOMNode>, refchild: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IXMLDOMNode>;
-    fn replaceChild(&self, newchild: windows_core::Ref<IXMLDOMNode>, oldchild: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<IXMLDOMNode>;
-    fn removeChild(&self, childnode: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<IXMLDOMNode>;
-    fn appendChild(&self, newchild: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<IXMLDOMNode>;
+    fn insertBefore(&self, newchild: windows_core::Ref<'_, IXMLDOMNode>, refchild: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IXMLDOMNode>;
+    fn replaceChild(&self, newchild: windows_core::Ref<'_, IXMLDOMNode>, oldchild: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<IXMLDOMNode>;
+    fn removeChild(&self, childnode: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<IXMLDOMNode>;
+    fn appendChild(&self, newchild: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<IXMLDOMNode>;
     fn hasChildNodes(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn ownerDocument(&self) -> windows_core::Result<IXMLDOMDocument>;
     fn cloneNode(&self, deep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IXMLDOMNode>;
@@ -9311,14 +9311,14 @@ pub trait IXMLDOMNode_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn dataType(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn SetdataType(&self, datatypename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn xml(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn transformNode(&self, stylesheet: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<windows_core::BSTR>;
+    fn transformNode(&self, stylesheet: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<windows_core::BSTR>;
     fn selectNodes(&self, querystring: &windows_core::BSTR) -> windows_core::Result<IXMLDOMNodeList>;
     fn selectSingleNode(&self, querystring: &windows_core::BSTR) -> windows_core::Result<IXMLDOMNode>;
     fn parsed(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn namespaceURI(&self) -> windows_core::Result<windows_core::BSTR>;
     fn prefix(&self) -> windows_core::Result<windows_core::BSTR>;
     fn baseName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn transformNodeToObject(&self, stylesheet: windows_core::Ref<IXMLDOMNode>, outputobject: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn transformNodeToObject(&self, stylesheet: windows_core::Ref<'_, IXMLDOMNode>, outputobject: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMNode_Vtbl {
@@ -10577,7 +10577,7 @@ pub trait IXMLDOMSchemaCollection_Impl: super::super::super::System::Com::IDispa
     fn remove(&self, namespaceuri: &windows_core::BSTR) -> windows_core::Result<()>;
     fn length(&self) -> windows_core::Result<i32>;
     fn get_namespaceURI(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn addCollection(&self, othercollection: windows_core::Ref<IXMLDOMSchemaCollection>) -> windows_core::Result<()>;
+    fn addCollection(&self, othercollection: windows_core::Ref<'_, IXMLDOMSchemaCollection>) -> windows_core::Result<()>;
     fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10723,7 +10723,7 @@ pub trait IXMLDOMSchemaCollection2_Impl: IXMLDOMSchemaCollection_Impl {
     fn SetvalidateOnLoad(&self, validateonload: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn validateOnLoad(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn getSchema(&self, namespaceuri: &windows_core::BSTR) -> windows_core::Result<ISchema>;
-    fn getDeclaration(&self, node: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<ISchemaItem>;
+    fn getDeclaration(&self, node: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<ISchemaItem>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMSchemaCollection2_Vtbl {
@@ -10894,9 +10894,9 @@ pub trait IXMLDOMSelection_Impl: IXMLDOMNodeList_Impl {
     fn expr(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Setexpr(&self, expression: &windows_core::BSTR) -> windows_core::Result<()>;
     fn context(&self) -> windows_core::Result<IXMLDOMNode>;
-    fn putref_context(&self, pnode: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<()>;
+    fn putref_context(&self, pnode: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<()>;
     fn peekNode(&self) -> windows_core::Result<IXMLDOMNode>;
-    fn matches(&self, pnode: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<IXMLDOMNode>;
+    fn matches(&self, pnode: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<IXMLDOMNode>;
     fn removeNext(&self) -> windows_core::Result<IXMLDOMNode>;
     fn removeAll(&self) -> windows_core::Result<()>;
     fn clone(&self) -> windows_core::Result<IXMLDOMSelection>;
@@ -11142,7 +11142,7 @@ pub struct IXMLDSOControl_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IXMLDSOControl_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn XMLDocument(&self) -> windows_core::Result<IXMLDOMDocument>;
-    fn SetXMLDocument(&self, ppdoc: windows_core::Ref<IXMLDOMDocument>) -> windows_core::Result<()>;
+    fn SetXMLDocument(&self, ppdoc: windows_core::Ref<'_, IXMLDOMDocument>) -> windows_core::Result<()>;
     fn JavaDSOCompatible(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetJavaDSOCompatible(&self, fjavadsocompatible: windows_core::BOOL) -> windows_core::Result<()>;
     fn readyState(&self) -> windows_core::Result<i32>;
@@ -11987,8 +11987,8 @@ pub trait IXMLElement_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn r#type(&self) -> windows_core::Result<i32>;
     fn text(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Settext(&self, p: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn addChild(&self, pchildelem: windows_core::Ref<IXMLElement>, lindex: i32, lreserved: i32) -> windows_core::Result<()>;
-    fn removeChild(&self, pchildelem: windows_core::Ref<IXMLElement>) -> windows_core::Result<()>;
+    fn addChild(&self, pchildelem: windows_core::Ref<'_, IXMLElement>, lindex: i32, lreserved: i32) -> windows_core::Result<()>;
+    fn removeChild(&self, pchildelem: windows_core::Ref<'_, IXMLElement>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLElement_Vtbl {
@@ -12241,8 +12241,8 @@ pub trait IXMLElement2_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn r#type(&self) -> windows_core::Result<i32>;
     fn text(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Settext(&self, p: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn addChild(&self, pchildelem: windows_core::Ref<IXMLElement2>, lindex: i32, lreserved: i32) -> windows_core::Result<()>;
-    fn removeChild(&self, pchildelem: windows_core::Ref<IXMLElement2>) -> windows_core::Result<()>;
+    fn addChild(&self, pchildelem: windows_core::Ref<'_, IXMLElement2>, lindex: i32, lreserved: i32) -> windows_core::Result<()>;
+    fn removeChild(&self, pchildelem: windows_core::Ref<'_, IXMLElement2>) -> windows_core::Result<()>;
     fn attributes(&self) -> windows_core::Result<IXMLElementCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -12671,7 +12671,7 @@ pub trait IXMLHTTPRequest_Impl: super::super::super::System::Com::IDispatch_Impl
     fn responseBody(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn responseStream(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn readyState(&self) -> windows_core::Result<i32>;
-    fn Setonreadystatechange(&self, preadystatesink: windows_core::Ref<super::super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Setonreadystatechange(&self, preadystatesink: windows_core::Ref<'_, super::super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLHTTPRequest_Vtbl {
@@ -12931,11 +12931,11 @@ pub struct IXMLHTTPRequest2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLHTTPRequest2_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, pwszmethod: &windows_core::PCWSTR, pwszurl: &windows_core::PCWSTR, pstatuscallback: windows_core::Ref<IXMLHTTPRequest2Callback>, pwszusername: &windows_core::PCWSTR, pwszpassword: &windows_core::PCWSTR, pwszproxyusername: &windows_core::PCWSTR, pwszproxypassword: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Send(&self, pbody: windows_core::Ref<super::super::super::System::Com::ISequentialStream>, cbbody: u64) -> windows_core::Result<()>;
+    fn Open(&self, pwszmethod: &windows_core::PCWSTR, pwszurl: &windows_core::PCWSTR, pstatuscallback: windows_core::Ref<'_, IXMLHTTPRequest2Callback>, pwszusername: &windows_core::PCWSTR, pwszpassword: &windows_core::PCWSTR, pwszproxyusername: &windows_core::PCWSTR, pwszproxypassword: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Send(&self, pbody: windows_core::Ref<'_, super::super::super::System::Com::ISequentialStream>, cbbody: u64) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
     fn SetCookie(&self, pcookie: *const XHR_COOKIE) -> windows_core::Result<u32>;
-    fn SetCustomResponseStream(&self, psequentialstream: windows_core::Ref<super::super::super::System::Com::ISequentialStream>) -> windows_core::Result<()>;
+    fn SetCustomResponseStream(&self, psequentialstream: windows_core::Ref<'_, super::super::super::System::Com::ISequentialStream>) -> windows_core::Result<()>;
     fn SetProperty(&self, eproperty: XHR_PROPERTY, ullvalue: u64) -> windows_core::Result<()>;
     fn SetRequestHeader(&self, pwszheader: &windows_core::PCWSTR, pwszvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetAllResponseHeaders(&self) -> windows_core::Result<*mut u16>;
@@ -13100,11 +13100,11 @@ pub struct IXMLHTTPRequest2Callback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLHTTPRequest2Callback_Impl: windows_core::IUnknownImpl {
-    fn OnRedirect(&self, pxhr: windows_core::Ref<IXMLHTTPRequest2>, pwszredirecturl: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OnHeadersAvailable(&self, pxhr: windows_core::Ref<IXMLHTTPRequest2>, dwstatus: u32, pwszstatus: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OnDataAvailable(&self, pxhr: windows_core::Ref<IXMLHTTPRequest2>, presponsestream: windows_core::Ref<super::super::super::System::Com::ISequentialStream>) -> windows_core::Result<()>;
-    fn OnResponseReceived(&self, pxhr: windows_core::Ref<IXMLHTTPRequest2>, presponsestream: windows_core::Ref<super::super::super::System::Com::ISequentialStream>) -> windows_core::Result<()>;
-    fn OnError(&self, pxhr: windows_core::Ref<IXMLHTTPRequest2>, hrerror: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnRedirect(&self, pxhr: windows_core::Ref<'_, IXMLHTTPRequest2>, pwszredirecturl: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn OnHeadersAvailable(&self, pxhr: windows_core::Ref<'_, IXMLHTTPRequest2>, dwstatus: u32, pwszstatus: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn OnDataAvailable(&self, pxhr: windows_core::Ref<'_, IXMLHTTPRequest2>, presponsestream: windows_core::Ref<'_, super::super::super::System::Com::ISequentialStream>) -> windows_core::Result<()>;
+    fn OnResponseReceived(&self, pxhr: windows_core::Ref<'_, IXMLHTTPRequest2>, presponsestream: windows_core::Ref<'_, super::super::super::System::Com::ISequentialStream>) -> windows_core::Result<()>;
+    fn OnError(&self, pxhr: windows_core::Ref<'_, IXMLHTTPRequest2>, hrerror: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest2Callback_Vtbl {
@@ -13226,8 +13226,8 @@ pub struct IXMLHTTPRequest3Callback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLHTTPRequest3Callback_Impl: IXMLHTTPRequest2Callback_Impl {
-    fn OnServerCertificateReceived(&self, pxhr: windows_core::Ref<IXMLHTTPRequest3>, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> windows_core::Result<()>;
-    fn OnClientCertificateRequested(&self, pxhr: windows_core::Ref<IXMLHTTPRequest3>, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> windows_core::Result<()>;
+    fn OnServerCertificateReceived(&self, pxhr: windows_core::Ref<'_, IXMLHTTPRequest3>, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> windows_core::Result<()>;
+    fn OnClientCertificateRequested(&self, pxhr: windows_core::Ref<'_, IXMLHTTPRequest3>, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest3Callback_Vtbl {
@@ -13392,7 +13392,7 @@ pub trait IXSLProcessor_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn reset(&self) -> windows_core::Result<()>;
     fn readyState(&self) -> windows_core::Result<i32>;
     fn addParameter(&self, basename: &windows_core::BSTR, parameter: &super::super::super::System::Variant::VARIANT, namespaceuri: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn addObject(&self, obj: windows_core::Ref<super::super::super::System::Com::IDispatch>, namespaceuri: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn addObject(&self, obj: windows_core::Ref<'_, super::super::super::System::Com::IDispatch>, namespaceuri: &windows_core::BSTR) -> windows_core::Result<()>;
     fn stylesheet(&self) -> windows_core::Result<IXMLDOMNode>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -13596,7 +13596,7 @@ pub struct IXSLTemplate_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IXSLTemplate_Impl: super::super::super::System::Com::IDispatch_Impl {
-    fn putref_stylesheet(&self, stylesheet: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<()>;
+    fn putref_stylesheet(&self, stylesheet: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<()>;
     fn stylesheet(&self) -> windows_core::Result<IXMLDOMNode>;
     fn createProcessor(&self) -> windows_core::Result<IXSLProcessor>;
 }
@@ -13753,11 +13753,11 @@ pub struct IXTLRuntime_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IXTLRuntime_Impl: IXMLDOMNode_Impl {
-    fn uniqueID(&self, pnode: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<i32>;
-    fn depth(&self, pnode: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<i32>;
-    fn childNumber(&self, pnode: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<i32>;
-    fn ancestorChildNumber(&self, bstrnodename: &windows_core::BSTR, pnode: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<i32>;
-    fn absoluteChildNumber(&self, pnode: windows_core::Ref<IXMLDOMNode>) -> windows_core::Result<i32>;
+    fn uniqueID(&self, pnode: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<i32>;
+    fn depth(&self, pnode: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<i32>;
+    fn childNumber(&self, pnode: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<i32>;
+    fn ancestorChildNumber(&self, bstrnodename: &windows_core::BSTR, pnode: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<i32>;
+    fn absoluteChildNumber(&self, pnode: windows_core::Ref<'_, IXMLDOMNode>) -> windows_core::Result<i32>;
     fn formatIndex(&self, lindex: i32, bstrformat: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn formatNumber(&self, dblnumber: f64, bstrformat: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn formatDate(&self, vardate: &super::super::super::System::Variant::VARIANT, bstrformat: &windows_core::BSTR, vardestlocale: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;

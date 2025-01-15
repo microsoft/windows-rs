@@ -299,7 +299,7 @@ impl windows_core::RuntimeName for INDDownloadEngine {
 }
 #[cfg(feature = "deprecated")]
 pub trait INDDownloadEngine_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, uri: windows_core::Ref<super::super::super::Foundation::Uri>, sessionIDBytes: &[u8]) -> windows_core::Result<()>;
+    fn Open(&self, uri: windows_core::Ref<'_, super::super::super::Foundation::Uri>, sessionIDBytes: &[u8]) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
@@ -468,7 +468,7 @@ impl windows_core::RuntimeName for INDDownloadEngineNotifier {
 pub trait INDDownloadEngineNotifier_Impl: windows_core::IUnknownImpl {
     fn OnStreamOpened(&self) -> windows_core::Result<()>;
     fn OnPlayReadyObjectReceived(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
-    fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
+    fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<'_, INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
     fn OnDataReceived(&self, dataBytes: &[u8], bytesReceived: u32) -> windows_core::Result<()>;
     fn OnEndOfStream(&self) -> windows_core::Result<()>;
     fn OnNetworkError(&self) -> windows_core::Result<()>;
@@ -642,7 +642,7 @@ pub trait INDLicenseFetchDescriptor_Impl: windows_core::IUnknownImpl {
     fn ContentIDType(&self) -> windows_core::Result<NDContentIDType>;
     fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData>;
-    fn SetLicenseFetchChallengeCustomData(&self, licenseFetchChallengeCustomData: windows_core::Ref<INDCustomData>) -> windows_core::Result<()>;
+    fn SetLicenseFetchChallengeCustomData(&self, licenseFetchChallengeCustomData: windows_core::Ref<'_, INDCustomData>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl INDLicenseFetchDescriptor_Vtbl {
@@ -1220,7 +1220,7 @@ impl windows_core::RuntimeName for INDStorageFileHelper {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
 pub trait INDStorageFileHelper_Impl: windows_core::IUnknownImpl {
-    fn GetFileURLs(&self, file: windows_core::Ref<super::super::super::Storage::IStorageFile>) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>>;
+    fn GetFileURLs(&self, file: windows_core::Ref<'_, super::super::super::Storage::IStorageFile>) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
 impl INDStorageFileHelper_Vtbl {
@@ -1301,7 +1301,7 @@ impl windows_core::RuntimeName for INDStreamParser {
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParser_Impl: windows_core::IUnknownImpl {
     fn ParseData(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
-    fn GetStreamInformation(&self, descriptor: windows_core::Ref<super::super::Core::IMediaStreamDescriptor>, streamType: &mut NDMediaStreamType) -> windows_core::Result<u32>;
+    fn GetStreamInformation(&self, descriptor: windows_core::Ref<'_, super::super::Core::IMediaStreamDescriptor>, streamType: &mut NDMediaStreamType) -> windows_core::Result<u32>;
     fn BeginOfStream(&self) -> windows_core::Result<()>;
     fn EndOfStream(&self) -> windows_core::Result<()>;
     fn Notifier(&self) -> windows_core::Result<NDStreamParserNotifier>;
@@ -1427,10 +1427,10 @@ impl windows_core::RuntimeName for INDStreamParserNotifier {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParserNotifier_Impl: windows_core::IUnknownImpl {
-    fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
-    fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: windows_core::Ref<super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, videoStreamDescriptors: windows_core::Ref<super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> windows_core::Result<()>;
-    fn OnSampleParsed(&self, streamID: u32, streamType: NDMediaStreamType, streamSample: windows_core::Ref<super::super::Core::MediaStreamSample>, pts: i64, ccFormat: NDClosedCaptionFormat, ccDataBytes: &[u8]) -> windows_core::Result<()>;
-    fn OnBeginSetupDecryptor(&self, descriptor: windows_core::Ref<super::super::Core::IMediaStreamDescriptor>, keyID: &windows_core::GUID, proBytes: &[u8]) -> windows_core::Result<()>;
+    fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<'_, INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
+    fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: windows_core::Ref<'_, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, videoStreamDescriptors: windows_core::Ref<'_, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> windows_core::Result<()>;
+    fn OnSampleParsed(&self, streamID: u32, streamType: NDMediaStreamType, streamSample: windows_core::Ref<'_, super::super::Core::MediaStreamSample>, pts: i64, ccFormat: NDClosedCaptionFormat, ccDataBytes: &[u8]) -> windows_core::Result<()>;
+    fn OnBeginSetupDecryptor(&self, descriptor: windows_core::Ref<'_, super::super::Core::IMediaStreamDescriptor>, keyID: &windows_core::GUID, proBytes: &[u8]) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
 impl INDStreamParserNotifier_Vtbl {
@@ -2344,7 +2344,7 @@ impl windows_core::RuntimeName for IPlayReadyLicenseAcquisitionServiceRequest {
 }
 pub trait IPlayReadyLicenseAcquisitionServiceRequest_Impl: super::IMediaProtectionServiceRequest_Impl + IPlayReadyServiceRequest_Impl {
     fn ContentHeader(&self) -> windows_core::Result<PlayReadyContentHeader>;
-    fn SetContentHeader(&self, value: windows_core::Ref<PlayReadyContentHeader>) -> windows_core::Result<()>;
+    fn SetContentHeader(&self, value: windows_core::Ref<'_, PlayReadyContentHeader>) -> windows_core::Result<()>;
     fn DomainServiceId(&self) -> windows_core::Result<windows_core::GUID>;
     fn SetDomainServiceId(&self, value: &windows_core::GUID) -> windows_core::Result<()>;
 }
@@ -2475,7 +2475,7 @@ impl windows_core::RuntimeName for IPlayReadyLicenseSession {
 }
 pub trait IPlayReadyLicenseSession_Impl: windows_core::IUnknownImpl {
     fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest>;
-    fn ConfigureMediaProtectionManager(&self, mpm: windows_core::Ref<super::MediaProtectionManager>) -> windows_core::Result<()>;
+    fn ConfigureMediaProtectionManager(&self, mpm: windows_core::Ref<'_, super::MediaProtectionManager>) -> windows_core::Result<()>;
 }
 impl IPlayReadyLicenseSession_Vtbl {
     pub const fn new<Identity: IPlayReadyLicenseSession_Impl, const OFFSET: isize>() -> Self {
@@ -2553,7 +2553,7 @@ impl windows_core::RuntimeName for IPlayReadyLicenseSession2 {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPlayReadyLicenseSession2_Impl: IPlayReadyLicenseSession_Impl {
-    fn CreateLicenseIterable(&self, contentHeader: windows_core::Ref<PlayReadyContentHeader>, fullyEvaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>;
+    fn CreateLicenseIterable(&self, contentHeader: windows_core::Ref<'_, PlayReadyContentHeader>, fullyEvaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IPlayReadyLicenseSession2_Vtbl {
@@ -2940,7 +2940,7 @@ impl windows_core::RuntimeName for IPlayReadyServiceRequest {
 }
 pub trait IPlayReadyServiceRequest_Impl: super::IMediaProtectionServiceRequest_Impl {
     fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri>;
-    fn SetUri(&self, value: windows_core::Ref<super::super::super::Foundation::Uri>) -> windows_core::Result<()>;
+    fn SetUri(&self, value: windows_core::Ref<'_, super::super::super::Foundation::Uri>) -> windows_core::Result<()>;
     fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;

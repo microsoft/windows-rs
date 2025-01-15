@@ -321,9 +321,9 @@ impl windows_core::RuntimeName for ICustomGameControllerFactory {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.ICustomGameControllerFactory";
 }
 pub trait ICustomGameControllerFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateGameController(&self, provider: windows_core::Ref<IGameControllerProvider>) -> windows_core::Result<windows_core::IInspectable>;
-    fn OnGameControllerAdded(&self, value: windows_core::Ref<super::IGameController>) -> windows_core::Result<()>;
-    fn OnGameControllerRemoved(&self, value: windows_core::Ref<super::IGameController>) -> windows_core::Result<()>;
+    fn CreateGameController(&self, provider: windows_core::Ref<'_, IGameControllerProvider>) -> windows_core::Result<windows_core::IInspectable>;
+    fn OnGameControllerAdded(&self, value: windows_core::Ref<'_, super::IGameController>) -> windows_core::Result<()>;
+    fn OnGameControllerRemoved(&self, value: windows_core::Ref<'_, super::IGameController>) -> windows_core::Result<()>;
 }
 impl ICustomGameControllerFactory_Vtbl {
     pub const fn new<Identity: ICustomGameControllerFactory_Impl, const OFFSET: isize>() -> Self {

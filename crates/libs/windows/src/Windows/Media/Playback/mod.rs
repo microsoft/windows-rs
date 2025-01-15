@@ -318,7 +318,7 @@ impl windows_core::RuntimeName for IMediaEnginePlaybackSource {
 #[cfg(feature = "deprecated")]
 pub trait IMediaEnginePlaybackSource_Impl: windows_core::IUnknownImpl {
     fn CurrentItem(&self) -> windows_core::Result<MediaPlaybackItem>;
-    fn SetPlaybackSource(&self, source: windows_core::Ref<IMediaPlaybackSource>) -> windows_core::Result<()>;
+    fn SetPlaybackSource(&self, source: windows_core::Ref<'_, IMediaPlaybackSource>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl IMediaEnginePlaybackSource_Vtbl {

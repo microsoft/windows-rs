@@ -3642,7 +3642,7 @@ pub trait IWMPCdromBurn_Impl: windows_core::IUnknownImpl {
     fn burnFormat(&self, pwmpbf: *mut WMPBurnFormat) -> windows_core::Result<()>;
     fn SetburnFormat(&self, wmpbf: WMPBurnFormat) -> windows_core::Result<()>;
     fn burnPlaylist(&self) -> windows_core::Result<IWMPPlaylist>;
-    fn SetburnPlaylist(&self, pplaylist: windows_core::Ref<IWMPPlaylist>) -> windows_core::Result<()>;
+    fn SetburnPlaylist(&self, pplaylist: windows_core::Ref<'_, IWMPPlaylist>) -> windows_core::Result<()>;
     fn refreshStatus(&self) -> windows_core::Result<()>;
     fn burnState(&self, pwmpbs: *mut WMPBurnState) -> windows_core::Result<()>;
     fn burnProgress(&self, plprogress: *mut i32) -> windows_core::Result<()>;
@@ -4564,16 +4564,16 @@ pub struct IWMPContentPartner_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMPContentPartner_Impl: windows_core::IUnknownImpl {
-    fn SetCallback(&self, pcallback: windows_core::Ref<IWMPContentPartnerCallback>) -> windows_core::Result<()>;
+    fn SetCallback(&self, pcallback: windows_core::Ref<'_, IWMPContentPartnerCallback>) -> windows_core::Result<()>;
     fn Notify(&self, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn GetItemInfo(&self, bstrinfoname: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetContentPartnerInfo(&self, bstrinfoname: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetCommands(&self, location: &windows_core::BSTR, plocationcontext: *const super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, citemids: u32, prgitemids: *const u32, pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> windows_core::Result<()>;
     fn InvokeCommand(&self, dwcommandid: u32, location: &windows_core::BSTR, plocationcontext: *const super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, citemids: u32, rgitemids: *const u32) -> windows_core::Result<()>;
-    fn CanBuySilent(&self, pinfo: windows_core::Ref<IWMPContentContainerList>, pbstrtotalprice: *mut windows_core::BSTR, psilentok: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Buy(&self, pinfo: windows_core::Ref<IWMPContentContainerList>, cookie: u32) -> windows_core::Result<()>;
+    fn CanBuySilent(&self, pinfo: windows_core::Ref<'_, IWMPContentContainerList>, pbstrtotalprice: *mut windows_core::BSTR, psilentok: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn Buy(&self, pinfo: windows_core::Ref<'_, IWMPContentContainerList>, cookie: u32) -> windows_core::Result<()>;
     fn GetStreamingURL(&self, st: WMPStreamingType, pstreamcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn Download(&self, pinfo: windows_core::Ref<IWMPContentContainerList>, cookie: u32) -> windows_core::Result<()>;
+    fn Download(&self, pinfo: windows_core::Ref<'_, IWMPContentContainerList>, cookie: u32) -> windows_core::Result<()>;
     fn DownloadTrackComplete(&self, hrresult: windows_core::HRESULT, contentid: u32, downloadtrackparam: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RefreshLicense(&self, dwcookie: u32, flocal: super::super::Foundation::VARIANT_BOOL, bstrurl: &windows_core::BSTR, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: &windows_core::BSTR, preasoncontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn GetCatalogURL(&self, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut windows_core::BSTR, pexpirationdate: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
@@ -4585,7 +4585,7 @@ pub trait IWMPContentPartner_Impl: windows_core::IUnknownImpl {
     fn Logout(&self) -> windows_core::Result<()>;
     fn SendMessage(&self, bstrmsg: &windows_core::BSTR, bstrparam: &windows_core::BSTR) -> windows_core::Result<()>;
     fn StationEvent(&self, bstrstationeventtype: &windows_core::BSTR, stationid: u32, playlistindex: u32, trackid: u32, trackdata: &windows_core::BSTR, dwsecondsplayed: u32) -> windows_core::Result<()>;
-    fn CompareContainerListPrices(&self, plistbase: windows_core::Ref<IWMPContentContainerList>, plistcompare: windows_core::Ref<IWMPContentContainerList>) -> windows_core::Result<i32>;
+    fn CompareContainerListPrices(&self, plistbase: windows_core::Ref<'_, IWMPContentContainerList>, plistcompare: windows_core::Ref<'_, IWMPContentContainerList>) -> windows_core::Result<i32>;
     fn VerifyPermission(&self, bstrpermission: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5080,10 +5080,10 @@ pub trait IWMPControls_Impl: super::super::System::Com::IDispatch_Impl {
     fn next(&self) -> windows_core::Result<()>;
     fn previous(&self) -> windows_core::Result<()>;
     fn currentItem(&self) -> windows_core::Result<IWMPMedia>;
-    fn SetcurrentItem(&self, piwmpmedia: windows_core::Ref<IWMPMedia>) -> windows_core::Result<()>;
+    fn SetcurrentItem(&self, piwmpmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
     fn currentMarker(&self, plmarker: *mut i32) -> windows_core::Result<()>;
     fn SetcurrentMarker(&self, lmarker: i32) -> windows_core::Result<()>;
-    fn playItem(&self, piwmpmedia: windows_core::Ref<IWMPMedia>) -> windows_core::Result<()>;
+    fn playItem(&self, piwmpmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWMPControls_Vtbl {
@@ -5609,14 +5609,14 @@ pub trait IWMPCore_Impl: super::super::System::Com::IDispatch_Impl {
     fn controls(&self) -> windows_core::Result<IWMPControls>;
     fn settings(&self) -> windows_core::Result<IWMPSettings>;
     fn currentMedia(&self) -> windows_core::Result<IWMPMedia>;
-    fn SetcurrentMedia(&self, pmedia: windows_core::Ref<IWMPMedia>) -> windows_core::Result<()>;
+    fn SetcurrentMedia(&self, pmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
     fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection>;
     fn playlistCollection(&self) -> windows_core::Result<IWMPPlaylistCollection>;
     fn versionInfo(&self, pbstrversioninfo: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn launchURL(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn network(&self) -> windows_core::Result<IWMPNetwork>;
     fn currentPlaylist(&self) -> windows_core::Result<IWMPPlaylist>;
-    fn SetcurrentPlaylist(&self, ppl: windows_core::Ref<IWMPPlaylist>) -> windows_core::Result<()>;
+    fn SetcurrentPlaylist(&self, ppl: windows_core::Ref<'_, IWMPPlaylist>) -> windows_core::Result<()>;
     fn cdromCollection(&self) -> windows_core::Result<IWMPCdromCollection>;
     fn closedCaption(&self) -> windows_core::Result<IWMPClosedCaption>;
     fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -6667,10 +6667,10 @@ pub struct IWMPEffects2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IWMPEffects2_Impl: IWMPEffects_Impl {
-    fn SetCore(&self, pplayer: windows_core::Ref<IWMPCore>) -> windows_core::Result<()>;
+    fn SetCore(&self, pplayer: windows_core::Ref<'_, IWMPCore>) -> windows_core::Result<()>;
     fn Create(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn Destroy(&self) -> windows_core::Result<()>;
-    fn NotifyNewMedia(&self, pmedia: windows_core::Ref<IWMPMedia>) -> windows_core::Result<()>;
+    fn NotifyNewMedia(&self, pmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
     fn OnWindowMessage(&self, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresultparam: *mut super::super::Foundation::LRESULT) -> windows_core::Result<()>;
     fn RenderWindowed(&self, pdata: *mut TimedLevel, frequiredrender: windows_core::BOOL) -> windows_core::Result<()>;
 }
@@ -7204,12 +7204,12 @@ pub trait IWMPEvents_Impl: windows_core::IUnknownImpl {
     fn MarkerHit(&self, markernum: i32);
     fn DurationUnitChange(&self, newdurationunit: i32);
     fn CdromMediaChange(&self, cdromnum: i32);
-    fn PlaylistChange(&self, playlist: windows_core::Ref<super::super::System::Com::IDispatch>, change: WMPPlaylistChangeEventType);
+    fn PlaylistChange(&self, playlist: windows_core::Ref<'_, super::super::System::Com::IDispatch>, change: WMPPlaylistChangeEventType);
     fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType);
     fn CurrentPlaylistItemAvailable(&self, bstritemname: &windows_core::BSTR);
-    fn MediaChange(&self, item: windows_core::Ref<super::super::System::Com::IDispatch>);
+    fn MediaChange(&self, item: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
     fn CurrentMediaItemAvailable(&self, bstritemname: &windows_core::BSTR);
-    fn CurrentItemChange(&self, pdispmedia: windows_core::Ref<super::super::System::Com::IDispatch>);
+    fn CurrentItemChange(&self, pdispmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
     fn MediaCollectionChange(&self);
     fn MediaCollectionAttributeStringAdded(&self, bstrattribname: &windows_core::BSTR, bstrattribval: &windows_core::BSTR);
     fn MediaCollectionAttributeStringRemoved(&self, bstrattribname: &windows_core::BSTR, bstrattribval: &windows_core::BSTR);
@@ -7219,8 +7219,8 @@ pub trait IWMPEvents_Impl: windows_core::IUnknownImpl {
     fn PlaylistCollectionPlaylistRemoved(&self, bstrplaylistname: &windows_core::BSTR);
     fn PlaylistCollectionPlaylistSetAsDeleted(&self, bstrplaylistname: &windows_core::BSTR, varfisdeleted: super::super::Foundation::VARIANT_BOOL);
     fn ModeChange(&self, modename: &windows_core::BSTR, newvalue: super::super::Foundation::VARIANT_BOOL);
-    fn MediaError(&self, pmediaobject: windows_core::Ref<super::super::System::Com::IDispatch>);
-    fn OpenPlaylistSwitch(&self, pitem: windows_core::Ref<super::super::System::Com::IDispatch>);
+    fn MediaError(&self, pmediaobject: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
+    fn OpenPlaylistSwitch(&self, pitem: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
     fn DomainChange(&self, strdomain: &windows_core::BSTR);
     fn SwitchedToPlayerApplication(&self);
     fn SwitchedToControl(&self);
@@ -7626,12 +7626,12 @@ pub struct IWMPEvents2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPEvents2_Impl: IWMPEvents_Impl {
-    fn DeviceConnect(&self, pdevice: windows_core::Ref<IWMPSyncDevice>);
-    fn DeviceDisconnect(&self, pdevice: windows_core::Ref<IWMPSyncDevice>);
-    fn DeviceStatusChange(&self, pdevice: windows_core::Ref<IWMPSyncDevice>, newstatus: WMPDeviceStatus);
-    fn DeviceSyncStateChange(&self, pdevice: windows_core::Ref<IWMPSyncDevice>, newstate: WMPSyncState);
-    fn DeviceSyncError(&self, pdevice: windows_core::Ref<IWMPSyncDevice>, pmedia: windows_core::Ref<super::super::System::Com::IDispatch>);
-    fn CreatePartnershipComplete(&self, pdevice: windows_core::Ref<IWMPSyncDevice>, hrresult: windows_core::HRESULT);
+    fn DeviceConnect(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>);
+    fn DeviceDisconnect(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>);
+    fn DeviceStatusChange(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, newstatus: WMPDeviceStatus);
+    fn DeviceSyncStateChange(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, newstate: WMPSyncState);
+    fn DeviceSyncError(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, pmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
+    fn CreatePartnershipComplete(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, hrresult: windows_core::HRESULT);
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPEvents2_Vtbl {
@@ -7800,17 +7800,17 @@ pub struct IWMPEvents3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPEvents3_Impl: IWMPEvents2_Impl {
-    fn CdromRipStateChange(&self, pcdromrip: windows_core::Ref<IWMPCdromRip>, wmprs: WMPRipState);
-    fn CdromRipMediaError(&self, pcdromrip: windows_core::Ref<IWMPCdromRip>, pmedia: windows_core::Ref<super::super::System::Com::IDispatch>);
-    fn CdromBurnStateChange(&self, pcdromburn: windows_core::Ref<IWMPCdromBurn>, wmpbs: WMPBurnState);
-    fn CdromBurnMediaError(&self, pcdromburn: windows_core::Ref<IWMPCdromBurn>, pmedia: windows_core::Ref<super::super::System::Com::IDispatch>);
-    fn CdromBurnError(&self, pcdromburn: windows_core::Ref<IWMPCdromBurn>, hrerror: windows_core::HRESULT);
-    fn LibraryConnect(&self, plibrary: windows_core::Ref<IWMPLibrary>);
-    fn LibraryDisconnect(&self, plibrary: windows_core::Ref<IWMPLibrary>);
+    fn CdromRipStateChange(&self, pcdromrip: windows_core::Ref<'_, IWMPCdromRip>, wmprs: WMPRipState);
+    fn CdromRipMediaError(&self, pcdromrip: windows_core::Ref<'_, IWMPCdromRip>, pmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
+    fn CdromBurnStateChange(&self, pcdromburn: windows_core::Ref<'_, IWMPCdromBurn>, wmpbs: WMPBurnState);
+    fn CdromBurnMediaError(&self, pcdromburn: windows_core::Ref<'_, IWMPCdromBurn>, pmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
+    fn CdromBurnError(&self, pcdromburn: windows_core::Ref<'_, IWMPCdromBurn>, hrerror: windows_core::HRESULT);
+    fn LibraryConnect(&self, plibrary: windows_core::Ref<'_, IWMPLibrary>);
+    fn LibraryDisconnect(&self, plibrary: windows_core::Ref<'_, IWMPLibrary>);
     fn FolderScanStateChange(&self, wmpfss: WMPFolderScanState);
-    fn StringCollectionChange(&self, pdispstringcollection: windows_core::Ref<super::super::System::Com::IDispatch>, change: WMPStringCollectionChangeEventType, lcollectionindex: i32);
-    fn MediaCollectionMediaAdded(&self, pdispmedia: windows_core::Ref<super::super::System::Com::IDispatch>);
-    fn MediaCollectionMediaRemoved(&self, pdispmedia: windows_core::Ref<super::super::System::Com::IDispatch>);
+    fn StringCollectionChange(&self, pdispstringcollection: windows_core::Ref<'_, super::super::System::Com::IDispatch>, change: WMPStringCollectionChangeEventType, lcollectionindex: i32);
+    fn MediaCollectionMediaAdded(&self, pdispmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
+    fn MediaCollectionMediaRemoved(&self, pdispmedia: windows_core::Ref<'_, super::super::System::Com::IDispatch>);
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPEvents3_Vtbl {
@@ -7925,7 +7925,7 @@ pub struct IWMPEvents4_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPEvents4_Impl: IWMPEvents3_Impl {
-    fn DeviceEstimation(&self, pdevice: windows_core::Ref<IWMPSyncDevice>, hrresult: windows_core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64);
+    fn DeviceEstimation(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, hrresult: windows_core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64);
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPEvents4_Vtbl {
@@ -8125,8 +8125,8 @@ pub struct IWMPGraphCreation_Vtbl {
     pub GetGraphCreationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IWMPGraphCreation_Impl: windows_core::IUnknownImpl {
-    fn GraphCreationPreRender(&self, pfiltergraph: windows_core::Ref<windows_core::IUnknown>, preserved: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GraphCreationPostRender(&self, pfiltergraph: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GraphCreationPreRender(&self, pfiltergraph: windows_core::Ref<'_, windows_core::IUnknown>, preserved: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GraphCreationPostRender(&self, pfiltergraph: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetGraphCreationFlags(&self, pdwflags: *mut u32) -> windows_core::Result<()>;
 }
 impl IWMPGraphCreation_Vtbl {
@@ -8200,7 +8200,7 @@ pub trait IWMPLibrary_Impl: windows_core::IUnknownImpl {
     fn name(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn r#type(&self, pwmplt: *mut WMPLibraryType) -> windows_core::Result<()>;
     fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection>;
-    fn isIdentical(&self, piwmplibrary: windows_core::Ref<IWMPLibrary>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isIdentical(&self, piwmplibrary: windows_core::Ref<'_, IWMPLibrary>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPLibrary_Vtbl {
@@ -8498,7 +8498,7 @@ pub struct IWMPMedia_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMPMedia_Impl: super::super::System::Com::IDispatch_Impl {
-    fn get_isIdentical(&self, piwmpmedia: windows_core::Ref<IWMPMedia>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_isIdentical(&self, piwmpmedia: windows_core::Ref<'_, IWMPMedia>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn sourceURL(&self, pbstrsourceurl: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn name(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn Setname(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -8514,7 +8514,7 @@ pub trait IWMPMedia_Impl: super::super::System::Com::IDispatch_Impl {
     fn getItemInfo(&self, bstritemname: &windows_core::BSTR, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn setItemInfo(&self, bstritemname: &windows_core::BSTR, bstrval: &windows_core::BSTR) -> windows_core::Result<()>;
     fn getItemInfoByAtom(&self, latom: i32, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn isMemberOf(&self, pplaylist: windows_core::Ref<IWMPPlaylist>, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isMemberOf(&self, pplaylist: windows_core::Ref<'_, IWMPPlaylist>, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn isReadOnlyItem(&self, bstritemname: &windows_core::BSTR, pvarfisreadonly: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8881,11 +8881,11 @@ pub trait IWMPMediaCollection_Impl: super::super::System::Com::IDispatch_Impl {
     fn getByAuthor(&self, bstrauthor: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
     fn getByAlbum(&self, bstralbum: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
     fn getByAttribute(&self, bstrattribute: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
-    fn remove(&self, pitem: windows_core::Ref<IWMPMedia>, varfdeletefile: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn remove(&self, pitem: windows_core::Ref<'_, IWMPMedia>, varfdeletefile: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn getAttributeStringCollection(&self, bstrattribute: &windows_core::BSTR, bstrmediatype: &windows_core::BSTR) -> windows_core::Result<IWMPStringCollection>;
     fn getMediaAtom(&self, bstritemname: &windows_core::BSTR, platom: *mut i32) -> windows_core::Result<()>;
-    fn setDeleted(&self, pitem: windows_core::Ref<IWMPMedia>, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn isDeleted(&self, pitem: windows_core::Ref<IWMPMedia>, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn setDeleted(&self, pitem: windows_core::Ref<'_, IWMPMedia>, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isDeleted(&self, pitem: windows_core::Ref<'_, IWMPMedia>, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWMPMediaCollection_Vtbl {
@@ -9088,8 +9088,8 @@ pub struct IWMPMediaCollection2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMPMediaCollection2_Impl: IWMPMediaCollection_Impl {
     fn createQuery(&self) -> windows_core::Result<IWMPQuery>;
-    fn getPlaylistByQuery(&self, pquery: windows_core::Ref<IWMPQuery>, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IWMPPlaylist>;
-    fn getStringCollectionByQuery(&self, bstrattribute: &windows_core::BSTR, pquery: windows_core::Ref<IWMPQuery>, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IWMPStringCollection>;
+    fn getPlaylistByQuery(&self, pquery: windows_core::Ref<'_, IWMPQuery>, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IWMPPlaylist>;
+    fn getStringCollectionByQuery(&self, bstrattribute: &windows_core::BSTR, pquery: windows_core::Ref<'_, IWMPQuery>, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IWMPStringCollection>;
     fn getByAttributeAndMediaType(&self, bstrattribute: &windows_core::BSTR, bstrvalue: &windows_core::BSTR, bstrmediatype: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -11000,11 +11000,11 @@ pub trait IWMPPlaylist_Impl: super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, lindex: i32) -> windows_core::Result<IWMPMedia>;
     fn getItemInfo(&self, bstrname: &windows_core::BSTR, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn setItemInfo(&self, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_isIdentical(&self, piwmpplaylist: windows_core::Ref<IWMPPlaylist>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_isIdentical(&self, piwmpplaylist: windows_core::Ref<'_, IWMPPlaylist>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn clear(&self) -> windows_core::Result<()>;
-    fn insertItem(&self, lindex: i32, piwmpmedia: windows_core::Ref<IWMPMedia>) -> windows_core::Result<()>;
-    fn appendItem(&self, piwmpmedia: windows_core::Ref<IWMPMedia>) -> windows_core::Result<()>;
-    fn removeItem(&self, piwmpmedia: windows_core::Ref<IWMPMedia>) -> windows_core::Result<()>;
+    fn insertItem(&self, lindex: i32, piwmpmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
+    fn appendItem(&self, piwmpmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
+    fn removeItem(&self, piwmpmedia: windows_core::Ref<'_, IWMPMedia>) -> windows_core::Result<()>;
     fn moveItem(&self, lindexold: i32, lindexnew: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -11264,10 +11264,10 @@ pub trait IWMPPlaylistCollection_Impl: super::super::System::Com::IDispatch_Impl
     fn newPlaylist(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist>;
     fn getAll(&self) -> windows_core::Result<IWMPPlaylistArray>;
     fn getByName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylistArray>;
-    fn remove(&self, pitem: windows_core::Ref<IWMPPlaylist>) -> windows_core::Result<()>;
-    fn setDeleted(&self, pitem: windows_core::Ref<IWMPPlaylist>, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn isDeleted(&self, pitem: windows_core::Ref<IWMPPlaylist>, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn importPlaylist(&self, pitem: windows_core::Ref<IWMPPlaylist>) -> windows_core::Result<IWMPPlaylist>;
+    fn remove(&self, pitem: windows_core::Ref<'_, IWMPPlaylist>) -> windows_core::Result<()>;
+    fn setDeleted(&self, pitem: windows_core::Ref<'_, IWMPPlaylist>, varfisdeleted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isDeleted(&self, pitem: windows_core::Ref<'_, IWMPPlaylist>, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn importPlaylist(&self, pitem: windows_core::Ref<'_, IWMPPlaylist>) -> windows_core::Result<IWMPPlaylist>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWMPPlaylistCollection_Vtbl {
@@ -11395,7 +11395,7 @@ pub trait IWMPPlugin_Impl: windows_core::IUnknownImpl {
     fn Shutdown(&self) -> windows_core::Result<()>;
     fn GetID(&self, pguid: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn GetCaps(&self, pdwflags: *mut u32) -> windows_core::Result<()>;
-    fn AdviseWMPServices(&self, pwmpservices: windows_core::Ref<IWMPServices>) -> windows_core::Result<()>;
+    fn AdviseWMPServices(&self, pwmpservices: windows_core::Ref<'_, IWMPServices>) -> windows_core::Result<()>;
     fn UnAdviseWMPServices(&self) -> windows_core::Result<()>;
 }
 impl IWMPPlugin_Vtbl {
@@ -11559,7 +11559,7 @@ pub struct IWMPPluginUI_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWMPPluginUI_Impl: windows_core::IUnknownImpl {
-    fn SetCore(&self, pcore: windows_core::Ref<IWMPCore>) -> windows_core::Result<()>;
+    fn SetCore(&self, pcore: windows_core::Ref<'_, IWMPCore>) -> windows_core::Result<()>;
     fn Create(&self, hwndparent: super::super::Foundation::HWND, phwndwindow: *mut super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn Destroy(&self) -> windows_core::Result<()>;
     fn DisplayPropertyPage(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<()>;
@@ -12365,7 +12365,7 @@ pub struct IWMPStringCollection2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMPStringCollection2_Impl: IWMPStringCollection_Impl {
-    fn isIdentical(&self, piwmpstringcollection2: windows_core::Ref<IWMPStringCollection2>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isIdentical(&self, piwmpstringcollection2: windows_core::Ref<'_, IWMPStringCollection2>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn getItemInfo(&self, lcollectionindex: i32, bstritemname: &windows_core::BSTR, pbstrvalue: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn getAttributeCountByType(&self, lcollectionindex: i32, bstrtype: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR, plcount: *mut i32) -> windows_core::Result<()>;
     fn getItemInfoByType(&self, lcollectionindex: i32, bstrtype: &windows_core::BSTR, bstrlanguage: &windows_core::BSTR, lattributeindex: i32, pvarvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
@@ -12458,9 +12458,9 @@ pub struct IWMPSubscriptionService_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPSubscriptionService_Impl: windows_core::IUnknownImpl {
-    fn allowPlay(&self, hwnd: super::super::Foundation::HWND, pmedia: windows_core::Ref<IWMPMedia>, pfallowplay: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn allowCDBurn(&self, hwnd: super::super::Foundation::HWND, pplaylist: windows_core::Ref<IWMPPlaylist>, pfallowburn: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn allowPDATransfer(&self, hwnd: super::super::Foundation::HWND, pplaylist: windows_core::Ref<IWMPPlaylist>, pfallowtransfer: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn allowPlay(&self, hwnd: super::super::Foundation::HWND, pmedia: windows_core::Ref<'_, IWMPMedia>, pfallowplay: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn allowCDBurn(&self, hwnd: super::super::Foundation::HWND, pplaylist: windows_core::Ref<'_, IWMPPlaylist>, pfallowburn: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn allowPDATransfer(&self, hwnd: super::super::Foundation::HWND, pplaylist: windows_core::Ref<'_, IWMPPlaylist>, pfallowtransfer: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn startBackgroundProcessing(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12544,8 +12544,8 @@ pub struct IWMPSubscriptionService2_Vtbl {
 pub trait IWMPSubscriptionService2_Impl: IWMPSubscriptionService_Impl {
     fn stopBackgroundProcessing(&self) -> windows_core::Result<()>;
     fn serviceEvent(&self, event: WMPSubscriptionServiceEvent) -> windows_core::Result<()>;
-    fn deviceAvailable(&self, bstrdevicename: &windows_core::BSTR, pcb: windows_core::Ref<IWMPSubscriptionServiceCallback>) -> windows_core::Result<()>;
-    fn prepareForSync(&self, bstrfilename: &windows_core::BSTR, bstrdevicename: &windows_core::BSTR, pcb: windows_core::Ref<IWMPSubscriptionServiceCallback>) -> windows_core::Result<()>;
+    fn deviceAvailable(&self, bstrdevicename: &windows_core::BSTR, pcb: windows_core::Ref<'_, IWMPSubscriptionServiceCallback>) -> windows_core::Result<()>;
+    fn prepareForSync(&self, bstrfilename: &windows_core::BSTR, bstrdevicename: &windows_core::BSTR, pcb: windows_core::Ref<'_, IWMPSubscriptionServiceCallback>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPSubscriptionService2_Vtbl {
@@ -12709,7 +12709,7 @@ pub trait IWMPSyncDevice_Impl: windows_core::IUnknownImpl {
     fn start(&self) -> windows_core::Result<()>;
     fn stop(&self) -> windows_core::Result<()>;
     fn showSettings(&self) -> windows_core::Result<()>;
-    fn isIdentical(&self, pdevice: windows_core::Ref<IWMPSyncDevice>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn isIdentical(&self, pdevice: windows_core::Ref<'_, IWMPSyncDevice>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 impl IWMPSyncDevice_Vtbl {
     pub const fn new<Identity: IWMPSyncDevice_Impl, const OFFSET: isize>() -> Self {
@@ -12902,7 +12902,7 @@ pub struct IWMPSyncDevice3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPSyncDevice3_Impl: IWMPSyncDevice2_Impl {
-    fn estimateSyncSize(&self, pnonruleplaylist: windows_core::Ref<IWMPPlaylist>, prulesplaylist: windows_core::Ref<IWMPPlaylist>) -> windows_core::Result<()>;
+    fn estimateSyncSize(&self, pnonruleplaylist: windows_core::Ref<'_, IWMPPlaylist>, prulesplaylist: windows_core::Ref<'_, IWMPPlaylist>) -> windows_core::Result<()>;
     fn cancelEstimation(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13067,7 +13067,7 @@ pub struct IWMPVideoRenderConfig_Vtbl {
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IWMPVideoRenderConfig_Impl: windows_core::IUnknownImpl {
-    fn SetpresenterActivate(&self, pactivate: windows_core::Ref<super::MediaFoundation::IMFActivate>) -> windows_core::Result<()>;
+    fn SetpresenterActivate(&self, pactivate: windows_core::Ref<'_, super::MediaFoundation::IMFActivate>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl IWMPVideoRenderConfig_Vtbl {
@@ -13448,7 +13448,7 @@ pub trait IXFeed_Impl: windows_core::IUnknownImpl {
     fn SetDownloadEnclosuresAutomatically(&self, bdownloadenclosuresautomatically: windows_core::BOOL) -> windows_core::Result<()>;
     fn DownloadStatus(&self) -> windows_core::Result<FEEDS_DOWNLOAD_STATUS>;
     fn LastDownloadError(&self) -> windows_core::Result<FEEDS_DOWNLOAD_ERROR>;
-    fn Merge(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, pszurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Merge(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, pszurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn DownloadUrl(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Title(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Description(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -15703,7 +15703,7 @@ pub trait IXFeedsManager_Impl: windows_core::IUnknownImpl {
     fn DefaultInterval(&self) -> windows_core::Result<u32>;
     fn SetDefaultInterval(&self, uiinterval: u32) -> windows_core::Result<()>;
     fn AsyncSyncAll(&self) -> windows_core::Result<()>;
-    fn Normalize(&self, pstreamin: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<super::super::System::Com::IStream>;
+    fn Normalize(&self, pstreamin: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<super::super::System::Com::IStream>;
     fn ItemCountLimit(&self) -> windows_core::Result<u32>;
 }
 #[cfg(feature = "Win32_System_Com")]

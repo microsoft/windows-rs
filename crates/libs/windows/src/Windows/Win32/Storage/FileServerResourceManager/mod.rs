@@ -2492,8 +2492,8 @@ pub struct IFsrmClassifierModuleImplementation_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmClassifierModuleImplementation_Impl: IFsrmPipelineModuleImplementation_Impl {
     fn LastModified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn UseRulesAndDefinitions(&self, rules: windows_core::Ref<IFsrmCollection>, propertydefinitions: windows_core::Ref<IFsrmCollection>) -> windows_core::Result<()>;
-    fn OnBeginFile(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn UseRulesAndDefinitions(&self, rules: windows_core::Ref<'_, IFsrmCollection>, propertydefinitions: windows_core::Ref<'_, IFsrmCollection>) -> windows_core::Result<()>;
+    fn OnBeginFile(&self, propertybag: windows_core::Ref<'_, IFsrmPropertyBag>, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn DoesPropertyValueApply(&self, property: &windows_core::BSTR, value: &windows_core::BSTR, applyvalue: *mut super::super::Foundation::VARIANT_BOOL, idrule: &windows_core::GUID, idpropdef: &windows_core::GUID) -> windows_core::Result<()>;
     fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: &windows_core::GUID, idpropdef: &windows_core::GUID) -> windows_core::Result<()>;
     fn OnEndFile(&self) -> windows_core::Result<()>;
@@ -3363,9 +3363,9 @@ pub trait IFsrmFileGroup_Impl: IFsrmObject_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Members(&self) -> windows_core::Result<IFsrmMutableCollection>;
-    fn SetMembers(&self, members: windows_core::Ref<IFsrmMutableCollection>) -> windows_core::Result<()>;
+    fn SetMembers(&self, members: windows_core::Ref<'_, IFsrmMutableCollection>) -> windows_core::Result<()>;
     fn NonMembers(&self) -> windows_core::Result<IFsrmMutableCollection>;
-    fn SetNonMembers(&self, nonmembers: windows_core::Ref<IFsrmMutableCollection>) -> windows_core::Result<()>;
+    fn SetNonMembers(&self, nonmembers: windows_core::Ref<'_, IFsrmMutableCollection>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileGroup_Vtbl {
@@ -4884,7 +4884,7 @@ pub struct IFsrmFileScreenBase_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenBase_Impl: IFsrmObject_Impl {
     fn BlockedFileGroups(&self) -> windows_core::Result<IFsrmMutableCollection>;
-    fn SetBlockedFileGroups(&self, blocklist: windows_core::Ref<IFsrmMutableCollection>) -> windows_core::Result<()>;
+    fn SetBlockedFileGroups(&self, blocklist: windows_core::Ref<'_, IFsrmMutableCollection>) -> windows_core::Result<()>;
     fn FileScreenFlags(&self) -> windows_core::Result<i32>;
     fn SetFileScreenFlags(&self, filescreenflags: i32) -> windows_core::Result<()>;
     fn CreateAction(&self, actiontype: FsrmActionType) -> windows_core::Result<IFsrmAction>;
@@ -5013,7 +5013,7 @@ pub struct IFsrmFileScreenException_Vtbl {
 pub trait IFsrmFileScreenException_Impl: IFsrmObject_Impl {
     fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
     fn AllowedFileGroups(&self) -> windows_core::Result<IFsrmMutableCollection>;
-    fn SetAllowedFileGroups(&self, allowlist: windows_core::Ref<IFsrmMutableCollection>) -> windows_core::Result<()>;
+    fn SetAllowedFileGroups(&self, allowlist: windows_core::Ref<'_, IFsrmMutableCollection>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenException_Vtbl {
@@ -5928,7 +5928,7 @@ pub trait IFsrmPipelineModuleConnector_Impl: super::super::System::Com::IDispatc
     fn ModuleName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn HostingUserAccount(&self) -> windows_core::Result<windows_core::BSTR>;
     fn HostingProcessPid(&self) -> windows_core::Result<i32>;
-    fn Bind(&self, moduledefinition: windows_core::Ref<IFsrmPipelineModuleDefinition>, moduleimplementation: windows_core::Ref<IFsrmPipelineModuleImplementation>) -> windows_core::Result<()>;
+    fn Bind(&self, moduledefinition: windows_core::Ref<'_, IFsrmPipelineModuleDefinition>, moduleimplementation: windows_core::Ref<'_, IFsrmPipelineModuleImplementation>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPipelineModuleConnector_Vtbl {
@@ -6390,7 +6390,7 @@ pub struct IFsrmPipelineModuleImplementation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPipelineModuleImplementation_Impl: super::super::System::Com::IDispatch_Impl {
-    fn OnLoad(&self, moduledefinition: windows_core::Ref<IFsrmPipelineModuleDefinition>) -> windows_core::Result<IFsrmPipelineModuleConnector>;
+    fn OnLoad(&self, moduledefinition: windows_core::Ref<'_, IFsrmPipelineModuleDefinition>) -> windows_core::Result<IFsrmPipelineModuleConnector>;
     fn OnUnload(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10380,9 +10380,9 @@ pub struct IFsrmStorageModuleImplementation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmStorageModuleImplementation_Impl: IFsrmPipelineModuleImplementation_Impl {
-    fn UseDefinitions(&self, propertydefinitions: windows_core::Ref<IFsrmCollection>) -> windows_core::Result<()>;
-    fn LoadProperties(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>) -> windows_core::Result<()>;
-    fn SaveProperties(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>) -> windows_core::Result<()>;
+    fn UseDefinitions(&self, propertydefinitions: windows_core::Ref<'_, IFsrmCollection>) -> windows_core::Result<()>;
+    fn LoadProperties(&self, propertybag: windows_core::Ref<'_, IFsrmPropertyBag>) -> windows_core::Result<()>;
+    fn SaveProperties(&self, propertybag: windows_core::Ref<'_, IFsrmPropertyBag>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmStorageModuleImplementation_Vtbl {

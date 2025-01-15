@@ -402,7 +402,7 @@ pub trait IIndexableContent_Impl: windows_core::IUnknownImpl {
     fn SetId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>;
     fn Stream(&self) -> windows_core::Result<super::Streams::IRandomAccessStream>;
-    fn SetStream(&self, value: windows_core::Ref<super::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn SetStream(&self, value: windows_core::Ref<'_, super::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
     fn StreamContentType(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetStreamContentType(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
@@ -757,18 +757,18 @@ pub trait IStorageFolderQueryOperations_Impl: windows_core::IUnknownImpl {
     fn GetIndexedStateAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
     fn CreateFileQueryOverloadDefault(&self) -> windows_core::Result<StorageFileQueryResult>;
     fn CreateFileQuery(&self, query: CommonFileQuery) -> windows_core::Result<StorageFileQueryResult>;
-    fn CreateFileQueryWithOptions(&self, queryOptions: windows_core::Ref<QueryOptions>) -> windows_core::Result<StorageFileQueryResult>;
+    fn CreateFileQueryWithOptions(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<StorageFileQueryResult>;
     fn CreateFolderQueryOverloadDefault(&self) -> windows_core::Result<StorageFolderQueryResult>;
     fn CreateFolderQuery(&self, query: CommonFolderQuery) -> windows_core::Result<StorageFolderQueryResult>;
-    fn CreateFolderQueryWithOptions(&self, queryOptions: windows_core::Ref<QueryOptions>) -> windows_core::Result<StorageFolderQueryResult>;
+    fn CreateFolderQueryWithOptions(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<StorageFolderQueryResult>;
     fn CreateItemQuery(&self) -> windows_core::Result<StorageItemQueryResult>;
-    fn CreateItemQueryWithOptions(&self, queryOptions: windows_core::Ref<QueryOptions>) -> windows_core::Result<StorageItemQueryResult>;
+    fn CreateItemQueryWithOptions(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<StorageItemQueryResult>;
     fn GetFilesAsync(&self, query: CommonFileQuery, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
     fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
     fn GetFoldersAsync(&self, query: CommonFolderQuery, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
     fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
     fn GetItemsAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
-    fn AreQueryOptionsSupported(&self, queryOptions: windows_core::Ref<QueryOptions>) -> windows_core::Result<bool>;
+    fn AreQueryOptionsSupported(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<bool>;
     fn IsCommonFolderQuerySupported(&self, query: CommonFolderQuery) -> windows_core::Result<bool>;
     fn IsCommonFileQuerySupported(&self, query: CommonFileQuery) -> windows_core::Result<bool>;
 }
@@ -1185,13 +1185,13 @@ impl windows_core::RuntimeName for IStorageQueryResultBase {
 pub trait IStorageQueryResultBase_Impl: windows_core::IUnknownImpl {
     fn GetItemCountAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn Folder(&self) -> windows_core::Result<super::StorageFolder>;
-    fn ContentsChanged(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn ContentsChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveContentsChanged(&self, eventCookie: i64) -> windows_core::Result<()>;
-    fn OptionsChanged(&self, changedHandler: windows_core::Ref<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn OptionsChanged(&self, changedHandler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveOptionsChanged(&self, eventCookie: i64) -> windows_core::Result<()>;
-    fn FindStartIndexAsync(&self, value: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn FindStartIndexAsync(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn GetCurrentQueryOptions(&self) -> windows_core::Result<QueryOptions>;
-    fn ApplyNewQueryOptions(&self, newQueryOptions: windows_core::Ref<QueryOptions>) -> windows_core::Result<()>;
+    fn ApplyNewQueryOptions(&self, newQueryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<()>;
 }
 impl IStorageQueryResultBase_Vtbl {
     pub const fn new<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>() -> Self {

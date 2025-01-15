@@ -292,7 +292,7 @@ pub trait IDXCoreAdapterFactory_Impl: windows_core::IUnknownImpl {
     fn CreateAdapterList(&self, numattributes: u32, filterattributes: *const windows_core::GUID, riid: *const windows_core::GUID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetAdapterByLuid(&self, adapterluid: *const super::super::Foundation::LUID, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn IsNotificationTypeSupported(&self, notificationtype: DXCoreNotificationType) -> bool;
-    fn RegisterEventNotification(&self, dxcoreobject: windows_core::Ref<windows_core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::Result<u32>;
+    fn RegisterEventNotification(&self, dxcoreobject: windows_core::Ref<'_, windows_core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::Result<u32>;
     fn UnregisterEventNotification(&self, eventcookie: u32) -> windows_core::Result<()>;
 }
 impl IDXCoreAdapterFactory_Vtbl {
@@ -457,6 +457,6 @@ pub const KmdModelVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(4u32);
 pub const Local: DXCoreSegmentGroup = DXCoreSegmentGroup(0u32);
 pub const MinimumPower: DXCoreAdapterPreference = DXCoreAdapterPreference(1u32);
 pub const NonLocal: DXCoreSegmentGroup = DXCoreSegmentGroup(1u32);
-pub type PFN_DXCORE_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: windows_core::Ref<windows_core::IUnknown>, context: *const core::ffi::c_void)>;
+pub type PFN_DXCORE_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: windows_core::Ref<'_, windows_core::IUnknown>, context: *const core::ffi::c_void)>;
 pub const SharedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(9u32);
 pub const _FACDXCORE: u32 = 2176u32;

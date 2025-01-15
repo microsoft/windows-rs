@@ -3439,10 +3439,10 @@ pub trait IAssemblyName_Impl: windows_core::IUnknownImpl {
     fn GetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, pcbproperty: *mut u32) -> windows_core::Result<()>;
     fn Finalize(&self) -> windows_core::Result<()>;
     fn GetDisplayName(&self, szdisplayname: windows_core::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> windows_core::Result<()>;
-    fn Reserved(&self, refiid: *const windows_core::GUID, punkreserved1: windows_core::Ref<windows_core::IUnknown>, punkreserved2: windows_core::Ref<windows_core::IUnknown>, szreserved: &windows_core::PCWSTR, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Reserved(&self, refiid: *const windows_core::GUID, punkreserved1: windows_core::Ref<'_, windows_core::IUnknown>, punkreserved2: windows_core::Ref<'_, windows_core::IUnknown>, szreserved: &windows_core::PCWSTR, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetName(&self, lpcwbuffer: *mut u32, pwzname: windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> windows_core::Result<()>;
-    fn IsEqual(&self, pname: windows_core::Ref<IAssemblyName>, dwcmpflags: u32) -> windows_core::Result<()>;
+    fn IsEqual(&self, pname: windows_core::Ref<'_, IAssemblyName>, dwcmpflags: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IAssemblyName>;
 }
 impl IAssemblyName_Vtbl {

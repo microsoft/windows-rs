@@ -1727,8 +1727,8 @@ pub trait IRemoteDesktopClient_Impl: super::Com::IDispatch_Impl {
     fn TouchPointer(&self) -> windows_core::Result<IRemoteDesktopClientTouchPointer>;
     fn DeleteSavedCredentials(&self, servername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn UpdateSessionDisplaySettings(&self, width: u32, height: u32) -> windows_core::Result<()>;
-    fn attachEvent(&self, eventname: &windows_core::BSTR, callback: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn detachEvent(&self, eventname: &windows_core::BSTR, callback: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn attachEvent(&self, eventname: &windows_core::BSTR, callback: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn detachEvent(&self, eventname: &windows_core::BSTR, callback: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRemoteDesktopClient_Vtbl {
@@ -2319,7 +2319,7 @@ pub struct ITSGAuthenticationEngine_Vtbl {
     pub CancelAuthentication: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, usize) -> windows_core::HRESULT,
 }
 pub trait ITSGAuthenticationEngine_Impl: windows_core::IUnknownImpl {
-    fn AuthenticateUser(&self, mainsessionid: &windows_core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: windows_core::Ref<ITSGAuthenticateUserSink>) -> windows_core::Result<()>;
+    fn AuthenticateUser(&self, mainsessionid: &windows_core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: windows_core::Ref<'_, ITSGAuthenticateUserSink>) -> windows_core::Result<()>;
     fn CancelAuthentication(&self, mainsessionid: &windows_core::GUID, context: usize) -> windows_core::Result<()>;
 }
 impl ITSGAuthenticationEngine_Vtbl {
@@ -2441,8 +2441,8 @@ pub struct ITSGPolicyEngine_Vtbl {
     pub IsQuarantineEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITSGPolicyEngine_Impl: windows_core::IUnknownImpl {
-    fn AuthorizeConnection(&self, mainsessionid: &windows_core::GUID, username: &windows_core::BSTR, authtype: AAAuthSchemes, clientmachineip: &windows_core::BSTR, clientmachinename: &windows_core::BSTR, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: windows_core::Ref<ITSGAuthorizeConnectionSink>) -> windows_core::Result<()>;
-    fn AuthorizeResource(&self, mainsessionid: &windows_core::GUID, subsessionid: i32, username: &windows_core::BSTR, resourcenames: *const windows_core::BSTR, numresources: u32, alternateresourcenames: *const windows_core::BSTR, numalternateresourcename: u32, portnumber: u32, operation: &windows_core::BSTR, cookie: *const u8, numbytesincookie: u32, psink: windows_core::Ref<ITSGAuthorizeResourceSink>) -> windows_core::Result<()>;
+    fn AuthorizeConnection(&self, mainsessionid: &windows_core::GUID, username: &windows_core::BSTR, authtype: AAAuthSchemes, clientmachineip: &windows_core::BSTR, clientmachinename: &windows_core::BSTR, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: windows_core::Ref<'_, ITSGAuthorizeConnectionSink>) -> windows_core::Result<()>;
+    fn AuthorizeResource(&self, mainsessionid: &windows_core::GUID, subsessionid: i32, username: &windows_core::BSTR, resourcenames: *const windows_core::BSTR, numresources: u32, alternateresourcenames: *const windows_core::BSTR, numalternateresourcename: u32, portnumber: u32, operation: &windows_core::BSTR, cookie: *const u8, numbytesincookie: u32, psink: windows_core::Ref<'_, ITSGAuthorizeResourceSink>) -> windows_core::Result<()>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn IsQuarantineEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
 }
@@ -2962,7 +2962,7 @@ pub trait ITsSbEnvironment_Impl: windows_core::IUnknownImpl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ServerWeight(&self) -> windows_core::Result<u32>;
     fn EnvironmentPropertySet(&self) -> windows_core::Result<ITsSbEnvironmentPropertySet>;
-    fn SetEnvironmentPropertySet(&self, pval: windows_core::Ref<ITsSbEnvironmentPropertySet>) -> windows_core::Result<()>;
+    fn SetEnvironmentPropertySet(&self, pval: windows_core::Ref<'_, ITsSbEnvironmentPropertySet>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbEnvironment_Vtbl {
@@ -3088,7 +3088,7 @@ pub struct ITsSbFilterPluginStore_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbFilterPluginStore_Impl: windows_core::IUnknownImpl {
-    fn SaveProperties(&self, ppropertyset: windows_core::Ref<ITsSbPropertySet>) -> windows_core::Result<()>;
+    fn SaveProperties(&self, ppropertyset: windows_core::Ref<'_, ITsSbPropertySet>) -> windows_core::Result<()>;
     fn EnumerateProperties(&self) -> windows_core::Result<ITsSbPropertySet>;
     fn DeleteProperties(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<()>;
 }
@@ -3383,7 +3383,7 @@ pub struct ITsSbLoadBalancing_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbLoadBalancing_Impl: ITsSbPlugin_Impl {
-    fn GetMostSuitableTarget(&self, pconnection: windows_core::Ref<ITsSbClientConnection>, plbsink: windows_core::Ref<ITsSbLoadBalancingNotifySink>) -> windows_core::Result<()>;
+    fn GetMostSuitableTarget(&self, pconnection: windows_core::Ref<'_, ITsSbClientConnection>, plbsink: windows_core::Ref<'_, ITsSbLoadBalancingNotifySink>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbLoadBalancing_Vtbl {
@@ -3424,7 +3424,7 @@ pub struct ITsSbLoadBalancingNotifySink_Vtbl {
     pub OnGetMostSuitableTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITsSbLoadBalancingNotifySink_Impl: ITsSbBaseNotifySink_Impl {
-    fn OnGetMostSuitableTarget(&self, plbresult: windows_core::Ref<ITsSbLoadBalanceResult>, fisnewconnection: windows_core::BOOL) -> windows_core::Result<()>;
+    fn OnGetMostSuitableTarget(&self, plbresult: windows_core::Ref<'_, ITsSbLoadBalanceResult>, fisnewconnection: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ITsSbLoadBalancingNotifySink_Vtbl {
     pub const fn new<Identity: ITsSbLoadBalancingNotifySink_Impl, const OFFSET: isize>() -> Self {
@@ -3465,7 +3465,7 @@ pub struct ITsSbOrchestration_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbOrchestration_Impl: ITsSbPlugin_Impl {
-    fn PrepareTargetForConnect(&self, pconnection: windows_core::Ref<ITsSbClientConnection>, porchestrationnotifysink: windows_core::Ref<ITsSbOrchestrationNotifySink>) -> windows_core::Result<()>;
+    fn PrepareTargetForConnect(&self, pconnection: windows_core::Ref<'_, ITsSbClientConnection>, porchestrationnotifysink: windows_core::Ref<'_, ITsSbOrchestrationNotifySink>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbOrchestration_Vtbl {
@@ -3506,7 +3506,7 @@ pub struct ITsSbOrchestrationNotifySink_Vtbl {
     pub OnReadyToConnect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITsSbOrchestrationNotifySink_Impl: ITsSbBaseNotifySink_Impl {
-    fn OnReadyToConnect(&self, ptarget: windows_core::Ref<ITsSbTarget>) -> windows_core::Result<()>;
+    fn OnReadyToConnect(&self, ptarget: windows_core::Ref<'_, ITsSbTarget>) -> windows_core::Result<()>;
 }
 impl ITsSbOrchestrationNotifySink_Vtbl {
     pub const fn new<Identity: ITsSbOrchestrationNotifySink_Impl, const OFFSET: isize>() -> Self {
@@ -3547,7 +3547,7 @@ pub struct ITsSbPlacement_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlacement_Impl: ITsSbPlugin_Impl {
-    fn QueryEnvironmentForTarget(&self, pconnection: windows_core::Ref<ITsSbClientConnection>, pplacementsink: windows_core::Ref<ITsSbPlacementNotifySink>) -> windows_core::Result<()>;
+    fn QueryEnvironmentForTarget(&self, pconnection: windows_core::Ref<'_, ITsSbClientConnection>, pplacementsink: windows_core::Ref<'_, ITsSbPlacementNotifySink>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPlacement_Vtbl {
@@ -3588,7 +3588,7 @@ pub struct ITsSbPlacementNotifySink_Vtbl {
     pub OnQueryEnvironmentCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITsSbPlacementNotifySink_Impl: ITsSbBaseNotifySink_Impl {
-    fn OnQueryEnvironmentCompleted(&self, penvironment: windows_core::Ref<ITsSbEnvironment>) -> windows_core::Result<()>;
+    fn OnQueryEnvironmentCompleted(&self, penvironment: windows_core::Ref<'_, ITsSbEnvironment>) -> windows_core::Result<()>;
 }
 impl ITsSbPlacementNotifySink_Vtbl {
     pub const fn new<Identity: ITsSbPlacementNotifySink_Impl, const OFFSET: isize>() -> Self {
@@ -3632,7 +3632,7 @@ pub struct ITsSbPlugin_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlugin_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pprovider: windows_core::Ref<ITsSbProvider>, pnotifysink: windows_core::Ref<ITsSbPluginNotifySink>, ppropertyset: windows_core::Ref<ITsSbPluginPropertySet>) -> windows_core::Result<()>;
+    fn Initialize(&self, pprovider: windows_core::Ref<'_, ITsSbProvider>, pnotifysink: windows_core::Ref<'_, ITsSbPluginNotifySink>, ppropertyset: windows_core::Ref<'_, ITsSbPluginPropertySet>) -> windows_core::Result<()>;
     fn Terminate(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3882,7 +3882,7 @@ pub trait ITsSbProvider_Impl: windows_core::IUnknownImpl {
     fn CreateEnvironmentObject(&self, name: &windows_core::BSTR, serverweight: u32) -> windows_core::Result<ITsSbEnvironment>;
     fn GetResourcePluginStore(&self) -> windows_core::Result<ITsSbResourcePluginStore>;
     fn GetFilterPluginStore(&self) -> windows_core::Result<ITsSbFilterPluginStore>;
-    fn RegisterForNotification(&self, notificationtype: u32, resourcetomonitor: &windows_core::BSTR, ppluginnotification: windows_core::Ref<ITsSbResourceNotification>) -> windows_core::Result<()>;
+    fn RegisterForNotification(&self, notificationtype: u32, resourcetomonitor: &windows_core::BSTR, ppluginnotification: windows_core::Ref<'_, ITsSbResourceNotification>) -> windows_core::Result<()>;
     fn UnRegisterForNotification(&self, notificationtype: u32, resourcetomonitor: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetInstanceOfGlobalStore(&self) -> windows_core::Result<ITsSbGlobalStore>;
     fn CreateEnvironmentPropertySetObject(&self) -> windows_core::Result<ITsSbEnvironmentPropertySet>;
@@ -4085,9 +4085,9 @@ pub struct ITsSbProvisioning_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbProvisioning_Impl: ITsSbPlugin_Impl {
-    fn CreateVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: windows_core::Ref<ITsSbProvisioningPluginNotifySink>) -> windows_core::Result<()>;
-    fn PatchVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: windows_core::Ref<ITsSbProvisioningPluginNotifySink>, pvmpatchinfo: *const VM_PATCH_INFO) -> windows_core::Result<()>;
-    fn DeleteVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: windows_core::Ref<ITsSbProvisioningPluginNotifySink>) -> windows_core::Result<()>;
+    fn CreateVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: windows_core::Ref<'_, ITsSbProvisioningPluginNotifySink>) -> windows_core::Result<()>;
+    fn PatchVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: windows_core::Ref<'_, ITsSbProvisioningPluginNotifySink>, pvmpatchinfo: *const VM_PATCH_INFO) -> windows_core::Result<()>;
+    fn DeleteVirtualMachines(&self, jobxmlstring: &windows_core::BSTR, jobguid: &windows_core::BSTR, psink: windows_core::Ref<'_, ITsSbProvisioningPluginNotifySink>) -> windows_core::Result<()>;
     fn CancelJob(&self, jobguid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -4254,9 +4254,9 @@ pub struct ITsSbResourceNotification_Vtbl {
     pub NotifyClientConnectionStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, CONNECTION_CHANGE_NOTIFICATION, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITsSbResourceNotification_Impl: windows_core::IUnknownImpl {
-    fn NotifySessionChange(&self, changetype: TSSESSION_STATE, psession: windows_core::Ref<ITsSbSession>) -> windows_core::Result<()>;
-    fn NotifyTargetChange(&self, targetchangetype: u32, ptarget: windows_core::Ref<ITsSbTarget>) -> windows_core::Result<()>;
-    fn NotifyClientConnectionStateChange(&self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: windows_core::Ref<ITsSbClientConnection>) -> windows_core::Result<()>;
+    fn NotifySessionChange(&self, changetype: TSSESSION_STATE, psession: windows_core::Ref<'_, ITsSbSession>) -> windows_core::Result<()>;
+    fn NotifyTargetChange(&self, targetchangetype: u32, ptarget: windows_core::Ref<'_, ITsSbTarget>) -> windows_core::Result<()>;
+    fn NotifyClientConnectionStateChange(&self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: windows_core::Ref<'_, ITsSbClientConnection>) -> windows_core::Result<()>;
 }
 impl ITsSbResourceNotification_Vtbl {
     pub const fn new<Identity: ITsSbResourceNotification_Impl, const OFFSET: isize>() -> Self {
@@ -4571,28 +4571,28 @@ pub struct ITsSbResourcePluginStore_Vtbl {
 pub trait ITsSbResourcePluginStore_Impl: windows_core::IUnknownImpl {
     fn QueryTarget(&self, targetname: &windows_core::BSTR, farmname: &windows_core::BSTR) -> windows_core::Result<ITsSbTarget>;
     fn QuerySessionBySessionId(&self, dwsessionid: u32, targetname: &windows_core::BSTR) -> windows_core::Result<ITsSbSession>;
-    fn AddTargetToStore(&self, ptarget: windows_core::Ref<ITsSbTarget>) -> windows_core::Result<()>;
-    fn AddSessionToStore(&self, psession: windows_core::Ref<ITsSbSession>) -> windows_core::Result<()>;
-    fn AddEnvironmentToStore(&self, penvironment: windows_core::Ref<ITsSbEnvironment>) -> windows_core::Result<()>;
+    fn AddTargetToStore(&self, ptarget: windows_core::Ref<'_, ITsSbTarget>) -> windows_core::Result<()>;
+    fn AddSessionToStore(&self, psession: windows_core::Ref<'_, ITsSbSession>) -> windows_core::Result<()>;
+    fn AddEnvironmentToStore(&self, penvironment: windows_core::Ref<'_, ITsSbEnvironment>) -> windows_core::Result<()>;
     fn RemoveEnvironmentFromStore(&self, environmentname: &windows_core::BSTR, bignoreowner: windows_core::BOOL) -> windows_core::Result<()>;
     fn EnumerateFarms(&self, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn QueryEnvironment(&self, environmentname: &windows_core::BSTR) -> windows_core::Result<ITsSbEnvironment>;
     fn EnumerateEnvironments(&self, pdwcount: *mut u32, pval: *mut *mut Option<ITsSbEnvironment>) -> windows_core::Result<()>;
-    fn SaveTarget(&self, ptarget: windows_core::Ref<ITsSbTarget>, bforcewrite: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SaveEnvironment(&self, penvironment: windows_core::Ref<ITsSbEnvironment>, bforcewrite: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SaveSession(&self, psession: windows_core::Ref<ITsSbSession>) -> windows_core::Result<()>;
+    fn SaveTarget(&self, ptarget: windows_core::Ref<'_, ITsSbTarget>, bforcewrite: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SaveEnvironment(&self, penvironment: windows_core::Ref<'_, ITsSbEnvironment>, bforcewrite: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SaveSession(&self, psession: windows_core::Ref<'_, ITsSbSession>) -> windows_core::Result<()>;
     fn SetTargetProperty(&self, targetname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetEnvironmentProperty(&self, environmentname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetTargetState(&self, targetname: &windows_core::BSTR, newstate: TARGET_STATE) -> windows_core::Result<TARGET_STATE>;
-    fn SetSessionState(&self, sbsession: windows_core::Ref<ITsSbSession>) -> windows_core::Result<()>;
+    fn SetSessionState(&self, sbsession: windows_core::Ref<'_, ITsSbSession>) -> windows_core::Result<()>;
     fn EnumerateTargets(&self, farmname: &windows_core::BSTR, envname: &windows_core::BSTR, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: &windows_core::BSTR, pdwcount: *mut u32, pval: *mut *mut Option<ITsSbTarget>) -> windows_core::Result<()>;
     fn EnumerateSessions(&self, targetname: &windows_core::BSTR, username: &windows_core::BSTR, userdomain: &windows_core::BSTR, poolname: &windows_core::BSTR, initialprogram: &windows_core::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut Option<ITsSbSession>) -> windows_core::Result<()>;
     fn GetFarmProperty(&self, farmname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pvarvalue: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn DeleteTarget(&self, targetname: &windows_core::BSTR, hostname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetTargetPropertyWithVersionCheck(&self, ptarget: windows_core::Ref<ITsSbTarget>, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SetEnvironmentPropertyWithVersionCheck(&self, penvironment: windows_core::Ref<ITsSbEnvironment>, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn SetTargetPropertyWithVersionCheck(&self, ptarget: windows_core::Ref<'_, ITsSbTarget>, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn SetEnvironmentPropertyWithVersionCheck(&self, penvironment: windows_core::Ref<'_, ITsSbEnvironment>, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AcquireTargetLock(&self, targetname: &windows_core::BSTR, dwtimeout: u32) -> windows_core::Result<windows_core::IUnknown>;
-    fn ReleaseTargetLock(&self, pcontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ReleaseTargetLock(&self, pcontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn TestAndSetServerState(&self, poolname: &windows_core::BSTR, serverfqdn: &windows_core::BSTR, newstate: TARGET_STATE, teststate: TARGET_STATE) -> windows_core::Result<TARGET_STATE>;
     fn SetServerWaitingToStart(&self, poolname: &windows_core::BSTR, servername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetServerState(&self, poolname: &windows_core::BSTR, serverfqdn: &windows_core::BSTR) -> windows_core::Result<TARGET_STATE>;
@@ -5349,7 +5349,7 @@ pub trait ITsSbTarget_Impl: windows_core::IUnknownImpl {
     fn TargetState(&self) -> windows_core::Result<TARGET_STATE>;
     fn SetTargetState(&self, state: TARGET_STATE) -> windows_core::Result<()>;
     fn TargetPropertySet(&self) -> windows_core::Result<ITsSbTargetPropertySet>;
-    fn SetTargetPropertySet(&self, pval: windows_core::Ref<ITsSbTargetPropertySet>) -> windows_core::Result<()>;
+    fn SetTargetPropertySet(&self, pval: windows_core::Ref<'_, ITsSbTargetPropertySet>) -> windows_core::Result<()>;
     fn EnvironmentName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetEnvironmentName(&self, val: &windows_core::BSTR) -> windows_core::Result<()>;
     fn NumSessions(&self) -> windows_core::Result<u32>;
@@ -5835,7 +5835,7 @@ pub struct ITsSbTaskPlugin_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbTaskPlugin_Impl: ITsSbPlugin_Impl {
-    fn InitializeTaskPlugin(&self, pitssbtaskpluginnotifysink: windows_core::Ref<ITsSbTaskPluginNotifySink>) -> windows_core::Result<()>;
+    fn InitializeTaskPlugin(&self, pitssbtaskpluginnotifysink: windows_core::Ref<'_, ITsSbTaskPluginNotifySink>) -> windows_core::Result<()>;
     fn SetTaskQueue(&self, pszhostname: &windows_core::BSTR, sbtaskinfosize: u32, pitssbtaskinfo: *const Option<ITsSbTaskInfo>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -6017,9 +6017,9 @@ pub struct IWRdsGraphicsChannel_Vtbl {
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWRdsGraphicsChannel_Impl: windows_core::IUnknownImpl {
-    fn Write(&self, cbsize: u32, pbuffer: *const u8, pcontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Write(&self, cbsize: u32, pbuffer: *const u8, pcontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn Open(&self, pchannelevents: windows_core::Ref<IWRdsGraphicsChannelEvents>, popencontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Open(&self, pchannelevents: windows_core::Ref<'_, IWRdsGraphicsChannelEvents>, popencontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IWRdsGraphicsChannel_Vtbl {
     pub const fn new<Identity: IWRdsGraphicsChannel_Impl, const OFFSET: isize>() -> Self {
@@ -6090,8 +6090,8 @@ pub struct IWRdsGraphicsChannelEvents_Vtbl {
 pub trait IWRdsGraphicsChannelEvents_Impl: windows_core::IUnknownImpl {
     fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> windows_core::Result<()>;
     fn OnClose(&self) -> windows_core::Result<()>;
-    fn OnChannelOpened(&self, openresult: windows_core::HRESULT, popencontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn OnDataSent(&self, pwritecontext: windows_core::Ref<windows_core::IUnknown>, bcancelled: windows_core::BOOL, pbuffer: *const u8, cbbuffer: u32) -> windows_core::Result<()>;
+    fn OnChannelOpened(&self, openresult: windows_core::HRESULT, popencontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnDataSent(&self, pwritecontext: windows_core::Ref<'_, windows_core::IUnknown>, bcancelled: windows_core::BOOL, pbuffer: *const u8, cbbuffer: u32) -> windows_core::Result<()>;
     fn OnMetricsUpdate(&self, bandwidth: u32, rtt: u32, lastsentbyteindex: u64) -> windows_core::Result<()>;
 }
 impl IWRdsGraphicsChannelEvents_Vtbl {
@@ -6785,7 +6785,7 @@ pub struct IWRdsProtocolListener_Vtbl {
 }
 pub trait IWRdsProtocolListener_Impl: windows_core::IUnknownImpl {
     fn GetSettings(&self, wrdslistenersettinglevel: WRDS_LISTENER_SETTING_LEVEL) -> windows_core::Result<WRDS_LISTENER_SETTINGS>;
-    fn StartListen(&self, pcallback: windows_core::Ref<IWRdsProtocolListenerCallback>) -> windows_core::Result<()>;
+    fn StartListen(&self, pcallback: windows_core::Ref<'_, IWRdsProtocolListenerCallback>) -> windows_core::Result<()>;
     fn StopListen(&self) -> windows_core::Result<()>;
 }
 impl IWRdsProtocolListener_Vtbl {
@@ -6845,7 +6845,7 @@ pub struct IWRdsProtocolListenerCallback_Vtbl {
     pub OnConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const WRDS_CONNECTION_SETTINGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWRdsProtocolListenerCallback_Impl: windows_core::IUnknownImpl {
-    fn OnConnected(&self, pconnection: windows_core::Ref<IWRdsProtocolConnection>, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> windows_core::Result<IWRdsProtocolConnectionCallback>;
+    fn OnConnected(&self, pconnection: windows_core::Ref<'_, IWRdsProtocolConnection>, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> windows_core::Result<IWRdsProtocolConnectionCallback>;
 }
 impl IWRdsProtocolListenerCallback_Vtbl {
     pub const fn new<Identity: IWRdsProtocolListenerCallback_Impl, const OFFSET: isize>() -> Self {
@@ -7025,7 +7025,7 @@ pub struct IWRdsProtocolManager_Vtbl {
     pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWRdsProtocolManager_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, piwrdssettings: windows_core::Ref<IWRdsProtocolSettings>, pwrdssettings: *const WRDS_SETTINGS) -> windows_core::Result<()>;
+    fn Initialize(&self, piwrdssettings: windows_core::Ref<'_, IWRdsProtocolSettings>, pwrdssettings: *const WRDS_SETTINGS) -> windows_core::Result<()>;
     fn CreateListener(&self, wszlistenername: &windows_core::PCWSTR) -> windows_core::Result<IWRdsProtocolListener>;
     fn NotifyServiceStateChange(&self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> windows_core::Result<()>;
     fn NotifySessionOfServiceStart(&self, sessionid: *const WTS_SESSION_ID) -> windows_core::Result<()>;
@@ -7229,7 +7229,7 @@ pub struct IWRdsProtocolShadowConnection_Vtbl {
     pub DoTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u8, u32, *const u8, u32, *const u8, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IWRdsProtocolShadowConnection_Impl: windows_core::IUnknownImpl {
-    fn Start(&self, ptargetservername: &windows_core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: windows_core::Ref<IWRdsProtocolShadowCallback>) -> windows_core::Result<()>;
+    fn Start(&self, ptargetservername: &windows_core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: windows_core::Ref<'_, IWRdsProtocolShadowCallback>) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn DoTarget(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -7413,7 +7413,7 @@ pub struct IWTSBitmapRenderService_Vtbl {
     pub GetMappedRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSBitmapRenderService_Impl: windows_core::IUnknownImpl {
-    fn GetMappedRenderer(&self, mappingid: u64, pmappedrenderercallback: windows_core::Ref<IWTSBitmapRendererCallback>) -> windows_core::Result<IWTSBitmapRenderer>;
+    fn GetMappedRenderer(&self, mappingid: u64, pmappedrenderercallback: windows_core::Ref<'_, IWTSBitmapRendererCallback>) -> windows_core::Result<IWTSBitmapRenderer>;
 }
 impl IWTSBitmapRenderService_Vtbl {
     pub const fn new<Identity: IWTSBitmapRenderService_Impl, const OFFSET: isize>() -> Self {
@@ -7594,7 +7594,7 @@ pub struct IWTSListenerCallback_Vtbl {
     pub OnNewChannelConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSListenerCallback_Impl: windows_core::IUnknownImpl {
-    fn OnNewChannelConnection(&self, pchannel: windows_core::Ref<IWTSVirtualChannel>, data: &windows_core::BSTR, pbaccept: *mut windows_core::BOOL, ppcallback: windows_core::OutRef<'_, IWTSVirtualChannelCallback>) -> windows_core::Result<()>;
+    fn OnNewChannelConnection(&self, pchannel: windows_core::Ref<'_, IWTSVirtualChannel>, data: &windows_core::BSTR, pbaccept: *mut windows_core::BOOL, ppcallback: windows_core::OutRef<'_, IWTSVirtualChannelCallback>) -> windows_core::Result<()>;
 }
 impl IWTSListenerCallback_Vtbl {
     pub const fn new<Identity: IWTSListenerCallback_Impl, const OFFSET: isize>() -> Self {
@@ -7639,7 +7639,7 @@ pub struct IWTSPlugin_Vtbl {
     pub Terminated: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSPlugin_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pchannelmgr: windows_core::Ref<IWTSVirtualChannelManager>) -> windows_core::Result<()>;
+    fn Initialize(&self, pchannelmgr: windows_core::Ref<'_, IWTSVirtualChannelManager>) -> windows_core::Result<()>;
     fn Connected(&self) -> windows_core::Result<()>;
     fn Disconnected(&self, dwdisconnectcode: u32) -> windows_core::Result<()>;
     fn Terminated(&self) -> windows_core::Result<()>;
@@ -8245,7 +8245,7 @@ pub struct IWTSProtocolListener_Vtbl {
     pub StopListen: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSProtocolListener_Impl: windows_core::IUnknownImpl {
-    fn StartListen(&self, pcallback: windows_core::Ref<IWTSProtocolListenerCallback>) -> windows_core::Result<()>;
+    fn StartListen(&self, pcallback: windows_core::Ref<'_, IWTSProtocolListenerCallback>) -> windows_core::Result<()>;
     fn StopListen(&self) -> windows_core::Result<()>;
 }
 impl IWTSProtocolListener_Vtbl {
@@ -8292,7 +8292,7 @@ pub struct IWTSProtocolListenerCallback_Vtbl {
     pub OnConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSProtocolListenerCallback_Impl: windows_core::IUnknownImpl {
-    fn OnConnected(&self, pconnection: windows_core::Ref<IWTSProtocolConnection>) -> windows_core::Result<IWTSProtocolConnectionCallback>;
+    fn OnConnected(&self, pconnection: windows_core::Ref<'_, IWTSProtocolConnection>) -> windows_core::Result<IWTSProtocolConnectionCallback>;
 }
 impl IWTSProtocolListenerCallback_Vtbl {
     pub const fn new<Identity: IWTSProtocolListenerCallback_Impl, const OFFSET: isize>() -> Self {
@@ -8592,7 +8592,7 @@ pub struct IWTSProtocolShadowConnection_Vtbl {
     pub DoTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u8, u32, *const u8, u32, *const u8, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IWTSProtocolShadowConnection_Impl: windows_core::IUnknownImpl {
-    fn Start(&self, ptargetservername: &windows_core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: windows_core::Ref<IWTSProtocolShadowCallback>) -> windows_core::Result<()>;
+    fn Start(&self, ptargetservername: &windows_core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: windows_core::Ref<'_, IWTSProtocolShadowCallback>) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn DoTarget(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -8761,7 +8761,7 @@ pub struct IWTSVirtualChannel_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSVirtualChannel_Impl: windows_core::IUnknownImpl {
-    fn Write(&self, cbsize: u32, pbuffer: *const u8, preserved: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Write(&self, cbsize: u32, pbuffer: *const u8, preserved: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl IWTSVirtualChannel_Vtbl {
@@ -8850,7 +8850,7 @@ pub struct IWTSVirtualChannelManager_Vtbl {
     pub CreateListener: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWTSVirtualChannelManager_Impl: windows_core::IUnknownImpl {
-    fn CreateListener(&self, pszchannelname: &windows_core::PCSTR, uflags: u32, plistenercallback: windows_core::Ref<IWTSListenerCallback>) -> windows_core::Result<IWTSListener>;
+    fn CreateListener(&self, pszchannelname: &windows_core::PCSTR, uflags: u32, plistenercallback: windows_core::Ref<'_, IWTSListenerCallback>) -> windows_core::Result<IWTSListener>;
 }
 impl IWTSVirtualChannelManager_Vtbl {
     pub const fn new<Identity: IWTSVirtualChannelManager_Impl, const OFFSET: isize>() -> Self {
@@ -9163,7 +9163,7 @@ pub struct IWorkspaceRegistration_Vtbl {
     pub RemoveResource: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IWorkspaceRegistration_Impl: windows_core::IUnknownImpl {
-    fn AddResource(&self, punk: windows_core::Ref<IWorkspaceClientExt>) -> windows_core::Result<u32>;
+    fn AddResource(&self, punk: windows_core::Ref<'_, IWorkspaceClientExt>) -> windows_core::Result<u32>;
     fn RemoveResource(&self, dwcookieconnection: u32) -> windows_core::Result<()>;
 }
 impl IWorkspaceRegistration_Vtbl {
@@ -9223,7 +9223,7 @@ pub struct IWorkspaceRegistration2_Vtbl {
     pub RemoveResourceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IWorkspaceRegistration2_Impl: IWorkspaceRegistration_Impl {
-    fn AddResourceEx(&self, punk: windows_core::Ref<IWorkspaceClientExt>, bstreventloguploadaddress: &windows_core::BSTR, pdwcookie: *mut u32, correlationid: &windows_core::GUID) -> windows_core::Result<()>;
+    fn AddResourceEx(&self, punk: windows_core::Ref<'_, IWorkspaceClientExt>, bstreventloguploadaddress: &windows_core::BSTR, pdwcookie: *mut u32, correlationid: &windows_core::GUID) -> windows_core::Result<()>;
     fn RemoveResourceEx(&self, dwcookieconnection: u32, correlationid: &windows_core::GUID) -> windows_core::Result<()>;
 }
 impl IWorkspaceRegistration2_Vtbl {

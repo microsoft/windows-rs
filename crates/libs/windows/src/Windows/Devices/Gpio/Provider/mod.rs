@@ -183,7 +183,7 @@ impl windows_core::RuntimeName for IGpioPinProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioPinProvider";
 }
 pub trait IGpioPinProvider_Impl: windows_core::IUnknownImpl {
-    fn ValueChanged(&self, handler: windows_core::Ref<super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> windows_core::Result<i64>;
+    fn ValueChanged(&self, handler: windows_core::Ref<'_, super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()>;
     fn DebounceTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
     fn SetDebounceTimeout(&self, value: &super::super::super::Foundation::TimeSpan) -> windows_core::Result<()>;

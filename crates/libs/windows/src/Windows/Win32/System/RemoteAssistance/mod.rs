@@ -47,7 +47,7 @@ pub struct IRendezvousApplication_Vtbl {
     pub SetRendezvousSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRendezvousApplication_Impl: windows_core::IUnknownImpl {
-    fn SetRendezvousSession(&self, prendezvoussession: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetRendezvousSession(&self, prendezvoussession: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IRendezvousApplication_Vtbl {
     pub const fn new<Identity: IRendezvousApplication_Impl, const OFFSET: isize>() -> Self {

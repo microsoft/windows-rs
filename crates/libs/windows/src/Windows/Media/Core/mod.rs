@@ -2820,7 +2820,7 @@ impl windows_core::RuntimeName for ISingleSelectMediaTrackList {
     const NAME: &'static str = "Windows.Media.Core.ISingleSelectMediaTrackList";
 }
 pub trait ISingleSelectMediaTrackList_Impl: windows_core::IUnknownImpl {
-    fn SelectedIndexChanged(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn SelectedIndexChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveSelectedIndexChanged(&self, token: i64) -> windows_core::Result<()>;
     fn SetSelectedIndex(&self, value: i32) -> windows_core::Result<()>;
     fn SelectedIndex(&self) -> windows_core::Result<i32>;

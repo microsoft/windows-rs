@@ -2361,7 +2361,7 @@ pub struct IVssProviderNotifications_Vtbl {
     pub OnUnload: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IVssProviderNotifications_Impl: windows_core::IUnknownImpl {
-    fn OnLoad(&self, pcallback: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnLoad(&self, pcallback: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn OnUnload(&self, bforceunload: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IVssProviderNotifications_Vtbl {

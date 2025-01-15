@@ -41,7 +41,7 @@ impl windows_core::RuntimeName for ISysStorageProviderEventSource {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderEventSource";
 }
 pub trait ISysStorageProviderEventSource_Impl: windows_core::IUnknownImpl {
-    fn EventReceived(&self, handler: windows_core::Ref<super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> windows_core::Result<i64>;
+    fn EventReceived(&self, handler: windows_core::Ref<'_, super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveEventReceived(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ISysStorageProviderEventSource_Vtbl {
@@ -176,7 +176,7 @@ impl windows_core::RuntimeName for ISysStorageProviderHttpRequestProvider {
 }
 #[cfg(feature = "Web_Http")]
 pub trait ISysStorageProviderHttpRequestProvider_Impl: windows_core::IUnknownImpl {
-    fn SendRequestAsync(&self, request: windows_core::Ref<super::super::super::Web::Http::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
+    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::super::super::Web::Http::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
 }
 #[cfg(feature = "Web_Http")]
 impl ISysStorageProviderHttpRequestProvider_Vtbl {

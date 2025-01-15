@@ -48,7 +48,7 @@ pub trait IADesktopP2_Impl: windows_core::IUnknownImpl {
     fn ReReadWallpaper(&self) -> windows_core::Result<()>;
     fn GetADObjectFlags(&self, pdwflags: *mut u32, dwmask: u32) -> windows_core::Result<()>;
     fn UpdateAllDesktopSubscriptions(&self) -> windows_core::Result<()>;
-    fn MakeDynamicChanges(&self, poleobj: windows_core::Ref<super::super::System::Ole::IOleObject>) -> windows_core::Result<()>;
+    fn MakeDynamicChanges(&self, poleobj: windows_core::Ref<'_, super::super::System::Ole::IOleObject>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl IADesktopP2_Vtbl {
@@ -184,7 +184,7 @@ pub struct IBriefcaseInitiator_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBriefcaseInitiator_Impl: windows_core::IUnknownImpl {
-    fn IsMonikerInBriefcase(&self, pmk: windows_core::Ref<super::super::System::Com::IMoniker>) -> windows_core::Result<()>;
+    fn IsMonikerInBriefcase(&self, pmk: windows_core::Ref<'_, super::super::System::Com::IMoniker>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IBriefcaseInitiator_Vtbl {
@@ -250,8 +250,8 @@ pub struct IEmptyVolumeCache_Vtbl {
 #[cfg(feature = "Win32_System_Registry")]
 pub trait IEmptyVolumeCache_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: &windows_core::PCWSTR, ppwszdisplayname: *mut windows_core::PWSTR, ppwszdescription: *mut windows_core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> windows_core::Result<()>;
-    fn GetSpaceUsed(&self, pdwlspaceused: *mut u64, picb: windows_core::Ref<IEmptyVolumeCacheCallBack>) -> windows_core::Result<()>;
-    fn Purge(&self, dwlspacetofree: u64, picb: windows_core::Ref<IEmptyVolumeCacheCallBack>) -> windows_core::Result<()>;
+    fn GetSpaceUsed(&self, pdwlspaceused: *mut u64, picb: windows_core::Ref<'_, IEmptyVolumeCacheCallBack>) -> windows_core::Result<()>;
+    fn Purge(&self, dwlspacetofree: u64, picb: windows_core::Ref<'_, IEmptyVolumeCacheCallBack>) -> windows_core::Result<()>;
     fn ShowProperties(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn Deactivate(&self) -> windows_core::Result<EMPTY_VOLUME_CACHE_FLAGS>;
 }
@@ -436,7 +436,7 @@ pub struct IReconcilableObject_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IReconcilableObject_Impl: windows_core::IUnknownImpl {
-    fn Reconcile(&self, pinitiator: windows_core::Ref<IReconcileInitiator>, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: windows_core::OutRef<'_, super::super::System::Com::IMoniker>, ploutindex: *mut i32, pstgnewresidues: windows_core::Ref<super::super::System::Com::StructuredStorage::IStorage>, pvreserved: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn Reconcile(&self, pinitiator: windows_core::Ref<'_, IReconcileInitiator>, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: windows_core::OutRef<'_, super::super::System::Com::IMoniker>, ploutindex: *mut i32, pstgnewresidues: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IStorage>, pvreserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn GetProgressFeedbackMaxEstimate(&self) -> windows_core::Result<u32>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -492,7 +492,7 @@ pub struct IReconcileInitiator_Vtbl {
     pub SetProgressFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IReconcileInitiator_Impl: windows_core::IUnknownImpl {
-    fn SetAbortCallback(&self, punkforabort: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetAbortCallback(&self, punkforabort: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetProgressFeedback(&self, ulprogress: u32, ulprogressmax: u32) -> windows_core::Result<()>;
 }
 impl IReconcileInitiator_Vtbl {

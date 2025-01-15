@@ -804,7 +804,7 @@ pub struct ISpCFGInterpreter_Vtbl {
 }
 pub trait ISpCFGInterpreter_Impl: windows_core::IUnknownImpl {
     fn InitGrammar(&self, pszgrammarname: &windows_core::PCWSTR, pvgrammardata: *const *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn Interpret(&self, pphrase: windows_core::Ref<ISpPhraseBuilder>, ulfirstelement: u32, ulcountofelements: u32, psite: windows_core::Ref<ISpCFGInterpreterSite>) -> windows_core::Result<()>;
+    fn Interpret(&self, pphrase: windows_core::Ref<'_, ISpPhraseBuilder>, ulfirstelement: u32, ulcountofelements: u32, psite: windows_core::Ref<'_, ISpCFGInterpreterSite>) -> windows_core::Result<()>;
 }
 impl ISpCFGInterpreter_Vtbl {
     pub const fn new<Identity: ISpCFGInterpreter_Impl, const OFFSET: isize>() -> Self {
@@ -929,7 +929,7 @@ pub struct ISpContainerLexicon_Vtbl {
     pub AddLexicon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ISpContainerLexicon_Impl: ISpLexicon_Impl {
-    fn AddLexicon(&self, paddlexicon: windows_core::Ref<ISpLexicon>, dwflags: u32) -> windows_core::Result<()>;
+    fn AddLexicon(&self, paddlexicon: windows_core::Ref<'_, ISpLexicon>, dwflags: u32) -> windows_core::Result<()>;
 }
 impl ISpContainerLexicon_Vtbl {
     pub const fn new<Identity: ISpContainerLexicon_Impl, const OFFSET: isize>() -> Self {
@@ -1497,7 +1497,7 @@ pub struct ISpGramCompBackend_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISpGramCompBackend_Impl: ISpGrammarBuilder_Impl {
-    fn SetSaveObjects(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, perrorlog: windows_core::Ref<ISpErrorLog>) -> windows_core::Result<()>;
+    fn SetSaveObjects(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, perrorlog: windows_core::Ref<'_, ISpErrorLog>) -> windows_core::Result<()>;
     fn InitFromBinaryGrammar(&self, pbinarydata: *const SPBINARYGRAMMAR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1739,7 +1739,7 @@ pub struct ISpGrammarCompiler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpGrammarCompiler_Impl: windows_core::IUnknownImpl {
-    fn CompileStream(&self, psource: windows_core::Ref<super::super::System::Com::IStream>, pdest: windows_core::Ref<super::super::System::Com::IStream>, pheader: windows_core::Ref<super::super::System::Com::IStream>, preserved: windows_core::Ref<windows_core::IUnknown>, perrorlog: windows_core::Ref<ISpErrorLog>, dwflags: u32) -> windows_core::Result<()>;
+    fn CompileStream(&self, psource: windows_core::Ref<'_, super::super::System::Com::IStream>, pdest: windows_core::Ref<'_, super::super::System::Com::IStream>, pheader: windows_core::Ref<'_, super::super::System::Com::IStream>, preserved: windows_core::Ref<'_, windows_core::IUnknown>, perrorlog: windows_core::Ref<'_, ISpErrorLog>, dwflags: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ISpGrammarCompiler_Vtbl {
@@ -1782,7 +1782,7 @@ pub struct ISpITNProcessor_Vtbl {
 }
 pub trait ISpITNProcessor_Impl: windows_core::IUnknownImpl {
     fn LoadITNGrammar(&self, pszclsid: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ITNPhrase(&self, pphrase: windows_core::Ref<ISpPhraseBuilder>) -> windows_core::Result<()>;
+    fn ITNPhrase(&self, pphrase: windows_core::Ref<'_, ISpPhraseBuilder>) -> windows_core::Result<()>;
 }
 impl ISpITNProcessor_Vtbl {
     pub const fn new<Identity: ISpITNProcessor_Impl, const OFFSET: isize>() -> Self {
@@ -2115,10 +2115,10 @@ pub struct ISpNotifySource_Vtbl {
     pub GetNotifyEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
 pub trait ISpNotifySource_Impl: windows_core::IUnknownImpl {
-    fn SetNotifySink(&self, pnotifysink: windows_core::Ref<ISpNotifySink>) -> windows_core::Result<()>;
+    fn SetNotifySink(&self, pnotifysink: windows_core::Ref<'_, ISpNotifySink>) -> windows_core::Result<()>;
     fn SetNotifyWindowMessage(&self, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn SetNotifyCallbackFunction(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
-    fn SetNotifyCallbackInterface(&self, pspcallback: windows_core::Ref<ISpNotifyCallback>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
+    fn SetNotifyCallbackInterface(&self, pspcallback: windows_core::Ref<'_, ISpNotifyCallback>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn SetNotifyWin32Event(&self) -> windows_core::Result<()>;
     fn WaitForNotifyEvent(&self, dwmilliseconds: u32) -> windows_core::Result<()>;
     fn GetNotifyEventHandle(&self) -> super::super::Foundation::HANDLE;
@@ -2227,7 +2227,7 @@ pub struct ISpNotifyTranslator_Vtbl {
 pub trait ISpNotifyTranslator_Impl: ISpNotifySink_Impl {
     fn InitWindowMessage(&self, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn InitCallback(&self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
-    fn InitSpNotifyCallback(&self, pspcallback: windows_core::Ref<ISpNotifyCallback>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
+    fn InitSpNotifyCallback(&self, pspcallback: windows_core::Ref<'_, ISpNotifyCallback>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn InitWin32Event(&self, hevent: super::super::Foundation::HANDLE, fclosehandleonrelease: windows_core::BOOL) -> windows_core::Result<()>;
     fn Wait(&self, dwmilliseconds: u32) -> windows_core::Result<()>;
     fn GetEventHandle(&self) -> super::super::Foundation::HANDLE;
@@ -2378,12 +2378,12 @@ pub trait ISpObjectToken_Impl: ISpDataKey_Impl {
     fn SetId(&self, pszcategoryid: &windows_core::PCWSTR, psztokenid: &windows_core::PCWSTR, fcreateifnotexist: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetId(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetCategory(&self) -> windows_core::Result<ISpObjectTokenCategory>;
-    fn CreateInstance(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclscontext: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateInstance(&self, punkouter: windows_core::Ref<'_, windows_core::IUnknown>, dwclscontext: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetStorageFileName(&self, clsidcaller: *const windows_core::GUID, pszvaluename: &windows_core::PCWSTR, pszfilenamespecifier: &windows_core::PCWSTR, nfolder: u32) -> windows_core::Result<windows_core::PWSTR>;
     fn RemoveStorageFileName(&self, clsidcaller: *const windows_core::GUID, pszkeyname: &windows_core::PCWSTR, fdeletefile: windows_core::BOOL) -> windows_core::Result<()>;
     fn Remove(&self, pclsidcaller: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *mut core::ffi::c_void, cbextradata: u32, punkobject: windows_core::Ref<windows_core::IUnknown>, pfsupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn DisplayUI(&self, hwndparent: super::super::Foundation::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *mut core::ffi::c_void, cbextradata: u32, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *mut core::ffi::c_void, cbextradata: u32, punkobject: windows_core::Ref<'_, windows_core::IUnknown>, pfsupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn DisplayUI(&self, hwndparent: super::super::Foundation::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *mut core::ffi::c_void, cbextradata: u32, punkobject: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn MatchesAttributes(&self, pszattributes: &windows_core::PCWSTR, pfmatches: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ISpObjectToken_Vtbl {
@@ -2682,8 +2682,8 @@ pub struct ISpObjectTokenEnumBuilder_Vtbl {
 pub trait ISpObjectTokenEnumBuilder_Impl: IEnumSpObjectTokens_Impl {
     fn SetAttribs(&self, pszreqattribs: &windows_core::PCWSTR, pszoptattribs: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddTokens(&self, ctokens: u32, ptoken: *const Option<ISpObjectToken>) -> windows_core::Result<()>;
-    fn AddTokensFromDataKey(&self, pdatakey: windows_core::Ref<ISpDataKey>, pszsubkey: &windows_core::PCWSTR, pszcategoryid: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn AddTokensFromTokenEnum(&self, ptokenenum: windows_core::Ref<IEnumSpObjectTokens>) -> windows_core::Result<()>;
+    fn AddTokensFromDataKey(&self, pdatakey: windows_core::Ref<'_, ISpDataKey>, pszsubkey: &windows_core::PCWSTR, pszcategoryid: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn AddTokensFromTokenEnum(&self, ptokenenum: windows_core::Ref<'_, IEnumSpObjectTokens>) -> windows_core::Result<()>;
     fn Sort(&self, psztokenidtolistfirst: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl ISpObjectTokenEnumBuilder_Vtbl {
@@ -2756,7 +2756,7 @@ pub struct ISpObjectTokenInit_Vtbl {
     pub InitFromDataKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpObjectTokenInit_Impl: ISpObjectToken_Impl {
-    fn InitFromDataKey(&self, pszcategoryid: &windows_core::PCWSTR, psztokenid: &windows_core::PCWSTR, pdatakey: windows_core::Ref<ISpDataKey>) -> windows_core::Result<()>;
+    fn InitFromDataKey(&self, pszcategoryid: &windows_core::PCWSTR, psztokenid: &windows_core::PCWSTR, pdatakey: windows_core::Ref<'_, ISpDataKey>) -> windows_core::Result<()>;
 }
 impl ISpObjectTokenInit_Vtbl {
     pub const fn new<Identity: ISpObjectTokenInit_Impl, const OFFSET: isize>() -> Self {
@@ -2796,7 +2796,7 @@ pub struct ISpObjectWithToken_Vtbl {
     pub GetObjectToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpObjectWithToken_Impl: windows_core::IUnknownImpl {
-    fn SetObjectToken(&self, ptoken: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
+    fn SetObjectToken(&self, ptoken: windows_core::Ref<'_, ISpObjectToken>) -> windows_core::Result<()>;
     fn GetObjectToken(&self) -> windows_core::Result<ISpObjectToken>;
 }
 impl ISpObjectWithToken_Vtbl {
@@ -3655,7 +3655,7 @@ pub trait ISpRecoContext_Impl: ISpEventSource_Impl {
     fn SetAdaptationData(&self, padaptationdata: &windows_core::PCWSTR, cch: u32) -> windows_core::Result<()>;
     fn Pause(&self, dwreserved: u32) -> windows_core::Result<()>;
     fn Resume(&self, dwreserved: u32) -> windows_core::Result<()>;
-    fn SetVoice(&self, pvoice: windows_core::Ref<ISpVoice>, fallowformatchanges: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetVoice(&self, pvoice: windows_core::Ref<'_, ISpVoice>, fallowformatchanges: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetVoice(&self) -> windows_core::Result<ISpVoice>;
     fn SetVoicePurgeEvent(&self, ulleventinterest: u64) -> windows_core::Result<()>;
     fn GetVoicePurgeEvent(&self, pulleventinterest: *mut u64) -> windows_core::Result<()>;
@@ -4022,7 +4022,7 @@ pub trait ISpRecoGrammar_Impl: ISpGrammarBuilder_Impl {
     fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::Result<()>;
     fn IsPronounceable(&self, pszword: &windows_core::PCWSTR, pwordpronounceable: *mut SPWORDPRONOUNCEABLE) -> windows_core::Result<()>;
     fn SetGrammarState(&self, egrammarstate: SPGRAMMARSTATE) -> windows_core::Result<()>;
-    fn SaveCmd(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, ppszcomemerrortext: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn SaveCmd(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, ppszcomemerrortext: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetGrammarState(&self, pegrammarstate: *mut SPGRAMMARSTATE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4247,8 +4247,8 @@ pub trait ISpRecoGrammar2_Impl: windows_core::IUnknownImpl {
     fn SetRulePriority(&self, pszrulename: &windows_core::PCWSTR, ulruleid: u32, nrulepriority: i32) -> windows_core::Result<()>;
     fn SetRuleWeight(&self, pszrulename: &windows_core::PCWSTR, ulruleid: u32, flweight: f32) -> windows_core::Result<()>;
     fn SetDictationWeight(&self, flweight: f32) -> windows_core::Result<()>;
-    fn SetGrammarLoader(&self, ploader: windows_core::Ref<ISpeechResourceLoader>) -> windows_core::Result<()>;
-    fn SetSMLSecurityManager(&self, psmlsecuritymanager: windows_core::Ref<super::super::System::Com::Urlmon::IInternetSecurityManager>) -> windows_core::Result<()>;
+    fn SetGrammarLoader(&self, ploader: windows_core::Ref<'_, ISpeechResourceLoader>) -> windows_core::Result<()>;
+    fn SetSMLSecurityManager(&self, psmlsecuritymanager: windows_core::Ref<'_, super::super::System::Com::Urlmon::IInternetSecurityManager>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_Urlmon")]
 impl ISpRecoGrammar2_Vtbl {
@@ -4499,7 +4499,7 @@ pub struct ISpRecoResult2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISpRecoResult2_Impl: ISpRecoResult_Impl {
-    fn CommitAlternate(&self, pphrasealt: windows_core::Ref<ISpPhraseAlt>) -> windows_core::Result<ISpRecoResult>;
+    fn CommitAlternate(&self, pphrasealt: windows_core::Ref<'_, ISpPhraseAlt>) -> windows_core::Result<ISpRecoResult>;
     fn CommitText(&self, ulstartelement: u32, celements: u32, pszcorrecteddata: &windows_core::PCWSTR, ecommitflags: u32) -> windows_core::Result<()>;
     fn SetTextFeedback(&self, pszfeedback: &windows_core::PCWSTR, fsuccessful: windows_core::BOOL) -> windows_core::Result<()>;
 }
@@ -4665,14 +4665,14 @@ pub struct ISpRecognizer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpRecognizer_Impl: ISpProperties_Impl {
-    fn SetRecognizer(&self, precognizer: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
+    fn SetRecognizer(&self, precognizer: windows_core::Ref<'_, ISpObjectToken>) -> windows_core::Result<()>;
     fn GetRecognizer(&self) -> windows_core::Result<ISpObjectToken>;
-    fn SetInput(&self, punkinput: windows_core::Ref<windows_core::IUnknown>, fallowformatchanges: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetInput(&self, punkinput: windows_core::Ref<'_, windows_core::IUnknown>, fallowformatchanges: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetInputObjectToken(&self) -> windows_core::Result<ISpObjectToken>;
     fn GetInputStream(&self) -> windows_core::Result<ISpStreamFormat>;
     fn CreateRecoContext(&self) -> windows_core::Result<ISpRecoContext>;
     fn GetRecoProfile(&self) -> windows_core::Result<ISpObjectToken>;
-    fn SetRecoProfile(&self, ptoken: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
+    fn SetRecoProfile(&self, ptoken: windows_core::Ref<'_, ISpObjectToken>) -> windows_core::Result<()>;
     fn IsSharedInstance(&self) -> windows_core::Result<()>;
     fn GetRecoState(&self, pstate: *mut SPRECOSTATE) -> windows_core::Result<()>;
     fn SetRecoState(&self, newstate: SPRECOSTATE) -> windows_core::Result<()>;
@@ -4680,7 +4680,7 @@ pub trait ISpRecognizer_Impl: ISpProperties_Impl {
     fn GetFormat(&self, waveformattype: SPSTREAMFORMATTYPE, pformatid: *mut windows_core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
     fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *mut core::ffi::c_void, cbextradata: u32, pfsupported: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn DisplayUI(&self, hwndparent: super::super::Foundation::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *mut core::ffi::c_void, cbextradata: u32) -> windows_core::Result<()>;
-    fn EmulateRecognition(&self, pphrase: windows_core::Ref<ISpPhrase>) -> windows_core::Result<()>;
+    fn EmulateRecognition(&self, pphrase: windows_core::Ref<'_, ISpPhrase>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 impl ISpRecognizer_Vtbl {
@@ -4861,7 +4861,7 @@ pub struct ISpRecognizer2_Vtbl {
     pub ResetAcousticModelAdaptation: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpRecognizer2_Impl: windows_core::IUnknownImpl {
-    fn EmulateRecognitionEx(&self, pphrase: windows_core::Ref<ISpPhrase>, dwcompareflags: u32) -> windows_core::Result<()>;
+    fn EmulateRecognitionEx(&self, pphrase: windows_core::Ref<'_, ISpPhrase>, dwcompareflags: u32) -> windows_core::Result<()>;
     fn SetTrainingState(&self, fdoingtraining: windows_core::BOOL, fadaptfromtrainingdata: windows_core::BOOL) -> windows_core::Result<()>;
     fn ResetAcousticModelAdaptation(&self) -> windows_core::Result<()>;
 }
@@ -4972,7 +4972,7 @@ pub struct ISpResourceManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpResourceManager_Impl: super::super::System::Com::IServiceProvider_Impl {
-    fn SetObject(&self, guidserviceid: *const windows_core::GUID, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetObject(&self, guidserviceid: *const windows_core::GUID, punkobject: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetObject(&self, guidserviceid: *const windows_core::GUID, objectclsid: *const windows_core::GUID, objectiid: *const windows_core::GUID, freleasewhenlastexternalrefreleased: windows_core::BOOL, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5266,10 +5266,10 @@ pub struct ISpSREngine_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait ISpSREngine_Impl: windows_core::IUnknownImpl {
-    fn SetSite(&self, psite: windows_core::Ref<ISpSREngineSite>) -> windows_core::Result<()>;
+    fn SetSite(&self, psite: windows_core::Ref<'_, ISpSREngineSite>) -> windows_core::Result<()>;
     fn GetInputAudioFormat(&self, pguidsourceformatid: *const windows_core::GUID, psourcewaveformatex: *const super::Audio::WAVEFORMATEX, pguiddesiredformatid: *mut windows_core::GUID, ppcomemdesiredwaveformatex: *mut *mut super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn RecognizeStream(&self, rguidfmtid: *const windows_core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, hrequestsync: super::super::Foundation::HANDLE, hdataavailable: super::super::Foundation::HANDLE, hexit: super::super::Foundation::HANDLE, fnewaudiostream: windows_core::BOOL, frealtimeaudio: windows_core::BOOL, paudioobjecttoken: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
-    fn SetRecoProfile(&self, pprofile: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
+    fn RecognizeStream(&self, rguidfmtid: *const windows_core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, hrequestsync: super::super::Foundation::HANDLE, hdataavailable: super::super::Foundation::HANDLE, hexit: super::super::Foundation::HANDLE, fnewaudiostream: windows_core::BOOL, frealtimeaudio: windows_core::BOOL, paudioobjecttoken: windows_core::Ref<'_, ISpObjectToken>) -> windows_core::Result<()>;
+    fn SetRecoProfile(&self, pprofile: windows_core::Ref<'_, ISpObjectToken>) -> windows_core::Result<()>;
     fn OnCreateGrammar(&self, pvenginerecocontext: *const core::ffi::c_void, hsapigrammar: SPGRAMMARHANDLE, ppvenginegrammarcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn OnDeleteGrammar(&self, pvenginegrammar: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn LoadProprietaryGrammar(&self, pvenginegrammar: *const core::ffi::c_void, rguidparam: *const windows_core::GUID, pszstringparam: &windows_core::PCWSTR, pvdataparam: *const core::ffi::c_void, uldatasize: u32, options: SPLOADOPTIONS) -> windows_core::Result<()>;
@@ -5609,7 +5609,7 @@ pub trait ISpSREngine2_Impl: ISpSREngine_Impl {
     fn SetAdaptationData2(&self, pvenginecontext: *const core::ffi::c_void, padaptationdata: &windows_core::PCWSTR, cch: u32, ptopicname: &windows_core::PCWSTR, esettings: SPADAPTATIONSETTINGS, erelevance: SPADAPTATIONRELEVANCE) -> windows_core::Result<()>;
     fn SetGrammarPrefix(&self, pvenginegrammar: *const core::ffi::c_void, pszprefix: &windows_core::PCWSTR, fisprefixrequired: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetRulePriority(&self, hrule: SPRULEHANDLE, pvclientrulecontext: *const core::ffi::c_void, nrulepriority: i32) -> windows_core::Result<()>;
-    fn EmulateRecognition(&self, pphrase: windows_core::Ref<ISpPhrase>, dwcompareflags: u32) -> windows_core::Result<()>;
+    fn EmulateRecognition(&self, pphrase: windows_core::Ref<'_, ISpPhrase>, dwcompareflags: u32) -> windows_core::Result<()>;
     fn SetSLMWeight(&self, pvenginegrammar: *const core::ffi::c_void, flweight: f32) -> windows_core::Result<()>;
     fn SetRuleWeight(&self, hrule: SPRULEHANDLE, pvclientrulecontext: *const core::ffi::c_void, flweight: f32) -> windows_core::Result<()>;
     fn SetTrainingState(&self, fdoingtraining: windows_core::BOOL, fadaptfromtrainingdata: windows_core::BOOL) -> windows_core::Result<()>;
@@ -6328,7 +6328,7 @@ pub struct ISpStream_Vtbl {
 }
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpStream_Impl: ISpStreamFormat_Impl {
-    fn SetBaseStream(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, rguidformat: *const windows_core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn SetBaseStream(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, rguidformat: *const windows_core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
     fn GetBaseStream(&self) -> windows_core::Result<super::super::System::Com::IStream>;
     fn BindToFile(&self, pszfilename: &windows_core::PCWSTR, emode: SPFILEMODE, pformatid: *const windows_core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, ulleventinterest: u64) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
@@ -6498,7 +6498,7 @@ pub struct ISpStreamFormatConverter_Vtbl {
 }
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpStreamFormatConverter_Impl: ISpStreamFormat_Impl {
-    fn SetBaseStream(&self, pstream: windows_core::Ref<ISpStreamFormat>, fsetformattobasestreamformat: windows_core::BOOL, fwritetobasestream: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetBaseStream(&self, pstream: windows_core::Ref<'_, ISpStreamFormat>, fsetformattobasestreamformat: windows_core::BOOL, fwritetobasestream: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetBaseStream(&self) -> windows_core::Result<ISpStreamFormat>;
     fn SetFormat(&self, rguidformatidofconvertedstream: *const windows_core::GUID, pwaveformatexofconvertedstream: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
     fn ResetSeekPosition(&self) -> windows_core::Result<()>;
@@ -6607,7 +6607,7 @@ pub struct ISpTTSEngine_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait ISpTTSEngine_Impl: windows_core::IUnknownImpl {
-    fn Speak(&self, dwspeakflags: u32, rguidformatid: *const windows_core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, ptextfraglist: *const SPVTEXTFRAG, poutputsite: windows_core::Ref<ISpTTSEngineSite>) -> windows_core::Result<()>;
+    fn Speak(&self, dwspeakflags: u32, rguidformatid: *const windows_core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, ptextfraglist: *const SPVTEXTFRAG, poutputsite: windows_core::Ref<'_, ISpTTSEngineSite>) -> windows_core::Result<()>;
     fn GetOutputFormat(&self, ptargetfmtid: *const windows_core::GUID, ptargetwaveformatex: *const super::Audio::WAVEFORMATEX, poutputformatid: *mut windows_core::GUID, ppcomemoutputwaveformatex: *mut *mut super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6856,9 +6856,9 @@ pub struct ISpTaskManager_Vtbl {
 pub trait ISpTaskManager_Impl: windows_core::IUnknownImpl {
     fn SetThreadPoolInfo(&self, ppoolinfo: *const SPTMTHREADINFO) -> windows_core::Result<()>;
     fn GetThreadPoolInfo(&self) -> windows_core::Result<SPTMTHREADINFO>;
-    fn QueueTask(&self, ptask: windows_core::Ref<ISpTask>, pvtaskdata: *const core::ffi::c_void, hcompevent: super::super::Foundation::HANDLE, pdwgroupid: *mut u32, ptaskid: *mut u32) -> windows_core::Result<()>;
-    fn CreateReoccurringTask(&self, ptask: windows_core::Ref<ISpTask>, pvtaskdata: *const core::ffi::c_void, hcompevent: super::super::Foundation::HANDLE) -> windows_core::Result<ISpNotifySink>;
-    fn CreateThreadControl(&self, ptask: windows_core::Ref<ISpThreadTask>, pvtaskdata: *const core::ffi::c_void, npriority: i32) -> windows_core::Result<ISpThreadControl>;
+    fn QueueTask(&self, ptask: windows_core::Ref<'_, ISpTask>, pvtaskdata: *const core::ffi::c_void, hcompevent: super::super::Foundation::HANDLE, pdwgroupid: *mut u32, ptaskid: *mut u32) -> windows_core::Result<()>;
+    fn CreateReoccurringTask(&self, ptask: windows_core::Ref<'_, ISpTask>, pvtaskdata: *const core::ffi::c_void, hcompevent: super::super::Foundation::HANDLE) -> windows_core::Result<ISpNotifySink>;
+    fn CreateThreadControl(&self, ptask: windows_core::Ref<'_, ISpThreadTask>, pvtaskdata: *const core::ffi::c_void, npriority: i32) -> windows_core::Result<ISpThreadControl>;
     fn TerminateTask(&self, dwtaskid: u32, ulwaitperiod: u32) -> windows_core::Result<()>;
     fn TerminateTaskGroup(&self, dwgroupid: u32, ulwaitperiod: u32) -> windows_core::Result<()>;
 }
@@ -7174,8 +7174,8 @@ pub struct ISpTokenUI_Vtbl {
     pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpTokenUI_Impl: windows_core::IUnknownImpl {
-    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::BOOL>;
-    fn DisplayUI(&self, hwndparent: super::super::Foundation::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32, ptoken: windows_core::Ref<ISpObjectToken>, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32, punkobject: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<windows_core::BOOL>;
+    fn DisplayUI(&self, hwndparent: super::super::Foundation::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32, ptoken: windows_core::Ref<'_, ISpObjectToken>, punkobject: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ISpTokenUI_Vtbl {
     pub const fn new<Identity: ISpTokenUI_Impl, const OFFSET: isize>() -> Self {
@@ -7420,15 +7420,15 @@ pub struct ISpVoice_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpVoice_Impl: ISpEventSource_Impl {
-    fn SetOutput(&self, punkoutput: windows_core::Ref<windows_core::IUnknown>, fallowformatchanges: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetOutput(&self, punkoutput: windows_core::Ref<'_, windows_core::IUnknown>, fallowformatchanges: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetOutputObjectToken(&self) -> windows_core::Result<ISpObjectToken>;
     fn GetOutputStream(&self) -> windows_core::Result<ISpStreamFormat>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
-    fn SetVoice(&self, ptoken: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
+    fn SetVoice(&self, ptoken: windows_core::Ref<'_, ISpObjectToken>) -> windows_core::Result<()>;
     fn GetVoice(&self) -> windows_core::Result<ISpObjectToken>;
     fn Speak(&self, pwcs: &windows_core::PCWSTR, dwflags: u32, pulstreamnumber: *mut u32) -> windows_core::Result<()>;
-    fn SpeakStream(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, dwflags: u32, pulstreamnumber: *mut u32) -> windows_core::Result<()>;
+    fn SpeakStream(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, dwflags: u32, pulstreamnumber: *mut u32) -> windows_core::Result<()>;
     fn GetStatus(&self, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn Skip(&self, pitemtype: &windows_core::PCWSTR, lnumitems: i32, pulnumskipped: *mut u32) -> windows_core::Result<()>;
     fn SetPriority(&self, epriority: SPVPRIORITY) -> windows_core::Result<()>;
@@ -8099,7 +8099,7 @@ pub trait ISpeechAudioFormat_Impl: super::super::System::Com::IDispatch_Impl {
     fn Guid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetGuid(&self, guid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetWaveFormatEx(&self) -> windows_core::Result<ISpeechWaveFormatEx>;
-    fn SetWaveFormatEx(&self, speechwaveformatex: windows_core::Ref<ISpeechWaveFormatEx>) -> windows_core::Result<()>;
+    fn SetWaveFormatEx(&self, speechwaveformatex: windows_core::Ref<'_, ISpeechWaveFormatEx>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISpeechAudioFormat_Vtbl {
@@ -8388,7 +8388,7 @@ pub struct ISpeechBaseStream_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISpeechBaseStream_Impl: super::super::System::Com::IDispatch_Impl {
     fn Format(&self) -> windows_core::Result<ISpeechAudioFormat>;
-    fn putref_Format(&self, audioformat: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::Result<()>;
+    fn putref_Format(&self, audioformat: windows_core::Ref<'_, ISpeechAudioFormat>) -> windows_core::Result<()>;
     fn Read(&self, buffer: *mut super::super::System::Variant::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> windows_core::Result<()>;
     fn Write(&self, buffer: &super::super::System::Variant::VARIANT) -> windows_core::Result<i32>;
     fn Seek(&self, position: &super::super::System::Variant::VARIANT, origin: SpeechStreamSeekPositionType) -> windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -8495,7 +8495,7 @@ pub struct ISpeechCustomStream_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISpeechCustomStream_Impl: ISpeechBaseStream_Impl {
     fn BaseStream(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn putref_BaseStream(&self, punkstream: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn putref_BaseStream(&self, punkstream: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISpeechCustomStream_Vtbl {
@@ -9070,9 +9070,9 @@ pub struct ISpeechGrammarRuleState_Vtbl {
 pub trait ISpeechGrammarRuleState_Impl: super::super::System::Com::IDispatch_Impl {
     fn Rule(&self) -> windows_core::Result<ISpeechGrammarRule>;
     fn Transitions(&self) -> windows_core::Result<ISpeechGrammarRuleStateTransitions>;
-    fn AddWordTransition(&self, deststate: windows_core::Ref<ISpeechGrammarRuleState>, words: &windows_core::BSTR, separators: &windows_core::BSTR, r#type: SpeechGrammarWordType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Variant::VARIANT, weight: f32) -> windows_core::Result<()>;
-    fn AddRuleTransition(&self, destinationstate: windows_core::Ref<ISpeechGrammarRuleState>, rule: windows_core::Ref<ISpeechGrammarRule>, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Variant::VARIANT, weight: f32) -> windows_core::Result<()>;
-    fn AddSpecialTransition(&self, destinationstate: windows_core::Ref<ISpeechGrammarRuleState>, r#type: SpeechSpecialTransitionType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Variant::VARIANT, weight: f32) -> windows_core::Result<()>;
+    fn AddWordTransition(&self, deststate: windows_core::Ref<'_, ISpeechGrammarRuleState>, words: &windows_core::BSTR, separators: &windows_core::BSTR, r#type: SpeechGrammarWordType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Variant::VARIANT, weight: f32) -> windows_core::Result<()>;
+    fn AddRuleTransition(&self, destinationstate: windows_core::Ref<'_, ISpeechGrammarRuleState>, rule: windows_core::Ref<'_, ISpeechGrammarRule>, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Variant::VARIANT, weight: f32) -> windows_core::Result<()>;
+    fn AddSpecialTransition(&self, destinationstate: windows_core::Ref<'_, ISpeechGrammarRuleState>, r#type: SpeechSpecialTransitionType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Variant::VARIANT, weight: f32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISpeechGrammarRuleState_Vtbl {
@@ -10569,12 +10569,12 @@ pub trait ISpeechObjectToken_Impl: super::super::System::Com::IDispatch_Impl {
     fn GetDescription(&self, locale: i32) -> windows_core::Result<windows_core::BSTR>;
     fn SetId(&self, id: &windows_core::BSTR, categoryid: &windows_core::BSTR, createifnotexist: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn GetAttribute(&self, attributename: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn CreateInstance(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, clscontext: SpeechTokenContext) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateInstance(&self, punkouter: windows_core::Ref<'_, windows_core::IUnknown>, clscontext: SpeechTokenContext) -> windows_core::Result<windows_core::IUnknown>;
     fn Remove(&self, objectstorageclsid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetStorageFileName(&self, objectstorageclsid: &windows_core::BSTR, keyname: &windows_core::BSTR, filename: &windows_core::BSTR, folder: SpeechTokenShellFolder) -> windows_core::Result<windows_core::BSTR>;
     fn RemoveStorageFileName(&self, objectstorageclsid: &windows_core::BSTR, keyname: &windows_core::BSTR, deletefile: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn IsUISupported(&self, typeofui: &windows_core::BSTR, extradata: *const super::super::System::Variant::VARIANT, object: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn DisplayUI(&self, hwnd: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::super::System::Variant::VARIANT, object: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn IsUISupported(&self, typeofui: &windows_core::BSTR, extradata: *const super::super::System::Variant::VARIANT, object: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn DisplayUI(&self, hwnd: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::super::System::Variant::VARIANT, object: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn MatchesAttributes(&self, attributes: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -13209,7 +13209,7 @@ pub trait ISpeechRecoContext_Impl: super::super::System::Com::IDispatch_Impl {
     fn Recognizer(&self) -> windows_core::Result<ISpeechRecognizer>;
     fn AudioInputInterferenceStatus(&self) -> windows_core::Result<SpeechInterference>;
     fn RequestedUIType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn putref_Voice(&self, voice: windows_core::Ref<ISpeechVoice>) -> windows_core::Result<()>;
+    fn putref_Voice(&self, voice: windows_core::Ref<'_, ISpeechVoice>) -> windows_core::Result<()>;
     fn Voice(&self) -> windows_core::Result<ISpeechVoice>;
     fn SetAllowVoiceFormatMatchingOnNextSet(&self, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn AllowVoiceFormatMatchingOnNextSet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -13223,7 +13223,7 @@ pub trait ISpeechRecoContext_Impl: super::super::System::Com::IDispatch_Impl {
     fn State(&self) -> windows_core::Result<SpeechRecoContextState>;
     fn SetRetainedAudio(&self, option: SpeechRetainedAudioOptions) -> windows_core::Result<()>;
     fn RetainedAudio(&self) -> windows_core::Result<SpeechRetainedAudioOptions>;
-    fn putref_RetainedAudioFormat(&self, format: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::Result<()>;
+    fn putref_RetainedAudioFormat(&self, format: windows_core::Ref<'_, ISpeechAudioFormat>) -> windows_core::Result<()>;
     fn RetainedAudioFormat(&self) -> windows_core::Result<ISpeechAudioFormat>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
@@ -13648,8 +13648,8 @@ pub trait ISpeechRecoGrammar_Impl: super::super::System::Com::IDispatch_Impl {
     fn DictationLoad(&self, topicname: &windows_core::BSTR, loadoption: SpeechLoadOption) -> windows_core::Result<()>;
     fn DictationUnload(&self) -> windows_core::Result<()>;
     fn DictationSetState(&self, state: SpeechRuleState) -> windows_core::Result<()>;
-    fn SetWordSequenceData(&self, text: &windows_core::BSTR, textlength: i32, info: windows_core::Ref<ISpeechTextSelectionInformation>) -> windows_core::Result<()>;
-    fn SetTextSelection(&self, info: windows_core::Ref<ISpeechTextSelectionInformation>) -> windows_core::Result<()>;
+    fn SetWordSequenceData(&self, text: &windows_core::BSTR, textlength: i32, info: windows_core::Ref<'_, ISpeechTextSelectionInformation>) -> windows_core::Result<()>;
+    fn SetTextSelection(&self, info: windows_core::Ref<'_, ISpeechTextSelectionInformation>) -> windows_core::Result<()>;
     fn IsPronounceable(&self, word: &windows_core::BSTR) -> windows_core::Result<SpeechWordPronounceable>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -13922,7 +13922,7 @@ pub struct ISpeechRecoResult_Vtbl {
 pub trait ISpeechRecoResult_Impl: super::super::System::Com::IDispatch_Impl {
     fn RecoContext(&self) -> windows_core::Result<ISpeechRecoContext>;
     fn Times(&self) -> windows_core::Result<ISpeechRecoResultTimes>;
-    fn putref_AudioFormat(&self, format: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::Result<()>;
+    fn putref_AudioFormat(&self, format: windows_core::Ref<'_, ISpeechAudioFormat>) -> windows_core::Result<()>;
     fn AudioFormat(&self) -> windows_core::Result<ISpeechAudioFormat>;
     fn PhraseInfo(&self) -> windows_core::Result<ISpeechPhraseInfo>;
     fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> windows_core::Result<ISpeechPhraseAlternates>;
@@ -14215,7 +14215,7 @@ pub struct ISpeechRecoResultDispatch_Vtbl {
 pub trait ISpeechRecoResultDispatch_Impl: super::super::System::Com::IDispatch_Impl {
     fn RecoContext(&self) -> windows_core::Result<ISpeechRecoContext>;
     fn Times(&self) -> windows_core::Result<ISpeechRecoResultTimes>;
-    fn putref_AudioFormat(&self, format: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::Result<()>;
+    fn putref_AudioFormat(&self, format: windows_core::Ref<'_, ISpeechAudioFormat>) -> windows_core::Result<()>;
     fn AudioFormat(&self) -> windows_core::Result<ISpeechAudioFormat>;
     fn PhraseInfo(&self) -> windows_core::Result<ISpeechPhraseInfo>;
     fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> windows_core::Result<ISpeechPhraseAlternates>;
@@ -14713,19 +14713,19 @@ pub struct ISpeechRecognizer_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISpeechRecognizer_Impl: super::super::System::Com::IDispatch_Impl {
-    fn putref_Recognizer(&self, recognizer: windows_core::Ref<ISpeechObjectToken>) -> windows_core::Result<()>;
+    fn putref_Recognizer(&self, recognizer: windows_core::Ref<'_, ISpeechObjectToken>) -> windows_core::Result<()>;
     fn Recognizer(&self) -> windows_core::Result<ISpeechObjectToken>;
     fn SetAllowAudioInputFormatChangesOnNextSet(&self, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn AllowAudioInputFormatChangesOnNextSet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn putref_AudioInput(&self, audioinput: windows_core::Ref<ISpeechObjectToken>) -> windows_core::Result<()>;
+    fn putref_AudioInput(&self, audioinput: windows_core::Ref<'_, ISpeechObjectToken>) -> windows_core::Result<()>;
     fn AudioInput(&self) -> windows_core::Result<ISpeechObjectToken>;
-    fn putref_AudioInputStream(&self, audioinputstream: windows_core::Ref<ISpeechBaseStream>) -> windows_core::Result<()>;
+    fn putref_AudioInputStream(&self, audioinputstream: windows_core::Ref<'_, ISpeechBaseStream>) -> windows_core::Result<()>;
     fn AudioInputStream(&self) -> windows_core::Result<ISpeechBaseStream>;
     fn IsShared(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetState(&self, state: SpeechRecognizerState) -> windows_core::Result<()>;
     fn State(&self) -> windows_core::Result<SpeechRecognizerState>;
     fn Status(&self) -> windows_core::Result<ISpeechRecognizerStatus>;
-    fn putref_Profile(&self, profile: windows_core::Ref<ISpeechObjectToken>) -> windows_core::Result<()>;
+    fn putref_Profile(&self, profile: windows_core::Ref<'_, ISpeechObjectToken>) -> windows_core::Result<()>;
     fn Profile(&self) -> windows_core::Result<ISpeechObjectToken>;
     fn EmulateRecognition(&self, textelements: &super::super::System::Variant::VARIANT, elementdisplayattributes: *const super::super::System::Variant::VARIANT, languageid: i32) -> windows_core::Result<()>;
     fn CreateRecoContext(&self) -> windows_core::Result<ISpeechRecoContext>;
@@ -15666,11 +15666,11 @@ pub struct ISpeechVoice_Vtbl {
 pub trait ISpeechVoice_Impl: super::super::System::Com::IDispatch_Impl {
     fn Status(&self) -> windows_core::Result<ISpeechVoiceStatus>;
     fn Voice(&self) -> windows_core::Result<ISpeechObjectToken>;
-    fn putref_Voice(&self, voice: windows_core::Ref<ISpeechObjectToken>) -> windows_core::Result<()>;
+    fn putref_Voice(&self, voice: windows_core::Ref<'_, ISpeechObjectToken>) -> windows_core::Result<()>;
     fn AudioOutput(&self) -> windows_core::Result<ISpeechObjectToken>;
-    fn putref_AudioOutput(&self, audiooutput: windows_core::Ref<ISpeechObjectToken>) -> windows_core::Result<()>;
+    fn putref_AudioOutput(&self, audiooutput: windows_core::Ref<'_, ISpeechObjectToken>) -> windows_core::Result<()>;
     fn AudioOutputStream(&self) -> windows_core::Result<ISpeechBaseStream>;
-    fn putref_AudioOutputStream(&self, audiooutputstream: windows_core::Ref<ISpeechBaseStream>) -> windows_core::Result<()>;
+    fn putref_AudioOutputStream(&self, audiooutputstream: windows_core::Ref<'_, ISpeechBaseStream>) -> windows_core::Result<()>;
     fn Rate(&self) -> windows_core::Result<i32>;
     fn SetRate(&self, rate: i32) -> windows_core::Result<()>;
     fn Volume(&self) -> windows_core::Result<i32>;
@@ -15686,7 +15686,7 @@ pub trait ISpeechVoice_Impl: super::super::System::Com::IDispatch_Impl {
     fn SetSynchronousSpeakTimeout(&self, mstimeout: i32) -> windows_core::Result<()>;
     fn SynchronousSpeakTimeout(&self) -> windows_core::Result<i32>;
     fn Speak(&self, text: &windows_core::BSTR, flags: SpeechVoiceSpeakFlags) -> windows_core::Result<i32>;
-    fn SpeakStream(&self, stream: windows_core::Ref<ISpeechBaseStream>, flags: SpeechVoiceSpeakFlags) -> windows_core::Result<i32>;
+    fn SpeakStream(&self, stream: windows_core::Ref<'_, ISpeechBaseStream>, flags: SpeechVoiceSpeakFlags) -> windows_core::Result<i32>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
     fn Skip(&self, r#type: &windows_core::BSTR, numitems: i32) -> windows_core::Result<i32>;

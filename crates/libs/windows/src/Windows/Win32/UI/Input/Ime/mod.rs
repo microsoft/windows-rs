@@ -4673,7 +4673,7 @@ pub struct IImePad_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
 pub trait IImePad_Impl: windows_core::IUnknownImpl {
-    fn Request(&self, piimepadapplet: windows_core::Ref<IImePadApplet>, reqid: &IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
+    fn Request(&self, piimepadapplet: windows_core::Ref<'_, IImePadApplet>, reqid: &IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
 }
 impl IImePad_Vtbl {
     pub const fn new<Identity: IImePad_Impl, const OFFSET: isize>() -> Self {
@@ -4730,11 +4730,11 @@ pub struct IImePadApplet_Vtbl {
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IImePadApplet_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, lpiimepad: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, lpiimepad: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Terminate(&self) -> windows_core::Result<()>;
     fn GetAppletConfig(&self, lpappletcfg: *mut IMEAPPLETCFG) -> windows_core::Result<()>;
     fn CreateUI(&self, hwndparent: super::super::super::Foundation::HWND, lpimeappletui: *mut IMEAPPLETUI) -> windows_core::Result<()>;
-    fn Notify(&self, lpimepad: windows_core::Ref<windows_core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
+    fn Notify(&self, lpimepad: windows_core::Ref<'_, windows_core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IImePadApplet_Vtbl {

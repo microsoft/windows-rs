@@ -1777,17 +1777,17 @@ pub struct IFaxAccountNotify_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFaxAccountNotify_Impl: super::super::System::Com::IDispatch_Impl {
-    fn OnIncomingJobAdded(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnIncomingJobRemoved(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnIncomingJobChanged(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<IFaxJobStatus>) -> windows_core::Result<()>;
-    fn OnOutgoingJobAdded(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingJobRemoved(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingJobChanged(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<IFaxJobStatus>) -> windows_core::Result<()>;
-    fn OnIncomingMessageAdded(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrmessageid: &windows_core::BSTR, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn OnIncomingMessageRemoved(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrmessageid: &windows_core::BSTR, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn OnOutgoingMessageAdded(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingMessageRemoved(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnServerShutDown(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
+    fn OnIncomingJobAdded(&self, pfaxaccount: windows_core::Ref<'_, IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnIncomingJobRemoved(&self, pfaxaccount: windows_core::Ref<'_, IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnIncomingJobChanged(&self, pfaxaccount: windows_core::Ref<'_, IFaxAccount>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<'_, IFaxJobStatus>) -> windows_core::Result<()>;
+    fn OnOutgoingJobAdded(&self, pfaxaccount: windows_core::Ref<'_, IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingJobRemoved(&self, pfaxaccount: windows_core::Ref<'_, IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingJobChanged(&self, pfaxaccount: windows_core::Ref<'_, IFaxAccount>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<'_, IFaxJobStatus>) -> windows_core::Result<()>;
+    fn OnIncomingMessageAdded(&self, pfaxaccount: windows_core::Ref<'_, IFaxAccount>, bstrmessageid: &windows_core::BSTR, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn OnIncomingMessageRemoved(&self, pfaxaccount: windows_core::Ref<'_, IFaxAccount>, bstrmessageid: &windows_core::BSTR, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn OnOutgoingMessageAdded(&self, pfaxaccount: windows_core::Ref<'_, IFaxAccount>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingMessageRemoved(&self, pfaxaccount: windows_core::Ref<'_, IFaxAccount>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnServerShutDown(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFaxAccountNotify_Vtbl {
@@ -4717,9 +4717,9 @@ pub trait IFaxDocument_Impl: super::super::System::Com::IDispatch_Impl {
     fn Priority(&self) -> windows_core::Result<FAX_PRIORITY_TYPE_ENUM>;
     fn SetPriority(&self, priority: FAX_PRIORITY_TYPE_ENUM) -> windows_core::Result<()>;
     fn TapiConnection(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn putref_TapiConnection(&self, ptapiconnection: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn putref_TapiConnection(&self, ptapiconnection: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn Submit(&self, bstrfaxservername: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ConnectedSubmit(&self, pfaxserver: windows_core::Ref<IFaxServer>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn ConnectedSubmit(&self, pfaxserver: windows_core::Ref<'_, IFaxServer>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn AttachFaxToReceipt(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAttachFaxToReceipt(&self, battachfax: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
@@ -5158,7 +5158,7 @@ pub trait IFaxDocument2_Impl: IFaxDocument_Impl {
     fn Bodies(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SetBodies(&self, vbodies: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Submit2(&self, bstrfaxservername: &windows_core::BSTR, pvfaxoutgoingjobids: *mut super::super::System::Variant::VARIANT, plerrorbodyfile: *mut i32) -> windows_core::Result<()>;
-    fn ConnectedSubmit2(&self, pfaxserver: windows_core::Ref<IFaxServer>, pvfaxoutgoingjobids: *mut super::super::System::Variant::VARIANT, plerrorbodyfile: *mut i32) -> windows_core::Result<()>;
+    fn ConnectedSubmit2(&self, pfaxserver: windows_core::Ref<'_, IFaxServer>, pvfaxoutgoingjobids: *mut super::super::System::Variant::VARIANT, plerrorbodyfile: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFaxDocument2_Vtbl {
@@ -13777,32 +13777,32 @@ pub struct IFaxServerNotify2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFaxServerNotify2_Impl: super::super::System::Com::IDispatch_Impl {
-    fn OnIncomingJobAdded(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnIncomingJobRemoved(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnIncomingJobChanged(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<IFaxJobStatus>) -> windows_core::Result<()>;
-    fn OnOutgoingJobAdded(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingJobRemoved(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingJobChanged(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<IFaxJobStatus>) -> windows_core::Result<()>;
-    fn OnIncomingMessageAdded(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnIncomingMessageRemoved(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingMessageAdded(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingMessageRemoved(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnReceiptOptionsChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnActivityLoggingConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnSecurityConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnEventLoggingConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnOutgoingQueueConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnOutgoingArchiveConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnIncomingArchiveConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnDevicesConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnOutboundRoutingGroupsConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnOutboundRoutingRulesConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnServerActivityChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> windows_core::Result<()>;
-    fn OnQueuesStatusChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>, boutgoingqueueblocked: super::super::Foundation::VARIANT_BOOL, boutgoingqueuepaused: super::super::Foundation::VARIANT_BOOL, bincomingqueueblocked: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn OnNewCall(&self, pfaxserver: windows_core::Ref<IFaxServer2>, lcallid: i32, ldeviceid: i32, bstrcallerid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnServerShutDown(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnDeviceStatusChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>, ldeviceid: i32, bpoweredoff: super::super::Foundation::VARIANT_BOOL, bsending: super::super::Foundation::VARIANT_BOOL, breceiving: super::super::Foundation::VARIANT_BOOL, bringing: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn OnGeneralServerConfigChanged(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
+    fn OnIncomingJobAdded(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnIncomingJobRemoved(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnIncomingJobChanged(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<'_, IFaxJobStatus>) -> windows_core::Result<()>;
+    fn OnOutgoingJobAdded(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingJobRemoved(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingJobChanged(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<'_, IFaxJobStatus>) -> windows_core::Result<()>;
+    fn OnIncomingMessageAdded(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnIncomingMessageRemoved(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingMessageAdded(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingMessageRemoved(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnReceiptOptionsChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
+    fn OnActivityLoggingConfigChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
+    fn OnSecurityConfigChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
+    fn OnEventLoggingConfigChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
+    fn OnOutgoingQueueConfigChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
+    fn OnOutgoingArchiveConfigChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
+    fn OnIncomingArchiveConfigChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
+    fn OnDevicesConfigChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
+    fn OnOutboundRoutingGroupsConfigChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
+    fn OnOutboundRoutingRulesConfigChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
+    fn OnServerActivityChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> windows_core::Result<()>;
+    fn OnQueuesStatusChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, boutgoingqueueblocked: super::super::Foundation::VARIANT_BOOL, boutgoingqueuepaused: super::super::Foundation::VARIANT_BOOL, bincomingqueueblocked: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn OnNewCall(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, lcallid: i32, ldeviceid: i32, bstrcallerid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnServerShutDown(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
+    fn OnDeviceStatusChange(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>, ldeviceid: i32, bpoweredoff: super::super::Foundation::VARIANT_BOOL, bsending: super::super::Foundation::VARIANT_BOOL, breceiving: super::super::Foundation::VARIANT_BOOL, bringing: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn OnGeneralServerConfigChanged(&self, pfaxserver: windows_core::Ref<'_, IFaxServer2>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFaxServerNotify2_Vtbl {
@@ -14538,7 +14538,7 @@ pub struct IStiUSD_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_IO", feature = "Win32_System_Registry"))]
 pub trait IStiUSD_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pheldcb: windows_core::Ref<IStiDeviceControl>, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> windows_core::Result<()>;
+    fn Initialize(&self, pheldcb: windows_core::Ref<'_, IStiDeviceControl>, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> windows_core::Result<()>;
     fn GetCapabilities(&self) -> windows_core::Result<STI_USD_CAPS>;
     fn GetStatus(&self, pdevstatus: *mut STI_DEVICE_STATUS) -> windows_core::Result<()>;
     fn DeviceReset(&self) -> windows_core::Result<()>;
@@ -14805,7 +14805,7 @@ pub trait IStillImageW_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> windows_core::Result<()>;
     fn GetDeviceList(&self, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetDeviceInfo(&self, pwszdevicename: &windows_core::PCWSTR, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateDevice(&self, pwszdevicename: &windows_core::PCWSTR, dwmode: u32, pdevice: windows_core::OutRef<'_, IStiDevice>, punkouter: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateDevice(&self, pwszdevicename: &windows_core::PCWSTR, dwmode: u32, pdevice: windows_core::OutRef<'_, IStiDevice>, punkouter: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetDeviceValue(&self, pwszdevicename: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> windows_core::Result<()>;
     fn SetDeviceValue(&self, pwszdevicename: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> windows_core::Result<()>;
     fn GetSTILaunchInformation(&self, pwszdevicename: windows_core::PWSTR, pdweventcode: *mut u32, pwszeventname: windows_core::PWSTR) -> windows_core::Result<()>;

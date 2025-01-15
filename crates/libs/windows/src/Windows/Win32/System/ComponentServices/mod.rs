@@ -971,8 +971,8 @@ pub struct IAppDomainHelper_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAppDomainHelper_Impl: super::Com::IDispatch_Impl {
-    fn Initialize(&self, punkad: windows_core::Ref<windows_core::IUnknown>, __midl__iappdomainhelper0000: isize, ppool: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn DoCallback(&self, punkad: windows_core::Ref<windows_core::IUnknown>, __midl__iappdomainhelper0001: isize, ppool: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Initialize(&self, punkad: windows_core::Ref<'_, windows_core::IUnknown>, __midl__iappdomainhelper0000: isize, ppool: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn DoCallback(&self, punkad: windows_core::Ref<'_, windows_core::IUnknown>, __midl__iappdomainhelper0001: isize, ppool: *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAppDomainHelper_Vtbl {
@@ -4853,7 +4853,7 @@ pub struct IComTrackingInfoEvents_Vtbl {
     pub OnNewTrackingInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IComTrackingInfoEvents_Impl: windows_core::IUnknownImpl {
-    fn OnNewTrackingInfo(&self, ptoplevelcollection: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnNewTrackingInfo(&self, ptoplevelcollection: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IComTrackingInfoEvents_Vtbl {
     pub const fn new<Identity: IComTrackingInfoEvents_Impl, const OFFSET: isize>() -> Self {
@@ -5388,7 +5388,7 @@ pub struct ICreateWithLocalTransaction_Vtbl {
     pub CreateInstanceWithSysTx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICreateWithLocalTransaction_Impl: windows_core::IUnknownImpl {
-    fn CreateInstanceWithSysTx(&self, ptransaction: windows_core::Ref<windows_core::IUnknown>, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, pobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateInstanceWithSysTx(&self, ptransaction: windows_core::Ref<'_, windows_core::IUnknown>, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, pobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl ICreateWithLocalTransaction_Vtbl {
     pub const fn new<Identity: ICreateWithLocalTransaction_Impl, const OFFSET: isize>() -> Self {
@@ -5462,7 +5462,7 @@ pub struct ICreateWithTransactionEx_Vtbl {
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait ICreateWithTransactionEx_Impl: windows_core::IUnknownImpl {
-    fn CreateInstance(&self, ptransaction: windows_core::Ref<super::DistributedTransactionCoordinator::ITransaction>, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, pobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateInstance(&self, ptransaction: windows_core::Ref<'_, super::DistributedTransactionCoordinator::ITransaction>, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, pobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 impl ICreateWithTransactionEx_Vtbl {
@@ -5558,7 +5558,7 @@ pub struct ICrmCompensator_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICrmCompensator_Impl: windows_core::IUnknownImpl {
-    fn SetLogControl(&self, plogcontrol: windows_core::Ref<ICrmLogControl>) -> windows_core::Result<()>;
+    fn SetLogControl(&self, plogcontrol: windows_core::Ref<'_, ICrmLogControl>) -> windows_core::Result<()>;
     fn BeginPrepare(&self) -> windows_core::Result<()>;
     fn PrepareRecord(&self, crmlogrec: &CrmLogRecordRead) -> windows_core::Result<windows_core::BOOL>;
     fn EndPrepare(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -5753,7 +5753,7 @@ pub struct ICrmCompensatorVariants_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICrmCompensatorVariants_Impl: windows_core::IUnknownImpl {
-    fn SetLogControlVariants(&self, plogcontrol: windows_core::Ref<ICrmLogControl>) -> windows_core::Result<()>;
+    fn SetLogControlVariants(&self, plogcontrol: windows_core::Ref<'_, ICrmLogControl>) -> windows_core::Result<()>;
     fn BeginPrepareVariants(&self) -> windows_core::Result<()>;
     fn PrepareRecordVariants(&self, plogrecord: *const super::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn EndPrepareVariants(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -6641,7 +6641,7 @@ pub struct IDispenserManager_Vtbl {
     pub GetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize, *mut usize) -> windows_core::HRESULT,
 }
 pub trait IDispenserManager_Impl: windows_core::IUnknownImpl {
-    fn RegisterDispenser(&self, __midl__idispensermanager0000: windows_core::Ref<IDispenserDriver>, szdispensername: &windows_core::PCWSTR) -> windows_core::Result<IHolder>;
+    fn RegisterDispenser(&self, __midl__idispensermanager0000: windows_core::Ref<'_, IDispenserDriver>, szdispensername: &windows_core::PCWSTR) -> windows_core::Result<IHolder>;
     fn GetContext(&self, __midl__idispensermanager0002: *mut usize, __midl__idispensermanager0003: *mut usize) -> windows_core::Result<()>;
 }
 impl IDispenserManager_Vtbl {
@@ -7289,8 +7289,8 @@ pub struct IMTSActivity_Vtbl {
     pub UnbindFromThread: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMTSActivity_Impl: windows_core::IUnknownImpl {
-    fn SynchronousCall(&self, pcall: windows_core::Ref<IMTSCall>) -> windows_core::Result<()>;
-    fn AsyncCall(&self, pcall: windows_core::Ref<IMTSCall>) -> windows_core::Result<()>;
+    fn SynchronousCall(&self, pcall: windows_core::Ref<'_, IMTSCall>) -> windows_core::Result<()>;
+    fn AsyncCall(&self, pcall: windows_core::Ref<'_, IMTSCall>) -> windows_core::Result<()>;
     fn Reserved1(&self);
     fn BindToCurrentThread(&self) -> windows_core::Result<()>;
     fn UnbindFromThread(&self) -> windows_core::Result<()>;
@@ -7447,8 +7447,8 @@ pub struct IManagedActivationEvents_Vtbl {
     pub DestroyManagedStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IManagedActivationEvents_Impl: windows_core::IUnknownImpl {
-    fn CreateManagedStub(&self, pinfo: windows_core::Ref<IManagedObjectInfo>, fdist: windows_core::BOOL) -> windows_core::Result<()>;
-    fn DestroyManagedStub(&self, pinfo: windows_core::Ref<IManagedObjectInfo>) -> windows_core::Result<()>;
+    fn CreateManagedStub(&self, pinfo: windows_core::Ref<'_, IManagedObjectInfo>, fdist: windows_core::BOOL) -> windows_core::Result<()>;
+    fn DestroyManagedStub(&self, pinfo: windows_core::Ref<'_, IManagedObjectInfo>) -> windows_core::Result<()>;
 }
 impl IManagedActivationEvents_Vtbl {
     pub const fn new<Identity: IManagedActivationEvents_Impl, const OFFSET: isize>() -> Self {
@@ -7511,7 +7511,7 @@ pub struct IManagedObjectInfo_Vtbl {
 pub trait IManagedObjectInfo_Impl: windows_core::IUnknownImpl {
     fn GetIUnknown(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetIObjectControl(&self) -> windows_core::Result<IObjectControl>;
-    fn SetInPool(&self, binpool: windows_core::BOOL, ppooledobj: windows_core::Ref<IManagedPooledObj>) -> windows_core::Result<()>;
+    fn SetInPool(&self, binpool: windows_core::BOOL, ppooledobj: windows_core::Ref<'_, IManagedPooledObj>) -> windows_core::Result<()>;
     fn SetWrapperStrength(&self, bstrong: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IManagedObjectInfo_Vtbl {
@@ -8192,7 +8192,7 @@ pub trait IObjPool_Impl: windows_core::IUnknownImpl {
     fn Reserved2(&self);
     fn Reserved3(&self);
     fn Reserved4(&self);
-    fn PutEndTx(&self, pobj: windows_core::Ref<windows_core::IUnknown>);
+    fn PutEndTx(&self, pobj: windows_core::Ref<'_, windows_core::IUnknown>);
     fn Reserved5(&self);
     fn Reserved6(&self);
 }
@@ -8277,7 +8277,7 @@ pub struct IObjectConstruct_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IObjectConstruct_Impl: windows_core::IUnknownImpl {
-    fn Construct(&self, pctorobj: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Construct(&self, pctorobj: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IObjectConstruct_Vtbl {
@@ -8836,7 +8836,7 @@ pub struct IProcessInitializer_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IProcessInitializer_Impl: windows_core::IUnknownImpl {
-    fn Startup(&self, punkprocesscontrol: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Startup(&self, punkprocesscontrol: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
 impl IProcessInitializer_Vtbl {
@@ -9354,7 +9354,7 @@ pub struct ISelectCOMLBServer_Vtbl {
 }
 pub trait ISelectCOMLBServer_Impl: windows_core::IUnknownImpl {
     fn Init(&self) -> windows_core::Result<()>;
-    fn GetLBServer(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetLBServer(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ISelectCOMLBServer_Vtbl {
     pub const fn new<Identity: ISelectCOMLBServer_Impl, const OFFSET: isize>() -> Self {
@@ -9453,8 +9453,8 @@ pub struct IServiceActivity_Vtbl {
     pub UnbindFromThread: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IServiceActivity_Impl: windows_core::IUnknownImpl {
-    fn SynchronousCall(&self, piservicecall: windows_core::Ref<IServiceCall>) -> windows_core::Result<()>;
-    fn AsynchronousCall(&self, piservicecall: windows_core::Ref<IServiceCall>) -> windows_core::Result<()>;
+    fn SynchronousCall(&self, piservicecall: windows_core::Ref<'_, IServiceCall>) -> windows_core::Result<()>;
+    fn AsynchronousCall(&self, piservicecall: windows_core::Ref<'_, IServiceCall>) -> windows_core::Result<()>;
     fn BindToCurrentThread(&self) -> windows_core::Result<()>;
     fn UnbindFromThread(&self) -> windows_core::Result<()>;
 }
@@ -9686,7 +9686,7 @@ pub struct IServicePool_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IServicePool_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, ppoolconfig: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, ppoolconfig: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetObject(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
@@ -9794,7 +9794,7 @@ pub trait IServicePoolConfig_Impl: windows_core::IUnknownImpl {
     fn CreationTimeout(&self, pdwcreationtimeout: *mut u32) -> windows_core::Result<()>;
     fn SetTransactionAffinity(&self, ftxaffinity: windows_core::BOOL) -> windows_core::Result<()>;
     fn TransactionAffinity(&self, pftxaffinity: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetClassFactory(&self, pfactory: windows_core::Ref<super::Com::IClassFactory>) -> windows_core::Result<()>;
+    fn SetClassFactory(&self, pfactory: windows_core::Ref<'_, super::Com::IClassFactory>) -> windows_core::Result<()>;
     fn ClassFactory(&self) -> windows_core::Result<super::Com::IClassFactory>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10002,7 +10002,7 @@ pub struct IServiceSysTxnConfig_Vtbl {
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait IServiceSysTxnConfig_Impl: IServiceTransactionConfig_Impl {
-    fn ConfigureBYOTSysTxn(&self, ptxproxy: windows_core::Ref<ITransactionProxy>) -> windows_core::Result<()>;
+    fn ConfigureBYOTSysTxn(&self, ptxproxy: windows_core::Ref<'_, ITransactionProxy>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 impl IServiceSysTxnConfig_Vtbl {
@@ -10127,7 +10127,7 @@ pub struct IServiceTransactionConfig_Vtbl {
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait IServiceTransactionConfig_Impl: IServiceTransactionConfigBase_Impl {
-    fn ConfigureBYOT(&self, pitxbyot: windows_core::Ref<super::DistributedTransactionCoordinator::ITransaction>) -> windows_core::Result<()>;
+    fn ConfigureBYOT(&self, pitxbyot: windows_core::Ref<'_, super::DistributedTransactionCoordinator::ITransaction>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 impl IServiceTransactionConfig_Vtbl {
@@ -11130,7 +11130,7 @@ pub trait ITransactionProxy_Impl: windows_core::IUnknownImpl {
     fn Commit(&self, guid: &windows_core::GUID) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
     fn Promote(&self) -> windows_core::Result<super::DistributedTransactionCoordinator::ITransaction>;
-    fn CreateVoter(&self, ptxasync: windows_core::Ref<super::DistributedTransactionCoordinator::ITransactionVoterNotifyAsync2>) -> windows_core::Result<super::DistributedTransactionCoordinator::ITransactionVoterBallotAsync2>;
+    fn CreateVoter(&self, ptxasync: windows_core::Ref<'_, super::DistributedTransactionCoordinator::ITransactionVoterNotifyAsync2>) -> windows_core::Result<super::DistributedTransactionCoordinator::ITransactionVoterBallotAsync2>;
     fn GetIsolationLevel(&self, __midl__itransactionproxy0000: *mut i32) -> windows_core::Result<()>;
     fn GetIdentifier(&self, pbstridentifier: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn IsReusable(&self, pfisreusable: *mut windows_core::BOOL) -> windows_core::Result<()>;
@@ -11236,8 +11236,8 @@ pub struct ITransactionResourcePool_Vtbl {
     pub GetResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITransactionResourcePool_Impl: windows_core::IUnknownImpl {
-    fn PutResource(&self, ppool: windows_core::Ref<IObjPool>, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetResource(&self, ppool: windows_core::Ref<IObjPool>) -> windows_core::Result<windows_core::IUnknown>;
+    fn PutResource(&self, ppool: windows_core::Ref<'_, IObjPool>, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetResource(&self, ppool: windows_core::Ref<'_, IObjPool>) -> windows_core::Result<windows_core::IUnknown>;
 }
 impl ITransactionResourcePool_Vtbl {
     pub const fn new<Identity: ITransactionResourcePool_Impl, const OFFSET: isize>() -> Self {

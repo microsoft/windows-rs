@@ -3048,7 +3048,7 @@ pub trait ID3D10Debug_Impl: windows_core::IUnknownImpl {
     fn GetFeatureMask(&self) -> u32;
     fn SetPresentPerRenderOpDelay(&self, milliseconds: u32) -> windows_core::Result<()>;
     fn GetPresentPerRenderOpDelay(&self) -> u32;
-    fn SetSwapChain(&self, pswapchain: windows_core::Ref<super::Dxgi::IDXGISwapChain>) -> windows_core::Result<()>;
+    fn SetSwapChain(&self, pswapchain: windows_core::Ref<'_, super::Dxgi::IDXGISwapChain>) -> windows_core::Result<()>;
     fn GetSwapChain(&self) -> windows_core::Result<super::Dxgi::IDXGISwapChain>;
     fn Validate(&self) -> windows_core::Result<()>;
 }
@@ -3762,40 +3762,40 @@ unsafe impl Sync for ID3D10Device {}
 pub trait ID3D10Device_Impl: windows_core::IUnknownImpl {
     fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const Option<ID3D10Buffer>);
     fn PSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const Option<ID3D10ShaderResourceView>);
-    fn PSSetShader(&self, ppixelshader: windows_core::Ref<ID3D10PixelShader>);
+    fn PSSetShader(&self, ppixelshader: windows_core::Ref<'_, ID3D10PixelShader>);
     fn PSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const Option<ID3D10SamplerState>);
-    fn VSSetShader(&self, pvertexshader: windows_core::Ref<ID3D10VertexShader>);
+    fn VSSetShader(&self, pvertexshader: windows_core::Ref<'_, ID3D10VertexShader>);
     fn DrawIndexed(&self, indexcount: u32, startindexlocation: u32, basevertexlocation: i32);
     fn Draw(&self, vertexcount: u32, startvertexlocation: u32);
     fn PSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const Option<ID3D10Buffer>);
-    fn IASetInputLayout(&self, pinputlayout: windows_core::Ref<ID3D10InputLayout>);
+    fn IASetInputLayout(&self, pinputlayout: windows_core::Ref<'_, ID3D10InputLayout>);
     fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const Option<ID3D10Buffer>, pstrides: *const u32, poffsets: *const u32);
-    fn IASetIndexBuffer(&self, pindexbuffer: windows_core::Ref<ID3D10Buffer>, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32);
+    fn IASetIndexBuffer(&self, pindexbuffer: windows_core::Ref<'_, ID3D10Buffer>, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32);
     fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32);
     fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32);
     fn GSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const Option<ID3D10Buffer>);
-    fn GSSetShader(&self, pshader: windows_core::Ref<ID3D10GeometryShader>);
+    fn GSSetShader(&self, pshader: windows_core::Ref<'_, ID3D10GeometryShader>);
     fn IASetPrimitiveTopology(&self, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
     fn VSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const Option<ID3D10ShaderResourceView>);
     fn VSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const Option<ID3D10SamplerState>);
-    fn SetPredication(&self, ppredicate: windows_core::Ref<ID3D10Predicate>, predicatevalue: windows_core::BOOL);
+    fn SetPredication(&self, ppredicate: windows_core::Ref<'_, ID3D10Predicate>, predicatevalue: windows_core::BOOL);
     fn GSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const Option<ID3D10ShaderResourceView>);
     fn GSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const Option<ID3D10SamplerState>);
-    fn OMSetRenderTargets(&self, numviews: u32, pprendertargetviews: *const Option<ID3D10RenderTargetView>, pdepthstencilview: windows_core::Ref<ID3D10DepthStencilView>);
-    fn OMSetBlendState(&self, pblendstate: windows_core::Ref<ID3D10BlendState>, blendfactor: *const f32, samplemask: u32);
-    fn OMSetDepthStencilState(&self, pdepthstencilstate: windows_core::Ref<ID3D10DepthStencilState>, stencilref: u32);
+    fn OMSetRenderTargets(&self, numviews: u32, pprendertargetviews: *const Option<ID3D10RenderTargetView>, pdepthstencilview: windows_core::Ref<'_, ID3D10DepthStencilView>);
+    fn OMSetBlendState(&self, pblendstate: windows_core::Ref<'_, ID3D10BlendState>, blendfactor: *const f32, samplemask: u32);
+    fn OMSetDepthStencilState(&self, pdepthstencilstate: windows_core::Ref<'_, ID3D10DepthStencilState>, stencilref: u32);
     fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const Option<ID3D10Buffer>, poffsets: *const u32);
     fn DrawAuto(&self);
-    fn RSSetState(&self, prasterizerstate: windows_core::Ref<ID3D10RasterizerState>);
+    fn RSSetState(&self, prasterizerstate: windows_core::Ref<'_, ID3D10RasterizerState>);
     fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D10_VIEWPORT);
     fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT);
-    fn CopySubresourceRegion(&self, pdstresource: windows_core::Ref<ID3D10Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: windows_core::Ref<ID3D10Resource>, srcsubresource: u32, psrcbox: *const D3D10_BOX);
-    fn CopyResource(&self, pdstresource: windows_core::Ref<ID3D10Resource>, psrcresource: windows_core::Ref<ID3D10Resource>);
-    fn UpdateSubresource(&self, pdstresource: windows_core::Ref<ID3D10Resource>, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
-    fn ClearRenderTargetView(&self, prendertargetview: windows_core::Ref<ID3D10RenderTargetView>, colorrgba: *const f32);
-    fn ClearDepthStencilView(&self, pdepthstencilview: windows_core::Ref<ID3D10DepthStencilView>, clearflags: u32, depth: f32, stencil: u8);
-    fn GenerateMips(&self, pshaderresourceview: windows_core::Ref<ID3D10ShaderResourceView>);
-    fn ResolveSubresource(&self, pdstresource: windows_core::Ref<ID3D10Resource>, dstsubresource: u32, psrcresource: windows_core::Ref<ID3D10Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
+    fn CopySubresourceRegion(&self, pdstresource: windows_core::Ref<'_, ID3D10Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: windows_core::Ref<'_, ID3D10Resource>, srcsubresource: u32, psrcbox: *const D3D10_BOX);
+    fn CopyResource(&self, pdstresource: windows_core::Ref<'_, ID3D10Resource>, psrcresource: windows_core::Ref<'_, ID3D10Resource>);
+    fn UpdateSubresource(&self, pdstresource: windows_core::Ref<'_, ID3D10Resource>, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
+    fn ClearRenderTargetView(&self, prendertargetview: windows_core::Ref<'_, ID3D10RenderTargetView>, colorrgba: *const f32);
+    fn ClearDepthStencilView(&self, pdepthstencilview: windows_core::Ref<'_, ID3D10DepthStencilView>, clearflags: u32, depth: f32, stencil: u8);
+    fn GenerateMips(&self, pshaderresourceview: windows_core::Ref<'_, ID3D10ShaderResourceView>);
+    fn ResolveSubresource(&self, pdstresource: windows_core::Ref<'_, ID3D10Resource>, dstsubresource: u32, psrcresource: windows_core::Ref<'_, ID3D10Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
     fn VSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: windows_core::OutRef<'_, ID3D10Buffer>);
     fn PSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: windows_core::OutRef<'_, ID3D10ShaderResourceView>);
     fn PSGetShader(&self, pppixelshader: windows_core::OutRef<'_, ID3D10PixelShader>);
@@ -3825,16 +3825,16 @@ pub trait ID3D10Device_Impl: windows_core::IUnknownImpl {
     fn GetExceptionMode(&self) -> u32;
     fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn ClearState(&self);
     fn Flush(&self);
     fn CreateBuffer(&self, pdesc: *const D3D10_BUFFER_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, ppbuffer: windows_core::OutRef<'_, ID3D10Buffer>) -> windows_core::Result<()>;
     fn CreateTexture1D(&self, pdesc: *const D3D10_TEXTURE1D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> windows_core::Result<ID3D10Texture1D>;
     fn CreateTexture2D(&self, pdesc: *const D3D10_TEXTURE2D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> windows_core::Result<ID3D10Texture2D>;
     fn CreateTexture3D(&self, pdesc: *const D3D10_TEXTURE3D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> windows_core::Result<ID3D10Texture3D>;
-    fn CreateShaderResourceView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, ppsrview: windows_core::OutRef<'_, ID3D10ShaderResourceView>) -> windows_core::Result<()>;
-    fn CreateRenderTargetView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC, pprtview: windows_core::OutRef<'_, ID3D10RenderTargetView>) -> windows_core::Result<()>;
-    fn CreateDepthStencilView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: windows_core::OutRef<'_, ID3D10DepthStencilView>) -> windows_core::Result<()>;
+    fn CreateShaderResourceView(&self, presource: windows_core::Ref<'_, ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, ppsrview: windows_core::OutRef<'_, ID3D10ShaderResourceView>) -> windows_core::Result<()>;
+    fn CreateRenderTargetView(&self, presource: windows_core::Ref<'_, ID3D10Resource>, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC, pprtview: windows_core::OutRef<'_, ID3D10RenderTargetView>) -> windows_core::Result<()>;
+    fn CreateDepthStencilView(&self, presource: windows_core::Ref<'_, ID3D10Resource>, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: windows_core::OutRef<'_, ID3D10DepthStencilView>) -> windows_core::Result<()>;
     fn CreateInputLayout(&self, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const core::ffi::c_void, bytecodelength: usize, ppinputlayout: windows_core::OutRef<'_, ID3D10InputLayout>) -> windows_core::Result<()>;
     fn CreateVertexShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize, ppvertexshader: windows_core::OutRef<'_, ID3D10VertexShader>) -> windows_core::Result<()>;
     fn CreateGeometryShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize, ppgeometryshader: windows_core::OutRef<'_, ID3D10GeometryShader>) -> windows_core::Result<()>;
@@ -4601,7 +4601,7 @@ unsafe impl Send for ID3D10Device1 {}
 unsafe impl Sync for ID3D10Device1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D10Device1_Impl: ID3D10Device_Impl {
-    fn CreateShaderResourceView1(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: windows_core::OutRef<'_, ID3D10ShaderResourceView1>) -> windows_core::Result<()>;
+    fn CreateShaderResourceView1(&self, presource: windows_core::Ref<'_, ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: windows_core::OutRef<'_, ID3D10ShaderResourceView1>) -> windows_core::Result<()>;
     fn CreateBlendState1(&self, pblendstatedesc: *const D3D10_BLEND_DESC1, ppblendstate: windows_core::OutRef<'_, ID3D10BlendState1>) -> windows_core::Result<()>;
     fn GetFeatureLevel(&self) -> D3D10_FEATURE_LEVEL1;
 }
@@ -4676,7 +4676,7 @@ pub trait ID3D10DeviceChild_Impl: windows_core::IUnknownImpl {
     fn GetDevice(&self, ppdevice: windows_core::OutRef<'_, ID3D10Device>);
     fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ID3D10DeviceChild_Vtbl {
     pub const fn new<Identity: ID3D10DeviceChild_Impl, const OFFSET: isize>() -> Self {
@@ -5029,9 +5029,9 @@ pub struct ID3D10EffectConstantBuffer_Vtbl {
 unsafe impl Send for ID3D10EffectConstantBuffer {}
 unsafe impl Sync for ID3D10EffectConstantBuffer {}
 pub trait ID3D10EffectConstantBuffer_Impl: ID3D10EffectVariable_Impl {
-    fn SetConstantBuffer(&self, pconstantbuffer: windows_core::Ref<ID3D10Buffer>) -> windows_core::Result<()>;
+    fn SetConstantBuffer(&self, pconstantbuffer: windows_core::Ref<'_, ID3D10Buffer>) -> windows_core::Result<()>;
     fn GetConstantBuffer(&self) -> windows_core::Result<ID3D10Buffer>;
-    fn SetTextureBuffer(&self, ptexturebuffer: windows_core::Ref<ID3D10ShaderResourceView>) -> windows_core::Result<()>;
+    fn SetTextureBuffer(&self, ptexturebuffer: windows_core::Ref<'_, ID3D10ShaderResourceView>) -> windows_core::Result<()>;
     fn GetTextureBuffer(&self) -> windows_core::Result<ID3D10ShaderResourceView>;
 }
 impl ID3D10EffectConstantBuffer_Vtbl {
@@ -5206,7 +5206,7 @@ pub struct ID3D10EffectDepthStencilViewVariable_Vtbl {
 unsafe impl Send for ID3D10EffectDepthStencilViewVariable {}
 unsafe impl Sync for ID3D10EffectDepthStencilViewVariable {}
 pub trait ID3D10EffectDepthStencilViewVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetDepthStencil(&self, presource: windows_core::Ref<ID3D10DepthStencilView>) -> windows_core::Result<()>;
+    fn SetDepthStencil(&self, presource: windows_core::Ref<'_, ID3D10DepthStencilView>) -> windows_core::Result<()>;
     fn GetDepthStencil(&self) -> windows_core::Result<ID3D10DepthStencilView>;
     fn SetDepthStencilArray(&self, ppresources: *const Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> windows_core::Result<()>;
     fn GetDepthStencilArray(&self, ppresources: windows_core::OutRef<'_, ID3D10DepthStencilView>, offset: u32, count: u32) -> windows_core::Result<()>;
@@ -5696,7 +5696,7 @@ pub struct ID3D10EffectRenderTargetViewVariable_Vtbl {
 unsafe impl Send for ID3D10EffectRenderTargetViewVariable {}
 unsafe impl Sync for ID3D10EffectRenderTargetViewVariable {}
 pub trait ID3D10EffectRenderTargetViewVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetRenderTarget(&self, presource: windows_core::Ref<ID3D10RenderTargetView>) -> windows_core::Result<()>;
+    fn SetRenderTarget(&self, presource: windows_core::Ref<'_, ID3D10RenderTargetView>) -> windows_core::Result<()>;
     fn GetRenderTarget(&self) -> windows_core::Result<ID3D10RenderTargetView>;
     fn SetRenderTargetArray(&self, ppresources: *const Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> windows_core::Result<()>;
     fn GetRenderTargetArray(&self, ppresources: windows_core::OutRef<'_, ID3D10RenderTargetView>, offset: u32, count: u32) -> windows_core::Result<()>;
@@ -6082,7 +6082,7 @@ pub struct ID3D10EffectShaderResourceVariable_Vtbl {
 unsafe impl Send for ID3D10EffectShaderResourceVariable {}
 unsafe impl Sync for ID3D10EffectShaderResourceVariable {}
 pub trait ID3D10EffectShaderResourceVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetResource(&self, presource: windows_core::Ref<ID3D10ShaderResourceView>) -> windows_core::Result<()>;
+    fn SetResource(&self, presource: windows_core::Ref<'_, ID3D10ShaderResourceView>) -> windows_core::Result<()>;
     fn GetResource(&self) -> windows_core::Result<ID3D10ShaderResourceView>;
     fn SetResourceArray(&self, ppresources: *const Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> windows_core::Result<()>;
     fn GetResourceArray(&self, ppresources: windows_core::OutRef<'_, ID3D10ShaderResourceView>, offset: u32, count: u32) -> windows_core::Result<()>;
@@ -9174,7 +9174,7 @@ impl ID3D10View_Vtbl {
 }
 impl windows_core::RuntimeName for ID3D10View {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-pub type PFN_D3D10_CREATE_DEVICE1 = Option<unsafe extern "system" fn(param0: windows_core::Ref<super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: windows_core::OutRef<'_, ID3D10Device1>) -> windows_core::HRESULT>;
+pub type PFN_D3D10_CREATE_DEVICE1 = Option<unsafe extern "system" fn(param0: windows_core::Ref<'_, super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: windows_core::OutRef<'_, ID3D10Device1>) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = Option<unsafe extern "system" fn(param0: windows_core::Ref<super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::Dxgi::DXGI_SWAP_CHAIN_DESC, param7: windows_core::OutRef<'_, super::Dxgi::IDXGISwapChain>, param8: windows_core::OutRef<'_, ID3D10Device1>) -> windows_core::HRESULT>;
+pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = Option<unsafe extern "system" fn(param0: windows_core::Ref<'_, super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::Dxgi::DXGI_SWAP_CHAIN_DESC, param7: windows_core::OutRef<'_, super::Dxgi::IDXGISwapChain>, param8: windows_core::OutRef<'_, ID3D10Device1>) -> windows_core::HRESULT>;
 pub const _FACD3D10: u32 = 2169u32;

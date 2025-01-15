@@ -194,7 +194,7 @@ impl windows_core::RuntimeName for IVpnChannelStatics {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelStatics";
 }
 pub trait IVpnChannelStatics_Impl: windows_core::IUnknownImpl {
-    fn ProcessEventAsync(&self, thirdPartyPlugIn: windows_core::Ref<windows_core::IInspectable>, event: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn ProcessEventAsync(&self, thirdPartyPlugIn: windows_core::Ref<'_, windows_core::IInspectable>, event: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()>;
 }
 impl IVpnChannelStatics_Vtbl {
     pub const fn new<Identity: IVpnChannelStatics_Impl, const OFFSET: isize>() -> Self {
@@ -789,7 +789,7 @@ impl windows_core::RuntimeName for IVpnDomainNameInfoFactory {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnDomainNameInfoFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateVpnDomainNameInfo(&self, name: &windows_core::HSTRING, nameType: VpnDomainNameType, dnsServerList: windows_core::Ref<super::super::Foundation::Collections::IIterable<super::HostName>>, proxyServerList: windows_core::Ref<super::super::Foundation::Collections::IIterable<super::HostName>>) -> windows_core::Result<VpnDomainNameInfo>;
+    fn CreateVpnDomainNameInfo(&self, name: &windows_core::HSTRING, nameType: VpnDomainNameType, dnsServerList: windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<super::HostName>>, proxyServerList: windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<super::HostName>>) -> windows_core::Result<VpnDomainNameInfo>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IVpnDomainNameInfoFactory_Vtbl {
@@ -1000,7 +1000,7 @@ impl windows_core::RuntimeName for IVpnNamespaceInfoFactory {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnNamespaceInfoFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateVpnNamespaceInfo(&self, name: &windows_core::HSTRING, dnsServerList: windows_core::Ref<super::super::Foundation::Collections::IVector<super::HostName>>, proxyServerList: windows_core::Ref<super::super::Foundation::Collections::IVector<super::HostName>>) -> windows_core::Result<VpnNamespaceInfo>;
+    fn CreateVpnNamespaceInfo(&self, name: &windows_core::HSTRING, dnsServerList: windows_core::Ref<'_, super::super::Foundation::Collections::IVector<super::HostName>>, proxyServerList: windows_core::Ref<'_, super::super::Foundation::Collections::IVector<super::HostName>>) -> windows_core::Result<VpnNamespaceInfo>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IVpnNamespaceInfoFactory_Vtbl {
@@ -1124,7 +1124,7 @@ impl windows_core::RuntimeName for IVpnPacketBufferFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBufferFactory";
 }
 pub trait IVpnPacketBufferFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateVpnPacketBuffer(&self, parentBuffer: windows_core::Ref<VpnPacketBuffer>, offset: u32, length: u32) -> windows_core::Result<VpnPacketBuffer>;
+    fn CreateVpnPacketBuffer(&self, parentBuffer: windows_core::Ref<'_, VpnPacketBuffer>, offset: u32, length: u32) -> windows_core::Result<VpnPacketBuffer>;
 }
 impl IVpnPacketBufferFactory_Vtbl {
     pub const fn new<Identity: IVpnPacketBufferFactory_Impl, const OFFSET: isize>() -> Self {
@@ -1261,11 +1261,11 @@ impl windows_core::RuntimeName for IVpnPlugIn {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnPlugIn_Impl: windows_core::IUnknownImpl {
-    fn Connect(&self, channel: windows_core::Ref<VpnChannel>) -> windows_core::Result<()>;
-    fn Disconnect(&self, channel: windows_core::Ref<VpnChannel>) -> windows_core::Result<()>;
-    fn GetKeepAlivePayload(&self, channel: windows_core::Ref<VpnChannel>, keepAlivePacket: windows_core::OutRef<'_, VpnPacketBuffer>) -> windows_core::Result<()>;
-    fn Encapsulate(&self, channel: windows_core::Ref<VpnChannel>, packets: windows_core::Ref<VpnPacketBufferList>, encapulatedPackets: windows_core::Ref<VpnPacketBufferList>) -> windows_core::Result<()>;
-    fn Decapsulate(&self, channel: windows_core::Ref<VpnChannel>, encapBuffer: windows_core::Ref<VpnPacketBuffer>, decapsulatedPackets: windows_core::Ref<VpnPacketBufferList>, controlPacketsToSend: windows_core::Ref<VpnPacketBufferList>) -> windows_core::Result<()>;
+    fn Connect(&self, channel: windows_core::Ref<'_, VpnChannel>) -> windows_core::Result<()>;
+    fn Disconnect(&self, channel: windows_core::Ref<'_, VpnChannel>) -> windows_core::Result<()>;
+    fn GetKeepAlivePayload(&self, channel: windows_core::Ref<'_, VpnChannel>, keepAlivePacket: windows_core::OutRef<'_, VpnPacketBuffer>) -> windows_core::Result<()>;
+    fn Encapsulate(&self, channel: windows_core::Ref<'_, VpnChannel>, packets: windows_core::Ref<'_, VpnPacketBufferList>, encapulatedPackets: windows_core::Ref<'_, VpnPacketBufferList>) -> windows_core::Result<()>;
+    fn Decapsulate(&self, channel: windows_core::Ref<'_, VpnChannel>, encapBuffer: windows_core::Ref<'_, VpnPacketBuffer>, decapsulatedPackets: windows_core::Ref<'_, VpnPacketBufferList>, controlPacketsToSend: windows_core::Ref<'_, VpnPacketBufferList>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IVpnPlugIn_Vtbl {
@@ -1374,7 +1374,7 @@ impl windows_core::RuntimeName for IVpnPlugInReconnectTransport {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugInReconnectTransport";
 }
 pub trait IVpnPlugInReconnectTransport_Impl: windows_core::IUnknownImpl {
-    fn ReconnectTransport(&self, channel: windows_core::Ref<VpnChannel>, context: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn ReconnectTransport(&self, channel: windows_core::Ref<'_, VpnChannel>, context: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()>;
 }
 impl IVpnPlugInReconnectTransport_Vtbl {
     pub const fn new<Identity: IVpnPlugInReconnectTransport_Impl, const OFFSET: isize>() -> Self {
@@ -1716,7 +1716,7 @@ impl windows_core::RuntimeName for IVpnRouteFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnRouteFactory";
 }
 pub trait IVpnRouteFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateVpnRoute(&self, address: windows_core::Ref<super::HostName>, prefixSize: u8) -> windows_core::Result<VpnRoute>;
+    fn CreateVpnRoute(&self, address: windows_core::Ref<'_, super::HostName>, prefixSize: u8) -> windows_core::Result<VpnRoute>;
 }
 impl IVpnRouteFactory_Vtbl {
     pub const fn new<Identity: IVpnRouteFactory_Impl, const OFFSET: isize>() -> Self {

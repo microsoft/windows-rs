@@ -540,7 +540,7 @@ pub struct IPresentationManager_Vtbl {
     pub GetNextPresentStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPresentationManager_Impl: windows_core::IUnknownImpl {
-    fn AddBufferFromResource(&self, resource: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IPresentationBuffer>;
+    fn AddBufferFromResource(&self, resource: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<IPresentationBuffer>;
     fn CreatePresentationSurface(&self, compositionsurfacehandle: super::super::Foundation::HANDLE) -> windows_core::Result<IPresentationSurface>;
     fn GetNextPresentId(&self) -> u64;
     fn SetTargetTime(&self, targettime: &SystemInterruptTime) -> windows_core::Result<()>;
@@ -748,12 +748,12 @@ pub struct IPresentationSurface_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IPresentationSurface_Impl: IPresentationContent_Impl {
-    fn SetBuffer(&self, presentationbuffer: windows_core::Ref<IPresentationBuffer>) -> windows_core::Result<()>;
+    fn SetBuffer(&self, presentationbuffer: windows_core::Ref<'_, IPresentationBuffer>) -> windows_core::Result<()>;
     fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<()>;
     fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<()>;
     fn SetSourceRect(&self, sourcerect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn SetTransform(&self, transform: *const PresentationTransform) -> windows_core::Result<()>;
-    fn RestrictToOutput(&self, output: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RestrictToOutput(&self, output: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetDisableReadback(&self, value: u8) -> windows_core::Result<()>;
     fn SetLetterboxingMargins(&self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> windows_core::Result<()>;
 }
