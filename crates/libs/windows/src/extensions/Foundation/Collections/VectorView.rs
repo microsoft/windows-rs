@@ -1,4 +1,4 @@
-use crate::Foundation::Collections::*;
+use crate::{core::*, Foundation::Collections::*};
 
 #[windows_core::implement(IVectorView<T>, IIterable<T>)]
 struct StockVectorView<T>
@@ -33,8 +33,8 @@ where
     fn Size(&self) -> windows_core::Result<u32> {
         Ok(self.values.len().try_into()?)
     }
-    fn IndexOf(&self, value: T::Ref, result: &mut u32) -> windows_core::Result<bool> {
-        match self.values.iter().position(|element| element == T::deref(&value)) {
+    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> windows_core::Result<bool> {
+        match self.values.iter().position(|element| element == &*value) {
             Some(index) => {
                 *result = index as u32;
                 Ok(true)

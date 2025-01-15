@@ -17,17 +17,12 @@ pub struct CopyType;
 #[doc(hidden)]
 pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + Clone {
     type Abi;
-    type Ref;
     type Default;
 
     fn is_null(abi: &Self::Abi) -> bool;
     unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self;
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
     fn from_default(default: &Self::Default) -> Result<Self>;
-
-    fn deref(param: &Self::Ref) -> &Self::Default {
-        unsafe { core::mem::transmute(param) }
-    }
 }
 
 impl<T> Type<T, InterfaceType> for T
@@ -35,7 +30,6 @@ where
     T: TypeKind<TypeKind = InterfaceType> + Clone,
 {
     type Abi = *mut core::ffi::c_void;
-    type Ref = Ref<T>;
     type Default = Option<Self>;
 
     fn is_null(abi: &Self::Abi) -> bool {
@@ -66,7 +60,6 @@ where
     T: TypeKind<TypeKind = CloneType> + Clone,
 {
     type Abi = core::mem::MaybeUninit<Self>;
-    type Ref = Ref<T>;
     type Default = Self;
 
     fn is_null(_: &Self::Abi) -> bool {
@@ -91,7 +84,6 @@ where
     T: TypeKind<TypeKind = CopyType> + Clone,
 {
     type Abi = Self;
-    type Ref = Self;
     type Default = Self;
 
     fn is_null(_: &Self::Abi) -> bool {

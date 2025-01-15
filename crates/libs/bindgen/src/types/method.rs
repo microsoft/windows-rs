@@ -157,7 +157,7 @@ impl Method {
                     quote! { windows_core::Ref<#type_name> }
                 } else if matches!(&p.0, Type::Param(_)) {
                     let type_name = p.0.write_name(writer);
-                    quote! { <#type_name as windows_core::Type<#type_name>>::Ref }
+                    quote! { windows_core::Ref<#type_name> }
                 } else {
                     quote! { &#default_type }
                 }

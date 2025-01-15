@@ -14,9 +14,9 @@ fn test() -> Result<()> {
     assert_eq!(0, class.Signal(1)?);
 
     let token = class.Event(&TypedEventHandler::new(
-        move |sender: Ref<Class>, args: i32| {
+        move |sender: Ref<Class>, args: Ref<i32>| {
             assert_eq!(sender.as_ref().unwrap(), class);
-            assert_eq!(args, 2);
+            assert_eq!(*args, 2);
             Ok(())
         },
     ))?;
@@ -27,17 +27,17 @@ fn test() -> Result<()> {
 
     class.Event(&TypedEventHandler::new(
         // TODO: ideally generics also use Ref<T> here
-        move |sender: Ref<Class>, args: i32| {
+        move |sender: Ref<Class>, args: Ref<i32>| {
             assert_eq!(sender.as_ref().unwrap(), class);
-            assert_eq!(args, 4);
+            assert_eq!(*args, 4);
             Ok(())
         },
     ))?;
 
     class.Event(&TypedEventHandler::new(
-        move |sender: Ref<Class>, args: i32| {
+        move |sender: Ref<Class>, args: Ref<i32>| {
             assert_eq!(sender.as_ref().unwrap(), class);
-            assert_eq!(args, 4);
+            assert_eq!(*args, 4);
             Ok(())
         },
     ))?;
@@ -51,7 +51,7 @@ fn test_static() -> Result<()> {
     assert_eq!(0, Class::StaticSignal(1)?);
 
     let token = Class::StaticEvent(&EventHandler::new(move |_, args| {
-        assert_eq!(args, 2);
+        assert_eq!(*args, 2);
         Ok(())
     }))?;
 
@@ -60,12 +60,12 @@ fn test_static() -> Result<()> {
     assert_eq!(0, Class::StaticSignal(3)?);
 
     Class::StaticEvent(&EventHandler::new(move |_, args| {
-        assert_eq!(args, 4);
+        assert_eq!(*args, 4);
         Ok(())
     }))?;
 
     Class::StaticEvent(&EventHandler::new(move |_, args| {
-        assert_eq!(args, 4);
+        assert_eq!(*args, 4);
         Ok(())
     }))?;
 
