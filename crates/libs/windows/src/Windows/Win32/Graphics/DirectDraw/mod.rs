@@ -10884,7 +10884,7 @@ impl Default for IUNKNOWN_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type LPCLIPPERCALLBACK = Option<unsafe extern "system" fn(lpddclipper: Option<IDirectDrawClipper>, hwnd: super::super::Foundation::HWND, code: u32, lpcontext: *mut core::ffi::c_void) -> u32>;
+pub type LPCLIPPERCALLBACK = Option<unsafe extern "system" fn(lpddclipper: windows_core::Ref<IDirectDrawClipper>, hwnd: super::super::Foundation::HWND, code: u32, lpcontext: *mut core::ffi::c_void) -> u32>;
 pub type LPDD32BITDRIVERINIT = Option<unsafe extern "system" fn(dwcontext: u32) -> u32>;
 pub type LPDDENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> windows_core::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -10894,9 +10894,9 @@ pub type LPDDENUMCALLBACKEXW = Option<unsafe extern "system" fn(param0: *mut win
 pub type LPDDENUMCALLBACKW = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPDDENUMMODESCALLBACK = Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC, param1: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type LPDDENUMMODESCALLBACK2 = Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC2, param1: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type LPDDENUMSURFACESCALLBACK = Option<unsafe extern "system" fn(param0: Option<IDirectDrawSurface>, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type LPDDENUMSURFACESCALLBACK2 = Option<unsafe extern "system" fn(param0: Option<IDirectDrawSurface4>, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type LPDDENUMSURFACESCALLBACK7 = Option<unsafe extern "system" fn(param0: Option<IDirectDrawSurface7>, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type LPDDENUMSURFACESCALLBACK = Option<unsafe extern "system" fn(param0: windows_core::Ref<IDirectDrawSurface>, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type LPDDENUMSURFACESCALLBACK2 = Option<unsafe extern "system" fn(param0: windows_core::Ref<IDirectDrawSurface4>, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type LPDDENUMSURFACESCALLBACK7 = Option<unsafe extern "system" fn(param0: windows_core::Ref<IDirectDrawSurface7>, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type LPDDENUMVIDEOCALLBACK = Option<unsafe extern "system" fn(param0: *mut DDVIDEOPORTCAPS, param1: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

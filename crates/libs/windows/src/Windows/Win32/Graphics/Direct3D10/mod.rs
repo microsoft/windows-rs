@@ -9174,7 +9174,7 @@ impl ID3D10View_Vtbl {
 }
 impl windows_core::RuntimeName for ID3D10View {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-pub type PFN_D3D10_CREATE_DEVICE1 = Option<unsafe extern "system" fn(param0: Option<super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut Option<ID3D10Device1>) -> windows_core::HRESULT>;
+pub type PFN_D3D10_CREATE_DEVICE1 = Option<unsafe extern "system" fn(param0: windows_core::Ref<super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: windows_core::OutRef<'_, ID3D10Device1>) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = Option<unsafe extern "system" fn(param0: Option<super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::Dxgi::DXGI_SWAP_CHAIN_DESC, param7: *mut Option<super::Dxgi::IDXGISwapChain>, param8: *mut Option<ID3D10Device1>) -> windows_core::HRESULT>;
+pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = Option<unsafe extern "system" fn(param0: windows_core::Ref<super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::Dxgi::DXGI_SWAP_CHAIN_DESC, param7: windows_core::OutRef<'_, super::Dxgi::IDXGISwapChain>, param8: windows_core::OutRef<'_, ID3D10Device1>) -> windows_core::HRESULT>;
 pub const _FACD3D10: u32 = 2169u32;

@@ -14848,6 +14848,6 @@ impl ID2D1VertexBuffer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1VertexBuffer {}
-pub type PD2D1_EFFECT_FACTORY = Option<unsafe extern "system" fn(effectimpl: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT>;
-pub type PD2D1_PROPERTY_GET_FUNCTION = Option<unsafe extern "system" fn(effect: Option<windows_core::IUnknown>, data: *mut u8, datasize: u32, actualsize: *mut u32) -> windows_core::HRESULT>;
-pub type PD2D1_PROPERTY_SET_FUNCTION = Option<unsafe extern "system" fn(effect: Option<windows_core::IUnknown>, data: *const u8, datasize: u32) -> windows_core::HRESULT>;
+pub type PD2D1_EFFECT_FACTORY = Option<unsafe extern "system" fn(effectimpl: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::HRESULT>;
+pub type PD2D1_PROPERTY_GET_FUNCTION = Option<unsafe extern "system" fn(effect: windows_core::Ref<windows_core::IUnknown>, data: *mut u8, datasize: u32, actualsize: *mut u32) -> windows_core::HRESULT>;
+pub type PD2D1_PROPERTY_SET_FUNCTION = Option<unsafe extern "system" fn(effect: windows_core::Ref<windows_core::IUnknown>, data: *const u8, datasize: u32) -> windows_core::HRESULT>;

@@ -103,4 +103,4 @@ pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type PFN_Direct3DCreate9On12 = Option<unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> Option<super::Direct3D9::IDirect3D9>>;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type PFN_Direct3DCreate9On12Ex = Option<unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut Option<super::Direct3D9::IDirect3D9Ex>) -> windows_core::HRESULT>;
+pub type PFN_Direct3DCreate9On12Ex = Option<unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: windows_core::OutRef<'_, super::Direct3D9::IDirect3D9Ex>) -> windows_core::HRESULT>;

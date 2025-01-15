@@ -3781,7 +3781,7 @@ pub const OpOneOrMore: WSDXML_OP = WSDXML_OP(18i32);
 pub const OpOptional: WSDXML_OP = WSDXML_OP(19i32);
 pub const OpProcess_: WSDXML_OP = WSDXML_OP(43i32);
 pub const OpQualifiedAttribute_: WSDXML_OP = WSDXML_OP(44i32);
-pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknown: Option<windows_core::IUnknown>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
+pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknown: windows_core::Ref<windows_core::IUnknown>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REQUESTBODY_GetStatus {
@@ -4662,7 +4662,7 @@ impl Default for WSD_SOAP_MESSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: Option<windows_core::IUnknown>, session: Option<IWSDServiceMessaging>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
+pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: windows_core::Ref<windows_core::IUnknown>, session: windows_core::Ref<IWSDServiceMessaging>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {

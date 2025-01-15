@@ -20237,11 +20237,11 @@ pub const LM_STEADY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(4i32);
 pub const LM_UNKNOWN: PHONE_LAMP_MODE = PHONE_LAMP_MODE(128i32);
 pub const LM_WINK: PHONE_LAMP_MODE = PHONE_LAMP_MODE(8i32);
 #[cfg(feature = "Win32_System_Com")]
-pub type LPGETTNEFSTREAMCODEPAGE = Option<unsafe extern "system" fn(lpstream: Option<super::super::System::Com::IStream>, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> windows_core::HRESULT>;
+pub type LPGETTNEFSTREAMCODEPAGE = Option<unsafe extern "system" fn(lpstream: windows_core::Ref<super::super::System::Com::IStream>, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> windows_core::HRESULT>;
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAM = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpptnef: *mut Option<ITnef>) -> windows_core::HRESULT>;
+pub type LPOPENTNEFSTREAM = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: windows_core::Ref<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: windows_core::Ref<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpptnef: windows_core::OutRef<'_, ITnef>) -> windows_core::HRESULT>;
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAMEX = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpadressbook: Option<super::super::System::AddressBook::IAddrBook>, lpptnef: *mut Option<ITnef>) -> windows_core::HRESULT>;
+pub type LPOPENTNEFSTREAMEX = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: windows_core::Ref<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: windows_core::Ref<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpadressbook: windows_core::Ref<super::super::System::AddressBook::IAddrBook>, lpptnef: windows_core::OutRef<'_, ITnef>) -> windows_core::HRESULT>;
 pub const ME_ADDRESS_EVENT: MSP_EVENT = MSP_EVENT(0i32);
 pub const ME_ASR_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(4i32);
 pub const ME_CALL_EVENT: MSP_EVENT = MSP_EVENT(1i32);
