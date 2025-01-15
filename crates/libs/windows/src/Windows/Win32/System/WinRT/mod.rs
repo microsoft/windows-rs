@@ -560,16 +560,6 @@ impl Default for DispatcherQueueOptions {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EventRegistrationToken {
-    pub value: i64,
-}
-impl Default for EventRegistrationToken {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FullTrust: TrustLevel = TrustLevel(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
