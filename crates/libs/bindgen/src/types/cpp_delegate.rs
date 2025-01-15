@@ -91,6 +91,6 @@ fn write_param(writer: &Writer, ty: &Type, param: Param) -> TokenStream {
     } else if ty.is_copyable() {
         quote! { #name: #type_name, }
     } else {
-        quote! { #name: windows_core::Ref<#type_name>, }
+        quote! { #name: windows_core::Ref<'_, #type_name>, }
     }
 }

@@ -154,10 +154,10 @@ impl Method {
                     quote! { #default_type }
                 } else if p.0.is_interface() {
                     let type_name = p.0.write_name(writer);
-                    quote! { windows_core::Ref<#type_name> }
+                    quote! { windows_core::Ref<'_, #type_name> }
                 } else if matches!(&p.0, Type::Param(_)) {
                     let type_name = p.0.write_name(writer);
-                    quote! { windows_core::Ref<#type_name> }
+                    quote! { windows_core::Ref<'_, #type_name> }
                 } else {
                     quote! { &#default_type }
                 }

@@ -18,7 +18,7 @@ impl<T: Type<T>> ParamValue<T> {
         }
     }
 
-    pub fn borrow(&self) -> Ref<T> {
+    pub fn borrow(&self) -> Ref<'_, T> {
         unsafe { transmute_copy(&self.abi()) }
     }
 }
