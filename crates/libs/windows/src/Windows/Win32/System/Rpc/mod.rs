@@ -2581,20 +2581,20 @@ pub unsafe fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: 
     unsafe { RpcServerListen(minimumcallthreads, maxcalls, dontwait) }
 }
 #[inline]
-pub unsafe fn RpcServerRegisterAuthInfoA<P0>(serverprincname: P0, authnsvc: u32, getkeyfn: Option<RPC_AUTH_KEY_RETRIEVAL_FN>, arg: Option<*const core::ffi::c_void>) -> RPC_STATUS
+pub unsafe fn RpcServerRegisterAuthInfoA<P0>(serverprincname: P0, authnsvc: u32, getkeyfn: RPC_AUTH_KEY_RETRIEVAL_FN, arg: Option<*const core::ffi::c_void>) -> RPC_STATUS
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterAuthInfoA(serverprincname : windows_core::PCSTR, authnsvc : u32, getkeyfn : RPC_AUTH_KEY_RETRIEVAL_FN, arg : *const core::ffi::c_void) -> RPC_STATUS);
-    unsafe { RpcServerRegisterAuthInfoA(serverprincname.param().abi(), authnsvc, getkeyfn.unwrap_or(core::mem::zeroed()) as _, arg.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RpcServerRegisterAuthInfoA(serverprincname.param().abi(), authnsvc, getkeyfn, arg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcServerRegisterAuthInfoW<P0>(serverprincname: P0, authnsvc: u32, getkeyfn: Option<RPC_AUTH_KEY_RETRIEVAL_FN>, arg: Option<*const core::ffi::c_void>) -> RPC_STATUS
+pub unsafe fn RpcServerRegisterAuthInfoW<P0>(serverprincname: P0, authnsvc: u32, getkeyfn: RPC_AUTH_KEY_RETRIEVAL_FN, arg: Option<*const core::ffi::c_void>) -> RPC_STATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterAuthInfoW(serverprincname : windows_core::PCWSTR, authnsvc : u32, getkeyfn : RPC_AUTH_KEY_RETRIEVAL_FN, arg : *const core::ffi::c_void) -> RPC_STATUS);
-    unsafe { RpcServerRegisterAuthInfoW(serverprincname.param().abi(), authnsvc, getkeyfn.unwrap_or(core::mem::zeroed()) as _, arg.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RpcServerRegisterAuthInfoW(serverprincname.param().abi(), authnsvc, getkeyfn, arg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RpcServerRegisterIf(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>) -> RPC_STATUS {
@@ -2602,19 +2602,19 @@ pub unsafe fn RpcServerRegisterIf(ifspec: *const core::ffi::c_void, mgrtypeuuid:
     unsafe { RpcServerRegisterIf(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf2(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: Option<RPC_IF_CALLBACK_FN>) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIf2(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: RPC_IF_CALLBACK_FN) -> RPC_STATUS {
     windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf2(ifspec : *const core::ffi::c_void, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallbackfn : RPC_IF_CALLBACK_FN) -> RPC_STATUS);
-    unsafe { RpcServerRegisterIf2(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _, flags, maxcalls, maxrpcsize, ifcallbackfn.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RpcServerRegisterIf2(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _, flags, maxcalls, maxrpcsize, ifcallbackfn) }
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf3(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: Option<RPC_IF_CALLBACK_FN>, securitydescriptor: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIf3(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: RPC_IF_CALLBACK_FN, securitydescriptor: Option<*const core::ffi::c_void>) -> RPC_STATUS {
     windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf3(ifspec : *const core::ffi::c_void, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallback : RPC_IF_CALLBACK_FN, securitydescriptor : *const core::ffi::c_void) -> RPC_STATUS);
-    unsafe { RpcServerRegisterIf3(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _, flags, maxcalls, maxrpcsize, ifcallback.unwrap_or(core::mem::zeroed()) as _, securitydescriptor.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RpcServerRegisterIf3(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _, flags, maxcalls, maxrpcsize, ifcallback, securitydescriptor.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIfEx(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, ifcallback: Option<RPC_IF_CALLBACK_FN>) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIfEx(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, ifcallback: RPC_IF_CALLBACK_FN) -> RPC_STATUS {
     windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterIfEx(ifspec : *const core::ffi::c_void, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, ifcallback : RPC_IF_CALLBACK_FN) -> RPC_STATUS);
-    unsafe { RpcServerRegisterIfEx(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _, flags, maxcalls, ifcallback.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RpcServerRegisterIfEx(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _, flags, maxcalls, ifcallback) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]

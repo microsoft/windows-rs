@@ -44,9 +44,9 @@ pub unsafe fn NtSetInformationThread(threadhandle: super::super::super::Win32::F
 }
 #[cfg(feature = "Wdk_System_SystemServices")]
 #[inline]
-pub unsafe fn NtSetTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, duetime: *const i64, timerapcroutine: Option<super::SystemServices::PTIMER_APC_ROUTINE>, timercontext: Option<*const core::ffi::c_void>, resumetimer: bool, period: Option<i32>, previousstate: Option<*mut bool>) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn NtSetTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: bool, period: Option<i32>, previousstate: Option<*mut bool>) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("ntdll.dll" "system" fn NtSetTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices:: PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : bool, period : i32, previousstate : *mut bool) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { NtSetTimer(timerhandle, duetime, timerapcroutine.unwrap_or(core::mem::zeroed()) as _, timercontext.unwrap_or(core::mem::zeroed()) as _, resumetimer, period.unwrap_or(core::mem::zeroed()) as _, previousstate.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NtSetTimer(timerhandle, duetime, timerapcroutine, timercontext.unwrap_or(core::mem::zeroed()) as _, resumetimer, period.unwrap_or(core::mem::zeroed()) as _, previousstate.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NtSetTimerEx(timerhandle: super::super::super::Win32::Foundation::HANDLE, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Option<*mut core::ffi::c_void>, timersetinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -109,9 +109,9 @@ pub unsafe fn ZwSetInformationThread(threadhandle: super::super::super::Win32::F
 }
 #[cfg(feature = "Wdk_System_SystemServices")]
 #[inline]
-pub unsafe fn ZwSetTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, duetime: *const i64, timerapcroutine: Option<super::SystemServices::PTIMER_APC_ROUTINE>, timercontext: Option<*const core::ffi::c_void>, resumetimer: bool, period: Option<i32>, previousstate: Option<*mut bool>) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn ZwSetTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: bool, period: Option<i32>, previousstate: Option<*mut bool>) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("ntdll.dll" "system" fn ZwSetTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices:: PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : bool, period : i32, previousstate : *mut bool) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { ZwSetTimer(timerhandle, duetime, timerapcroutine.unwrap_or(core::mem::zeroed()) as _, timercontext.unwrap_or(core::mem::zeroed()) as _, resumetimer, period.unwrap_or(core::mem::zeroed()) as _, previousstate.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ZwSetTimer(timerhandle, duetime, timerapcroutine, timercontext.unwrap_or(core::mem::zeroed()) as _, resumetimer, period.unwrap_or(core::mem::zeroed()) as _, previousstate.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ZwSetTimerEx(timerhandle: super::super::super::Win32::Foundation::HANDLE, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Option<*mut core::ffi::c_void>, timersetinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS {

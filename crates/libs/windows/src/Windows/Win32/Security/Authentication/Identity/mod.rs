@@ -8,43 +8,43 @@ pub unsafe fn AcceptSecurityContext(phcredential: Option<*const super::super::Cr
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn AcquireCredentialsHandleA<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: SECPKG_CRED, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: Option<SEC_GET_KEY_FN>, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
+pub unsafe fn AcquireCredentialsHandleA<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: SECPKG_CRED, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("secur32.dll" "system" fn AcquireCredentialsHandleA(pszprincipal : windows_core::PCSTR, pszpackage : windows_core::PCSTR, fcredentialuse : SECPKG_CRED, pvlogonid : *const core::ffi::c_void, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, phcredential : *mut super::super::Credentials:: SecHandle, ptsexpiry : *mut i64) -> windows_core::HRESULT);
-    unsafe { AcquireCredentialsHandleA(pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pvlogonid.unwrap_or(core::mem::zeroed()) as _, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn.unwrap_or(core::mem::zeroed()) as _, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, phcredential as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { AcquireCredentialsHandleA(pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pvlogonid.unwrap_or(core::mem::zeroed()) as _, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, phcredential as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn AcquireCredentialsHandleW<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: SECPKG_CRED, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: Option<SEC_GET_KEY_FN>, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
+pub unsafe fn AcquireCredentialsHandleW<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: SECPKG_CRED, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("secur32.dll" "system" fn AcquireCredentialsHandleW(pszprincipal : windows_core::PCWSTR, pszpackage : windows_core::PCWSTR, fcredentialuse : SECPKG_CRED, pvlogonid : *const core::ffi::c_void, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, phcredential : *mut super::super::Credentials:: SecHandle, ptsexpiry : *mut i64) -> windows_core::HRESULT);
-    unsafe { AcquireCredentialsHandleW(pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pvlogonid.unwrap_or(core::mem::zeroed()) as _, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn.unwrap_or(core::mem::zeroed()) as _, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, phcredential as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { AcquireCredentialsHandleW(pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pvlogonid.unwrap_or(core::mem::zeroed()) as _, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, phcredential as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn AddCredentialsA<P1, P2>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: Option<SEC_GET_KEY_FN>, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
+pub unsafe fn AddCredentialsA<P1, P2>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("secur32.dll" "system" fn AddCredentialsA(hcredentials : *const super::super::Credentials:: SecHandle, pszprincipal : windows_core::PCSTR, pszpackage : windows_core::PCSTR, fcredentialuse : u32, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, ptsexpiry : *mut i64) -> windows_core::HRESULT);
-    unsafe { AddCredentialsA(hcredentials, pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn.unwrap_or(core::mem::zeroed()) as _, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { AddCredentialsA(hcredentials, pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn AddCredentialsW<P1, P2>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: Option<SEC_GET_KEY_FN>, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
+pub unsafe fn AddCredentialsW<P1, P2>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("secur32.dll" "system" fn AddCredentialsW(hcredentials : *const super::super::Credentials:: SecHandle, pszprincipal : windows_core::PCWSTR, pszpackage : windows_core::PCWSTR, fcredentialuse : u32, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, ptsexpiry : *mut i64) -> windows_core::HRESULT);
-    unsafe { AddCredentialsW(hcredentials, pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn.unwrap_or(core::mem::zeroed()) as _, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { AddCredentialsW(hcredentials, pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn AddSecurityPackageA<P0>(pszpackagename: P0, poptions: Option<*const SECURITY_PACKAGE_OPTIONS>) -> windows_core::Result<()>

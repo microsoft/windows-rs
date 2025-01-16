@@ -141,12 +141,12 @@ pub unsafe fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *
     unsafe { DnsGetApplicationSettings(pcservers as _, ppdefaultservers as _, psettings.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DnsGetProxyInformation<P0>(hostname: P0, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: Option<*mut DNS_PROXY_INFORMATION>, completionroutine: Option<DNS_PROXY_COMPLETION_ROUTINE>, completioncontext: Option<*const core::ffi::c_void>) -> u32
+pub unsafe fn DnsGetProxyInformation<P0>(hostname: P0, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: Option<*mut DNS_PROXY_INFORMATION>, completionroutine: DNS_PROXY_COMPLETION_ROUTINE, completioncontext: Option<*const core::ffi::c_void>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("dnsapi.dll" "system" fn DnsGetProxyInformation(hostname : windows_core::PCWSTR, proxyinformation : *mut DNS_PROXY_INFORMATION, defaultproxyinformation : *mut DNS_PROXY_INFORMATION, completionroutine : DNS_PROXY_COMPLETION_ROUTINE, completioncontext : *const core::ffi::c_void) -> u32);
-    unsafe { DnsGetProxyInformation(hostname.param().abi(), proxyinformation as _, defaultproxyinformation.unwrap_or(core::mem::zeroed()) as _, completionroutine.unwrap_or(core::mem::zeroed()) as _, completioncontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DnsGetProxyInformation(hostname.param().abi(), proxyinformation as _, defaultproxyinformation.unwrap_or(core::mem::zeroed()) as _, completionroutine, completioncontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn DnsModifyRecordsInSet_A(paddrecords: Option<*const DNS_RECORDA>, pdeleterecords: Option<*const DNS_RECORDA>, options: u32, hcredentials: Option<super::super::Foundation::HANDLE>, pextralist: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> i32 {

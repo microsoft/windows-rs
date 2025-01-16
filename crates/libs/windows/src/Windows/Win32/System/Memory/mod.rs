@@ -247,9 +247,9 @@ pub unsafe fn HeapWalk(hheap: super::super::Foundation::HANDLE, lpentry: *mut PR
     unsafe { HeapWalk(hheap, lpentry as _).ok() }
 }
 #[inline]
-pub unsafe fn IsBadCodePtr(lpfn: Option<super::super::Foundation::FARPROC>) -> windows_core::Result<()> {
+pub unsafe fn IsBadCodePtr(lpfn: super::super::Foundation::FARPROC) -> windows_core::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn IsBadCodePtr(lpfn : super::super::Foundation:: FARPROC) -> windows_core::BOOL);
-    unsafe { IsBadCodePtr(lpfn.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { IsBadCodePtr(lpfn).ok() }
 }
 #[inline]
 pub unsafe fn IsBadReadPtr(lp: Option<*const core::ffi::c_void>, ucb: usize) -> windows_core::BOOL {

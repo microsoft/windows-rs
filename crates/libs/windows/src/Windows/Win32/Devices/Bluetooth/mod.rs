@@ -156,14 +156,14 @@ pub unsafe fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) ->
     unsafe { BluetoothIsVersionAvailable(majorversion, minorversion) }
 }
 #[inline]
-pub unsafe fn BluetoothRegisterForAuthentication(pbtdi: Option<*const BLUETOOTH_DEVICE_INFO>, phreghandle: *mut isize, pfncallback: Option<PFN_AUTHENTICATION_CALLBACK>, pvparam: Option<*const core::ffi::c_void>) -> u32 {
+pub unsafe fn BluetoothRegisterForAuthentication(pbtdi: Option<*const BLUETOOTH_DEVICE_INFO>, phreghandle: *mut isize, pfncallback: PFN_AUTHENTICATION_CALLBACK, pvparam: Option<*const core::ffi::c_void>) -> u32 {
     windows_link::link!("bluetoothapis.dll" "system" fn BluetoothRegisterForAuthentication(pbtdi : *const BLUETOOTH_DEVICE_INFO, phreghandle : *mut isize, pfncallback : PFN_AUTHENTICATION_CALLBACK, pvparam : *const core::ffi::c_void) -> u32);
-    unsafe { BluetoothRegisterForAuthentication(pbtdi.unwrap_or(core::mem::zeroed()) as _, phreghandle as _, pfncallback.unwrap_or(core::mem::zeroed()) as _, pvparam.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { BluetoothRegisterForAuthentication(pbtdi.unwrap_or(core::mem::zeroed()) as _, phreghandle as _, pfncallback, pvparam.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn BluetoothRegisterForAuthenticationEx(pbtdiin: Option<*const BLUETOOTH_DEVICE_INFO>, phreghandleout: *mut isize, pfncallbackin: Option<PFN_AUTHENTICATION_CALLBACK_EX>, pvparam: Option<*const core::ffi::c_void>) -> u32 {
+pub unsafe fn BluetoothRegisterForAuthenticationEx(pbtdiin: Option<*const BLUETOOTH_DEVICE_INFO>, phreghandleout: *mut isize, pfncallbackin: PFN_AUTHENTICATION_CALLBACK_EX, pvparam: Option<*const core::ffi::c_void>) -> u32 {
     windows_link::link!("bluetoothapis.dll" "system" fn BluetoothRegisterForAuthenticationEx(pbtdiin : *const BLUETOOTH_DEVICE_INFO, phreghandleout : *mut isize, pfncallbackin : PFN_AUTHENTICATION_CALLBACK_EX, pvparam : *const core::ffi::c_void) -> u32);
-    unsafe { BluetoothRegisterForAuthenticationEx(pbtdiin.unwrap_or(core::mem::zeroed()) as _, phreghandleout as _, pfncallbackin.unwrap_or(core::mem::zeroed()) as _, pvparam.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { BluetoothRegisterForAuthenticationEx(pbtdiin.unwrap_or(core::mem::zeroed()) as _, phreghandleout as _, pfncallbackin, pvparam.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {

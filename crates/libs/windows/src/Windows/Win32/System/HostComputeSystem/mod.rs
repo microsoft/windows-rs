@@ -86,9 +86,9 @@ where
     unsafe { HcsCreateEmptyRuntimeStateFile(runtimestatefilepath.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn HcsCreateOperation(context: Option<*const core::ffi::c_void>, callback: Option<HCS_OPERATION_COMPLETION>) -> HCS_OPERATION {
+pub unsafe fn HcsCreateOperation(context: Option<*const core::ffi::c_void>, callback: HCS_OPERATION_COMPLETION) -> HCS_OPERATION {
     windows_link::link!("computecore.dll" "system" fn HcsCreateOperation(context : *const core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> HCS_OPERATION);
-    unsafe { HcsCreateOperation(context.unwrap_or(core::mem::zeroed()) as _, callback.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HcsCreateOperation(context.unwrap_or(core::mem::zeroed()) as _, callback) }
 }
 #[inline]
 pub unsafe fn HcsCreateOperationWithNotifications(eventtypes: HCS_OPERATION_OPTIONS, context: Option<*const core::ffi::c_void>, callback: HCS_EVENT_CALLBACK) -> HCS_OPERATION {

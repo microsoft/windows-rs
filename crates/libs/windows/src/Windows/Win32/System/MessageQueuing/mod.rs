@@ -208,21 +208,21 @@ pub unsafe fn MQPurgeQueue(hqueue: isize) -> windows_core::Result<()> {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_DistributedTransactionCoordinator", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn MQReceiveMessage<P7>(hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: Option<*mut MQMSGPROPS>, lpoverlapped: Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: Option<PMQRECEIVECALLBACK>, hcursor: Option<super::super::Foundation::HANDLE>, ptransaction: P7) -> windows_core::Result<()>
+pub unsafe fn MQReceiveMessage<P7>(hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: Option<*mut MQMSGPROPS>, lpoverlapped: Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, hcursor: Option<super::super::Foundation::HANDLE>, ptransaction: P7) -> windows_core::Result<()>
 where
     P7: windows_core::Param<super::DistributedTransactionCoordinator::ITransaction>,
 {
     windows_link::link!("mqrt.dll" "system" fn MQReceiveMessage(hsource : isize, dwtimeout : u32, dwaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, hcursor : super::super::Foundation:: HANDLE, ptransaction : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MQReceiveMessage(hsource, dwtimeout, dwaction, pmessageprops.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, fnreceivecallback.unwrap_or(core::mem::zeroed()) as _, hcursor.unwrap_or(core::mem::zeroed()) as _, ptransaction.param().abi()).ok() }
+    unsafe { MQReceiveMessage(hsource, dwtimeout, dwaction, pmessageprops.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, fnreceivecallback, hcursor.unwrap_or(core::mem::zeroed()) as _, ptransaction.param().abi()).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_DistributedTransactionCoordinator", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn MQReceiveMessageByLookupId<P6>(hsource: isize, ulllookupid: u64, dwlookupaction: u32, pmessageprops: Option<*mut MQMSGPROPS>, lpoverlapped: Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: Option<PMQRECEIVECALLBACK>, ptransaction: P6) -> windows_core::Result<()>
+pub unsafe fn MQReceiveMessageByLookupId<P6>(hsource: isize, ulllookupid: u64, dwlookupaction: u32, pmessageprops: Option<*mut MQMSGPROPS>, lpoverlapped: Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, ptransaction: P6) -> windows_core::Result<()>
 where
     P6: windows_core::Param<super::DistributedTransactionCoordinator::ITransaction>,
 {
     windows_link::link!("mqrt.dll" "system" fn MQReceiveMessageByLookupId(hsource : isize, ulllookupid : u64, dwlookupaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, ptransaction : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MQReceiveMessageByLookupId(hsource, ulllookupid, dwlookupaction, pmessageprops.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, fnreceivecallback.unwrap_or(core::mem::zeroed()) as _, ptransaction.param().abi()).ok() }
+    unsafe { MQReceiveMessageByLookupId(hsource, ulllookupid, dwlookupaction, pmessageprops.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, fnreceivecallback, ptransaction.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn MQRegisterCertificate(dwflags: u32, lpcertbuffer: *const core::ffi::c_void, dwcertbufferlength: u32) -> windows_core::Result<()> {

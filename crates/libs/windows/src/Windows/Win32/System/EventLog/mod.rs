@@ -255,13 +255,13 @@ pub unsafe fn EvtSetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid:
     unsafe { EvtSetChannelConfigProperty(channelconfig, propertyid, flags, propertyvalue).ok() }
 }
 #[inline]
-pub unsafe fn EvtSubscribe<P2, P3>(session: Option<EVT_HANDLE>, signalevent: Option<super::super::Foundation::HANDLE>, channelpath: P2, query: P3, bookmark: Option<EVT_HANDLE>, context: Option<*const core::ffi::c_void>, callback: Option<EVT_SUBSCRIBE_CALLBACK>, flags: u32) -> windows_core::Result<EVT_HANDLE>
+pub unsafe fn EvtSubscribe<P2, P3>(session: Option<EVT_HANDLE>, signalevent: Option<super::super::Foundation::HANDLE>, channelpath: P2, query: P3, bookmark: Option<EVT_HANDLE>, context: Option<*const core::ffi::c_void>, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> windows_core::Result<EVT_HANDLE>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : windows_core::PCWSTR, query : windows_core::PCWSTR, bookmark : EVT_HANDLE, context : *const core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
-    let result__ = unsafe { EvtSubscribe(session.unwrap_or(core::mem::zeroed()) as _, signalevent.unwrap_or(core::mem::zeroed()) as _, channelpath.param().abi(), query.param().abi(), bookmark.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _, callback.unwrap_or(core::mem::zeroed()) as _, flags) };
+    let result__ = unsafe { EvtSubscribe(session.unwrap_or(core::mem::zeroed()) as _, signalevent.unwrap_or(core::mem::zeroed()) as _, channelpath.param().abi(), query.param().abi(), bookmark.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _, callback, flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]

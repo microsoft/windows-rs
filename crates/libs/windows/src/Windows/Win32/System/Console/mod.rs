@@ -393,9 +393,9 @@ pub unsafe fn SetConsoleCP(wcodepageid: u32) -> windows_core::Result<()> {
     unsafe { SetConsoleCP(wcodepageid).ok() }
 }
 #[inline]
-pub unsafe fn SetConsoleCtrlHandler(handlerroutine: Option<PHANDLER_ROUTINE>, add: bool) -> windows_core::Result<()> {
+pub unsafe fn SetConsoleCtrlHandler(handlerroutine: PHANDLER_ROUTINE, add: bool) -> windows_core::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn SetConsoleCtrlHandler(handlerroutine : PHANDLER_ROUTINE, add : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { SetConsoleCtrlHandler(handlerroutine.unwrap_or(core::mem::zeroed()) as _, add.into()).ok() }
+    unsafe { SetConsoleCtrlHandler(handlerroutine, add.into()).ok() }
 }
 #[inline]
 pub unsafe fn SetConsoleCursorInfo(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolecursorinfo: *const CONSOLE_CURSOR_INFO) -> windows_core::Result<()> {

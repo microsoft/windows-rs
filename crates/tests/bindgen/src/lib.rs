@@ -23,6 +23,7 @@ pub mod delegate;
 pub mod delegate_cpp;
 pub mod delegate_cpp_ref;
 pub mod delegate_generic;
+pub mod delegate_param;
 pub mod deps;
 pub mod derive_cpp_enum;
 pub mod derive_cpp_struct;

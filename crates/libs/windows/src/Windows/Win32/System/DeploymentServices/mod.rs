@@ -439,9 +439,9 @@ where
     unsafe { WdsCliObtainDriverPackagesEx(hsession, pwszmachineinfo.param().abi(), ppwszservername as _, pppwszdriverpackages as _, pulcount as _).ok() }
 }
 #[inline]
-pub unsafe fn WdsCliRegisterTrace(pfn: Option<PFN_WdsCliTraceFunction>) -> windows_core::Result<()> {
+pub unsafe fn WdsCliRegisterTrace(pfn: PFN_WdsCliTraceFunction) -> windows_core::Result<()> {
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliRegisterTrace(pfn : PFN_WdsCliTraceFunction) -> windows_core::HRESULT);
-    unsafe { WdsCliRegisterTrace(pfn.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WdsCliRegisterTrace(pfn).ok() }
 }
 #[inline]
 pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
@@ -449,7 +449,7 @@ pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
     unsafe { WdsCliSetTransferBufferSize(ulsizeinbytes) }
 }
 #[inline]
-pub unsafe fn WdsCliTransferFile<P0, P1, P2, P3>(pwszserver: P0, pwsznamespace: P1, pwszremotefilepath: P2, pwszlocalfilepath: P3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: Option<PFN_WdsCliCallback>, pvuserdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WdsCliTransferFile<P0, P1, P2, P3>(pwszserver: P0, pwsznamespace: P1, pwszremotefilepath: P2, pwszlocalfilepath: P3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -459,18 +459,18 @@ where
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliTransferFile(pwszserver : windows_core::PCWSTR, pwsznamespace : windows_core::PCWSTR, pwszremotefilepath : windows_core::PCWSTR, pwszlocalfilepath : windows_core::PCWSTR, dwflags : u32, dwreserved : u32, pfnwdsclicallback : PFN_WdsCliCallback, pvuserdata : *const core::ffi::c_void, phtransfer : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliTransferFile(pwszserver.param().abi(), pwsznamespace.param().abi(), pwszremotefilepath.param().abi(), pwszlocalfilepath.param().abi(), dwflags, dwreserved, pfnwdsclicallback.unwrap_or(core::mem::zeroed()) as _, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliTransferFile(pwszserver.param().abi(), pwsznamespace.param().abi(), pwszremotefilepath.param().abi(), pwszlocalfilepath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[inline]
-pub unsafe fn WdsCliTransferImage<P1>(himage: super::super::Foundation::HANDLE, pwszlocalpath: P1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: Option<PFN_WdsCliCallback>, pvuserdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WdsCliTransferImage<P1>(himage: super::super::Foundation::HANDLE, pwszlocalpath: P1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliTransferImage(himage : super::super::Foundation:: HANDLE, pwszlocalpath : windows_core::PCWSTR, dwflags : u32, dwreserved : u32, pfnwdsclicallback : PFN_WdsCliCallback, pvuserdata : *const core::ffi::c_void, phtransfer : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliTransferImage(himage, pwszlocalpath.param().abi(), dwflags, dwreserved, pfnwdsclicallback.unwrap_or(core::mem::zeroed()) as _, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliTransferImage(himage, pwszlocalpath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[inline]

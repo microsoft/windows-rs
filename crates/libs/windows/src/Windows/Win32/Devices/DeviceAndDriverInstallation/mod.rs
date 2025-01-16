@@ -2530,9 +2530,9 @@ pub unsafe fn SetupDiRegisterCoDeviceInstallers(deviceinfoset: HDEVINFO, devicei
     unsafe { SetupDiRegisterCoDeviceInstallers(deviceinfoset, deviceinfodata).ok() }
 }
 #[inline]
-pub unsafe fn SetupDiRegisterDeviceInfo(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA, flags: u32, compareproc: Option<PSP_DETSIG_CMPPROC>, comparecontext: Option<*const core::ffi::c_void>, dupdeviceinfodata: Option<*mut SP_DEVINFO_DATA>) -> windows_core::Result<()> {
+pub unsafe fn SetupDiRegisterDeviceInfo(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA, flags: u32, compareproc: PSP_DETSIG_CMPPROC, comparecontext: Option<*const core::ffi::c_void>, dupdeviceinfodata: Option<*mut SP_DEVINFO_DATA>) -> windows_core::Result<()> {
     windows_link::link!("setupapi.dll" "system" fn SetupDiRegisterDeviceInfo(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, flags : u32, compareproc : PSP_DETSIG_CMPPROC, comparecontext : *const core::ffi::c_void, dupdeviceinfodata : *mut SP_DEVINFO_DATA) -> windows_core::BOOL);
-    unsafe { SetupDiRegisterDeviceInfo(deviceinfoset, deviceinfodata as _, flags, compareproc.unwrap_or(core::mem::zeroed()) as _, comparecontext.unwrap_or(core::mem::zeroed()) as _, dupdeviceinfodata.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SetupDiRegisterDeviceInfo(deviceinfoset, deviceinfodata as _, flags, compareproc, comparecontext.unwrap_or(core::mem::zeroed()) as _, dupdeviceinfodata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn SetupDiRemoveDevice(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA) -> windows_core::BOOL {
@@ -3037,44 +3037,44 @@ where
     unsafe { SetupInitializeFileLogW(logfilename.param().abi(), flags) }
 }
 #[inline]
-pub unsafe fn SetupInstallFileA<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: Option<PSP_FILE_CALLBACK_A>, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFileA<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("setupapi.dll" "system" fn SetupInstallFileA(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, sourcefile : windows_core::PCSTR, sourcepathroot : windows_core::PCSTR, destinationname : windows_core::PCSTR, copystyle : SP_COPY_STYLE, copymsghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupInstallFileA(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SetupInstallFileA(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, context.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn SetupInstallFileExA<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: Option<PSP_FILE_CALLBACK_A>, context: Option<*const core::ffi::c_void>, filewasinuse: *mut windows_core::BOOL) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFileExA<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>, filewasinuse: *mut windows_core::BOOL) -> windows_core::Result<()>
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("setupapi.dll" "system" fn SetupInstallFileExA(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, sourcefile : windows_core::PCSTR, sourcepathroot : windows_core::PCSTR, destinationname : windows_core::PCSTR, copystyle : SP_COPY_STYLE, copymsghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void, filewasinuse : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { SetupInstallFileExA(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _, filewasinuse as _).ok() }
+    unsafe { SetupInstallFileExA(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, context.unwrap_or(core::mem::zeroed()) as _, filewasinuse as _).ok() }
 }
 #[inline]
-pub unsafe fn SetupInstallFileExW<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: Option<PSP_FILE_CALLBACK_W>, context: Option<*const core::ffi::c_void>, filewasinuse: *mut windows_core::BOOL) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFileExW<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>, filewasinuse: *mut windows_core::BOOL) -> windows_core::Result<()>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("setupapi.dll" "system" fn SetupInstallFileExW(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, sourcefile : windows_core::PCWSTR, sourcepathroot : windows_core::PCWSTR, destinationname : windows_core::PCWSTR, copystyle : SP_COPY_STYLE, copymsghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void, filewasinuse : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { SetupInstallFileExW(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _, filewasinuse as _).ok() }
+    unsafe { SetupInstallFileExW(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, context.unwrap_or(core::mem::zeroed()) as _, filewasinuse as _).ok() }
 }
 #[inline]
-pub unsafe fn SetupInstallFileW<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: Option<PSP_FILE_CALLBACK_W>, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFileW<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("setupapi.dll" "system" fn SetupInstallFileW(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, sourcefile : windows_core::PCWSTR, sourcepathroot : windows_core::PCWSTR, destinationname : windows_core::PCWSTR, copystyle : SP_COPY_STYLE, copymsghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupInstallFileW(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SetupInstallFileW(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, context.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn SetupInstallFilesFromInfSectionA<P3, P4>(infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, filequeue: *const core::ffi::c_void, sectionname: P3, sourcerootpath: P4, copyflags: u32) -> windows_core::Result<()>
@@ -3096,23 +3096,23 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn SetupInstallFromInfSectionA<P2, P5>(owner: Option<super::super::Foundation::HWND>, infhandle: *const core::ffi::c_void, sectionname: P2, flags: u32, relativekeyroot: Option<super::super::System::Registry::HKEY>, sourcerootpath: P5, copyflags: u32, msghandler: Option<PSP_FILE_CALLBACK_A>, context: Option<*const core::ffi::c_void>, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<*const SP_DEVINFO_DATA>) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFromInfSectionA<P2, P5>(owner: Option<super::super::Foundation::HWND>, infhandle: *const core::ffi::c_void, sectionname: P2, flags: u32, relativekeyroot: Option<super::super::System::Registry::HKEY>, sourcerootpath: P5, copyflags: u32, msghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<*const SP_DEVINFO_DATA>) -> windows_core::Result<()>
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionA(owner : super::super::Foundation:: HWND, infhandle : *const core::ffi::c_void, sectionname : windows_core::PCSTR, flags : u32, relativekeyroot : super::super::System::Registry:: HKEY, sourcerootpath : windows_core::PCSTR, copyflags : u32, msghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> windows_core::BOOL);
-    unsafe { SetupInstallFromInfSectionA(owner.unwrap_or(core::mem::zeroed()) as _, infhandle, sectionname.param().abi(), flags, relativekeyroot.unwrap_or(core::mem::zeroed()) as _, sourcerootpath.param().abi(), copyflags, msghandler.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SetupInstallFromInfSectionA(owner.unwrap_or(core::mem::zeroed()) as _, infhandle, sectionname.param().abi(), flags, relativekeyroot.unwrap_or(core::mem::zeroed()) as _, sourcerootpath.param().abi(), copyflags, msghandler, context.unwrap_or(core::mem::zeroed()) as _, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn SetupInstallFromInfSectionW<P2, P5>(owner: Option<super::super::Foundation::HWND>, infhandle: *const core::ffi::c_void, sectionname: P2, flags: u32, relativekeyroot: Option<super::super::System::Registry::HKEY>, sourcerootpath: P5, copyflags: u32, msghandler: Option<PSP_FILE_CALLBACK_W>, context: Option<*const core::ffi::c_void>, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<*const SP_DEVINFO_DATA>) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFromInfSectionW<P2, P5>(owner: Option<super::super::Foundation::HWND>, infhandle: *const core::ffi::c_void, sectionname: P2, flags: u32, relativekeyroot: Option<super::super::System::Registry::HKEY>, sourcerootpath: P5, copyflags: u32, msghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<*const SP_DEVINFO_DATA>) -> windows_core::Result<()>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionW(owner : super::super::Foundation:: HWND, infhandle : *const core::ffi::c_void, sectionname : windows_core::PCWSTR, flags : u32, relativekeyroot : super::super::System::Registry:: HKEY, sourcerootpath : windows_core::PCWSTR, copyflags : u32, msghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> windows_core::BOOL);
-    unsafe { SetupInstallFromInfSectionW(owner.unwrap_or(core::mem::zeroed()) as _, infhandle, sectionname.param().abi(), flags, relativekeyroot.unwrap_or(core::mem::zeroed()) as _, sourcerootpath.param().abi(), copyflags, msghandler.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SetupInstallFromInfSectionW(owner.unwrap_or(core::mem::zeroed()) as _, infhandle, sectionname.param().abi(), flags, relativekeyroot.unwrap_or(core::mem::zeroed()) as _, sourcerootpath.param().abi(), copyflags, msghandler, context.unwrap_or(core::mem::zeroed()) as _, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn SetupInstallServicesFromInfSectionA<P1>(infhandle: *const core::ffi::c_void, sectionname: P1, flags: SPSVCINST_FLAGS) -> windows_core::Result<()>
@@ -3641,14 +3641,14 @@ where
     unsafe { SetupRenameErrorW(hwndparent, dialogtitle.param().abi(), sourcefile.param().abi(), targetfile.param().abi(), win32errorcode, style) }
 }
 #[inline]
-pub unsafe fn SetupScanFileQueueA(filequeue: *const core::ffi::c_void, flags: SETUPSCANFILEQUEUE_FLAGS, window: Option<super::super::Foundation::HWND>, callbackroutine: Option<PSP_FILE_CALLBACK_A>, callbackcontext: Option<*const core::ffi::c_void>, result: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn SetupScanFileQueueA(filequeue: *const core::ffi::c_void, flags: SETUPSCANFILEQUEUE_FLAGS, window: Option<super::super::Foundation::HWND>, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: Option<*const core::ffi::c_void>, result: *mut u32) -> windows_core::Result<()> {
     windows_link::link!("setupapi.dll" "system" fn SetupScanFileQueueA(filequeue : *const core::ffi::c_void, flags : SETUPSCANFILEQUEUE_FLAGS, window : super::super::Foundation:: HWND, callbackroutine : PSP_FILE_CALLBACK_A, callbackcontext : *const core::ffi::c_void, result : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupScanFileQueueA(filequeue, flags, window.unwrap_or(core::mem::zeroed()) as _, callbackroutine.unwrap_or(core::mem::zeroed()) as _, callbackcontext.unwrap_or(core::mem::zeroed()) as _, result as _).ok() }
+    unsafe { SetupScanFileQueueA(filequeue, flags, window.unwrap_or(core::mem::zeroed()) as _, callbackroutine, callbackcontext.unwrap_or(core::mem::zeroed()) as _, result as _).ok() }
 }
 #[inline]
-pub unsafe fn SetupScanFileQueueW(filequeue: *const core::ffi::c_void, flags: SETUPSCANFILEQUEUE_FLAGS, window: Option<super::super::Foundation::HWND>, callbackroutine: Option<PSP_FILE_CALLBACK_W>, callbackcontext: Option<*const core::ffi::c_void>, result: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn SetupScanFileQueueW(filequeue: *const core::ffi::c_void, flags: SETUPSCANFILEQUEUE_FLAGS, window: Option<super::super::Foundation::HWND>, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: Option<*const core::ffi::c_void>, result: *mut u32) -> windows_core::Result<()> {
     windows_link::link!("setupapi.dll" "system" fn SetupScanFileQueueW(filequeue : *const core::ffi::c_void, flags : SETUPSCANFILEQUEUE_FLAGS, window : super::super::Foundation:: HWND, callbackroutine : PSP_FILE_CALLBACK_W, callbackcontext : *const core::ffi::c_void, result : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupScanFileQueueW(filequeue, flags, window.unwrap_or(core::mem::zeroed()) as _, callbackroutine.unwrap_or(core::mem::zeroed()) as _, callbackcontext.unwrap_or(core::mem::zeroed()) as _, result as _).ok() }
+    unsafe { SetupScanFileQueueW(filequeue, flags, window.unwrap_or(core::mem::zeroed()) as _, callbackroutine, callbackcontext.unwrap_or(core::mem::zeroed()) as _, result as _).ok() }
 }
 #[inline]
 pub unsafe fn SetupSetDirectoryIdA<P2>(infhandle: *const core::ffi::c_void, id: u32, directory: P2) -> windows_core::Result<()>

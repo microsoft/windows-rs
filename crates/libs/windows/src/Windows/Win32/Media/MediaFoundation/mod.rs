@@ -32,14 +32,14 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
-pub unsafe fn DXVAHD_CreateDevice<P0>(pd3ddevice: P0, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: Option<PDXVAHDSW_Plugin>) -> windows_core::Result<IDXVAHD_Device>
+pub unsafe fn DXVAHD_CreateDevice<P0>(pd3ddevice: P0, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin) -> windows_core::Result<IDXVAHD_Device>
 where
     P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>,
 {
     windows_link::link!("dxva2.dll" "system" fn DXVAHD_CreateDevice(pd3ddevice : * mut core::ffi::c_void, pcontentdesc : *const DXVAHD_CONTENT_DESC, usage : DXVAHD_DEVICE_USAGE, pplugin : PDXVAHDSW_Plugin, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DXVAHD_CreateDevice(pd3ddevice.param().abi(), pcontentdesc, usage, pplugin.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        DXVAHD_CreateDevice(pd3ddevice.param().abi(), pcontentdesc, usage, pplugin, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]

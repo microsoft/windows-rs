@@ -156,9 +156,9 @@ pub unsafe fn DPA_DestroyCallback(hdpa: Option<HDPA>, pfncb: PFNDAENUMCALLBACK, 
     unsafe { DPA_DestroyCallback(hdpa.unwrap_or(core::mem::zeroed()) as _, pfncb, pdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DPA_EnumCallback(hdpa: Option<HDPA>, pfncb: Option<PFNDAENUMCALLBACK>, pdata: Option<*const core::ffi::c_void>) {
+pub unsafe fn DPA_EnumCallback(hdpa: Option<HDPA>, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
     windows_link::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
-    unsafe { DPA_EnumCallback(hdpa.unwrap_or(core::mem::zeroed()) as _, pfncb.unwrap_or(core::mem::zeroed()) as _, pdata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DPA_EnumCallback(hdpa.unwrap_or(core::mem::zeroed()) as _, pfncb, pdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn DPA_GetPtr(hdpa: HDPA, i: isize) -> *mut core::ffi::c_void {
