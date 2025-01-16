@@ -38,20 +38,20 @@ where
     unsafe { AddClusterGroupToGroupSetDependencyEx(hdependentgroup, hprovidergroupset, lpszreason.param().abi()) }
 }
 #[inline]
-pub unsafe fn AddClusterNode<P1>(hcluster: HCLUSTER, lpsznodename: P1, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> HNODE
+pub unsafe fn AddClusterNode<P1>(hcluster: HCLUSTER, lpsznodename: P1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> HNODE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("clusapi.dll" "system" fn AddClusterNode(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> HNODE);
-    unsafe { AddClusterNode(hcluster, lpsznodename.param().abi(), pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AddClusterNode(hcluster, lpsznodename.param().abi(), pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn AddClusterNodeEx<P1>(hcluster: HCLUSTER, lpsznodename: P1, dwflags: u32, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> HNODE
+pub unsafe fn AddClusterNodeEx<P1>(hcluster: HCLUSTER, lpsznodename: P1, dwflags: u32, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> HNODE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("clusapi.dll" "system" fn AddClusterNodeEx(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, dwflags : u32, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> HNODE);
-    unsafe { AddClusterNodeEx(hcluster, lpsznodename.param().abi(), dwflags, pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AddClusterNodeEx(hcluster, lpsznodename.param().abi(), dwflags, pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn AddClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE) -> u32 {
@@ -80,14 +80,14 @@ where
     unsafe { AddClusterResourceNodeEx(hresource, hnode, lpszreason.param().abi()) }
 }
 #[inline]
-pub unsafe fn AddClusterStorageNode<P1, P4, P5>(hcluster: HCLUSTER, lpsznodename: P1, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>, lpszclusterstoragenodedescription: P4, lpszclusterstoragenodelocation: P5) -> u32
+pub unsafe fn AddClusterStorageNode<P1, P4, P5>(hcluster: HCLUSTER, lpsznodename: P1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>, lpszclusterstoragenodedescription: P4, lpszclusterstoragenodelocation: P5) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("clusapi.dll" "system" fn AddClusterStorageNode(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void, lpszclusterstoragenodedescription : windows_core::PCWSTR, lpszclusterstoragenodelocation : windows_core::PCWSTR) -> u32);
-    unsafe { AddClusterStorageNode(hcluster, lpsznodename.param().abi(), pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _, lpszclusterstoragenodedescription.param().abi(), lpszclusterstoragenodelocation.param().abi()) }
+    unsafe { AddClusterStorageNode(hcluster, lpsznodename.param().abi(), pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _, lpszclusterstoragenodedescription.param().abi(), lpszclusterstoragenodelocation.param().abi()) }
 }
 #[inline]
 pub unsafe fn AddCrossClusterGroupSetDependency<P1, P2>(hdependentgroupset: HGROUPSET, lpremoteclustername: P1, lpremotegroupsetname: P2) -> u32
@@ -996,14 +996,14 @@ where
     unsafe { ClusterSharedVolumeSetSnapshotState(core::mem::transmute(guidsnapshotset), lpszvolumename.param().abi(), state) }
 }
 #[inline]
-pub unsafe fn ClusterUpgradeFunctionalLevel(hcluster: HCLUSTER, perform: bool, pfnprogresscallback: Option<PCLUSTER_UPGRADE_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32 {
+pub unsafe fn ClusterUpgradeFunctionalLevel(hcluster: HCLUSTER, perform: bool, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32 {
     windows_link::link!("clusapi.dll" "system" fn ClusterUpgradeFunctionalLevel(hcluster : HCLUSTER, perform : windows_core::BOOL, pfnprogresscallback : PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> u32);
-    unsafe { ClusterUpgradeFunctionalLevel(hcluster, perform.into(), pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ClusterUpgradeFunctionalLevel(hcluster, perform.into(), pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CreateCluster(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> HCLUSTER {
+pub unsafe fn CreateCluster(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> HCLUSTER {
     windows_link::link!("clusapi.dll" "system" fn CreateCluster(pconfig : *const CREATE_CLUSTER_CONFIG, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> HCLUSTER);
-    unsafe { CreateCluster(pconfig, pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CreateCluster(pconfig, pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CreateClusterAvailabilitySet<P1>(hcluster: HCLUSTER, lpavailabilitysetname: P1, pavailabilitysetconfig: *const CLUSTER_AVAILABILITY_SET_CONFIG) -> HGROUPSET
@@ -1038,9 +1038,9 @@ where
     unsafe { CreateClusterGroupSet(hcluster, groupsetname.param().abi()) }
 }
 #[inline]
-pub unsafe fn CreateClusterNameAccount(hcluster: HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32 {
+pub unsafe fn CreateClusterNameAccount(hcluster: HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32 {
     windows_link::link!("clusapi.dll" "system" fn CreateClusterNameAccount(hcluster : HCLUSTER, pconfig : *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> u32);
-    unsafe { CreateClusterNameAccount(hcluster, pconfig, pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CreateClusterNameAccount(hcluster, pconfig, pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CreateClusterNotifyPort(hchange: HCHANGE, hcluster: HCLUSTER, dwfilter: u32, dwnotifykey: usize) -> HCHANGE {
@@ -1149,9 +1149,9 @@ where
     unsafe { DeleteClusterResourceTypeEx(hcluster, lpsztypename.param().abi(), lpszreason.param().abi()) }
 }
 #[inline]
-pub unsafe fn DestroyCluster(hcluster: HCLUSTER, pfnprogresscallback: Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: Option<*const core::ffi::c_void>, fdeletevirtualcomputerobjects: bool) -> u32 {
+pub unsafe fn DestroyCluster(hcluster: HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>, fdeletevirtualcomputerobjects: bool) -> u32 {
     windows_link::link!("clusapi.dll" "system" fn DestroyCluster(hcluster : HCLUSTER, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void, fdeletevirtualcomputerobjects : windows_core::BOOL) -> u32);
-    unsafe { DestroyCluster(hcluster, pfnprogresscallback.unwrap_or(core::mem::zeroed()) as _, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _, fdeletevirtualcomputerobjects.into()) }
+    unsafe { DestroyCluster(hcluster, pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _, fdeletevirtualcomputerobjects.into()) }
 }
 #[inline]
 pub unsafe fn DestroyClusterGroup(hgroup: HGROUP) -> u32 {

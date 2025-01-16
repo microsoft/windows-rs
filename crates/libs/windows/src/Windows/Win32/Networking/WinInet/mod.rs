@@ -715,22 +715,22 @@ where
     unsafe { GopherFindFirstFileW(hconnect, lpszlocator.param().abi(), lpszsearchstring.param().abi(), lpfinddata.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GopherGetAttributeA<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocator: P1, lpszattributename: P2, lpbuffer: &mut [u8], lpdwcharactersreturned: *mut u32, lpfnenumerator: Option<GOPHER_ATTRIBUTE_ENUMERATOR>, dwcontext: Option<usize>) -> windows_core::Result<()>
+pub unsafe fn GopherGetAttributeA<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocator: P1, lpszattributename: P2, lpbuffer: &mut [u8], lpdwcharactersreturned: *mut u32, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: Option<usize>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("wininet.dll" "system" fn GopherGetAttributeA(hconnect : *const core::ffi::c_void, lpszlocator : windows_core::PCSTR, lpszattributename : windows_core::PCSTR, lpbuffer : *mut u8, dwbufferlength : u32, lpdwcharactersreturned : *mut u32, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : usize) -> windows_core::BOOL);
-    unsafe { GopherGetAttributeA(hconnect, lpszlocator.param().abi(), lpszattributename.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpdwcharactersreturned as _, lpfnenumerator.unwrap_or(core::mem::zeroed()) as _, dwcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { GopherGetAttributeA(hconnect, lpszlocator.param().abi(), lpszattributename.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpdwcharactersreturned as _, lpfnenumerator, dwcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn GopherGetAttributeW<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocator: P1, lpszattributename: P2, lpbuffer: &mut [u8], lpdwcharactersreturned: *mut u32, lpfnenumerator: Option<GOPHER_ATTRIBUTE_ENUMERATOR>, dwcontext: Option<usize>) -> windows_core::Result<()>
+pub unsafe fn GopherGetAttributeW<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocator: P1, lpszattributename: P2, lpbuffer: &mut [u8], lpdwcharactersreturned: *mut u32, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: Option<usize>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("wininet.dll" "system" fn GopherGetAttributeW(hconnect : *const core::ffi::c_void, lpszlocator : windows_core::PCWSTR, lpszattributename : windows_core::PCWSTR, lpbuffer : *mut u8, dwbufferlength : u32, lpdwcharactersreturned : *mut u32, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : usize) -> windows_core::BOOL);
-    unsafe { GopherGetAttributeW(hconnect, lpszlocator.param().abi(), lpszattributename.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpdwcharactersreturned as _, lpfnenumerator.unwrap_or(core::mem::zeroed()) as _, dwcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { GopherGetAttributeW(hconnect, lpszlocator.param().abi(), lpszattributename.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpdwcharactersreturned as _, lpfnenumerator, dwcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn GopherGetLocatorTypeA<P0>(lpszlocator: P0, lpdwgophertype: *mut u32) -> windows_core::Result<()>
@@ -1557,19 +1557,19 @@ where
     unsafe { InternetSetPerSiteCookieDecisionW(pchhostname.param().abi(), dwdecision) }
 }
 #[inline]
-pub unsafe fn InternetSetStatusCallback(hinternet: *const core::ffi::c_void, lpfninternetcallback: Option<LPINTERNET_STATUS_CALLBACK>) -> LPINTERNET_STATUS_CALLBACK {
+pub unsafe fn InternetSetStatusCallback(hinternet: *const core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     windows_link::link!("wininet.dll" "system" fn InternetSetStatusCallback(hinternet : *const core::ffi::c_void, lpfninternetcallback : LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK);
-    unsafe { InternetSetStatusCallback(hinternet, lpfninternetcallback.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { InternetSetStatusCallback(hinternet, lpfninternetcallback) }
 }
 #[inline]
-pub unsafe fn InternetSetStatusCallbackA(hinternet: *const core::ffi::c_void, lpfninternetcallback: Option<LPINTERNET_STATUS_CALLBACK>) -> LPINTERNET_STATUS_CALLBACK {
+pub unsafe fn InternetSetStatusCallbackA(hinternet: *const core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     windows_link::link!("wininet.dll" "system" fn InternetSetStatusCallbackA(hinternet : *const core::ffi::c_void, lpfninternetcallback : LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK);
-    unsafe { InternetSetStatusCallbackA(hinternet, lpfninternetcallback.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { InternetSetStatusCallbackA(hinternet, lpfninternetcallback) }
 }
 #[inline]
-pub unsafe fn InternetSetStatusCallbackW(hinternet: *const core::ffi::c_void, lpfninternetcallback: Option<LPINTERNET_STATUS_CALLBACK>) -> LPINTERNET_STATUS_CALLBACK {
+pub unsafe fn InternetSetStatusCallbackW(hinternet: *const core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     windows_link::link!("wininet.dll" "system" fn InternetSetStatusCallbackW(hinternet : *const core::ffi::c_void, lpfninternetcallback : LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK);
-    unsafe { InternetSetStatusCallbackW(hinternet, lpfninternetcallback.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { InternetSetStatusCallbackW(hinternet, lpfninternetcallback) }
 }
 #[inline]
 pub unsafe fn InternetShowSecurityInfoByURL<P0>(lpszurl: P0, hwndparent: super::super::Foundation::HWND) -> windows_core::BOOL

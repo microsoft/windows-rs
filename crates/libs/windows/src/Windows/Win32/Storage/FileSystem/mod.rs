@@ -166,22 +166,22 @@ where
     unsafe { CopyFileA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.into()).ok() }
 }
 #[inline]
-pub unsafe fn CopyFileExA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: Option<LPPROGRESS_ROUTINE>, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut windows_core::BOOL>, dwcopyflags: COPYFILE_FLAGS) -> windows_core::Result<()>
+pub unsafe fn CopyFileExA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut windows_core::BOOL>, dwcopyflags: COPYFILE_FLAGS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("kernel32.dll" "system" fn CopyFileExA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut windows_core::BOOL, dwcopyflags : COPYFILE_FLAGS) -> windows_core::BOOL);
-    unsafe { CopyFileExA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags).ok() }
+    unsafe { CopyFileExA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags).ok() }
 }
 #[inline]
-pub unsafe fn CopyFileExW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: Option<LPPROGRESS_ROUTINE>, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut windows_core::BOOL>, dwcopyflags: COPYFILE_FLAGS) -> windows_core::Result<()>
+pub unsafe fn CopyFileExW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut windows_core::BOOL>, dwcopyflags: COPYFILE_FLAGS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("kernel32.dll" "system" fn CopyFileExW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut windows_core::BOOL, dwcopyflags : COPYFILE_FLAGS) -> windows_core::BOOL);
-    unsafe { CopyFileExW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags).ok() }
+    unsafe { CopyFileExW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags).ok() }
 }
 #[inline]
 pub unsafe fn CopyFileFromAppW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: bool) -> windows_core::BOOL
@@ -193,22 +193,22 @@ where
     unsafe { CopyFileFromAppW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.into()) }
 }
 #[inline]
-pub unsafe fn CopyFileTransactedA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: Option<LPPROGRESS_ROUTINE>, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*const windows_core::BOOL>, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
+pub unsafe fn CopyFileTransactedA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*const windows_core::BOOL>, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("kernel32.dll" "system" fn CopyFileTransactedA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *const windows_core::BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { CopyFileTransactedA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags, htransaction).ok() }
+    unsafe { CopyFileTransactedA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags, htransaction).ok() }
 }
 #[inline]
-pub unsafe fn CopyFileTransactedW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: Option<LPPROGRESS_ROUTINE>, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*const windows_core::BOOL>, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
+pub unsafe fn CopyFileTransactedW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*const windows_core::BOOL>, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("kernel32.dll" "system" fn CopyFileTransactedW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *const windows_core::BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { CopyFileTransactedW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags, htransaction).ok() }
+    unsafe { CopyFileTransactedW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags, htransaction).ok() }
 }
 #[inline]
 pub unsafe fn CopyFileW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: bool) -> windows_core::Result<()>
@@ -1725,22 +1725,22 @@ where
     unsafe { MoveFileFromAppW(lpexistingfilename.param().abi(), lpnewfilename.param().abi()) }
 }
 #[inline]
-pub unsafe fn MoveFileTransactedA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: Option<LPPROGRESS_ROUTINE>, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
+pub unsafe fn MoveFileTransactedA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("kernel32.dll" "system" fn MoveFileTransactedA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { MoveFileTransactedA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags, htransaction).ok() }
+    unsafe { MoveFileTransactedA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags, htransaction).ok() }
 }
 #[inline]
-pub unsafe fn MoveFileTransactedW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: Option<LPPROGRESS_ROUTINE>, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
+pub unsafe fn MoveFileTransactedW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("kernel32.dll" "system" fn MoveFileTransactedW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { MoveFileTransactedW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags, htransaction).ok() }
+    unsafe { MoveFileTransactedW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags, htransaction).ok() }
 }
 #[inline]
 pub unsafe fn MoveFileW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1) -> windows_core::Result<()>
@@ -1752,22 +1752,22 @@ where
     unsafe { MoveFileW(lpexistingfilename.param().abi(), lpnewfilename.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn MoveFileWithProgressA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: Option<LPPROGRESS_ROUTINE>, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS) -> windows_core::Result<()>
+pub unsafe fn MoveFileWithProgressA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("kernel32.dll" "system" fn MoveFileWithProgressA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS) -> windows_core::BOOL);
-    unsafe { MoveFileWithProgressA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
+    unsafe { MoveFileWithProgressA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
 }
 #[inline]
-pub unsafe fn MoveFileWithProgressW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: Option<LPPROGRESS_ROUTINE>, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS) -> windows_core::Result<()>
+pub unsafe fn MoveFileWithProgressW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("kernel32.dll" "system" fn MoveFileWithProgressW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS) -> windows_core::BOOL);
-    unsafe { MoveFileWithProgressW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
+    unsafe { MoveFileWithProgressW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
 }
 #[inline]
 pub unsafe fn NetConnectionEnum<P0, P1>(servername: P0, qualifier: P1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
@@ -2094,15 +2094,15 @@ pub unsafe fn ReOpenFile(horiginalfile: super::super::Foundation::HANDLE, dwdesi
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ReadDirectoryChangesExW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: bool, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> windows_core::Result<()> {
+pub unsafe fn ReadDirectoryChangesExW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: bool, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> windows_core::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn ReadDirectoryChangesExW(hdirectory : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nbufferlength : u32, bwatchsubtree : windows_core::BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE, lpbytesreturned : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass : READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> windows_core::BOOL);
-    unsafe { ReadDirectoryChangesExW(hdirectory, lpbuffer as _, nbufferlength, bwatchsubtree.into(), dwnotifyfilter, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine.unwrap_or(core::mem::zeroed()) as _, readdirectorynotifyinformationclass).ok() }
+    unsafe { ReadDirectoryChangesExW(hdirectory, lpbuffer as _, nbufferlength, bwatchsubtree.into(), dwnotifyfilter, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, readdirectorynotifyinformationclass).ok() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ReadDirectoryChangesW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: bool, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>) -> windows_core::Result<()> {
+pub unsafe fn ReadDirectoryChangesW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: bool, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn ReadDirectoryChangesW(hdirectory : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nbufferlength : u32, bwatchsubtree : windows_core::BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE, lpbytesreturned : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL);
-    unsafe { ReadDirectoryChangesW(hdirectory, lpbuffer as _, nbufferlength, bwatchsubtree.into(), dwnotifyfilter, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { ReadDirectoryChangesW(hdirectory, lpbuffer as _, nbufferlength, bwatchsubtree.into(), dwnotifyfilter, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine).ok() }
 }
 #[inline]
 pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallbackcontext: Option<*const core::ffi::c_void>, pvcontext: *const core::ffi::c_void) -> u32 {

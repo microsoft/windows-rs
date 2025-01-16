@@ -636,9 +636,9 @@ pub unsafe fn ExitThread(dwexitcode: u32) -> ! {
     unsafe { ExitThread(dwexitcode) }
 }
 #[inline]
-pub unsafe fn FlsAlloc(lpcallback: Option<PFLS_CALLBACK_FUNCTION>) -> u32 {
+pub unsafe fn FlsAlloc(lpcallback: PFLS_CALLBACK_FUNCTION) -> u32 {
     windows_link::link!("kernel32.dll" "system" fn FlsAlloc(lpcallback : PFLS_CALLBACK_FUNCTION) -> u32);
-    unsafe { FlsAlloc(lpcallback.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FlsAlloc(lpcallback) }
 }
 #[inline]
 pub unsafe fn FlsFree(dwflsindex: u32) -> windows_core::Result<()> {
@@ -1779,14 +1779,14 @@ pub unsafe fn SetUmsThreadInformation(umsthread: *const core::ffi::c_void, umsth
     unsafe { SetUmsThreadInformation(umsthread, umsthreadinfoclass, umsthreadinformation, umsthreadinformationlength).ok() }
 }
 #[inline]
-pub unsafe fn SetWaitableTimer(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: Option<PTIMERAPCROUTINE>, lpargtocompletionroutine: Option<*const core::ffi::c_void>, fresume: bool) -> windows_core::Result<()> {
+pub unsafe fn SetWaitableTimer(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Option<*const core::ffi::c_void>, fresume: bool) -> windows_core::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn SetWaitableTimer(htimer : super::super::Foundation:: HANDLE, lpduetime : *const i64, lperiod : i32, pfncompletionroutine : PTIMERAPCROUTINE, lpargtocompletionroutine : *const core::ffi::c_void, fresume : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { SetWaitableTimer(htimer, lpduetime, lperiod, pfncompletionroutine.unwrap_or(core::mem::zeroed()) as _, lpargtocompletionroutine.unwrap_or(core::mem::zeroed()) as _, fresume.into()).ok() }
+    unsafe { SetWaitableTimer(htimer, lpduetime, lperiod, pfncompletionroutine, lpargtocompletionroutine.unwrap_or(core::mem::zeroed()) as _, fresume.into()).ok() }
 }
 #[inline]
-pub unsafe fn SetWaitableTimerEx(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: Option<PTIMERAPCROUTINE>, lpargtocompletionroutine: Option<*const core::ffi::c_void>, wakecontext: Option<*const REASON_CONTEXT>, tolerabledelay: u32) -> windows_core::Result<()> {
+pub unsafe fn SetWaitableTimerEx(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Option<*const core::ffi::c_void>, wakecontext: Option<*const REASON_CONTEXT>, tolerabledelay: u32) -> windows_core::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn SetWaitableTimerEx(htimer : super::super::Foundation:: HANDLE, lpduetime : *const i64, lperiod : i32, pfncompletionroutine : PTIMERAPCROUTINE, lpargtocompletionroutine : *const core::ffi::c_void, wakecontext : *const REASON_CONTEXT, tolerabledelay : u32) -> windows_core::BOOL);
-    unsafe { SetWaitableTimerEx(htimer, lpduetime, lperiod, pfncompletionroutine.unwrap_or(core::mem::zeroed()) as _, lpargtocompletionroutine.unwrap_or(core::mem::zeroed()) as _, wakecontext.unwrap_or(core::mem::zeroed()) as _, tolerabledelay).ok() }
+    unsafe { SetWaitableTimerEx(htimer, lpduetime, lperiod, pfncompletionroutine, lpargtocompletionroutine.unwrap_or(core::mem::zeroed()) as _, wakecontext.unwrap_or(core::mem::zeroed()) as _, tolerabledelay).ok() }
 }
 #[inline]
 pub unsafe fn SignalObjectAndWait(hobjecttosignal: super::super::Foundation::HANDLE, hobjecttowaiton: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: bool) -> super::super::Foundation::WAIT_EVENT {

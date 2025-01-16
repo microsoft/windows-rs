@@ -131,9 +131,9 @@ pub unsafe fn CMTranslateRGBsExt(hcmtransform: isize, lpsrcbits: *const core::ff
     unsafe { CMTranslateRGBsExt(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwinputstride, lpdestbits as _, bmoutput, dwoutputstride, lpfncallback, ulcallbackdata) }
 }
 #[inline]
-pub unsafe fn CheckBitmapBits(hcolortransform: isize, psrcbits: *const core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: Option<LPBMCALLBACKFN>, lpcallbackdata: Option<super::super::Foundation::LPARAM>) -> windows_core::BOOL {
+pub unsafe fn CheckBitmapBits(hcolortransform: isize, psrcbits: *const core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: LPBMCALLBACKFN, lpcallbackdata: Option<super::super::Foundation::LPARAM>) -> windows_core::BOOL {
     windows_link::link!("mscms.dll" "system" fn CheckBitmapBits(hcolortransform : isize, psrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, paresult : *mut u8, pfncallback : LPBMCALLBACKFN, lpcallbackdata : super::super::Foundation:: LPARAM) -> windows_core::BOOL);
-    unsafe { CheckBitmapBits(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwstride, paresult as _, pfncallback.unwrap_or(core::mem::zeroed()) as _, lpcallbackdata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CheckBitmapBits(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwstride, paresult as _, pfncallback, lpcallbackdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CheckColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paresult: *mut u8) -> windows_core::BOOL {
@@ -590,9 +590,9 @@ pub unsafe fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> windows_core::
     unsafe { SetupColorMatchingW(pcms as _) }
 }
 #[inline]
-pub unsafe fn TranslateBitmapBits(hcolortransform: isize, psrcbits: *const core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: Option<LPBMCALLBACKFN>, ulcallbackdata: Option<super::super::Foundation::LPARAM>) -> windows_core::BOOL {
+pub unsafe fn TranslateBitmapBits(hcolortransform: isize, psrcbits: *const core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: LPBMCALLBACKFN, ulcallbackdata: Option<super::super::Foundation::LPARAM>) -> windows_core::BOOL {
     windows_link::link!("mscms.dll" "system" fn TranslateBitmapBits(hcolortransform : isize, psrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwinputstride : u32, pdestbits : *mut core::ffi::c_void, bmoutput : BMFORMAT, dwoutputstride : u32, pfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> windows_core::BOOL);
-    unsafe { TranslateBitmapBits(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwinputstride, pdestbits as _, bmoutput, dwoutputstride, pfncallback.unwrap_or(core::mem::zeroed()) as _, ulcallbackdata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TranslateBitmapBits(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwinputstride, pdestbits as _, bmoutput, dwoutputstride, pfncallback, ulcallbackdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn TranslateColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paoutputcolors: *mut COLOR, ctoutput: COLORTYPE) -> windows_core::BOOL {

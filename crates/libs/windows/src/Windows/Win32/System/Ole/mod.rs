@@ -267,21 +267,21 @@ pub unsafe fn OleBuildVersion() -> u32 {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleConvertOLESTREAMToIStorage2<P1>(lpolestream: *const super::Com::StructuredStorage::OLESTREAM, pstg: P1, ptd: Option<*const super::Com::DVTARGETDEVICE>, opt: Option<u32>, pvcallbackcontext: Option<*const core::ffi::c_void>, pqueryconvertolelinkcallback: Option<OLESTREAMQUERYCONVERTOLELINKCALLBACK>) -> windows_core::Result<()>
+pub unsafe fn OleConvertOLESTREAMToIStorage2<P1>(lpolestream: *const super::Com::StructuredStorage::OLESTREAM, pstg: P1, ptd: Option<*const super::Com::DVTARGETDEVICE>, opt: Option<u32>, pvcallbackcontext: Option<*const core::ffi::c_void>, pqueryconvertolelinkcallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::Result<()>
 where
     P1: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_link::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage2(lpolestream : *const super::Com::StructuredStorage:: OLESTREAM, pstg : * mut core::ffi::c_void, ptd : *const super::Com:: DVTARGETDEVICE, opt : u32, pvcallbackcontext : *const core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::HRESULT);
-    unsafe { OleConvertOLESTREAMToIStorage2(lpolestream, pstg.param().abi(), ptd.unwrap_or(core::mem::zeroed()) as _, opt.unwrap_or(core::mem::zeroed()) as _, pvcallbackcontext.unwrap_or(core::mem::zeroed()) as _, pqueryconvertolelinkcallback.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { OleConvertOLESTREAMToIStorage2(lpolestream, pstg.param().abi(), ptd.unwrap_or(core::mem::zeroed()) as _, opt.unwrap_or(core::mem::zeroed()) as _, pvcallbackcontext.unwrap_or(core::mem::zeroed()) as _, pqueryconvertolelinkcallback).ok() }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleConvertOLESTREAMToIStorageEx2<P1>(polestm: *const super::Com::StructuredStorage::OLESTREAM, pstg: P1, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::Com::STGMEDIUM, opt: Option<u32>, pvcallbackcontext: Option<*const core::ffi::c_void>, pqueryconvertolelinkcallback: Option<OLESTREAMQUERYCONVERTOLELINKCALLBACK>) -> windows_core::Result<()>
+pub unsafe fn OleConvertOLESTREAMToIStorageEx2<P1>(polestm: *const super::Com::StructuredStorage::OLESTREAM, pstg: P1, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::Com::STGMEDIUM, opt: Option<u32>, pvcallbackcontext: Option<*const core::ffi::c_void>, pqueryconvertolelinkcallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::Result<()>
 where
     P1: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_link::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorageEx2(polestm : *const super::Com::StructuredStorage:: OLESTREAM, pstg : * mut core::ffi::c_void, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super::Com:: STGMEDIUM, opt : u32, pvcallbackcontext : *const core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::HRESULT);
-    unsafe { OleConvertOLESTREAMToIStorageEx2(polestm, pstg.param().abi(), pcfformat as _, plwwidth as _, plheight as _, pdwsize as _, core::mem::transmute(pmedium), opt.unwrap_or(core::mem::zeroed()) as _, pvcallbackcontext.unwrap_or(core::mem::zeroed()) as _, pqueryconvertolelinkcallback.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { OleConvertOLESTREAMToIStorageEx2(polestm, pstg.param().abi(), pcfformat as _, plwwidth as _, plheight as _, pdwsize as _, core::mem::transmute(pmedium), opt.unwrap_or(core::mem::zeroed()) as _, pvcallbackcontext.unwrap_or(core::mem::zeroed()) as _, pqueryconvertolelinkcallback).ok() }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]

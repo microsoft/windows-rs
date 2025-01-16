@@ -91,9 +91,9 @@ pub unsafe fn EventProviderEnabled(reghandle: REGHANDLE, level: u8, keyword: u64
     unsafe { EventProviderEnabled(reghandle, level, keyword) }
 }
 #[inline]
-pub unsafe fn EventRegister(providerid: *const windows_core::GUID, enablecallback: Option<PENABLECALLBACK>, callbackcontext: Option<*const core::ffi::c_void>, reghandle: *mut REGHANDLE) -> u32 {
+pub unsafe fn EventRegister(providerid: *const windows_core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: Option<*const core::ffi::c_void>, reghandle: *mut REGHANDLE) -> u32 {
     windows_link::link!("advapi32.dll" "system" fn EventRegister(providerid : *const windows_core::GUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : *mut REGHANDLE) -> u32);
-    unsafe { EventRegister(providerid, enablecallback.unwrap_or(core::mem::zeroed()) as _, callbackcontext.unwrap_or(core::mem::zeroed()) as _, reghandle as _) }
+    unsafe { EventRegister(providerid, enablecallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _, reghandle as _) }
 }
 #[inline]
 pub unsafe fn EventSetInformation(reghandle: REGHANDLE, informationclass: EVENT_INFO_CLASS, eventinformation: *const core::ffi::c_void, informationlength: u32) -> u32 {

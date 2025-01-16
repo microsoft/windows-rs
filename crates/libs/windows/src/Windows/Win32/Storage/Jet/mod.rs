@@ -31,24 +31,24 @@ pub unsafe fn JetAttachDatabaseW(sesid: JET_SESID, szfilename: *const u16, grbit
     unsafe { JetAttachDatabaseW(sesid, szfilename, grbit) }
 }
 #[inline]
-pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
     windows_link::link!("esent.dll" "system" fn JetBackupA(szbackuppath : *const i8, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
-    unsafe { JetBackupA(szbackuppath, grbit, pfnstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetBackupA(szbackuppath, grbit, pfnstatus) }
 }
 #[inline]
-pub unsafe fn JetBackupInstanceA(instance: JET_INSTANCE, szbackuppath: *const i8, grbit: u32, pfnstatus: Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupInstanceA(instance: JET_INSTANCE, szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
     windows_link::link!("esent.dll" "system" fn JetBackupInstanceA(instance : JET_INSTANCE, szbackuppath : *const i8, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
-    unsafe { JetBackupInstanceA(instance, szbackuppath, grbit, pfnstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetBackupInstanceA(instance, szbackuppath, grbit, pfnstatus) }
 }
 #[inline]
-pub unsafe fn JetBackupInstanceW(instance: JET_INSTANCE, szbackuppath: *const u16, grbit: u32, pfnstatus: Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupInstanceW(instance: JET_INSTANCE, szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
     windows_link::link!("esent.dll" "system" fn JetBackupInstanceW(instance : JET_INSTANCE, szbackuppath : *const u16, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
-    unsafe { JetBackupInstanceW(instance, szbackuppath, grbit, pfnstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetBackupInstanceW(instance, szbackuppath, grbit, pfnstatus) }
 }
 #[inline]
-pub unsafe fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
     windows_link::link!("esent.dll" "system" fn JetBackupW(szbackuppath : *const u16, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
-    unsafe { JetBackupW(szbackuppath, grbit, pfnstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetBackupW(szbackuppath, grbit, pfnstatus) }
 }
 #[inline]
 pub unsafe fn JetBeginExternalBackup(grbit: u32) -> i32 {
@@ -1016,34 +1016,34 @@ pub unsafe fn JetResizeDatabase(sesid: JET_SESID, dbid: u32, cpgtarget: u32, pcp
     unsafe { JetResizeDatabase(sesid, dbid, cpgtarget, pcpgactual as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetRestore2A(sz: *const i8, szdest: Option<*const i8>, pfn: Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestore2A(sz: *const i8, szdest: Option<*const i8>, pfn: JET_PFNSTATUS) -> i32 {
     windows_link::link!("esent.dll" "system" fn JetRestore2A(sz : *const i8, szdest : *const i8, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestore2A(sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetRestore2A(sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestore2W(sz: *const u16, szdest: Option<*const u16>, pfn: Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestore2W(sz: *const u16, szdest: Option<*const u16>, pfn: JET_PFNSTATUS) -> i32 {
     windows_link::link!("esent.dll" "system" fn JetRestore2W(sz : *const u16, szdest : *const u16, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestore2W(sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetRestore2W(sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreA(szsource: *const i8, pfn: Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreA(szsource: *const i8, pfn: JET_PFNSTATUS) -> i32 {
     windows_link::link!("esent.dll" "system" fn JetRestoreA(szsource : *const i8, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestoreA(szsource, pfn.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetRestoreA(szsource, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreInstanceA(instance: JET_INSTANCE, sz: *const i8, szdest: Option<*const i8>, pfn: Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreInstanceA(instance: JET_INSTANCE, sz: *const i8, szdest: Option<*const i8>, pfn: JET_PFNSTATUS) -> i32 {
     windows_link::link!("esent.dll" "system" fn JetRestoreInstanceA(instance : JET_INSTANCE, sz : *const i8, szdest : *const i8, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestoreInstanceA(instance, sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetRestoreInstanceA(instance, sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreInstanceW(instance: JET_INSTANCE, sz: *const u16, szdest: Option<*const u16>, pfn: Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreInstanceW(instance: JET_INSTANCE, sz: *const u16, szdest: Option<*const u16>, pfn: JET_PFNSTATUS) -> i32 {
     windows_link::link!("esent.dll" "system" fn JetRestoreInstanceW(instance : JET_INSTANCE, sz : *const u16, szdest : *const u16, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestoreInstanceW(instance, sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetRestoreInstanceW(instance, sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreW(szsource: *const u16, pfn: Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreW(szsource: *const u16, pfn: JET_PFNSTATUS) -> i32 {
     windows_link::link!("esent.dll" "system" fn JetRestoreW(szsource : *const u16, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestoreW(szsource, pfn.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetRestoreW(szsource, pfn) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]

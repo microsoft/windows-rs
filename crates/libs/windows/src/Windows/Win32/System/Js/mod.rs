@@ -79,9 +79,9 @@ pub unsafe fn JsCreateError(message: *const core::ffi::c_void, error: *mut *mut 
     unsafe { JsCreateError(message, error as _) }
 }
 #[inline]
-pub unsafe fn JsCreateExternalObject(data: Option<*const core::ffi::c_void>, finalizecallback: Option<JsFinalizeCallback>, object: *mut *mut core::ffi::c_void) -> JsErrorCode {
+pub unsafe fn JsCreateExternalObject(data: Option<*const core::ffi::c_void>, finalizecallback: JsFinalizeCallback, object: *mut *mut core::ffi::c_void) -> JsErrorCode {
     windows_link::link!("chakra.dll" "system" fn JsCreateExternalObject(data : *const core::ffi::c_void, finalizecallback : JsFinalizeCallback, object : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsCreateExternalObject(data.unwrap_or(core::mem::zeroed()) as _, finalizecallback.unwrap_or(core::mem::zeroed()) as _, object as _) }
+    unsafe { JsCreateExternalObject(data.unwrap_or(core::mem::zeroed()) as _, finalizecallback, object as _) }
 }
 #[inline]
 pub unsafe fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: Option<*const core::ffi::c_void>, function: *mut *mut core::ffi::c_void) -> JsErrorCode {
@@ -104,9 +104,9 @@ pub unsafe fn JsCreateReferenceError(message: *const core::ffi::c_void, error: *
     unsafe { JsCreateReferenceError(message, error as _) }
 }
 #[inline]
-pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: Option<JsThreadServiceCallback>, runtime: *mut *mut core::ffi::c_void) -> JsErrorCode {
+pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: *mut *mut core::ffi::c_void) -> JsErrorCode {
     windows_link::link!("chakra.dll" "system" fn JsCreateRuntime(attributes : JsRuntimeAttributes, runtimeversion : JsRuntimeVersion, threadservice : JsThreadServiceCallback, runtime : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsCreateRuntime(attributes, runtimeversion, threadservice.unwrap_or(core::mem::zeroed()) as _, runtime as _) }
+    unsafe { JsCreateRuntime(attributes, runtimeversion, threadservice, runtime as _) }
 }
 #[inline]
 pub unsafe fn JsCreateSyntaxError(message: *const core::ffi::c_void, error: *mut *mut core::ffi::c_void) -> JsErrorCode {

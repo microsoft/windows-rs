@@ -46,15 +46,15 @@ pub unsafe fn ClfsCreateLogFile(pplfolog: *mut *mut super::super::Foundation::FI
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn ClfsCreateMarshallingArea(plfolog: *const super::super::Foundation::FILE_OBJECT, epooltype: super::super::Foundation::POOL_TYPE, pfnallocbuffer: Option<PALLOCATE_FUNCTION>, pfnfreebuffer: Option<super::super::Foundation::PFREE_FUNCTION>, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshalcontext: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn ClfsCreateMarshallingArea(plfolog: *const super::super::Foundation::FILE_OBJECT, epooltype: super::super::Foundation::POOL_TYPE, pfnallocbuffer: PALLOCATE_FUNCTION, pfnfreebuffer: super::super::Foundation::PFREE_FUNCTION, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshalcontext: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("clfs.sys" "system" fn ClfsCreateMarshallingArea(plfolog : *const super::super::Foundation:: FILE_OBJECT, epooltype : super::super::Foundation:: POOL_TYPE, pfnallocbuffer : PALLOCATE_FUNCTION, pfnfreebuffer : super::super::Foundation:: PFREE_FUNCTION, cbmarshallingbuffer : u32, cmaxwritebuffers : u32, cmaxreadbuffers : u32, ppvmarshalcontext : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { ClfsCreateMarshallingArea(plfolog, epooltype, pfnallocbuffer.unwrap_or(core::mem::zeroed()) as _, pfnfreebuffer.unwrap_or(core::mem::zeroed()) as _, cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, ppvmarshalcontext as _) }
+    unsafe { ClfsCreateMarshallingArea(plfolog, epooltype, pfnallocbuffer, pfnfreebuffer, cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, ppvmarshalcontext as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn ClfsCreateMarshallingAreaEx(plfolog: *const super::super::Foundation::FILE_OBJECT, epooltype: super::super::Foundation::POOL_TYPE, pfnallocbuffer: Option<PALLOCATE_FUNCTION>, pfnfreebuffer: Option<super::super::Foundation::PFREE_FUNCTION>, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, calignmentsize: u32, fflags: u64, ppvmarshalcontext: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn ClfsCreateMarshallingAreaEx(plfolog: *const super::super::Foundation::FILE_OBJECT, epooltype: super::super::Foundation::POOL_TYPE, pfnallocbuffer: PALLOCATE_FUNCTION, pfnfreebuffer: super::super::Foundation::PFREE_FUNCTION, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, calignmentsize: u32, fflags: u64, ppvmarshalcontext: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("clfs.sys" "system" fn ClfsCreateMarshallingAreaEx(plfolog : *const super::super::Foundation:: FILE_OBJECT, epooltype : super::super::Foundation:: POOL_TYPE, pfnallocbuffer : PALLOCATE_FUNCTION, pfnfreebuffer : super::super::Foundation:: PFREE_FUNCTION, cbmarshallingbuffer : u32, cmaxwritebuffers : u32, cmaxreadbuffers : u32, calignmentsize : u32, fflags : u64, ppvmarshalcontext : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { ClfsCreateMarshallingAreaEx(plfolog, epooltype, pfnallocbuffer.unwrap_or(core::mem::zeroed()) as _, pfnfreebuffer.unwrap_or(core::mem::zeroed()) as _, cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, calignmentsize, fflags, ppvmarshalcontext as _) }
+    unsafe { ClfsCreateMarshallingAreaEx(plfolog, epooltype, pfnallocbuffer, pfnfreebuffer, cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, calignmentsize, fflags, ppvmarshalcontext as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -230,15 +230,15 @@ pub unsafe fn ClfsMgmtRemovePolicy(logfile: *const super::super::Foundation::FIL
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn ClfsMgmtSetLogFileSize(logfile: *const super::super::Foundation::FILE_OBJECT, newsizeincontainers: *const u64, resultingsizeincontainers: Option<*mut u64>, completionroutine: Option<PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK>, completionroutinedata: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn ClfsMgmtSetLogFileSize(logfile: *const super::super::Foundation::FILE_OBJECT, newsizeincontainers: *const u64, resultingsizeincontainers: Option<*mut u64>, completionroutine: PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK, completionroutinedata: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("clfs.sys" "system" fn ClfsMgmtSetLogFileSize(logfile : *const super::super::Foundation:: FILE_OBJECT, newsizeincontainers : *const u64, resultingsizeincontainers : *mut u64, completionroutine : PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK, completionroutinedata : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { ClfsMgmtSetLogFileSize(logfile, newsizeincontainers, resultingsizeincontainers.unwrap_or(core::mem::zeroed()) as _, completionroutine.unwrap_or(core::mem::zeroed()) as _, completionroutinedata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ClfsMgmtSetLogFileSize(logfile, newsizeincontainers, resultingsizeincontainers.unwrap_or(core::mem::zeroed()) as _, completionroutine, completionroutinedata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn ClfsMgmtSetLogFileSizeAsClient(logfile: *const super::super::Foundation::FILE_OBJECT, clientcookie: Option<*const *const core::ffi::c_void>, newsizeincontainers: *const u64, resultingsizeincontainers: Option<*mut u64>, completionroutine: Option<PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK>, completionroutinedata: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn ClfsMgmtSetLogFileSizeAsClient(logfile: *const super::super::Foundation::FILE_OBJECT, clientcookie: Option<*const *const core::ffi::c_void>, newsizeincontainers: *const u64, resultingsizeincontainers: Option<*mut u64>, completionroutine: PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK, completionroutinedata: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("clfs.sys" "system" fn ClfsMgmtSetLogFileSizeAsClient(logfile : *const super::super::Foundation:: FILE_OBJECT, clientcookie : *const *const core::ffi::c_void, newsizeincontainers : *const u64, resultingsizeincontainers : *mut u64, completionroutine : PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK, completionroutinedata : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { ClfsMgmtSetLogFileSizeAsClient(logfile, clientcookie.unwrap_or(core::mem::zeroed()) as _, newsizeincontainers, resultingsizeincontainers.unwrap_or(core::mem::zeroed()) as _, completionroutine.unwrap_or(core::mem::zeroed()) as _, completionroutinedata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ClfsMgmtSetLogFileSizeAsClient(logfile, clientcookie.unwrap_or(core::mem::zeroed()) as _, newsizeincontainers, resultingsizeincontainers.unwrap_or(core::mem::zeroed()) as _, completionroutine, completionroutinedata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClfsMgmtTailAdvanceFailure(client: *const core::ffi::c_void, reason: super::super::super::Win32::Foundation::NTSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -476,9 +476,9 @@ pub unsafe fn EtwProviderEnabled(reghandle: super::super::super::Win32::System::
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[inline]
-pub unsafe fn EtwRegister(providerid: *const windows_core::GUID, enablecallback: Option<PETWENABLECALLBACK>, callbackcontext: Option<*const core::ffi::c_void>, reghandle: *mut super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn EtwRegister(providerid: *const windows_core::GUID, enablecallback: PETWENABLECALLBACK, callbackcontext: Option<*const core::ffi::c_void>, reghandle: *mut super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("ntoskrnl.exe" "system" fn EtwRegister(providerid : *const windows_core::GUID, enablecallback : PETWENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : *mut super::super::super::Win32::System::Diagnostics::Etw:: REGHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { EtwRegister(providerid, enablecallback.unwrap_or(core::mem::zeroed()) as _, callbackcontext.unwrap_or(core::mem::zeroed()) as _, reghandle as _) }
+    unsafe { EtwRegister(providerid, enablecallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _, reghandle as _) }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[inline]
@@ -655,9 +655,9 @@ pub unsafe fn ExAllocatePoolWithTagPriority(pooltype: super::super::Foundation::
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ExAllocateTimer(callback: Option<PEXT_CALLBACK>, callbackcontext: Option<*const core::ffi::c_void>, attributes: u32) -> super::super::Foundation::PEX_TIMER {
+pub unsafe fn ExAllocateTimer(callback: PEXT_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>, attributes: u32) -> super::super::Foundation::PEX_TIMER {
     windows_link::link!("ntoskrnl.exe" "system" fn ExAllocateTimer(callback : PEXT_CALLBACK, callbackcontext : *const core::ffi::c_void, attributes : u32) -> super::super::Foundation:: PEX_TIMER);
-    unsafe { ExAllocateTimer(callback.unwrap_or(core::mem::zeroed()) as _, callbackcontext.unwrap_or(core::mem::zeroed()) as _, attributes) }
+    unsafe { ExAllocateTimer(callback, callbackcontext.unwrap_or(core::mem::zeroed()) as _, attributes) }
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -2209,9 +2209,9 @@ pub unsafe fn IoReportTargetDeviceChange(physicaldeviceobject: *const super::sup
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoReportTargetDeviceChangeAsynchronous(physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, notificationstructure: *const core::ffi::c_void, callback: Option<PDEVICE_CHANGE_COMPLETE_CALLBACK>, context: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn IoReportTargetDeviceChangeAsynchronous(physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, notificationstructure: *const core::ffi::c_void, callback: PDEVICE_CHANGE_COMPLETE_CALLBACK, context: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("ntoskrnl.exe" "system" fn IoReportTargetDeviceChangeAsynchronous(physicaldeviceobject : *const super::super::Foundation:: DEVICE_OBJECT, notificationstructure : *const core::ffi::c_void, callback : PDEVICE_CHANGE_COMPLETE_CALLBACK, context : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { IoReportTargetDeviceChangeAsynchronous(physicaldeviceobject, notificationstructure, callback.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { IoReportTargetDeviceChangeAsynchronous(physicaldeviceobject, notificationstructure, callback, context.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -2221,9 +2221,9 @@ pub unsafe fn IoRequestDeviceEject(physicaldeviceobject: *const super::super::Fo
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoRequestDeviceEjectEx(physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, callback: Option<PIO_DEVICE_EJECT_CALLBACK>, context: Option<*const core::ffi::c_void>, driverobject: Option<*const super::super::Foundation::DRIVER_OBJECT>) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn IoRequestDeviceEjectEx(physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, callback: PIO_DEVICE_EJECT_CALLBACK, context: Option<*const core::ffi::c_void>, driverobject: Option<*const super::super::Foundation::DRIVER_OBJECT>) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("ntoskrnl.exe" "system" fn IoRequestDeviceEjectEx(physicaldeviceobject : *const super::super::Foundation:: DEVICE_OBJECT, callback : PIO_DEVICE_EJECT_CALLBACK, context : *const core::ffi::c_void, driverobject : *const super::super::Foundation:: DRIVER_OBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { IoRequestDeviceEjectEx(physicaldeviceobject, callback.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _, driverobject.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { IoRequestDeviceEjectEx(physicaldeviceobject, callback, context.unwrap_or(core::mem::zeroed()) as _, driverobject.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -2407,9 +2407,9 @@ pub unsafe fn IoStartNextPacketByKey(deviceobject: *const super::super::Foundati
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoStartPacket(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, key: Option<*const u32>, cancelfunction: Option<super::super::Foundation::DRIVER_CANCEL>) {
+pub unsafe fn IoStartPacket(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, key: Option<*const u32>, cancelfunction: super::super::Foundation::DRIVER_CANCEL) {
     windows_link::link!("ntoskrnl.exe" "system" fn IoStartPacket(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, irp : *const super::super::Foundation:: IRP, key : *const u32, cancelfunction : super::super::Foundation:: DRIVER_CANCEL));
-    unsafe { IoStartPacket(deviceobject, irp, key.unwrap_or(core::mem::zeroed()) as _, cancelfunction.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { IoStartPacket(deviceobject, irp, key.unwrap_or(core::mem::zeroed()) as _, cancelfunction) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -4452,9 +4452,9 @@ pub unsafe fn PoRegisterSystemState(statehandle: Option<*mut core::ffi::c_void>,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn PoRequestPowerIrp(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, minorfunction: u8, powerstate: POWER_STATE, completionfunction: Option<PREQUEST_POWER_COMPLETE>, context: Option<*const core::ffi::c_void>, irp: Option<*mut *mut super::super::Foundation::IRP>) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn PoRequestPowerIrp(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, minorfunction: u8, powerstate: POWER_STATE, completionfunction: PREQUEST_POWER_COMPLETE, context: Option<*const core::ffi::c_void>, irp: Option<*mut *mut super::super::Foundation::IRP>) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("ntoskrnl.exe" "system" fn PoRequestPowerIrp(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, minorfunction : u8, powerstate : POWER_STATE, completionfunction : PREQUEST_POWER_COMPLETE, context : *const core::ffi::c_void, irp : *mut *mut super::super::Foundation:: IRP) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { PoRequestPowerIrp(deviceobject, minorfunction, core::mem::transmute(powerstate), completionfunction.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _, irp.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PoRequestPowerIrp(deviceobject, minorfunction, core::mem::transmute(powerstate), completionfunction, context.unwrap_or(core::mem::zeroed()) as _, irp.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PoSetDeviceBusyEx(idlepointer: *mut u32) {
@@ -4561,9 +4561,9 @@ pub unsafe fn PsAttachSiloToCurrentThread(silo: super::super::Foundation::PESILO
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn PsCreateSiloContext(silo: super::super::Foundation::PESILO, size: u32, pooltype: super::super::Foundation::POOL_TYPE, contextcleanupcallback: Option<SILO_CONTEXT_CLEANUP_CALLBACK>, returnedsilocontext: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn PsCreateSiloContext(silo: super::super::Foundation::PESILO, size: u32, pooltype: super::super::Foundation::POOL_TYPE, contextcleanupcallback: SILO_CONTEXT_CLEANUP_CALLBACK, returnedsilocontext: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("ntoskrnl.exe" "system" fn PsCreateSiloContext(silo : super::super::Foundation:: PESILO, size : u32, pooltype : super::super::Foundation:: POOL_TYPE, contextcleanupcallback : SILO_CONTEXT_CLEANUP_CALLBACK, returnedsilocontext : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { PsCreateSiloContext(silo, size, pooltype, contextcleanupcallback.unwrap_or(core::mem::zeroed()) as _, returnedsilocontext as _) }
+    unsafe { PsCreateSiloContext(silo, size, pooltype, contextcleanupcallback, returnedsilocontext as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
@@ -5150,9 +5150,9 @@ pub unsafe fn RtlEnumerateGenericTableAvl(table: *const RTL_AVL_TABLE, restart: 
     unsafe { RtlEnumerateGenericTableAvl(table, restart) }
 }
 #[inline]
-pub unsafe fn RtlEnumerateGenericTableLikeADirectory(table: *const RTL_AVL_TABLE, matchfunction: Option<PRTL_AVL_MATCH_FUNCTION>, matchdata: Option<*const core::ffi::c_void>, nextflag: u32, restartkey: *mut *mut core::ffi::c_void, deletecount: *mut u32, buffer: *const core::ffi::c_void) -> *mut core::ffi::c_void {
+pub unsafe fn RtlEnumerateGenericTableLikeADirectory(table: *const RTL_AVL_TABLE, matchfunction: PRTL_AVL_MATCH_FUNCTION, matchdata: Option<*const core::ffi::c_void>, nextflag: u32, restartkey: *mut *mut core::ffi::c_void, deletecount: *mut u32, buffer: *const core::ffi::c_void) -> *mut core::ffi::c_void {
     windows_link::link!("ntdll.dll" "system" fn RtlEnumerateGenericTableLikeADirectory(table : *const RTL_AVL_TABLE, matchfunction : PRTL_AVL_MATCH_FUNCTION, matchdata : *const core::ffi::c_void, nextflag : u32, restartkey : *mut *mut core::ffi::c_void, deletecount : *mut u32, buffer : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-    unsafe { RtlEnumerateGenericTableLikeADirectory(table, matchfunction.unwrap_or(core::mem::zeroed()) as _, matchdata.unwrap_or(core::mem::zeroed()) as _, nextflag, restartkey as _, deletecount as _, buffer) }
+    unsafe { RtlEnumerateGenericTableLikeADirectory(table, matchfunction, matchdata.unwrap_or(core::mem::zeroed()) as _, nextflag, restartkey as _, deletecount as _, buffer) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -6295,9 +6295,9 @@ pub unsafe fn ZwCreateTransactionManager(tmhandle: *mut super::super::super::Win
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ZwDeviceIoControlFile(filehandle: super::super::super::Win32::Foundation::HANDLE, event: Option<super::super::super::Win32::Foundation::HANDLE>, apcroutine: Option<super::super::super::Win32::System::IO::PIO_APC_ROUTINE>, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: Option<*const core::ffi::c_void>, inputbufferlength: u32, outputbuffer: Option<*mut core::ffi::c_void>, outputbufferlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn ZwDeviceIoControlFile(filehandle: super::super::super::Win32::Foundation::HANDLE, event: Option<super::super::super::Win32::Foundation::HANDLE>, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: Option<*const core::ffi::c_void>, inputbufferlength: u32, outputbuffer: Option<*mut core::ffi::c_void>, outputbufferlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("ntdll.dll" "system" fn ZwDeviceIoControlFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { ZwDeviceIoControlFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine.unwrap_or(core::mem::zeroed()) as _, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, iocontrolcode, inputbuffer.unwrap_or(core::mem::zeroed()) as _, inputbufferlength, outputbuffer.unwrap_or(core::mem::zeroed()) as _, outputbufferlength) }
+    unsafe { ZwDeviceIoControlFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, iocontrolcode, inputbuffer.unwrap_or(core::mem::zeroed()) as _, inputbufferlength, outputbuffer.unwrap_or(core::mem::zeroed()) as _, outputbufferlength) }
 }
 #[inline]
 pub unsafe fn ZwDisplayString(string: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -6446,9 +6446,9 @@ pub unsafe fn ZwQuerySymbolicLinkObject(linkhandle: super::super::super::Win32::
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ZwReadFile(filehandle: super::super::super::Win32::Foundation::HANDLE, event: Option<super::super::super::Win32::Foundation::HANDLE>, apcroutine: Option<super::super::super::Win32::System::IO::PIO_APC_ROUTINE>, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, byteoffset: Option<*const i64>, key: Option<*const u32>) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn ZwReadFile(filehandle: super::super::super::Win32::Foundation::HANDLE, event: Option<super::super::super::Win32::Foundation::HANDLE>, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, byteoffset: Option<*const i64>, key: Option<*const u32>) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("ntdll.dll" "system" fn ZwReadFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, byteoffset : *const i64, key : *const u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { ZwReadFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine.unwrap_or(core::mem::zeroed()) as _, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, buffer as _, length, byteoffset.unwrap_or(core::mem::zeroed()) as _, key.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ZwReadFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, buffer as _, length, byteoffset.unwrap_or(core::mem::zeroed()) as _, key.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ZwReadOnlyEnlistment(enlistmenthandle: super::super::super::Win32::Foundation::HANDLE, tmvirtualclock: Option<*const i64>) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -6542,9 +6542,9 @@ pub unsafe fn ZwUnloadDriver(driverservicename: *const super::super::super::Win3
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ZwWriteFile(filehandle: super::super::super::Win32::Foundation::HANDLE, event: Option<super::super::super::Win32::Foundation::HANDLE>, apcroutine: Option<super::super::super::Win32::System::IO::PIO_APC_ROUTINE>, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *const core::ffi::c_void, length: u32, byteoffset: Option<*const i64>, key: Option<*const u32>) -> super::super::super::Win32::Foundation::NTSTATUS {
+pub unsafe fn ZwWriteFile(filehandle: super::super::super::Win32::Foundation::HANDLE, event: Option<super::super::super::Win32::Foundation::HANDLE>, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *const core::ffi::c_void, length: u32, byteoffset: Option<*const i64>, key: Option<*const u32>) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_link::link!("ntdll.dll" "system" fn ZwWriteFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32, byteoffset : *const i64, key : *const u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    unsafe { ZwWriteFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine.unwrap_or(core::mem::zeroed()) as _, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, buffer, length, byteoffset.unwrap_or(core::mem::zeroed()) as _, key.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ZwWriteFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, buffer, length, byteoffset.unwrap_or(core::mem::zeroed()) as _, key.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn vDbgPrintEx<P2>(componentid: u32, level: u32, format: P2, arglist: *const i8) -> u32

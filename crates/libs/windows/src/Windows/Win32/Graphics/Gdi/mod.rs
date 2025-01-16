@@ -495,14 +495,14 @@ pub unsafe fn DrawFrameControl(param0: HDC, param1: *mut super::super::Foundatio
     unsafe { DrawFrameControl(param0, param1 as _, param2, param3) }
 }
 #[inline]
-pub unsafe fn DrawStateA(hdc: HDC, hbrfore: Option<HBRUSH>, qfncallback: Option<DRAWSTATEPROC>, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> windows_core::BOOL {
+pub unsafe fn DrawStateA(hdc: HDC, hbrfore: Option<HBRUSH>, qfncallback: DRAWSTATEPROC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> windows_core::BOOL {
     windows_link::link!("user32.dll" "system" fn DrawStateA(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> windows_core::BOOL);
-    unsafe { DrawStateA(hdc, hbrfore.unwrap_or(core::mem::zeroed()) as _, qfncallback.unwrap_or(core::mem::zeroed()) as _, ldata, wdata, x, y, cx, cy, uflags) }
+    unsafe { DrawStateA(hdc, hbrfore.unwrap_or(core::mem::zeroed()) as _, qfncallback, ldata, wdata, x, y, cx, cy, uflags) }
 }
 #[inline]
-pub unsafe fn DrawStateW(hdc: HDC, hbrfore: Option<HBRUSH>, qfncallback: Option<DRAWSTATEPROC>, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> windows_core::BOOL {
+pub unsafe fn DrawStateW(hdc: HDC, hbrfore: Option<HBRUSH>, qfncallback: DRAWSTATEPROC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> windows_core::BOOL {
     windows_link::link!("user32.dll" "system" fn DrawStateW(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> windows_core::BOOL);
-    unsafe { DrawStateW(hdc, hbrfore.unwrap_or(core::mem::zeroed()) as _, qfncallback.unwrap_or(core::mem::zeroed()) as _, ldata, wdata, x, y, cx, cy, uflags) }
+    unsafe { DrawStateW(hdc, hbrfore.unwrap_or(core::mem::zeroed()) as _, qfncallback, ldata, wdata, x, y, cx, cy, uflags) }
 }
 #[inline]
 pub unsafe fn DrawTextA(hdc: HDC, lpchtext: &mut [u8], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32 {
@@ -1365,14 +1365,14 @@ pub unsafe fn GradientFill(hdc: HDC, pvertex: &[TRIVERTEX], pmesh: *const core::
     unsafe { GradientFill(hdc, core::mem::transmute(pvertex.as_ptr()), pvertex.len().try_into().unwrap(), pmesh, nmesh, ulmode) }
 }
 #[inline]
-pub unsafe fn GrayStringA(hdc: HDC, hbrush: Option<HBRUSH>, lpoutputfunc: Option<GRAYSTRINGPROC>, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> windows_core::BOOL {
+pub unsafe fn GrayStringA(hdc: HDC, hbrush: Option<HBRUSH>, lpoutputfunc: GRAYSTRINGPROC, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> windows_core::BOOL {
     windows_link::link!("user32.dll" "system" fn GrayStringA(hdc : HDC, hbrush : HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::super::Foundation:: LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> windows_core::BOOL);
-    unsafe { GrayStringA(hdc, hbrush.unwrap_or(core::mem::zeroed()) as _, lpoutputfunc.unwrap_or(core::mem::zeroed()) as _, lpdata, ncount, x, y, nwidth, nheight) }
+    unsafe { GrayStringA(hdc, hbrush.unwrap_or(core::mem::zeroed()) as _, lpoutputfunc, lpdata, ncount, x, y, nwidth, nheight) }
 }
 #[inline]
-pub unsafe fn GrayStringW(hdc: HDC, hbrush: Option<HBRUSH>, lpoutputfunc: Option<GRAYSTRINGPROC>, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> windows_core::BOOL {
+pub unsafe fn GrayStringW(hdc: HDC, hbrush: Option<HBRUSH>, lpoutputfunc: GRAYSTRINGPROC, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> windows_core::BOOL {
     windows_link::link!("user32.dll" "system" fn GrayStringW(hdc : HDC, hbrush : HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::super::Foundation:: LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> windows_core::BOOL);
-    unsafe { GrayStringW(hdc, hbrush.unwrap_or(core::mem::zeroed()) as _, lpoutputfunc.unwrap_or(core::mem::zeroed()) as _, lpdata, ncount, x, y, nwidth, nheight) }
+    unsafe { GrayStringW(hdc, hbrush.unwrap_or(core::mem::zeroed()) as _, lpoutputfunc, lpdata, ncount, x, y, nwidth, nheight) }
 }
 #[inline]
 pub unsafe fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> windows_core::BOOL {

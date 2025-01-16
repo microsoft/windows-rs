@@ -233,9 +233,9 @@ pub unsafe fn WlanRegisterDeviceServiceNotification(hclienthandle: super::super:
     unsafe { WlanRegisterDeviceServiceNotification(hclienthandle, pdevsvcguidlist.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WlanRegisterNotification(hclienthandle: super::super::Foundation::HANDLE, dwnotifsource: WLAN_NOTIFICATION_SOURCES, bignoreduplicate: bool, funccallback: Option<WLAN_NOTIFICATION_CALLBACK>, pcallbackcontext: Option<*const core::ffi::c_void>, preserved: Option<*const core::ffi::c_void>, pdwprevnotifsource: Option<*mut u32>) -> u32 {
+pub unsafe fn WlanRegisterNotification(hclienthandle: super::super::Foundation::HANDLE, dwnotifsource: WLAN_NOTIFICATION_SOURCES, bignoreduplicate: bool, funccallback: WLAN_NOTIFICATION_CALLBACK, pcallbackcontext: Option<*const core::ffi::c_void>, preserved: Option<*const core::ffi::c_void>, pdwprevnotifsource: Option<*mut u32>) -> u32 {
     windows_link::link!("wlanapi.dll" "system" fn WlanRegisterNotification(hclienthandle : super::super::Foundation:: HANDLE, dwnotifsource : WLAN_NOTIFICATION_SOURCES, bignoreduplicate : windows_core::BOOL, funccallback : WLAN_NOTIFICATION_CALLBACK, pcallbackcontext : *const core::ffi::c_void, preserved : *const core::ffi::c_void, pdwprevnotifsource : *mut u32) -> u32);
-    unsafe { WlanRegisterNotification(hclienthandle, dwnotifsource, bignoreduplicate.into(), funccallback.unwrap_or(core::mem::zeroed()) as _, pcallbackcontext.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _, pdwprevnotifsource.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanRegisterNotification(hclienthandle, dwnotifsource, bignoreduplicate.into(), funccallback, pcallbackcontext.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _, pdwprevnotifsource.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WlanRegisterVirtualStationNotification(hclienthandle: super::super::Foundation::HANDLE, bregister: bool, preserved: Option<*const core::ffi::c_void>) -> u32 {

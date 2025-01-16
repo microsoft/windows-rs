@@ -111,25 +111,14 @@ where
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 #[inline]
-pub unsafe fn CDefFolderMenu_Create2<P4>(pidlfolder: Option<*const Common::ITEMIDLIST>, hwnd: Option<super::super::Foundation::HWND>, apidl: Option<&[*const Common::ITEMIDLIST]>, psf: P4, pfn: Option<LPFNDFMCALLBACK>, ahkeys: Option<&[super::super::System::Registry::HKEY]>) -> windows_core::Result<IContextMenu>
+pub unsafe fn CDefFolderMenu_Create2<P4>(pidlfolder: Option<*const Common::ITEMIDLIST>, hwnd: Option<super::super::Foundation::HWND>, apidl: Option<&[*const Common::ITEMIDLIST]>, psf: P4, pfn: LPFNDFMCALLBACK, ahkeys: Option<&[super::super::System::Registry::HKEY]>) -> windows_core::Result<IContextMenu>
 where
     P4: windows_core::Param<IShellFolder>,
 {
     windows_link::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : *const Common:: ITEMIDLIST, hwnd : super::super::Foundation:: HWND, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, psf : * mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::super::System::Registry:: HKEY, ppcm : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CDefFolderMenu_Create2(
-            pidlfolder.unwrap_or(core::mem::zeroed()) as _,
-            hwnd.unwrap_or(core::mem::zeroed()) as _,
-            apidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(apidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            psf.param().abi(),
-            pfn.unwrap_or(core::mem::zeroed()) as _,
-            ahkeys.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(ahkeys.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            &mut result__,
-        )
-        .and_then(|| windows_core::Type::from_abi(result__))
+        CDefFolderMenu_Create2(pidlfolder.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, apidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psf.param().abi(), pfn, ahkeys.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ahkeys.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -2886,9 +2875,9 @@ where
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
-pub unsafe fn SHCreateThread(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: Option<*const core::ffi::c_void>, flags: u32, pfncallback: Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>) -> windows_core::Result<()> {
+pub unsafe fn SHCreateThread(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: Option<*const core::ffi::c_void>, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE) -> windows_core::Result<()> {
     windows_link::link!("shlwapi.dll" "system" fn SHCreateThread(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE) -> windows_core::BOOL);
-    unsafe { SHCreateThread(pfnthreadproc, pdata.unwrap_or(core::mem::zeroed()) as _, flags, pfncallback.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SHCreateThread(pfnthreadproc, pdata.unwrap_or(core::mem::zeroed()) as _, flags, pfncallback).ok() }
 }
 #[inline]
 pub unsafe fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()> {
@@ -2897,9 +2886,9 @@ pub unsafe fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut Option<windows_core
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
-pub unsafe fn SHCreateThreadWithHandle(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: Option<*const core::ffi::c_void>, flags: u32, pfncallback: Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, phandle: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
+pub unsafe fn SHCreateThreadWithHandle(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: Option<*const core::ffi::c_void>, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, phandle: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
     windows_link::link!("shlwapi.dll" "system" fn SHCreateThreadWithHandle(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE, phandle : *mut super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { SHCreateThreadWithHandle(pfnthreadproc, pdata.unwrap_or(core::mem::zeroed()) as _, flags, pfncallback.unwrap_or(core::mem::zeroed()) as _, phandle.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SHCreateThreadWithHandle(pfnthreadproc, pdata.unwrap_or(core::mem::zeroed()) as _, flags, pfncallback, phandle.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]

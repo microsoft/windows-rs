@@ -30,14 +30,14 @@ where
     unsafe { BindImage(imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn BindImageEx<P1, P2, P3>(flags: u32, imagename: P1, dllpath: P2, symbolpath: P3, statusroutine: Option<PIMAGEHLP_STATUS_ROUTINE>) -> windows_core::Result<()>
+pub unsafe fn BindImageEx<P1, P2, P3>(flags: u32, imagename: P1, dllpath: P2, symbolpath: P3, statusroutine: PIMAGEHLP_STATUS_ROUTINE) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("imagehlp.dll" "system" fn BindImageEx(flags : u32, imagename : windows_core::PCSTR, dllpath : windows_core::PCSTR, symbolpath : windows_core::PCSTR, statusroutine : PIMAGEHLP_STATUS_ROUTINE) -> windows_core::BOOL);
-    unsafe { BindImageEx(flags, imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi(), statusroutine.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { BindImageEx(flags, imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi(), statusroutine).ok() }
 }
 #[inline]
 pub unsafe fn CheckRemoteDebuggerPresent(hprocess: super::super::super::Foundation::HANDLE, pbdebuggerpresent: *mut windows_core::BOOL) -> windows_core::Result<()> {
@@ -146,22 +146,22 @@ pub unsafe fn EncodeSystemPointer(ptr: Option<*const core::ffi::c_void>) -> *mut
     unsafe { EncodeSystemPointer(ptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn EnumDirTree<P1, P2>(hprocess: Option<super::super::super::Foundation::HANDLE>, rootpath: P1, inputpathname: P2, outputpathbuffer: Option<windows_core::PSTR>, cb: Option<PENUMDIRTREE_CALLBACK>, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn EnumDirTree<P1, P2>(hprocess: Option<super::super::super::Foundation::HANDLE>, rootpath: P1, inputpathname: P2, outputpathbuffer: Option<windows_core::PSTR>, cb: PENUMDIRTREE_CALLBACK, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("dbghelp.dll" "system" fn EnumDirTree(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_core::PCSTR, inputpathname : windows_core::PCSTR, outputpathbuffer : windows_core::PSTR, cb : PENUMDIRTREE_CALLBACK, data : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { EnumDirTree(hprocess.unwrap_or(core::mem::zeroed()) as _, rootpath.param().abi(), inputpathname.param().abi(), outputpathbuffer.unwrap_or(core::mem::zeroed()) as _, cb.unwrap_or(core::mem::zeroed()) as _, data.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { EnumDirTree(hprocess.unwrap_or(core::mem::zeroed()) as _, rootpath.param().abi(), inputpathname.param().abi(), outputpathbuffer.unwrap_or(core::mem::zeroed()) as _, cb, data.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn EnumDirTreeW<P1, P2>(hprocess: Option<super::super::super::Foundation::HANDLE>, rootpath: P1, inputpathname: P2, outputpathbuffer: Option<windows_core::PWSTR>, cb: Option<PENUMDIRTREE_CALLBACKW>, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn EnumDirTreeW<P1, P2>(hprocess: Option<super::super::super::Foundation::HANDLE>, rootpath: P1, inputpathname: P2, outputpathbuffer: Option<windows_core::PWSTR>, cb: PENUMDIRTREE_CALLBACKW, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("dbghelp.dll" "system" fn EnumDirTreeW(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_core::PCWSTR, inputpathname : windows_core::PCWSTR, outputpathbuffer : windows_core::PWSTR, cb : PENUMDIRTREE_CALLBACKW, data : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { EnumDirTreeW(hprocess.unwrap_or(core::mem::zeroed()) as _, rootpath.param().abi(), inputpathname.param().abi(), outputpathbuffer.unwrap_or(core::mem::zeroed()) as _, cb.unwrap_or(core::mem::zeroed()) as _, data.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { EnumDirTreeW(hprocess.unwrap_or(core::mem::zeroed()) as _, rootpath.param().abi(), inputpathname.param().abi(), outputpathbuffer.unwrap_or(core::mem::zeroed()) as _, cb, data.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -221,23 +221,23 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindDebugInfoFileEx<P0, P1>(filename: P0, symbolpath: P1, debugfilepath: windows_core::PSTR, callback: Option<PFIND_DEBUG_FILE_CALLBACK>, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+pub unsafe fn FindDebugInfoFileEx<P0, P1>(filename: P0, symbolpath: P1, debugfilepath: windows_core::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("dbghelp.dll" "system" fn FindDebugInfoFileEx(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindDebugInfoFileEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), callback.unwrap_or(core::mem::zeroed()) as _, callerdata.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { FindDebugInfoFileEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), callback, callerdata.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindDebugInfoFileExW<P0, P1>(filename: P0, symbolpath: P1, debugfilepath: windows_core::PWSTR, callback: Option<PFIND_DEBUG_FILE_CALLBACKW>, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+pub unsafe fn FindDebugInfoFileExW<P0, P1>(filename: P0, symbolpath: P1, debugfilepath: windows_core::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("dbghelp.dll" "system" fn FindDebugInfoFileExW(filename : windows_core::PCWSTR, symbolpath : windows_core::PCWSTR, debugfilepath : windows_core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindDebugInfoFileExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), callback.unwrap_or(core::mem::zeroed()) as _, callerdata.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { FindDebugInfoFileExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), callback, callerdata.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -251,23 +251,23 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindExecutableImageEx<P0, P1>(filename: P0, symbolpath: P1, imagefilepath: windows_core::PSTR, callback: Option<PFIND_EXE_FILE_CALLBACK>, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+pub unsafe fn FindExecutableImageEx<P0, P1>(filename: P0, symbolpath: P1, imagefilepath: windows_core::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("dbghelp.dll" "system" fn FindExecutableImageEx(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, imagefilepath : windows_core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindExecutableImageEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), callback.unwrap_or(core::mem::zeroed()) as _, callerdata.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { FindExecutableImageEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindExecutableImageExW<P0, P1>(filename: P0, symbolpath: P1, imagefilepath: windows_core::PWSTR, callback: Option<PFIND_EXE_FILE_CALLBACKW>, callerdata: *const core::ffi::c_void) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+pub unsafe fn FindExecutableImageExW<P0, P1>(filename: P0, symbolpath: P1, imagefilepath: windows_core::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const core::ffi::c_void) -> windows_core::Result<super::super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("dbghelp.dll" "system" fn FindExecutableImageExW(filename : windows_core::PCWSTR, symbolpath : windows_core::PCWSTR, imagefilepath : windows_core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindExecutableImageExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), callback.unwrap_or(core::mem::zeroed()) as _, callerdata) };
+    let result__ = unsafe { FindExecutableImageExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -559,9 +559,9 @@ pub unsafe fn MiniDumpWriteDump(hprocess: super::super::super::Foundation::HANDL
     unsafe { MiniDumpWriteDump(hprocess, processid, hfile, dumptype, exceptionparam.unwrap_or(core::mem::zeroed()) as _, userstreamparam.unwrap_or(core::mem::zeroed()) as _, callbackparam.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: Option<PWAITCHAINCALLBACK>) -> *mut core::ffi::c_void {
+pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: PWAITCHAINCALLBACK) -> *mut core::ffi::c_void {
     windows_link::link!("advapi32.dll" "system" fn OpenThreadWaitChainSession(flags : OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback : PWAITCHAINCALLBACK) -> *mut core::ffi::c_void);
-    unsafe { OpenThreadWaitChainSession(flags, callback.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { OpenThreadWaitChainSession(flags, callback) }
 }
 #[inline]
 pub unsafe fn OutputDebugStringA<P0>(lpoutputstring: P0)
@@ -872,9 +872,9 @@ pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: Option
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: Option<LPTOP_LEVEL_EXCEPTION_FILTER>) -> LPTOP_LEVEL_EXCEPTION_FILTER {
+pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER {
     windows_link::link!("kernel32.dll" "system" fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER);
-    unsafe { SetUnhandledExceptionFilter(lptoplevelexceptionfilter.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetUnhandledExceptionFilter(lptoplevelexceptionfilter) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -885,24 +885,24 @@ pub unsafe fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> 
 }
 #[cfg(target_arch = "x86")]
 #[inline]
-pub unsafe fn StackWalk(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME, contextrecord: *mut core::ffi::c_void, readmemoryroutine: Option<PREAD_PROCESS_MEMORY_ROUTINE>, functiontableaccessroutine: Option<PFUNCTION_TABLE_ACCESS_ROUTINE>, getmodulebaseroutine: Option<PGET_MODULE_BASE_ROUTINE>, translateaddress: Option<PTRANSLATE_ADDRESS_ROUTINE>) -> windows_core::BOOL {
+pub unsafe fn StackWalk(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE, translateaddress: PTRANSLATE_ADDRESS_ROUTINE) -> windows_core::BOOL {
     windows_link::link!("dbghelp.dll" "system" fn StackWalk(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE, translateaddress : PTRANSLATE_ADDRESS_ROUTINE) -> windows_core::BOOL);
-    unsafe { StackWalk(machinetype, hprocess, hthread, stackframe as _, contextrecord as _, readmemoryroutine.unwrap_or(core::mem::zeroed()) as _, functiontableaccessroutine.unwrap_or(core::mem::zeroed()) as _, getmodulebaseroutine.unwrap_or(core::mem::zeroed()) as _, translateaddress.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { StackWalk(machinetype, hprocess, hthread, stackframe as _, contextrecord as _, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress) }
 }
 #[inline]
-pub unsafe fn StackWalk2(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: Option<PREAD_PROCESS_MEMORY_ROUTINE64>, functiontableaccessroutine: Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>, getmodulebaseroutine: Option<PGET_MODULE_BASE_ROUTINE64>, translateaddress: Option<PTRANSLATE_ADDRESS_ROUTINE64>, gettargetattributevalue: Option<PGET_TARGET_ATTRIBUTE_VALUE64>, flags: u32) -> windows_core::BOOL {
+pub unsafe fn StackWalk2(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue: PGET_TARGET_ATTRIBUTE_VALUE64, flags: u32) -> windows_core::BOOL {
     windows_link::link!("dbghelp.dll" "system" fn StackWalk2(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue : PGET_TARGET_ATTRIBUTE_VALUE64, flags : u32) -> windows_core::BOOL);
-    unsafe { StackWalk2(machinetype, hprocess, hthread, stackframe as _, contextrecord as _, readmemoryroutine.unwrap_or(core::mem::zeroed()) as _, functiontableaccessroutine.unwrap_or(core::mem::zeroed()) as _, getmodulebaseroutine.unwrap_or(core::mem::zeroed()) as _, translateaddress.unwrap_or(core::mem::zeroed()) as _, gettargetattributevalue.unwrap_or(core::mem::zeroed()) as _, flags) }
+    unsafe { StackWalk2(machinetype, hprocess, hthread, stackframe as _, contextrecord as _, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, gettargetattributevalue, flags) }
 }
 #[inline]
-pub unsafe fn StackWalk64(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME64, contextrecord: *mut core::ffi::c_void, readmemoryroutine: Option<PREAD_PROCESS_MEMORY_ROUTINE64>, functiontableaccessroutine: Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>, getmodulebaseroutine: Option<PGET_MODULE_BASE_ROUTINE64>, translateaddress: Option<PTRANSLATE_ADDRESS_ROUTINE64>) -> windows_core::BOOL {
+pub unsafe fn StackWalk64(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME64, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64) -> windows_core::BOOL {
     windows_link::link!("dbghelp.dll" "system" fn StackWalk64(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME64, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64) -> windows_core::BOOL);
-    unsafe { StackWalk64(machinetype, hprocess, hthread, stackframe as _, contextrecord as _, readmemoryroutine.unwrap_or(core::mem::zeroed()) as _, functiontableaccessroutine.unwrap_or(core::mem::zeroed()) as _, getmodulebaseroutine.unwrap_or(core::mem::zeroed()) as _, translateaddress.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { StackWalk64(machinetype, hprocess, hthread, stackframe as _, contextrecord as _, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress) }
 }
 #[inline]
-pub unsafe fn StackWalkEx(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: Option<PREAD_PROCESS_MEMORY_ROUTINE64>, functiontableaccessroutine: Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>, getmodulebaseroutine: Option<PGET_MODULE_BASE_ROUTINE64>, translateaddress: Option<PTRANSLATE_ADDRESS_ROUTINE64>, flags: u32) -> windows_core::BOOL {
+pub unsafe fn StackWalkEx(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, flags: u32) -> windows_core::BOOL {
     windows_link::link!("dbghelp.dll" "system" fn StackWalkEx(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, flags : u32) -> windows_core::BOOL);
-    unsafe { StackWalkEx(machinetype, hprocess, hthread, stackframe as _, contextrecord as _, readmemoryroutine.unwrap_or(core::mem::zeroed()) as _, functiontableaccessroutine.unwrap_or(core::mem::zeroed()) as _, getmodulebaseroutine.unwrap_or(core::mem::zeroed()) as _, translateaddress.unwrap_or(core::mem::zeroed()) as _, flags) }
+    unsafe { StackWalkEx(machinetype, hprocess, hthread, stackframe as _, contextrecord as _, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, flags) }
 }
 #[inline]
 pub unsafe fn SymAddSourceStream<P2>(hprocess: super::super::super::Foundation::HANDLE, base: u64, streamfile: P2, buffer: Option<&[u8]>) -> windows_core::Result<()>
@@ -1149,21 +1149,21 @@ pub unsafe fn SymEnumerateSymbolsW64(hprocess: super::super::super::Foundation::
     unsafe { SymEnumerateSymbolsW64(hprocess, baseofdll, enumsymbolscallback, usercontext.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn SymFindDebugInfoFile<P1>(hprocess: super::super::super::Foundation::HANDLE, filename: P1, debugfilepath: windows_core::PSTR, callback: Option<PFIND_DEBUG_FILE_CALLBACK>, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+pub unsafe fn SymFindDebugInfoFile<P1>(hprocess: super::super::super::Foundation::HANDLE, filename: P1, debugfilepath: windows_core::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("dbghelp.dll" "system" fn SymFindDebugInfoFile(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCSTR, debugfilepath : windows_core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = unsafe { SymFindDebugInfoFile(hprocess, filename.param().abi(), core::mem::transmute(debugfilepath), callback.unwrap_or(core::mem::zeroed()) as _, callerdata.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { SymFindDebugInfoFile(hprocess, filename.param().abi(), core::mem::transmute(debugfilepath), callback, callerdata.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SymFindDebugInfoFileW<P1>(hprocess: super::super::super::Foundation::HANDLE, filename: P1, debugfilepath: windows_core::PWSTR, callback: Option<PFIND_DEBUG_FILE_CALLBACKW>, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+pub unsafe fn SymFindDebugInfoFileW<P1>(hprocess: super::super::super::Foundation::HANDLE, filename: P1, debugfilepath: windows_core::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("dbghelp.dll" "system" fn SymFindDebugInfoFileW(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCWSTR, debugfilepath : windows_core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = unsafe { SymFindDebugInfoFileW(hprocess, filename.param().abi(), core::mem::transmute(debugfilepath), callback.unwrap_or(core::mem::zeroed()) as _, callerdata.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { SymFindDebugInfoFileW(hprocess, filename.param().abi(), core::mem::transmute(debugfilepath), callback, callerdata.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1185,22 +1185,22 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SymFindFileInPath<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, searchpatha: P1, filename: P2, id: Option<*const core::ffi::c_void>, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: windows_core::PSTR, callback: Option<PFINDFILEINPATHCALLBACK>, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SymFindFileInPath<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, searchpatha: P1, filename: P2, id: Option<*const core::ffi::c_void>, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: windows_core::PSTR, callback: PFINDFILEINPATHCALLBACK, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("dbghelp.dll" "system" fn SymFindFileInPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR, filename : windows_core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_core::PSTR, callback : PFINDFILEINPATHCALLBACK, context : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SymFindFileInPath(hprocess, searchpatha.param().abi(), filename.param().abi(), id.unwrap_or(core::mem::zeroed()) as _, two, three, flags, core::mem::transmute(foundfile), callback.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SymFindFileInPath(hprocess, searchpatha.param().abi(), filename.param().abi(), id.unwrap_or(core::mem::zeroed()) as _, two, three, flags, core::mem::transmute(foundfile), callback, context.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn SymFindFileInPathW<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, searchpatha: P1, filename: P2, id: Option<*const core::ffi::c_void>, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: windows_core::PWSTR, callback: Option<PFINDFILEINPATHCALLBACKW>, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SymFindFileInPathW<P1, P2>(hprocess: super::super::super::Foundation::HANDLE, searchpatha: P1, filename: P2, id: Option<*const core::ffi::c_void>, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: windows_core::PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("dbghelp.dll" "system" fn SymFindFileInPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCWSTR, filename : windows_core::PCWSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_core::PWSTR, callback : PFINDFILEINPATHCALLBACKW, context : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SymFindFileInPathW(hprocess, searchpatha.param().abi(), filename.param().abi(), id.unwrap_or(core::mem::zeroed()) as _, two, three, flags, core::mem::transmute(foundfile), callback.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SymFindFileInPathW(hprocess, searchpatha.param().abi(), filename.param().abi(), id.unwrap_or(core::mem::zeroed()) as _, two, three, flags, core::mem::transmute(foundfile), callback, context.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn SymFromAddr(hprocess: super::super::super::Foundation::HANDLE, address: u64, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()> {
@@ -1270,9 +1270,9 @@ pub unsafe fn SymFunctionTableAccess64(hprocess: super::super::super::Foundation
     unsafe { SymFunctionTableAccess64(hprocess, addrbase) }
 }
 #[inline]
-pub unsafe fn SymFunctionTableAccess64AccessRoutines(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, readmemoryroutine: Option<PREAD_PROCESS_MEMORY_ROUTINE64>, getmodulebaseroutine: Option<PGET_MODULE_BASE_ROUTINE64>) -> *mut core::ffi::c_void {
+pub unsafe fn SymFunctionTableAccess64AccessRoutines(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64) -> *mut core::ffi::c_void {
     windows_link::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64AccessRoutines(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u64, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64) -> *mut core::ffi::c_void);
-    unsafe { SymFunctionTableAccess64AccessRoutines(hprocess, addrbase, readmemoryroutine.unwrap_or(core::mem::zeroed()) as _, getmodulebaseroutine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SymFunctionTableAccess64AccessRoutines(hprocess, addrbase, readmemoryroutine, getmodulebaseroutine) }
 }
 #[inline]
 pub unsafe fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> windows_core::BOOL {

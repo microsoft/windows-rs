@@ -321,33 +321,33 @@ pub unsafe fn CreateCursor(hinst: Option<super::super::Foundation::HINSTANCE>, x
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateDialogIndirectParamA(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplate: *const DLGTEMPLATE, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::HWND> {
+pub unsafe fn CreateDialogIndirectParamA(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplate: *const DLGTEMPLATE, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::HWND> {
     windows_link::link!("user32.dll" "system" fn CreateDialogIndirectParamA(hinstance : super::super::Foundation:: HINSTANCE, lptemplate : *const DLGTEMPLATE, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: HWND);
-    let result__ = unsafe { CreateDialogIndirectParamA(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplate, hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc.unwrap_or(core::mem::zeroed()) as _, dwinitparam) };
+    let result__ = unsafe { CreateDialogIndirectParamA(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplate, hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc, dwinitparam) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateDialogIndirectParamW(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplate: *const DLGTEMPLATE, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::HWND> {
+pub unsafe fn CreateDialogIndirectParamW(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplate: *const DLGTEMPLATE, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::HWND> {
     windows_link::link!("user32.dll" "system" fn CreateDialogIndirectParamW(hinstance : super::super::Foundation:: HINSTANCE, lptemplate : *const DLGTEMPLATE, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: HWND);
-    let result__ = unsafe { CreateDialogIndirectParamW(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplate, hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc.unwrap_or(core::mem::zeroed()) as _, dwinitparam) };
+    let result__ = unsafe { CreateDialogIndirectParamW(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplate, hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc, dwinitparam) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateDialogParamA<P1>(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplatename: P1, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::HWND>
+pub unsafe fn CreateDialogParamA<P1>(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplatename: P1, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("user32.dll" "system" fn CreateDialogParamA(hinstance : super::super::Foundation:: HINSTANCE, lptemplatename : windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: HWND);
-    let result__ = unsafe { CreateDialogParamA(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplatename.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc.unwrap_or(core::mem::zeroed()) as _, dwinitparam) };
+    let result__ = unsafe { CreateDialogParamA(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplatename.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc, dwinitparam) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateDialogParamW<P1>(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplatename: P1, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::HWND>
+pub unsafe fn CreateDialogParamW<P1>(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplatename: P1, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("user32.dll" "system" fn CreateDialogParamW(hinstance : super::super::Foundation:: HINSTANCE, lptemplatename : windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: HWND);
-    let result__ = unsafe { CreateDialogParamW(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplatename.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc.unwrap_or(core::mem::zeroed()) as _, dwinitparam) };
+    let result__ = unsafe { CreateDialogParamW(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplatename.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc, dwinitparam) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -536,30 +536,30 @@ pub unsafe fn DestroyWindow(hwnd: super::super::Foundation::HWND) -> windows_cor
     unsafe { DestroyWindow(hwnd).ok() }
 }
 #[inline]
-pub unsafe fn DialogBoxIndirectParamA(hinstance: Option<super::super::Foundation::HINSTANCE>, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> isize {
+pub unsafe fn DialogBoxIndirectParamA(hinstance: Option<super::super::Foundation::HINSTANCE>, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize {
     windows_link::link!("user32.dll" "system" fn DialogBoxIndirectParamA(hinstance : super::super::Foundation:: HINSTANCE, hdialogtemplate : *const DLGTEMPLATE, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> isize);
-    unsafe { DialogBoxIndirectParamA(hinstance.unwrap_or(core::mem::zeroed()) as _, hdialogtemplate, hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc.unwrap_or(core::mem::zeroed()) as _, dwinitparam) }
+    unsafe { DialogBoxIndirectParamA(hinstance.unwrap_or(core::mem::zeroed()) as _, hdialogtemplate, hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc, dwinitparam) }
 }
 #[inline]
-pub unsafe fn DialogBoxIndirectParamW(hinstance: Option<super::super::Foundation::HINSTANCE>, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> isize {
+pub unsafe fn DialogBoxIndirectParamW(hinstance: Option<super::super::Foundation::HINSTANCE>, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize {
     windows_link::link!("user32.dll" "system" fn DialogBoxIndirectParamW(hinstance : super::super::Foundation:: HINSTANCE, hdialogtemplate : *const DLGTEMPLATE, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> isize);
-    unsafe { DialogBoxIndirectParamW(hinstance.unwrap_or(core::mem::zeroed()) as _, hdialogtemplate, hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc.unwrap_or(core::mem::zeroed()) as _, dwinitparam) }
+    unsafe { DialogBoxIndirectParamW(hinstance.unwrap_or(core::mem::zeroed()) as _, hdialogtemplate, hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc, dwinitparam) }
 }
 #[inline]
-pub unsafe fn DialogBoxParamA<P1>(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplatename: P1, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> isize
+pub unsafe fn DialogBoxParamA<P1>(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplatename: P1, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("user32.dll" "system" fn DialogBoxParamA(hinstance : super::super::Foundation:: HINSTANCE, lptemplatename : windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> isize);
-    unsafe { DialogBoxParamA(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplatename.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc.unwrap_or(core::mem::zeroed()) as _, dwinitparam) }
+    unsafe { DialogBoxParamA(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplatename.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc, dwinitparam) }
 }
 #[inline]
-pub unsafe fn DialogBoxParamW<P1>(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplatename: P1, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> isize
+pub unsafe fn DialogBoxParamW<P1>(hinstance: Option<super::super::Foundation::HINSTANCE>, lptemplatename: P1, hwndparent: Option<super::super::Foundation::HWND>, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("user32.dll" "system" fn DialogBoxParamW(hinstance : super::super::Foundation:: HINSTANCE, lptemplatename : windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> isize);
-    unsafe { DialogBoxParamW(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplatename.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc.unwrap_or(core::mem::zeroed()) as _, dwinitparam) }
+    unsafe { DialogBoxParamW(hinstance.unwrap_or(core::mem::zeroed()) as _, lptemplatename.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, lpdialogfunc, dwinitparam) }
 }
 #[inline]
 pub unsafe fn DisableProcessWindowsGhosting() {
@@ -2098,9 +2098,9 @@ pub unsafe fn SetClassWord(hwnd: super::super::Foundation::HWND, nindex: i32, wn
     unsafe { SetClassWord(hwnd, nindex, wnewword) }
 }
 #[inline]
-pub unsafe fn SetCoalescableTimer(hwnd: Option<super::super::Foundation::HWND>, nidevent: usize, uelapse: u32, lptimerfunc: Option<TIMERPROC>, utolerancedelay: u32) -> usize {
+pub unsafe fn SetCoalescableTimer(hwnd: Option<super::super::Foundation::HWND>, nidevent: usize, uelapse: u32, lptimerfunc: TIMERPROC, utolerancedelay: u32) -> usize {
     windows_link::link!("user32.dll" "system" fn SetCoalescableTimer(hwnd : super::super::Foundation:: HWND, nidevent : usize, uelapse : u32, lptimerfunc : TIMERPROC, utolerancedelay : u32) -> usize);
-    unsafe { SetCoalescableTimer(hwnd.unwrap_or(core::mem::zeroed()) as _, nidevent, uelapse, lptimerfunc.unwrap_or(core::mem::zeroed()) as _, utolerancedelay) }
+    unsafe { SetCoalescableTimer(hwnd.unwrap_or(core::mem::zeroed()) as _, nidevent, uelapse, lptimerfunc, utolerancedelay) }
 }
 #[inline]
 pub unsafe fn SetCursor(hcursor: Option<HCURSOR>) -> HCURSOR {
@@ -2235,9 +2235,9 @@ pub unsafe fn SetSystemCursor(hcur: HCURSOR, id: SYSTEM_CURSOR_ID) -> windows_co
     unsafe { SetSystemCursor(hcur, id).ok() }
 }
 #[inline]
-pub unsafe fn SetTimer(hwnd: Option<super::super::Foundation::HWND>, nidevent: usize, uelapse: u32, lptimerfunc: Option<TIMERPROC>) -> usize {
+pub unsafe fn SetTimer(hwnd: Option<super::super::Foundation::HWND>, nidevent: usize, uelapse: u32, lptimerfunc: TIMERPROC) -> usize {
     windows_link::link!("user32.dll" "system" fn SetTimer(hwnd : super::super::Foundation:: HWND, nidevent : usize, uelapse : u32, lptimerfunc : TIMERPROC) -> usize);
-    unsafe { SetTimer(hwnd.unwrap_or(core::mem::zeroed()) as _, nidevent, uelapse, lptimerfunc.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetTimer(hwnd.unwrap_or(core::mem::zeroed()) as _, nidevent, uelapse, lptimerfunc) }
 }
 #[inline]
 pub unsafe fn SetWindowDisplayAffinity(hwnd: super::super::Foundation::HWND, dwaffinity: WINDOW_DISPLAY_AFFINITY) -> windows_core::Result<()> {

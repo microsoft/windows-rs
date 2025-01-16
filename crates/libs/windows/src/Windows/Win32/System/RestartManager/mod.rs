@@ -60,14 +60,14 @@ where
     unsafe { RmRemoveFilter(dwsessionhandle, strmodulename.param().abi(), pprocess.unwrap_or(core::mem::zeroed()) as _, strserviceshortname.param().abi()) }
 }
 #[inline]
-pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: Option<u32>, fnstatus: Option<RM_WRITE_STATUS_CALLBACK>) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: Option<u32>, fnstatus: RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation::WIN32_ERROR {
     windows_link::link!("rstrtmgr.dll" "system" fn RmRestart(dwsessionhandle : u32, dwrestartflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { RmRestart(dwsessionhandle, dwrestartflags.unwrap_or(core::mem::zeroed()) as _, fnstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RmRestart(dwsessionhandle, dwrestartflags.unwrap_or(core::mem::zeroed()) as _, fnstatus) }
 }
 #[inline]
-pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: Option<RM_WRITE_STATUS_CALLBACK>) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation::WIN32_ERROR {
     windows_link::link!("rstrtmgr.dll" "system" fn RmShutdown(dwsessionhandle : u32, lactionflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { RmShutdown(dwsessionhandle, lactionflags, fnstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RmShutdown(dwsessionhandle, lactionflags, fnstatus) }
 }
 #[inline]
 pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: Option<u32>, strsessionkey: windows_core::PWSTR) -> super::super::Foundation::WIN32_ERROR {

@@ -104,12 +104,12 @@ pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: *const AUTHZ_RP
     unsafe { AuthzInitializeRemoteResourceManager(prpcinitinfo, phauthzresourcemanager as _).ok() }
 }
 #[inline]
-pub unsafe fn AuthzInitializeResourceManager<P4>(flags: u32, pfndynamicaccesscheck: Option<PFN_AUTHZ_DYNAMIC_ACCESS_CHECK>, pfncomputedynamicgroups: Option<PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS>, pfnfreedynamicgroups: Option<PFN_AUTHZ_FREE_DYNAMIC_GROUPS>, szresourcemanagername: P4, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::Result<()>
+pub unsafe fn AuthzInitializeResourceManager<P4>(flags: u32, pfndynamicaccesscheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername: P4, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::Result<()>
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("authz.dll" "system" fn AuthzInitializeResourceManager(flags : u32, pfndynamicaccesscheck : PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups : PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups : PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername : windows_core::PCWSTR, phauthzresourcemanager : *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL);
-    unsafe { AuthzInitializeResourceManager(flags, pfndynamicaccesscheck.unwrap_or(core::mem::zeroed()) as _, pfncomputedynamicgroups.unwrap_or(core::mem::zeroed()) as _, pfnfreedynamicgroups.unwrap_or(core::mem::zeroed()) as _, szresourcemanagername.param().abi(), phauthzresourcemanager as _).ok() }
+    unsafe { AuthzInitializeResourceManager(flags, pfndynamicaccesscheck, pfncomputedynamicgroups, pfnfreedynamicgroups, szresourcemanagername.param().abi(), phauthzresourcemanager as _).ok() }
 }
 #[inline]
 pub unsafe fn AuthzInitializeResourceManagerEx(flags: Option<AUTHZ_RESOURCE_MANAGER_FLAGS>, pauthzinitinfo: Option<*const AUTHZ_INIT_INFO>, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::Result<()> {
@@ -536,36 +536,36 @@ pub unsafe fn SetSecurityInfo(handle: super::super::Foundation::HANDLE, objectty
     unsafe { SetSecurityInfo(handle, objecttype, securityinfo, psidowner.unwrap_or(core::mem::zeroed()) as _, psidgroup.unwrap_or(core::mem::zeroed()) as _, pdacl.unwrap_or(core::mem::zeroed()) as _, psacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn TreeResetNamedSecurityInfoA<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: Option<super::PSID>, pgroup: Option<super::PSID>, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, keepexplicit: bool, fnprogress: Option<FN_PROGRESS>, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn TreeResetNamedSecurityInfoA<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: Option<super::PSID>, pgroup: Option<super::PSID>, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, keepexplicit: bool, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoA(pobjectname : windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : windows_core::BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { TreeResetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, powner.unwrap_or(core::mem::zeroed()) as _, pgroup.unwrap_or(core::mem::zeroed()) as _, pdacl.unwrap_or(core::mem::zeroed()) as _, psacl.unwrap_or(core::mem::zeroed()) as _, keepexplicit.into(), fnprogress.unwrap_or(core::mem::zeroed()) as _, progressinvokesetting, args.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TreeResetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, powner.unwrap_or(core::mem::zeroed()) as _, pgroup.unwrap_or(core::mem::zeroed()) as _, pdacl.unwrap_or(core::mem::zeroed()) as _, psacl.unwrap_or(core::mem::zeroed()) as _, keepexplicit.into(), fnprogress, progressinvokesetting, args.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn TreeResetNamedSecurityInfoW<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: Option<super::PSID>, pgroup: Option<super::PSID>, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, keepexplicit: bool, fnprogress: Option<FN_PROGRESS>, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn TreeResetNamedSecurityInfoW<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: Option<super::PSID>, pgroup: Option<super::PSID>, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, keepexplicit: bool, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoW(pobjectname : windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : windows_core::BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { TreeResetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, powner.unwrap_or(core::mem::zeroed()) as _, pgroup.unwrap_or(core::mem::zeroed()) as _, pdacl.unwrap_or(core::mem::zeroed()) as _, psacl.unwrap_or(core::mem::zeroed()) as _, keepexplicit.into(), fnprogress.unwrap_or(core::mem::zeroed()) as _, progressinvokesetting, args.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TreeResetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, powner.unwrap_or(core::mem::zeroed()) as _, pgroup.unwrap_or(core::mem::zeroed()) as _, pdacl.unwrap_or(core::mem::zeroed()) as _, psacl.unwrap_or(core::mem::zeroed()) as _, keepexplicit.into(), fnprogress, progressinvokesetting, args.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn TreeSetNamedSecurityInfoA<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: Option<super::PSID>, pgroup: Option<super::PSID>, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: Option<FN_PROGRESS>, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn TreeSetNamedSecurityInfoA<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: Option<super::PSID>, pgroup: Option<super::PSID>, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoA(pobjectname : windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { TreeSetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, powner.unwrap_or(core::mem::zeroed()) as _, pgroup.unwrap_or(core::mem::zeroed()) as _, pdacl.unwrap_or(core::mem::zeroed()) as _, psacl.unwrap_or(core::mem::zeroed()) as _, dwaction, fnprogress.unwrap_or(core::mem::zeroed()) as _, progressinvokesetting, args.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TreeSetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, powner.unwrap_or(core::mem::zeroed()) as _, pgroup.unwrap_or(core::mem::zeroed()) as _, pdacl.unwrap_or(core::mem::zeroed()) as _, psacl.unwrap_or(core::mem::zeroed()) as _, dwaction, fnprogress, progressinvokesetting, args.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn TreeSetNamedSecurityInfoW<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: Option<super::PSID>, pgroup: Option<super::PSID>, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: Option<FN_PROGRESS>, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn TreeSetNamedSecurityInfoW<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: Option<super::PSID>, pgroup: Option<super::PSID>, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoW(pobjectname : windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-    unsafe { TreeSetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, powner.unwrap_or(core::mem::zeroed()) as _, pgroup.unwrap_or(core::mem::zeroed()) as _, pdacl.unwrap_or(core::mem::zeroed()) as _, psacl.unwrap_or(core::mem::zeroed()) as _, dwaction, fnprogress.unwrap_or(core::mem::zeroed()) as _, progressinvokesetting, args.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TreeSetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, powner.unwrap_or(core::mem::zeroed()) as _, pgroup.unwrap_or(core::mem::zeroed()) as _, pdacl.unwrap_or(core::mem::zeroed()) as _, psacl.unwrap_or(core::mem::zeroed()) as _, dwaction, fnprogress, progressinvokesetting, args.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub const ACCCTRL_DEFAULT_PROVIDER: windows_core::PCWSTR = windows_core::w!("Windows NT Access Provider");
 pub const ACCCTRL_DEFAULT_PROVIDERA: windows_core::PCSTR = windows_core::s!("Windows NT Access Provider");

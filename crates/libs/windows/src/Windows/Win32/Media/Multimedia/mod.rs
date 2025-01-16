@@ -933,9 +933,9 @@ pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> windows_core::B
     unsafe { mciSetDriverData(wdeviceid, dwdata) }
 }
 #[inline]
-pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: Option<YIELDPROC>, dwyielddata: u32) -> windows_core::BOOL {
+pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> windows_core::BOOL {
     windows_link::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> windows_core::BOOL);
-    unsafe { mciSetYieldProc(mciid, fpyieldproc.unwrap_or(core::mem::zeroed()) as _, dwyielddata) }
+    unsafe { mciSetYieldProc(mciid, fpyieldproc, dwyielddata) }
 }
 #[inline]
 pub unsafe fn mmDrvInstall<P1>(hdriver: HDRVR, wszdrventry: P1, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32
@@ -1006,14 +1006,14 @@ pub unsafe fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -
     unsafe { mmioGetInfo(hmmio, pmmioinfo as _, fuinfo) }
 }
 #[inline]
-pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: Option<LPMMIOPROC>, dwflags: u32) -> LPMMIOPROC {
+pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     windows_link::link!("winmm.dll" "system" fn mmioInstallIOProcA(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
-    unsafe { mmioInstallIOProcA(fccioproc, pioproc.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { mmioInstallIOProcA(fccioproc, pioproc, dwflags) }
 }
 #[inline]
-pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: Option<LPMMIOPROC>, dwflags: u32) -> LPMMIOPROC {
+pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     windows_link::link!("winmm.dll" "system" fn mmioInstallIOProcW(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
-    unsafe { mmioInstallIOProcW(fccioproc, pioproc.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { mmioInstallIOProcW(fccioproc, pioproc, dwflags) }
 }
 #[inline]
 pub unsafe fn mmioOpenA(pszfilename: Option<&mut [u8; 128]>, pmmioinfo: Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {

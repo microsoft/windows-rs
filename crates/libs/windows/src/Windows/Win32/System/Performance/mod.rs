@@ -848,9 +848,9 @@ pub unsafe fn PerfSetULongLongCounterValue(provider: super::super::Foundation::H
     unsafe { PerfSetULongLongCounterValue(provider, instance as _, counterid, value) }
 }
 #[inline]
-pub unsafe fn PerfStartProvider(providerguid: *const windows_core::GUID, controlcallback: Option<PERFLIBREQUEST>, phprovider: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn PerfStartProvider(providerguid: *const windows_core::GUID, controlcallback: PERFLIBREQUEST, phprovider: *mut super::super::Foundation::HANDLE) -> u32 {
     windows_link::link!("advapi32.dll" "system" fn PerfStartProvider(providerguid : *const windows_core::GUID, controlcallback : PERFLIBREQUEST, phprovider : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { PerfStartProvider(providerguid, controlcallback.unwrap_or(core::mem::zeroed()) as _, phprovider as _) }
+    unsafe { PerfStartProvider(providerguid, controlcallback, phprovider as _) }
 }
 #[inline]
 pub unsafe fn PerfStartProviderEx(providerguid: *const windows_core::GUID, providercontext: Option<*const PERF_PROVIDER_CONTEXT>, provider: *mut super::super::Foundation::HANDLE) -> u32 {

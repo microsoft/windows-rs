@@ -245,27 +245,9 @@ pub unsafe fn WsCreateReader(properties: Option<&[WS_XML_READER_PROPERTY]>, read
     unsafe { WsCreateReader(core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), reader as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Option<&[WS_SERVICE_ENDPOINT_PROPERTY]>, addressurl: Option<*const WS_STRING>, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: Option<WS_SERVICE_SECURITY_CALLBACK>, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Option<*const core::ffi::c_void>, templatesize: u32, templatedescription: *const core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
+pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Option<&[WS_SERVICE_ENDPOINT_PROPERTY]>, addressurl: Option<*const WS_STRING>, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Option<*const core::ffi::c_void>, templatesize: u32, templatedescription: *const core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_link::link!("webservices.dll" "system" fn WsCreateServiceEndpointFromTemplate(channeltype : WS_CHANNEL_TYPE, properties : *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount : u32, addressurl : *const WS_STRING, contract : *const WS_SERVICE_CONTRACT, authorizationcallback : WS_SERVICE_SECURITY_CALLBACK, heap : *const WS_HEAP, templatetype : WS_BINDING_TEMPLATE_TYPE, templatevalue : *const core::ffi::c_void, templatesize : u32, templatedescription : *const core::ffi::c_void, templatedescriptionsize : u32, serviceendpoint : *mut *mut WS_SERVICE_ENDPOINT, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe {
-        WsCreateServiceEndpointFromTemplate(
-            channeltype,
-            core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            addressurl.unwrap_or(core::mem::zeroed()) as _,
-            contract,
-            authorizationcallback.unwrap_or(core::mem::zeroed()) as _,
-            heap,
-            templatetype,
-            templatevalue.unwrap_or(core::mem::zeroed()) as _,
-            templatesize,
-            templatedescription,
-            templatedescriptionsize,
-            serviceendpoint as _,
-            error.unwrap_or(core::mem::zeroed()) as _,
-        )
-        .ok()
-    }
+    unsafe { WsCreateServiceEndpointFromTemplate(channeltype, core::mem::transmute(properties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), addressurl.unwrap_or(core::mem::zeroed()) as _, contract, authorizationcallback, heap, templatetype, templatevalue.unwrap_or(core::mem::zeroed()) as _, templatesize, templatedescription, templatedescriptionsize, serviceendpoint as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WsCreateServiceHost(endpoints: Option<&[*const WS_SERVICE_ENDPOINT]>, serviceproperties: Option<&[WS_SERVICE_PROPERTY]>, servicehost: *mut *mut WS_SERVICE_HOST, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
@@ -689,9 +671,9 @@ pub unsafe fn WsReadEnvelopeEnd(message: *const WS_MESSAGE, error: Option<*const
     unsafe { WsReadEnvelopeEnd(message, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_XML_READER, donecallback: Option<WS_MESSAGE_DONE_CALLBACK>, donecallbackstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
+pub unsafe fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_XML_READER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_link::link!("webservices.dll" "system" fn WsReadEnvelopeStart(message : *const WS_MESSAGE, reader : *const WS_XML_READER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadEnvelopeStart(message, reader, donecallback.unwrap_or(core::mem::zeroed()) as _, donecallbackstate.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WsReadEnvelopeStart(message, reader, donecallback, donecallbackstate.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WsReadMessageEnd(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
@@ -759,9 +741,9 @@ pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_ME
     unsafe { WsReceiveMessage(channel, message, core::mem::transmute(messagedescriptions.as_ptr()), messagedescriptions.len().try_into().unwrap(), receiveoption, readbodyoption, heap.unwrap_or(core::mem::zeroed()) as _, value as _, valuesize, index.unwrap_or(core::mem::zeroed()) as _, asynccontext.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: Option<WS_OPERATION_FREE_STATE_CALLBACK>, userstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
+pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_link::link!("webservices.dll" "system" fn WsRegisterOperationForCancel(context : *const WS_OPERATION_CONTEXT, cancelcallback : WS_OPERATION_CANCEL_CALLBACK, freestatecallback : WS_OPERATION_FREE_STATE_CALLBACK, userstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsRegisterOperationForCancel(context, cancelcallback, freestatecallback.unwrap_or(core::mem::zeroed()) as _, userstate.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WsRegisterOperationForCancel(context, cancelcallback, freestatecallback, userstate.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WsRemoveCustomHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, headerns: *const WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
@@ -1009,9 +991,9 @@ pub unsafe fn WsWriteEnvelopeEnd(message: *const WS_MESSAGE, error: Option<*cons
     unsafe { WsWriteEnvelopeEnd(message, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS_XML_WRITER, donecallback: Option<WS_MESSAGE_DONE_CALLBACK>, donecallbackstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
+pub unsafe fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS_XML_WRITER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: Option<*const core::ffi::c_void>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
     windows_link::link!("webservices.dll" "system" fn WsWriteEnvelopeStart(message : *const WS_MESSAGE, writer : *const WS_XML_WRITER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteEnvelopeStart(message, writer, donecallback.unwrap_or(core::mem::zeroed()) as _, donecallbackstate.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WsWriteEnvelopeStart(message, writer, donecallback, donecallbackstate.unwrap_or(core::mem::zeroed()) as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WsWriteMessageEnd(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: Option<*const WS_ASYNC_CONTEXT>, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {

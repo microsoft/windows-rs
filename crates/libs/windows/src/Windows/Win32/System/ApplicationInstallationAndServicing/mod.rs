@@ -54,7 +54,7 @@ where
     unsafe { ApplyPatchToFileA(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags) }
 }
 #[inline]
-pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: Option<&[u8]>, newfilebuffer: &mut [u8], newfileactualsize: Option<*mut u32>, newfiletime: Option<*mut super::super::Foundation::FILETIME>, applyoptionflags: u32, progresscallback: Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
+pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: Option<&[u8]>, newfilebuffer: &mut [u8], newfileactualsize: Option<*mut u32>, newfiletime: Option<*mut super::super::Foundation::FILETIME>, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_link::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : *const u8, patchfilesize : u32, oldfilemapped : *const u8, oldfilesize : u32, newfilebuffer : *mut *mut u8, newfilebuffersize : u32, newfileactualsize : *mut u32, newfiletime : *mut super::super::Foundation:: FILETIME, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe {
         ApplyPatchToFileByBuffers(
@@ -67,7 +67,7 @@ pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: O
             newfileactualsize.unwrap_or(core::mem::zeroed()) as _,
             newfiletime.unwrap_or(core::mem::zeroed()) as _,
             applyoptionflags,
-            progresscallback.unwrap_or(core::mem::zeroed()) as _,
+            progresscallback,
             callbackcontext.unwrap_or(core::mem::zeroed()) as _,
         )
     }
@@ -78,29 +78,29 @@ pub unsafe fn ApplyPatchToFileByHandles(patchfilehandle: super::super::Foundatio
     unsafe { ApplyPatchToFileByHandles(patchfilehandle, oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, applyoptionflags) }
 }
 #[inline]
-pub unsafe fn ApplyPatchToFileByHandlesEx(patchfilehandle: super::super::Foundation::HANDLE, oldfilehandle: Option<super::super::Foundation::HANDLE>, newfilehandle: super::super::Foundation::HANDLE, applyoptionflags: u32, progresscallback: Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
+pub unsafe fn ApplyPatchToFileByHandlesEx(patchfilehandle: super::super::Foundation::HANDLE, oldfilehandle: Option<super::super::Foundation::HANDLE>, newfilehandle: super::super::Foundation::HANDLE, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_link::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandlesEx(patchfilehandle : super::super::Foundation:: HANDLE, oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ApplyPatchToFileByHandlesEx(patchfilehandle, oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, applyoptionflags, progresscallback.unwrap_or(core::mem::zeroed()) as _, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ApplyPatchToFileByHandlesEx(patchfilehandle, oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, applyoptionflags, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn ApplyPatchToFileExA<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32, progresscallback: Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn ApplyPatchToFileExA<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("mspatcha.dll" "system" fn ApplyPatchToFileExA(patchfilename : windows_core::PCSTR, oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ApplyPatchToFileExA(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags, progresscallback.unwrap_or(core::mem::zeroed()) as _, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ApplyPatchToFileExA(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn ApplyPatchToFileExW<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32, progresscallback: Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn ApplyPatchToFileExW<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("mspatcha.dll" "system" fn ApplyPatchToFileExW(patchfilename : windows_core::PCWSTR, oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ApplyPatchToFileExW(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags, progresscallback.unwrap_or(core::mem::zeroed()) as _, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ApplyPatchToFileExW(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ApplyPatchToFileW<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32) -> windows_core::BOOL
@@ -172,27 +172,27 @@ pub unsafe fn CreatePatchFileByHandles(oldfilehandle: Option<super::super::Found
     unsafe { CreatePatchFileByHandles(oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, patchfilehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CreatePatchFileByHandlesEx(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_H], newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, progresscallback: Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
+pub unsafe fn CreatePatchFileByHandlesEx(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_H], newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_link::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_H, newfilehandle : super::super::Foundation:: HANDLE, patchfilehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CreatePatchFileByHandlesEx(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilehandle, patchfilehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback.unwrap_or(core::mem::zeroed()) as _, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CreatePatchFileByHandlesEx(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilehandle, patchfilehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CreatePatchFileExA<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_A], newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, progresscallback: Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileExA<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_A], newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("mspatchc.dll" "system" fn CreatePatchFileExA(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_A, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CreatePatchFileExA(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback.unwrap_or(core::mem::zeroed()) as _, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CreatePatchFileExA(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CreatePatchFileExW<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_W], newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, progresscallback: Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileExW<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_W], newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("mspatchc.dll" "system" fn CreatePatchFileExW(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_W, newfilename : windows_core::PCWSTR, patchfilename : windows_core::PCWSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CreatePatchFileExW(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback.unwrap_or(core::mem::zeroed()) as _, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CreatePatchFileExW(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CreatePatchFileW<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>) -> windows_core::BOOL
@@ -2049,19 +2049,19 @@ where
     unsafe { MsiSetComponentStateW(hinstall, szcomponent.param().abi(), istate) }
 }
 #[inline]
-pub unsafe fn MsiSetExternalUIA(puihandler: Option<INSTALLUI_HANDLERA>, dwmessagefilter: u32, pvcontext: Option<*const core::ffi::c_void>) -> INSTALLUI_HANDLERA {
+pub unsafe fn MsiSetExternalUIA(puihandler: INSTALLUI_HANDLERA, dwmessagefilter: u32, pvcontext: Option<*const core::ffi::c_void>) -> INSTALLUI_HANDLERA {
     windows_link::link!("msi.dll" "system" fn MsiSetExternalUIA(puihandler : INSTALLUI_HANDLERA, dwmessagefilter : u32, pvcontext : *const core::ffi::c_void) -> INSTALLUI_HANDLERA);
-    unsafe { MsiSetExternalUIA(puihandler.unwrap_or(core::mem::zeroed()) as _, dwmessagefilter, pvcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { MsiSetExternalUIA(puihandler, dwmessagefilter, pvcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn MsiSetExternalUIRecord(puihandler: Option<PINSTALLUI_HANDLER_RECORD>, dwmessagefilter: u32, pvcontext: Option<*const core::ffi::c_void>, ppuiprevhandler: Option<PINSTALLUI_HANDLER_RECORD>) -> u32 {
+pub unsafe fn MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwmessagefilter: u32, pvcontext: Option<*const core::ffi::c_void>, ppuiprevhandler: PINSTALLUI_HANDLER_RECORD) -> u32 {
     windows_link::link!("msi.dll" "system" fn MsiSetExternalUIRecord(puihandler : PINSTALLUI_HANDLER_RECORD, dwmessagefilter : u32, pvcontext : *const core::ffi::c_void, ppuiprevhandler : PINSTALLUI_HANDLER_RECORD) -> u32);
-    unsafe { MsiSetExternalUIRecord(puihandler.unwrap_or(core::mem::zeroed()) as _, dwmessagefilter, pvcontext.unwrap_or(core::mem::zeroed()) as _, ppuiprevhandler.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { MsiSetExternalUIRecord(puihandler, dwmessagefilter, pvcontext.unwrap_or(core::mem::zeroed()) as _, ppuiprevhandler) }
 }
 #[inline]
-pub unsafe fn MsiSetExternalUIW(puihandler: Option<INSTALLUI_HANDLERW>, dwmessagefilter: u32, pvcontext: Option<*const core::ffi::c_void>) -> INSTALLUI_HANDLERW {
+pub unsafe fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter: u32, pvcontext: Option<*const core::ffi::c_void>) -> INSTALLUI_HANDLERW {
     windows_link::link!("msi.dll" "system" fn MsiSetExternalUIW(puihandler : INSTALLUI_HANDLERW, dwmessagefilter : u32, pvcontext : *const core::ffi::c_void) -> INSTALLUI_HANDLERW);
-    unsafe { MsiSetExternalUIW(puihandler.unwrap_or(core::mem::zeroed()) as _, dwmessagefilter, pvcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { MsiSetExternalUIW(puihandler, dwmessagefilter, pvcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn MsiSetFeatureAttributesA<P1>(hinstall: MSIHANDLE, szfeature: P1, dwattributes: u32) -> u32

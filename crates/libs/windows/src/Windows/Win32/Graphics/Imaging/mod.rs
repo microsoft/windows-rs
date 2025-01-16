@@ -695,8 +695,8 @@ impl windows_core::RuntimeName for IWICBitmapCodecInfo {}
 windows_core::imp::define_interface!(IWICBitmapCodecProgressNotification, IWICBitmapCodecProgressNotification_Vtbl, 0x64c1024e_c3cf_4462_8078_88c2b11c46d9);
 windows_core::imp::interface_hierarchy!(IWICBitmapCodecProgressNotification, windows_core::IUnknown);
 impl IWICBitmapCodecProgressNotification {
-    pub unsafe fn RegisterProgressNotification(&self, pfnprogressnotification: Option<PFNProgressNotification>, pvdata: Option<*const core::ffi::c_void>, dwprogressflags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RegisterProgressNotification)(windows_core::Interface::as_raw(self), pfnprogressnotification.unwrap_or(core::mem::zeroed()) as _, pvdata.unwrap_or(core::mem::zeroed()) as _, dwprogressflags).ok() }
+    pub unsafe fn RegisterProgressNotification(&self, pfnprogressnotification: PFNProgressNotification, pvdata: Option<*const core::ffi::c_void>, dwprogressflags: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RegisterProgressNotification)(windows_core::Interface::as_raw(self), pfnprogressnotification, pvdata.unwrap_or(core::mem::zeroed()) as _, dwprogressflags).ok() }
     }
 }
 #[repr(C)]

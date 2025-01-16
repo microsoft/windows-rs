@@ -113,12 +113,12 @@ pub unsafe fn CryptCATCDFEnumMembersByCDFTagEx(pcdf: *const CRYPTCATCDF, pwszpre
     unsafe { CryptCATCDFEnumMembersByCDFTagEx(pcdf, core::mem::transmute(pwszprevcdftag), pfnparseerror, ppmember, fcontinueonerror.into(), pvreserved) }
 }
 #[inline]
-pub unsafe fn CryptCATCDFOpen<P0>(pwszfilepath: P0, pfnparseerror: Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATCDF
+pub unsafe fn CryptCATCDFOpen<P0>(pwszfilepath: P0, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATCDF
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("wintrust.dll" "system" fn CryptCATCDFOpen(pwszfilepath : windows_core::PCWSTR, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATCDF);
-    unsafe { CryptCATCDFOpen(pwszfilepath.param().abi(), pfnparseerror.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptCATCDFOpen(pwszfilepath.param().abi(), pfnparseerror) }
 }
 #[inline]
 pub unsafe fn CryptCATCatalogInfoFromContext(hcatinfo: isize, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> windows_core::Result<()> {
