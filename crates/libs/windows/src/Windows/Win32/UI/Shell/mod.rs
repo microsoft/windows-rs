@@ -11133,7 +11133,7 @@ pub struct IAccessibilityDockingService_Vtbl {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IAccessibilityDockingService_Impl: windows_core::IUnknownImpl {
     fn GetAvailableSize(&self, hmonitor: super::super::Graphics::Gdi::HMONITOR, pcxfixed: *mut u32, pcymax: *mut u32) -> windows_core::Result<()>;
-    fn DockWindow(&self, hwnd: super::super::Foundation::HWND, hmonitor: super::super::Graphics::Gdi::HMONITOR, cyrequested: u32, pcallback: windows_core::Ref<IAccessibilityDockingServiceCallback>) -> windows_core::Result<()>;
+    fn DockWindow(&self, hwnd: super::super::Foundation::HWND, hmonitor: super::super::Graphics::Gdi::HMONITOR, cyrequested: u32, pcallback: windows_core::Ref<'_, IAccessibilityDockingServiceCallback>) -> windows_core::Result<()>;
     fn UndockWindow(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -11665,7 +11665,7 @@ pub struct IAppVisibility_Vtbl {
 pub trait IAppVisibility_Impl: windows_core::IUnknownImpl {
     fn GetAppVisibilityOnMonitor(&self, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<MONITOR_APP_VISIBILITY>;
     fn IsLauncherVisible(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn Advise(&self, pcallback: windows_core::Ref<IAppVisibilityEvents>) -> windows_core::Result<u32>;
+    fn Advise(&self, pcallback: windows_core::Ref<'_, IAppVisibilityEvents>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -11823,8 +11823,8 @@ pub struct IApplicationActivationManager_Vtbl {
 }
 pub trait IApplicationActivationManager_Impl: windows_core::IUnknownImpl {
     fn ActivateApplication(&self, appusermodelid: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, options: ACTIVATEOPTIONS) -> windows_core::Result<u32>;
-    fn ActivateForFile(&self, appusermodelid: &windows_core::PCWSTR, itemarray: windows_core::Ref<IShellItemArray>, verb: &windows_core::PCWSTR) -> windows_core::Result<u32>;
-    fn ActivateForProtocol(&self, appusermodelid: &windows_core::PCWSTR, itemarray: windows_core::Ref<IShellItemArray>) -> windows_core::Result<u32>;
+    fn ActivateForFile(&self, appusermodelid: &windows_core::PCWSTR, itemarray: windows_core::Ref<'_, IShellItemArray>, verb: &windows_core::PCWSTR) -> windows_core::Result<u32>;
+    fn ActivateForProtocol(&self, appusermodelid: &windows_core::PCWSTR, itemarray: windows_core::Ref<'_, IShellItemArray>) -> windows_core::Result<u32>;
 }
 impl IApplicationActivationManager_Vtbl {
     pub const fn new<Identity: IApplicationActivationManager_Impl, const OFFSET: isize>() -> Self {
@@ -12319,7 +12319,7 @@ pub struct IApplicationDestinations_Vtbl {
 }
 pub trait IApplicationDestinations_Impl: windows_core::IUnknownImpl {
     fn SetAppID(&self, pszappid: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn RemoveDestination(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RemoveDestination(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveAllDestinations(&self) -> windows_core::Result<()>;
 }
 impl IApplicationDestinations_Vtbl {
@@ -12471,8 +12471,8 @@ pub trait IAssocHandler_Impl: windows_core::IUnknownImpl {
     fn GetIconLocation(&self, ppszpath: *mut windows_core::PWSTR, pindex: *mut i32) -> windows_core::Result<()>;
     fn IsRecommended(&self) -> windows_core::HRESULT;
     fn MakeDefault(&self, pszdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Invoke(&self, pdo: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
-    fn CreateInvoker(&self, pdo: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<IAssocHandlerInvoker>;
+    fn Invoke(&self, pdo: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
+    fn CreateInvoker(&self, pdo: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<IAssocHandlerInvoker>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAssocHandler_Vtbl {
@@ -12813,7 +12813,7 @@ pub struct IAutoComplete_Vtbl {
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAutoComplete_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, hwndedit: super::super::Foundation::HWND, punkacl: windows_core::Ref<windows_core::IUnknown>, pwszregkeypath: &windows_core::PCWSTR, pwszquickcomplete: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Init(&self, hwndedit: super::super::Foundation::HWND, punkacl: windows_core::Ref<'_, windows_core::IUnknown>, pwszregkeypath: &windows_core::PCWSTR, pwszquickcomplete: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Enable(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IAutoComplete_Vtbl {
@@ -13055,7 +13055,7 @@ pub struct IBandSite_Vtbl {
 }
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IBandSite_Impl: windows_core::IUnknownImpl {
-    fn AddBand(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AddBand(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumBands(&self, uband: u32) -> windows_core::Result<u32>;
     fn QueryBand(&self, dwbandid: u32, ppstb: windows_core::OutRef<'_, IDeskBand>, pdwstate: *mut u32, pszname: windows_core::PWSTR, cchname: i32) -> windows_core::Result<()>;
     fn SetBandState(&self, dwbandid: u32, dwmask: u32, dwstate: u32) -> windows_core::Result<()>;
@@ -13565,8 +13565,8 @@ pub struct IBrowserService_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
 pub trait IBrowserService_Impl: windows_core::IUnknownImpl {
     fn GetParentSite(&self) -> windows_core::Result<super::super::System::Ole::IOleInPlaceSite>;
-    fn SetTitle(&self, psv: windows_core::Ref<IShellView>, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetTitle(&self, psv: windows_core::Ref<IShellView>, pszname: windows_core::PWSTR, cchname: u32) -> windows_core::Result<()>;
+    fn SetTitle(&self, psv: windows_core::Ref<'_, IShellView>, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetTitle(&self, psv: windows_core::Ref<'_, IShellView>, pszname: windows_core::PWSTR, cchname: u32) -> windows_core::Result<()>;
     fn GetOleObject(&self) -> windows_core::Result<super::super::System::Ole::IOleObject>;
     fn GetTravelLog(&self) -> windows_core::Result<ITravelLog>;
     fn ShowControlWindow(&self, id: u32, fshow: windows_core::BOOL) -> windows_core::Result<()>;
@@ -13577,7 +13577,7 @@ pub trait IBrowserService_Impl: windows_core::IUnknownImpl {
     fn NavigateToPidl(&self, pidl: *const Common::ITEMIDLIST, grfhlnf: u32) -> windows_core::Result<()>;
     fn SetNavigateState(&self, bnstate: BNSTATE) -> windows_core::Result<()>;
     fn GetNavigateState(&self) -> windows_core::Result<BNSTATE>;
-    fn NotifyRedirect(&self, psv: windows_core::Ref<IShellView>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<windows_core::BOOL>;
+    fn NotifyRedirect(&self, psv: windows_core::Ref<'_, IShellView>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<windows_core::BOOL>;
     fn UpdateWindowList(&self) -> windows_core::Result<()>;
     fn UpdateBackForwardState(&self) -> windows_core::Result<()>;
     fn SetFlags(&self, dwflags: u32, dwflagmask: u32) -> windows_core::Result<()>;
@@ -13588,10 +13588,10 @@ pub trait IBrowserService_Impl: windows_core::IUnknownImpl {
     fn GetBrowserIndex(&self) -> u32;
     fn GetBrowserByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown>;
     fn GetHistoryObject(&self, ppole: windows_core::OutRef<'_, super::super::System::Ole::IOleObject>, pstm: windows_core::OutRef<'_, super::super::System::Com::IStream>, ppbc: windows_core::OutRef<'_, super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
-    fn SetHistoryObject(&self, pole: windows_core::Ref<super::super::System::Ole::IOleObject>, fislocalanchor: windows_core::BOOL) -> windows_core::Result<()>;
-    fn CacheOLEServer(&self, pole: windows_core::Ref<super::super::System::Ole::IOleObject>) -> windows_core::Result<()>;
+    fn SetHistoryObject(&self, pole: windows_core::Ref<'_, super::super::System::Ole::IOleObject>, fislocalanchor: windows_core::BOOL) -> windows_core::Result<()>;
+    fn CacheOLEServer(&self, pole: windows_core::Ref<'_, super::super::System::Ole::IOleObject>) -> windows_core::Result<()>;
     fn GetSetCodePage(&self, pvarin: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn OnHttpEquiv(&self, psv: windows_core::Ref<IShellView>, fdone: windows_core::BOOL, pvarargin: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn OnHttpEquiv(&self, psv: windows_core::Ref<'_, IShellView>, fdone: windows_core::BOOL, pvarargin: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetPalette(&self) -> windows_core::Result<super::super::Graphics::Gdi::HPALETTE>;
     fn RegisterWindow(&self, fforceregister: windows_core::BOOL, swc: ShellWindowTypeConstants) -> windows_core::Result<()>;
 }
@@ -14287,12 +14287,12 @@ pub trait IBrowserService2_Impl: IBrowserService_Impl {
     fn OnFrameWindowActivateBS(&self, factive: windows_core::BOOL) -> windows_core::Result<()>;
     fn ReleaseShellView(&self) -> windows_core::Result<()>;
     fn ActivatePendingView(&self) -> windows_core::Result<()>;
-    fn CreateViewWindow(&self, psvnew: windows_core::Ref<IShellView>, psvold: windows_core::Ref<IShellView>, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::HWND>;
+    fn CreateViewWindow(&self, psvnew: windows_core::Ref<'_, IShellView>, psvold: windows_core::Ref<'_, IShellView>, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::HWND>;
     fn CreateBrowserPropSheetExt(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetViewWindow(&self) -> windows_core::Result<super::super::Foundation::HWND>;
     fn GetBaseBrowserData(&self) -> windows_core::Result<*mut BASEBROWSERDATALH>;
     fn PutBaseBrowserData(&self) -> *mut BASEBROWSERDATALH;
-    fn InitializeTravelLog(&self, ptl: windows_core::Ref<ITravelLog>, dw: u32) -> windows_core::Result<()>;
+    fn InitializeTravelLog(&self, ptl: windows_core::Ref<'_, ITravelLog>, dw: u32) -> windows_core::Result<()>;
     fn SetTopBrowser(&self) -> windows_core::Result<()>;
     fn Offline(&self, icmd: i32) -> windows_core::Result<()>;
     fn AllowViewResize(&self, f: windows_core::BOOL) -> windows_core::Result<()>;
@@ -14300,16 +14300,16 @@ pub trait IBrowserService2_Impl: IBrowserService_Impl {
     fn UpdateSecureLockIcon(&self, esecurelock: i32) -> windows_core::Result<()>;
     fn InitializeDownloadManager(&self) -> windows_core::Result<()>;
     fn InitializeTransitionSite(&self) -> windows_core::Result<()>;
-    fn _Initialize(&self, hwnd: super::super::Foundation::HWND, pauto: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn _Initialize(&self, hwnd: super::super::Foundation::HWND, pauto: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn _CancelPendingNavigationAsync(&self) -> windows_core::Result<()>;
     fn _CancelPendingView(&self) -> windows_core::Result<()>;
     fn _MaySaveChanges(&self) -> windows_core::Result<()>;
     fn _PauseOrResumeView(&self, fpaused: windows_core::BOOL) -> windows_core::Result<()>;
     fn _DisableModeless(&self) -> windows_core::Result<()>;
     fn _NavigateToPidl2(&self, pidl: *const Common::ITEMIDLIST, grfhlnf: u32, dwflags: u32) -> windows_core::Result<()>;
-    fn _TryShell2Rename(&self, psv: windows_core::Ref<IShellView>, pidlnew: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
+    fn _TryShell2Rename(&self, psv: windows_core::Ref<'_, IShellView>, pidlnew: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
     fn _SwitchActivationNow(&self) -> windows_core::Result<()>;
-    fn _ExecChildren(&self, punkbar: windows_core::Ref<windows_core::IUnknown>, fbroadcast: windows_core::BOOL, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const super::super::System::Variant::VARIANT, pvarargout: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn _ExecChildren(&self, punkbar: windows_core::Ref<'_, windows_core::IUnknown>, fbroadcast: windows_core::BOOL, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const super::super::System::Variant::VARIANT, pvarargout: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn _SendChildren(&self, hwndbar: super::super::Foundation::HWND, fbroadcast: windows_core::BOOL, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn GetFolderSetData(&self, pfsd: *mut FOLDERSETDATA) -> windows_core::Result<()>;
     fn _OnFocusChange(&self, itb: u32) -> windows_core::Result<()>;
@@ -14327,15 +14327,15 @@ pub trait IBrowserService2_Impl: IBrowserService_Impl {
     fn SetAcceleratorMenu(&self, hacc: super::WindowsAndMessaging::HACCEL) -> windows_core::Result<()>;
     fn _GetToolbarCount(&self) -> i32;
     fn _GetToolbarItem(&self, itb: i32) -> *mut TOOLBARITEM;
-    fn _SaveToolbars(&self, pstm: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn _LoadToolbars(&self, pstm: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn _SaveToolbars(&self, pstm: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn _LoadToolbars(&self, pstm: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn _CloseAndReleaseToolbars(&self, fclose: windows_core::BOOL) -> windows_core::Result<()>;
     fn v_MayGetNextToolbarFocus(&self, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut TOOLBARITEM, phwnd: *mut super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn _ResizeNextBorderHelper(&self, itb: u32, busehmonitor: windows_core::BOOL) -> windows_core::Result<()>;
-    fn _FindTBar(&self, punksrc: windows_core::Ref<windows_core::IUnknown>) -> u32;
+    fn _FindTBar(&self, punksrc: windows_core::Ref<'_, windows_core::IUnknown>) -> u32;
     fn _SetFocus(&self, ptbi: *const TOOLBARITEM, hwnd: super::super::Foundation::HWND, lpmsg: *const super::WindowsAndMessaging::MSG) -> windows_core::Result<()>;
     fn v_MayTranslateAccelerator(&self, pmsg: *mut super::WindowsAndMessaging::MSG) -> windows_core::Result<()>;
-    fn _GetBorderDWHelper(&self, punksrc: windows_core::Ref<windows_core::IUnknown>, lprectborder: *mut super::super::Foundation::RECT, busehmonitor: windows_core::BOOL) -> windows_core::Result<()>;
+    fn _GetBorderDWHelper(&self, punksrc: windows_core::Ref<'_, windows_core::IUnknown>, lprectborder: *mut super::super::Foundation::RECT, busehmonitor: windows_core::BOOL) -> windows_core::Result<()>;
     fn v_CheckZoneCrossing(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15458,9 +15458,9 @@ pub struct ICommDlgBrowser_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub trait ICommDlgBrowser_Impl: windows_core::IUnknownImpl {
-    fn OnDefaultCommand(&self, ppshv: windows_core::Ref<IShellView>) -> windows_core::Result<()>;
-    fn OnStateChange(&self, ppshv: windows_core::Ref<IShellView>, uchange: u32) -> windows_core::Result<()>;
-    fn IncludeObject(&self, ppshv: windows_core::Ref<IShellView>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
+    fn OnDefaultCommand(&self, ppshv: windows_core::Ref<'_, IShellView>) -> windows_core::Result<()>;
+    fn OnStateChange(&self, ppshv: windows_core::Ref<'_, IShellView>, uchange: u32) -> windows_core::Result<()>;
+    fn IncludeObject(&self, ppshv: windows_core::Ref<'_, IShellView>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ICommDlgBrowser_Vtbl {
@@ -15541,8 +15541,8 @@ pub struct ICommDlgBrowser2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub trait ICommDlgBrowser2_Impl: ICommDlgBrowser_Impl {
-    fn Notify(&self, ppshv: windows_core::Ref<IShellView>, dwnotifytype: u32) -> windows_core::Result<()>;
-    fn GetDefaultMenuText(&self, ppshv: windows_core::Ref<IShellView>, psztext: windows_core::PWSTR, cchmax: i32) -> windows_core::Result<()>;
+    fn Notify(&self, ppshv: windows_core::Ref<'_, IShellView>, dwnotifytype: u32) -> windows_core::Result<()>;
+    fn GetDefaultMenuText(&self, ppshv: windows_core::Ref<'_, IShellView>, psztext: windows_core::PWSTR, cchmax: i32) -> windows_core::Result<()>;
     fn GetViewFlags(&self) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
@@ -15627,9 +15627,9 @@ pub struct ICommDlgBrowser3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub trait ICommDlgBrowser3_Impl: ICommDlgBrowser2_Impl {
-    fn OnColumnClicked(&self, ppshv: windows_core::Ref<IShellView>, icolumn: i32) -> windows_core::Result<()>;
+    fn OnColumnClicked(&self, ppshv: windows_core::Ref<'_, IShellView>, icolumn: i32) -> windows_core::Result<()>;
     fn GetCurrentFilter(&self, pszfilespec: windows_core::PWSTR, cchfilespec: i32) -> windows_core::Result<()>;
-    fn OnPreViewCreated(&self, ppshv: windows_core::Ref<IShellView>) -> windows_core::Result<()>;
+    fn OnPreViewCreated(&self, ppshv: windows_core::Ref<'_, IShellView>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ICommDlgBrowser3_Vtbl {
@@ -15722,7 +15722,7 @@ pub struct IConnectableCredentialProviderCredential_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IConnectableCredentialProviderCredential_Impl: ICredentialProviderCredential_Impl {
-    fn Connect(&self, pqcws: windows_core::Ref<IQueryContinueWithStatus>) -> windows_core::Result<()>;
+    fn Connect(&self, pqcws: windows_core::Ref<'_, IQueryContinueWithStatus>) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -15768,7 +15768,7 @@ pub struct IContactManagerInterop_Vtbl {
     pub ShowContactCardForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, *const super::super::Foundation::RECT, FLYOUT_PLACEMENT) -> windows_core::HRESULT,
 }
 pub trait IContactManagerInterop_Impl: windows_core::IUnknownImpl {
-    fn ShowContactCardForWindow(&self, appwindow: super::super::Foundation::HWND, contact: windows_core::Ref<windows_core::IUnknown>, selection: *const super::super::Foundation::RECT, preferredplacement: FLYOUT_PLACEMENT) -> windows_core::Result<()>;
+    fn ShowContactCardForWindow(&self, appwindow: super::super::Foundation::HWND, contact: windows_core::Ref<'_, windows_core::IUnknown>, selection: *const super::super::Foundation::RECT, preferredplacement: FLYOUT_PLACEMENT) -> windows_core::Result<()>;
 }
 impl IContactManagerInterop_Vtbl {
     pub const fn new<Identity: IContactManagerInterop_Impl, const OFFSET: isize>() -> Self {
@@ -15949,7 +15949,7 @@ pub struct IContextMenuCB_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IContextMenuCB_Impl: windows_core::IUnknownImpl {
-    fn CallBack(&self, psf: windows_core::Ref<IShellFolder>, hwndowner: super::super::Foundation::HWND, pdtobj: windows_core::Ref<super::super::System::Com::IDataObject>, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
+    fn CallBack(&self, psf: windows_core::Ref<'_, IShellFolder>, hwndowner: super::super::Foundation::HWND, pdtobj: windows_core::Ref<'_, super::super::System::Com::IDataObject>, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IContextMenuCB_Vtbl {
@@ -15984,7 +15984,7 @@ pub struct IContextMenuSite_Vtbl {
     pub DoContextMenuPopup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::super::Foundation::POINT) -> windows_core::HRESULT,
 }
 pub trait IContextMenuSite_Impl: windows_core::IUnknownImpl {
-    fn DoContextMenuPopup(&self, punkcontextmenu: windows_core::Ref<windows_core::IUnknown>, fflags: u32, pt: &super::super::Foundation::POINT) -> windows_core::Result<()>;
+    fn DoContextMenuPopup(&self, punkcontextmenu: windows_core::Ref<'_, windows_core::IUnknown>, fflags: u32, pt: &super::super::Foundation::POINT) -> windows_core::Result<()>;
 }
 impl IContextMenuSite_Vtbl {
     pub const fn new<Identity: IContextMenuSite_Impl, const OFFSET: isize>() -> Self {
@@ -16206,7 +16206,7 @@ pub struct ICreatingProcess_Vtbl {
     pub OnCreating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICreatingProcess_Impl: windows_core::IUnknownImpl {
-    fn OnCreating(&self, pcpi: windows_core::Ref<ICreateProcessInputs>) -> windows_core::Result<()>;
+    fn OnCreating(&self, pcpi: windows_core::Ref<'_, ICreateProcessInputs>) -> windows_core::Result<()>;
 }
 impl ICreatingProcess_Vtbl {
     pub const fn new<Identity: ICreatingProcess_Impl, const OFFSET: isize>() -> Self {
@@ -16278,7 +16278,7 @@ pub struct ICredentialProvider_Vtbl {
 pub trait ICredentialProvider_Impl: windows_core::IUnknownImpl {
     fn SetUsageScenario(&self, cpus: CREDENTIAL_PROVIDER_USAGE_SCENARIO, dwflags: u32) -> windows_core::Result<()>;
     fn SetSerialization(&self, pcpcs: *const CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION) -> windows_core::Result<()>;
-    fn Advise(&self, pcpe: windows_core::Ref<ICredentialProviderEvents>, upadvisecontext: usize) -> windows_core::Result<()>;
+    fn Advise(&self, pcpe: windows_core::Ref<'_, ICredentialProviderEvents>, upadvisecontext: usize) -> windows_core::Result<()>;
     fn UnAdvise(&self) -> windows_core::Result<()>;
     fn GetFieldDescriptorCount(&self) -> windows_core::Result<u32>;
     fn GetFieldDescriptorAt(&self, dwindex: u32) -> windows_core::Result<*mut CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR>;
@@ -16473,7 +16473,7 @@ pub struct ICredentialProviderCredential_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait ICredentialProviderCredential_Impl: windows_core::IUnknownImpl {
-    fn Advise(&self, pcpce: windows_core::Ref<ICredentialProviderCredentialEvents>) -> windows_core::Result<()>;
+    fn Advise(&self, pcpce: windows_core::Ref<'_, ICredentialProviderCredentialEvents>) -> windows_core::Result<()>;
     fn UnAdvise(&self) -> windows_core::Result<()>;
     fn SetSelected(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetDeselected(&self) -> windows_core::Result<()>;
@@ -16788,15 +16788,15 @@ pub struct ICredentialProviderCredentialEvents_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait ICredentialProviderCredentialEvents_Impl: windows_core::IUnknownImpl {
-    fn SetFieldState(&self, pcpc: windows_core::Ref<ICredentialProviderCredential>, dwfieldid: u32, cpfs: CREDENTIAL_PROVIDER_FIELD_STATE) -> windows_core::Result<()>;
-    fn SetFieldInteractiveState(&self, pcpc: windows_core::Ref<ICredentialProviderCredential>, dwfieldid: u32, cpfis: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE) -> windows_core::Result<()>;
-    fn SetFieldString(&self, pcpc: windows_core::Ref<ICredentialProviderCredential>, dwfieldid: u32, psz: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetFieldCheckbox(&self, pcpc: windows_core::Ref<ICredentialProviderCredential>, dwfieldid: u32, bchecked: windows_core::BOOL, pszlabel: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetFieldBitmap(&self, pcpc: windows_core::Ref<ICredentialProviderCredential>, dwfieldid: u32, hbmp: super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>;
-    fn SetFieldComboBoxSelectedItem(&self, pcpc: windows_core::Ref<ICredentialProviderCredential>, dwfieldid: u32, dwselecteditem: u32) -> windows_core::Result<()>;
-    fn DeleteFieldComboBoxItem(&self, pcpc: windows_core::Ref<ICredentialProviderCredential>, dwfieldid: u32, dwitem: u32) -> windows_core::Result<()>;
-    fn AppendFieldComboBoxItem(&self, pcpc: windows_core::Ref<ICredentialProviderCredential>, dwfieldid: u32, pszitem: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetFieldSubmitButton(&self, pcpc: windows_core::Ref<ICredentialProviderCredential>, dwfieldid: u32, dwadjacentto: u32) -> windows_core::Result<()>;
+    fn SetFieldState(&self, pcpc: windows_core::Ref<'_, ICredentialProviderCredential>, dwfieldid: u32, cpfs: CREDENTIAL_PROVIDER_FIELD_STATE) -> windows_core::Result<()>;
+    fn SetFieldInteractiveState(&self, pcpc: windows_core::Ref<'_, ICredentialProviderCredential>, dwfieldid: u32, cpfis: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE) -> windows_core::Result<()>;
+    fn SetFieldString(&self, pcpc: windows_core::Ref<'_, ICredentialProviderCredential>, dwfieldid: u32, psz: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetFieldCheckbox(&self, pcpc: windows_core::Ref<'_, ICredentialProviderCredential>, dwfieldid: u32, bchecked: windows_core::BOOL, pszlabel: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetFieldBitmap(&self, pcpc: windows_core::Ref<'_, ICredentialProviderCredential>, dwfieldid: u32, hbmp: super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>;
+    fn SetFieldComboBoxSelectedItem(&self, pcpc: windows_core::Ref<'_, ICredentialProviderCredential>, dwfieldid: u32, dwselecteditem: u32) -> windows_core::Result<()>;
+    fn DeleteFieldComboBoxItem(&self, pcpc: windows_core::Ref<'_, ICredentialProviderCredential>, dwfieldid: u32, dwitem: u32) -> windows_core::Result<()>;
+    fn AppendFieldComboBoxItem(&self, pcpc: windows_core::Ref<'_, ICredentialProviderCredential>, dwfieldid: u32, pszitem: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetFieldSubmitButton(&self, pcpc: windows_core::Ref<'_, ICredentialProviderCredential>, dwfieldid: u32, dwadjacentto: u32) -> windows_core::Result<()>;
     fn OnCreatingWindow(&self) -> windows_core::Result<super::super::Foundation::HWND>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -16921,7 +16921,7 @@ pub struct ICredentialProviderCredentialEvents2_Vtbl {
 pub trait ICredentialProviderCredentialEvents2_Impl: ICredentialProviderCredentialEvents_Impl {
     fn BeginFieldUpdates(&self) -> windows_core::Result<()>;
     fn EndFieldUpdates(&self) -> windows_core::Result<()>;
-    fn SetFieldOptions(&self, credential: windows_core::Ref<ICredentialProviderCredential>, fieldid: u32, options: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS) -> windows_core::Result<()>;
+    fn SetFieldOptions(&self, credential: windows_core::Ref<'_, ICredentialProviderCredential>, fieldid: u32, options: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ICredentialProviderCredentialEvents2_Vtbl {
@@ -17087,7 +17087,7 @@ pub struct ICredentialProviderSetUserArray_Vtbl {
     pub SetUserArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICredentialProviderSetUserArray_Impl: windows_core::IUnknownImpl {
-    fn SetUserArray(&self, users: windows_core::Ref<ICredentialProviderUserArray>) -> windows_core::Result<()>;
+    fn SetUserArray(&self, users: windows_core::Ref<'_, ICredentialProviderUserArray>) -> windows_core::Result<()>;
 }
 impl ICredentialProviderSetUserArray_Vtbl {
     pub const fn new<Identity: ICredentialProviderSetUserArray_Impl, const OFFSET: isize>() -> Self {
@@ -17462,9 +17462,9 @@ pub struct ICustomDestinationList_Vtbl {
 pub trait ICustomDestinationList_Impl: windows_core::IUnknownImpl {
     fn SetAppID(&self, pszappid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn BeginList(&self, pcminslots: *mut u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AppendCategory(&self, pszcategory: &windows_core::PCWSTR, poa: windows_core::Ref<Common::IObjectArray>) -> windows_core::Result<()>;
+    fn AppendCategory(&self, pszcategory: &windows_core::PCWSTR, poa: windows_core::Ref<'_, Common::IObjectArray>) -> windows_core::Result<()>;
     fn AppendKnownCategory(&self, category: KNOWNDESTCATEGORY) -> windows_core::Result<()>;
-    fn AddUserTasks(&self, poa: windows_core::Ref<Common::IObjectArray>) -> windows_core::Result<()>;
+    fn AddUserTasks(&self, poa: windows_core::Ref<'_, Common::IObjectArray>) -> windows_core::Result<()>;
     fn CommitList(&self) -> windows_core::Result<()>;
     fn GetRemovedDestinations(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn DeleteList(&self, pszappid: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -17609,9 +17609,9 @@ pub struct IDataObjectAsyncCapability_Vtbl {
 pub trait IDataObjectAsyncCapability_Impl: windows_core::IUnknownImpl {
     fn SetAsyncMode(&self, fdoopasync: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetAsyncMode(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn StartOperation(&self, pbcreserved: windows_core::Ref<super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
+    fn StartOperation(&self, pbcreserved: windows_core::Ref<'_, super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
     fn InOperation(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn EndOperation(&self, hresult: windows_core::HRESULT, pbcreserved: windows_core::Ref<super::super::System::Com::IBindCtx>, dweffects: u32) -> windows_core::Result<()>;
+    fn EndOperation(&self, hresult: windows_core::HRESULT, pbcreserved: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, dweffects: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDataObjectAsyncCapability_Vtbl {
@@ -17706,7 +17706,7 @@ pub struct IDataObjectProvider_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDataObjectProvider_Impl: windows_core::IUnknownImpl {
     fn GetDataObject(&self) -> windows_core::Result<super::super::System::Com::IDataObject>;
-    fn SetDataObject(&self, dataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
+    fn SetDataObject(&self, dataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDataObjectProvider_Vtbl {
@@ -17940,7 +17940,7 @@ pub struct IDefaultFolderMenuInitialize_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 pub trait IDefaultFolderMenuInitialize_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, hwnd: super::super::Foundation::HWND, pcmcb: windows_core::Ref<IContextMenuCB>, pidlfolder: *const Common::ITEMIDLIST, psf: windows_core::Ref<IShellFolder>, cidl: u32, apidl: *const *const Common::ITEMIDLIST, punkassociation: windows_core::Ref<windows_core::IUnknown>, ckeys: u32, akeys: *const super::super::System::Registry::HKEY) -> windows_core::Result<()>;
+    fn Initialize(&self, hwnd: super::super::Foundation::HWND, pcmcb: windows_core::Ref<'_, IContextMenuCB>, pidlfolder: *const Common::ITEMIDLIST, psf: windows_core::Ref<'_, IShellFolder>, cidl: u32, apidl: *const *const Common::ITEMIDLIST, punkassociation: windows_core::Ref<'_, windows_core::IUnknown>, ckeys: u32, akeys: *const super::super::System::Registry::HKEY) -> windows_core::Result<()>;
     fn SetMenuRestrictions(&self, dfmrvalues: DEFAULT_FOLDER_MENU_RESTRICTIONS) -> windows_core::Result<()>;
     fn GetMenuRestrictions(&self, dfmrmask: DEFAULT_FOLDER_MENU_RESTRICTIONS) -> windows_core::Result<DEFAULT_FOLDER_MENU_RESTRICTIONS>;
     fn SetHandlerClsid(&self, rclsid: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -18013,7 +18013,7 @@ pub struct IDelegateFolder_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDelegateFolder_Impl: windows_core::IUnknownImpl {
-    fn SetItemAlloc(&self, pmalloc: windows_core::Ref<super::super::System::Com::IMalloc>) -> windows_core::Result<()>;
+    fn SetItemAlloc(&self, pmalloc: windows_core::Ref<'_, super::super::System::Com::IMalloc>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDelegateFolder_Vtbl {
@@ -18268,7 +18268,7 @@ pub struct IDeskBar_Vtbl {
 }
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IDeskBar_Impl: super::super::System::Ole::IOleWindow_Impl {
-    fn SetClient(&self, punkclient: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetClient(&self, punkclient: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetClient(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn OnPosRectChangeDB(&self, prc: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
 }
@@ -18355,7 +18355,7 @@ pub struct IDeskBarClient_Vtbl {
 }
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IDeskBarClient_Impl: super::super::System::Ole::IOleWindow_Impl {
-    fn SetDeskBarSite(&self, punksite: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetDeskBarSite(&self, punksite: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetModeDBC(&self, dwmode: u32) -> windows_core::Result<()>;
     fn UIActivateDBC(&self, dwstate: u32) -> windows_core::Result<()>;
     fn GetSize(&self, dwwhich: u32) -> windows_core::Result<super::super::Foundation::RECT>;
@@ -18562,7 +18562,7 @@ pub trait IDesktopWallpaper_Impl: windows_core::IUnknownImpl {
     fn GetBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::COLORREF>;
     fn SetPosition(&self, position: DESKTOP_WALLPAPER_POSITION) -> windows_core::Result<()>;
     fn GetPosition(&self) -> windows_core::Result<DESKTOP_WALLPAPER_POSITION>;
-    fn SetSlideshow(&self, items: windows_core::Ref<IShellItemArray>) -> windows_core::Result<()>;
+    fn SetSlideshow(&self, items: windows_core::Ref<'_, IShellItemArray>) -> windows_core::Result<()>;
     fn GetSlideshow(&self) -> windows_core::Result<IShellItemArray>;
     fn SetSlideshowOptions(&self, options: DESKTOP_SLIDESHOW_OPTIONS, slideshowtick: u32) -> windows_core::Result<()>;
     fn GetSlideshowOptions(&self, options: *mut DESKTOP_SLIDESHOW_OPTIONS, slideshowtick: *mut u32) -> windows_core::Result<()>;
@@ -18887,7 +18887,7 @@ pub struct IDockingWindow_Vtbl {
 pub trait IDockingWindow_Impl: super::super::System::Ole::IOleWindow_Impl {
     fn ShowDW(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn CloseDW(&self, dwreserved: u32) -> windows_core::Result<()>;
-    fn ResizeBorderDW(&self, prcborder: *const super::super::Foundation::RECT, punktoolbarsite: windows_core::Ref<windows_core::IUnknown>, freserved: windows_core::BOOL) -> windows_core::Result<()>;
+    fn ResizeBorderDW(&self, prcborder: *const super::super::Foundation::RECT, punktoolbarsite: windows_core::Ref<'_, windows_core::IUnknown>, freserved: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl IDockingWindow_Vtbl {
@@ -18966,8 +18966,8 @@ pub struct IDockingWindowFrame_Vtbl {
 }
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IDockingWindowFrame_Impl: super::super::System::Ole::IOleWindow_Impl {
-    fn AddToolbar(&self, punksrc: windows_core::Ref<windows_core::IUnknown>, pwszitem: &windows_core::PCWSTR, dwaddflags: u32) -> windows_core::Result<()>;
-    fn RemoveToolbar(&self, punksrc: windows_core::Ref<windows_core::IUnknown>, dwremoveflags: u32) -> windows_core::Result<()>;
+    fn AddToolbar(&self, punksrc: windows_core::Ref<'_, windows_core::IUnknown>, pwszitem: &windows_core::PCWSTR, dwaddflags: u32) -> windows_core::Result<()>;
+    fn RemoveToolbar(&self, punksrc: windows_core::Ref<'_, windows_core::IUnknown>, dwremoveflags: u32) -> windows_core::Result<()>;
     fn FindToolbar(&self, pwszitem: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -19049,9 +19049,9 @@ pub struct IDockingWindowSite_Vtbl {
 }
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IDockingWindowSite_Impl: super::super::System::Ole::IOleWindow_Impl {
-    fn GetBorderDW(&self, punkobj: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn RequestBorderSpaceDW(&self, punkobj: windows_core::Ref<windows_core::IUnknown>, pbw: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn SetBorderSpaceDW(&self, punkobj: windows_core::Ref<windows_core::IUnknown>, pbw: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn GetBorderDW(&self, punkobj: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::Foundation::RECT>;
+    fn RequestBorderSpaceDW(&self, punkobj: windows_core::Ref<'_, windows_core::IUnknown>, pbw: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn SetBorderSpaceDW(&self, punkobj: windows_core::Ref<'_, windows_core::IUnknown>, pbw: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl IDockingWindowSite_Vtbl {
@@ -19125,8 +19125,8 @@ pub struct IDragSourceHelper_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IDragSourceHelper_Impl: windows_core::IUnknownImpl {
-    fn InitializeFromBitmap(&self, pshdi: *const SHDRAGIMAGE, pdataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
-    fn InitializeFromWindow(&self, hwnd: super::super::Foundation::HWND, ppt: *const super::super::Foundation::POINT, pdataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
+    fn InitializeFromBitmap(&self, pshdi: *const SHDRAGIMAGE, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
+    fn InitializeFromWindow(&self, hwnd: super::super::Foundation::HWND, ppt: *const super::super::Foundation::POINT, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IDragSourceHelper_Vtbl {
@@ -19242,10 +19242,10 @@ pub struct IDropTargetHelper_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDropTargetHelper_Impl: windows_core::IUnknownImpl {
-    fn DragEnter(&self, hwndtarget: super::super::Foundation::HWND, pdataobject: windows_core::Ref<super::super::System::Com::IDataObject>, ppt: *const super::super::Foundation::POINT, dweffect: super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()>;
+    fn DragEnter(&self, hwndtarget: super::super::Foundation::HWND, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>, ppt: *const super::super::Foundation::POINT, dweffect: super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()>;
     fn DragLeave(&self) -> windows_core::Result<()>;
     fn DragOver(&self, ppt: *const super::super::Foundation::POINT, dweffect: super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()>;
-    fn Drop(&self, pdataobject: windows_core::Ref<super::super::System::Com::IDataObject>, ppt: *const super::super::Foundation::POINT, dweffect: super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()>;
+    fn Drop(&self, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>, ppt: *const super::super::Foundation::POINT, dweffect: super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()>;
     fn Show(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -20523,7 +20523,7 @@ pub struct IEnumerableView_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait IEnumerableView_Impl: windows_core::IUnknownImpl {
-    fn SetEnumReadyCallback(&self, percb: windows_core::Ref<IEnumReadyCallback>) -> windows_core::Result<()>;
+    fn SetEnumReadyCallback(&self, percb: windows_core::Ref<'_, IEnumReadyCallback>) -> windows_core::Result<()>;
     fn CreateEnumIDListFromContents(&self, pidlfolder: *const Common::ITEMIDLIST, dwenumflags: u32) -> windows_core::Result<IEnumIDList>;
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -21019,13 +21019,13 @@ pub trait IExplorerBrowser_Impl: windows_core::IUnknownImpl {
     fn SetPropertyBag(&self, pszpropertybag: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetEmptyText(&self, pszemptytext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetFolderSettings(&self, pfs: *const FOLDERSETTINGS) -> windows_core::Result<()>;
-    fn Advise(&self, psbe: windows_core::Ref<IExplorerBrowserEvents>) -> windows_core::Result<u32>;
+    fn Advise(&self, psbe: windows_core::Ref<'_, IExplorerBrowserEvents>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn SetOptions(&self, dwflag: EXPLORER_BROWSER_OPTIONS) -> windows_core::Result<()>;
     fn GetOptions(&self) -> windows_core::Result<EXPLORER_BROWSER_OPTIONS>;
     fn BrowseToIDList(&self, pidl: *const Common::ITEMIDLIST, uflags: u32) -> windows_core::Result<()>;
-    fn BrowseToObject(&self, punk: windows_core::Ref<windows_core::IUnknown>, uflags: u32) -> windows_core::Result<()>;
-    fn FillFromObject(&self, punk: windows_core::Ref<windows_core::IUnknown>, dwflags: EXPLORER_BROWSER_FILL_FLAGS) -> windows_core::Result<()>;
+    fn BrowseToObject(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, uflags: u32) -> windows_core::Result<()>;
+    fn FillFromObject(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, dwflags: EXPLORER_BROWSER_FILL_FLAGS) -> windows_core::Result<()>;
     fn RemoveAll(&self) -> windows_core::Result<()>;
     fn GetCurrentView(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
@@ -21205,7 +21205,7 @@ pub struct IExplorerBrowserEvents_Vtbl {
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub trait IExplorerBrowserEvents_Impl: windows_core::IUnknownImpl {
     fn OnNavigationPending(&self, pidlfolder: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
-    fn OnViewCreated(&self, psv: windows_core::Ref<IShellView>) -> windows_core::Result<()>;
+    fn OnViewCreated(&self, psv: windows_core::Ref<'_, IShellView>) -> windows_core::Result<()>;
     fn OnNavigationComplete(&self, pidlfolder: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
     fn OnNavigationFailed(&self, pidlfolder: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
 }
@@ -21333,12 +21333,12 @@ pub struct IExplorerCommand_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IExplorerCommand_Impl: windows_core::IUnknownImpl {
-    fn GetTitle(&self, psiitemarray: windows_core::Ref<IShellItemArray>) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetIcon(&self, psiitemarray: windows_core::Ref<IShellItemArray>) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetToolTip(&self, psiitemarray: windows_core::Ref<IShellItemArray>) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetTitle(&self, psiitemarray: windows_core::Ref<'_, IShellItemArray>) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetIcon(&self, psiitemarray: windows_core::Ref<'_, IShellItemArray>) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetToolTip(&self, psiitemarray: windows_core::Ref<'_, IShellItemArray>) -> windows_core::Result<windows_core::PWSTR>;
     fn GetCanonicalName(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetState(&self, psiitemarray: windows_core::Ref<IShellItemArray>, foktobeslow: windows_core::BOOL) -> windows_core::Result<u32>;
-    fn Invoke(&self, psiitemarray: windows_core::Ref<IShellItemArray>, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
+    fn GetState(&self, psiitemarray: windows_core::Ref<'_, IShellItemArray>, foktobeslow: windows_core::BOOL) -> windows_core::Result<u32>;
+    fn Invoke(&self, psiitemarray: windows_core::Ref<'_, IShellItemArray>, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
     fn GetFlags(&self) -> windows_core::Result<u32>;
     fn EnumSubCommands(&self) -> windows_core::Result<IEnumExplorerCommand>;
 }
@@ -21479,7 +21479,7 @@ pub struct IExplorerCommandProvider_Vtbl {
     pub GetCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IExplorerCommandProvider_Impl: windows_core::IUnknownImpl {
-    fn GetCommands(&self, punksite: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetCommands(&self, punksite: windows_core::Ref<'_, windows_core::IUnknown>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetCommand(&self, rguidcommandid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IExplorerCommandProvider_Vtbl {
@@ -21526,7 +21526,7 @@ pub struct IExplorerCommandState_Vtbl {
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IExplorerCommandState_Impl: windows_core::IUnknownImpl {
-    fn GetState(&self, psiitemarray: windows_core::Ref<IShellItemArray>, foktobeslow: windows_core::BOOL) -> windows_core::Result<u32>;
+    fn GetState(&self, psiitemarray: windows_core::Ref<'_, IShellItemArray>, foktobeslow: windows_core::BOOL) -> windows_core::Result<u32>;
 }
 impl IExplorerCommandState_Vtbl {
     pub const fn new<Identity: IExplorerCommandState_Impl, const OFFSET: isize>() -> Self {
@@ -22025,12 +22025,12 @@ pub trait IFileDialog_Impl: IModalWindow_Impl {
     fn SetFileTypes(&self, cfiletypes: u32, rgfilterspec: *const Common::COMDLG_FILTERSPEC) -> windows_core::Result<()>;
     fn SetFileTypeIndex(&self, ifiletype: u32) -> windows_core::Result<()>;
     fn GetFileTypeIndex(&self) -> windows_core::Result<u32>;
-    fn Advise(&self, pfde: windows_core::Ref<IFileDialogEvents>) -> windows_core::Result<u32>;
+    fn Advise(&self, pfde: windows_core::Ref<'_, IFileDialogEvents>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn SetOptions(&self, fos: FILEOPENDIALOGOPTIONS) -> windows_core::Result<()>;
     fn GetOptions(&self) -> windows_core::Result<FILEOPENDIALOGOPTIONS>;
-    fn SetDefaultFolder(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn SetFolder(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn SetDefaultFolder(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn SetFolder(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
     fn GetFolder(&self) -> windows_core::Result<IShellItem>;
     fn GetCurrentSelection(&self) -> windows_core::Result<IShellItem>;
     fn SetFileName(&self, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -22039,12 +22039,12 @@ pub trait IFileDialog_Impl: IModalWindow_Impl {
     fn SetOkButtonLabel(&self, psztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetFileNameLabel(&self, pszlabel: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetResult(&self) -> windows_core::Result<IShellItem>;
-    fn AddPlace(&self, psi: windows_core::Ref<IShellItem>, fdap: FDAP) -> windows_core::Result<()>;
+    fn AddPlace(&self, psi: windows_core::Ref<'_, IShellItem>, fdap: FDAP) -> windows_core::Result<()>;
     fn SetDefaultExtension(&self, pszdefaultextension: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Close(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn SetClientGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn ClearClientData(&self) -> windows_core::Result<()>;
-    fn SetFilter(&self, pfilter: windows_core::Ref<IShellItemFilter>) -> windows_core::Result<()>;
+    fn SetFilter(&self, pfilter: windows_core::Ref<'_, IShellItemFilter>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 impl IFileDialog_Vtbl {
@@ -22293,7 +22293,7 @@ pub struct IFileDialog2_Vtbl {
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait IFileDialog2_Impl: IFileDialog_Impl {
     fn SetCancelButtonLabel(&self, pszlabel: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetNavigationRoot(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn SetNavigationRoot(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 impl IFileDialog2_Vtbl {
@@ -22359,10 +22359,10 @@ pub struct IFileDialogControlEvents_Vtbl {
     pub OnControlActivating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IFileDialogControlEvents_Impl: windows_core::IUnknownImpl {
-    fn OnItemSelected(&self, pfdc: windows_core::Ref<IFileDialogCustomize>, dwidctl: u32, dwiditem: u32) -> windows_core::Result<()>;
-    fn OnButtonClicked(&self, pfdc: windows_core::Ref<IFileDialogCustomize>, dwidctl: u32) -> windows_core::Result<()>;
-    fn OnCheckButtonToggled(&self, pfdc: windows_core::Ref<IFileDialogCustomize>, dwidctl: u32, bchecked: windows_core::BOOL) -> windows_core::Result<()>;
-    fn OnControlActivating(&self, pfdc: windows_core::Ref<IFileDialogCustomize>, dwidctl: u32) -> windows_core::Result<()>;
+    fn OnItemSelected(&self, pfdc: windows_core::Ref<'_, IFileDialogCustomize>, dwidctl: u32, dwiditem: u32) -> windows_core::Result<()>;
+    fn OnButtonClicked(&self, pfdc: windows_core::Ref<'_, IFileDialogCustomize>, dwidctl: u32) -> windows_core::Result<()>;
+    fn OnCheckButtonToggled(&self, pfdc: windows_core::Ref<'_, IFileDialogCustomize>, dwidctl: u32, bchecked: windows_core::BOOL) -> windows_core::Result<()>;
+    fn OnControlActivating(&self, pfdc: windows_core::Ref<'_, IFileDialogCustomize>, dwidctl: u32) -> windows_core::Result<()>;
 }
 impl IFileDialogControlEvents_Vtbl {
     pub const fn new<Identity: IFileDialogControlEvents_Impl, const OFFSET: isize>() -> Self {
@@ -22890,13 +22890,13 @@ pub struct IFileDialogEvents_Vtbl {
     pub OnOverwrite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut FDE_OVERWRITE_RESPONSE) -> windows_core::HRESULT,
 }
 pub trait IFileDialogEvents_Impl: windows_core::IUnknownImpl {
-    fn OnFileOk(&self, pfd: windows_core::Ref<IFileDialog>) -> windows_core::Result<()>;
-    fn OnFolderChanging(&self, pfd: windows_core::Ref<IFileDialog>, psifolder: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn OnFolderChange(&self, pfd: windows_core::Ref<IFileDialog>) -> windows_core::Result<()>;
-    fn OnSelectionChange(&self, pfd: windows_core::Ref<IFileDialog>) -> windows_core::Result<()>;
-    fn OnShareViolation(&self, pfd: windows_core::Ref<IFileDialog>, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<FDE_SHAREVIOLATION_RESPONSE>;
-    fn OnTypeChange(&self, pfd: windows_core::Ref<IFileDialog>) -> windows_core::Result<()>;
-    fn OnOverwrite(&self, pfd: windows_core::Ref<IFileDialog>, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<FDE_OVERWRITE_RESPONSE>;
+    fn OnFileOk(&self, pfd: windows_core::Ref<'_, IFileDialog>) -> windows_core::Result<()>;
+    fn OnFolderChanging(&self, pfd: windows_core::Ref<'_, IFileDialog>, psifolder: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn OnFolderChange(&self, pfd: windows_core::Ref<'_, IFileDialog>) -> windows_core::Result<()>;
+    fn OnSelectionChange(&self, pfd: windows_core::Ref<'_, IFileDialog>) -> windows_core::Result<()>;
+    fn OnShareViolation(&self, pfd: windows_core::Ref<'_, IFileDialog>, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<FDE_SHAREVIOLATION_RESPONSE>;
+    fn OnTypeChange(&self, pfd: windows_core::Ref<'_, IFileDialog>) -> windows_core::Result<()>;
+    fn OnOverwrite(&self, pfd: windows_core::Ref<'_, IFileDialog>, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<FDE_OVERWRITE_RESPONSE>;
 }
 impl IFileDialogEvents_Vtbl {
     pub const fn new<Identity: IFileDialogEvents_Impl, const OFFSET: isize>() -> Self {
@@ -23319,24 +23319,24 @@ pub struct IFileOperation_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IFileOperation_Impl: windows_core::IUnknownImpl {
-    fn Advise(&self, pfops: windows_core::Ref<IFileOperationProgressSink>) -> windows_core::Result<u32>;
+    fn Advise(&self, pfops: windows_core::Ref<'_, IFileOperationProgressSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn SetOperationFlags(&self, dwoperationflags: FILEOPERATION_FLAGS) -> windows_core::Result<()>;
     fn SetProgressMessage(&self, pszmessage: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetProgressDialog(&self, popd: windows_core::Ref<IOperationsProgressDialog>) -> windows_core::Result<()>;
-    fn SetProperties(&self, pproparray: windows_core::Ref<PropertiesSystem::IPropertyChangeArray>) -> windows_core::Result<()>;
+    fn SetProgressDialog(&self, popd: windows_core::Ref<'_, IOperationsProgressDialog>) -> windows_core::Result<()>;
+    fn SetProperties(&self, pproparray: windows_core::Ref<'_, PropertiesSystem::IPropertyChangeArray>) -> windows_core::Result<()>;
     fn SetOwnerWindow(&self, hwndowner: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn ApplyPropertiesToItem(&self, psiitem: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn ApplyPropertiesToItems(&self, punkitems: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn RenameItem(&self, psiitem: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, pfopsitem: windows_core::Ref<IFileOperationProgressSink>) -> windows_core::Result<()>;
-    fn RenameItems(&self, punkitems: windows_core::Ref<windows_core::IUnknown>, psznewname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn MoveItem(&self, psiitem: windows_core::Ref<IShellItem>, psidestinationfolder: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, pfopsitem: windows_core::Ref<IFileOperationProgressSink>) -> windows_core::Result<()>;
-    fn MoveItems(&self, punkitems: windows_core::Ref<windows_core::IUnknown>, psidestinationfolder: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn CopyItem(&self, psiitem: windows_core::Ref<IShellItem>, psidestinationfolder: windows_core::Ref<IShellItem>, pszcopyname: &windows_core::PCWSTR, pfopsitem: windows_core::Ref<IFileOperationProgressSink>) -> windows_core::Result<()>;
-    fn CopyItems(&self, punkitems: windows_core::Ref<windows_core::IUnknown>, psidestinationfolder: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn DeleteItem(&self, psiitem: windows_core::Ref<IShellItem>, pfopsitem: windows_core::Ref<IFileOperationProgressSink>) -> windows_core::Result<()>;
-    fn DeleteItems(&self, punkitems: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn NewItem(&self, psidestinationfolder: windows_core::Ref<IShellItem>, dwfileattributes: u32, pszname: &windows_core::PCWSTR, psztemplatename: &windows_core::PCWSTR, pfopsitem: windows_core::Ref<IFileOperationProgressSink>) -> windows_core::Result<()>;
+    fn ApplyPropertiesToItem(&self, psiitem: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn ApplyPropertiesToItems(&self, punkitems: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RenameItem(&self, psiitem: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR, pfopsitem: windows_core::Ref<'_, IFileOperationProgressSink>) -> windows_core::Result<()>;
+    fn RenameItems(&self, punkitems: windows_core::Ref<'_, windows_core::IUnknown>, psznewname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn MoveItem(&self, psiitem: windows_core::Ref<'_, IShellItem>, psidestinationfolder: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR, pfopsitem: windows_core::Ref<'_, IFileOperationProgressSink>) -> windows_core::Result<()>;
+    fn MoveItems(&self, punkitems: windows_core::Ref<'_, windows_core::IUnknown>, psidestinationfolder: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn CopyItem(&self, psiitem: windows_core::Ref<'_, IShellItem>, psidestinationfolder: windows_core::Ref<'_, IShellItem>, pszcopyname: &windows_core::PCWSTR, pfopsitem: windows_core::Ref<'_, IFileOperationProgressSink>) -> windows_core::Result<()>;
+    fn CopyItems(&self, punkitems: windows_core::Ref<'_, windows_core::IUnknown>, psidestinationfolder: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn DeleteItem(&self, psiitem: windows_core::Ref<'_, IShellItem>, pfopsitem: windows_core::Ref<'_, IFileOperationProgressSink>) -> windows_core::Result<()>;
+    fn DeleteItems(&self, punkitems: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn NewItem(&self, psidestinationfolder: windows_core::Ref<'_, IShellItem>, dwfileattributes: u32, pszname: &windows_core::PCWSTR, psztemplatename: &windows_core::PCWSTR, pfopsitem: windows_core::Ref<'_, IFileOperationProgressSink>) -> windows_core::Result<()>;
     fn PerformOperations(&self) -> windows_core::Result<()>;
     fn GetAnyOperationsAborted(&self) -> windows_core::Result<windows_core::BOOL>;
 }
@@ -23667,16 +23667,16 @@ pub struct IFileOperationProgressSink_Vtbl {
 pub trait IFileOperationProgressSink_Impl: windows_core::IUnknownImpl {
     fn StartOperations(&self) -> windows_core::Result<()>;
     fn FinishOperations(&self, hrresult: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn PreRenameItem(&self, dwflags: u32, psiitem: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn PostRenameItem(&self, dwflags: u32, psiitem: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, hrrename: windows_core::HRESULT, psinewlycreated: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn PreMoveItem(&self, dwflags: u32, psiitem: windows_core::Ref<IShellItem>, psidestinationfolder: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn PostMoveItem(&self, dwflags: u32, psiitem: windows_core::Ref<IShellItem>, psidestinationfolder: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, hrmove: windows_core::HRESULT, psinewlycreated: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn PreCopyItem(&self, dwflags: u32, psiitem: windows_core::Ref<IShellItem>, psidestinationfolder: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn PostCopyItem(&self, dwflags: u32, psiitem: windows_core::Ref<IShellItem>, psidestinationfolder: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, hrcopy: windows_core::HRESULT, psinewlycreated: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn PreDeleteItem(&self, dwflags: u32, psiitem: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn PostDeleteItem(&self, dwflags: u32, psiitem: windows_core::Ref<IShellItem>, hrdelete: windows_core::HRESULT, psinewlycreated: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn PreNewItem(&self, dwflags: u32, psidestinationfolder: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn PostNewItem(&self, dwflags: u32, psidestinationfolder: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, psztemplatename: &windows_core::PCWSTR, dwfileattributes: u32, hrnew: windows_core::HRESULT, psinewitem: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn PreRenameItem(&self, dwflags: u32, psiitem: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn PostRenameItem(&self, dwflags: u32, psiitem: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR, hrrename: windows_core::HRESULT, psinewlycreated: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn PreMoveItem(&self, dwflags: u32, psiitem: windows_core::Ref<'_, IShellItem>, psidestinationfolder: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn PostMoveItem(&self, dwflags: u32, psiitem: windows_core::Ref<'_, IShellItem>, psidestinationfolder: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR, hrmove: windows_core::HRESULT, psinewlycreated: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn PreCopyItem(&self, dwflags: u32, psiitem: windows_core::Ref<'_, IShellItem>, psidestinationfolder: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn PostCopyItem(&self, dwflags: u32, psiitem: windows_core::Ref<'_, IShellItem>, psidestinationfolder: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR, hrcopy: windows_core::HRESULT, psinewlycreated: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn PreDeleteItem(&self, dwflags: u32, psiitem: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn PostDeleteItem(&self, dwflags: u32, psiitem: windows_core::Ref<'_, IShellItem>, hrdelete: windows_core::HRESULT, psinewlycreated: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn PreNewItem(&self, dwflags: u32, psidestinationfolder: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn PostNewItem(&self, dwflags: u32, psidestinationfolder: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR, psztemplatename: &windows_core::PCWSTR, dwfileattributes: u32, hrnew: windows_core::HRESULT, psinewitem: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
     fn UpdateProgress(&self, iworktotal: u32, iworksofar: u32) -> windows_core::Result<()>;
     fn ResetTimer(&self) -> windows_core::Result<()>;
     fn PauseTimer(&self) -> windows_core::Result<()>;
@@ -23874,11 +23874,11 @@ pub struct IFileSaveDialog_Vtbl {
 }
 #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFileSaveDialog_Impl: IFileDialog_Impl {
-    fn SetSaveAsItem(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn SetProperties(&self, pstore: windows_core::Ref<PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
-    fn SetCollectedProperties(&self, plist: windows_core::Ref<PropertiesSystem::IPropertyDescriptionList>, fappenddefault: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetSaveAsItem(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn SetProperties(&self, pstore: windows_core::Ref<'_, PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn SetCollectedProperties(&self, plist: windows_core::Ref<'_, PropertiesSystem::IPropertyDescriptionList>, fappenddefault: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetProperties(&self) -> windows_core::Result<PropertiesSystem::IPropertyStore>;
-    fn ApplyProperties(&self, psi: windows_core::Ref<IShellItem>, pstore: windows_core::Ref<PropertiesSystem::IPropertyStore>, hwnd: super::super::Foundation::HWND, psink: windows_core::Ref<IFileOperationProgressSink>) -> windows_core::Result<()>;
+    fn ApplyProperties(&self, psi: windows_core::Ref<'_, IShellItem>, pstore: windows_core::Ref<'_, PropertiesSystem::IPropertyStore>, hwnd: super::super::Foundation::HWND, psink: windows_core::Ref<'_, IFileOperationProgressSink>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFileSaveDialog_Vtbl {
@@ -24389,8 +24389,8 @@ pub struct IFolderFilter_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait IFolderFilter_Impl: windows_core::IUnknownImpl {
-    fn ShouldShow(&self, psf: windows_core::Ref<IShellFolder>, pidlfolder: *const Common::ITEMIDLIST, pidlitem: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
-    fn GetEnumFlags(&self, psf: windows_core::Ref<IShellFolder>, pidlfolder: *const Common::ITEMIDLIST, phwnd: *mut super::super::Foundation::HWND, pgrfflags: *mut u32) -> windows_core::Result<()>;
+    fn ShouldShow(&self, psf: windows_core::Ref<'_, IShellFolder>, pidlfolder: *const Common::ITEMIDLIST, pidlitem: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
+    fn GetEnumFlags(&self, psf: windows_core::Ref<'_, IShellFolder>, pidlfolder: *const Common::ITEMIDLIST, phwnd: *mut super::super::Foundation::HWND, pgrfflags: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 impl IFolderFilter_Vtbl {
@@ -24435,7 +24435,7 @@ pub struct IFolderFilterSite_Vtbl {
     pub SetFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IFolderFilterSite_Impl: windows_core::IUnknownImpl {
-    fn SetFilter(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetFilter(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IFolderFilterSite_Vtbl {
     pub const fn new<Identity: IFolderFilterSite_Impl, const OFFSET: isize>() -> Self {
@@ -25186,7 +25186,7 @@ pub struct IFolderViewHost_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFolderViewHost_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, hwndparent: super::super::Foundation::HWND, pdo: windows_core::Ref<super::super::System::Com::IDataObject>, prc: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn Initialize(&self, hwndparent: super::super::Foundation::HWND, pdo: windows_core::Ref<'_, super::super::System::Com::IDataObject>, prc: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IFolderViewHost_Vtbl {
@@ -25233,7 +25233,7 @@ pub struct IFolderViewOC_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFolderViewOC_Impl: super::super::System::Com::IDispatch_Impl {
-    fn SetFolderView(&self, pdisp: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetFolderView(&self, pdisp: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFolderViewOC_Vtbl {
@@ -25483,8 +25483,8 @@ pub struct IFrameworkInputPane_Vtbl {
     pub Location: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 pub trait IFrameworkInputPane_Impl: windows_core::IUnknownImpl {
-    fn Advise(&self, pwindow: windows_core::Ref<windows_core::IUnknown>, phandler: windows_core::Ref<IFrameworkInputPaneHandler>) -> windows_core::Result<u32>;
-    fn AdviseWithHWND(&self, hwnd: super::super::Foundation::HWND, phandler: windows_core::Ref<IFrameworkInputPaneHandler>) -> windows_core::Result<u32>;
+    fn Advise(&self, pwindow: windows_core::Ref<'_, windows_core::IUnknown>, phandler: windows_core::Ref<'_, IFrameworkInputPaneHandler>) -> windows_core::Result<u32>;
+    fn AdviseWithHWND(&self, hwnd: super::super::Foundation::HWND, phandler: windows_core::Ref<'_, IFrameworkInputPaneHandler>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn Location(&self) -> windows_core::Result<super::super::Foundation::RECT>;
 }
@@ -25659,7 +25659,7 @@ pub struct IHWEventHandler_Vtbl {
 pub trait IHWEventHandler_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, pszparams: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn HandleEvent(&self, pszdeviceid: &windows_core::PCWSTR, pszaltdeviceid: &windows_core::PCWSTR, pszeventtype: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn HandleEventWithContent(&self, pszdeviceid: &windows_core::PCWSTR, pszaltdeviceid: &windows_core::PCWSTR, pszeventtype: &windows_core::PCWSTR, pszcontenttypehandler: &windows_core::PCWSTR, pdataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
+    fn HandleEventWithContent(&self, pszdeviceid: &windows_core::PCWSTR, pszaltdeviceid: &windows_core::PCWSTR, pszeventtype: &windows_core::PCWSTR, pszcontenttypehandler: &windows_core::PCWSTR, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IHWEventHandler_Vtbl {
@@ -25765,8 +25765,8 @@ pub struct IHandlerActivationHost_Vtbl {
     pub BeforeCreateProcess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHandlerActivationHost_Impl: windows_core::IUnknownImpl {
-    fn BeforeCoCreateInstance(&self, clsidhandler: *const windows_core::GUID, itemsbeingactivated: windows_core::Ref<IShellItemArray>, handlerinfo: windows_core::Ref<IHandlerInfo>) -> windows_core::Result<()>;
-    fn BeforeCreateProcess(&self, applicationpath: &windows_core::PCWSTR, commandline: &windows_core::PCWSTR, handlerinfo: windows_core::Ref<IHandlerInfo>) -> windows_core::Result<()>;
+    fn BeforeCoCreateInstance(&self, clsidhandler: *const windows_core::GUID, itemsbeingactivated: windows_core::Ref<'_, IShellItemArray>, handlerinfo: windows_core::Ref<'_, IHandlerInfo>) -> windows_core::Result<()>;
+    fn BeforeCreateProcess(&self, applicationpath: &windows_core::PCWSTR, commandline: &windows_core::PCWSTR, handlerinfo: windows_core::Ref<'_, IHandlerInfo>) -> windows_core::Result<()>;
 }
 impl IHandlerActivationHost_Vtbl {
     pub const fn new<Identity: IHandlerActivationHost_Impl, const OFFSET: isize>() -> Self {
@@ -26037,9 +26037,9 @@ pub struct IHlink_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHlink_Impl: windows_core::IUnknownImpl {
-    fn SetHlinkSite(&self, pihlsite: windows_core::Ref<IHlinkSite>, dwsitedata: u32) -> windows_core::Result<()>;
+    fn SetHlinkSite(&self, pihlsite: windows_core::Ref<'_, IHlinkSite>, dwsitedata: u32) -> windows_core::Result<()>;
     fn GetHlinkSite(&self, ppihlsite: windows_core::OutRef<'_, IHlinkSite>, pdwsitedata: *mut u32) -> windows_core::Result<()>;
-    fn SetMonikerReference(&self, grfhlsetf: u32, pimktarget: windows_core::Ref<super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetMonikerReference(&self, grfhlsetf: u32, pimktarget: windows_core::Ref<'_, super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetMonikerReference(&self, dwwhichref: u32, ppimktarget: windows_core::OutRef<'_, super::super::System::Com::IMoniker>, ppwzlocation: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn SetStringReference(&self, grfhlsetf: u32, pwztarget: &windows_core::PCWSTR, pwzlocation: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetStringReference(&self, dwwhichref: u32, ppwztarget: *mut windows_core::PWSTR, ppwzlocation: *mut windows_core::PWSTR) -> windows_core::Result<()>;
@@ -26048,7 +26048,7 @@ pub trait IHlink_Impl: windows_core::IUnknownImpl {
     fn SetTargetFrameName(&self, pwztargetframename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetTargetFrameName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetMiscStatus(&self) -> windows_core::Result<u32>;
-    fn Navigate(&self, grfhlnf: u32, pibc: windows_core::Ref<super::super::System::Com::IBindCtx>, pibsc: windows_core::Ref<super::super::System::Com::IBindStatusCallback>, pihlbc: windows_core::Ref<IHlinkBrowseContext>) -> windows_core::Result<()>;
+    fn Navigate(&self, grfhlnf: u32, pibc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, pibsc: windows_core::Ref<'_, super::super::System::Com::IBindStatusCallback>, pihlbc: windows_core::Ref<'_, IHlinkBrowseContext>) -> windows_core::Result<()>;
     fn SetAdditionalParams(&self, pwzadditionalparams: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetAdditionalParams(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
@@ -26316,19 +26316,19 @@ pub struct IHlinkBrowseContext_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHlinkBrowseContext_Impl: windows_core::IUnknownImpl {
-    fn Register(&self, reserved: u32, piunk: windows_core::Ref<windows_core::IUnknown>, pimk: windows_core::Ref<super::super::System::Com::IMoniker>) -> windows_core::Result<u32>;
-    fn GetObject(&self, pimk: windows_core::Ref<super::super::System::Com::IMoniker>, fbindifrootregistered: windows_core::BOOL) -> windows_core::Result<windows_core::IUnknown>;
+    fn Register(&self, reserved: u32, piunk: windows_core::Ref<'_, windows_core::IUnknown>, pimk: windows_core::Ref<'_, super::super::System::Com::IMoniker>) -> windows_core::Result<u32>;
+    fn GetObject(&self, pimk: windows_core::Ref<'_, super::super::System::Com::IMoniker>, fbindifrootregistered: windows_core::BOOL) -> windows_core::Result<windows_core::IUnknown>;
     fn Revoke(&self, dwregister: u32) -> windows_core::Result<()>;
     fn SetBrowseWindowInfo(&self, phlbwi: *const HLBWINFO) -> windows_core::Result<()>;
     fn GetBrowseWindowInfo(&self, phlbwi: *mut HLBWINFO) -> windows_core::Result<()>;
-    fn SetInitialHlink(&self, pimktarget: windows_core::Ref<super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OnNavigateHlink(&self, grfhlnf: u32, pimktarget: windows_core::Ref<super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<u32>;
-    fn UpdateHlink(&self, uhlid: u32, pimktarget: windows_core::Ref<super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetInitialHlink(&self, pimktarget: windows_core::Ref<'_, super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn OnNavigateHlink(&self, grfhlnf: u32, pimktarget: windows_core::Ref<'_, super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<u32>;
+    fn UpdateHlink(&self, uhlid: u32, pimktarget: windows_core::Ref<'_, super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn EnumNavigationStack(&self, dwreserved: u32, grfhlfnamef: u32) -> windows_core::Result<IEnumHLITEM>;
     fn QueryHlink(&self, grfhlqf: u32, uhlid: u32) -> windows_core::Result<()>;
     fn GetHlink(&self, uhlid: u32) -> windows_core::Result<IHlink>;
     fn SetCurrentHlink(&self, uhlid: u32) -> windows_core::Result<()>;
-    fn Clone(&self, piunkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn Clone(&self, piunkouter: windows_core::Ref<'_, windows_core::IUnknown>, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn Close(&self, reserved: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -26541,11 +26541,11 @@ pub struct IHlinkFrame_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHlinkFrame_Impl: windows_core::IUnknownImpl {
-    fn SetBrowseContext(&self, pihlbc: windows_core::Ref<IHlinkBrowseContext>) -> windows_core::Result<()>;
+    fn SetBrowseContext(&self, pihlbc: windows_core::Ref<'_, IHlinkBrowseContext>) -> windows_core::Result<()>;
     fn GetBrowseContext(&self) -> windows_core::Result<IHlinkBrowseContext>;
-    fn Navigate(&self, grfhlnf: u32, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, pibsc: windows_core::Ref<super::super::System::Com::IBindStatusCallback>, pihlnavigate: windows_core::Ref<IHlink>) -> windows_core::Result<()>;
-    fn OnNavigate(&self, grfhlnf: u32, pimktarget: windows_core::Ref<super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR, dwreserved: u32) -> windows_core::Result<()>;
-    fn UpdateHlink(&self, uhlid: u32, pimktarget: windows_core::Ref<super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Navigate(&self, grfhlnf: u32, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, pibsc: windows_core::Ref<'_, super::super::System::Com::IBindStatusCallback>, pihlnavigate: windows_core::Ref<'_, IHlink>) -> windows_core::Result<()>;
+    fn OnNavigate(&self, grfhlnf: u32, pimktarget: windows_core::Ref<'_, super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR, dwreserved: u32) -> windows_core::Result<()>;
+    fn UpdateHlink(&self, uhlid: u32, pimktarget: windows_core::Ref<'_, super::super::System::Com::IMoniker>, pwzlocation: &windows_core::PCWSTR, pwzfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IHlinkFrame_Vtbl {
@@ -26753,7 +26753,7 @@ pub struct IHlinkTarget_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHlinkTarget_Impl: windows_core::IUnknownImpl {
-    fn SetBrowseContext(&self, pihlbc: windows_core::Ref<IHlinkBrowseContext>) -> windows_core::Result<()>;
+    fn SetBrowseContext(&self, pihlbc: windows_core::Ref<'_, IHlinkBrowseContext>) -> windows_core::Result<()>;
     fn GetBrowseContext(&self) -> windows_core::Result<IHlinkBrowseContext>;
     fn Navigate(&self, grfhlnf: u32, pwzjumplocation: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetMoniker(&self, pwzlocation: &windows_core::PCWSTR, dwassign: u32) -> windows_core::Result<super::super::System::Com::IMoniker>;
@@ -26983,7 +26983,7 @@ pub struct IImageRecompress_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IImageRecompress_Impl: windows_core::IUnknownImpl {
-    fn RecompressImage(&self, psi: windows_core::Ref<IShellItem>, cx: i32, cy: i32, iquality: i32, pstg: windows_core::Ref<super::super::System::Com::StructuredStorage::IStorage>) -> windows_core::Result<super::super::System::Com::IStream>;
+    fn RecompressImage(&self, psi: windows_core::Ref<'_, IShellItem>, cx: i32, cy: i32, iquality: i32, pstg: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IStorage>) -> windows_core::Result<super::super::System::Com::IStream>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IImageRecompress_Vtbl {
@@ -27030,7 +27030,7 @@ pub struct IInitializeCommand_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IInitializeCommand_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pszcommandname: &windows_core::PCWSTR, ppb: windows_core::Ref<super::super::System::Com::StructuredStorage::IPropertyBag>) -> windows_core::Result<()>;
+    fn Initialize(&self, pszcommandname: &windows_core::PCWSTR, ppb: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IPropertyBag>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IInitializeCommand_Vtbl {
@@ -27141,7 +27141,7 @@ pub struct IInitializeWithBindCtx_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInitializeWithBindCtx_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
+    fn Initialize(&self, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IInitializeWithBindCtx_Vtbl {
@@ -27176,7 +27176,7 @@ pub struct IInitializeWithItem_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IInitializeWithItem_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psi: windows_core::Ref<IShellItem>, grfmode: u32) -> windows_core::Result<()>;
+    fn Initialize(&self, psi: windows_core::Ref<'_, IShellItem>, grfmode: u32) -> windows_core::Result<()>;
 }
 impl IInitializeWithItem_Vtbl {
     pub const fn new<Identity: IInitializeWithItem_Impl, const OFFSET: isize>() -> Self {
@@ -27214,7 +27214,7 @@ pub struct IInitializeWithPropertyStore_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IInitializeWithPropertyStore_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pps: windows_core::Ref<PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn Initialize(&self, pps: windows_core::Ref<'_, PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IInitializeWithPropertyStore_Vtbl {
@@ -27390,7 +27390,7 @@ pub struct IInputObjectSite_Vtbl {
     pub OnFocusChangeIS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IInputObjectSite_Impl: windows_core::IUnknownImpl {
-    fn OnFocusChangeIS(&self, punkobj: windows_core::Ref<windows_core::IUnknown>, fsetfocus: windows_core::BOOL) -> windows_core::Result<()>;
+    fn OnFocusChangeIS(&self, punkobj: windows_core::Ref<'_, windows_core::IUnknown>, fsetfocus: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IInputObjectSite_Vtbl {
     pub const fn new<Identity: IInputObjectSite_Impl, const OFFSET: isize>() -> Self {
@@ -27429,7 +27429,7 @@ pub struct IInputPaneAnimationCoordinator_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_DirectComposition")]
 pub trait IInputPaneAnimationCoordinator_Impl: windows_core::IUnknownImpl {
-    fn AddAnimation(&self, device: windows_core::Ref<windows_core::IUnknown>, animation: windows_core::Ref<super::super::Graphics::DirectComposition::IDCompositionAnimation>) -> windows_core::Result<()>;
+    fn AddAnimation(&self, device: windows_core::Ref<'_, windows_core::IUnknown>, animation: windows_core::Ref<'_, super::super::Graphics::DirectComposition::IDCompositionAnimation>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_DirectComposition")]
 impl IInputPaneAnimationCoordinator_Vtbl {
@@ -28259,7 +28259,7 @@ pub struct ILaunchUIContextProvider_Vtbl {
     pub UpdateContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ILaunchUIContextProvider_Impl: windows_core::IUnknownImpl {
-    fn UpdateContext(&self, context: windows_core::Ref<ILaunchUIContext>) -> windows_core::Result<()>;
+    fn UpdateContext(&self, context: windows_core::Ref<'_, ILaunchUIContext>) -> windows_core::Result<()>;
 }
 impl ILaunchUIContextProvider_Vtbl {
     pub const fn new<Identity: ILaunchUIContextProvider_Impl, const OFFSET: isize>() -> Self {
@@ -28373,7 +28373,7 @@ pub struct IMenuPopup_Vtbl {
 pub trait IMenuPopup_Impl: IDeskBar_Impl {
     fn Popup(&self, ppt: *const super::super::Foundation::POINTL, prcexclude: *const super::super::Foundation::RECTL, dwflags: i32) -> windows_core::Result<()>;
     fn OnSelect(&self, dwselecttype: u32) -> windows_core::Result<()>;
-    fn SetSubMenu(&self, pmp: windows_core::Ref<IMenuPopup>, fset: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetSubMenu(&self, pmp: windows_core::Ref<'_, IMenuPopup>, fset: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl IMenuPopup_Vtbl {
@@ -28482,9 +28482,9 @@ pub struct INameSpaceTreeAccessible_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INameSpaceTreeAccessible_Impl: windows_core::IUnknownImpl {
-    fn OnGetDefaultAccessibilityAction(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<windows_core::BSTR>;
-    fn OnDoDefaultAccessibilityAction(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn OnGetAccessibilityRole(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn OnGetDefaultAccessibilityAction(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<windows_core::BSTR>;
+    fn OnDoDefaultAccessibilityAction(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn OnGetAccessibilityRole(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INameSpaceTreeAccessible_Vtbl {
@@ -28680,23 +28680,23 @@ pub struct INameSpaceTreeControl_Vtbl {
 }
 pub trait INameSpaceTreeControl_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, hwndparent: super::super::Foundation::HWND, prc: *const super::super::Foundation::RECT, nsctsflags: u32) -> windows_core::Result<()>;
-    fn TreeAdvise(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
+    fn TreeAdvise(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<u32>;
     fn TreeUnadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
-    fn AppendRoot(&self, psiroot: windows_core::Ref<IShellItem>, grfenumflags: u32, grfrootstyle: u32, pif: windows_core::Ref<IShellItemFilter>) -> windows_core::Result<()>;
-    fn InsertRoot(&self, iindex: i32, psiroot: windows_core::Ref<IShellItem>, grfenumflags: u32, grfrootstyle: u32, pif: windows_core::Ref<IShellItemFilter>) -> windows_core::Result<()>;
-    fn RemoveRoot(&self, psiroot: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn AppendRoot(&self, psiroot: windows_core::Ref<'_, IShellItem>, grfenumflags: u32, grfrootstyle: u32, pif: windows_core::Ref<'_, IShellItemFilter>) -> windows_core::Result<()>;
+    fn InsertRoot(&self, iindex: i32, psiroot: windows_core::Ref<'_, IShellItem>, grfenumflags: u32, grfrootstyle: u32, pif: windows_core::Ref<'_, IShellItemFilter>) -> windows_core::Result<()>;
+    fn RemoveRoot(&self, psiroot: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
     fn RemoveAllRoots(&self) -> windows_core::Result<()>;
     fn GetRootItems(&self) -> windows_core::Result<IShellItemArray>;
-    fn SetItemState(&self, psi: windows_core::Ref<IShellItem>, nstcismask: u32, nstcisflags: u32) -> windows_core::Result<()>;
-    fn GetItemState(&self, psi: windows_core::Ref<IShellItem>, nstcismask: u32) -> windows_core::Result<u32>;
+    fn SetItemState(&self, psi: windows_core::Ref<'_, IShellItem>, nstcismask: u32, nstcisflags: u32) -> windows_core::Result<()>;
+    fn GetItemState(&self, psi: windows_core::Ref<'_, IShellItem>, nstcismask: u32) -> windows_core::Result<u32>;
     fn GetSelectedItems(&self) -> windows_core::Result<IShellItemArray>;
-    fn GetItemCustomState(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<i32>;
-    fn SetItemCustomState(&self, psi: windows_core::Ref<IShellItem>, istatenumber: i32) -> windows_core::Result<()>;
-    fn EnsureItemVisible(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn GetItemCustomState(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<i32>;
+    fn SetItemCustomState(&self, psi: windows_core::Ref<'_, IShellItem>, istatenumber: i32) -> windows_core::Result<()>;
+    fn EnsureItemVisible(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
     fn SetTheme(&self, psztheme: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetNextItem(&self, psi: windows_core::Ref<IShellItem>, nstcgi: NSTCGNI) -> windows_core::Result<IShellItem>;
+    fn GetNextItem(&self, psi: windows_core::Ref<'_, IShellItem>, nstcgi: NSTCGNI) -> windows_core::Result<IShellItem>;
     fn HitTest(&self, ppt: *const super::super::Foundation::POINT) -> windows_core::Result<IShellItem>;
-    fn GetItemRect(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<super::super::Foundation::RECT>;
+    fn GetItemRect(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<super::super::Foundation::RECT>;
     fn CollapseAll(&self) -> windows_core::Result<()>;
 }
 impl INameSpaceTreeControl_Vtbl {
@@ -29137,12 +29137,12 @@ pub struct INameSpaceTreeControlDropHandler_Vtbl {
     pub OnDragLeave: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INameSpaceTreeControlDropHandler_Impl: windows_core::IUnknownImpl {
-    fn OnDragEnter(&self, psiover: windows_core::Ref<IShellItem>, psiadata: windows_core::Ref<IShellItemArray>, foutsidesource: windows_core::BOOL, grfkeystate: u32, pdweffect: *mut u32) -> windows_core::Result<()>;
-    fn OnDragOver(&self, psiover: windows_core::Ref<IShellItem>, psiadata: windows_core::Ref<IShellItemArray>, grfkeystate: u32, pdweffect: *mut u32) -> windows_core::Result<()>;
-    fn OnDragPosition(&self, psiover: windows_core::Ref<IShellItem>, psiadata: windows_core::Ref<IShellItemArray>, inewposition: i32, ioldposition: i32) -> windows_core::Result<()>;
-    fn OnDrop(&self, psiover: windows_core::Ref<IShellItem>, psiadata: windows_core::Ref<IShellItemArray>, iposition: i32, grfkeystate: u32, pdweffect: *mut u32) -> windows_core::Result<()>;
-    fn OnDropPosition(&self, psiover: windows_core::Ref<IShellItem>, psiadata: windows_core::Ref<IShellItemArray>, inewposition: i32, ioldposition: i32) -> windows_core::Result<()>;
-    fn OnDragLeave(&self, psiover: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn OnDragEnter(&self, psiover: windows_core::Ref<'_, IShellItem>, psiadata: windows_core::Ref<'_, IShellItemArray>, foutsidesource: windows_core::BOOL, grfkeystate: u32, pdweffect: *mut u32) -> windows_core::Result<()>;
+    fn OnDragOver(&self, psiover: windows_core::Ref<'_, IShellItem>, psiadata: windows_core::Ref<'_, IShellItemArray>, grfkeystate: u32, pdweffect: *mut u32) -> windows_core::Result<()>;
+    fn OnDragPosition(&self, psiover: windows_core::Ref<'_, IShellItem>, psiadata: windows_core::Ref<'_, IShellItemArray>, inewposition: i32, ioldposition: i32) -> windows_core::Result<()>;
+    fn OnDrop(&self, psiover: windows_core::Ref<'_, IShellItem>, psiadata: windows_core::Ref<'_, IShellItemArray>, iposition: i32, grfkeystate: u32, pdweffect: *mut u32) -> windows_core::Result<()>;
+    fn OnDropPosition(&self, psiover: windows_core::Ref<'_, IShellItem>, psiadata: windows_core::Ref<'_, IShellItemArray>, inewposition: i32, ioldposition: i32) -> windows_core::Result<()>;
+    fn OnDragLeave(&self, psiover: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
 }
 impl INameSpaceTreeControlDropHandler_Vtbl {
     pub const fn new<Identity: INameSpaceTreeControlDropHandler_Impl, const OFFSET: isize>() -> Self {
@@ -29330,24 +29330,24 @@ pub struct INameSpaceTreeControlEvents_Vtbl {
     pub OnGetDefaultIconIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 pub trait INameSpaceTreeControlEvents_Impl: windows_core::IUnknownImpl {
-    fn OnItemClick(&self, psi: windows_core::Ref<IShellItem>, nstcehittest: u32, nstceclicktype: u32) -> windows_core::Result<()>;
-    fn OnPropertyItemCommit(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn OnItemStateChanging(&self, psi: windows_core::Ref<IShellItem>, nstcismask: u32, nstcisstate: u32) -> windows_core::Result<()>;
-    fn OnItemStateChanged(&self, psi: windows_core::Ref<IShellItem>, nstcismask: u32, nstcisstate: u32) -> windows_core::Result<()>;
-    fn OnSelectionChanged(&self, psiaselection: windows_core::Ref<IShellItemArray>) -> windows_core::Result<()>;
+    fn OnItemClick(&self, psi: windows_core::Ref<'_, IShellItem>, nstcehittest: u32, nstceclicktype: u32) -> windows_core::Result<()>;
+    fn OnPropertyItemCommit(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn OnItemStateChanging(&self, psi: windows_core::Ref<'_, IShellItem>, nstcismask: u32, nstcisstate: u32) -> windows_core::Result<()>;
+    fn OnItemStateChanged(&self, psi: windows_core::Ref<'_, IShellItem>, nstcismask: u32, nstcisstate: u32) -> windows_core::Result<()>;
+    fn OnSelectionChanged(&self, psiaselection: windows_core::Ref<'_, IShellItemArray>) -> windows_core::Result<()>;
     fn OnKeyboardInput(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
-    fn OnBeforeExpand(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn OnAfterExpand(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn OnBeginLabelEdit(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn OnEndLabelEdit(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn OnGetToolTip(&self, psi: windows_core::Ref<IShellItem>, psztip: windows_core::PWSTR, cchtip: i32) -> windows_core::Result<()>;
-    fn OnBeforeItemDelete(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn OnItemAdded(&self, psi: windows_core::Ref<IShellItem>, fisroot: windows_core::BOOL) -> windows_core::Result<()>;
-    fn OnItemDeleted(&self, psi: windows_core::Ref<IShellItem>, fisroot: windows_core::BOOL) -> windows_core::Result<()>;
-    fn OnBeforeContextMenu(&self, psi: windows_core::Ref<IShellItem>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn OnAfterContextMenu(&self, psi: windows_core::Ref<IShellItem>, pcmin: windows_core::Ref<IContextMenu>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn OnBeforeStateImageChange(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn OnGetDefaultIconIndex(&self, psi: windows_core::Ref<IShellItem>, pidefaulticon: *mut i32, piopenicon: *mut i32) -> windows_core::Result<()>;
+    fn OnBeforeExpand(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn OnAfterExpand(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn OnBeginLabelEdit(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn OnEndLabelEdit(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn OnGetToolTip(&self, psi: windows_core::Ref<'_, IShellItem>, psztip: windows_core::PWSTR, cchtip: i32) -> windows_core::Result<()>;
+    fn OnBeforeItemDelete(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn OnItemAdded(&self, psi: windows_core::Ref<'_, IShellItem>, fisroot: windows_core::BOOL) -> windows_core::Result<()>;
+    fn OnItemDeleted(&self, psi: windows_core::Ref<'_, IShellItem>, fisroot: windows_core::BOOL) -> windows_core::Result<()>;
+    fn OnBeforeContextMenu(&self, psi: windows_core::Ref<'_, IShellItem>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn OnAfterContextMenu(&self, psi: windows_core::Ref<'_, IShellItem>, pcmin: windows_core::Ref<'_, IContextMenu>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn OnBeforeStateImageChange(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn OnGetDefaultIconIndex(&self, psi: windows_core::Ref<'_, IShellItem>, pidefaulticon: *mut i32, piopenicon: *mut i32) -> windows_core::Result<()>;
 }
 impl INameSpaceTreeControlEvents_Vtbl {
     pub const fn new<Identity: INameSpaceTreeControlEvents_Impl, const OFFSET: isize>() -> Self {
@@ -29631,7 +29631,7 @@ pub struct INamespaceWalk_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait INamespaceWalk_Impl: windows_core::IUnknownImpl {
-    fn Walk(&self, punktowalk: windows_core::Ref<windows_core::IUnknown>, dwflags: u32, cdepth: i32, pnswcb: windows_core::Ref<INamespaceWalkCB>) -> windows_core::Result<()>;
+    fn Walk(&self, punktowalk: windows_core::Ref<'_, windows_core::IUnknown>, dwflags: u32, cdepth: i32, pnswcb: windows_core::Ref<'_, INamespaceWalkCB>) -> windows_core::Result<()>;
     fn GetIDArrayResult(&self, pcitems: *mut u32, prgpidl: *mut *mut *mut Common::ITEMIDLIST) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -29708,9 +29708,9 @@ pub struct INamespaceWalkCB_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait INamespaceWalkCB_Impl: windows_core::IUnknownImpl {
-    fn FoundItem(&self, psf: windows_core::Ref<IShellFolder>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
-    fn EnterFolder(&self, psf: windows_core::Ref<IShellFolder>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
-    fn LeaveFolder(&self, psf: windows_core::Ref<IShellFolder>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
+    fn FoundItem(&self, psf: windows_core::Ref<'_, IShellFolder>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
+    fn EnterFolder(&self, psf: windows_core::Ref<'_, IShellFolder>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
+    fn LeaveFolder(&self, psf: windows_core::Ref<'_, IShellFolder>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
     fn InitializeProgressDialog(&self, ppsztitle: *mut windows_core::PWSTR, ppszcancel: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -30287,8 +30287,8 @@ pub struct IObjMgr_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IObjMgr_Impl: windows_core::IUnknownImpl {
-    fn Append(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Remove(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Append(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Remove(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IObjMgr_Vtbl {
     pub const fn new<Identity: IObjMgr_Impl, const OFFSET: isize>() -> Self {
@@ -30598,7 +30598,7 @@ pub struct IObjectWithSelection_Vtbl {
     pub GetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IObjectWithSelection_Impl: windows_core::IUnknownImpl {
-    fn SetSelection(&self, psia: windows_core::Ref<IShellItemArray>) -> windows_core::Result<()>;
+    fn SetSelection(&self, psia: windows_core::Ref<'_, IShellItemArray>) -> windows_core::Result<()>;
     fn GetSelection(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IObjectWithSelection_Vtbl {
@@ -30658,7 +30658,7 @@ pub struct IOpenControlPanel_Vtbl {
     pub GetCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CPVIEW) -> windows_core::HRESULT,
 }
 pub trait IOpenControlPanel_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, pszname: &windows_core::PCWSTR, pszpage: &windows_core::PCWSTR, punksite: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Open(&self, pszname: &windows_core::PCWSTR, pszpage: &windows_core::PCWSTR, punksite: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetPath(&self, pszname: &windows_core::PCWSTR, pszpath: windows_core::PWSTR, cchpath: u32) -> windows_core::Result<()>;
     fn GetCurrentView(&self) -> windows_core::Result<CPVIEW>;
 }
@@ -30806,7 +30806,7 @@ pub trait IOperationsProgressDialog_Impl: windows_core::IUnknownImpl {
     fn SetOperation(&self, action: SPACTION) -> windows_core::Result<()>;
     fn SetMode(&self, mode: u32) -> windows_core::Result<()>;
     fn UpdateProgress(&self, ullpointscurrent: u64, ullpointstotal: u64, ullsizecurrent: u64, ullsizetotal: u64, ullitemscurrent: u64, ullitemstotal: u64) -> windows_core::Result<()>;
-    fn UpdateLocations(&self, psisource: windows_core::Ref<IShellItem>, psitarget: windows_core::Ref<IShellItem>, psiitem: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn UpdateLocations(&self, psisource: windows_core::Ref<'_, IShellItem>, psitarget: windows_core::Ref<'_, IShellItem>, psiitem: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
     fn ResetTimer(&self) -> windows_core::Result<()>;
     fn PauseTimer(&self) -> windows_core::Result<()>;
     fn ResumeTimer(&self) -> windows_core::Result<()>;
@@ -31036,7 +31036,7 @@ pub trait IPackageDebugSettings_Impl: windows_core::IUnknownImpl {
     fn StartSessionRedirection(&self, packagefullname: &windows_core::PCWSTR, sessionid: u32) -> windows_core::Result<()>;
     fn StopSessionRedirection(&self, packagefullname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetPackageExecutionState(&self, packagefullname: &windows_core::PCWSTR) -> windows_core::Result<PACKAGE_EXECUTION_STATE>;
-    fn RegisterForPackageStateChanges(&self, packagefullname: &windows_core::PCWSTR, ppackageexecutionstatechangenotification: windows_core::Ref<IPackageExecutionStateChangeNotification>) -> windows_core::Result<u32>;
+    fn RegisterForPackageStateChanges(&self, packagefullname: &windows_core::PCWSTR, ppackageexecutionstatechangenotification: windows_core::Ref<'_, IPackageExecutionStateChangeNotification>) -> windows_core::Result<u32>;
     fn UnregisterForPackageStateChanges(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 impl IPackageDebugSettings_Vtbl {
@@ -31268,7 +31268,7 @@ pub struct IParentAndItem_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait IParentAndItem_Impl: windows_core::IUnknownImpl {
-    fn SetParentAndItem(&self, pidlparent: *const Common::ITEMIDLIST, psf: windows_core::Ref<IShellFolder>, pidlchild: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
+    fn SetParentAndItem(&self, pidlparent: *const Common::ITEMIDLIST, psf: windows_core::Ref<'_, IShellFolder>, pidlchild: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
     fn GetParentAndItem(&self, ppidlparent: *mut *mut Common::ITEMIDLIST, ppsf: windows_core::OutRef<'_, IShellFolder>, ppidlchild: *mut *mut Common::ITEMIDLIST) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -31322,7 +31322,7 @@ pub struct IParseAndCreateItem_Vtbl {
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IParseAndCreateItem_Impl: windows_core::IUnknownImpl {
-    fn SetItem(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn SetItem(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
     fn GetItem(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IParseAndCreateItem_Vtbl {
@@ -31491,7 +31491,7 @@ pub struct IPersistFolder3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 pub trait IPersistFolder3_Impl: IPersistFolder2_Impl {
-    fn InitializeEx(&self, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, pidlroot: *const Common::ITEMIDLIST, ppfti: *const PERSIST_FOLDER_TARGET_INFO) -> windows_core::Result<()>;
+    fn InitializeEx(&self, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, pidlroot: *const Common::ITEMIDLIST, ppfti: *const PERSIST_FOLDER_TARGET_INFO) -> windows_core::Result<()>;
     fn GetFolderTargetInfo(&self, ppfti: *mut PERSIST_FOLDER_TARGET_INFO) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -31942,7 +31942,7 @@ pub struct IProfferService_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IProfferService_Impl: windows_core::IUnknownImpl {
-    fn ProfferService(&self, serviceid: *const windows_core::GUID, serviceprovider: windows_core::Ref<super::super::System::Com::IServiceProvider>) -> windows_core::Result<u32>;
+    fn ProfferService(&self, serviceid: *const windows_core::GUID, serviceprovider: windows_core::Ref<'_, super::super::System::Com::IServiceProvider>) -> windows_core::Result<u32>;
     fn RevokeService(&self, cookie: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -32039,7 +32039,7 @@ pub struct IProgressDialog_Vtbl {
     pub Timer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IProgressDialog_Impl: windows_core::IUnknownImpl {
-    fn StartProgressDialog(&self, hwndparent: super::super::Foundation::HWND, punkenablemodless: windows_core::Ref<windows_core::IUnknown>, dwflags: u32, pvresevered: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn StartProgressDialog(&self, hwndparent: super::super::Foundation::HWND, punkenablemodless: windows_core::Ref<'_, windows_core::IUnknown>, dwflags: u32, pvresevered: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn StopProgressDialog(&self) -> windows_core::Result<()>;
     fn SetTitle(&self, pwztitle: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetAnimation(&self, hinstanimation: super::super::Foundation::HINSTANCE, idanimation: u32) -> windows_core::Result<()>;
@@ -32368,7 +32368,7 @@ pub struct IPublishingWizard_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 pub trait IPublishingWizard_Impl: IWizardExtension_Impl {
-    fn Initialize(&self, pdo: windows_core::Ref<super::super::System::Com::IDataObject>, dwoptions: u32, pszservicescope: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, pdo: windows_core::Ref<'_, super::super::System::Com::IDataObject>, dwoptions: u32, pszservicescope: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetTransferManifest(&self, phrfromtransfer: *mut windows_core::HRESULT, pdocmanifest: windows_core::OutRef<'_, super::super::Data::Xml::MsXml::IXMLDOMDocument>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
@@ -32912,7 +32912,7 @@ pub struct IResolveShellLink_Vtbl {
     pub ResolveShellLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
 }
 pub trait IResolveShellLink_Impl: windows_core::IUnknownImpl {
-    fn ResolveShellLink(&self, punklink: windows_core::Ref<windows_core::IUnknown>, hwnd: super::super::Foundation::HWND, fflags: u32) -> windows_core::Result<()>;
+    fn ResolveShellLink(&self, punklink: windows_core::Ref<'_, windows_core::IUnknown>, hwnd: super::super::Foundation::HWND, fflags: u32) -> windows_core::Result<()>;
 }
 impl IResolveShellLink_Vtbl {
     pub const fn new<Identity: IResolveShellLink_Impl, const OFFSET: isize>() -> Self {
@@ -32973,9 +32973,9 @@ pub struct IResultsFolder_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait IResultsFolder_Impl: windows_core::IUnknownImpl {
-    fn AddItem(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn AddItem(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
     fn AddIDList(&self, pidl: *const Common::ITEMIDLIST, ppidladded: *mut *mut Common::ITEMIDLIST) -> windows_core::Result<()>;
-    fn RemoveItem(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn RemoveItem(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
     fn RemoveIDList(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
     fn RemoveAll(&self) -> windows_core::Result<()>;
 }
@@ -33661,8 +33661,8 @@ pub trait ISearchFolderItemFactory_Impl: windows_core::IUnknownImpl {
     fn SetSortColumns(&self, csortcolumns: u32, rgsortcolumns: *const SORTCOLUMN) -> windows_core::Result<()>;
     fn SetGroupColumn(&self, keygroup: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
     fn SetStacks(&self, cstackkeys: u32, rgstackkeys: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
-    fn SetScope(&self, psiascope: windows_core::Ref<IShellItemArray>) -> windows_core::Result<()>;
-    fn SetCondition(&self, pcondition: windows_core::Ref<super::super::System::Search::ICondition>) -> windows_core::Result<()>;
+    fn SetScope(&self, psiascope: windows_core::Ref<'_, IShellItemArray>) -> windows_core::Result<()>;
+    fn SetCondition(&self, pcondition: windows_core::Ref<'_, super::super::System::Search::ICondition>) -> windows_core::Result<()>;
     fn GetShellItem(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetIDList(&self) -> windows_core::Result<*mut Common::ITEMIDLIST>;
 }
@@ -34232,7 +34232,7 @@ pub trait IShellBrowser_Impl: super::super::System::Ole::IOleWindow_Impl {
     fn GetControlWindow(&self, id: u32) -> windows_core::Result<super::super::Foundation::HWND>;
     fn SendControlMsg(&self, id: u32, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pret: *mut super::super::Foundation::LRESULT) -> windows_core::Result<()>;
     fn QueryActiveShellView(&self) -> windows_core::Result<IShellView>;
-    fn OnViewWindowActive(&self, pshv: windows_core::Ref<IShellView>) -> windows_core::Result<()>;
+    fn OnViewWindowActive(&self, pshv: windows_core::Ref<'_, IShellView>) -> windows_core::Result<()>;
     fn SetToolbarItems(&self, lpbuttons: *const super::Controls::TBBUTTON, nbuttons: u32, uflags: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -35314,7 +35314,7 @@ pub struct IShellExtInit_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 pub trait IShellExtInit_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pidlfolder: *const Common::ITEMIDLIST, pdtobj: windows_core::Ref<super::super::System::Com::IDataObject>, hkeyprogid: super::super::System::Registry::HKEY) -> windows_core::Result<()>;
+    fn Initialize(&self, pidlfolder: *const Common::ITEMIDLIST, pdtobj: windows_core::Ref<'_, super::super::System::Com::IDataObject>, hkeyprogid: super::super::System::Registry::HKEY) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 impl IShellExtInit_Vtbl {
@@ -35658,10 +35658,10 @@ pub struct IShellFolder_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 pub trait IShellFolder_Impl: windows_core::IUnknownImpl {
-    fn ParseDisplayName(&self, hwnd: super::super::Foundation::HWND, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, pszdisplayname: &windows_core::PCWSTR, pcheaten: *const u32, ppidl: *mut *mut Common::ITEMIDLIST, pdwattributes: *mut u32) -> windows_core::Result<()>;
+    fn ParseDisplayName(&self, hwnd: super::super::Foundation::HWND, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, pszdisplayname: &windows_core::PCWSTR, pcheaten: *const u32, ppidl: *mut *mut Common::ITEMIDLIST, pdwattributes: *mut u32) -> windows_core::Result<()>;
     fn EnumObjects(&self, hwnd: super::super::Foundation::HWND, grfflags: u32, ppenumidlist: windows_core::OutRef<'_, IEnumIDList>) -> windows_core::HRESULT;
-    fn BindToObject(&self, pidl: *const Common::ITEMIDLIST, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn BindToStorage(&self, pidl: *const Common::ITEMIDLIST, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn BindToObject(&self, pidl: *const Common::ITEMIDLIST, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn BindToStorage(&self, pidl: *const Common::ITEMIDLIST, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CompareIDs(&self, lparam: super::super::Foundation::LPARAM, pidl1: *const Common::ITEMIDLIST, pidl2: *const Common::ITEMIDLIST) -> windows_core::HRESULT;
     fn CreateViewObject(&self, hwndowner: super::super::Foundation::HWND, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetAttributesOf(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST, rgfinout: *mut u32) -> windows_core::Result<()>;
@@ -35951,7 +35951,7 @@ pub struct IShellFolderBand_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait IShellFolderBand_Impl: windows_core::IUnknownImpl {
-    fn InitializeSFB(&self, psf: windows_core::Ref<IShellFolder>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
+    fn InitializeSFB(&self, psf: windows_core::Ref<'_, IShellFolder>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
     fn SetBandInfoSFB(&self, pbi: *const BANDINFOSFB) -> windows_core::Result<()>;
     fn GetBandInfoSFB(&self, pbi: *mut BANDINFOSFB) -> windows_core::Result<()>;
 }
@@ -36225,19 +36225,19 @@ pub trait IShellFolderView_Impl: windows_core::IUnknownImpl {
     fn SetRedraw(&self, bredraw: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetSelectedCount(&self) -> windows_core::Result<u32>;
     fn GetSelectedObjects(&self, pppidl: *mut *mut *mut Common::ITEMIDLIST, puitems: *mut u32) -> windows_core::Result<()>;
-    fn IsDropOnSource(&self, pdroptarget: windows_core::Ref<super::super::System::Ole::IDropTarget>) -> windows_core::Result<()>;
+    fn IsDropOnSource(&self, pdroptarget: windows_core::Ref<'_, super::super::System::Ole::IDropTarget>) -> windows_core::Result<()>;
     fn GetDragPoint(&self) -> windows_core::Result<super::super::Foundation::POINT>;
     fn GetDropPoint(&self) -> windows_core::Result<super::super::Foundation::POINT>;
-    fn MoveIcons(&self, pdataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
+    fn MoveIcons(&self, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
     fn SetItemPos(&self, pidl: *const Common::ITEMIDLIST, ppt: *const super::super::Foundation::POINT) -> windows_core::Result<()>;
-    fn IsBkDropTarget(&self, pdroptarget: windows_core::Ref<super::super::System::Ole::IDropTarget>) -> windows_core::Result<()>;
+    fn IsBkDropTarget(&self, pdroptarget: windows_core::Ref<'_, super::super::System::Ole::IDropTarget>) -> windows_core::Result<()>;
     fn SetClipboard(&self, bmove: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetPoints(&self, pdataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
+    fn SetPoints(&self, pdataobject: windows_core::Ref<'_, super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
     fn GetItemSpacing(&self) -> windows_core::Result<ITEMSPACING>;
-    fn SetCallback(&self, pnewcb: windows_core::Ref<IShellFolderViewCB>) -> windows_core::Result<IShellFolderViewCB>;
+    fn SetCallback(&self, pnewcb: windows_core::Ref<'_, IShellFolderViewCB>) -> windows_core::Result<IShellFolderViewCB>;
     fn Select(&self, dwflags: &SFVS_SELECT) -> windows_core::Result<()>;
     fn QuerySupport(&self, pdwsupport: *mut u32) -> windows_core::Result<()>;
-    fn SetAutomationObject(&self, pdisp: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetAutomationObject(&self, pdisp: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl IShellFolderView_Vtbl {
@@ -36642,7 +36642,7 @@ pub trait IShellFolderViewDual_Impl: super::super::System::Com::IDispatch_Impl {
     fn SelectedItems(&self) -> windows_core::Result<FolderItems>;
     fn FocusedItem(&self) -> windows_core::Result<FolderItem>;
     fn SelectItem(&self, pvfi: *const super::super::System::Variant::VARIANT, dwflags: i32) -> windows_core::Result<()>;
-    fn PopupItemMenu(&self, pfi: windows_core::Ref<FolderItem>, vx: &super::super::System::Variant::VARIANT, vy: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
+    fn PopupItemMenu(&self, pfi: windows_core::Ref<'_, FolderItem>, vx: &super::super::System::Variant::VARIANT, vy: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
     fn Script(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
     fn ViewOptions(&self) -> windows_core::Result<i32>;
 }
@@ -37471,11 +37471,11 @@ pub trait IShellImageData_Impl: windows_core::IUnknownImpl {
     fn Rotate(&self, dwangle: u32) -> windows_core::Result<()>;
     fn Scale(&self, cx: u32, cy: u32, hints: super::super::Graphics::GdiPlus::InterpolationMode) -> windows_core::Result<()>;
     fn DiscardEdit(&self) -> windows_core::Result<()>;
-    fn SetEncoderParams(&self, pbagenc: windows_core::Ref<super::super::System::Com::StructuredStorage::IPropertyBag>) -> windows_core::Result<()>;
+    fn SetEncoderParams(&self, pbagenc: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IPropertyBag>) -> windows_core::Result<()>;
     fn DisplayName(&self, wszname: &windows_core::PCWSTR, cch: u32) -> windows_core::Result<()>;
     fn GetResolution(&self, puresolutionx: *mut u32, puresolutiony: *mut u32) -> windows_core::Result<()>;
     fn GetEncoderParams(&self, pguidfmt: *mut windows_core::GUID, ppencparams: *mut *mut u8) -> windows_core::Result<()>;
-    fn RegisterAbort(&self, pabort: windows_core::Ref<IShellImageDataAbort>) -> windows_core::Result<IShellImageDataAbort>;
+    fn RegisterAbort(&self, pabort: windows_core::Ref<'_, IShellImageDataAbort>) -> windows_core::Result<IShellImageDataAbort>;
     fn CloneFrame(&self, ppimg: *mut *mut u8) -> windows_core::Result<()>;
     fn ReplaceFrame(&self, pimg: *mut u8) -> windows_core::Result<()>;
 }
@@ -37797,7 +37797,7 @@ pub struct IShellImageDataFactory_Vtbl {
 pub trait IShellImageDataFactory_Impl: windows_core::IUnknownImpl {
     fn CreateIShellImageData(&self) -> windows_core::Result<IShellImageData>;
     fn CreateImageFromFile(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<IShellImageData>;
-    fn CreateImageFromStream(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<IShellImageData>;
+    fn CreateImageFromStream(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<IShellImageData>;
     fn GetDataFormatFromPath(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<windows_core::GUID>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -37923,11 +37923,11 @@ pub struct IShellItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
 pub trait IShellItem_Impl: windows_core::IUnknownImpl {
-    fn BindToHandler(&self, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, bhid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn BindToHandler(&self, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, bhid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetParent(&self) -> windows_core::Result<IShellItem>;
     fn GetDisplayName(&self, sigdnname: SIGDN) -> windows_core::Result<windows_core::PWSTR>;
     fn GetAttributes(&self, sfgaomask: super::super::System::SystemServices::SFGAO_FLAGS) -> windows_core::Result<super::super::System::SystemServices::SFGAO_FLAGS>;
-    fn Compare(&self, psi: windows_core::Ref<IShellItem>, hint: u32) -> windows_core::Result<i32>;
+    fn Compare(&self, psi: windows_core::Ref<'_, IShellItem>, hint: u32) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
 impl IShellItem_Vtbl {
@@ -38134,10 +38134,10 @@ pub struct IShellItem2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_SystemServices", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IShellItem2_Impl: IShellItem_Impl {
     fn GetPropertyStore(&self, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetPropertyStoreWithCreateObject(&self, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, punkcreateobject: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetPropertyStoreWithCreateObject(&self, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, punkcreateobject: windows_core::Ref<'_, windows_core::IUnknown>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetPropertyStoreForKeys(&self, rgkeys: *const super::super::Foundation::PROPERTYKEY, ckeys: u32, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetPropertyDescriptionList(&self, keytype: *const super::super::Foundation::PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn Update(&self, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
+    fn Update(&self, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
     fn GetProperty(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn GetCLSID(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<windows_core::GUID>;
     fn GetFileTime(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::Foundation::FILETIME>;
@@ -38374,7 +38374,7 @@ pub struct IShellItemArray_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IShellItemArray_Impl: windows_core::IUnknownImpl {
-    fn BindToHandler(&self, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, bhid: *const windows_core::GUID, riid: *const windows_core::GUID, ppvout: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn BindToHandler(&self, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, bhid: *const windows_core::GUID, riid: *const windows_core::GUID, ppvout: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetPropertyStore(&self, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetPropertyDescriptionList(&self, keytype: *const super::super::Foundation::PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetAttributes(&self, attribflags: SIATTRIBFLAGS, sfgaomask: super::super::System::SystemServices::SFGAO_FLAGS) -> windows_core::Result<super::super::System::SystemServices::SFGAO_FLAGS>;
@@ -38494,8 +38494,8 @@ pub struct IShellItemFilter_Vtbl {
     pub GetEnumFlagsForItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IShellItemFilter_Impl: windows_core::IUnknownImpl {
-    fn IncludeItem(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn GetEnumFlagsForItem(&self, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<u32>;
+    fn IncludeItem(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn GetEnumFlagsForItem(&self, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<u32>;
 }
 impl IShellItemFilter_Vtbl {
     pub const fn new<Identity: IShellItemFilter_Impl, const OFFSET: isize>() -> Self {
@@ -38886,14 +38886,14 @@ pub struct IShellLibrary_Vtbl {
     pub SaveInKnownFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, LIBRARYSAVEFLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IShellLibrary_Impl: windows_core::IUnknownImpl {
-    fn LoadLibraryFromItem(&self, psilibrary: windows_core::Ref<IShellItem>, grfmode: u32) -> windows_core::Result<()>;
+    fn LoadLibraryFromItem(&self, psilibrary: windows_core::Ref<'_, IShellItem>, grfmode: u32) -> windows_core::Result<()>;
     fn LoadLibraryFromKnownFolder(&self, kfidlibrary: *const windows_core::GUID, grfmode: u32) -> windows_core::Result<()>;
-    fn AddFolder(&self, psilocation: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn RemoveFolder(&self, psilocation: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn AddFolder(&self, psilocation: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn RemoveFolder(&self, psilocation: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
     fn GetFolders(&self, lff: LIBRARYFOLDERFILTER, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ResolveFolder(&self, psifoldertoresolve: windows_core::Ref<IShellItem>, dwtimeout: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ResolveFolder(&self, psifoldertoresolve: windows_core::Ref<'_, IShellItem>, dwtimeout: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetDefaultSaveFolder(&self, dsft: DEFAULTSAVEFOLDERTYPE, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetDefaultSaveFolder(&self, dsft: DEFAULTSAVEFOLDERTYPE, psi: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn SetDefaultSaveFolder(&self, dsft: DEFAULTSAVEFOLDERTYPE, psi: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
     fn GetOptions(&self) -> windows_core::Result<LIBRARYOPTIONFLAGS>;
     fn SetOptions(&self, lofmask: LIBRARYOPTIONFLAGS, lofoptions: LIBRARYOPTIONFLAGS) -> windows_core::Result<()>;
     fn GetFolderType(&self) -> windows_core::Result<windows_core::GUID>;
@@ -38901,7 +38901,7 @@ pub trait IShellLibrary_Impl: windows_core::IUnknownImpl {
     fn GetIcon(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetIcon(&self, pszicon: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
-    fn Save(&self, psifoldertosavein: windows_core::Ref<IShellItem>, pszlibraryname: &windows_core::PCWSTR, lsf: LIBRARYSAVEFLAGS) -> windows_core::Result<IShellItem>;
+    fn Save(&self, psifoldertosavein: windows_core::Ref<'_, IShellItem>, pszlibraryname: &windows_core::PCWSTR, lsf: LIBRARYSAVEFLAGS) -> windows_core::Result<IShellItem>;
     fn SaveInKnownFolder(&self, kfidtosavein: *const windows_core::GUID, pszlibraryname: &windows_core::PCWSTR, lsf: LIBRARYSAVEFLAGS) -> windows_core::Result<IShellItem>;
 }
 impl IShellLibrary_Vtbl {
@@ -40190,15 +40190,15 @@ pub struct IShellMenu_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IShellMenu_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psmc: windows_core::Ref<IShellMenuCallback>, uid: u32, uidancestor: u32, dwflags: u32) -> windows_core::Result<()>;
+    fn Initialize(&self, psmc: windows_core::Ref<'_, IShellMenuCallback>, uid: u32, uidancestor: u32, dwflags: u32) -> windows_core::Result<()>;
     fn GetMenuInfo(&self, ppsmc: windows_core::OutRef<'_, IShellMenuCallback>, puid: *mut u32, puidancestor: *mut u32, pdwflags: *mut u32) -> windows_core::Result<()>;
-    fn SetShellFolder(&self, psf: windows_core::Ref<IShellFolder>, pidlfolder: *const Common::ITEMIDLIST, hkey: super::super::System::Registry::HKEY, dwflags: u32) -> windows_core::Result<()>;
+    fn SetShellFolder(&self, psf: windows_core::Ref<'_, IShellFolder>, pidlfolder: *const Common::ITEMIDLIST, hkey: super::super::System::Registry::HKEY, dwflags: u32) -> windows_core::Result<()>;
     fn GetShellFolder(&self, pdwflags: *mut u32, ppidl: *mut *mut Common::ITEMIDLIST, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn SetMenu(&self, hmenu: super::WindowsAndMessaging::HMENU, hwnd: super::super::Foundation::HWND, dwflags: u32) -> windows_core::Result<()>;
     fn GetMenu(&self, phmenu: *mut super::WindowsAndMessaging::HMENU, phwnd: *mut super::super::Foundation::HWND, pdwflags: *mut u32) -> windows_core::Result<()>;
     fn InvalidateItem(&self, psmd: *const SMDATA, dwflags: u32) -> windows_core::Result<()>;
     fn GetState(&self, psmd: *mut SMDATA) -> windows_core::Result<()>;
-    fn SetMenuToolbar(&self, punk: windows_core::Ref<windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<()>;
+    fn SetMenuToolbar(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IShellMenu_Vtbl {
@@ -40466,7 +40466,7 @@ pub trait IShellNameSpace_Impl: IShellFavoritesNameSpace_Impl {
     fn EnumOptions(&self) -> windows_core::Result<i32>;
     fn SetEnumOptions(&self, lval: i32) -> windows_core::Result<()>;
     fn SelectedItem(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn SetSelectedItem(&self, pitem: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetSelectedItem(&self, pitem: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn Root(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SetRoot(&self, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Depth(&self) -> windows_core::Result<i32>;
@@ -40810,7 +40810,7 @@ pub struct IShellService_Vtbl {
     pub SetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IShellService_Impl: windows_core::IUnknownImpl {
-    fn SetOwner(&self, punkowner: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetOwner(&self, punkowner: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IShellService_Vtbl {
     pub const fn new<Identity: IShellService_Impl, const OFFSET: isize>() -> Self {
@@ -40855,7 +40855,7 @@ pub struct IShellTaskScheduler_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IShellTaskScheduler_Impl: windows_core::IUnknownImpl {
-    fn AddTask(&self, prt: windows_core::Ref<IRunnableTask>, rtoid: *const windows_core::GUID, lparam: usize, dwpriority: u32) -> windows_core::Result<()>;
+    fn AddTask(&self, prt: windows_core::Ref<'_, IRunnableTask>, rtoid: *const windows_core::GUID, lparam: usize, dwpriority: u32) -> windows_core::Result<()>;
     fn RemoveTasks(&self, rtoid: *const windows_core::GUID, lparam: usize, bwaitifrunning: windows_core::BOOL) -> windows_core::Result<()>;
     fn CountTasks(&self, rtoid: *const windows_core::GUID) -> u32;
     fn Status(&self, dwreleasestatus: u32, dwthreadtimeout: u32) -> windows_core::Result<()>;
@@ -42836,7 +42836,7 @@ pub trait IShellView_Impl: super::super::System::Ole::IOleWindow_Impl {
     fn EnableModeless(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
     fn UIActivate(&self, ustate: u32) -> windows_core::Result<()>;
     fn Refresh(&self) -> windows_core::Result<()>;
-    fn CreateViewWindow(&self, psvprevious: windows_core::Ref<IShellView>, pfs: *const FOLDERSETTINGS, psb: windows_core::Ref<IShellBrowser>, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::HWND>;
+    fn CreateViewWindow(&self, psvprevious: windows_core::Ref<'_, IShellView>, pfs: *const FOLDERSETTINGS, psb: windows_core::Ref<'_, IShellBrowser>, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::HWND>;
     fn DestroyViewWindow(&self) -> windows_core::Result<()>;
     fn GetCurrentInfo(&self) -> windows_core::Result<FOLDERSETTINGS>;
     fn AddPropertySheetPages(&self, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
@@ -43069,7 +43069,7 @@ pub struct IShellView3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IShellView3_Impl: IShellView2_Impl {
-    fn CreateViewWindow3(&self, psbowner: windows_core::Ref<IShellBrowser>, psvprev: windows_core::Ref<IShellView>, dwviewflags: u32, dwmask: FOLDERFLAGS, dwflags: FOLDERFLAGS, fvmode: FOLDERVIEWMODE, pvid: *const windows_core::GUID, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::HWND>;
+    fn CreateViewWindow3(&self, psbowner: windows_core::Ref<'_, IShellBrowser>, psvprev: windows_core::Ref<'_, IShellView>, dwviewflags: u32, dwmask: FOLDERFLAGS, dwflags: FOLDERFLAGS, fvmode: FOLDERVIEWMODE, pvid: *const windows_core::GUID, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::HWND>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IShellView3_Vtbl {
@@ -43202,13 +43202,13 @@ pub trait IShellWindows_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Com::IDispatch>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Register(&self, pid: windows_core::Ref<super::super::System::Com::IDispatch>, hwnd: i32, swclass: ShellWindowTypeConstants) -> windows_core::Result<i32>;
+    fn Register(&self, pid: windows_core::Ref<'_, super::super::System::Com::IDispatch>, hwnd: i32, swclass: ShellWindowTypeConstants) -> windows_core::Result<i32>;
     fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::super::System::Variant::VARIANT, pvarlocroot: *const super::super::System::Variant::VARIANT, swclass: ShellWindowTypeConstants) -> windows_core::Result<i32>;
     fn Revoke(&self, lcookie: i32) -> windows_core::Result<()>;
     fn OnNavigate(&self, lcookie: i32, pvarloc: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn OnActivated(&self, lcookie: i32, factive: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn FindWindowSW(&self, pvarloc: *const super::super::System::Variant::VARIANT, pvarlocroot: *const super::super::System::Variant::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn OnCreated(&self, lcookie: i32, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnCreated(&self, lcookie: i32, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn ProcessAttachDetach(&self, fattach: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -43428,7 +43428,7 @@ pub struct IStartMenuPinnedList_Vtbl {
     pub RemoveFromList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IStartMenuPinnedList_Impl: windows_core::IUnknownImpl {
-    fn RemoveFromList(&self, pitem: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn RemoveFromList(&self, pitem: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
 }
 impl IStartMenuPinnedList_Vtbl {
     pub const fn new<Identity: IStartMenuPinnedList_Impl, const OFFSET: isize>() -> Self {
@@ -43708,7 +43708,7 @@ pub struct IStorageProviderPropertyHandler_Vtbl {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IStorageProviderPropertyHandler_Impl: windows_core::IUnknownImpl {
     fn RetrieveProperties(&self, propertiestoretrieve: *const super::super::Foundation::PROPERTYKEY, propertiestoretrievecount: u32) -> windows_core::Result<PropertiesSystem::IPropertyStore>;
-    fn SaveProperties(&self, propertiestosave: windows_core::Ref<PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn SaveProperties(&self, propertiestosave: windows_core::Ref<'_, PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IStorageProviderPropertyHandler_Vtbl {
@@ -43991,7 +43991,7 @@ pub trait ISyncMgrConflict_Impl: windows_core::IUnknownImpl {
     fn GetProperty(&self, propkey: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn GetConflictIdInfo(&self) -> windows_core::Result<SYNCMGR_CONFLICT_ID_INFO>;
     fn GetItemsArray(&self) -> windows_core::Result<ISyncMgrConflictItems>;
-    fn Resolve(&self, presolveinfo: windows_core::Ref<ISyncMgrConflictResolveInfo>) -> windows_core::Result<()>;
+    fn Resolve(&self, presolveinfo: windows_core::Ref<'_, ISyncMgrConflictResolveInfo>) -> windows_core::Result<()>;
     fn GetResolutionHandler(&self, riid: *const windows_core::GUID, ppvresolutionhandler: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -44084,7 +44084,7 @@ pub struct ISyncMgrConflictFolder_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait ISyncMgrConflictFolder_Impl: windows_core::IUnknownImpl {
-    fn GetConflictIDList(&self, pconflict: windows_core::Ref<ISyncMgrConflict>) -> windows_core::Result<*mut Common::ITEMIDLIST>;
+    fn GetConflictIDList(&self, pconflict: windows_core::Ref<'_, ISyncMgrConflict>) -> windows_core::Result<*mut Common::ITEMIDLIST>;
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 impl ISyncMgrConflictFolder_Vtbl {
@@ -44176,7 +44176,7 @@ pub struct ISyncMgrConflictPresenter_Vtbl {
     pub PresentConflict: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISyncMgrConflictPresenter_Impl: windows_core::IUnknownImpl {
-    fn PresentConflict(&self, pconflict: windows_core::Ref<ISyncMgrConflict>, presolveinfo: windows_core::Ref<ISyncMgrConflictResolveInfo>) -> windows_core::Result<()>;
+    fn PresentConflict(&self, pconflict: windows_core::Ref<'_, ISyncMgrConflict>, presolveinfo: windows_core::Ref<'_, ISyncMgrConflictResolveInfo>) -> windows_core::Result<()>;
 }
 impl ISyncMgrConflictPresenter_Vtbl {
     pub const fn new<Identity: ISyncMgrConflictPresenter_Impl, const OFFSET: isize>() -> Self {
@@ -44621,8 +44621,8 @@ pub struct ISyncMgrControl_Vtbl {
     pub EnableItem: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::PCWSTR, windows_core::PCWSTR, super::super::Foundation::HWND, SYNCMGR_CONTROL_FLAGS) -> windows_core::HRESULT,
 }
 pub trait ISyncMgrControl_Impl: windows_core::IUnknownImpl {
-    fn StartHandlerSync(&self, pszhandlerid: &windows_core::PCWSTR, hwndowner: super::super::Foundation::HWND, punk: windows_core::Ref<windows_core::IUnknown>, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: windows_core::Ref<ISyncMgrSyncResult>) -> windows_core::Result<()>;
-    fn StartItemSync(&self, pszhandlerid: &windows_core::PCWSTR, ppszitemids: *const windows_core::PCWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, punk: windows_core::Ref<windows_core::IUnknown>, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: windows_core::Ref<ISyncMgrSyncResult>) -> windows_core::Result<()>;
+    fn StartHandlerSync(&self, pszhandlerid: &windows_core::PCWSTR, hwndowner: super::super::Foundation::HWND, punk: windows_core::Ref<'_, windows_core::IUnknown>, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: windows_core::Ref<'_, ISyncMgrSyncResult>) -> windows_core::Result<()>;
+    fn StartItemSync(&self, pszhandlerid: &windows_core::PCWSTR, ppszitemids: *const windows_core::PCWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, punk: windows_core::Ref<'_, windows_core::IUnknown>, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: windows_core::Ref<'_, ISyncMgrSyncResult>) -> windows_core::Result<()>;
     fn StartSyncAll(&self, hwndowner: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn StopHandlerSync(&self, pszhandlerid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn StopItemSync(&self, pszhandlerid: &windows_core::PCWSTR, ppszitemids: *const windows_core::PCWSTR, citems: u32) -> windows_core::Result<()>;
@@ -44631,7 +44631,7 @@ pub trait ISyncMgrControl_Impl: windows_core::IUnknownImpl {
     fn UpdateHandler(&self, pszhandlerid: &windows_core::PCWSTR, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> windows_core::Result<()>;
     fn UpdateItem(&self, pszhandlerid: &windows_core::PCWSTR, pszitemid: &windows_core::PCWSTR, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> windows_core::Result<()>;
     fn UpdateEvents(&self, pszhandlerid: &windows_core::PCWSTR, pszitemid: &windows_core::PCWSTR, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> windows_core::Result<()>;
-    fn UpdateConflict(&self, pszhandlerid: &windows_core::PCWSTR, pszitemid: &windows_core::PCWSTR, pconflict: windows_core::Ref<ISyncMgrConflict>, nreason: SYNCMGR_UPDATE_REASON) -> windows_core::Result<()>;
+    fn UpdateConflict(&self, pszhandlerid: &windows_core::PCWSTR, pszitemid: &windows_core::PCWSTR, pconflict: windows_core::Ref<'_, ISyncMgrConflict>, nreason: SYNCMGR_UPDATE_REASON) -> windows_core::Result<()>;
     fn UpdateConflicts(&self, pszhandlerid: &windows_core::PCWSTR, pszitemid: &windows_core::PCWSTR, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> windows_core::Result<()>;
     fn ActivateHandler(&self, factivate: windows_core::BOOL, pszhandlerid: &windows_core::PCWSTR, hwndowner: super::super::Foundation::HWND, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> windows_core::Result<()>;
     fn EnableHandler(&self, fenable: windows_core::BOOL, pszhandlerid: &windows_core::PCWSTR, hwndowner: super::super::Foundation::HWND, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> windows_core::Result<()>;
@@ -45112,7 +45112,7 @@ pub struct ISyncMgrEventLinkUIOperation_Vtbl {
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISyncMgrEventLinkUIOperation_Impl: ISyncMgrUIOperation_Impl {
-    fn Init(&self, rguideventid: *const windows_core::GUID, pevent: windows_core::Ref<ISyncMgrEvent>) -> windows_core::Result<()>;
+    fn Init(&self, rguideventid: *const windows_core::GUID, pevent: windows_core::Ref<'_, ISyncMgrEvent>) -> windows_core::Result<()>;
 }
 impl ISyncMgrEventLinkUIOperation_Vtbl {
     pub const fn new<Identity: ISyncMgrEventLinkUIOperation_Impl, const OFFSET: isize>() -> Self {
@@ -45293,7 +45293,7 @@ pub trait ISyncMgrHandler_Impl: windows_core::IUnknownImpl {
     fn GetPolicies(&self) -> windows_core::Result<SYNCMGR_HANDLER_POLICIES>;
     fn Activate(&self, factivate: windows_core::BOOL) -> windows_core::Result<()>;
     fn Enable(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Synchronize(&self, ppszitemids: *const windows_core::PCWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, psessioncreator: windows_core::Ref<ISyncMgrSessionCreator>, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Synchronize(&self, ppszitemids: *const windows_core::PCWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, psessioncreator: windows_core::Ref<'_, ISyncMgrSessionCreator>, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ISyncMgrHandler_Vtbl {
     pub const fn new<Identity: ISyncMgrHandler_Impl, const OFFSET: isize>() -> Self {
@@ -45704,10 +45704,10 @@ pub struct ISyncMgrResolutionHandler_Vtbl {
 }
 pub trait ISyncMgrResolutionHandler_Impl: windows_core::IUnknownImpl {
     fn QueryAbilities(&self) -> windows_core::Result<u32>;
-    fn KeepOther(&self, psiother: windows_core::Ref<IShellItem>) -> windows_core::Result<SYNCMGR_RESOLUTION_FEEDBACK>;
+    fn KeepOther(&self, psiother: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<SYNCMGR_RESOLUTION_FEEDBACK>;
     fn KeepRecent(&self) -> windows_core::Result<SYNCMGR_RESOLUTION_FEEDBACK>;
     fn RemoveFromSyncSet(&self) -> windows_core::Result<SYNCMGR_RESOLUTION_FEEDBACK>;
-    fn KeepItems(&self, parray: windows_core::Ref<ISyncMgrConflictResolutionItems>) -> windows_core::Result<SYNCMGR_RESOLUTION_FEEDBACK>;
+    fn KeepItems(&self, parray: windows_core::Ref<'_, ISyncMgrConflictResolutionItems>) -> windows_core::Result<SYNCMGR_RESOLUTION_FEEDBACK>;
 }
 impl ISyncMgrResolutionHandler_Vtbl {
     pub const fn new<Identity: ISyncMgrResolutionHandler_Impl, const OFFSET: isize>() -> Self {
@@ -45959,8 +45959,8 @@ pub trait ISyncMgrSyncCallback_Impl: windows_core::IUnknownImpl {
     fn CanContinue(&self, pszitemid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn QueryForAdditionalItems(&self, ppenumitemids: windows_core::OutRef<'_, super::super::System::Com::IEnumString>, ppenumpunks: windows_core::OutRef<'_, super::super::System::Com::IEnumUnknown>) -> windows_core::Result<()>;
     fn AddItemToSession(&self, pszitemid: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn AddIUnknownToSession(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn ProposeItem(&self, pnewitem: windows_core::Ref<ISyncMgrSyncItem>) -> windows_core::Result<()>;
+    fn AddIUnknownToSession(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ProposeItem(&self, pnewitem: windows_core::Ref<'_, ISyncMgrSyncItem>) -> windows_core::Result<()>;
     fn CommitItem(&self, pszitemid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ReportManualSync(&self) -> windows_core::Result<()>;
 }
@@ -46516,7 +46516,7 @@ pub trait ISyncMgrSynchronize_Impl: windows_core::IUnknownImpl {
     fn EnumSyncMgrItems(&self) -> windows_core::Result<ISyncMgrEnumItems>;
     fn GetItemObject(&self, itemid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn ShowProperties(&self, hwndparent: super::super::Foundation::HWND, itemid: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn SetProgressCallback(&self, lpcallback: windows_core::Ref<ISyncMgrSynchronizeCallback>) -> windows_core::Result<()>;
+    fn SetProgressCallback(&self, lpcallback: windows_core::Ref<'_, ISyncMgrSynchronizeCallback>) -> windows_core::Result<()>;
     fn PrepareForSync(&self, cbnumitems: u32, pitemids: *const windows_core::GUID, hwndparent: super::super::Foundation::HWND, dwreserved: u32) -> windows_core::Result<()>;
     fn Synchronize(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn SetItemStatus(&self, pitemid: *const windows_core::GUID, dwsyncmgrstatus: u32) -> windows_core::Result<()>;
@@ -47219,7 +47219,7 @@ pub struct IThumbnailCache_Vtbl {
     pub GetThumbnailByID: unsafe extern "system" fn(*mut core::ffi::c_void, WTS_THUMBNAILID, u32, *mut *mut core::ffi::c_void, *mut WTS_CACHEFLAGS) -> windows_core::HRESULT,
 }
 pub trait IThumbnailCache_Impl: windows_core::IUnknownImpl {
-    fn GetThumbnail(&self, pshellitem: windows_core::Ref<IShellItem>, cxyrequestedthumbsize: u32, flags: WTS_FLAGS, ppvthumb: windows_core::OutRef<'_, ISharedBitmap>, poutflags: *mut WTS_CACHEFLAGS, pthumbnailid: *mut WTS_THUMBNAILID) -> windows_core::Result<()>;
+    fn GetThumbnail(&self, pshellitem: windows_core::Ref<'_, IShellItem>, cxyrequestedthumbsize: u32, flags: WTS_FLAGS, ppvthumb: windows_core::OutRef<'_, ISharedBitmap>, poutflags: *mut WTS_CACHEFLAGS, pthumbnailid: *mut WTS_THUMBNAILID) -> windows_core::Result<()>;
     fn GetThumbnailByID(&self, thumbnailid: &WTS_THUMBNAILID, cxyrequestedthumbsize: u32, ppvthumb: windows_core::OutRef<'_, ISharedBitmap>, poutflags: *mut WTS_CACHEFLAGS) -> windows_core::Result<()>;
 }
 impl IThumbnailCache_Vtbl {
@@ -47263,7 +47263,7 @@ pub struct IThumbnailCachePrimer_Vtbl {
     pub PageInThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WTS_FLAGS, u32) -> windows_core::HRESULT,
 }
 pub trait IThumbnailCachePrimer_Impl: windows_core::IUnknownImpl {
-    fn PageInThumbnail(&self, psi: windows_core::Ref<IShellItem>, wtsflags: WTS_FLAGS, cxyrequestedthumbsize: u32) -> windows_core::Result<()>;
+    fn PageInThumbnail(&self, psi: windows_core::Ref<'_, IShellItem>, wtsflags: WTS_FLAGS, cxyrequestedthumbsize: u32) -> windows_core::Result<()>;
 }
 impl IThumbnailCachePrimer_Vtbl {
     pub const fn new<Identity: IThumbnailCachePrimer_Impl, const OFFSET: isize>() -> Self {
@@ -47304,7 +47304,7 @@ pub struct IThumbnailCapture_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IThumbnailCapture_Impl: windows_core::IUnknownImpl {
-    fn CaptureThumbnail(&self, pmaxsize: *const super::super::Foundation::SIZE, phtmldoc2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP>;
+    fn CaptureThumbnail(&self, pmaxsize: *const super::super::Foundation::SIZE, phtmldoc2: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IThumbnailCapture_Vtbl {
@@ -47352,7 +47352,7 @@ pub struct IThumbnailHandlerFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 pub trait IThumbnailHandlerFactory_Impl: windows_core::IUnknownImpl {
-    fn GetThumbnailHandler(&self, pidlchild: *const Common::ITEMIDLIST, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetThumbnailHandler(&self, pidlchild: *const Common::ITEMIDLIST, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 impl IThumbnailHandlerFactory_Vtbl {
@@ -47472,7 +47472,7 @@ pub struct IThumbnailStreamCache_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IThumbnailStreamCache_Impl: windows_core::IUnknownImpl {
     fn GetThumbnailStream(&self, path: &windows_core::PCWSTR, cacheid: u64, options: ThumbnailStreamCacheOptions, requestedthumbnailsize: u32, thumbnailsize: *mut super::super::Foundation::SIZE, thumbnailstream: windows_core::OutRef<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn SetThumbnailStream(&self, path: &windows_core::PCWSTR, cacheid: u64, thumbnailsize: &super::super::Foundation::SIZE, thumbnailstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn SetThumbnailStream(&self, path: &windows_core::PCWSTR, cacheid: u64, thumbnailsize: &super::super::Foundation::SIZE, thumbnailstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IThumbnailStreamCache_Vtbl {
@@ -47528,7 +47528,7 @@ pub struct ITrackShellMenu_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ITrackShellMenu_Impl: IShellMenu_Impl {
-    fn SetObscured(&self, hwndtb: super::super::Foundation::HWND, punkband: windows_core::Ref<windows_core::IUnknown>, dwsmsetflags: u32) -> windows_core::Result<()>;
+    fn SetObscured(&self, hwndtb: super::super::Foundation::HWND, punkband: windows_core::Ref<'_, windows_core::IUnknown>, dwsmsetflags: u32) -> windows_core::Result<()>;
     fn Popup(&self, hwnd: super::super::Foundation::HWND, ppt: *mut super::super::Foundation::POINTL, prcexclude: *mut super::super::Foundation::RECTL, dwflags: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -47576,7 +47576,7 @@ pub struct ITranscodeImage_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITranscodeImage_Impl: windows_core::IUnknownImpl {
-    fn TranscodeImage(&self, pshellitem: windows_core::Ref<IShellItem>, uimaxwidth: u32, uimaxheight: u32, flags: u32, pvimage: windows_core::Ref<super::super::System::Com::IStream>, puiwidth: *mut u32, puiheight: *mut u32) -> windows_core::Result<()>;
+    fn TranscodeImage(&self, pshellitem: windows_core::Ref<'_, IShellItem>, uimaxwidth: u32, uimaxheight: u32, flags: u32, pvimage: windows_core::Ref<'_, super::super::System::Com::IStream>, puiwidth: *mut u32, puiheight: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITranscodeImage_Vtbl {
@@ -47653,11 +47653,11 @@ pub struct ITransferAdviseSink_Vtbl {
 pub trait ITransferAdviseSink_Impl: windows_core::IUnknownImpl {
     fn UpdateProgress(&self, ullsizecurrent: u64, ullsizetotal: u64, nfilescurrent: i32, nfilestotal: i32, nfolderscurrent: i32, nfolderstotal: i32) -> windows_core::Result<()>;
     fn UpdateTransferState(&self, ts: u32) -> windows_core::Result<()>;
-    fn ConfirmOverwrite(&self, psisource: windows_core::Ref<IShellItem>, psidestparent: windows_core::Ref<IShellItem>, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ConfirmEncryptionLoss(&self, psisource: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn FileFailure(&self, psi: windows_core::Ref<IShellItem>, pszitem: &windows_core::PCWSTR, hrerror: windows_core::HRESULT, pszrename: windows_core::PWSTR, cchrename: u32) -> windows_core::Result<()>;
-    fn SubStreamFailure(&self, psi: windows_core::Ref<IShellItem>, pszstreamname: &windows_core::PCWSTR, hrerror: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn PropertyFailure(&self, psi: windows_core::Ref<IShellItem>, pkey: *const super::super::Foundation::PROPERTYKEY, hrerror: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn ConfirmOverwrite(&self, psisource: windows_core::Ref<'_, IShellItem>, psidestparent: windows_core::Ref<'_, IShellItem>, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn ConfirmEncryptionLoss(&self, psisource: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn FileFailure(&self, psi: windows_core::Ref<'_, IShellItem>, pszitem: &windows_core::PCWSTR, hrerror: windows_core::HRESULT, pszrename: windows_core::PWSTR, cchrename: u32) -> windows_core::Result<()>;
+    fn SubStreamFailure(&self, psi: windows_core::Ref<'_, IShellItem>, pszstreamname: &windows_core::PCWSTR, hrerror: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn PropertyFailure(&self, psi: windows_core::Ref<'_, IShellItem>, pkey: *const super::super::Foundation::PROPERTYKEY, hrerror: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl ITransferAdviseSink_Vtbl {
     pub const fn new<Identity: ITransferAdviseSink_Impl, const OFFSET: isize>() -> Self {
@@ -47749,7 +47749,7 @@ pub struct ITransferDestination_Vtbl {
     pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u64, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITransferDestination_Impl: windows_core::IUnknownImpl {
-    fn Advise(&self, psink: windows_core::Ref<ITransferAdviseSink>) -> windows_core::Result<u32>;
+    fn Advise(&self, psink: windows_core::Ref<'_, ITransferAdviseSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn CreateItem(&self, pszname: &windows_core::PCWSTR, dwattributes: u32, ullsize: u64, flags: u32, riiditem: *const windows_core::GUID, ppvitem: *mut *mut core::ffi::c_void, riidresources: *const windows_core::GUID, ppvresources: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
@@ -47946,19 +47946,19 @@ pub struct ITransferSource_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ITransferSource_Impl: windows_core::IUnknownImpl {
-    fn Advise(&self, psink: windows_core::Ref<ITransferAdviseSink>) -> windows_core::Result<u32>;
+    fn Advise(&self, psink: windows_core::Ref<'_, ITransferAdviseSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
-    fn SetProperties(&self, pproparray: windows_core::Ref<PropertiesSystem::IPropertyChangeArray>) -> windows_core::Result<()>;
-    fn OpenItem(&self, psi: windows_core::Ref<IShellItem>, flags: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn MoveItem(&self, psi: windows_core::Ref<IShellItem>, psiparentdst: windows_core::Ref<IShellItem>, psznamedst: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<IShellItem>;
-    fn RecycleItem(&self, psisource: windows_core::Ref<IShellItem>, psiparentdest: windows_core::Ref<IShellItem>, flags: u32) -> windows_core::Result<IShellItem>;
-    fn RemoveItem(&self, psisource: windows_core::Ref<IShellItem>, flags: u32) -> windows_core::Result<()>;
-    fn RenameItem(&self, psisource: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<IShellItem>;
-    fn LinkItem(&self, psisource: windows_core::Ref<IShellItem>, psiparentdest: windows_core::Ref<IShellItem>, psznewname: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<IShellItem>;
-    fn ApplyPropertiesToItem(&self, psisource: windows_core::Ref<IShellItem>) -> windows_core::Result<IShellItem>;
-    fn GetDefaultDestinationName(&self, psisource: windows_core::Ref<IShellItem>, psiparentdest: windows_core::Ref<IShellItem>) -> windows_core::Result<windows_core::PWSTR>;
-    fn EnterFolder(&self, psichildfolderdest: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
-    fn LeaveFolder(&self, psichildfolderdest: windows_core::Ref<IShellItem>) -> windows_core::Result<()>;
+    fn SetProperties(&self, pproparray: windows_core::Ref<'_, PropertiesSystem::IPropertyChangeArray>) -> windows_core::Result<()>;
+    fn OpenItem(&self, psi: windows_core::Ref<'_, IShellItem>, flags: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn MoveItem(&self, psi: windows_core::Ref<'_, IShellItem>, psiparentdst: windows_core::Ref<'_, IShellItem>, psznamedst: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<IShellItem>;
+    fn RecycleItem(&self, psisource: windows_core::Ref<'_, IShellItem>, psiparentdest: windows_core::Ref<'_, IShellItem>, flags: u32) -> windows_core::Result<IShellItem>;
+    fn RemoveItem(&self, psisource: windows_core::Ref<'_, IShellItem>, flags: u32) -> windows_core::Result<()>;
+    fn RenameItem(&self, psisource: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<IShellItem>;
+    fn LinkItem(&self, psisource: windows_core::Ref<'_, IShellItem>, psiparentdest: windows_core::Ref<'_, IShellItem>, psznewname: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<IShellItem>;
+    fn ApplyPropertiesToItem(&self, psisource: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<IShellItem>;
+    fn GetDefaultDestinationName(&self, psisource: windows_core::Ref<'_, IShellItem>, psiparentdest: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<windows_core::PWSTR>;
+    fn EnterFolder(&self, psichildfolderdest: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
+    fn LeaveFolder(&self, psichildfolderdest: windows_core::Ref<'_, IShellItem>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ITransferSource_Vtbl {
@@ -48141,8 +48141,8 @@ pub struct ITravelEntry_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait ITravelEntry_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Update(&self, punk: windows_core::Ref<windows_core::IUnknown>, fislocalanchor: windows_core::BOOL) -> windows_core::Result<()>;
+    fn Invoke(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Update(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, fislocalanchor: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetPidl(&self) -> windows_core::Result<*mut Common::ITEMIDLIST>;
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -48281,16 +48281,16 @@ pub struct ITravelLog_Vtbl {
 }
 #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ITravelLog_Impl: windows_core::IUnknownImpl {
-    fn AddEntry(&self, punk: windows_core::Ref<windows_core::IUnknown>, fislocalanchor: windows_core::BOOL) -> windows_core::Result<()>;
-    fn UpdateEntry(&self, punk: windows_core::Ref<windows_core::IUnknown>, fislocalanchor: windows_core::BOOL) -> windows_core::Result<()>;
-    fn UpdateExternal(&self, punk: windows_core::Ref<windows_core::IUnknown>, punkhlbrowsecontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Travel(&self, punk: windows_core::Ref<windows_core::IUnknown>, ioffset: i32) -> windows_core::Result<()>;
-    fn GetTravelEntry(&self, punk: windows_core::Ref<windows_core::IUnknown>, ioffset: i32, ppte: windows_core::OutRef<'_, ITravelEntry>) -> windows_core::Result<()>;
-    fn FindTravelEntry(&self, punk: windows_core::Ref<windows_core::IUnknown>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<ITravelEntry>;
-    fn GetToolTipText(&self, punk: windows_core::Ref<windows_core::IUnknown>, ioffset: i32, idstemplate: i32, pwztext: windows_core::PWSTR, cchtext: u32) -> windows_core::Result<()>;
-    fn InsertMenuEntries(&self, punk: windows_core::Ref<windows_core::IUnknown>, hmenu: super::WindowsAndMessaging::HMENU, npos: i32, idfirst: i32, idlast: i32, dwflags: u32) -> windows_core::Result<()>;
+    fn AddEntry(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, fislocalanchor: windows_core::BOOL) -> windows_core::Result<()>;
+    fn UpdateEntry(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, fislocalanchor: windows_core::BOOL) -> windows_core::Result<()>;
+    fn UpdateExternal(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, punkhlbrowsecontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Travel(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, ioffset: i32) -> windows_core::Result<()>;
+    fn GetTravelEntry(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, ioffset: i32, ppte: windows_core::OutRef<'_, ITravelEntry>) -> windows_core::Result<()>;
+    fn FindTravelEntry(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<ITravelEntry>;
+    fn GetToolTipText(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, ioffset: i32, idstemplate: i32, pwztext: windows_core::PWSTR, cchtext: u32) -> windows_core::Result<()>;
+    fn InsertMenuEntries(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>, hmenu: super::WindowsAndMessaging::HMENU, npos: i32, idfirst: i32, idlast: i32, dwflags: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<ITravelLog>;
-    fn CountEntries(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> u32;
+    fn CountEntries(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> u32;
     fn Revert(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -48431,7 +48431,7 @@ pub struct ITravelLogClient_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 pub trait ITravelLogClient_Impl: windows_core::IUnknownImpl {
     fn FindWindowByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetWindowData(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, pwindata: *mut WINDOWDATA) -> windows_core::Result<()>;
+    fn GetWindowData(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, pwindata: *mut WINDOWDATA) -> windows_core::Result<()>;
     fn LoadHistoryPosition(&self, pszurllocation: &windows_core::PCWSTR, dwposition: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -48599,12 +48599,12 @@ pub struct ITravelLogStg_Vtbl {
     pub GetRelativeEntry: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITravelLogStg_Impl: windows_core::IUnknownImpl {
-    fn CreateEntry(&self, pszurl: &windows_core::PCWSTR, psztitle: &windows_core::PCWSTR, ptlerelativeto: windows_core::Ref<ITravelLogEntry>, fprepend: windows_core::BOOL) -> windows_core::Result<ITravelLogEntry>;
-    fn TravelTo(&self, ptle: windows_core::Ref<ITravelLogEntry>) -> windows_core::Result<()>;
+    fn CreateEntry(&self, pszurl: &windows_core::PCWSTR, psztitle: &windows_core::PCWSTR, ptlerelativeto: windows_core::Ref<'_, ITravelLogEntry>, fprepend: windows_core::BOOL) -> windows_core::Result<ITravelLogEntry>;
+    fn TravelTo(&self, ptle: windows_core::Ref<'_, ITravelLogEntry>) -> windows_core::Result<()>;
     fn EnumEntries(&self, flags: TLENUMF) -> windows_core::Result<IEnumTravelLogEntry>;
     fn FindEntries(&self, flags: TLENUMF, pszurl: &windows_core::PCWSTR) -> windows_core::Result<IEnumTravelLogEntry>;
     fn GetCount(&self, flags: TLENUMF) -> windows_core::Result<u32>;
-    fn RemoveEntry(&self, ptle: windows_core::Ref<ITravelLogEntry>) -> windows_core::Result<()>;
+    fn RemoveEntry(&self, ptle: windows_core::Ref<'_, ITravelLogEntry>) -> windows_core::Result<()>;
     fn GetRelativeEntry(&self, ioffset: i32) -> windows_core::Result<ITravelLogEntry>;
 }
 impl ITravelLogStg_Vtbl {
@@ -48818,7 +48818,7 @@ pub struct IURLSearchHook2_Vtbl {
     pub TranslateWithSearchContext: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IURLSearchHook2_Impl: IURLSearchHook_Impl {
-    fn TranslateWithSearchContext(&self, pwszsearchurl: windows_core::PWSTR, cchbuffersize: u32, psearchcontext: windows_core::Ref<ISearchContext>) -> windows_core::Result<()>;
+    fn TranslateWithSearchContext(&self, pwszsearchurl: windows_core::PWSTR, cchbuffersize: u32, psearchcontext: windows_core::Ref<'_, ISearchContext>) -> windows_core::Result<()>;
 }
 impl IURLSearchHook2_Vtbl {
     pub const fn new<Identity: IURLSearchHook2_Impl, const OFFSET: isize>() -> Self {
@@ -49010,7 +49010,7 @@ pub struct IUpdateIDList_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 pub trait IUpdateIDList_Impl: windows_core::IUnknownImpl {
-    fn Update(&self, pbc: windows_core::Ref<super::super::System::Com::IBindCtx>, pidlin: *const Common::ITEMIDLIST) -> windows_core::Result<*mut Common::ITEMIDLIST>;
+    fn Update(&self, pbc: windows_core::Ref<'_, super::super::System::Com::IBindCtx>, pidlin: *const Common::ITEMIDLIST) -> windows_core::Result<*mut Common::ITEMIDLIST>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 impl IUpdateIDList_Vtbl {
@@ -49143,7 +49143,7 @@ pub trait IUserNotification_Impl: windows_core::IUnknownImpl {
     fn SetBalloonInfo(&self, psztitle: &windows_core::PCWSTR, psztext: &windows_core::PCWSTR, dwinfoflags: u32) -> windows_core::Result<()>;
     fn SetBalloonRetry(&self, dwshowtime: u32, dwinterval: u32, cretrycount: u32) -> windows_core::Result<()>;
     fn SetIconInfo(&self, hicon: super::WindowsAndMessaging::HICON, psztooltip: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Show(&self, pqc: windows_core::Ref<IQueryContinue>, dwcontinuepollinterval: u32) -> windows_core::Result<()>;
+    fn Show(&self, pqc: windows_core::Ref<'_, IQueryContinue>, dwcontinuepollinterval: u32) -> windows_core::Result<()>;
     fn PlaySound(&self, pszsoundname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -49245,7 +49245,7 @@ pub trait IUserNotification2_Impl: windows_core::IUnknownImpl {
     fn SetBalloonInfo(&self, psztitle: &windows_core::PCWSTR, psztext: &windows_core::PCWSTR, dwinfoflags: u32) -> windows_core::Result<()>;
     fn SetBalloonRetry(&self, dwshowtime: u32, dwinterval: u32, cretrycount: u32) -> windows_core::Result<()>;
     fn SetIconInfo(&self, hicon: super::WindowsAndMessaging::HICON, psztooltip: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Show(&self, pqc: windows_core::Ref<IQueryContinue>, dwcontinuepollinterval: u32, psink: windows_core::Ref<IUserNotificationCallback>) -> windows_core::Result<()>;
+    fn Show(&self, pqc: windows_core::Ref<'_, IQueryContinue>, dwcontinuepollinterval: u32, psink: windows_core::Ref<'_, IUserNotificationCallback>) -> windows_core::Result<()>;
     fn PlaySound(&self, pszsoundname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -51527,9 +51527,9 @@ pub const LOF_DEFAULT: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(0i32);
 pub const LOF_MASK_ALL: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(1i32);
 pub const LOF_PINNEDTONAVPANE: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(1i32);
 #[cfg(feature = "Win32_System_Com")]
-pub type LPFNDFMCALLBACK = Option<unsafe extern "system" fn(psf: windows_core::Ref<IShellFolder>, hwnd: super::super::Foundation::HWND, pdtobj: windows_core::Ref<super::super::System::Com::IDataObject>, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
+pub type LPFNDFMCALLBACK = Option<unsafe extern "system" fn(psf: windows_core::Ref<'_, IShellFolder>, hwnd: super::super::Foundation::HWND, pdtobj: windows_core::Ref<'_, super::super::System::Com::IDataObject>, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_System_Ole")]
-pub type LPFNVIEWCALLBACK = Option<unsafe extern "system" fn(psvouter: windows_core::Ref<IShellView>, psf: windows_core::Ref<IShellFolder>, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
+pub type LPFNVIEWCALLBACK = Option<unsafe extern "system" fn(psvouter: windows_core::Ref<'_, IShellView>, psf: windows_core::Ref<'_, IShellFolder>, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
 pub const LSF_FAILIFTHERE: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(0i32);
 pub const LSF_MAKEUNIQUENAME: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(2i32);
 pub const LSF_OVERRIDEEXISTING: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(1i32);

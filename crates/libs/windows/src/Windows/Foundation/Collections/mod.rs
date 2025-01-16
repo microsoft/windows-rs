@@ -434,12 +434,12 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
 {
-    fn Lookup(&self, key: <K as windows_core::Type<K>>::Ref) -> windows_core::Result<V>;
+    fn Lookup(&self, key: windows_core::Ref<'_, K>) -> windows_core::Result<V>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn HasKey(&self, key: <K as windows_core::Type<K>>::Ref) -> windows_core::Result<bool>;
+    fn HasKey(&self, key: windows_core::Ref<'_, K>) -> windows_core::Result<bool>;
     fn GetView(&self) -> windows_core::Result<IMapView<K, V>>;
-    fn Insert(&self, key: <K as windows_core::Type<K>>::Ref, value: <V as windows_core::Type<V>>::Ref) -> windows_core::Result<bool>;
-    fn Remove(&self, key: <K as windows_core::Type<K>>::Ref) -> windows_core::Result<()>;
+    fn Insert(&self, key: windows_core::Ref<'_, K>, value: windows_core::Ref<'_, V>) -> windows_core::Result<bool>;
+    fn Remove(&self, key: windows_core::Ref<'_, K>) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMap_Vtbl<K, V> {
@@ -720,9 +720,9 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
 {
-    fn Lookup(&self, key: <K as windows_core::Type<K>>::Ref) -> windows_core::Result<V>;
+    fn Lookup(&self, key: windows_core::Ref<'_, K>) -> windows_core::Result<V>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn HasKey(&self, key: <K as windows_core::Type<K>>::Ref) -> windows_core::Result<bool>;
+    fn HasKey(&self, key: windows_core::Ref<'_, K>) -> windows_core::Result<bool>;
     fn Split(&self, first: windows_core::OutRef<'_, IMapView<K, V>>, second: windows_core::OutRef<'_, IMapView<K, V>>) -> windows_core::Result<()>;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMapView_Vtbl<K, V> {
@@ -920,7 +920,7 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
 {
-    fn MapChanged(&self, vhnd: windows_core::Ref<MapChangedEventHandler<K, V>>) -> windows_core::Result<i64>;
+    fn MapChanged(&self, vhnd: windows_core::Ref<'_, MapChangedEventHandler<K, V>>) -> windows_core::Result<i64>;
     fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IObservableMap_Vtbl<K, V> {
@@ -1106,7 +1106,7 @@ pub trait IObservableVector_Impl<T>: IIterable_Impl<T> + IVector_Impl<T>
 where
     T: windows_core::RuntimeType + 'static,
 {
-    fn VectorChanged(&self, vhnd: windows_core::Ref<VectorChangedEventHandler<T>>) -> windows_core::Result<i64>;
+    fn VectorChanged(&self, vhnd: windows_core::Ref<'_, VectorChangedEventHandler<T>>) -> windows_core::Result<i64>;
     fn RemoveVectorChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
@@ -1380,11 +1380,11 @@ where
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
     fn GetView(&self) -> windows_core::Result<IVectorView<T>>;
-    fn IndexOf(&self, value: <T as windows_core::Type<T>>::Ref, index: &mut u32) -> windows_core::Result<bool>;
-    fn SetAt(&self, index: u32, value: <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()>;
-    fn InsertAt(&self, index: u32, value: <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()>;
+    fn IndexOf(&self, value: windows_core::Ref<'_, T>, index: &mut u32) -> windows_core::Result<bool>;
+    fn SetAt(&self, index: u32, value: windows_core::Ref<'_, T>) -> windows_core::Result<()>;
+    fn InsertAt(&self, index: u32, value: windows_core::Ref<'_, T>) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
-    fn Append(&self, value: <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()>;
+    fn Append(&self, value: windows_core::Ref<'_, T>) -> windows_core::Result<()>;
     fn RemoveAtEnd(&self) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn GetMany(&self, startIndex: u32, items: &mut [<T as windows_core::Type<T>>::Default]) -> windows_core::Result<u32>;
@@ -1687,7 +1687,7 @@ where
 {
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn IndexOf(&self, value: <T as windows_core::Type<T>>::Ref, index: &mut u32) -> windows_core::Result<bool>;
+    fn IndexOf(&self, value: windows_core::Ref<'_, T>, index: &mut u32) -> windows_core::Result<bool>;
     fn GetMany(&self, startIndex: u32, items: &mut [<T as windows_core::Type<T>>::Default]) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
@@ -1780,7 +1780,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({179517f3-94ee-41f8-bddc-768a895544f3}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")");
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> MapChangedEventHandler<K, V> {
-    pub fn new<F: FnMut(windows_core::Ref<IObservableMap<K, V>>, windows_core::Ref<IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, IObservableMap<K, V>>, windows_core::Ref<'_, IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MapChangedEventHandlerBox { vtable: &MapChangedEventHandlerBox::<K, V, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1805,7 +1805,7 @@ where
     V: core::marker::PhantomData<V>,
 }
 #[repr(C)]
-struct MapChangedEventHandlerBox<K, V, F: FnMut(windows_core::Ref<IObservableMap<K, V>>, windows_core::Ref<IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static>
+struct MapChangedEventHandlerBox<K, V, F: FnMut(windows_core::Ref<'_, IObservableMap<K, V>>, windows_core::Ref<'_, IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static>
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
@@ -1814,7 +1814,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<IObservableMap<K, V>>, windows_core::Ref<IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static> MapChangedEventHandlerBox<K, V, F> {
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<'_, IObservableMap<K, V>>, windows_core::Ref<'_, IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static> MapChangedEventHandlerBox<K, V, F> {
     const VTABLE: MapChangedEventHandler_Vtbl<K, V> = MapChangedEventHandler_Vtbl::<K, V> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -2190,7 +2190,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Vecto
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({0c051752-9fbf-4c70-aa0c-0e4c82d9a761}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> VectorChangedEventHandler<T> {
-    pub fn new<F: FnMut(windows_core::Ref<IObservableVector<T>>, windows_core::Ref<IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, IObservableVector<T>>, windows_core::Ref<'_, IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = VectorChangedEventHandlerBox { vtable: &VectorChangedEventHandlerBox::<T, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -2213,7 +2213,7 @@ where
     T: core::marker::PhantomData<T>,
 }
 #[repr(C)]
-struct VectorChangedEventHandlerBox<T, F: FnMut(windows_core::Ref<IObservableVector<T>>, windows_core::Ref<IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>
+struct VectorChangedEventHandlerBox<T, F: FnMut(windows_core::Ref<'_, IObservableVector<T>>, windows_core::Ref<'_, IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>
 where
     T: windows_core::RuntimeType + 'static,
 {
@@ -2221,7 +2221,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<T: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<IObservableVector<T>>, windows_core::Ref<IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> VectorChangedEventHandlerBox<T, F> {
+impl<T: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<'_, IObservableVector<T>>, windows_core::Ref<'_, IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> VectorChangedEventHandlerBox<T, F> {
     const VTABLE: VectorChangedEventHandler_Vtbl<T> = VectorChangedEventHandler_Vtbl::<T> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,

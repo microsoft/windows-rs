@@ -11,7 +11,7 @@ impl windows_core::RuntimeType for AsyncActionCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl AsyncActionCompletedHandler {
-    pub fn new<F: FnMut(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = AsyncActionCompletedHandlerBox { vtable: &AsyncActionCompletedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -29,12 +29,12 @@ pub struct AsyncActionCompletedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct AsyncActionCompletedHandlerBox<F: FnMut(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> {
+struct AsyncActionCompletedHandlerBox<F: FnMut(windows_core::Ref<'_, IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const AsyncActionCompletedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncActionCompletedHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncActionCompletedHandlerBox<F> {
     const VTABLE: AsyncActionCompletedHandler_Vtbl = AsyncActionCompletedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -87,7 +87,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType f
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({6d844858-0cff-4590-ae89-95a5a5c8b4b8}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
 }
 impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<TProgress> {
-    pub fn new<F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>, windows_core::Ref<'_, TProgress>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = AsyncActionProgressHandlerBox { vtable: &AsyncActionProgressHandlerBox::<TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -110,7 +110,7 @@ where
     TProgress: core::marker::PhantomData<TProgress>,
 }
 #[repr(C)]
-struct AsyncActionProgressHandlerBox<TProgress, F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static>
+struct AsyncActionProgressHandlerBox<TProgress, F: FnMut(windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>, windows_core::Ref<'_, TProgress>) -> windows_core::Result<()> + Send + 'static>
 where
     TProgress: windows_core::RuntimeType + 'static,
 {
@@ -118,7 +118,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static> AsyncActionProgressHandlerBox<TProgress, F> {
+impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>, windows_core::Ref<'_, TProgress>) -> windows_core::Result<()> + Send + 'static> AsyncActionProgressHandlerBox<TProgress, F> {
     const VTABLE: AsyncActionProgressHandler_Vtbl<TProgress> = AsyncActionProgressHandler_Vtbl::<TProgress> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -175,7 +175,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType f
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({9c029f91-cc84-44fd-ac26-0a6c4e555281}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
 }
 impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionWithProgressCompletedHandler<TProgress> {
-    pub fn new<F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = AsyncActionWithProgressCompletedHandlerBox { vtable: &AsyncActionWithProgressCompletedHandlerBox::<TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -197,7 +197,7 @@ where
     TProgress: core::marker::PhantomData<TProgress>,
 }
 #[repr(C)]
-struct AsyncActionWithProgressCompletedHandlerBox<TProgress, F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
+struct AsyncActionWithProgressCompletedHandlerBox<TProgress, F: FnMut(windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
 where
     TProgress: windows_core::RuntimeType + 'static,
 {
@@ -205,7 +205,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncActionWithProgressCompletedHandlerBox<TProgress, F> {
+impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncActionWithProgressCompletedHandlerBox<TProgress, F> {
     const VTABLE: AsyncActionWithProgressCompletedHandler_Vtbl<TProgress> = AsyncActionWithProgressCompletedHandler_Vtbl::<TProgress> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -262,7 +262,7 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType for
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({fcdcf02c-e5d8-4478-915a-4d90b74b83a5}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b")");
 }
 impl<TResult: windows_core::RuntimeType + 'static> AsyncOperationCompletedHandler<TResult> {
-    pub fn new<F: FnMut(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = AsyncOperationCompletedHandlerBox { vtable: &AsyncOperationCompletedHandlerBox::<TResult, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -284,7 +284,7 @@ where
     TResult: core::marker::PhantomData<TResult>,
 }
 #[repr(C)]
-struct AsyncOperationCompletedHandlerBox<TResult, F: FnMut(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
+struct AsyncOperationCompletedHandlerBox<TResult, F: FnMut(windows_core::Ref<'_, IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
 where
     TResult: windows_core::RuntimeType + 'static,
 {
@@ -292,7 +292,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<TResult: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncOperationCompletedHandlerBox<TResult, F> {
+impl<TResult: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<'_, IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncOperationCompletedHandlerBox<TResult, F> {
     const VTABLE: AsyncOperationCompletedHandler_Vtbl<TResult> = AsyncOperationCompletedHandler_Vtbl::<TResult> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -350,7 +350,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({55690902-0aab-421a-8778-f8ce5026d758}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
 }
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> AsyncOperationProgressHandler<TResult, TProgress> {
-    pub fn new<F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>, windows_core::Ref<'_, TProgress>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = AsyncOperationProgressHandlerBox { vtable: &AsyncOperationProgressHandlerBox::<TResult, TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -375,7 +375,7 @@ where
     TProgress: core::marker::PhantomData<TProgress>,
 }
 #[repr(C)]
-struct AsyncOperationProgressHandlerBox<TResult, TProgress, F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static>
+struct AsyncOperationProgressHandlerBox<TResult, TProgress, F: FnMut(windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>, windows_core::Ref<'_, TProgress>) -> windows_core::Result<()> + Send + 'static>
 where
     TResult: windows_core::RuntimeType + 'static,
     TProgress: windows_core::RuntimeType + 'static,
@@ -384,7 +384,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, <TProgress as windows_core::Type<TProgress>>::Ref) -> windows_core::Result<()> + Send + 'static> AsyncOperationProgressHandlerBox<TResult, TProgress, F> {
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>, windows_core::Ref<'_, TProgress>) -> windows_core::Result<()> + Send + 'static> AsyncOperationProgressHandlerBox<TResult, TProgress, F> {
     const VTABLE: AsyncOperationProgressHandler_Vtbl<TResult, TProgress> = AsyncOperationProgressHandler_Vtbl::<TResult, TProgress> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -443,7 +443,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({e85df41d-6aa7-46e3-a8e2-f009d840c627}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
 }
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
-    pub fn new<F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = AsyncOperationWithProgressCompletedHandlerBox { vtable: &AsyncOperationWithProgressCompletedHandlerBox::<TResult, TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -467,7 +467,7 @@ where
     TProgress: core::marker::PhantomData<TProgress>,
 }
 #[repr(C)]
-struct AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
+struct AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F: FnMut(windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
 where
     TResult: windows_core::RuntimeType + 'static,
     TProgress: windows_core::RuntimeType + 'static,
@@ -476,7 +476,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F> {
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F> {
     const VTABLE: AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress> = AsyncOperationWithProgressCompletedHandler_Vtbl::<TResult, TProgress> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -665,7 +665,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Event
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
-    pub fn new<F: FnMut(windows_core::Ref<windows_core::IInspectable>, <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, T>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = EventHandlerBox { vtable: &EventHandlerBox::<T, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -688,7 +688,7 @@ where
     T: core::marker::PhantomData<T>,
 }
 #[repr(C)]
-struct EventHandlerBox<T, F: FnMut(windows_core::Ref<windows_core::IInspectable>, <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()> + Send + 'static>
+struct EventHandlerBox<T, F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, T>) -> windows_core::Result<()> + Send + 'static>
 where
     T: windows_core::RuntimeType + 'static,
 {
@@ -696,7 +696,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<T: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<windows_core::IInspectable>, <T as windows_core::Type<T>>::Ref) -> windows_core::Result<()> + Send + 'static> EventHandlerBox<T, F> {
+impl<T: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, T>) -> windows_core::Result<()> + Send + 'static> EventHandlerBox<T, F> {
     const VTABLE: EventHandler_Vtbl<T> = EventHandler_Vtbl::<T> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -829,7 +829,7 @@ impl windows_core::RuntimeName for IAsyncAction {
     const NAME: &'static str = "Windows.Foundation.IAsyncAction";
 }
 pub trait IAsyncAction_Impl: IAsyncInfo_Impl {
-    fn SetCompleted(&self, handler: windows_core::Ref<AsyncActionCompletedHandler>) -> windows_core::Result<()>;
+    fn SetCompleted(&self, handler: windows_core::Ref<'_, AsyncActionCompletedHandler>) -> windows_core::Result<()>;
     fn Completed(&self) -> windows_core::Result<AsyncActionCompletedHandler>;
     fn GetResults(&self) -> windows_core::Result<()>;
 }
@@ -967,9 +967,9 @@ pub trait IAsyncActionWithProgress_Impl<TProgress>: IAsyncInfo_Impl
 where
     TProgress: windows_core::RuntimeType + 'static,
 {
-    fn SetProgress(&self, handler: windows_core::Ref<AsyncActionProgressHandler<TProgress>>) -> windows_core::Result<()>;
+    fn SetProgress(&self, handler: windows_core::Ref<'_, AsyncActionProgressHandler<TProgress>>) -> windows_core::Result<()>;
     fn Progress(&self) -> windows_core::Result<AsyncActionProgressHandler<TProgress>>;
-    fn SetCompleted(&self, handler: windows_core::Ref<AsyncActionWithProgressCompletedHandler<TProgress>>) -> windows_core::Result<()>;
+    fn SetCompleted(&self, handler: windows_core::Ref<'_, AsyncActionWithProgressCompletedHandler<TProgress>>) -> windows_core::Result<()>;
     fn Completed(&self) -> windows_core::Result<AsyncActionWithProgressCompletedHandler<TProgress>>;
     fn GetResults(&self) -> windows_core::Result<()>;
 }
@@ -1242,7 +1242,7 @@ pub trait IAsyncOperation_Impl<TResult>: IAsyncInfo_Impl
 where
     TResult: windows_core::RuntimeType + 'static,
 {
-    fn SetCompleted(&self, handler: windows_core::Ref<AsyncOperationCompletedHandler<TResult>>) -> windows_core::Result<()>;
+    fn SetCompleted(&self, handler: windows_core::Ref<'_, AsyncOperationCompletedHandler<TResult>>) -> windows_core::Result<()>;
     fn Completed(&self) -> windows_core::Result<AsyncOperationCompletedHandler<TResult>>;
     fn GetResults(&self) -> windows_core::Result<TResult>;
 }
@@ -1397,9 +1397,9 @@ where
     TResult: windows_core::RuntimeType + 'static,
     TProgress: windows_core::RuntimeType + 'static,
 {
-    fn SetProgress(&self, handler: windows_core::Ref<AsyncOperationProgressHandler<TResult, TProgress>>) -> windows_core::Result<()>;
+    fn SetProgress(&self, handler: windows_core::Ref<'_, AsyncOperationProgressHandler<TResult, TProgress>>) -> windows_core::Result<()>;
     fn Progress(&self) -> windows_core::Result<AsyncOperationProgressHandler<TResult, TProgress>>;
-    fn SetCompleted(&self, handler: windows_core::Ref<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>) -> windows_core::Result<()>;
+    fn SetCompleted(&self, handler: windows_core::Ref<'_, AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>) -> windows_core::Result<()>;
     fn Completed(&self) -> windows_core::Result<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>;
     fn GetResults(&self) -> windows_core::Result<TResult>;
 }
@@ -1698,7 +1698,7 @@ impl windows_core::RuntimeName for IMemoryBufferReference {
 }
 pub trait IMemoryBufferReference_Impl: IClosable_Impl {
     fn Capacity(&self) -> windows_core::Result<u32>;
-    fn Closed(&self, handler: windows_core::Ref<TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn Closed(&self, handler: windows_core::Ref<'_, TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()>;
 }
 impl IMemoryBufferReference_Vtbl {
@@ -3685,7 +3685,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({9de1c534-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(TSender::SIGNATURE).push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b")");
 }
 impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static> TypedEventHandler<TSender, TResult> {
-    pub fn new<F: FnMut(<TSender as windows_core::Type<TSender>>::Ref, <TResult as windows_core::Type<TResult>>::Ref) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, TSender>, windows_core::Ref<'_, TResult>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TypedEventHandlerBox { vtable: &TypedEventHandlerBox::<TSender, TResult, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -3710,7 +3710,7 @@ where
     TResult: core::marker::PhantomData<TResult>,
 }
 #[repr(C)]
-struct TypedEventHandlerBox<TSender, TResult, F: FnMut(<TSender as windows_core::Type<TSender>>::Ref, <TResult as windows_core::Type<TResult>>::Ref) -> windows_core::Result<()> + Send + 'static>
+struct TypedEventHandlerBox<TSender, TResult, F: FnMut(windows_core::Ref<'_, TSender>, windows_core::Ref<'_, TResult>) -> windows_core::Result<()> + Send + 'static>
 where
     TSender: windows_core::RuntimeType + 'static,
     TResult: windows_core::RuntimeType + 'static,
@@ -3719,7 +3719,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static, F: FnMut(<TSender as windows_core::Type<TSender>>::Ref, <TResult as windows_core::Type<TResult>>::Ref) -> windows_core::Result<()> + Send + 'static> TypedEventHandlerBox<TSender, TResult, F> {
+impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static, F: FnMut(windows_core::Ref<'_, TSender>, windows_core::Ref<'_, TResult>) -> windows_core::Result<()> + Send + 'static> TypedEventHandlerBox<TSender, TResult, F> {
     const VTABLE: TypedEventHandler_Vtbl<TSender, TResult> = TypedEventHandler_Vtbl::<TSender, TResult> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,

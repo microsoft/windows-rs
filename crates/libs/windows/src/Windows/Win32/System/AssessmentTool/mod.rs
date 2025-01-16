@@ -84,8 +84,8 @@ pub struct IInitiateWinSATAssessment_Vtbl {
     pub CancelAssessment: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IInitiateWinSATAssessment_Impl: windows_core::IUnknownImpl {
-    fn InitiateAssessment(&self, cmdline: &windows_core::PCWSTR, pcallbacks: windows_core::Ref<IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn InitiateFormalAssessment(&self, pcallbacks: windows_core::Ref<IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
+    fn InitiateAssessment(&self, cmdline: &windows_core::PCWSTR, pcallbacks: windows_core::Ref<'_, IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
+    fn InitiateFormalAssessment(&self, pcallbacks: windows_core::Ref<'_, IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn CancelAssessment(&self) -> windows_core::Result<()>;
 }
 impl IInitiateWinSATAssessment_Vtbl {

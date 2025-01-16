@@ -69,8 +69,8 @@ pub struct ISoftwareBitmapNativeFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Media_MediaFoundation"))]
 pub trait ISoftwareBitmapNativeFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateFromWICBitmap(&self, data: windows_core::Ref<super::super::super::super::Graphics::Imaging::IWICBitmap>, forcereadonly: windows_core::BOOL, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateFromMF2DBuffer2(&self, data: windows_core::Ref<super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: windows_core::BOOL, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateFromWICBitmap(&self, data: windows_core::Ref<'_, super::super::super::super::Graphics::Imaging::IWICBitmap>, forcereadonly: windows_core::BOOL, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateFromMF2DBuffer2(&self, data: windows_core::Ref<'_, super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: windows_core::BOOL, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Media_MediaFoundation"))]
 impl ISoftwareBitmapNativeFactory_Vtbl {

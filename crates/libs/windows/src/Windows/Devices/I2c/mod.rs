@@ -356,7 +356,7 @@ impl windows_core::RuntimeName for II2cDeviceStatics {
 pub trait II2cDeviceStatics_Impl: windows_core::IUnknownImpl {
     fn GetDeviceSelector(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyName: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
-    fn FromIdAsync(&self, deviceId: &windows_core::HSTRING, settings: windows_core::Ref<I2cConnectionSettings>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>;
+    fn FromIdAsync(&self, deviceId: &windows_core::HSTRING, settings: windows_core::Ref<'_, I2cConnectionSettings>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>;
 }
 impl II2cDeviceStatics_Vtbl {
     pub const fn new<Identity: II2cDeviceStatics_Impl, const OFFSET: isize>() -> Self {

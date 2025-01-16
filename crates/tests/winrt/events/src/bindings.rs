@@ -128,7 +128,7 @@ pub trait IClass_Impl: windows_core::IUnknownImpl {
     fn Signal(&self, value: i32) -> windows_core::Result<i32>;
     fn Event(
         &self,
-        handler: windows_core::Ref<windows::Foundation::TypedEventHandler<Class, i32>>,
+        handler: windows_core::Ref<'_, windows::Foundation::TypedEventHandler<Class, i32>>,
     ) -> windows_core::Result<i64>;
     fn RemoveEvent(&self, token: i64) -> windows_core::Result<()>;
 }
@@ -218,7 +218,7 @@ pub trait IClassStatics_Impl: windows_core::IUnknownImpl {
     fn StaticSignal(&self, value: i32) -> windows_core::Result<i32>;
     fn StaticEvent(
         &self,
-        handler: windows_core::Ref<windows::Foundation::EventHandler<i32>>,
+        handler: windows_core::Ref<'_, windows::Foundation::EventHandler<i32>>,
     ) -> windows_core::Result<i64>;
     fn RemoveStaticEvent(&self, token: i64) -> windows_core::Result<()>;
 }

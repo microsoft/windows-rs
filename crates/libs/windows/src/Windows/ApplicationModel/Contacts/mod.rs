@@ -4952,7 +4952,7 @@ impl windows_core::RuntimeName for IContactInstantMessageFieldFactory {
 pub trait IContactInstantMessageFieldFactory_Impl: windows_core::IUnknownImpl {
     fn CreateInstantMessage_Default(&self, userName: &windows_core::HSTRING) -> windows_core::Result<ContactInstantMessageField>;
     fn CreateInstantMessage_Category(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactInstantMessageField>;
-    fn CreateInstantMessage_All(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displayText: &windows_core::HSTRING, verb: windows_core::Ref<super::super::Foundation::Uri>) -> windows_core::Result<ContactInstantMessageField>;
+    fn CreateInstantMessage_All(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displayText: &windows_core::HSTRING, verb: windows_core::Ref<'_, super::super::Foundation::Uri>) -> windows_core::Result<ContactInstantMessageField>;
 }
 impl IContactInstantMessageFieldFactory_Vtbl {
     pub const fn new<Identity: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>() -> Self {

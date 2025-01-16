@@ -65,7 +65,7 @@ pub struct IPhotoAcquire_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPhotoAcquire_Impl: windows_core::IUnknownImpl {
     fn CreatePhotoSource(&self, pszdevice: &windows_core::PCWSTR) -> windows_core::Result<IPhotoAcquireSource>;
-    fn Acquire(&self, pphotoacquiresource: windows_core::Ref<IPhotoAcquireSource>, fshowprogress: windows_core::BOOL, hwndparent: super::super::Foundation::HWND, pszapplicationname: &windows_core::PCWSTR, pphotoacquireprogresscb: windows_core::Ref<IPhotoAcquireProgressCB>) -> windows_core::Result<()>;
+    fn Acquire(&self, pphotoacquiresource: windows_core::Ref<'_, IPhotoAcquireSource>, fshowprogress: windows_core::BOOL, hwndparent: super::super::Foundation::HWND, pszapplicationname: &windows_core::PCWSTR, pphotoacquireprogresscb: windows_core::Ref<'_, IPhotoAcquireProgressCB>) -> windows_core::Result<()>;
     fn EnumResults(&self) -> windows_core::Result<super::super::System::Com::IEnumString>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -521,8 +521,8 @@ pub struct IPhotoAcquirePlugin_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IPhotoAcquirePlugin_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pphotoacquiresource: windows_core::Ref<IPhotoAcquireSource>, pphotoacquireprogresscb: windows_core::Ref<IPhotoAcquireProgressCB>) -> windows_core::Result<()>;
-    fn ProcessItem(&self, dwacquirestage: u32, pphotoacquireitem: windows_core::Ref<IPhotoAcquireItem>, poriginalitemstream: windows_core::Ref<super::super::System::Com::IStream>, pszfinalfilename: &windows_core::PCWSTR, ppropertystore: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn Initialize(&self, pphotoacquiresource: windows_core::Ref<'_, IPhotoAcquireSource>, pphotoacquireprogresscb: windows_core::Ref<'_, IPhotoAcquireProgressCB>) -> windows_core::Result<()>;
+    fn ProcessItem(&self, dwacquirestage: u32, pphotoacquireitem: windows_core::Ref<'_, IPhotoAcquireItem>, poriginalitemstream: windows_core::Ref<'_, super::super::System::Com::IStream>, pszfinalfilename: &windows_core::PCWSTR, ppropertystore: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
     fn TransferComplete(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn DisplayConfigureDialog(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<()>;
 }
@@ -700,24 +700,24 @@ pub struct IPhotoAcquireProgressCB_Vtbl {
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPhotoAcquireProgressCB_Impl: windows_core::IUnknownImpl {
     fn Cancelled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn StartEnumeration(&self, pphotoacquiresource: windows_core::Ref<IPhotoAcquireSource>) -> windows_core::Result<()>;
-    fn FoundItem(&self, pphotoacquireitem: windows_core::Ref<IPhotoAcquireItem>) -> windows_core::Result<()>;
+    fn StartEnumeration(&self, pphotoacquiresource: windows_core::Ref<'_, IPhotoAcquireSource>) -> windows_core::Result<()>;
+    fn FoundItem(&self, pphotoacquireitem: windows_core::Ref<'_, IPhotoAcquireItem>) -> windows_core::Result<()>;
     fn EndEnumeration(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn StartTransfer(&self, pphotoacquiresource: windows_core::Ref<IPhotoAcquireSource>) -> windows_core::Result<()>;
-    fn StartItemTransfer(&self, nitemindex: u32, pphotoacquireitem: windows_core::Ref<IPhotoAcquireItem>) -> windows_core::Result<()>;
+    fn StartTransfer(&self, pphotoacquiresource: windows_core::Ref<'_, IPhotoAcquireSource>) -> windows_core::Result<()>;
+    fn StartItemTransfer(&self, nitemindex: u32, pphotoacquireitem: windows_core::Ref<'_, IPhotoAcquireItem>) -> windows_core::Result<()>;
     fn DirectoryCreated(&self, pszdirectory: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn UpdateTransferPercent(&self, foverall: windows_core::BOOL, npercent: u32) -> windows_core::Result<()>;
-    fn EndItemTransfer(&self, nitemindex: u32, pphotoacquireitem: windows_core::Ref<IPhotoAcquireItem>, hr: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn EndItemTransfer(&self, nitemindex: u32, pphotoacquireitem: windows_core::Ref<'_, IPhotoAcquireItem>, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn EndTransfer(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn StartDelete(&self, pphotoacquiresource: windows_core::Ref<IPhotoAcquireSource>) -> windows_core::Result<()>;
-    fn StartItemDelete(&self, nitemindex: u32, pphotoacquireitem: windows_core::Ref<IPhotoAcquireItem>) -> windows_core::Result<()>;
+    fn StartDelete(&self, pphotoacquiresource: windows_core::Ref<'_, IPhotoAcquireSource>) -> windows_core::Result<()>;
+    fn StartItemDelete(&self, nitemindex: u32, pphotoacquireitem: windows_core::Ref<'_, IPhotoAcquireItem>) -> windows_core::Result<()>;
     fn UpdateDeletePercent(&self, npercent: u32) -> windows_core::Result<()>;
-    fn EndItemDelete(&self, nitemindex: u32, pphotoacquireitem: windows_core::Ref<IPhotoAcquireItem>, hr: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn EndItemDelete(&self, nitemindex: u32, pphotoacquireitem: windows_core::Ref<'_, IPhotoAcquireItem>, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn EndDelete(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn EndSession(&self, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn GetDeleteAfterAcquire(&self) -> windows_core::Result<windows_core::BOOL>;
     fn ErrorAdvise(&self, hr: windows_core::HRESULT, pszerrormessage: &windows_core::PCWSTR, nmessagetype: ERROR_ADVISE_MESSAGE_TYPE) -> windows_core::Result<ERROR_ADVISE_RESULT>;
-    fn GetUserInput(&self, riidtype: *const windows_core::GUID, punknown: windows_core::Ref<windows_core::IUnknown>, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetUserInput(&self, riidtype: *const windows_core::GUID, punknown: windows_core::Ref<'_, windows_core::IUnknown>, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPhotoAcquireProgressCB_Vtbl {
@@ -1189,7 +1189,7 @@ pub struct IPhotoAcquireSource_Vtbl {
 pub trait IPhotoAcquireSource_Impl: windows_core::IUnknownImpl {
     fn GetFriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetDeviceIcons(&self, nsize: u32, phlargeicon: *mut super::super::UI::WindowsAndMessaging::HICON, phsmallicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> windows_core::Result<()>;
-    fn InitializeItemList(&self, fforceenumeration: windows_core::BOOL, pphotoacquireprogresscb: windows_core::Ref<IPhotoAcquireProgressCB>, pnitemcount: *mut u32) -> windows_core::Result<()>;
+    fn InitializeItemList(&self, fforceenumeration: windows_core::BOOL, pphotoacquireprogresscb: windows_core::Ref<'_, IPhotoAcquireProgressCB>, pnitemcount: *mut u32) -> windows_core::Result<()>;
     fn GetItemCount(&self) -> windows_core::Result<u32>;
     fn GetItemAt(&self, nindex: u32) -> windows_core::Result<IPhotoAcquireItem>;
     fn GetPhotoAcquireSettings(&self) -> windows_core::Result<IPhotoAcquireSettings>;
@@ -1461,11 +1461,11 @@ pub trait IPhotoProgressDialog_Impl: windows_core::IUnknownImpl {
     fn SetImage(&self, nimagetype: PROGRESS_DIALOG_IMAGE_TYPE, hicon: super::super::UI::WindowsAndMessaging::HICON, hbitmap: super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>;
     fn SetPercentComplete(&self, npercent: i32) -> windows_core::Result<()>;
     fn SetProgressText(&self, pszprogresstext: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetActionLinkCallback(&self, pphotoprogressactioncb: windows_core::Ref<IPhotoProgressActionCB>) -> windows_core::Result<()>;
+    fn SetActionLinkCallback(&self, pphotoprogressactioncb: windows_core::Ref<'_, IPhotoProgressActionCB>) -> windows_core::Result<()>;
     fn SetActionLinkText(&self, pszcaption: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ShowActionLink(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsCancelled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn GetUserInput(&self, riidtype: *const windows_core::GUID, punknown: windows_core::Ref<windows_core::IUnknown>, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetUserInput(&self, riidtype: *const windows_core::GUID, punknown: windows_core::Ref<'_, windows_core::IUnknown>, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IPhotoProgressDialog_Vtbl {

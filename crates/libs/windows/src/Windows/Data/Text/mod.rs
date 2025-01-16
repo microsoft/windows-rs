@@ -353,7 +353,7 @@ impl windows_core::RuntimeType for SelectableWordSegmentsTokenizingHandler {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl SelectableWordSegmentsTokenizingHandler {
-    pub fn new<F: FnMut(windows_core::Ref<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, windows_core::Ref<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SelectableWordSegmentsTokenizingHandlerBox { vtable: &SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -374,13 +374,13 @@ pub struct SelectableWordSegmentsTokenizingHandler_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
-struct SelectableWordSegmentsTokenizingHandlerBox<F: FnMut(windows_core::Ref<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, windows_core::Ref<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static> {
+struct SelectableWordSegmentsTokenizingHandlerBox<F: FnMut(windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const SelectableWordSegmentsTokenizingHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<F: FnMut(windows_core::Ref<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, windows_core::Ref<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static> SelectableWordSegmentsTokenizingHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static> SelectableWordSegmentsTokenizingHandlerBox<F> {
     const VTABLE: SelectableWordSegmentsTokenizingHandler_Vtbl = SelectableWordSegmentsTokenizingHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -1040,7 +1040,7 @@ impl windows_core::RuntimeType for WordSegmentsTokenizingHandler {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl WordSegmentsTokenizingHandler {
-    pub fn new<F: FnMut(windows_core::Ref<super::super::Foundation::Collections::IIterable<WordSegment>>, windows_core::Ref<super::super::Foundation::Collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<WordSegment>>, windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = WordSegmentsTokenizingHandlerBox { vtable: &WordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1061,13 +1061,13 @@ pub struct WordSegmentsTokenizingHandler_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
-struct WordSegmentsTokenizingHandlerBox<F: FnMut(windows_core::Ref<super::super::Foundation::Collections::IIterable<WordSegment>>, windows_core::Ref<super::super::Foundation::Collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static> {
+struct WordSegmentsTokenizingHandlerBox<F: FnMut(windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<WordSegment>>, windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const WordSegmentsTokenizingHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<F: FnMut(windows_core::Ref<super::super::Foundation::Collections::IIterable<WordSegment>>, windows_core::Ref<super::super::Foundation::Collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static> WordSegmentsTokenizingHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<WordSegment>>, windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static> WordSegmentsTokenizingHandlerBox<F> {
     const VTABLE: WordSegmentsTokenizingHandler_Vtbl = WordSegmentsTokenizingHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {

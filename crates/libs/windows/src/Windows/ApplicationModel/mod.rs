@@ -1329,7 +1329,7 @@ impl windows_core::RuntimeName for IPackageCatalogStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
 }
 pub trait IPackageCatalogStatics2_Impl: windows_core::IUnknownImpl {
-    fn OpenForPackage(&self, package: windows_core::Ref<Package>) -> windows_core::Result<PackageCatalog>;
+    fn OpenForPackage(&self, package: windows_core::Ref<'_, Package>) -> windows_core::Result<PackageCatalog>;
 }
 impl IPackageCatalogStatics2_Vtbl {
     pub const fn new<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>() -> Self {

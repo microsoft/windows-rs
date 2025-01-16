@@ -251,7 +251,7 @@ pub struct IUPnPDescriptionDocument_Vtbl {
 pub trait IUPnPDescriptionDocument_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn ReadyState(&self) -> windows_core::Result<i32>;
     fn Load(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn LoadAsync(&self, bstrurl: &windows_core::BSTR, punkcallback: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn LoadAsync(&self, bstrurl: &windows_core::BSTR, punkcallback: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn LoadResult(&self) -> windows_core::Result<i32>;
     fn Abort(&self) -> windows_core::Result<()>;
     fn RootDevice(&self) -> windows_core::Result<IUPnPDevice>;
@@ -1039,7 +1039,7 @@ pub struct IUPnPDeviceFinder_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUPnPDeviceFinder_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn FindByType(&self, bstrtypeuri: &windows_core::BSTR, dwflags: u32) -> windows_core::Result<IUPnPDevices>;
-    fn CreateAsyncFind(&self, bstrtypeuri: &windows_core::BSTR, dwflags: u32, punkdevicefindercallback: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<i32>;
+    fn CreateAsyncFind(&self, bstrtypeuri: &windows_core::BSTR, dwflags: u32, punkdevicefindercallback: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<i32>;
     fn StartAsyncFind(&self, lfinddata: i32) -> windows_core::Result<()>;
     fn CancelAsyncFind(&self, lfinddata: i32) -> windows_core::Result<()>;
     fn FindByUDN(&self, bstrudn: &windows_core::BSTR) -> windows_core::Result<IUPnPDevice>;
@@ -1131,7 +1131,7 @@ pub struct IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUPnPDeviceFinderAddCallbackWithInterface_Impl: windows_core::IUnknownImpl {
-    fn DeviceAddedWithInterface(&self, lfinddata: i32, pdevice: windows_core::Ref<IUPnPDevice>, pguidinterface: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn DeviceAddedWithInterface(&self, lfinddata: i32, pdevice: windows_core::Ref<'_, IUPnPDevice>, pguidinterface: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
@@ -1179,7 +1179,7 @@ pub struct IUPnPDeviceFinderCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUPnPDeviceFinderCallback_Impl: windows_core::IUnknownImpl {
-    fn DeviceAdded(&self, lfinddata: i32, pdevice: windows_core::Ref<IUPnPDevice>) -> windows_core::Result<()>;
+    fn DeviceAdded(&self, lfinddata: i32, pdevice: windows_core::Ref<'_, IUPnPDevice>) -> windows_core::Result<()>;
     fn DeviceRemoved(&self, lfinddata: i32, bstrudn: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SearchComplete(&self, lfinddata: i32) -> windows_core::Result<()>;
 }
@@ -1431,8 +1431,8 @@ pub struct IUPnPEventSource_Vtbl {
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUPnPEventSource_Impl: windows_core::IUnknownImpl {
-    fn Advise(&self, pessubscriber: windows_core::Ref<IUPnPEventSink>) -> windows_core::Result<()>;
-    fn Unadvise(&self, pessubscriber: windows_core::Ref<IUPnPEventSink>) -> windows_core::Result<()>;
+    fn Advise(&self, pessubscriber: windows_core::Ref<'_, IUPnPEventSink>) -> windows_core::Result<()>;
+    fn Unadvise(&self, pessubscriber: windows_core::Ref<'_, IUPnPEventSink>) -> windows_core::Result<()>;
 }
 impl IUPnPEventSource_Vtbl {
     pub const fn new<Identity: IUPnPEventSource_Impl, const OFFSET: isize>() -> Self {
@@ -1531,7 +1531,7 @@ pub struct IUPnPRegistrar_Vtbl {
 }
 pub trait IUPnPRegistrar_Impl: windows_core::IUnknownImpl {
     fn RegisterDevice(&self, bstrxmldesc: &windows_core::BSTR, bstrprogiddevicecontrolclass: &windows_core::BSTR, bstrinitstring: &windows_core::BSTR, bstrcontainerid: &windows_core::BSTR, bstrresourcepath: &windows_core::BSTR, nlifetime: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn RegisterRunningDevice(&self, bstrxmldesc: &windows_core::BSTR, punkdevicecontrol: windows_core::Ref<windows_core::IUnknown>, bstrinitstring: &windows_core::BSTR, bstrresourcepath: &windows_core::BSTR, nlifetime: i32) -> windows_core::Result<windows_core::BSTR>;
+    fn RegisterRunningDevice(&self, bstrxmldesc: &windows_core::BSTR, punkdevicecontrol: windows_core::Ref<'_, windows_core::IUnknown>, bstrinitstring: &windows_core::BSTR, bstrresourcepath: &windows_core::BSTR, nlifetime: i32) -> windows_core::Result<windows_core::BSTR>;
     fn RegisterDeviceProvider(&self, bstrprovidername: &windows_core::BSTR, bstrprogidproviderclass: &windows_core::BSTR, bstrinitstring: &windows_core::BSTR, bstrcontainerid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetUniqueDeviceName(&self, bstrdeviceidentifier: &windows_core::BSTR, bstrtemplateudn: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn UnregisterDevice(&self, bstrdeviceidentifier: &windows_core::BSTR, fpermanent: windows_core::BOOL) -> windows_core::Result<()>;
@@ -1713,7 +1713,7 @@ pub struct IUPnPReregistrar_Vtbl {
 }
 pub trait IUPnPReregistrar_Impl: windows_core::IUnknownImpl {
     fn ReregisterDevice(&self, bstrdeviceidentifier: &windows_core::BSTR, bstrxmldesc: &windows_core::BSTR, bstrprogiddevicecontrolclass: &windows_core::BSTR, bstrinitstring: &windows_core::BSTR, bstrcontainerid: &windows_core::BSTR, bstrresourcepath: &windows_core::BSTR, nlifetime: i32) -> windows_core::Result<()>;
-    fn ReregisterRunningDevice(&self, bstrdeviceidentifier: &windows_core::BSTR, bstrxmldesc: &windows_core::BSTR, punkdevicecontrol: windows_core::Ref<windows_core::IUnknown>, bstrinitstring: &windows_core::BSTR, bstrresourcepath: &windows_core::BSTR, nlifetime: i32) -> windows_core::Result<()>;
+    fn ReregisterRunningDevice(&self, bstrdeviceidentifier: &windows_core::BSTR, bstrxmldesc: &windows_core::BSTR, punkdevicecontrol: windows_core::Ref<'_, windows_core::IUnknown>, bstrinitstring: &windows_core::BSTR, bstrresourcepath: &windows_core::BSTR, nlifetime: i32) -> windows_core::Result<()>;
 }
 impl IUPnPReregistrar_Vtbl {
     pub const fn new<Identity: IUPnPReregistrar_Impl, const OFFSET: isize>() -> Self {
@@ -1814,7 +1814,7 @@ pub trait IUPnPService_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn QueryStateVariable(&self, bstrvariablename: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn InvokeAction(&self, bstractionname: &windows_core::BSTR, vinactionargs: &super::super::super::System::Variant::VARIANT, pvoutactionargs: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn ServiceTypeIdentifier(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn AddCallback(&self, punkcallback: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AddCallback(&self, punkcallback: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Id(&self) -> windows_core::Result<windows_core::BSTR>;
     fn LastTransportStatus(&self) -> windows_core::Result<i32>;
 }
@@ -1989,13 +1989,13 @@ pub struct IUPnPServiceAsync_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUPnPServiceAsync_Impl: windows_core::IUnknownImpl {
-    fn BeginInvokeAction(&self, bstractionname: &windows_core::BSTR, vinactionargs: &super::super::super::System::Variant::VARIANT, pasyncresult: windows_core::Ref<IUPnPAsyncResult>) -> windows_core::Result<u64>;
+    fn BeginInvokeAction(&self, bstractionname: &windows_core::BSTR, vinactionargs: &super::super::super::System::Variant::VARIANT, pasyncresult: windows_core::Ref<'_, IUPnPAsyncResult>) -> windows_core::Result<u64>;
     fn EndInvokeAction(&self, ullrequestid: u64, pvoutactionargs: *mut super::super::super::System::Variant::VARIANT, pvretval: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn BeginQueryStateVariable(&self, bstrvariablename: &windows_core::BSTR, pasyncresult: windows_core::Ref<IUPnPAsyncResult>) -> windows_core::Result<u64>;
+    fn BeginQueryStateVariable(&self, bstrvariablename: &windows_core::BSTR, pasyncresult: windows_core::Ref<'_, IUPnPAsyncResult>) -> windows_core::Result<u64>;
     fn EndQueryStateVariable(&self, ullrequestid: u64, pvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn BeginSubscribeToEvents(&self, punkcallback: windows_core::Ref<windows_core::IUnknown>, pasyncresult: windows_core::Ref<IUPnPAsyncResult>) -> windows_core::Result<u64>;
+    fn BeginSubscribeToEvents(&self, punkcallback: windows_core::Ref<'_, windows_core::IUnknown>, pasyncresult: windows_core::Ref<'_, IUPnPAsyncResult>) -> windows_core::Result<u64>;
     fn EndSubscribeToEvents(&self, ullrequestid: u64) -> windows_core::Result<()>;
-    fn BeginSCPDDownload(&self, pasyncresult: windows_core::Ref<IUPnPAsyncResult>) -> windows_core::Result<u64>;
+    fn BeginSCPDDownload(&self, pasyncresult: windows_core::Ref<'_, IUPnPAsyncResult>) -> windows_core::Result<u64>;
     fn EndSCPDDownload(&self, ullrequestid: u64) -> windows_core::Result<windows_core::BSTR>;
     fn CancelAsyncOperation(&self, ullrequestid: u64) -> windows_core::Result<()>;
 }
@@ -2138,8 +2138,8 @@ pub struct IUPnPServiceCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUPnPServiceCallback_Impl: windows_core::IUnknownImpl {
-    fn StateVariableChanged(&self, pus: windows_core::Ref<IUPnPService>, pcwszstatevarname: &windows_core::PCWSTR, vavalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn ServiceInstanceDied(&self, pus: windows_core::Ref<IUPnPService>) -> windows_core::Result<()>;
+    fn StateVariableChanged(&self, pus: windows_core::Ref<'_, IUPnPService>, pcwszstatevarname: &windows_core::PCWSTR, vavalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn ServiceInstanceDied(&self, pus: windows_core::Ref<'_, IUPnPService>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUPnPServiceCallback_Vtbl {

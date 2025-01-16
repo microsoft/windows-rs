@@ -588,8 +588,8 @@ pub struct IRTCBuddyGroup_Vtbl {
 pub trait IRTCBuddyGroup_Impl: windows_core::IUnknownImpl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_core::Result<()>;
-    fn RemoveBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_core::Result<()>;
+    fn AddBuddy(&self, pbuddy: windows_core::Ref<'_, IRTCBuddy>) -> windows_core::Result<()>;
+    fn RemoveBuddy(&self, pbuddy: windows_core::Ref<'_, IRTCBuddy>) -> windows_core::Result<()>;
     fn EnumerateBuddies(&self) -> windows_core::Result<IRTCEnumBuddies>;
     fn Buddies(&self) -> windows_core::Result<IRTCCollection>;
     fn Data(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1081,7 +1081,7 @@ pub trait IRTCClient_Impl: windows_core::IUnknownImpl {
     fn SetPreferredMediaTypes(&self, lmediatypes: i32, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn PreferredMediaTypes(&self) -> windows_core::Result<i32>;
     fn MediaCapabilities(&self) -> windows_core::Result<i32>;
-    fn CreateSession(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCSession>;
+    fn CreateSession(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: windows_core::Ref<'_, IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCSession>;
     fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> windows_core::Result<()>;
     fn ListenForIncomingSessions(&self) -> windows_core::Result<RTC_LISTEN_MODE>;
     fn get_NetworkAddresses(&self, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::Variant::VARIANT>;
@@ -1645,8 +1645,8 @@ pub trait IRTCClient2_Impl: IRTCClient_Impl {
     fn SetClientName(&self, bstrclientname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetClientCurVer(&self, bstrclientcurver: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeEx(&self, lflags: i32) -> windows_core::Result<()>;
-    fn CreateSessionWithDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCSession2>;
-    fn SetSessionDescriptionManager(&self, psessiondescriptionmanager: windows_core::Ref<IRTCSessionDescriptionManager>) -> windows_core::Result<()>;
+    fn CreateSessionWithDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pprofile: windows_core::Ref<'_, IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCSession2>;
+    fn SetSessionDescriptionManager(&self, psessiondescriptionmanager: windows_core::Ref<'_, IRTCSessionDescriptionManager>) -> windows_core::Result<()>;
     fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::Result<()>;
     fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<RTC_SECURITY_LEVEL>;
     fn put_AllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> windows_core::Result<()>;
@@ -2063,13 +2063,13 @@ pub trait IRTCClientPresence_Impl: windows_core::IUnknownImpl {
     fn EnumerateBuddies(&self) -> windows_core::Result<IRTCEnumBuddies>;
     fn Buddies(&self) -> windows_core::Result<IRTCCollection>;
     fn get_Buddy(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCBuddy>;
-    fn AddBuddy(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddy>;
-    fn RemoveBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_core::Result<()>;
+    fn AddBuddy(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: windows_core::Ref<'_, IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddy>;
+    fn RemoveBuddy(&self, pbuddy: windows_core::Ref<'_, IRTCBuddy>) -> windows_core::Result<()>;
     fn EnumerateWatchers(&self) -> windows_core::Result<IRTCEnumWatchers>;
     fn Watchers(&self) -> windows_core::Result<IRTCCollection>;
     fn get_Watcher(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCWatcher>;
     fn AddWatcher(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IRTCWatcher>;
-    fn RemoveWatcher(&self, pwatcher: windows_core::Ref<IRTCWatcher>) -> windows_core::Result<()>;
+    fn RemoveWatcher(&self, pwatcher: windows_core::Ref<'_, IRTCWatcher>) -> windows_core::Result<()>;
     fn SetLocalPresenceInfo(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: &windows_core::BSTR) -> windows_core::Result<()>;
     fn OfferWatcherMode(&self) -> windows_core::Result<RTC_OFFER_WATCHER_MODE>;
     fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> windows_core::Result<()>;
@@ -2398,21 +2398,21 @@ pub struct IRTCClientPresence2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCClientPresence2_Impl: IRTCClientPresence_Impl {
-    fn EnablePresenceEx(&self, pprofile: windows_core::Ref<IRTCProfile>, varstorage: &super::Variant::VARIANT, lflags: i32) -> windows_core::Result<()>;
+    fn EnablePresenceEx(&self, pprofile: windows_core::Ref<'_, IRTCProfile>, varstorage: &super::Variant::VARIANT, lflags: i32) -> windows_core::Result<()>;
     fn DisablePresence(&self) -> windows_core::Result<()>;
-    fn AddGroup(&self, bstrgroupname: &windows_core::BSTR, bstrdata: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddyGroup>;
-    fn RemoveGroup(&self, pgroup: windows_core::Ref<IRTCBuddyGroup>) -> windows_core::Result<()>;
+    fn AddGroup(&self, bstrgroupname: &windows_core::BSTR, bstrdata: &windows_core::BSTR, pprofile: windows_core::Ref<'_, IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddyGroup>;
+    fn RemoveGroup(&self, pgroup: windows_core::Ref<'_, IRTCBuddyGroup>) -> windows_core::Result<()>;
     fn EnumerateGroups(&self) -> windows_core::Result<IRTCEnumGroups>;
     fn Groups(&self) -> windows_core::Result<IRTCCollection>;
     fn get_Group(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<IRTCBuddyGroup>;
-    fn AddWatcherEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCWatcher2>;
+    fn AddWatcherEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: windows_core::Ref<'_, IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCWatcher2>;
     fn get_WatcherEx(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCWatcher2>;
     fn put_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: &windows_core::BSTR) -> windows_core::Result<()>;
     fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_core::Result<windows_core::BSTR>;
     fn SetPresenceData(&self, bstrnamespace: &windows_core::BSTR, bstrdata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddBuddyEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddy2>;
+    fn AddBuddyEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: windows_core::Ref<'_, IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddy2>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClientPresence2_Vtbl {
@@ -2641,8 +2641,8 @@ pub struct IRTCClientProvisioning_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientProvisioning_Impl: windows_core::IUnknownImpl {
     fn CreateProfile(&self, bstrprofilexml: &windows_core::BSTR) -> windows_core::Result<IRTCProfile>;
-    fn EnableProfile(&self, pprofile: windows_core::Ref<IRTCProfile>, lregisterflags: i32) -> windows_core::Result<()>;
-    fn DisableProfile(&self, pprofile: windows_core::Ref<IRTCProfile>) -> windows_core::Result<()>;
+    fn EnableProfile(&self, pprofile: windows_core::Ref<'_, IRTCProfile>, lregisterflags: i32) -> windows_core::Result<()>;
+    fn DisableProfile(&self, pprofile: windows_core::Ref<'_, IRTCProfile>) -> windows_core::Result<()>;
     fn EnumerateProfiles(&self) -> windows_core::Result<IRTCEnumProfiles>;
     fn Profiles(&self) -> windows_core::Result<IRTCCollection>;
     fn GetProfile(&self, bstruseraccount: &windows_core::BSTR, bstruserpassword: &windows_core::BSTR, bstruseruri: &windows_core::BSTR, bstrserver: &windows_core::BSTR, ltransport: i32, lcookie: isize) -> windows_core::Result<()>;
@@ -2757,7 +2757,7 @@ pub struct IRTCClientProvisioning2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientProvisioning2_Impl: IRTCClientProvisioning_Impl {
-    fn EnableProfileEx(&self, pprofile: windows_core::Ref<IRTCProfile>, lregisterflags: i32, lroamingflags: i32) -> windows_core::Result<()>;
+    fn EnableProfileEx(&self, pprofile: windows_core::Ref<'_, IRTCProfile>, lregisterflags: i32, lroamingflags: i32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCClientProvisioning2_Vtbl {
@@ -3474,7 +3474,7 @@ pub struct IRTCEventNotification_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCEventNotification_Impl: windows_core::IUnknownImpl {
-    fn Event(&self, rtcevent: RTC_EVENT, pevent: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Event(&self, rtcevent: RTC_EVENT, pevent: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCEventNotification_Vtbl {
@@ -6103,9 +6103,9 @@ pub trait IRTCSession_Impl: windows_core::IUnknownImpl {
     fn Participants(&self) -> windows_core::Result<IRTCCollection>;
     fn Answer(&self) -> windows_core::Result<()>;
     fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> windows_core::Result<()>;
-    fn Redirect(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<()>;
+    fn Redirect(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: windows_core::Ref<'_, IRTCProfile>, lflags: i32) -> windows_core::Result<()>;
     fn AddParticipant(&self, bstraddress: &windows_core::BSTR, bstrname: &windows_core::BSTR) -> windows_core::Result<IRTCParticipant>;
-    fn RemoveParticipant(&self, pparticipant: windows_core::Ref<IRTCParticipant>) -> windows_core::Result<()>;
+    fn RemoveParticipant(&self, pparticipant: windows_core::Ref<'_, IRTCParticipant>) -> windows_core::Result<()>;
     fn EnumerateParticipants(&self) -> windows_core::Result<IRTCEnumParticipants>;
     fn CanAddParticipants(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn RedirectedUserURI(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -6839,7 +6839,7 @@ pub struct IRTCSessionPortManagement_Vtbl {
     pub SetPortManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCSessionPortManagement_Impl: windows_core::IUnknownImpl {
-    fn SetPortManager(&self, pportmanager: windows_core::Ref<IRTCPortManager>) -> windows_core::Result<()>;
+    fn SetPortManager(&self, pportmanager: windows_core::Ref<'_, IRTCPortManager>) -> windows_core::Result<()>;
 }
 impl IRTCSessionPortManagement_Vtbl {
     pub const fn new<Identity: IRTCSessionPortManagement_Impl, const OFFSET: isize>() -> Self {
@@ -7384,7 +7384,7 @@ pub struct IRTCUserSearch_Vtbl {
 }
 pub trait IRTCUserSearch_Impl: windows_core::IUnknownImpl {
     fn CreateQuery(&self) -> windows_core::Result<IRTCUserSearchQuery>;
-    fn ExecuteSearch(&self, pquery: windows_core::Ref<IRTCUserSearchQuery>, pprofile: windows_core::Ref<IRTCProfile>, lcookie: isize) -> windows_core::Result<()>;
+    fn ExecuteSearch(&self, pquery: windows_core::Ref<'_, IRTCUserSearchQuery>, pprofile: windows_core::Ref<'_, IRTCProfile>, lcookie: isize) -> windows_core::Result<()>;
 }
 impl IRTCUserSearch_Vtbl {
     pub const fn new<Identity: IRTCUserSearch_Impl, const OFFSET: isize>() -> Self {

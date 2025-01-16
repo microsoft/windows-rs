@@ -162,8 +162,8 @@ pub struct IFunctionDiscovery_Vtbl {
 pub trait IFunctionDiscovery_Impl: windows_core::IUnknownImpl {
     fn GetInstanceCollection(&self, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, fincludeallsubcategories: windows_core::BOOL) -> windows_core::Result<IFunctionInstanceCollection>;
     fn GetInstance(&self, pszfunctioninstanceidentity: &windows_core::PCWSTR) -> windows_core::Result<IFunctionInstance>;
-    fn CreateInstanceCollectionQuery(&self, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, fincludeallsubcategories: windows_core::BOOL, pifunctiondiscoverynotification: windows_core::Ref<IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceCollectionQuery>;
-    fn CreateInstanceQuery(&self, pszfunctioninstanceidentity: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceQuery>;
+    fn CreateInstanceCollectionQuery(&self, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, fincludeallsubcategories: windows_core::BOOL, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceCollectionQuery>;
+    fn CreateInstanceQuery(&self, pszfunctioninstanceidentity: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> windows_core::Result<IFunctionInstanceQuery>;
     fn AddInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, pszcategoryidentity: &windows_core::PCWSTR) -> windows_core::Result<IFunctionInstance>;
     fn RemoveInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: &windows_core::PCWSTR, pszsubcategory: &windows_core::PCWSTR, pszcategoryidentity: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -287,7 +287,7 @@ pub struct IFunctionDiscoveryNotification_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionDiscoveryNotification_Impl: windows_core::IUnknownImpl {
-    fn OnUpdate(&self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: u64, pifunctioninstance: windows_core::Ref<IFunctionInstance>) -> windows_core::Result<()>;
+    fn OnUpdate(&self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: u64, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>) -> windows_core::Result<()>;
     fn OnError(&self, hr: windows_core::HRESULT, fdqcquerycontext: u64, pszprovider: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnEvent(&self, dweventid: u32, fdqcquerycontext: u64, pszprovider: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -421,14 +421,14 @@ pub struct IFunctionDiscoveryProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionDiscoveryProvider_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pifunctiondiscoveryproviderfactory: windows_core::Ref<IFunctionDiscoveryProviderFactory>, pifunctiondiscoverynotification: windows_core::Ref<IFunctionDiscoveryNotification>, lciduserdefault: u32) -> windows_core::Result<u32>;
-    fn Query(&self, pifunctiondiscoveryproviderquery: windows_core::Ref<IFunctionDiscoveryProviderQuery>) -> windows_core::Result<IFunctionInstanceCollection>;
+    fn Initialize(&self, pifunctiondiscoveryproviderfactory: windows_core::Ref<'_, IFunctionDiscoveryProviderFactory>, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>, lciduserdefault: u32) -> windows_core::Result<u32>;
+    fn Query(&self, pifunctiondiscoveryproviderquery: windows_core::Ref<'_, IFunctionDiscoveryProviderQuery>) -> windows_core::Result<IFunctionInstanceCollection>;
     fn EndQuery(&self) -> windows_core::Result<()>;
-    fn InstancePropertyStoreValidateAccess(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> windows_core::Result<()>;
-    fn InstancePropertyStoreOpen(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn InstancePropertyStoreFlush(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<()>;
-    fn InstanceQueryService(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>, iproviderinstancecontext: isize, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
-    fn InstanceReleased(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<()>;
+    fn InstancePropertyStoreValidateAccess(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> windows_core::Result<()>;
+    fn InstancePropertyStoreOpen(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn InstancePropertyStoreFlush(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<()>;
+    fn InstanceQueryService(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn InstanceReleased(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFunctionDiscoveryProvider_Vtbl {
@@ -569,7 +569,7 @@ pub struct IFunctionDiscoveryProviderFactory_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionDiscoveryProviderFactory_Impl: windows_core::IUnknownImpl {
     fn CreatePropertyStore(&self) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn CreateInstance(&self, pszsubcategory: &windows_core::PCWSTR, pszproviderinstanceidentity: &windows_core::PCWSTR, iproviderinstancecontext: isize, pipropertystore: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pifunctiondiscoveryprovider: windows_core::Ref<IFunctionDiscoveryProvider>) -> windows_core::Result<IFunctionInstance>;
+    fn CreateInstance(&self, pszsubcategory: &windows_core::PCWSTR, pszproviderinstanceidentity: &windows_core::PCWSTR, iproviderinstancecontext: isize, pipropertystore: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pifunctiondiscoveryprovider: windows_core::Ref<'_, IFunctionDiscoveryProvider>) -> windows_core::Result<IFunctionInstance>;
     fn CreateFunctionInstanceCollection(&self) -> windows_core::Result<IFunctionInstanceCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -734,7 +734,7 @@ pub struct IFunctionDiscoveryServiceProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionDiscoveryServiceProvider_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Initialize(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IFunctionDiscoveryServiceProvider_Vtbl {
@@ -942,7 +942,7 @@ pub trait IFunctionInstanceCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn Get(&self, pszinstanceidentity: &windows_core::PCWSTR, pdwindex: *mut u32) -> windows_core::Result<IFunctionInstance>;
     fn Item(&self, dwindex: u32) -> windows_core::Result<IFunctionInstance>;
-    fn Add(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>) -> windows_core::Result<()>;
+    fn Add(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>) -> windows_core::Result<()>;
     fn Remove(&self, dwindex: u32) -> windows_core::Result<IFunctionInstance>;
     fn Delete(&self, dwindex: u32) -> windows_core::Result<()>;
     fn DeleteAll(&self) -> windows_core::Result<()>;
@@ -1255,9 +1255,9 @@ pub struct IPNPXDeviceAssociation_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPNPXDeviceAssociation_Impl: windows_core::IUnknownImpl {
-    fn Associate(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
-    fn Unassociate(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
-    fn Delete(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
+    fn Associate(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
+    fn Unassociate(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
+    fn Delete(&self, pszsubcategory: &windows_core::PCWSTR, pifunctiondiscoverynotification: windows_core::Ref<'_, IFunctionDiscoveryNotification>) -> windows_core::Result<()>;
 }
 impl IPNPXDeviceAssociation_Vtbl {
     pub const fn new<Identity: IPNPXDeviceAssociation_Impl, const OFFSET: isize>() -> Self {
@@ -1366,7 +1366,7 @@ pub trait IPropertyStoreCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn Get(&self, pszinstanceidentity: &windows_core::PCWSTR, pdwindex: *mut u32) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn Item(&self, dwindex: u32) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Add(&self, pipropertystore: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn Add(&self, pipropertystore: windows_core::Ref<'_, super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
     fn Remove(&self, dwindex: u32) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn Delete(&self, dwindex: u32) -> windows_core::Result<()>;
     fn DeleteAll(&self) -> windows_core::Result<()>;
@@ -1517,10 +1517,10 @@ pub struct IProviderProperties_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IProviderProperties_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<u32>;
-    fn GetAt(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>, iproviderinstancecontext: isize, dwindex: u32, pkey: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
-    fn GetValue(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetValue(&self, pifunctioninstance: windows_core::Ref<IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::Foundation::PROPERTYKEY, ppropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetCount(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize) -> windows_core::Result<u32>;
+    fn GetAt(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, dwindex: u32, pkey: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
+    fn GetValue(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetValue(&self, pifunctioninstance: windows_core::Ref<'_, IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::Foundation::PROPERTYKEY, ppropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IProviderProperties_Vtbl {

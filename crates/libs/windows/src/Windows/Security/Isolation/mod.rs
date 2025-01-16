@@ -6,7 +6,7 @@ impl windows_core::RuntimeType for HostMessageReceivedCallback {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl HostMessageReceivedCallback {
-    pub fn new<F: FnMut(&windows_core::GUID, windows_core::Ref<super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&windows_core::GUID, windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = HostMessageReceivedCallbackBox { vtable: &HostMessageReceivedCallbackBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -26,13 +26,13 @@ pub struct HostMessageReceivedCallback_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 #[repr(C)]
-struct HostMessageReceivedCallbackBox<F: FnMut(&windows_core::GUID, windows_core::Ref<super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> {
+struct HostMessageReceivedCallbackBox<F: FnMut(&windows_core::GUID, windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const HostMessageReceivedCallback_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<F: FnMut(&windows_core::GUID, windows_core::Ref<super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> HostMessageReceivedCallbackBox<F> {
+impl<F: FnMut(&windows_core::GUID, windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> HostMessageReceivedCallbackBox<F> {
     const VTABLE: HostMessageReceivedCallback_Vtbl = HostMessageReceivedCallback_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -2033,7 +2033,7 @@ impl windows_core::RuntimeType for MessageReceivedCallback {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl MessageReceivedCallback {
-    pub fn new<F: FnMut(&windows_core::GUID, windows_core::Ref<super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&windows_core::GUID, windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MessageReceivedCallbackBox { vtable: &MessageReceivedCallbackBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -2053,13 +2053,13 @@ pub struct MessageReceivedCallback_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 #[repr(C)]
-struct MessageReceivedCallbackBox<F: FnMut(&windows_core::GUID, windows_core::Ref<super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> {
+struct MessageReceivedCallbackBox<F: FnMut(&windows_core::GUID, windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const MessageReceivedCallback_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<F: FnMut(&windows_core::GUID, windows_core::Ref<super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> MessageReceivedCallbackBox<F> {
+impl<F: FnMut(&windows_core::GUID, windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> MessageReceivedCallbackBox<F> {
     const VTABLE: MessageReceivedCallback_Vtbl = MessageReceivedCallback_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {

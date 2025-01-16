@@ -220,7 +220,7 @@ pub struct IStorageFolderHandleAccess_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, HANDLE_CREATION_OPTIONS, HANDLE_ACCESS_OPTIONS, HANDLE_SHARING_OPTIONS, HANDLE_OPTIONS, *mut core::ffi::c_void, *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 pub trait IStorageFolderHandleAccess_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, filename: &windows_core::PCWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: windows_core::Ref<IOplockBreakingHandler>) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
+    fn Create(&self, filename: &windows_core::PCWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: windows_core::Ref<'_, IOplockBreakingHandler>) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
 }
 impl IStorageFolderHandleAccess_Vtbl {
     pub const fn new<Identity: IStorageFolderHandleAccess_Impl, const OFFSET: isize>() -> Self {
@@ -262,7 +262,7 @@ pub struct IStorageItemHandleAccess_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, HANDLE_ACCESS_OPTIONS, HANDLE_SHARING_OPTIONS, HANDLE_OPTIONS, *mut core::ffi::c_void, *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 pub trait IStorageItemHandleAccess_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: windows_core::Ref<IOplockBreakingHandler>) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
+    fn Create(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: windows_core::Ref<'_, IOplockBreakingHandler>) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
 }
 impl IStorageItemHandleAccess_Vtbl {
     pub const fn new<Identity: IStorageItemHandleAccess_Impl, const OFFSET: isize>() -> Self {
@@ -338,7 +338,7 @@ pub struct IUnbufferedFileHandleProvider_Vtbl {
     pub CloseUnbufferedFileHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUnbufferedFileHandleProvider_Impl: windows_core::IUnknownImpl {
-    fn OpenUnbufferedFileHandle(&self, oplockbreakcallback: windows_core::Ref<IUnbufferedFileHandleOplockCallback>) -> windows_core::Result<usize>;
+    fn OpenUnbufferedFileHandle(&self, oplockbreakcallback: windows_core::Ref<'_, IUnbufferedFileHandleOplockCallback>) -> windows_core::Result<usize>;
     fn CloseUnbufferedFileHandle(&self) -> windows_core::Result<()>;
 }
 impl IUnbufferedFileHandleProvider_Vtbl {

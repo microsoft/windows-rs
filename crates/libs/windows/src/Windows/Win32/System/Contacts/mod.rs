@@ -2671,7 +2671,7 @@ pub trait IContactManager_Impl: windows_core::IUnknownImpl {
     fn Load(&self, pszcontactid: &windows_core::PCWSTR) -> windows_core::Result<IContact>;
     fn MergeContactIDs(&self, psznewcontactid: &windows_core::PCWSTR, pszoldcontactid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetMeContact(&self) -> windows_core::Result<IContact>;
-    fn SetMeContact(&self, pmecontact: windows_core::Ref<IContact>) -> windows_core::Result<()>;
+    fn SetMeContact(&self, pmecontact: windows_core::Ref<'_, IContact>) -> windows_core::Result<()>;
     fn GetContactCollection(&self) -> windows_core::Result<IContactCollection>;
 }
 impl IContactManager_Vtbl {
@@ -2863,7 +2863,7 @@ pub trait IContactProperties_Impl: windows_core::IUnknownImpl {
     fn GetLabels(&self, pszarrayelementname: &windows_core::PCWSTR, dwflags: u32, pszlabels: windows_core::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> windows_core::Result<()>;
     fn SetString(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetDate(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, ftdatetime: &super::super::Foundation::FILETIME) -> windows_core::Result<()>;
-    fn SetBinary(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszcontenttype: &windows_core::PCWSTR, pstream: windows_core::Ref<super::Com::IStream>) -> windows_core::Result<()>;
+    fn SetBinary(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszcontenttype: &windows_core::PCWSTR, pstream: windows_core::Ref<'_, super::Com::IStream>) -> windows_core::Result<()>;
     fn SetLabels(&self, pszarrayelementname: &windows_core::PCWSTR, dwflags: u32, dwlabelcount: u32, ppszlabels: *const windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CreateArrayNode(&self, pszarrayname: &windows_core::PCWSTR, dwflags: u32, fappend: windows_core::BOOL, psznewarrayelementname: windows_core::PWSTR, cchnewarrayelementname: u32, pdwcchnewarrayelementnamerequired: *mut u32) -> windows_core::Result<()>;
     fn DeleteProperty(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<()>;

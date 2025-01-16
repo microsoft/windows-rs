@@ -1314,7 +1314,7 @@ impl windows_core::RuntimeName for INumberRounderOption {
 }
 pub trait INumberRounderOption_Impl: windows_core::IUnknownImpl {
     fn NumberRounder(&self) -> windows_core::Result<INumberRounder>;
-    fn SetNumberRounder(&self, value: windows_core::Ref<INumberRounder>) -> windows_core::Result<()>;
+    fn SetNumberRounder(&self, value: windows_core::Ref<'_, INumberRounder>) -> windows_core::Result<()>;
 }
 impl INumberRounderOption_Vtbl {
     pub const fn new<Identity: INumberRounderOption_Impl, const OFFSET: isize>() -> Self {

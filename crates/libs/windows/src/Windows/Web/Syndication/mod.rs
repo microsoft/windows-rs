@@ -138,9 +138,9 @@ impl windows_core::RuntimeName for ISyndicationClient {
 #[cfg(feature = "Security_Credentials")]
 pub trait ISyndicationClient_Impl: windows_core::IUnknownImpl {
     fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&self, value: windows_core::Ref<super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
+    fn SetServerCredential(&self, value: windows_core::Ref<'_, super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
     fn ProxyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&self, value: windows_core::Ref<super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
+    fn SetProxyCredential(&self, value: windows_core::Ref<'_, super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
     fn MaxResponseBufferSize(&self) -> windows_core::Result<u32>;
     fn SetMaxResponseBufferSize(&self, value: u32) -> windows_core::Result<()>;
     fn Timeout(&self) -> windows_core::Result<u32>;
@@ -148,7 +148,7 @@ pub trait ISyndicationClient_Impl: windows_core::IUnknownImpl {
     fn BypassCacheOnRetrieve(&self) -> windows_core::Result<bool>;
     fn SetBypassCacheOnRetrieve(&self, value: bool) -> windows_core::Result<()>;
     fn SetRequestHeader(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn RetrieveFeedAsync(&self, uri: windows_core::Ref<super::super::Foundation::Uri>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
+    fn RetrieveFeedAsync(&self, uri: windows_core::Ref<'_, super::super::Foundation::Uri>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
 }
 #[cfg(feature = "Security_Credentials")]
 impl ISyndicationClient_Vtbl {
@@ -633,7 +633,7 @@ pub trait ISyndicationNode_Impl: windows_core::IUnknownImpl {
     fn Language(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetLanguage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn BaseUri(&self) -> windows_core::Result<super::super::Foundation::Uri>;
-    fn SetBaseUri(&self, value: windows_core::Ref<super::super::Foundation::Uri>) -> windows_core::Result<()>;
+    fn SetBaseUri(&self, value: windows_core::Ref<'_, super::super::Foundation::Uri>) -> windows_core::Result<()>;
     fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>>;
     fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>>;
     fn GetXmlDocument(&self, format: SyndicationFormat) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument>;
@@ -994,7 +994,7 @@ pub trait ISyndicationText_Impl: ISyndicationNode_Impl {
     fn Type(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetType(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Xml(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument>;
-    fn SetXml(&self, value: windows_core::Ref<super::super::Data::Xml::Dom::XmlDocument>) -> windows_core::Result<()>;
+    fn SetXml(&self, value: windows_core::Ref<'_, super::super::Data::Xml::Dom::XmlDocument>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl ISyndicationText_Vtbl {

@@ -464,7 +464,7 @@ where
     fn Size(&self) -> windows_core::Result<u32>;
     fn IndexOf(
         &self,
-        value: <T as windows_core::Type<T>>::Ref,
+        value: windows_core::Ref<'_, T>,
         index: &mut u32,
     ) -> windows_core::Result<bool>;
     fn GetMany(

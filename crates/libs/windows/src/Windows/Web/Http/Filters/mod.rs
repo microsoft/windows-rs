@@ -515,7 +515,7 @@ impl windows_core::RuntimeName for IHttpFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.IHttpFilter";
 }
 pub trait IHttpFilter_Impl: super::super::super::Foundation::IClosable_Impl {
-    fn SendRequestAsync(&self, request: windows_core::Ref<super::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
+    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
 }
 impl IHttpFilter_Vtbl {
     pub const fn new<Identity: IHttpFilter_Impl, const OFFSET: isize>() -> Self {

@@ -32,7 +32,7 @@ pub struct IDDEInitializer_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell")]
 pub trait IDDEInitializer_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, fileextensionorprotocol: &windows_core::PCWSTR, method: CreateProcessMethod, currentdirectory: &windows_core::PCWSTR, exectarget: windows_core::Ref<super::super::super::UI::Shell::IShellItem>, site: windows_core::Ref<windows_core::IUnknown>, application: &windows_core::PCWSTR, targetfile: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, verb: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, fileextensionorprotocol: &windows_core::PCWSTR, method: CreateProcessMethod, currentdirectory: &windows_core::PCWSTR, exectarget: windows_core::Ref<'_, super::super::super::UI::Shell::IShellItem>, site: windows_core::Ref<'_, windows_core::IUnknown>, application: &windows_core::PCWSTR, targetfile: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, verb: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell")]
 impl IDDEInitializer_Vtbl {

@@ -67,7 +67,7 @@ impl windows_core::RuntimeName for ITest {
     const NAME: &'static str = "Test.ITest";
 }
 pub trait ITest_Impl: windows_core::IUnknownImpl {
-    fn Input(&self, input: windows_core::Ref<ITest>) -> windows_core::Result<i32>;
+    fn Input(&self, input: windows_core::Ref<'_, ITest>) -> windows_core::Result<i32>;
     fn Output(
         &self,
         value: i32,

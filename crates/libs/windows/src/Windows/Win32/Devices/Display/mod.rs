@@ -3387,7 +3387,7 @@ pub trait IViewHelper_Impl: windows_core::IUnknownImpl {
     fn GetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::Result<()>;
     fn SetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
-    fn SetConfiguration(&self, pistream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<u32>;
+    fn SetConfiguration(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<u32>;
     fn GetProceedOnNewConfiguration(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]

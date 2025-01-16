@@ -741,7 +741,7 @@ pub struct ICorProfilerCallback_Vtbl {
     pub ExceptionCLRCatcherExecute: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, picorprofilerinfounk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, picorprofilerinfounk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
     fn AppDomainCreationStarted(&self, appdomainid: usize) -> windows_core::Result<()>;
     fn AppDomainCreationFinished(&self, appdomainid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()>;
@@ -1572,7 +1572,7 @@ pub struct ICorProfilerCallback3_Vtbl {
     pub ProfilerDetachSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback3_Impl: ICorProfilerCallback2_Impl {
-    fn InitializeForAttach(&self, pcorprofilerinfounk: windows_core::Ref<windows_core::IUnknown>, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>;
+    fn InitializeForAttach(&self, pcorprofilerinfounk: windows_core::Ref<'_, windows_core::IUnknown>, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>;
     fn ProfilerAttachComplete(&self) -> windows_core::Result<()>;
     fn ProfilerDetachSucceeded(&self) -> windows_core::Result<()>;
 }
@@ -1651,7 +1651,7 @@ pub struct ICorProfilerCallback4_Vtbl {
 }
 pub trait ICorProfilerCallback4_Impl: ICorProfilerCallback3_Impl {
     fn ReJITCompilationStarted(&self, functionid: usize, rejitid: usize, fissafetoblock: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetReJITParameters(&self, moduleid: usize, methodid: u32, pfunctioncontrol: windows_core::Ref<ICorProfilerFunctionControl>) -> windows_core::Result<()>;
+    fn GetReJITParameters(&self, moduleid: usize, methodid: u32, pfunctioncontrol: windows_core::Ref<'_, ICorProfilerFunctionControl>) -> windows_core::Result<()>;
     fn ReJITCompilationFinished(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: windows_core::BOOL) -> windows_core::Result<()>;
     fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()>;
     fn MovedReferences2(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::Result<()>;
@@ -1772,7 +1772,7 @@ pub struct ICorProfilerCallback6_Vtbl {
     pub GetAssemblyReferences: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback6_Impl: ICorProfilerCallback5_Impl {
-    fn GetAssemblyReferences(&self, wszassemblypath: &windows_core::PCWSTR, pasmrefprovider: windows_core::Ref<ICorProfilerAssemblyReferenceProvider>) -> windows_core::Result<()>;
+    fn GetAssemblyReferences(&self, wszassemblypath: &windows_core::PCWSTR, pasmrefprovider: windows_core::Ref<'_, ICorProfilerAssemblyReferenceProvider>) -> windows_core::Result<()>;
 }
 impl ICorProfilerCallback6_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback6_Impl, const OFFSET: isize>() -> Self {

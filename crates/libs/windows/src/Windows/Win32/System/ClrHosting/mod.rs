@@ -517,7 +517,7 @@ pub struct IAppDomainBinding_Vtbl {
     pub OnAppDomain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAppDomainBinding_Impl: windows_core::IUnknownImpl {
-    fn OnAppDomain(&self, pappdomain: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnAppDomain(&self, pappdomain: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IAppDomainBinding_Vtbl {
     pub const fn new<Identity: IAppDomainBinding_Impl, const OFFSET: isize>() -> Self {
@@ -674,9 +674,9 @@ pub struct ICLRAssemblyIdentityManager_Vtbl {
 pub trait ICLRAssemblyIdentityManager_Impl: windows_core::IUnknownImpl {
     fn GetCLRAssemblyReferenceList(&self, ppwzassemblyreferences: *const windows_core::PCWSTR, dwnumofreferences: u32) -> windows_core::Result<ICLRAssemblyReferenceList>;
     fn GetBindingIdentityFromFile(&self, pwzfilepath: &windows_core::PCWSTR, dwflags: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> windows_core::Result<()>;
-    fn GetBindingIdentityFromStream(&self, pstream: windows_core::Ref<super::Com::IStream>, dwflags: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> windows_core::Result<()>;
-    fn GetReferencedAssembliesFromFile(&self, pwzfilepath: &windows_core::PCWSTR, dwflags: u32, pexcludeassemblieslist: windows_core::Ref<ICLRAssemblyReferenceList>) -> windows_core::Result<ICLRReferenceAssemblyEnum>;
-    fn GetReferencedAssembliesFromStream(&self, pstream: windows_core::Ref<super::Com::IStream>, dwflags: u32, pexcludeassemblieslist: windows_core::Ref<ICLRAssemblyReferenceList>) -> windows_core::Result<ICLRReferenceAssemblyEnum>;
+    fn GetBindingIdentityFromStream(&self, pstream: windows_core::Ref<'_, super::Com::IStream>, dwflags: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> windows_core::Result<()>;
+    fn GetReferencedAssembliesFromFile(&self, pwzfilepath: &windows_core::PCWSTR, dwflags: u32, pexcludeassemblieslist: windows_core::Ref<'_, ICLRAssemblyReferenceList>) -> windows_core::Result<ICLRReferenceAssemblyEnum>;
+    fn GetReferencedAssembliesFromStream(&self, pstream: windows_core::Ref<'_, super::Com::IStream>, dwflags: u32, pexcludeassemblieslist: windows_core::Ref<'_, ICLRAssemblyReferenceList>) -> windows_core::Result<ICLRReferenceAssemblyEnum>;
     fn GetProbingAssembliesFromReference(&self, dwmachinetype: u32, dwflags: u32, pwzreferenceidentity: &windows_core::PCWSTR) -> windows_core::Result<ICLRProbingAssemblyEnum>;
     fn IsStronglyNamed(&self, pwzassemblyidentity: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
 }
@@ -796,7 +796,7 @@ pub struct ICLRAssemblyReferenceList_Vtbl {
 }
 pub trait ICLRAssemblyReferenceList_Impl: windows_core::IUnknownImpl {
     fn IsStringAssemblyReferenceInList(&self, pwzassemblyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn IsAssemblyReferenceInList(&self, pname: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn IsAssemblyReferenceInList(&self, pname: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ICLRAssemblyReferenceList_Vtbl {
     pub const fn new<Identity: ICLRAssemblyReferenceList_Impl, const OFFSET: isize>() -> Self {
@@ -1030,7 +1030,7 @@ pub struct ICLRDebugging_Vtbl {
     pub CanUnloadNow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HMODULE) -> windows_core::HRESULT,
 }
 pub trait ICLRDebugging_Impl: windows_core::IUnknownImpl {
-    fn OpenVirtualProcess(&self, modulebaseaddress: u64, pdatatarget: windows_core::Ref<windows_core::IUnknown>, plibraryprovider: windows_core::Ref<ICLRDebuggingLibraryProvider>, pmaxdebuggersupportedversion: *const CLR_DEBUGGING_VERSION, riidprocess: *const windows_core::GUID, ppprocess: windows_core::OutRef<'_, windows_core::IUnknown>, pversion: *mut CLR_DEBUGGING_VERSION, pdwflags: *mut CLR_DEBUGGING_PROCESS_FLAGS) -> windows_core::Result<()>;
+    fn OpenVirtualProcess(&self, modulebaseaddress: u64, pdatatarget: windows_core::Ref<'_, windows_core::IUnknown>, plibraryprovider: windows_core::Ref<'_, ICLRDebuggingLibraryProvider>, pmaxdebuggersupportedversion: *const CLR_DEBUGGING_VERSION, riidprocess: *const windows_core::GUID, ppprocess: windows_core::OutRef<'_, windows_core::IUnknown>, pversion: *mut CLR_DEBUGGING_VERSION, pdwflags: *mut CLR_DEBUGGING_PROCESS_FLAGS) -> windows_core::Result<()>;
     fn CanUnloadNow(&self, hmodule: super::super::Foundation::HMODULE) -> windows_core::Result<()>;
 }
 impl ICLRDebugging_Vtbl {
@@ -1626,7 +1626,7 @@ pub struct ICLRMetaHostPolicy_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICLRMetaHostPolicy_Impl: windows_core::IUnknownImpl {
-    fn GetRequestedRuntime(&self, dwpolicyflags: METAHOST_POLICY_FLAGS, pwzbinary: &windows_core::PCWSTR, pcfgstream: windows_core::Ref<super::Com::IStream>, pwzversion: windows_core::PWSTR, pcchversion: *mut u32, pwzimageversion: windows_core::PWSTR, pcchimageversion: *mut u32, pdwconfigflags: *mut u32, riid: *const windows_core::GUID, ppruntime: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetRequestedRuntime(&self, dwpolicyflags: METAHOST_POLICY_FLAGS, pwzbinary: &windows_core::PCWSTR, pcfgstream: windows_core::Ref<'_, super::Com::IStream>, pwzversion: windows_core::PWSTR, pcchversion: *mut u32, pwzimageversion: windows_core::PWSTR, pcchimageversion: *mut u32, pdwconfigflags: *mut u32, riid: *const windows_core::GUID, ppruntime: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ICLRMetaHostPolicy_Vtbl {
@@ -1668,8 +1668,8 @@ pub struct ICLROnEventManager_Vtbl {
     pub UnregisterActionOnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, EClrEvent, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICLROnEventManager_Impl: windows_core::IUnknownImpl {
-    fn RegisterActionOnEvent(&self, event: EClrEvent, paction: windows_core::Ref<IActionOnCLREvent>) -> windows_core::Result<()>;
-    fn UnregisterActionOnEvent(&self, event: EClrEvent, paction: windows_core::Ref<IActionOnCLREvent>) -> windows_core::Result<()>;
+    fn RegisterActionOnEvent(&self, event: EClrEvent, paction: windows_core::Ref<'_, IActionOnCLREvent>) -> windows_core::Result<()>;
+    fn UnregisterActionOnEvent(&self, event: EClrEvent, paction: windows_core::Ref<'_, IActionOnCLREvent>) -> windows_core::Result<()>;
 }
 impl ICLROnEventManager_Vtbl {
     pub const fn new<Identity: ICLROnEventManager_Impl, const OFFSET: isize>() -> Self {
@@ -1953,7 +1953,7 @@ pub struct ICLRRuntimeHost_Vtbl {
 pub trait ICLRRuntimeHost_Impl: windows_core::IUnknownImpl {
     fn Start(&self) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
-    fn SetHostControl(&self, phostcontrol: windows_core::Ref<IHostControl>) -> windows_core::Result<()>;
+    fn SetHostControl(&self, phostcontrol: windows_core::Ref<'_, IHostControl>) -> windows_core::Result<()>;
     fn GetCLRControl(&self) -> windows_core::Result<ICLRControl>;
     fn UnloadAppDomain(&self, dwappdomainid: u32, fwaituntildone: windows_core::BOOL) -> windows_core::Result<()>;
     fn ExecuteInAppDomain(&self, dwappdomainid: u32, pcallback: FExecuteInAppDomainCallback, cookie: *const core::ffi::c_void) -> windows_core::Result<()>;
@@ -3333,9 +3333,9 @@ pub struct ICorConfiguration_Vtbl {
     pub AddDebuggerSpecialThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ICorConfiguration_Impl: windows_core::IUnknownImpl {
-    fn SetGCThreadControl(&self, pgcthreadcontrol: windows_core::Ref<IGCThreadControl>) -> windows_core::Result<()>;
-    fn SetGCHostControl(&self, pgchostcontrol: windows_core::Ref<IGCHostControl>) -> windows_core::Result<()>;
-    fn SetDebuggerThreadControl(&self, pdebuggerthreadcontrol: windows_core::Ref<IDebuggerThreadControl>) -> windows_core::Result<()>;
+    fn SetGCThreadControl(&self, pgcthreadcontrol: windows_core::Ref<'_, IGCThreadControl>) -> windows_core::Result<()>;
+    fn SetGCHostControl(&self, pgchostcontrol: windows_core::Ref<'_, IGCHostControl>) -> windows_core::Result<()>;
+    fn SetDebuggerThreadControl(&self, pdebuggerthreadcontrol: windows_core::Ref<'_, IDebuggerThreadControl>) -> windows_core::Result<()>;
     fn AddDebuggerSpecialThread(&self, dwspecialthreadid: u32) -> windows_core::Result<()>;
 }
 impl ICorConfiguration_Vtbl {
@@ -3516,15 +3516,15 @@ pub trait ICorRuntimeHost_Impl: windows_core::IUnknownImpl {
     fn GetConfiguration(&self) -> windows_core::Result<ICorConfiguration>;
     fn Start(&self) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
-    fn CreateDomain(&self, pwzfriendlyname: &windows_core::PCWSTR, pidentityarray: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateDomain(&self, pwzfriendlyname: &windows_core::PCWSTR, pidentityarray: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
     fn GetDefaultDomain(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn EnumDomains(&self, henum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn NextDomain(&self, henum: *const core::ffi::c_void) -> windows_core::Result<windows_core::IUnknown>;
     fn CloseEnum(&self, henum: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateDomainEx(&self, pwzfriendlyname: &windows_core::PCWSTR, psetup: windows_core::Ref<windows_core::IUnknown>, pevidence: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateDomainEx(&self, pwzfriendlyname: &windows_core::PCWSTR, psetup: windows_core::Ref<'_, windows_core::IUnknown>, pevidence: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
     fn CreateDomainSetup(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn CreateEvidence(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn UnloadDomain(&self, pappdomain: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn UnloadDomain(&self, pappdomain: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CurrentDomain(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 impl ICorRuntimeHost_Vtbl {
@@ -4457,7 +4457,7 @@ pub struct IHostControl_Vtbl {
 }
 pub trait IHostControl_Impl: windows_core::IUnknownImpl {
     fn GetHostManager(&self, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetAppDomainManager(&self, dwappdomainid: u32, punkappdomainmanager: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetAppDomainManager(&self, dwappdomainid: u32, punkappdomainmanager: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IHostControl_Vtbl {
     pub const fn new<Identity: IHostControl_Impl, const OFFSET: isize>() -> Self {
@@ -4696,7 +4696,7 @@ pub trait IHostIoCompletionManager_Impl: windows_core::IUnknownImpl {
     fn GetMaxThreads(&self) -> windows_core::Result<u32>;
     fn GetAvailableThreads(&self) -> windows_core::Result<u32>;
     fn GetHostOverlappedSize(&self) -> windows_core::Result<u32>;
-    fn SetCLRIoCompletionManager(&self, pmanager: windows_core::Ref<ICLRIoCompletionManager>) -> windows_core::Result<()>;
+    fn SetCLRIoCompletionManager(&self, pmanager: windows_core::Ref<'_, ICLRIoCompletionManager>) -> windows_core::Result<()>;
     fn InitializeHostOverlapped(&self, pvoverlapped: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn Bind(&self, hport: super::super::Foundation::HANDLE, hhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn SetMinThreads(&self, dwminiocompletionthreads: u32) -> windows_core::Result<()>;
@@ -4998,7 +4998,7 @@ pub trait IHostMemoryManager_Impl: windows_core::IUnknownImpl {
     fn VirtualQuery(&self, lpaddress: *const core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, dwlength: usize, presult: *mut usize) -> windows_core::Result<()>;
     fn VirtualProtect(&self, lpaddress: *const core::ffi::c_void, dwsize: usize, flnewprotect: u32) -> windows_core::Result<u32>;
     fn GetMemoryLoad(&self, pmemoryload: *mut u32, pavailablebytes: *mut usize) -> windows_core::Result<()>;
-    fn RegisterMemoryNotificationCallback(&self, pcallback: windows_core::Ref<ICLRMemoryNotificationCallback>) -> windows_core::Result<()>;
+    fn RegisterMemoryNotificationCallback(&self, pcallback: windows_core::Ref<'_, ICLRMemoryNotificationCallback>) -> windows_core::Result<()>;
     fn NeedsVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void, size: usize) -> windows_core::Result<()>;
     fn AcquiredVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void, size: usize) -> windows_core::Result<()>;
     fn ReleasedVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void) -> windows_core::Result<()>;
@@ -5239,7 +5239,7 @@ pub trait IHostSecurityManager_Impl: windows_core::IUnknownImpl {
     fn OpenThreadToken(&self, dwdesiredaccess: u32, bopenasself: windows_core::BOOL) -> windows_core::Result<super::super::Foundation::HANDLE>;
     fn SetThreadToken(&self, htoken: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn GetSecurityContext(&self, econtexttype: EContextType) -> windows_core::Result<IHostSecurityContext>;
-    fn SetSecurityContext(&self, econtexttype: EContextType, psecuritycontext: windows_core::Ref<IHostSecurityContext>) -> windows_core::Result<()>;
+    fn SetSecurityContext(&self, econtexttype: EContextType, psecuritycontext: windows_core::Ref<'_, IHostSecurityContext>) -> windows_core::Result<()>;
 }
 impl IHostSecurityManager_Vtbl {
     pub const fn new<Identity: IHostSecurityManager_Impl, const OFFSET: isize>() -> Self {
@@ -5432,7 +5432,7 @@ pub struct IHostSyncManager_Vtbl {
     pub CreateSemaphoreA: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostSyncManager_Impl: windows_core::IUnknownImpl {
-    fn SetCLRSyncManager(&self, pmanager: windows_core::Ref<ICLRSyncManager>) -> windows_core::Result<()>;
+    fn SetCLRSyncManager(&self, pmanager: windows_core::Ref<'_, ICLRSyncManager>) -> windows_core::Result<()>;
     fn CreateCrst(&self) -> windows_core::Result<IHostCrst>;
     fn CreateCrstWithSpinCount(&self, dwspincount: u32) -> windows_core::Result<IHostCrst>;
     fn CreateAutoEvent(&self) -> windows_core::Result<IHostAutoEvent>;
@@ -5608,7 +5608,7 @@ pub trait IHostTask_Impl: windows_core::IUnknownImpl {
     fn Join(&self, dwmilliseconds: u32, option: u32) -> windows_core::Result<()>;
     fn SetPriority(&self, newpriority: i32) -> windows_core::Result<()>;
     fn GetPriority(&self) -> windows_core::Result<i32>;
-    fn SetCLRTask(&self, pclrtask: windows_core::Ref<ICLRTask>) -> windows_core::Result<()>;
+    fn SetCLRTask(&self, pclrtask: windows_core::Ref<'_, ICLRTask>) -> windows_core::Result<()>;
 }
 impl IHostTask_Vtbl {
     pub const fn new<Identity: IHostTask_Impl, const OFFSET: isize>() -> Self {
@@ -5787,7 +5787,7 @@ pub trait IHostTaskManager_Impl: windows_core::IUnknownImpl {
     fn EndThreadAffinity(&self) -> windows_core::Result<()>;
     fn SetStackGuarantee(&self, guarantee: u32) -> windows_core::Result<()>;
     fn GetStackGuarantee(&self) -> windows_core::Result<u32>;
-    fn SetCLRTaskManager(&self, ppmanager: windows_core::Ref<ICLRTaskManager>) -> windows_core::Result<()>;
+    fn SetCLRTaskManager(&self, ppmanager: windows_core::Ref<'_, ICLRTaskManager>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Threading")]
 impl IHostTaskManager_Vtbl {
@@ -6674,7 +6674,7 @@ pub const RUNTIME_INFO_REQUEST_ARM64: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(81
 pub const RUNTIME_INFO_REQUEST_IA64: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(2i32);
 pub const RUNTIME_INFO_REQUEST_X86: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(8i32);
 pub const RUNTIME_INFO_UPGRADE_VERSION: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(1i32);
-pub type RuntimeLoadedCallbackFnPtr = Option<unsafe extern "system" fn(pruntimeinfo: windows_core::Ref<ICLRRuntimeInfo>, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr)>;
+pub type RuntimeLoadedCallbackFnPtr = Option<unsafe extern "system" fn(pruntimeinfo: windows_core::Ref<'_, ICLRRuntimeInfo>, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr)>;
 pub const SO_ClrEngine: StackOverflowType = StackOverflowType(1i32);
 pub const SO_Managed: StackOverflowType = StackOverflowType(0i32);
 pub const SO_Other: StackOverflowType = StackOverflowType(2i32);

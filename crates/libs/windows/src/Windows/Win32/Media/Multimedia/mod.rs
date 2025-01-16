@@ -2036,7 +2036,7 @@ pub struct IAVIEditStream_Vtbl {
 pub trait IAVIEditStream_Impl: windows_core::IUnknownImpl {
     fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<'_, IAVIStream>) -> windows_core::Result<()>;
     fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<'_, IAVIStream>) -> windows_core::Result<()>;
-    fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: windows_core::Ref<IAVIStream>, lstart: i32, lend: i32) -> windows_core::Result<()>;
+    fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: windows_core::Ref<'_, IAVIStream>, lstart: i32, lend: i32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IAVIStream>;
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()>;
 }

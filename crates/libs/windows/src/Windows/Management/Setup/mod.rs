@@ -166,7 +166,7 @@ impl windows_core::RuntimeType for DeploymentSessionHeartbeatRequested {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DeploymentSessionHeartbeatRequested {
-    pub fn new<F: FnMut(windows_core::Ref<DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DeploymentSessionHeartbeatRequestedBox { vtable: &DeploymentSessionHeartbeatRequestedBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -184,12 +184,12 @@ pub struct DeploymentSessionHeartbeatRequested_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DeploymentSessionHeartbeatRequestedBox<F: FnMut(windows_core::Ref<DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct DeploymentSessionHeartbeatRequestedBox<F: FnMut(windows_core::Ref<'_, DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const DeploymentSessionHeartbeatRequested_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> DeploymentSessionHeartbeatRequestedBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> DeploymentSessionHeartbeatRequestedBox<F> {
     const VTABLE: DeploymentSessionHeartbeatRequested_Vtbl = DeploymentSessionHeartbeatRequested_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {

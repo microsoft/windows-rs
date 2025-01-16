@@ -104,8 +104,8 @@ pub struct IObjectCollection_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IObjectCollection_Impl: IObjectArray_Impl {
-    fn AddObject(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn AddFromArray(&self, poasource: windows_core::Ref<IObjectArray>) -> windows_core::Result<()>;
+    fn AddObject(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AddFromArray(&self, poasource: windows_core::Ref<'_, IObjectArray>) -> windows_core::Result<()>;
     fn RemoveObjectAt(&self, uiindex: u32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }

@@ -28,9 +28,9 @@ pub struct IUIApplication_Vtbl {
     pub OnDestroyUICommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, UI_COMMANDTYPE, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIApplication_Impl: windows_core::IUnknownImpl {
-    fn OnViewChanged(&self, viewid: u32, typeid: UI_VIEWTYPE, view: windows_core::Ref<windows_core::IUnknown>, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_core::Result<()>;
+    fn OnViewChanged(&self, viewid: u32, typeid: UI_VIEWTYPE, view: windows_core::Ref<'_, windows_core::IUnknown>, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_core::Result<()>;
     fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> windows_core::Result<IUICommandHandler>;
-    fn OnDestroyUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: windows_core::Ref<IUICommandHandler>) -> windows_core::Result<()>;
+    fn OnDestroyUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: windows_core::Ref<'_, IUICommandHandler>) -> windows_core::Result<()>;
 }
 impl IUIApplication_Vtbl {
     pub const fn new<Identity: IUIApplication_Impl, const OFFSET: isize>() -> Self {
@@ -124,10 +124,10 @@ pub struct IUICollection_Vtbl {
 pub trait IUICollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetItem(&self, index: u32) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, item: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Insert(&self, index: u32, item: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Add(&self, item: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Insert(&self, index: u32, item: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
-    fn Replace(&self, indexreplaced: u32, itemreplacewith: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Replace(&self, indexreplaced: u32, itemreplacewith: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
 impl IUICollection_Vtbl {
@@ -219,7 +219,7 @@ pub struct IUICollectionChangedEvent_Vtbl {
     pub OnChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_COLLECTIONCHANGE, u32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUICollectionChangedEvent_Impl: windows_core::IUnknownImpl {
-    fn OnChanged(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: windows_core::Ref<windows_core::IUnknown>, newindex: u32, newitem: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnChanged(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: windows_core::Ref<'_, windows_core::IUnknown>, newindex: u32, newitem: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IUICollectionChangedEvent_Vtbl {
     pub const fn new<Identity: IUICollectionChangedEvent_Impl, const OFFSET: isize>() -> Self {
@@ -268,7 +268,7 @@ pub struct IUICommandHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IUICommandHandler_Impl: windows_core::IUnknownImpl {
-    fn Execute(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: windows_core::Ref<IUISimplePropertySet>) -> windows_core::Result<()>;
+    fn Execute(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: windows_core::Ref<'_, IUISimplePropertySet>) -> windows_core::Result<()>;
     fn UpdateProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -380,7 +380,7 @@ pub struct IUIEventingManager_Vtbl {
     pub SetEventLogger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIEventingManager_Impl: windows_core::IUnknownImpl {
-    fn SetEventLogger(&self, eventlogger: windows_core::Ref<IUIEventLogger>) -> windows_core::Result<()>;
+    fn SetEventLogger(&self, eventlogger: windows_core::Ref<'_, IUIEventLogger>) -> windows_core::Result<()>;
 }
 impl IUIEventingManager_Vtbl {
     pub const fn new<Identity: IUIEventingManager_Impl, const OFFSET: isize>() -> Self {
@@ -460,7 +460,7 @@ pub struct IUIFramework_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IUIFramework_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, framewnd: super::super::Foundation::HWND, application: windows_core::Ref<IUIApplication>) -> windows_core::Result<()>;
+    fn Initialize(&self, framewnd: super::super::Foundation::HWND, application: windows_core::Ref<'_, IUIApplication>) -> windows_core::Result<()>;
     fn Destroy(&self) -> windows_core::Result<()>;
     fn LoadUI(&self, instance: super::super::Foundation::HINSTANCE, resourcename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetView(&self, viewid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -684,8 +684,8 @@ pub struct IUIRibbon_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIRibbon_Impl: windows_core::IUnknownImpl {
     fn GetHeight(&self) -> windows_core::Result<u32>;
-    fn LoadSettingsFromStream(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn SaveSettingsToStream(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn LoadSettingsFromStream(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn SaveSettingsToStream(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIRibbon_Vtbl {

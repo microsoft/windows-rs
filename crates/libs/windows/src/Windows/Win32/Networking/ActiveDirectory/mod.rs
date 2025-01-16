@@ -4677,8 +4677,8 @@ pub trait IADsAccessControlList_Impl: super::super::System::Com::IDispatch_Impl 
     fn SetAclRevision(&self, lnaclrevision: i32) -> windows_core::Result<()>;
     fn AceCount(&self) -> windows_core::Result<i32>;
     fn SetAceCount(&self, lnacecount: i32) -> windows_core::Result<()>;
-    fn AddAce(&self, paccesscontrolentry: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
-    fn RemoveAce(&self, paccesscontrolentry: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn AddAce(&self, paccesscontrolentry: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn RemoveAce(&self, paccesscontrolentry: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn CopyAccessList(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
@@ -4958,7 +4958,7 @@ pub struct IADsAggregatee_Vtbl {
     pub RestoreInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IADsAggregatee_Impl: windows_core::IUnknownImpl {
-    fn ConnectAsAggregatee(&self, pouterunknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ConnectAsAggregatee(&self, pouterunknown: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DisconnectAsAggregatee(&self) -> windows_core::Result<()>;
     fn RelinquishInterface(&self, riid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn RestoreInterface(&self, riid: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -5022,7 +5022,7 @@ pub struct IADsAggregator_Vtbl {
     pub DisconnectAsAggregator: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IADsAggregator_Impl: windows_core::IUnknownImpl {
-    fn ConnectAsAggregator(&self, paggregatee: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ConnectAsAggregator(&self, paggregatee: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DisconnectAsAggregator(&self) -> windows_core::Result<()>;
 }
 impl IADsAggregator_Vtbl {
@@ -12051,9 +12051,9 @@ pub trait IADsPropertyValue_Impl: super::super::System::Com::IDispatch_Impl {
     fn OctetString(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SetOctetString(&self, voctetstring: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn SecurityDescriptor(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn SetSecurityDescriptor(&self, psecuritydescriptor: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetSecurityDescriptor(&self, psecuritydescriptor: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn LargeInteger(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn SetLargeInteger(&self, plargeinteger: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetLargeInteger(&self, plargeinteger: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn UTCTime(&self) -> windows_core::Result<f64>;
     fn SetUTCTime(&self, dautctime: f64) -> windows_core::Result<()>;
 }
@@ -12868,11 +12868,11 @@ pub trait IADsSecurityDescriptor_Impl: super::super::System::Com::IDispatch_Impl
     fn GroupDefaulted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetGroupDefaulted(&self, fgroupdefaulted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn DiscretionaryAcl(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn SetDiscretionaryAcl(&self, pdiscretionaryacl: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetDiscretionaryAcl(&self, pdiscretionaryacl: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn DaclDefaulted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetDaclDefaulted(&self, fdacldefaulted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SystemAcl(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn SetSystemAcl(&self, psystemacl: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn SetSystemAcl(&self, psystemacl: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn SaclDefaulted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetSaclDefaulted(&self, fsacldefaulted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn CopySecurityDescriptor(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
@@ -16521,7 +16521,7 @@ pub struct IDsAdminCreateObj_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDsAdminCreateObj_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, padscontainerobj: windows_core::Ref<IADsContainer>, padscopysource: windows_core::Ref<IADs>, lpszclassname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, padscontainerobj: windows_core::Ref<'_, IADsContainer>, padscopysource: windows_core::Ref<'_, IADs>, lpszclassname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CreateModal(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<IADs>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16657,9 +16657,9 @@ pub struct IDsAdminNewObjExt_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDsAdminNewObjExt_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, padscontainerobj: windows_core::Ref<IADsContainer>, padscopysource: windows_core::Ref<IADs>, lpszclassname: &windows_core::PCWSTR, pdsadminnewobj: windows_core::Ref<IDsAdminNewObj>, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> windows_core::Result<()>;
+    fn Initialize(&self, padscontainerobj: windows_core::Ref<'_, IADsContainer>, padscopysource: windows_core::Ref<'_, IADs>, lpszclassname: &windows_core::PCWSTR, pdsadminnewobj: windows_core::Ref<'_, IDsAdminNewObj>, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> windows_core::Result<()>;
     fn AddPages(&self, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
-    fn SetObject(&self, padsobj: windows_core::Ref<IADs>) -> windows_core::Result<()>;
+    fn SetObject(&self, padsobj: windows_core::Ref<'_, IADs>) -> windows_core::Result<()>;
     fn WriteData(&self, hwnd: super::super::Foundation::HWND, ucontext: u32) -> windows_core::Result<()>;
     fn OnError(&self, hwnd: super::super::Foundation::HWND, hr: windows_core::HRESULT, ucontext: u32) -> windows_core::Result<()>;
     fn GetSummaryInfo(&self, pbstrtext: *mut windows_core::BSTR) -> windows_core::Result<()>;
@@ -16804,8 +16804,8 @@ pub struct IDsAdminNotifyHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDsAdminNotifyHandler_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pextrainfo: windows_core::Ref<super::super::System::Com::IDataObject>, pueventflags: *mut u32) -> windows_core::Result<()>;
-    fn Begin(&self, uevent: u32, parg1: windows_core::Ref<super::super::System::Com::IDataObject>, parg2: windows_core::Ref<super::super::System::Com::IDataObject>, puflags: *mut u32, pbstr: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, pextrainfo: windows_core::Ref<'_, super::super::System::Com::IDataObject>, pueventflags: *mut u32) -> windows_core::Result<()>;
+    fn Begin(&self, uevent: u32, parg1: windows_core::Ref<'_, super::super::System::Com::IDataObject>, parg2: windows_core::Ref<'_, super::super::System::Com::IDataObject>, puflags: *mut u32, pbstr: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn Notify(&self, nitem: u32, uflags: u32) -> windows_core::Result<()>;
     fn End(&self) -> windows_core::Result<()>;
 }
