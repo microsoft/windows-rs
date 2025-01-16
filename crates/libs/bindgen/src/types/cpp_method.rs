@@ -311,14 +311,7 @@ impl CppMethod {
                     .0
                     .deref();
 
-                let map = if return_type.is_copyable() {
-                    quote! { map(||result__) }
-                } else if return_type.is_interface() {
-                    quote! { and_then(||windows_core::Type::from_abi(result__)) }
-                } else {
-                    quote! { map(||core::mem::transmute(result__)) }
-                };
-
+                let map = return_type.write_result_map();
                 let return_type = return_type.write_name(writer);
 
                 quote! {
