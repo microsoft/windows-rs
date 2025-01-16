@@ -992,11 +992,11 @@ impl Type {
 
     pub fn write_result_map(&self) -> TokenStream {
         if self.is_copyable() {
-            quote! { map(||result__) }
-        } else if self.is_interface() {
+            quote! { map(|| result__) }
+        } else if self.is_convertible() {
             quote! { and_then(||windows_core::Type::from_abi(result__)) }
         } else {
-            quote! { map(||core::mem::transmute(result__)) }
+            quote! { map(|| core::mem::transmute(result__)) }
         }
     }
 }
