@@ -40,7 +40,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AttributeHandle(&self) -> windows_core::Result<u16> {
@@ -198,7 +198,7 @@ impl GattCharacteristic {
     pub fn ConvertShortIdToUuid(shortid: u16) -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
     fn IGattCharacteristicStatics<R, F: FnOnce(&IGattCharacteristicStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -278,487 +278,487 @@ impl GattCharacteristicUuids {
     pub fn BatteryLevel() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BatteryLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BatteryLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn BloodPressureFeature() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BloodPressureFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BloodPressureFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn BloodPressureMeasurement() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BloodPressureMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BloodPressureMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn BodySensorLocation() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BodySensorLocation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BodySensorLocation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CscFeature() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CscFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CscFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CscMeasurement() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CscMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CscMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GlucoseFeature() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GlucoseFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GlucoseFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GlucoseMeasurement() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GlucoseMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GlucoseMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GlucoseMeasurementContext() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GlucoseMeasurementContext)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GlucoseMeasurementContext)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn HeartRateControlPoint() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeartRateControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HeartRateControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn HeartRateMeasurement() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeartRateMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HeartRateMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IntermediateCuffPressure() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IntermediateCuffPressure)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).IntermediateCuffPressure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IntermediateTemperature() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IntermediateTemperature)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).IntermediateTemperature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MeasurementInterval() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MeasurementInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MeasurementInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn RecordAccessControlPoint() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecordAccessControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RecordAccessControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn RscFeature() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RscFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RscFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn RscMeasurement() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RscMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RscMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SCControlPoint() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SCControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SCControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SensorLocation() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SensorLocation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SensorLocation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TemperatureMeasurement() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TemperatureMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TemperatureMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TemperatureType() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TemperatureType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TemperatureType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn AlertCategoryId() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlertCategoryId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AlertCategoryId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn AlertCategoryIdBitMask() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlertCategoryIdBitMask)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AlertCategoryIdBitMask)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn AlertLevel() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlertLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AlertLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn AlertNotificationControlPoint() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlertNotificationControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AlertNotificationControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn AlertStatus() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlertStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AlertStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GapAppearance() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GapAppearance)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GapAppearance)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn BootKeyboardInputReport() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BootKeyboardInputReport)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BootKeyboardInputReport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn BootKeyboardOutputReport() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BootKeyboardOutputReport)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BootKeyboardOutputReport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn BootMouseInputReport() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BootMouseInputReport)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BootMouseInputReport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CurrentTime() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CurrentTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CyclingPowerControlPoint() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CyclingPowerControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CyclingPowerControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CyclingPowerFeature() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CyclingPowerFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CyclingPowerFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CyclingPowerMeasurement() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CyclingPowerMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CyclingPowerMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CyclingPowerVector() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CyclingPowerVector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CyclingPowerVector)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn DateTime() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn DayDateTime() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DayDateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DayDateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn DayOfWeek() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DayOfWeek)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DayOfWeek)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GapDeviceName() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GapDeviceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GapDeviceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn DstOffset() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DstOffset)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DstOffset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ExactTime256() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExactTime256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ExactTime256)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn FirmwareRevisionString() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FirmwareRevisionString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).FirmwareRevisionString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn HardwareRevisionString() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HardwareRevisionString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HardwareRevisionString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn HidControlPoint() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HidControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HidControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn HidInformation() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HidInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HidInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Ieee1107320601RegulatoryCertificationDataList() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Ieee1107320601RegulatoryCertificationDataList)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Ieee1107320601RegulatoryCertificationDataList)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn LnControlPoint() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LnControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).LnControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn LnFeature() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LnFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).LnFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn LocalTimeInformation() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocalTimeInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).LocalTimeInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn LocationAndSpeed() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocationAndSpeed)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).LocationAndSpeed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ManufacturerNameString() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManufacturerNameString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ManufacturerNameString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ModelNumberString() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ModelNumberString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ModelNumberString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Navigation() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Navigation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Navigation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn NewAlert() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NewAlert)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).NewAlert)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GapPeripheralPreferredConnectionParameters() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GapPeripheralPreferredConnectionParameters)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GapPeripheralPreferredConnectionParameters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GapPeripheralPrivacyFlag() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GapPeripheralPrivacyFlag)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GapPeripheralPrivacyFlag)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn PnpId() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PnpId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PnpId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn PositionQuality() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PositionQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PositionQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ProtocolMode() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProtocolMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ProtocolMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GapReconnectionAddress() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GapReconnectionAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GapReconnectionAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ReferenceTimeInformation() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReferenceTimeInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ReferenceTimeInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Report() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Report)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Report)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ReportMap() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReportMap)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ReportMap)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn RingerControlPoint() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RingerControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RingerControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn RingerSetting() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RingerSetting)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RingerSetting)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ScanIntervalWindow() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScanIntervalWindow)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ScanIntervalWindow)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ScanRefresh() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScanRefresh)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ScanRefresh)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SerialNumberString() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SerialNumberString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SerialNumberString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GattServiceChanged() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GattServiceChanged)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GattServiceChanged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SoftwareRevisionString() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SoftwareRevisionString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SoftwareRevisionString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SupportedNewAlertCategory() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SupportedNewAlertCategory)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SupportedNewAlertCategory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SupportUnreadAlertCategory() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SupportUnreadAlertCategory)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SupportUnreadAlertCategory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SystemId() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SystemId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TimeAccuracy() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeAccuracy)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeAccuracy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TimeSource() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeSource)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeSource)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TimeUpdateControlPoint() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeUpdateControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeUpdateControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TimeUpdateState() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeUpdateState)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeUpdateState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TimeWithDst() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeWithDst)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeWithDst)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TimeZone() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeZone)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeZone)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TxPowerLevel() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TxPowerLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TxPowerLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn UnreadAlertStatus() -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnreadAlertStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UnreadAlertStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     fn IGattCharacteristicUuidsStatics<R, F: FnOnce(&IGattCharacteristicUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -908,7 +908,7 @@ impl GattDescriptor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AttributeHandle(&self) -> windows_core::Result<u16> {
@@ -958,7 +958,7 @@ impl GattDescriptor {
     pub fn ConvertShortIdToUuid(shortid: u16) -> windows_core::Result<windows_core::GUID> {
         Self::IGattDescriptorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
     fn IGattDescriptorStatics<R, F: FnOnce(&IGattDescriptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -983,37 +983,37 @@ impl GattDescriptorUuids {
     pub fn CharacteristicAggregateFormat() -> windows_core::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CharacteristicAggregateFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CharacteristicAggregateFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CharacteristicExtendedProperties() -> windows_core::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CharacteristicExtendedProperties)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CharacteristicExtendedProperties)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CharacteristicPresentationFormat() -> windows_core::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CharacteristicPresentationFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CharacteristicPresentationFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CharacteristicUserDescription() -> windows_core::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CharacteristicUserDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CharacteristicUserDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ClientCharacteristicConfiguration() -> windows_core::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ClientCharacteristicConfiguration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ClientCharacteristicConfiguration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ServerCharacteristicConfiguration() -> windows_core::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServerCharacteristicConfiguration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ServerCharacteristicConfiguration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     fn IGattDescriptorUuidsStatics<R, F: FnOnce(&IGattDescriptorUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1101,7 +1101,7 @@ impl GattDeviceService {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AttributeHandle(&self) -> windows_core::Result<u16> {
@@ -1259,7 +1259,7 @@ impl GattDeviceService {
     pub fn ConvertShortIdToUuid(shortid: u16) -> windows_core::Result<windows_core::GUID> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
     pub fn FromIdWithSharingModeAsync(deviceid: &windows_core::HSTRING, sharingmode: GattSharingMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>> {
@@ -1374,7 +1374,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1659,7 +1659,7 @@ impl GattLocalDescriptor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1829,7 +1829,7 @@ impl GattLocalService {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CreateCharacteristicAsync<P1>(&self, characteristicuuid: windows_core::GUID, parameters: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>
@@ -2748,133 +2748,133 @@ impl GattServiceUuids {
     pub fn Battery() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Battery)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Battery)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn BloodPressure() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BloodPressure)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BloodPressure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CyclingSpeedAndCadence() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CyclingSpeedAndCadence)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CyclingSpeedAndCadence)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GenericAccess() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GenericAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GenericAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GenericAttribute() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GenericAttribute)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GenericAttribute)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Glucose() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Glucose)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Glucose)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn HealthThermometer() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HealthThermometer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HealthThermometer)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn HeartRate() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeartRate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HeartRate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn RunningSpeedAndCadence() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RunningSpeedAndCadence)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RunningSpeedAndCadence)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn AlertNotification() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlertNotification)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AlertNotification)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CurrentTime() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CurrentTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CyclingPower() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CyclingPower)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CyclingPower)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn DeviceInformation() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DeviceInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn HumanInterfaceDevice() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HumanInterfaceDevice)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HumanInterfaceDevice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ImmediateAlert() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImmediateAlert)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ImmediateAlert)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn LinkLoss() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LinkLoss)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).LinkLoss)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn LocationAndNavigation() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocationAndNavigation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).LocationAndNavigation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn NextDstChange() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NextDstChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).NextDstChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn PhoneAlertStatus() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhoneAlertStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PhoneAlertStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ReferenceTimeUpdate() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReferenceTimeUpdate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ReferenceTimeUpdate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ScanParameters() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScanParameters)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ScanParameters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TxPower() -> windows_core::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TxPower)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TxPower)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     fn IGattServiceUuidsStatics<R, F: FnOnce(&IGattServiceUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -3115,7 +3115,7 @@ impl GattValueChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }

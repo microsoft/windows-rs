@@ -1810,7 +1810,7 @@ impl StorageProviderKnownFolderEntry {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).KnownFolderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).KnownFolderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetKnownFolderId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
@@ -2528,7 +2528,7 @@ impl StorageProviderSyncRootInfo {
         let this = &windows_core::Interface::cast::<IStorageProviderSyncRootInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetProviderId(&self, value: windows_core::GUID) -> windows_core::Result<()> {

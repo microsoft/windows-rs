@@ -197,67 +197,67 @@ impl FontWeights {
     pub fn Black() -> windows_core::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Black)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Black)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Bold() -> windows_core::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bold)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Bold)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ExtraBlack() -> windows_core::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExtraBlack)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ExtraBlack)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ExtraBold() -> windows_core::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExtraBold)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ExtraBold)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ExtraLight() -> windows_core::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExtraLight)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ExtraLight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Light() -> windows_core::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Light)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Light)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Medium() -> windows_core::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Medium)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Medium)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Normal() -> windows_core::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Normal)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Normal)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SemiBold() -> windows_core::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SemiBold)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SemiBold)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SemiLight() -> windows_core::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SemiLight)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SemiLight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Thin() -> windows_core::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Thin)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Thin)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     fn IFontWeightsStatics<R, F: FnOnce(&IFontWeightsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -382,7 +382,7 @@ impl ITextCharacterFormat {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBackgroundColor(&self, value: super::Color) -> windows_core::Result<()> {
@@ -426,7 +426,7 @@ impl ITextCharacterFormat {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetForegroundColor(&self, value: super::Color) -> windows_core::Result<()> {
@@ -5161,7 +5161,7 @@ impl TextConstants {
     pub fn AutoColor() -> windows_core::Result<super::Color> {
         Self::ITextConstantsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AutoColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AutoColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MinUnitCount() -> windows_core::Result<i32> {
@@ -5179,7 +5179,7 @@ impl TextConstants {
     pub fn UndefinedColor() -> windows_core::Result<super::Color> {
         Self::ITextConstantsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UndefinedColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UndefinedColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn UndefinedFloatValue() -> windows_core::Result<f32> {

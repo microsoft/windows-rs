@@ -21,7 +21,7 @@ impl DeviceServicingDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExpectedDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ExpectedDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }

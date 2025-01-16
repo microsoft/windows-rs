@@ -94,7 +94,7 @@ impl CoreAutomationRegistrar {
     pub fn RegisterAnnotationType(guid: windows_core::GUID) -> windows_core::Result<AutomationAnnotationTypeRegistration> {
         Self::ICoreAutomationRegistrarStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterAnnotationType)(windows_core::Interface::as_raw(this), guid, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RegisterAnnotationType)(windows_core::Interface::as_raw(this), guid, &mut result__).map(|| result__)
         })
     }
     pub fn UnregisterAnnotationType(registration: AutomationAnnotationTypeRegistration) -> windows_core::Result<()> {
@@ -468,7 +468,7 @@ impl RemoteAutomationClientSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SessionId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SessionId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ConnectionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>

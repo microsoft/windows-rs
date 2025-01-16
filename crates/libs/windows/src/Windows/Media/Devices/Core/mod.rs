@@ -8,7 +8,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FocalLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).FocalLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -16,7 +16,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrincipalPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PrincipalPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -24,7 +24,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RadialDistortion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RadialDistortion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -32,7 +32,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TangentialDistortion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TangentialDistortion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ImageWidth(&self) -> windows_core::Result<u32> {
@@ -54,7 +54,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProjectOntoFrame)(windows_core::Interface::as_raw(this), coordinate, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ProjectOntoFrame)(windows_core::Interface::as_raw(this), coordinate, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -62,7 +62,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnprojectAtUnitDepth)(windows_core::Interface::as_raw(this), pixelcoordinate, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UnprojectAtUnitDepth)(windows_core::Interface::as_raw(this), pixelcoordinate, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -80,14 +80,14 @@ impl CameraIntrinsics {
         let this = &windows_core::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UndistortedProjectionTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UndistortedProjectionTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DistortPoint(&self, input: super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Point> {
         let this = &windows_core::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DistortPoint)(windows_core::Interface::as_raw(this), input, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DistortPoint)(windows_core::Interface::as_raw(this), input, &mut result__).map(|| result__)
         }
     }
     pub fn DistortPoints(&self, inputs: &[super::super::super::Foundation::Point], results: &mut [super::super::super::Foundation::Point]) -> windows_core::Result<()> {
@@ -98,7 +98,7 @@ impl CameraIntrinsics {
         let this = &windows_core::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UndistortPoint)(windows_core::Interface::as_raw(this), input, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UndistortPoint)(windows_core::Interface::as_raw(this), input, &mut result__).map(|| result__)
         }
     }
     pub fn UndistortPoints(&self, inputs: &[super::super::super::Foundation::Point], results: &mut [super::super::super::Foundation::Point]) -> windows_core::Result<()> {
@@ -147,7 +147,7 @@ impl DepthCorrelatedCoordinateMapper {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnprojectPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UnprojectPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -167,7 +167,7 @@ impl DepthCorrelatedCoordinateMapper {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.param().abi(), targetcameraintrinsics.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MapPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.param().abi(), targetcameraintrinsics.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Perception_Spatial")]
@@ -340,21 +340,21 @@ impl FrameExposureCapabilities {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Min)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Min)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Max(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Max)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Max)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Step(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }

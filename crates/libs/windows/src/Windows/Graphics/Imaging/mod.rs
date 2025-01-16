@@ -43,7 +43,7 @@ impl BitmapBuffer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPlaneDescription)(windows_core::Interface::as_raw(this), index, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetPlaneDescription)(windows_core::Interface::as_raw(this), index, &mut result__).map(|| result__)
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -93,7 +93,7 @@ impl BitmapCodecInformation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CodecId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CodecId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -177,43 +177,43 @@ impl BitmapDecoder {
     pub fn BmpDecoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BmpDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BmpDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn JpegDecoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).JpegDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).JpegDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn PngDecoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PngDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PngDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TiffDecoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TiffDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TiffDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GifDecoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GifDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GifDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn JpegXRDecoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).JpegXRDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).JpegXRDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IcoDecoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IcoDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).IcoDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -246,13 +246,13 @@ impl BitmapDecoder {
     pub fn HeifDecoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapDecoderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeifDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HeifDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn WebpDecoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapDecoderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WebpDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).WebpDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -486,37 +486,37 @@ impl BitmapEncoder {
     pub fn BmpEncoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BmpEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BmpEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn JpegEncoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).JpegEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).JpegEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn PngEncoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PngEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PngEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TiffEncoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TiffEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TiffEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GifEncoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GifEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GifEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn JpegXREncoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).JpegXREncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).JpegXREncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -570,7 +570,7 @@ impl BitmapEncoder {
     pub fn HeifEncoderId() -> windows_core::Result<windows_core::GUID> {
         Self::IBitmapEncoderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeifEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HeifEncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SetSoftwareBitmap<P0>(&self, bitmap: P0) -> windows_core::Result<()>
@@ -1067,7 +1067,7 @@ impl BitmapTransform {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Bounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBounds(&self, value: BitmapBounds) -> windows_core::Result<()> {

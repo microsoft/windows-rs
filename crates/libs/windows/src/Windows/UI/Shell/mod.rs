@@ -528,7 +528,7 @@ impl SecurityAppManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), detailsuri.param().abi(), registerperuser, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), detailsuri.param().abi(), registerperuser, &mut result__).map(|| result__)
         }
     }
     pub fn Unregister(&self, kind: SecurityAppKind, guidregistration: windows_core::GUID) -> windows_core::Result<()> {
@@ -606,7 +606,7 @@ impl ShareWindowCommandEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).WindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Command(&self) -> windows_core::Result<ShareWindowCommand> {
@@ -1348,7 +1348,7 @@ impl WindowTabThumbnailRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestedSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RequestedSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]

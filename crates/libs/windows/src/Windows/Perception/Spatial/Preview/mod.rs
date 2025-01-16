@@ -63,7 +63,7 @@ impl SpatialGraphInteropFrameOfReferencePreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NodeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).NodeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -71,7 +71,7 @@ impl SpatialGraphInteropFrameOfReferencePreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CoordinateSystemToNodeTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CoordinateSystemToNodeTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }

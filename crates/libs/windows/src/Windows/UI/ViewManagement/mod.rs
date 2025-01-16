@@ -193,7 +193,7 @@ impl ApplicationView {
         let this = &windows_core::Interface::cast::<IApplicationView2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisibleBounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).VisibleBounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn VisibleBoundsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -398,7 +398,7 @@ impl ApplicationView {
     pub fn PreferredLaunchViewSize() -> windows_core::Result<super::super::Foundation::Size> {
         Self::IApplicationViewStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PreferredLaunchViewSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PreferredLaunchViewSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SetPreferredLaunchViewSize(value: super::super::Foundation::Size) -> windows_core::Result<()> {
@@ -1614,7 +1614,7 @@ impl InputPane {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OccludedRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).OccludedRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TryShow(&self) -> windows_core::Result<bool> {
@@ -1685,7 +1685,7 @@ impl InputPaneVisibilityEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OccludedRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).OccludedRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetEnsuredFocusedElementInView(&self, value: bool) -> windows_core::Result<()> {
@@ -1871,7 +1871,7 @@ impl StatusBar {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OccludedRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).OccludedRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Showing<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
@@ -2063,28 +2063,28 @@ impl UISettings {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CursorSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CursorSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ScrollBarSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScrollBarSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ScrollBarSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ScrollBarArrowSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScrollBarArrowSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ScrollBarArrowSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ScrollBarThumbBoxSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScrollBarThumbBoxSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ScrollBarThumbBoxSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MessageDuration(&self) -> windows_core::Result<u32> {
@@ -2140,7 +2140,7 @@ impl UISettings {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UIElementColor)(windows_core::Interface::as_raw(this), desiredelement, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UIElementColor)(windows_core::Interface::as_raw(this), desiredelement, &mut result__).map(|| result__)
         }
     }
     pub fn TextScaleFactor(&self) -> windows_core::Result<f64> {
@@ -2168,7 +2168,7 @@ impl UISettings {
         let this = &windows_core::Interface::cast::<IUISettings3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetColorValue)(windows_core::Interface::as_raw(this), desiredcolor, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetColorValue)(windows_core::Interface::as_raw(this), desiredcolor, &mut result__).map(|| result__)
         }
     }
     pub fn ColorValuesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -2387,7 +2387,7 @@ impl ViewModePreferences {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CustomSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CustomSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetCustomSize(&self, value: super::super::Foundation::Size) -> windows_core::Result<()> {

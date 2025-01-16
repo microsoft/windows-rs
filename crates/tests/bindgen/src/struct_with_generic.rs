@@ -210,7 +210,7 @@ impl IPropertyValue {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .map(|| core::mem::transmute(result__))
+            .map(|| result__)
         }
     }
     pub fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
@@ -1317,7 +1317,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .map(|| core::mem::transmute(result__))
+            .map(|| result__)
         }
     }
     pub fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {

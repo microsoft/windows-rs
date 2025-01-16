@@ -63,7 +63,7 @@ impl ClosedCaptionProperties {
     pub fn ComputedFontColor() -> windows_core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ComputedFontColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ComputedFontColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn FontOpacity() -> windows_core::Result<ClosedCaptionOpacity> {
@@ -100,7 +100,7 @@ impl ClosedCaptionProperties {
     pub fn ComputedBackgroundColor() -> windows_core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ComputedBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ComputedBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn BackgroundOpacity() -> windows_core::Result<ClosedCaptionOpacity> {
@@ -119,7 +119,7 @@ impl ClosedCaptionProperties {
     pub fn ComputedRegionColor() -> windows_core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ComputedRegionColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ComputedRegionColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn RegionOpacity() -> windows_core::Result<ClosedCaptionOpacity> {

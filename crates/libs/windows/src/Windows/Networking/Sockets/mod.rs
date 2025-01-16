@@ -1894,7 +1894,7 @@ impl IWebSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Protocol(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2020,7 +2020,7 @@ impl IWebSocketInformation2 {
         let this = &windows_core::Interface::cast::<IWebSocketInformation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Protocol(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2314,7 +2314,7 @@ impl MessageWebSocketControl {
         let this = &windows_core::Interface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DesiredUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DesiredUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetDesiredUnsolicitedPongInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -2325,7 +2325,7 @@ impl MessageWebSocketControl {
         let this = &windows_core::Interface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActualUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ActualUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ReceiveMode(&self) -> windows_core::Result<MessageWebSocketReceiveMode> {
@@ -2444,7 +2444,7 @@ impl MessageWebSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Protocol(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2688,7 +2688,7 @@ impl ServerMessageWebSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Protocol(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2791,7 +2791,7 @@ impl ServerStreamWebSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Protocol(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2883,7 +2883,7 @@ impl SocketActivityInformation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TaskId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TaskId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -3484,14 +3484,14 @@ impl StreamSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RoundTripTimeStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RoundTripTimeStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BandwidthStatistics(&self) -> windows_core::Result<BandwidthStatistics> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ProtectionLevel(&self) -> windows_core::Result<SocketProtectionLevel> {
@@ -3922,7 +3922,7 @@ impl StreamWebSocketControl {
         let this = &windows_core::Interface::cast::<IStreamWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DesiredUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DesiredUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetDesiredUnsolicitedPongInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -3933,7 +3933,7 @@ impl StreamWebSocketControl {
         let this = &windows_core::Interface::cast::<IStreamWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActualUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ActualUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -4041,7 +4041,7 @@ impl StreamWebSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Protocol(&self) -> windows_core::Result<windows_core::HSTRING> {

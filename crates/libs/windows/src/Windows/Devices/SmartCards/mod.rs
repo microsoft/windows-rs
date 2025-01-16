@@ -1132,7 +1132,7 @@ impl SmartCardAppletIdGroupRegistration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1903,7 +1903,7 @@ impl SmartCardCryptogramMaterialPackageCharacteristics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DateImported)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DateImported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PackageFormat(&self) -> windows_core::Result<SmartCardCryptogramMaterialPackageFormat> {
@@ -2276,7 +2276,7 @@ impl SmartCardCryptogramStorageKeyCharacteristics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DateCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DateCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Algorithm(&self) -> windows_core::Result<SmartCardCryptogramStorageKeyAlgorithm> {
@@ -2698,7 +2698,7 @@ impl SmartCardEmulatorConnectionProperties {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Source(&self) -> windows_core::Result<SmartCardEmulatorConnectionSource> {
@@ -2975,7 +2975,7 @@ impl SmartCardPinResetRequest {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<SmartCardPinResetDeferral> {

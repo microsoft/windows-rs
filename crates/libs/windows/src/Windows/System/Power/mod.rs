@@ -329,7 +329,7 @@ impl PowerManager {
     pub fn RemainingDischargeTime() -> windows_core::Result<super::super::Foundation::TimeSpan> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemainingDischargeTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RemainingDischargeTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn RemainingDischargeTimeChanged<P0>(handler: P0) -> windows_core::Result<i64>

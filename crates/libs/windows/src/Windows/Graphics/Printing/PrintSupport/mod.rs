@@ -539,7 +539,7 @@ impl PrintSupportIppCommunicationTimeouts {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ConnectTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetConnectTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -550,7 +550,7 @@ impl PrintSupportIppCommunicationTimeouts {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SendTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetSendTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -561,7 +561,7 @@ impl PrintSupportIppCommunicationTimeouts {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReceiveTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ReceiveTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetReceiveTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -1059,7 +1059,7 @@ impl PrintSupportSettingsActivatedEventArgs {
         let this = &windows_core::Interface::cast::<IPrintSupportSettingsActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OwnerWindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).OwnerWindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
