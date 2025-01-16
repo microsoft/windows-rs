@@ -101,6 +101,7 @@ fn main() {
     test("--out delegate_generic.rs --filter EventHandler");
     test("--out delegate_cpp.rs --filter GetProcAddress EnumWindows");
     test("--out delegate_cpp_ref.rs --filter PFN_D3D12_CREATE_DEVICE PFNGETACTIVATIONFACTORY S_OK CLASS_E_CLASSNOTAVAILABLE");
+    test("--out delegate_param.rs --filter SetConsoleCtrlHandler");
 
     // Tests for classes
     test("--out class.rs --filter Deferral");
