@@ -48,6 +48,7 @@ pub mod fn_result_void_sys;
 pub mod fn_return_void_sys;
 pub mod fn_return_void_win;
 pub mod fn_sys;
+pub mod fn_sys_targets;
 pub mod fn_win;
 pub mod interface;
 pub mod interface_array_return;

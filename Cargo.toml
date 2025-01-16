@@ -31,5 +31,6 @@ windows-result = { path = "crates/libs/result" }
 windows-strings = { path = "crates/libs/strings" }
 windows-sys = { path = "crates/libs/sys" }
 windows-targets = { path = "crates/libs/targets" }
+windows-link = { path = "crates/libs/link" }
 windows-version = { path = "crates/libs/version" }
 helpers = { path = "crates/libs/helpers" }

@@ -47,7 +47,7 @@ fn browser() {
 // This test is for https://github.com/microsoft/windows-rs/issues/2410
 #[test]
 fn psapi() {
-    windows_targets::link!("kernel32.dll" "system" fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32) -> BOOL);
+    windows_link::link!("kernel32.dll" "system" fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32) -> BOOL);
 
     unsafe {
         assert_eq!(

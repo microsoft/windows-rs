@@ -8,6 +8,6 @@
 
 #[inline]
 pub unsafe fn FatalExit(exitcode: i32) -> ! {
-    windows_targets::link!("kernel32.dll" "system" fn FatalExit(exitcode : i32) -> !);
+    windows_link::link!("kernel32.dll" "system" fn FatalExit(exitcode : i32) -> !);
     unsafe { FatalExit(exitcode) }
 }

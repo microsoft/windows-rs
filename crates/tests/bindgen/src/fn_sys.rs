@@ -6,4 +6,4 @@
     clippy::all
 )]
 
-windows_targets::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);

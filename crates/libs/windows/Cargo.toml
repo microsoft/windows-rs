@@ -31,9 +31,9 @@ version = "0.59.0"
 path = "../core"
 default-features = false
 
-[dependencies.windows-targets]
-version = "0.53.0"
-path = "../targets"
+[dependencies.windows-link]
+version = "0.1.0"
+path = "../link"
 
 [features]
 default = ["std"]

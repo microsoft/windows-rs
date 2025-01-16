@@ -8,3 +8,4 @@
 #![doc = include_str!("../../../../libs/targets/readme.md")]
 #![doc = include_str!("../../../../libs/version/readme.md")]
 #![doc = include_str!("../../../../libs/windows/readme.md")]
+#![doc = include_str!("../../../../libs/link/readme.md")]

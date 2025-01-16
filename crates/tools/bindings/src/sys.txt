@@ -1,6 +1,7 @@
 --in default
 --out crates/libs/sys
 --package --sys --no-comment --no-allow
+--link windows_targets
 --rustfmt max_width=800,newline_style=Unix
 
 --filter

@@ -21,6 +21,6 @@ workspace = true
 default-target = "x86_64-pc-windows-msvc"
 targets = []
 
-[dependencies.windows-targets]
-version = "0.53.0"
-path = "../targets"
+[dependencies.windows-link]
+version = "0.1.0"
+path = "../link"

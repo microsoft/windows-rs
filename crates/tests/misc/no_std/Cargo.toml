@@ -30,6 +30,9 @@ default-features = false
 [dependencies.windows-targets]
 workspace = true
 
+[dependencies.windows-link]
+workspace = true
+
 [dependencies.windows-version]
 path = "../../../libs/version"
 default-features = false

@@ -69,8 +69,10 @@ impl CppFn {
                 quote! {}
             };
 
+        let link = to_ident(&writer.config.link);
+
         link_fmt(quote! {
-            windows_targets::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
+            #link::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
         })
     }
 

@@ -87,6 +87,7 @@ fn main() {
     // Tests for functions
     test("--out fn_win.rs --filter GetTickCount");
     test("--out fn_sys.rs --filter GetTickCount --sys");
+    test("--out fn_sys_targets.rs --filter GetTickCount --sys --link windows_targets");
     test("--out fn_associated_enum_win.rs --filter CoInitializeEx");
     test("--out fn_associated_enum_sys.rs --filter CoInitializeEx --sys");
     test("--out fn_return_void_win.rs --filter GlobalMemoryStatus");

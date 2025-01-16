@@ -1,0 +1,27 @@
+name: windows-link
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
+    branches:
+      - master
+
+jobs:
+  check:
+    strategy:
+      matrix:
+        rust: [1.71.0, stable, nightly]
+    runs-on: windows-2022
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Prepare
+        run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
+      - name: Check
+        run: cargo check -p windows-link

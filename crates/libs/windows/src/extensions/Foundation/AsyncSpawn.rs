@@ -315,7 +315,7 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
 
 fn spawn<F: FnOnce() + Send + 'static>(f: F) {
     type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *const c_void, context: *const c_void);
-    windows_targets::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(callback: PTP_SIMPLE_CALLBACK, context: *const c_void, environment: *const c_void) -> i32);
+    windows_link::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(callback: PTP_SIMPLE_CALLBACK, context: *const c_void, environment: *const c_void) -> i32);
 
     unsafe extern "system" fn callback<F: FnOnce() + Send + 'static>(_: *const c_void, callback: *const c_void) {
         unsafe {

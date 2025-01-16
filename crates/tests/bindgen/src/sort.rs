@@ -6,8 +6,8 @@
     clippy::all
 )]
 
-windows_targets::link!("kernel32.dll" "system" fn FatalExit(exitcode : i32) -> !);
-windows_targets::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
+windows_link::link!("kernel32.dll" "system" fn FatalExit(exitcode : i32) -> !);
+windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
 pub const ERROR_OUTOFMEMORY: WIN32_ERROR = 14u32;
 pub const E_FAIL: HRESULT = 0x80004005_u32 as _;
 pub const E_OUTOFMEMORY: HRESULT = 0x8007000E_u32 as _;

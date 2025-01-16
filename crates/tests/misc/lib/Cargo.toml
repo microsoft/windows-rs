@@ -28,5 +28,5 @@ features = [
     "Win32_Web_InternetExplorer",
 ]
 
-[dependencies.windows-targets]
+[dependencies.windows-link]
 workspace = true

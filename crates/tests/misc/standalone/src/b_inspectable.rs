@@ -6,7 +6,7 @@
     clippy::all
 )]
 
-windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoActivateInstance(activatableclassid : HSTRING, instance : *mut * mut core::ffi::c_void) -> HRESULT);
+windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoActivateInstance(activatableclassid : HSTRING, instance : *mut * mut core::ffi::c_void) -> HRESULT);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GUID {
