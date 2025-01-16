@@ -76,7 +76,7 @@ where
     windows_link::link!("projectedfslib.dll" "system" fn PrjGetOnDiskFileState(destinationfilename : windows_core::PCWSTR, filestate : *mut PRJ_FILE_STATE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PrjGetOnDiskFileState(destinationfilename.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        PrjGetOnDiskFileState(destinationfilename.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -101,7 +101,7 @@ where
     windows_link::link!("projectedfslib.dll" "system" fn PrjStartVirtualizing(virtualizationrootpath : windows_core::PCWSTR, callbacks : *const PRJ_CALLBACKS, instancecontext : *const core::ffi::c_void, options : *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PrjStartVirtualizing(virtualizationrootpath.param().abi(), callbacks, instancecontext.unwrap_or(core::mem::zeroed()) as _, options.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        PrjStartVirtualizing(virtualizationrootpath.param().abi(), callbacks, instancecontext.unwrap_or(core::mem::zeroed()) as _, options.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]

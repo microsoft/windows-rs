@@ -322,7 +322,7 @@ where
     windows_link::link!("bcp47mrm.dll" "system" fn GetDistanceOfClosestLanguageInList(pszlanguage : windows_core::PCWSTR, pszlanguageslist : windows_core::PCWSTR, wchlistdelimiter : u16, pclosestdistance : *mut f64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetDistanceOfClosestLanguageInList(pszlanguage.param().abi(), pszlanguageslist.param().abi(), wchlistdelimiter, &mut result__).map(|| core::mem::transmute(result__))
+        GetDistanceOfClosestLanguageInList(pszlanguage.param().abi(), pszlanguageslist.param().abi(), wchlistdelimiter, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -912,7 +912,7 @@ pub unsafe fn ScriptRecordDigitSubstitution(locale: u32) -> windows_core::Result
     windows_link::link!("usp10.dll" "system" fn ScriptRecordDigitSubstitution(locale : u32, psds : *mut SCRIPT_DIGITSUBSTITUTE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        ScriptRecordDigitSubstitution(locale, &mut result__).map(|| core::mem::transmute(result__))
+        ScriptRecordDigitSubstitution(locale, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -944,7 +944,7 @@ pub unsafe fn ScriptStringCPtoX(ssa: *const core::ffi::c_void, icp: i32, ftraili
     windows_link::link!("usp10.dll" "system" fn ScriptStringCPtoX(ssa : *const core::ffi::c_void, icp : i32, ftrailing : windows_core::BOOL, px : *mut i32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        ScriptStringCPtoX(ssa, icp, ftrailing.into(), &mut result__).map(|| core::mem::transmute(result__))
+        ScriptStringCPtoX(ssa, icp, ftrailing.into(), &mut result__).map(|| result__)
     }
 }
 #[inline]

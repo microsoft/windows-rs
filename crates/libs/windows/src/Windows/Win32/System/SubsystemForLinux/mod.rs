@@ -31,7 +31,7 @@ where
     windows_link::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslLaunch(distributionname : windows_core::PCWSTR, command : windows_core::PCWSTR, usecurrentworkingdirectory : windows_core::BOOL, stdin : super::super::Foundation:: HANDLE, stdout : super::super::Foundation:: HANDLE, stderr : super::super::Foundation:: HANDLE, process : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WslLaunch(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.into(), stdin, stdout, stderr, &mut result__).map(|| core::mem::transmute(result__))
+        WslLaunch(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.into(), stdin, stdout, stderr, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -43,7 +43,7 @@ where
     windows_link::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslLaunchInteractive(distributionname : windows_core::PCWSTR, command : windows_core::PCWSTR, usecurrentworkingdirectory : windows_core::BOOL, exitcode : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WslLaunchInteractive(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.into(), &mut result__).map(|| core::mem::transmute(result__))
+        WslLaunchInteractive(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.into(), &mut result__).map(|| result__)
     }
 }
 #[inline]

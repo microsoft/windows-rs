@@ -1733,7 +1733,7 @@ where
     windows_link::link!("mrmsupport.dll" "system" fn MrmGetPriFileContentChecksum(prifile : windows_core::PCWSTR, checksum : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MrmGetPriFileContentChecksum(prifile.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        MrmGetPriFileContentChecksum(prifile.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]

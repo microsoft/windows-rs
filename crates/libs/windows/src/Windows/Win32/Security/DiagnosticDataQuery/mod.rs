@@ -13,7 +13,7 @@ pub unsafe fn DdqCreateSession(accesslevel: DdqAccessLevel) -> windows_core::Res
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqCreateSession(accesslevel : DdqAccessLevel, hsession : *mut HDIAGNOSTIC_DATA_QUERY_SESSION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqCreateSession(accesslevel, &mut result__).map(|| core::mem::transmute(result__))
+        DdqCreateSession(accesslevel, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -55,7 +55,7 @@ pub unsafe fn DdqGetDiagnosticDataAccessLevelAllowed() -> windows_core::Result<D
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticDataAccessLevelAllowed(accesslevel : *mut DdqAccessLevel) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticDataAccessLevelAllowed(&mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticDataAccessLevelAllowed(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -73,7 +73,7 @@ pub unsafe fn DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: HDIAGN
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription : HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, index : u32, categorydescription : *mut DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription, index, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription, index, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -81,7 +81,7 @@ pub unsafe fn DdqGetDiagnosticRecordCategoryCount(hcategorydescription: HDIAGNOS
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordCategoryCount(hcategorydescription : HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, categorydescriptioncount : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordCategoryCount(hcategorydescription, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordCategoryCount(hcategorydescription, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -89,7 +89,7 @@ pub unsafe fn DdqGetDiagnosticRecordCount(hrecord: HDIAGNOSTIC_RECORD) -> window
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordCount(hrecord : HDIAGNOSTIC_RECORD, recordcount : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordCount(hrecord, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordCount(hrecord, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -97,7 +97,7 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: HDIAGNOSTI
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription : HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, index : u32, tagdescription : *mut DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription, index, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription, index, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -105,7 +105,7 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTagCount(htagdescription: HDIAGNOSTIC_
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordLocaleTagCount(htagdescription : HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, tagdescriptioncount : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordLocaleTagCount(htagdescription, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordLocaleTagCount(htagdescription, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -116,7 +116,7 @@ where
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordLocaleTags(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, locale : windows_core::PCWSTR, htagdescription : *mut HDIAGNOSTIC_EVENT_TAG_DESCRIPTION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordLocaleTags(hsession, locale.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordLocaleTags(hsession, locale.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -124,7 +124,7 @@ pub unsafe fn DdqGetDiagnosticRecordPage(hsession: HDIAGNOSTIC_DATA_QUERY_SESSIO
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordPage(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria : *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, offset : u32, pagerecordcount : u32, baserowid : i64, hrecord : *mut HDIAGNOSTIC_RECORD) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordPage(hsession, searchcriteria, offset, pagerecordcount, baserowid, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordPage(hsession, searchcriteria, offset, pagerecordcount, baserowid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -132,7 +132,7 @@ pub unsafe fn DdqGetDiagnosticRecordPayload(hsession: HDIAGNOSTIC_DATA_QUERY_SES
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordPayload(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, rowid : i64, payload : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordPayload(hsession, rowid, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordPayload(hsession, rowid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -140,7 +140,7 @@ pub unsafe fn DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription: HDIAGN
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription : HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, index : u32, producerdescription : *mut DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription, index, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription, index, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -151,7 +151,7 @@ where
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordProducerCategories(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, producername : windows_core::PCWSTR, hcategorydescription : *mut HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordProducerCategories(hsession, producername.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordProducerCategories(hsession, producername.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -159,7 +159,7 @@ pub unsafe fn DdqGetDiagnosticRecordProducerCount(hproducerdescription: HDIAGNOS
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordProducerCount(hproducerdescription : HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, producerdescriptioncount : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordProducerCount(hproducerdescription, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordProducerCount(hproducerdescription, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -167,7 +167,7 @@ pub unsafe fn DdqGetDiagnosticRecordProducers(hsession: HDIAGNOSTIC_DATA_QUERY_S
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordProducers(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, hproducerdescription : *mut HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordProducers(hsession, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticRecordProducers(hsession, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -190,7 +190,7 @@ pub unsafe fn DdqGetDiagnosticReport(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, r
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticReport(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype : u32, hreport : *mut HDIAGNOSTIC_REPORT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticReport(hsession, reportstoretype, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticReport(hsession, reportstoretype, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -203,7 +203,7 @@ pub unsafe fn DdqGetDiagnosticReportCount(hreport: HDIAGNOSTIC_REPORT) -> window
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticReportCount(hreport : HDIAGNOSTIC_REPORT, reportcount : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticReportCount(hreport, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticReportCount(hreport, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -211,7 +211,7 @@ pub unsafe fn DdqGetDiagnosticReportStoreReportCount(hsession: HDIAGNOSTIC_DATA_
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticReportStoreReportCount(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype : u32, reportcount : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticReportStoreReportCount(hsession, reportstoretype, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetDiagnosticReportStoreReportCount(hsession, reportstoretype, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -219,7 +219,7 @@ pub unsafe fn DdqGetSessionAccessLevel(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION)
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetSessionAccessLevel(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, accesslevel : *mut DdqAccessLevel) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetSessionAccessLevel(hsession, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetSessionAccessLevel(hsession, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -227,7 +227,7 @@ pub unsafe fn DdqGetTranscriptConfiguration(hsession: HDIAGNOSTIC_DATA_QUERY_SES
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqGetTranscriptConfiguration(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, currentconfig : *mut DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetTranscriptConfiguration(hsession, &mut result__).map(|| core::mem::transmute(result__))
+        DdqGetTranscriptConfiguration(hsession, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -239,7 +239,7 @@ where
     windows_link::link!("diagnosticdataquery.dll" "system" fn DdqIsDiagnosticRecordSampledIn(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const windows_core::GUID, providerid : *const windows_core::GUID, providername : windows_core::PCWSTR, eventid : *const u32, eventname : windows_core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqIsDiagnosticRecordSampledIn(hsession, providergroup, providerid.unwrap_or(core::mem::zeroed()) as _, providername.param().abi(), eventid.unwrap_or(core::mem::zeroed()) as _, eventname.param().abi(), eventversion.unwrap_or(core::mem::zeroed()) as _, eventkeywords.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        DdqIsDiagnosticRecordSampledIn(hsession, providergroup, providerid.unwrap_or(core::mem::zeroed()) as _, providername.param().abi(), eventid.unwrap_or(core::mem::zeroed()) as _, eventname.param().abi(), eventversion.unwrap_or(core::mem::zeroed()) as _, eventkeywords.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]

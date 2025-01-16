@@ -128,7 +128,7 @@ pub unsafe fn IEGetWriteableFolderPath(clsidfolderid: *const windows_core::GUID)
     windows_link::link!("ieframe.dll" "system" fn IEGetWriteableFolderPath(clsidfolderid : *const windows_core::GUID, lppwstrpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        IEGetWriteableFolderPath(clsidfolderid, &mut result__).map(|| core::mem::transmute(result__))
+        IEGetWriteableFolderPath(clsidfolderid, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Registry")]
@@ -137,7 +137,7 @@ pub unsafe fn IEGetWriteableLowHKCU() -> windows_core::Result<super::super::Syst
     windows_link::link!("ieframe.dll" "system" fn IEGetWriteableLowHKCU(phkey : *mut super::super::System::Registry:: HKEY) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        IEGetWriteableLowHKCU(&mut result__).map(|| core::mem::transmute(result__))
+        IEGetWriteableLowHKCU(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -155,7 +155,7 @@ pub unsafe fn IEIsProtectedModeProcess() -> windows_core::Result<windows_core::B
     windows_link::link!("ieframe.dll" "system" fn IEIsProtectedModeProcess(pbresult : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        IEIsProtectedModeProcess(&mut result__).map(|| core::mem::transmute(result__))
+        IEIsProtectedModeProcess(&mut result__).map(|| result__)
     }
 }
 #[inline]

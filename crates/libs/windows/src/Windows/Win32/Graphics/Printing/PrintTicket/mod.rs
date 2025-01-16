@@ -71,7 +71,7 @@ where
     windows_link::link!("prntvpt.dll" "system" fn PTOpenProvider(pszprintername : windows_core::PCWSTR, dwversion : u32, phprovider : *mut HPTPROVIDER) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PTOpenProvider(pszprintername.param().abi(), dwversion, &mut result__).map(|| core::mem::transmute(result__))
+        PTOpenProvider(pszprintername.param().abi(), dwversion, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -90,7 +90,7 @@ where
     windows_link::link!("prntvpt.dll" "system" fn PTQuerySchemaVersionSupport(pszprintername : windows_core::PCWSTR, pmaxversion : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PTQuerySchemaVersionSupport(pszprintername.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        PTQuerySchemaVersionSupport(pszprintername.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]

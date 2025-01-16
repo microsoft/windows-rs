@@ -6,7 +6,7 @@ where
     windows_link::link!("licenseprotection.dll" "system" fn RegisterLicenseKeyWithExpiration(licensekey : windows_core::PCWSTR, validityindays : u32, status : *mut LicenseProtectionStatus) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RegisterLicenseKeyWithExpiration(licensekey.param().abi(), validityindays, &mut result__).map(|| core::mem::transmute(result__))
+        RegisterLicenseKeyWithExpiration(licensekey.param().abi(), validityindays, &mut result__).map(|| result__)
     }
 }
 #[inline]

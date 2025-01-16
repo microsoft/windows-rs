@@ -8,7 +8,7 @@ pub unsafe fn ApplicationRecoveryInProgress() -> windows_core::Result<windows_co
     windows_link::link!("kernel32.dll" "system" fn ApplicationRecoveryInProgress(pbcancelled : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        ApplicationRecoveryInProgress(&mut result__).map(|| core::mem::transmute(result__))
+        ApplicationRecoveryInProgress(&mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]

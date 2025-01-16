@@ -107,7 +107,7 @@ pub unsafe fn NdfGetTraceFile(handle: *const core::ffi::c_void) -> windows_core:
     windows_link::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const core::ffi::c_void, tracefilelocation : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        NdfGetTraceFile(handle, &mut result__).map(|| core::mem::transmute(result__))
+        NdfGetTraceFile(handle, &mut result__).map(|| result__)
     }
 }
 #[inline]

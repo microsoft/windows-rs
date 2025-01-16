@@ -30,7 +30,7 @@ where
     windows_link::link!("ole32.dll" "system" fn CLSIDFromProgID(lpszprogid : windows_core::PCWSTR, lpclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CLSIDFromProgID(lpszprogid.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        CLSIDFromProgID(lpszprogid.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -41,7 +41,7 @@ where
     windows_link::link!("ole32.dll" "system" fn CLSIDFromProgIDEx(lpszprogid : windows_core::PCWSTR, lpclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CLSIDFromProgIDEx(lpszprogid.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        CLSIDFromProgIDEx(lpszprogid.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -52,7 +52,7 @@ where
     windows_link::link!("ole32.dll" "system" fn CLSIDFromString(lpsz : windows_core::PCWSTR, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CLSIDFromString(lpsz.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        CLSIDFromString(lpsz.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -110,7 +110,7 @@ pub unsafe fn CoCreateGuid() -> windows_core::Result<windows_core::GUID> {
     windows_link::link!("ole32.dll" "system" fn CoCreateGuid(pguid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoCreateGuid(&mut result__).map(|| core::mem::transmute(result__))
+        CoCreateGuid(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -177,7 +177,7 @@ pub unsafe fn CoFileTimeNow() -> windows_core::Result<super::super::Foundation::
     windows_link::link!("ole32.dll" "system" fn CoFileTimeNow(lpfiletime : *mut super::super::Foundation:: FILETIME) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoFileTimeNow(&mut result__).map(|| core::mem::transmute(result__))
+        CoFileTimeNow(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -224,7 +224,7 @@ pub unsafe fn CoGetCallerTID() -> windows_core::Result<u32> {
     windows_link::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoGetCallerTID(&mut result__).map(|| core::mem::transmute(result__))
+        CoGetCallerTID(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -250,7 +250,7 @@ pub unsafe fn CoGetContextToken() -> windows_core::Result<usize> {
     windows_link::link!("ole32.dll" "system" fn CoGetContextToken(ptoken : *mut usize) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoGetContextToken(&mut result__).map(|| core::mem::transmute(result__))
+        CoGetContextToken(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -258,7 +258,7 @@ pub unsafe fn CoGetCurrentLogicalThreadId() -> windows_core::Result<windows_core
     windows_link::link!("ole32.dll" "system" fn CoGetCurrentLogicalThreadId(pguid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoGetCurrentLogicalThreadId(&mut result__).map(|| core::mem::transmute(result__))
+        CoGetCurrentLogicalThreadId(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -298,7 +298,7 @@ pub unsafe fn CoGetPSClsid(riid: *const windows_core::GUID) -> windows_core::Res
     windows_link::link!("ole32.dll" "system" fn CoGetPSClsid(riid : *const windows_core::GUID, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoGetPSClsid(riid, &mut result__).map(|| core::mem::transmute(result__))
+        CoGetPSClsid(riid, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_Security")]
@@ -322,7 +322,7 @@ pub unsafe fn CoIncrementMTAUsage() -> windows_core::Result<CO_MTA_USAGE_COOKIE>
     windows_link::link!("ole32.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoIncrementMTAUsage(&mut result__).map(|| core::mem::transmute(result__))
+        CoIncrementMTAUsage(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -429,7 +429,7 @@ where
     windows_link::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_core::GUID, punk : * mut core::ffi::c_void, dwclscontext : CLSCTX, flags : u32, lpdwregister : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoRegisterClassObject(rclsid, punk.param().abi(), dwclscontext, flags.0 as _, &mut result__).map(|| core::mem::transmute(result__))
+        CoRegisterClassObject(rclsid, punk.param().abi(), dwclscontext, flags.0 as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -440,7 +440,7 @@ where
     windows_link::link!("ole32.dll" "system" fn CoRegisterDeviceCatalog(deviceinstanceid : windows_core::PCWSTR, cookie : *mut CO_DEVICE_CATALOG_COOKIE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoRegisterDeviceCatalog(deviceinstanceid.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        CoRegisterDeviceCatalog(deviceinstanceid.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -451,7 +451,7 @@ where
     windows_link::link!("ole32.dll" "system" fn CoRegisterInitializeSpy(pspy : * mut core::ffi::c_void, pulicookie : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoRegisterInitializeSpy(pspy.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        CoRegisterInitializeSpy(pspy.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -578,7 +578,7 @@ pub unsafe fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, phandles: &
     windows_link::link!("ole32.dll" "system" fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoWaitForMultipleHandles(dwflags, dwtimeout, phandles.len().try_into().unwrap(), core::mem::transmute(phandles.as_ptr()), &mut result__).map(|| core::mem::transmute(result__))
+        CoWaitForMultipleHandles(dwflags, dwtimeout, phandles.len().try_into().unwrap(), core::mem::transmute(phandles.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -586,7 +586,7 @@ pub unsafe fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, phandles: &
     windows_link::link!("ole32.dll" "system" fn CoWaitForMultipleObjects(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoWaitForMultipleObjects(dwflags, dwtimeout, phandles.len().try_into().unwrap(), core::mem::transmute(phandles.as_ptr()), &mut result__).map(|| core::mem::transmute(result__))
+        CoWaitForMultipleObjects(dwflags, dwtimeout, phandles.len().try_into().unwrap(), core::mem::transmute(phandles.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -758,7 +758,7 @@ where
     windows_link::link!("ole32.dll" "system" fn GetClassFile(szfilename : windows_core::PCWSTR, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetClassFile(szfilename.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        GetClassFile(szfilename.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -785,7 +785,7 @@ where
     windows_link::link!("ole32.dll" "system" fn IIDFromString(lpsz : windows_core::PCWSTR, lpiid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        IIDFromString(lpsz.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        IIDFromString(lpsz.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -823,7 +823,7 @@ pub unsafe fn ProgIDFromCLSID(clsid: *const windows_core::GUID) -> windows_core:
     windows_link::link!("ole32.dll" "system" fn ProgIDFromCLSID(clsid : *const windows_core::GUID, lplpszprogid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        ProgIDFromCLSID(clsid, &mut result__).map(|| core::mem::transmute(result__))
+        ProgIDFromCLSID(clsid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -839,7 +839,7 @@ pub unsafe fn StringFromCLSID(rclsid: *const windows_core::GUID) -> windows_core
     windows_link::link!("ole32.dll" "system" fn StringFromCLSID(rclsid : *const windows_core::GUID, lplpsz : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        StringFromCLSID(rclsid, &mut result__).map(|| core::mem::transmute(result__))
+        StringFromCLSID(rclsid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -852,7 +852,7 @@ pub unsafe fn StringFromIID(rclsid: *const windows_core::GUID) -> windows_core::
     windows_link::link!("ole32.dll" "system" fn StringFromIID(rclsid : *const windows_core::GUID, lplpsz : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        StringFromIID(rclsid, &mut result__).map(|| core::mem::transmute(result__))
+        StringFromIID(rclsid, &mut result__).map(|| result__)
     }
 }
 #[repr(transparent)]

@@ -228,7 +228,7 @@ where
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliCreateSession(pwszserver : windows_core::PCWSTR, pcred : *const WDS_CLI_CRED, phsession : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliCreateSession(pwszserver.param().abi(), pcred.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliCreateSession(pwszserver.param().abi(), pcred.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -236,7 +236,7 @@ pub unsafe fn WdsCliFindFirstImage(hsession: super::super::Foundation::HANDLE) -
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliFindFirstImage(hsession : super::super::Foundation:: HANDLE, phfindhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliFindFirstImage(hsession, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliFindFirstImage(hsession, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -257,7 +257,7 @@ where
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetDriverQueryXml(pwszwindirpath : windows_core::PCWSTR, ppwszdriverquery : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetDriverQueryXml(pwszwindirpath.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetDriverQueryXml(pwszwindirpath.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -265,7 +265,7 @@ pub unsafe fn WdsCliGetEnumerationFlags(handle: super::super::Foundation::HANDLE
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetEnumerationFlags(handle : super::super::Foundation:: HANDLE, pdwflags : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetEnumerationFlags(handle, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetEnumerationFlags(handle, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -273,7 +273,7 @@ pub unsafe fn WdsCliGetImageArchitecture(hifh: super::super::Foundation::HANDLE)
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageArchitecture(hifh : super::super::Foundation:: HANDLE, pdwvalue : *mut CPU_ARCHITECTURE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageArchitecture(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageArchitecture(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -281,7 +281,7 @@ pub unsafe fn WdsCliGetImageDescription(hifh: super::super::Foundation::HANDLE) 
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageDescription(hifh : super::super::Foundation:: HANDLE, ppwszvalue : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageDescription(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageDescription(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -294,7 +294,7 @@ pub unsafe fn WdsCliGetImageGroup(hifh: super::super::Foundation::HANDLE) -> win
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageGroup(hifh : super::super::Foundation:: HANDLE, ppwszvalue : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageGroup(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageGroup(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -302,7 +302,7 @@ pub unsafe fn WdsCliGetImageHalName(hifh: super::super::Foundation::HANDLE) -> w
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageHalName(hifh : super::super::Foundation:: HANDLE, ppwszvalue : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageHalName(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageHalName(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -310,7 +310,7 @@ pub unsafe fn WdsCliGetImageHandleFromFindHandle(findhandle: super::super::Found
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageHandleFromFindHandle(findhandle : super::super::Foundation:: HANDLE, phimagehandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageHandleFromFindHandle(findhandle, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageHandleFromFindHandle(findhandle, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -318,7 +318,7 @@ pub unsafe fn WdsCliGetImageHandleFromTransferHandle(htransfer: super::super::Fo
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageHandleFromTransferHandle(htransfer : super::super::Foundation:: HANDLE, phimagehandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageHandleFromTransferHandle(htransfer, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageHandleFromTransferHandle(htransfer, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -326,7 +326,7 @@ pub unsafe fn WdsCliGetImageIndex(hifh: super::super::Foundation::HANDLE) -> win
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageIndex(hifh : super::super::Foundation:: HANDLE, pdwvalue : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageIndex(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageIndex(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -334,7 +334,7 @@ pub unsafe fn WdsCliGetImageLanguage(hifh: super::super::Foundation::HANDLE) -> 
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageLanguage(hifh : super::super::Foundation:: HANDLE, ppwszvalue : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageLanguage(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageLanguage(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -347,7 +347,7 @@ pub unsafe fn WdsCliGetImageLastModifiedTime(hifh: super::super::Foundation::HAN
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageLastModifiedTime(hifh : super::super::Foundation:: HANDLE, ppsystimevalue : *mut *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageLastModifiedTime(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageLastModifiedTime(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -355,7 +355,7 @@ pub unsafe fn WdsCliGetImageName(hifh: super::super::Foundation::HANDLE) -> wind
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageName(hifh : super::super::Foundation:: HANDLE, ppwszvalue : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageName(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageName(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -363,7 +363,7 @@ pub unsafe fn WdsCliGetImageNamespace(hifh: super::super::Foundation::HANDLE) ->
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageNamespace(hifh : super::super::Foundation:: HANDLE, ppwszvalue : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageNamespace(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageNamespace(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -376,7 +376,7 @@ pub unsafe fn WdsCliGetImagePath(hifh: super::super::Foundation::HANDLE) -> wind
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImagePath(hifh : super::super::Foundation:: HANDLE, ppwszvalue : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImagePath(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImagePath(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -384,7 +384,7 @@ pub unsafe fn WdsCliGetImageSize(hifh: super::super::Foundation::HANDLE) -> wind
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageSize(hifh : super::super::Foundation:: HANDLE, pullvalue : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageSize(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageSize(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -392,7 +392,7 @@ pub unsafe fn WdsCliGetImageType(hifh: super::super::Foundation::HANDLE) -> wind
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageType(hifh : super::super::Foundation:: HANDLE, pimagetype : *mut WDS_CLI_IMAGE_TYPE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageType(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageType(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -400,7 +400,7 @@ pub unsafe fn WdsCliGetImageVersion(hifh: super::super::Foundation::HANDLE) -> w
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetImageVersion(hifh : super::super::Foundation:: HANDLE, ppwszvalue : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetImageVersion(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetImageVersion(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -408,7 +408,7 @@ pub unsafe fn WdsCliGetTransferSize(hifh: super::super::Foundation::HANDLE) -> w
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliGetTransferSize(hifh : super::super::Foundation:: HANDLE, pullvalue : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetTransferSize(hifh, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliGetTransferSize(hifh, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -459,7 +459,7 @@ where
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliTransferFile(pwszserver : windows_core::PCWSTR, pwsznamespace : windows_core::PCWSTR, pwszremotefilepath : windows_core::PCWSTR, pwszlocalfilepath : windows_core::PCWSTR, dwflags : u32, dwreserved : u32, pfnwdsclicallback : PFN_WdsCliCallback, pvuserdata : *const core::ffi::c_void, phtransfer : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliTransferFile(pwszserver.param().abi(), pwsznamespace.param().abi(), pwszremotefilepath.param().abi(), pwszlocalfilepath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliTransferFile(pwszserver.param().abi(), pwsznamespace.param().abi(), pwszremotefilepath.param().abi(), pwszlocalfilepath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -470,7 +470,7 @@ where
     windows_link::link!("wdsclientapi.dll" "system" fn WdsCliTransferImage(himage : super::super::Foundation:: HANDLE, pwszlocalpath : windows_core::PCWSTR, dwflags : u32, dwreserved : u32, pfnwdsclicallback : PFN_WdsCliCallback, pvuserdata : *const core::ffi::c_void, phtransfer : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliTransferImage(himage, pwszlocalpath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        WdsCliTransferImage(himage, pwszlocalpath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]

@@ -12,7 +12,7 @@ where
     windows_link::link!("cldapi.dll" "system" fn CfConnectSyncRoot(syncrootpath : windows_core::PCWSTR, callbacktable : *const CF_CALLBACK_REGISTRATION, callbackcontext : *const core::ffi::c_void, connectflags : CF_CONNECT_FLAGS, connectionkey : *mut CF_CONNECTION_KEY) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CfConnectSyncRoot(syncrootpath.param().abi(), callbacktable, callbackcontext.unwrap_or(core::mem::zeroed()) as _, connectflags, &mut result__).map(|| core::mem::transmute(result__))
+        CfConnectSyncRoot(syncrootpath.param().abi(), callbacktable, callbackcontext.unwrap_or(core::mem::zeroed()) as _, connectflags, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_IO")]
@@ -90,7 +90,7 @@ pub unsafe fn CfGetPlatformInfo() -> windows_core::Result<CF_PLATFORM_INFO> {
     windows_link::link!("cldapi.dll" "system" fn CfGetPlatformInfo(platformversion : *mut CF_PLATFORM_INFO) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CfGetPlatformInfo(&mut result__).map(|| core::mem::transmute(result__))
+        CfGetPlatformInfo(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -111,7 +111,7 @@ pub unsafe fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE) -> 
     windows_link::link!("cldapi.dll" "system" fn CfGetTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *mut i64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CfGetTransferKey(filehandle, &mut result__).map(|| core::mem::transmute(result__))
+        CfGetTransferKey(filehandle, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -133,7 +133,7 @@ where
     windows_link::link!("cldapi.dll" "system" fn CfOpenFileWithOplock(filepath : windows_core::PCWSTR, flags : CF_OPEN_FILE_FLAGS, protectedhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CfOpenFileWithOplock(filepath.param().abi(), flags, &mut result__).map(|| core::mem::transmute(result__))
+        CfOpenFileWithOplock(filepath.param().abi(), flags, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -141,7 +141,7 @@ pub unsafe fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY) -> win
     windows_link::link!("cldapi.dll" "system" fn CfQuerySyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : *mut CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CfQuerySyncProviderStatus(connectionkey, &mut result__).map(|| core::mem::transmute(result__))
+        CfQuerySyncProviderStatus(connectionkey, &mut result__).map(|| result__)
     }
 }
 #[inline]

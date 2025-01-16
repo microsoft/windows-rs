@@ -249,7 +249,7 @@ where
     windows_link::link!("urlmon.dll" "system" fn FindMediaType(rgsztypes : windows_core::PCSTR, rgcftypes : *mut u16) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        FindMediaType(rgsztypes.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        FindMediaType(rgsztypes.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -281,7 +281,7 @@ where
     windows_link::link!("urlmon.dll" "system" fn GetClassFileOrMime(pbc : * mut core::ffi::c_void, szfilename : windows_core::PCWSTR, pbuffer : *const core::ffi::c_void, cbsize : u32, szmime : windows_core::PCWSTR, dwreserved : u32, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetClassFileOrMime(pbc.param().abi(), szfilename.param().abi(), pbuffer.unwrap_or(core::mem::zeroed()) as _, cbsize, szmime.param().abi(), dwreserved, &mut result__).map(|| core::mem::transmute(result__))
+        GetClassFileOrMime(pbc.param().abi(), szfilename.param().abi(), pbuffer.unwrap_or(core::mem::zeroed()) as _, cbsize, szmime.param().abi(), dwreserved, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -292,7 +292,7 @@ where
     windows_link::link!("urlmon.dll" "system" fn GetClassURL(szurl : windows_core::PCWSTR, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetClassURL(szurl.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        GetClassURL(szurl.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -300,7 +300,7 @@ pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> w
     windows_link::link!("urlmon.dll" "system" fn GetComponentIDFromCLSSPEC(pclassspec : *const super:: uCLSSPEC, ppszcomponentid : *mut windows_core::PSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetComponentIDFromCLSSPEC(pclassspec, &mut result__).map(|| core::mem::transmute(result__))
+        GetComponentIDFromCLSSPEC(pclassspec, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -381,7 +381,7 @@ pub unsafe fn IEInstallScope() -> windows_core::Result<u32> {
     windows_link::link!("urlmon.dll" "system" fn IEInstallScope(pdwscope : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        IEInstallScope(&mut result__).map(|| core::mem::transmute(result__))
+        IEInstallScope(&mut result__).map(|| result__)
     }
 }
 #[inline]

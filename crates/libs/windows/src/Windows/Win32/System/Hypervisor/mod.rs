@@ -326,7 +326,7 @@ pub unsafe fn WHvAcceptPartitionMigration(migrationhandle: super::super::Foundat
     windows_link::link!("winhvplatform.dll" "system" fn WHvAcceptPartitionMigration(migrationhandle : super::super::Foundation:: HANDLE, partition : *mut WHV_PARTITION_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WHvAcceptPartitionMigration(migrationhandle, &mut result__).map(|| core::mem::transmute(result__))
+        WHvAcceptPartitionMigration(migrationhandle, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -339,7 +339,7 @@ pub unsafe fn WHvAllocateVpciResource(providerid: Option<*const windows_core::GU
     windows_link::link!("winhvplatform.dll" "system" fn WHvAllocateVpciResource(providerid : *const windows_core::GUID, flags : WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor : *const core::ffi::c_void, resourcedescriptorsizeinbytes : u32, vpciresource : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WHvAllocateVpciResource(providerid.unwrap_or(core::mem::zeroed()) as _, flags, core::mem::transmute(resourcedescriptor.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        WHvAllocateVpciResource(providerid.unwrap_or(core::mem::zeroed()) as _, flags, core::mem::transmute(resourcedescriptor.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -367,7 +367,7 @@ pub unsafe fn WHvCreatePartition() -> windows_core::Result<WHV_PARTITION_HANDLE>
     windows_link::link!("winhvplatform.dll" "system" fn WHvCreatePartition(partition : *mut WHV_PARTITION_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WHvCreatePartition(&mut result__).map(|| core::mem::transmute(result__))
+        WHvCreatePartition(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -430,7 +430,7 @@ pub unsafe fn WHvEmulatorTryIoEmulation(emulator: *const core::ffi::c_void, cont
     windows_link::link!("winhvemulation.dll" "system" fn WHvEmulatorTryIoEmulation(emulator : *const core::ffi::c_void, context : *const core::ffi::c_void, vpcontext : *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext : *const WHV_X64_IO_PORT_ACCESS_CONTEXT, emulatorreturnstatus : *mut WHV_EMULATOR_STATUS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WHvEmulatorTryIoEmulation(emulator, context, vpcontext, ioinstructioncontext, &mut result__).map(|| core::mem::transmute(result__))
+        WHvEmulatorTryIoEmulation(emulator, context, vpcontext, ioinstructioncontext, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -438,7 +438,7 @@ pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const core::ffi::c_void, co
     windows_link::link!("winhvemulation.dll" "system" fn WHvEmulatorTryMmioEmulation(emulator : *const core::ffi::c_void, context : *const core::ffi::c_void, vpcontext : *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext : *const WHV_MEMORY_ACCESS_CONTEXT, emulatorreturnstatus : *mut WHV_EMULATOR_STATUS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WHvEmulatorTryMmioEmulation(emulator, context, vpcontext, mmioinstructioncontext, &mut result__).map(|| core::mem::transmute(result__))
+        WHvEmulatorTryMmioEmulation(emulator, context, vpcontext, mmioinstructioncontext, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -471,7 +471,7 @@ pub unsafe fn WHvGetVirtualProcessorCpuidOutput(partition: WHV_PARTITION_HANDLE,
     windows_link::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorCpuidOutput(partition : WHV_PARTITION_HANDLE, vpindex : u32, eax : u32, ecx : u32, cpuidoutput : *mut WHV_CPUID_OUTPUT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WHvGetVirtualProcessorCpuidOutput(partition, vpindex, eax, ecx, &mut result__).map(|| core::mem::transmute(result__))
+        WHvGetVirtualProcessorCpuidOutput(partition, vpindex, eax, ecx, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -645,7 +645,7 @@ pub unsafe fn WHvStartPartitionMigration(partition: WHV_PARTITION_HANDLE) -> win
     windows_link::link!("winhvplatform.dll" "system" fn WHvStartPartitionMigration(partition : WHV_PARTITION_HANDLE, migrationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WHvStartPartitionMigration(partition, &mut result__).map(|| core::mem::transmute(result__))
+        WHvStartPartitionMigration(partition, &mut result__).map(|| result__)
     }
 }
 #[inline]

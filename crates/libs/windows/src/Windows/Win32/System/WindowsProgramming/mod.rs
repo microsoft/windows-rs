@@ -726,7 +726,7 @@ pub unsafe fn QueryAuxiliaryCounterFrequency() -> windows_core::Result<u64> {
     windows_link::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        QueryAuxiliaryCounterFrequency(&mut result__).map(|| core::mem::transmute(result__))
+        QueryAuxiliaryCounterFrequency(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1251,7 +1251,7 @@ where
     windows_link::link!("wldp.dll" "system" fn WldpCanExecuteBuffer(host : *const windows_core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, buffer : *const u8, buffersize : u32, auditinfo : windows_core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WldpCanExecuteBuffer(host, options, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), auditinfo.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        WldpCanExecuteBuffer(host, options, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), auditinfo.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1262,7 +1262,7 @@ where
     windows_link::link!("wldp.dll" "system" fn WldpCanExecuteFile(host : *const windows_core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle : super::super::Foundation:: HANDLE, auditinfo : windows_core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WldpCanExecuteFile(host, options, filehandle, auditinfo.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        WldpCanExecuteFile(host, options, filehandle, auditinfo.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1275,7 +1275,7 @@ where
     windows_link::link!("wldp.dll" "system" fn WldpCanExecuteStream(host : *const windows_core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, stream : * mut core::ffi::c_void, auditinfo : windows_core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WldpCanExecuteStream(host, options, stream.param().abi(), auditinfo.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        WldpCanExecuteStream(host, options, stream.param().abi(), auditinfo.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1293,7 +1293,7 @@ pub unsafe fn WldpIsDynamicCodePolicyEnabled() -> windows_core::Result<windows_c
     windows_link::link!("wldp.dll" "system" fn WldpIsDynamicCodePolicyEnabled(isenabled : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WldpIsDynamicCodePolicyEnabled(&mut result__).map(|| core::mem::transmute(result__))
+        WldpIsDynamicCodePolicyEnabled(&mut result__).map(|| result__)
     }
 }
 #[inline]

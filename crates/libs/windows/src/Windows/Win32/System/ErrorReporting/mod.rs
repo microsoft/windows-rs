@@ -41,7 +41,7 @@ pub unsafe fn WerGetFlags(hprocess: super::super::Foundation::HANDLE) -> windows
     windows_link::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::super::Foundation:: HANDLE, pdwflags : *mut WER_FAULT_REPORTING) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WerGetFlags(hprocess, &mut result__).map(|| core::mem::transmute(result__))
+        WerGetFlags(hprocess, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -127,7 +127,7 @@ where
     windows_link::link!("wer.dll" "system" fn WerReportCreate(pwzeventtype : windows_core::PCWSTR, reptype : WER_REPORT_TYPE, preportinformation : *const WER_REPORT_INFORMATION, phreporthandle : *mut HREPORT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WerReportCreate(pwzeventtype.param().abi(), reptype, preportinformation.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        WerReportCreate(pwzeventtype.param().abi(), reptype, preportinformation.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -185,7 +185,7 @@ pub unsafe fn WerStoreGetReportCount(hreportstore: HREPORTSTORE) -> windows_core
     windows_link::link!("wer.dll" "system" fn WerStoreGetReportCount(hreportstore : HREPORTSTORE, pdwreportcount : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WerStoreGetReportCount(hreportstore, &mut result__).map(|| core::mem::transmute(result__))
+        WerStoreGetReportCount(hreportstore, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -193,7 +193,7 @@ pub unsafe fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE) -> windows_core:
     windows_link::link!("wer.dll" "system" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WerStoreGetSizeOnDisk(hreportstore, &mut result__).map(|| core::mem::transmute(result__))
+        WerStoreGetSizeOnDisk(hreportstore, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -201,7 +201,7 @@ pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> windows_core::Re
     windows_link::link!("wer.dll" "system" fn WerStoreOpen(repstoretype : REPORT_STORE_TYPES, phreportstore : *mut HREPORTSTORE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WerStoreOpen(repstoretype, &mut result__).map(|| core::mem::transmute(result__))
+        WerStoreOpen(repstoretype, &mut result__).map(|| result__)
     }
 }
 #[inline]

@@ -358,7 +358,7 @@ pub unsafe fn KeyCredentialManagerGetInformation() -> windows_core::Result<*mut 
     windows_link::link!("keycredmgr.dll" "system" fn KeyCredentialManagerGetInformation(keycredentialmanagerinfo : *mut *mut KeyCredentialManagerInfo) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        KeyCredentialManagerGetInformation(&mut result__).map(|| core::mem::transmute(result__))
+        KeyCredentialManagerGetInformation(&mut result__).map(|| result__)
     }
 }
 #[inline]

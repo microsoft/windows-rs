@@ -14,7 +14,7 @@ where
     windows_link::link!("mdmregistration.dll" "system" fn DiscoverManagementService(pszupn : windows_core::PCWSTR, ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DiscoverManagementService(pszupn.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        DiscoverManagementService(pszupn.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -26,7 +26,7 @@ where
     windows_link::link!("mdmregistration.dll" "system" fn DiscoverManagementServiceEx(pszupn : windows_core::PCWSTR, pszdiscoveryservicecandidate : windows_core::PCWSTR, ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DiscoverManagementServiceEx(pszupn.param().abi(), pszdiscoveryservicecandidate.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        DiscoverManagementServiceEx(pszupn.param().abi(), pszdiscoveryservicecandidate.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -57,7 +57,7 @@ pub unsafe fn IsManagementRegistrationAllowed() -> windows_core::Result<windows_
     windows_link::link!("mdmregistration.dll" "system" fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        IsManagementRegistrationAllowed(&mut result__).map(|| core::mem::transmute(result__))
+        IsManagementRegistrationAllowed(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -65,7 +65,7 @@ pub unsafe fn IsMdmUxWithoutAadAllowed() -> windows_core::Result<windows_core::B
     windows_link::link!("mdmregistration.dll" "system" fn IsMdmUxWithoutAadAllowed(isenrollmentallowed : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        IsMdmUxWithoutAadAllowed(&mut result__).map(|| core::mem::transmute(result__))
+        IsMdmUxWithoutAadAllowed(&mut result__).map(|| result__)
     }
 }
 #[inline]
