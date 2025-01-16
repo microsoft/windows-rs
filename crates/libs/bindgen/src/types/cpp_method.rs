@@ -620,8 +620,13 @@ impl CppMethod {
                     tokens.combine(&quote! { #name: #kind, });
                 }
                 ParamHint::Optional => {
-                    let kind = ty.write_default(writer);
-                    tokens.combine(&quote! { #name: Option<#kind>, });
+                    if matches!(ty, Type::CppDelegate(..)) {
+                        let kind = ty.write_name(writer);
+                        tokens.combine(&quote! { #name: #kind, });
+                    } else {
+                        let kind = ty.write_name(writer);
+                        tokens.combine(&quote! { #name: Option<#kind>, });
+                    }
                 }
                 ParamHint::Bool => {
                     tokens.combine(&quote! { #name: bool, });
@@ -689,7 +694,11 @@ impl CppMethod {
                             quote! { #name.param().abi(), }
                         }
                         ParamHint::Optional => {
-                            quote! { #name.unwrap_or(core::mem::zeroed()) as _, }
+                            if matches!(ty, Type::CppDelegate(..)) {
+                                quote! { #name, }
+                            } else {
+                                quote! { #name.unwrap_or(core::mem::zeroed()) as _, }
+                            }
                         }
                         ParamHint::Bool => {
                             quote! { #name.into(), }
