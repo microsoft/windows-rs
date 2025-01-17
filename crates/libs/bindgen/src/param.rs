@@ -8,7 +8,6 @@ pub struct Param {
 
 impl Param {
     pub fn is_convertible(&self) -> bool {
-        !self.def.flags().contains(ParamAttributes::Out)
-            && self.ty.is_convertible()
+        !self.def.flags().contains(ParamAttributes::Out) && self.ty.is_convertible()
     }
 }

@@ -404,7 +404,7 @@ impl CppMethod {
             ReturnHint::ResultValue => {
                 let invoke_args = self.signature.params[..self.signature.params.len() - 1]
                     .iter()
-                    .map(|param| write_invoke_arg(param));
+                    .map(write_invoke_arg);
 
                 let result = to_ident(
                     &self.signature.params[self.signature.params.len() - 1]
@@ -425,33 +425,21 @@ impl CppMethod {
                 }
             }
             ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::ResultVoid => {
-                let invoke_args = self
-                    .signature
-                    .params
-                    .iter()
-                    .map(|param| write_invoke_arg(param));
+                let invoke_args = self.signature.params.iter().map(write_invoke_arg);
 
                 quote! {
                     #parent_impl::#name(this, #(#invoke_args,)*).into()
                 }
             }
             ReturnHint::ReturnStruct => {
-                let invoke_args = self
-                    .signature
-                    .params
-                    .iter()
-                    .map(|param| write_invoke_arg(param));
+                let invoke_args = self.signature.params.iter().map(write_invoke_arg);
 
                 quote! {
                     *result__ = #parent_impl::#name(this, #(#invoke_args,)*)
                 }
             }
             _ => {
-                let invoke_args = self
-                    .signature
-                    .params
-                    .iter()
-                    .map(|param| write_invoke_arg(param));
+                let invoke_args = self.signature.params.iter().map(write_invoke_arg);
 
                 quote! {
                     #parent_impl::#name(this, #(#invoke_args,)*)
