@@ -553,6 +553,6 @@ impl Method {
     }
 }
 
-fn is_convertible(ty: &Type, param: Param) -> bool {
+fn is_convertible(ty: &Type, param: MethodParam) -> bool {
     param.flags().contains(ParamAttributes::In) && ty.is_convertible()
 }

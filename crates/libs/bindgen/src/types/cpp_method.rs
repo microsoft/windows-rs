@@ -35,7 +35,7 @@ pub enum ParamHint {
 }
 
 impl ParamHint {
-    fn from_param(param: Param) -> Self {
+    fn from_param(param: MethodParam) -> Self {
         for attribute in param.attributes() {
             match attribute.name() {
                 "NativeArrayInfoAttribute" => {
@@ -756,7 +756,7 @@ impl CppMethod {
     }
 }
 
-fn write_produce_type(writer: &Writer, ty: &Type, param: Param) -> TokenStream {
+fn write_produce_type(writer: &Writer, ty: &Type, param: MethodParam) -> TokenStream {
     let name = to_ident(&param.name().to_lowercase());
     let kind = ty.write_default(writer);
 
@@ -777,7 +777,7 @@ fn write_produce_type(writer: &Writer, ty: &Type, param: Param) -> TokenStream {
     }
 }
 
-fn write_invoke_arg(ty: &Type, param: Param, _hint: ParamHint) -> TokenStream {
+fn write_invoke_arg(ty: &Type, param: MethodParam, _hint: ParamHint) -> TokenStream {
     let name = to_ident(&param.name().to_lowercase());
 
     if !param.flags().contains(ParamAttributes::Out) && ty.is_interface() {
@@ -791,7 +791,7 @@ fn write_invoke_arg(ty: &Type, param: Param, _hint: ParamHint) -> TokenStream {
     }
 }
 
-fn is_convertible(ty: &Type, param: Param, hint: ParamHint) -> bool {
+fn is_convertible(ty: &Type, param: MethodParam, hint: ParamHint) -> bool {
     !param.flags().contains(ParamAttributes::Out) && !hint.is_array() && ty.is_convertible()
 }
 
@@ -814,7 +814,7 @@ fn is_retval(signature: &Signature, param_hints: &[ParamHint]) -> bool {
     false
 }
 
-fn is_param_retval(ty: &Type, param: Param, hint: ParamHint) -> bool {
+fn is_param_retval(ty: &Type, param: MethodParam, hint: ParamHint) -> bool {
     // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
     // very sparingly, so this heuristic is used to apply the transformation more uniformly.
     if param.has_attribute("RetValAttribute") {
@@ -847,7 +847,7 @@ fn is_param_retval(ty: &Type, param: Param, hint: ParamHint) -> bool {
     true
 }
 
-fn signature_param_is_query(params: &[(Type, Param)]) -> Option<(usize, usize)> {
+fn signature_param_is_query(params: &[(Type, MethodParam)]) -> Option<(usize, usize)> {
     if let Some(guid) = params.iter().rposition(|(ty, param)| {
         *ty == Type::PtrConst(Box::new(Type::GUID), 1)
             && !param.flags().contains(ParamAttributes::Out)

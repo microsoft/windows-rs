@@ -187,7 +187,7 @@ impl File {
                 0x02 => result.tables[TypeDef::TABLE].len = len,
                 0x04 => result.tables[Field::TABLE].len = len,
                 0x06 => result.tables[MethodDef::TABLE].len = len,
-                0x08 => result.tables[Param::TABLE].len = len,
+                0x08 => result.tables[MethodParam::TABLE].len = len,
                 0x09 => result.tables[InterfaceImpl::TABLE].len = len,
                 0x0a => result.tables[MemberRef::TABLE].len = len,
                 0x0b => result.tables[Constant::TABLE].len = len,
@@ -232,11 +232,11 @@ impl File {
         ]);
         let has_constant = coded_index_size(&[
             tables[Field::TABLE].len,
-            tables[Param::TABLE].len,
+            tables[MethodParam::TABLE].len,
             unused_property.len,
         ]);
         let has_field_marshal =
-            coded_index_size(&[tables[Field::TABLE].len, tables[Param::TABLE].len]);
+            coded_index_size(&[tables[Field::TABLE].len, tables[MethodParam::TABLE].len]);
         let has_decl_security = coded_index_size(&[
             tables[TypeDef::TABLE].len,
             tables[MethodDef::TABLE].len,
@@ -280,7 +280,7 @@ impl File {
             tables[Field::TABLE].len,
             tables[TypeRef::TABLE].len,
             tables[TypeDef::TABLE].len,
-            tables[Param::TABLE].len,
+            tables[MethodParam::TABLE].len,
             tables[InterfaceImpl::TABLE].len,
             tables[MemberRef::TABLE].len,
             unused_module.len,
@@ -406,7 +406,7 @@ impl File {
             2,
             string_index_size,
             blob_index_size,
-            result.tables[Param::TABLE].index_width(),
+            result.tables[MethodParam::TABLE].index_width(),
         );
         unused_method_impl.set_columns(
             result.tables[TypeDef::TABLE].index_width(),
@@ -442,7 +442,7 @@ impl File {
             0,
             0,
         );
-        result.tables[Param::TABLE].set_columns(2, 2, string_index_size, 0, 0, 0);
+        result.tables[MethodParam::TABLE].set_columns(2, 2, string_index_size, 0, 0, 0);
         unused_property.set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
         unused_property_map.set_columns(
             result.tables[TypeDef::TABLE].index_width(),
@@ -476,7 +476,7 @@ impl File {
         result.tables[TypeDef::TABLE].set_data(&mut view);
         result.tables[Field::TABLE].set_data(&mut view);
         result.tables[MethodDef::TABLE].set_data(&mut view);
-        result.tables[Param::TABLE].set_data(&mut view);
+        result.tables[MethodParam::TABLE].set_data(&mut view);
         result.tables[InterfaceImpl::TABLE].set_data(&mut view);
         result.tables[MemberRef::TABLE].set_data(&mut view);
         result.tables[Constant::TABLE].set_data(&mut view);

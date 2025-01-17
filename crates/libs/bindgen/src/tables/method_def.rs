@@ -15,7 +15,7 @@ impl MethodDef {
         self.str(3)
     }
 
-    pub fn params(&self) -> RowIterator<Param> {
+    pub fn params(&self) -> RowIterator<MethodParam> {
         self.list(5)
     }
 
