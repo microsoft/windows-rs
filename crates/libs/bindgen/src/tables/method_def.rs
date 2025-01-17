@@ -45,17 +45,16 @@ impl MethodDef {
                 }
             } else {
                 let param_is_const = param.has_attribute("ConstAttribute");
-                let param_is_output = param.flags().contains(ParamAttributes::Out);
+                let param_is_input = !param.flags().contains(ParamAttributes::Out);
                 let mut ty = Type::from_blob(&mut blob, None, generics);
 
-                if param_is_const || !param_is_output {
+                if param_is_const || param_is_input {
                     ty = ty.to_const_type();
                 }
-                if !param_is_output {
-                    ty = ty.to_const_ptr();
-                }
 
-                if !param_is_output {
+                if param_is_input {
+                    ty = ty.to_const_ptr();
+
                     if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
                         if let Some((_, Value::Str(name))) = attribute.args().first() {
                             let overload = param.reader().unwrap_full_name(namespace, name);

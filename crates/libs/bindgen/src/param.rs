@@ -8,7 +8,15 @@ pub struct Param {
 
 impl Param {
     pub fn is_convertible(&self) -> bool {
-        !self.def.flags().contains(ParamAttributes::Out) && self.ty.is_convertible()
+        self.is_input() && self.ty.is_convertible()
+    }
+
+    pub fn is_input(&self) -> bool {
+        !self.def.flags().contains(ParamAttributes::Out)
+    }
+
+    pub fn is_optional(&self) -> bool {
+        self.def.flags().contains(ParamAttributes::Optional)
     }
 
     pub fn is_retval(&self) -> bool {

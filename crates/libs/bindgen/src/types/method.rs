@@ -42,7 +42,7 @@ impl Method {
             let name = to_ident(&param.def.name().to_lowercase());
             let abi_size_name: TokenStream = format!("{}_array_size", param.def.name().to_lowercase()).into();
 
-            if param.def.flags().contains(ParamAttributes::In) {
+            if param.is_input() {
                 if param.ty.is_winrt_array() {
                     quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
                 } else if param.ty.is_primitive() {
@@ -147,7 +147,7 @@ impl Method {
         let params = self.signature.params.iter().map(|p| {
             let default_type = p.ty.write_default(writer);
 
-            let sig = if p.def.flags().contains(ParamAttributes::In) {
+            let sig = if p.is_input() {
                 if p.ty.is_winrt_array() {
                     quote! { &[#default_type] }
                 } else if p.ty.is_primitive() {
@@ -219,7 +219,7 @@ impl Method {
             let abi = param.ty.write_abi(writer);
             let abi_size_name: TokenStream = format!("{}_array_size", name.as_str()).into();
 
-            if param.def.flags().contains(ParamAttributes::In) {
+            if param.is_input() {
                 if param.ty.is_winrt_array() {
                     if named_params {
                         quote! { #abi_size_name: u32, #name: *const #abi }
@@ -311,7 +311,7 @@ impl Method {
             let args = params.iter().map(|param|{
                 let name = to_ident(&param.def.name().to_lowercase());
 
-                if param.def.flags().contains(ParamAttributes::In) {
+                if param.is_input() {
                     if param.ty.is_winrt_array() {
                         if param.ty.is_copyable() {
                             quote! { #name.len().try_into().unwrap(), #name.as_ptr() }
@@ -404,7 +404,7 @@ impl Method {
             let kind = param.ty.write_name(writer);
             let default_type = param.ty.write_default(writer);
 
-            if param.def.flags().contains(ParamAttributes::In) {
+            if param.is_input() {
                 if param.ty.is_winrt_array() {
                     quote! { #name: &[#default_type], }
                 } else if param.is_convertible() {

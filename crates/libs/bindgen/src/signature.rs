@@ -36,7 +36,7 @@ impl Signature {
             if param.is_retval() {
                 return self.params[..self.params.len() - 1]
                     .iter()
-                    .all(|param| !param.def.flags().contains(ParamAttributes::Out));
+                    .all(|param| param.is_input());
             }
         }
 

@@ -81,7 +81,7 @@ fn write_param(writer: &Writer, param: &Param) -> TokenStream {
         return quote! { #name: #type_name, };
     }
 
-    if param.def.flags().contains(ParamAttributes::Out) {
+    if !param.is_input() {
         if param.ty.deref().is_interface() {
             let type_name = param.ty.deref().write_name(writer);
             quote! { #name: windows_core::OutRef<'_, #type_name>, }
