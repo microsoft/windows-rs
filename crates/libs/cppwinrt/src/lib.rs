@@ -13,14 +13,10 @@ where
     S: AsRef<std::ffi::OsStr>,
 {
     let mut path = std::env::temp_dir();
+    path.push(unique());
+    std::fs::create_dir_all(&path).unwrap();
     path.push(format!("cppwinrt-{VERSION}.exe"));
-
-    let bytes = std::include_bytes!("../cppwinrt.exe");
-
-    // Concurrent builds can cause this to fail, so we just make sure the bytes match on failure.
-    if std::fs::write(&path, bytes).is_err() {
-        assert_eq!(*bytes, *std::fs::read(&path).unwrap());
-    }
+    std::fs::write(&path, std::include_bytes!("../cppwinrt.exe")).unwrap();
 
     let mut command = std::process::Command::new(&path);
     command.args(args);
@@ -32,6 +28,36 @@ where
     } else {
         panic!("{}", String::from_utf8_lossy(&output.stderr))
     }
+}
+
+fn unique() -> String {
+    #[repr(C)]
+    #[derive(Default)]
+    pub struct Guid {
+        pub data1: u32,
+        pub data2: u16,
+        pub data3: u16,
+        pub data4: [u8; 8],
+    }
+
+    windows_link::link!("ole32.dll" "system" fn CoCreateGuid(pguid: *mut Guid) -> i32);
+    let mut guid = Guid::default();
+    unsafe { CoCreateGuid(&mut guid) };
+
+    format!(
+        "{:08X?}-{:04X?}-{:04X?}-{:02X?}{:02X?}-{:02X?}{:02X?}{:02X?}{:02X?}{:02X?}{:02X?}",
+        guid.data1,
+        guid.data2,
+        guid.data3,
+        guid.data4[0],
+        guid.data4[1],
+        guid.data4[2],
+        guid.data4[3],
+        guid.data4[4],
+        guid.data4[5],
+        guid.data4[6],
+        guid.data4[7]
+    )
 }
 
 #[cfg(test)]
