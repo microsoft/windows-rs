@@ -368,7 +368,7 @@ impl Method {
         };
 
         let generics = params.iter().enumerate().filter_map(|(position, param)| {
-            if is_convertible(&param.ty, param.def) {
+            if is_convertible(param) {
                 let name: TokenStream = format!("P{position}").into();
                 Some(name)
             } else {
@@ -381,7 +381,7 @@ impl Method {
                 .iter()
                 .enumerate()
                 .filter_map(|(position, param)| {
-                    if is_convertible(&param.ty, param.def) {
+                    if is_convertible(param) {
                         let name: TokenStream = format!("P{position}").into();
                         let ty = param.ty.write_name(writer);
 
@@ -407,7 +407,7 @@ impl Method {
             if param.def.flags().contains(ParamAttributes::In) {
                 if param.ty.is_winrt_array() {
                     quote! { #name: &[#default_type], }
-                } else if is_convertible(&param.ty, param.def) {
+                } else if is_convertible(param) {
                     let kind: TokenStream = format!("P{position}").into();
                     quote! { #name: #kind, }
                 } else if param.ty.is_copyable() {
@@ -550,6 +550,6 @@ impl Method {
     }
 }
 
-fn is_convertible(ty: &Type, param: MethodParam) -> bool {
-    param.flags().contains(ParamAttributes::In) && ty.is_convertible()
+fn is_convertible(param: &Param) -> bool {
+    param.def.flags().contains(ParamAttributes::In) && param.ty.is_convertible()
 }

@@ -151,22 +151,23 @@ impl CppMethod {
 
         for (position, hint) in param_hints.iter_mut().enumerate() {
             if *hint == ParamHint::None {
-                let ty = &signature.params[position].ty;
-                let param = signature.params[position].def;
-                let flags = param.flags();
+                let param = &signature.params[position];
+                let flags = param.def.flags();
 
-                if is_convertible(ty, param, *hint) {
+                if is_convertible(param, *hint) {
                     *hint = ParamHint::IntoParam;
-                } else if ty.is_copyable()
+                } else if param.ty.is_copyable()
                     && (flags.contains(ParamAttributes::Optional)
-                        || param.has_attribute("ReservedAttribute"))
+                        || param.def.has_attribute("ReservedAttribute"))
                 {
                     *hint = ParamHint::Optional;
-                } else if !flags.contains(ParamAttributes::Out) && *ty == Type::BOOL {
+                } else if !flags.contains(ParamAttributes::Out) && param.ty == Type::BOOL {
                     *hint = ParamHint::Bool;
-                } else if ty.is_primitive() && (!ty.is_pointer() || ty.deref().is_copyable()) {
+                } else if param.ty.is_primitive()
+                    && (!param.ty.is_pointer() || param.ty.deref().is_copyable())
+                {
                     *hint = ParamHint::ValueType;
-                } else if ty.is_copyable() {
+                } else if param.ty.is_copyable() {
                     *hint = ParamHint::Blittable;
                 }
             }
@@ -404,9 +405,7 @@ impl CppMethod {
                 let invoke_args = self.signature.params[..self.signature.params.len() - 1]
                     .iter()
                     .enumerate()
-                    .map(|(position, param)| {
-                        write_invoke_arg(&param.ty, param.def, self.param_hints[position])
-                    });
+                    .map(|(position, param)| write_invoke_arg(param, self.param_hints[position]));
 
                 let result = to_ident(
                     &self.signature.params[self.signature.params.len() - 1]
@@ -427,42 +426,36 @@ impl CppMethod {
                 }
             }
             ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::ResultVoid => {
-                let invoke_args =
-                    self.signature
-                        .params
-                        .iter()
-                        .enumerate()
-                        .map(|(position, param)| {
-                            write_invoke_arg(&param.ty, param.def, self.param_hints[position])
-                        });
+                let invoke_args = self
+                    .signature
+                    .params
+                    .iter()
+                    .enumerate()
+                    .map(|(position, param)| write_invoke_arg(param, self.param_hints[position]));
 
                 quote! {
                     #parent_impl::#name(this, #(#invoke_args,)*).into()
                 }
             }
             ReturnHint::ReturnStruct => {
-                let invoke_args =
-                    self.signature
-                        .params
-                        .iter()
-                        .enumerate()
-                        .map(|(position, param)| {
-                            write_invoke_arg(&param.ty, param.def, self.param_hints[position])
-                        });
+                let invoke_args = self
+                    .signature
+                    .params
+                    .iter()
+                    .enumerate()
+                    .map(|(position, param)| write_invoke_arg(param, self.param_hints[position]));
 
                 quote! {
                     *result__ = #parent_impl::#name(this, #(#invoke_args,)*)
                 }
             }
             _ => {
-                let invoke_args =
-                    self.signature
-                        .params
-                        .iter()
-                        .enumerate()
-                        .map(|(position, param)| {
-                            write_invoke_arg(&param.ty, param.def, self.param_hints[position])
-                        });
+                let invoke_args = self
+                    .signature
+                    .params
+                    .iter()
+                    .enumerate()
+                    .map(|(position, param)| write_invoke_arg(param, self.param_hints[position]));
 
                 quote! {
                     #parent_impl::#name(this, #(#invoke_args,)*)
@@ -476,11 +469,11 @@ impl CppMethod {
 
         if self.return_hint == ReturnHint::ResultValue {
             for param in &self.signature.params[..self.signature.params.len() - 1] {
-                params.combine(write_produce_type(writer, &param.ty, param.def));
+                params.combine(write_produce_type(writer, param));
             }
         } else {
             for param in &self.signature.params {
-                params.combine(write_produce_type(writer, &param.ty, param.def));
+                params.combine(write_produce_type(writer, param));
             }
         }
 
@@ -757,18 +750,18 @@ impl CppMethod {
     }
 }
 
-fn write_produce_type(writer: &Writer, ty: &Type, param: MethodParam) -> TokenStream {
-    let name = to_ident(&param.name().to_lowercase());
-    let kind = ty.write_default(writer);
+fn write_produce_type(writer: &Writer, param: &Param) -> TokenStream {
+    let name = to_ident(&param.def.name().to_lowercase());
+    let kind = param.ty.write_default(writer);
 
-    if !param.flags().contains(ParamAttributes::Out) && ty.is_interface() {
-        let type_name = ty.write_name(writer);
+    if !param.def.flags().contains(ParamAttributes::Out) && param.ty.is_interface() {
+        let type_name = param.ty.write_name(writer);
         quote! { #name: windows_core::Ref<'_, #type_name>, }
-    } else if param.flags().contains(ParamAttributes::Out) && ty.deref().is_interface() {
-        let type_name = ty.deref().write_name(writer);
+    } else if param.def.flags().contains(ParamAttributes::Out) && param.ty.deref().is_interface() {
+        let type_name = param.ty.deref().write_name(writer);
         quote! { #name: windows_core::OutRef<'_, #type_name>, }
-    } else if !param.flags().contains(ParamAttributes::Out) {
-        if ty.is_primitive() {
+    } else if !param.def.flags().contains(ParamAttributes::Out) {
+        if param.ty.is_primitive() {
             quote! { #name: #kind, }
         } else {
             quote! { #name: &#kind, }
@@ -778,13 +771,13 @@ fn write_produce_type(writer: &Writer, ty: &Type, param: MethodParam) -> TokenSt
     }
 }
 
-fn write_invoke_arg(ty: &Type, param: MethodParam, _hint: ParamHint) -> TokenStream {
-    let name = to_ident(&param.name().to_lowercase());
+fn write_invoke_arg(param: &Param, _hint: ParamHint) -> TokenStream {
+    let name = to_ident(&param.def.name().to_lowercase());
 
-    if !param.flags().contains(ParamAttributes::Out) && ty.is_interface() {
+    if !param.def.flags().contains(ParamAttributes::Out) && param.ty.is_interface() {
         quote! { core::mem::transmute_copy(&#name) }
-    } else if (!ty.is_pointer() && ty.is_interface())
-        || (!param.flags().contains(ParamAttributes::Out) && !ty.is_primitive())
+    } else if (!param.ty.is_pointer() && param.ty.is_interface())
+        || (!param.def.flags().contains(ParamAttributes::Out) && !param.ty.is_primitive())
     {
         quote! { core::mem::transmute(&#name) }
     } else {
@@ -792,8 +785,10 @@ fn write_invoke_arg(ty: &Type, param: MethodParam, _hint: ParamHint) -> TokenStr
     }
 }
 
-fn is_convertible(ty: &Type, param: MethodParam, hint: ParamHint) -> bool {
-    !param.flags().contains(ParamAttributes::Out) && !hint.is_array() && ty.is_convertible()
+fn is_convertible(param: &Param, hint: ParamHint) -> bool {
+    !param.def.flags().contains(ParamAttributes::Out)
+        && !hint.is_array()
+        && param.ty.is_convertible()
 }
 
 fn is_retval(signature: &Signature, param_hints: &[ParamHint]) -> bool {
@@ -805,7 +800,7 @@ fn is_retval(signature: &Signature, param_hints: &[ParamHint]) -> bool {
     }
 
     if let Some(param) = signature.params.last() {
-        if is_param_retval(&param.ty, param.def, param_hints[param_hints.len() - 1]) {
+        if is_param_retval(param, param_hints[param_hints.len() - 1]) {
             return signature.params[..signature.params.len() - 1]
                 .iter()
                 .all(|param| !param.def.flags().contains(ParamAttributes::Out));
@@ -815,19 +810,19 @@ fn is_retval(signature: &Signature, param_hints: &[ParamHint]) -> bool {
     false
 }
 
-fn is_param_retval(ty: &Type, param: MethodParam, hint: ParamHint) -> bool {
+fn is_param_retval(param: &Param, hint: ParamHint) -> bool {
     // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
     // very sparingly, so this heuristic is used to apply the transformation more uniformly.
-    if param.has_attribute("RetValAttribute") {
+    if param.def.has_attribute("RetValAttribute") {
         return true;
     }
-    if !ty.is_pointer() {
+    if !param.ty.is_pointer() {
         return false;
     }
-    if ty.is_void() {
+    if param.ty.is_void() {
         return false;
     }
-    let flags = param.flags();
+    let flags = param.def.flags();
     if flags.contains(ParamAttributes::In)
         || !flags.contains(ParamAttributes::Out)
         || flags.contains(ParamAttributes::Optional)
@@ -837,12 +832,12 @@ fn is_param_retval(ty: &Type, param: MethodParam, hint: ParamHint) -> bool {
     }
     // This is reevaluated to detect unsupported array parameters.
     // https://github.com/microsoft/windows-rs/issues/3384
-    if ParamHint::from_param(param).is_array() {
+    if ParamHint::from_param(param.def).is_array() {
         return false;
     }
 
     // If it's bigger than 128 bits, best to pass as a reference.
-    if ty.deref().size() > 16 {
+    if param.ty.deref().size() > 16 {
         return false;
     }
     true

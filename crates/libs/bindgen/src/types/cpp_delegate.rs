@@ -52,7 +52,7 @@ impl CppDelegate {
         let mut params = quote! {};
 
         for param in &signature.params {
-            params.combine(write_param(writer, &param.ty, param.def));
+            params.combine(write_param(writer, param));
         }
 
         let return_sig = writer.write_return_sig(method, &signature, false);
@@ -73,22 +73,22 @@ impl CppDelegate {
     }
 }
 
-fn write_param(writer: &Writer, ty: &Type, param: MethodParam) -> TokenStream {
-    let name = to_ident(&param.name().to_lowercase());
-    let type_name = ty.write_name(writer);
+fn write_param(writer: &Writer, param: &Param) -> TokenStream {
+    let name = to_ident(&param.def.name().to_lowercase());
+    let type_name = param.ty.write_name(writer);
 
     if writer.config.sys {
         return quote! { #name: #type_name, };
     }
 
-    if param.flags().contains(ParamAttributes::Out) {
-        if ty.deref().is_interface() {
-            let type_name = ty.deref().write_name(writer);
+    if param.def.flags().contains(ParamAttributes::Out) {
+        if param.ty.deref().is_interface() {
+            let type_name = param.ty.deref().write_name(writer);
             quote! { #name: windows_core::OutRef<'_, #type_name>, }
         } else {
             quote! { #name: #type_name, }
         }
-    } else if ty.is_copyable() {
+    } else if param.ty.is_copyable() {
         quote! { #name: #type_name, }
     } else {
         quote! { #name: windows_core::Ref<'_, #type_name>, }
