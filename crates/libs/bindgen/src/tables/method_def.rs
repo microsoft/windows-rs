@@ -15,7 +15,7 @@ impl MethodDef {
         self.str(3)
     }
 
-    pub fn params(&self) -> RowIterator<Param> {
+    pub fn params(&self) -> RowIterator<MethodParam> {
         self.list(5)
     }
 
@@ -35,7 +35,6 @@ impl MethodDef {
         let call_flags = MethodCallAttributes(blob.read_usize() as u8);
         let _param_count = blob.read_usize();
         let mut return_type = Type::from_blob(&mut blob, None, generics);
-        let mut return_param = None;
 
         let mut params = vec![];
 
@@ -44,21 +43,18 @@ impl MethodDef {
                 if param.has_attribute("ConstAttribute") {
                     return_type = return_type.to_const_type();
                 }
-
-                return_param = Some(param);
             } else {
                 let param_is_const = param.has_attribute("ConstAttribute");
-                let param_is_output = param.flags().contains(ParamAttributes::Out);
+                let param_is_input = !param.flags().contains(ParamAttributes::Out);
                 let mut ty = Type::from_blob(&mut blob, None, generics);
 
-                if param_is_const || !param_is_output {
+                if param_is_const || param_is_input {
                     ty = ty.to_const_type();
                 }
-                if !param_is_output {
-                    ty = ty.to_const_ptr();
-                }
 
-                if !param_is_output {
+                if param_is_input {
+                    ty = ty.to_const_ptr();
+
                     if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
                         if let Some((_, Value::Str(name))) = attribute.args().first() {
                             let overload = param.reader().unwrap_full_name(namespace, name);
@@ -68,13 +64,13 @@ impl MethodDef {
                     }
                 }
 
-                params.push((ty, param));
+                params.push(Param { def: param, ty });
             }
         }
 
         Signature {
             call_flags,
-            return_type: (return_type, return_param),
+            return_type,
             params,
         }
     }

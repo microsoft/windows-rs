@@ -42,7 +42,7 @@ pub enum Type {
     CppStruct(CppStruct),
     CppConst(CppConst),
 
-    Param(&'static str),
+    Generic(&'static str),
     PtrMut(Box<Self>, usize),
     PtrConst(Box<Self>, usize),
     ArrayFixed(Box<Self>, usize),
@@ -137,7 +137,7 @@ impl Type {
     fn is_intrinsic(&self) -> bool {
         matches!(
             self,
-            Self::Param(..)
+            Self::Generic(..)
                 | Self::Void
                 | Self::Bool
                 | Self::Char
@@ -440,7 +440,7 @@ impl Type {
             Self::CppDelegate(ty) => ty.write_name(writer),
             Self::Delegate(ty) => ty.write_name(writer),
             Self::Class(ty) => ty.write_name(writer),
-            Self::Param(param) => to_ident(param),
+            Self::Generic(param) => to_ident(param),
             Self::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
                 let ty = ty.write_default(writer);
@@ -480,7 +480,7 @@ impl Type {
         } else {
             let tokens = self.write_name(writer);
 
-            if matches!(self, Self::Param(_)) {
+            if matches!(self, Self::Generic(_)) {
                 quote! { <#tokens as windows_core::Type<#tokens>>::Default }
             } else if self.is_interface() {
                 quote! { Option<#tokens> }
@@ -521,7 +521,7 @@ impl Type {
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
-            Self::Param(name) => {
+            Self::Generic(name) => {
                 let name = to_ident(name);
                 quote! { windows_core::AbiType<#name> }
             }
@@ -716,7 +716,7 @@ impl Type {
                 false
             }
 
-            Self::String | Self::BSTR | Self::Object | Self::IUnknown | Self::Param(_) => false,
+            Self::String | Self::BSTR | Self::Object | Self::IUnknown | Self::Generic(_) => false,
             Self::ArrayFixed(ty, _) => ty.is_copyable(),
             Self::Array(ty) => ty.is_copyable(),
             _ => true,
@@ -744,7 +744,7 @@ impl Type {
                 | Self::PCWSTR
                 | Self::Object
                 | Self::IUnknown
-                | Self::Param(_)
+                | Self::Generic(_)
         )
     }
 

@@ -50,12 +50,12 @@ impl CppFn {
 
         let signature = self.method.signature(self.namespace, &[]);
 
-        let params = signature.params.iter().map(|(ty, param)| {
-            let name = to_ident(&param.name().to_lowercase());
+        let params = signature.params.iter().map(|param| {
+            let name = param.write_ident();
             let ty = if underlying_types {
-                ty.underlying_type().write_abi(writer)
+                param.underlying_type().write_abi(writer)
             } else {
-                ty.write_abi(writer)
+                param.write_abi(writer)
             };
             quote! { #name: #ty }
         });
@@ -143,7 +143,7 @@ impl CppFn {
             }
             ReturnHint::ResultValue => {
                 let where_clause = method.write_where(writer, false);
-                let return_type = signature.params[signature.params.len() - 1].0.deref();
+                let return_type = signature.params[signature.params.len() - 1].deref();
                 let map = return_type.write_result_map();
                 let return_type = return_type.write_name(writer);
 
@@ -174,9 +174,8 @@ impl CppFn {
             ReturnHint::ReturnValue => {
                 let where_clause = method.write_where(writer, false);
 
-                let return_type = method.signature.params[method.signature.params.len() - 1]
-                    .0
-                    .deref();
+                let return_type =
+                    method.signature.params[method.signature.params.len() - 1].deref();
 
                 if return_type.is_interface() {
                     let return_type = return_type.write_name(writer);
@@ -221,7 +220,7 @@ impl CppFn {
                 let where_clause = method.write_where(writer, false);
 
                 if method.handle_last_error() {
-                    let return_type = signature.return_type.0.write_name(writer);
+                    let return_type = signature.return_type.write_name(writer);
 
                     quote! {
                         #cfg
@@ -302,7 +301,7 @@ impl Writer {
         signature: &Signature,
         underlying_types: bool,
     ) -> TokenStream {
-        match &signature.return_type.0 {
+        match &signature.return_type {
             Type::Void => {
                 if method.has_attribute("DoesNotReturnAttribute") {
                     quote! { -> ! }

@@ -9,9 +9,9 @@ mod impl_map;
 mod interface_impl;
 mod member_ref;
 mod method_def;
+mod method_param;
 mod module_ref;
 mod nested_class;
-mod param;
 mod type_def;
 mod type_ref;
 mod type_spec;
@@ -46,7 +46,7 @@ tables! {
     (MethodDef, 6)
     (ModuleRef, 12)
     (NestedClass, 13)
-    (Param, 7)
+    (MethodParam, 7)
     (TypeDef, 8)
     (TypeRef, 9)
     (TypeSpec, 10)
