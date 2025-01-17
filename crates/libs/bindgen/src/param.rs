@@ -10,4 +10,45 @@ impl Param {
     pub fn is_convertible(&self) -> bool {
         !self.def.flags().contains(ParamAttributes::Out) && self.ty.is_convertible()
     }
+
+    pub fn is_retval(&self) -> bool {
+        // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
+        // very sparingly, so this heuristic is used to apply the transformation more uniformly.
+        if self.def.has_attribute("RetValAttribute") {
+            return true;
+        }
+
+        if !self.ty.is_pointer() {
+            return false;
+        }
+
+        if self.ty.is_void() {
+            return false;
+        }
+
+        let flags = self.def.flags();
+
+        if flags.contains(ParamAttributes::In)
+            || !flags.contains(ParamAttributes::Out)
+            || flags.contains(ParamAttributes::Optional)
+        {
+            return false;
+        }
+
+        for attribute in self.def.attributes() {
+            if matches!(
+                attribute.name(),
+                "NativeArrayInfoAttribute" | "MemorySizeAttribute"
+            ) {
+                return false;
+            }
+        }
+
+        // If it's bigger than 128 bits, best to pass as a reference.
+        if self.ty.deref().size() > 16 {
+            return false;
+        }
+
+        true
+    }
 }

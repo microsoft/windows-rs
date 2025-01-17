@@ -23,4 +23,23 @@ impl Signature {
             .chain(self.params.iter().map(|param| &param.ty))
             .map(|ty| ty.decay())
     }
+
+    pub fn is_retval(&self) -> bool {
+        // First we check whether there's an actual retval parameter.
+        if let Some(param) = self.params.last() {
+            if param.def.has_attribute("RetValAttribute") {
+                return true;
+            }
+        }
+
+        if let Some(param) = self.params.last() {
+            if param.is_retval() {
+                return self.params[..self.params.len() - 1]
+                    .iter()
+                    .all(|param| !param.def.flags().contains(ParamAttributes::Out));
+            }
+        }
+
+        false
+    }
 }

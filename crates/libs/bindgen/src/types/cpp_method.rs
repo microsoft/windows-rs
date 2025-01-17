@@ -173,7 +173,7 @@ impl CppMethod {
             }
         }
 
-        let is_retval = is_retval(&signature, &param_hints);
+        let is_retval = signature.is_retval();
         let mut return_hint = ReturnHint::None;
 
         let last_error = if let Some(map) = def.impl_map() {
@@ -767,58 +767,6 @@ fn write_invoke_arg(param: &Param) -> TokenStream {
     } else {
         quote! { core::mem::transmute_copy(&#name) }
     }
-}
-
-fn is_retval(signature: &Signature, param_hints: &[ParamHint]) -> bool {
-    // First we check whether there's an actual retval parameter.
-    if let Some(param) = signature.params.last() {
-        if param.def.has_attribute("RetValAttribute") {
-            return true;
-        }
-    }
-
-    if let Some(param) = signature.params.last() {
-        if is_param_retval(param, param_hints[param_hints.len() - 1]) {
-            return signature.params[..signature.params.len() - 1]
-                .iter()
-                .all(|param| !param.def.flags().contains(ParamAttributes::Out));
-        }
-    }
-
-    false
-}
-
-fn is_param_retval(param: &Param, hint: ParamHint) -> bool {
-    // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
-    // very sparingly, so this heuristic is used to apply the transformation more uniformly.
-    if param.def.has_attribute("RetValAttribute") {
-        return true;
-    }
-    if !param.ty.is_pointer() {
-        return false;
-    }
-    if param.ty.is_void() {
-        return false;
-    }
-    let flags = param.def.flags();
-    if flags.contains(ParamAttributes::In)
-        || !flags.contains(ParamAttributes::Out)
-        || flags.contains(ParamAttributes::Optional)
-        || hint.is_array()
-    {
-        return false;
-    }
-    // This is reevaluated to detect unsupported array parameters.
-    // https://github.com/microsoft/windows-rs/issues/3384
-    if ParamHint::from_param(param.def).is_array() {
-        return false;
-    }
-
-    // If it's bigger than 128 bits, best to pass as a reference.
-    if param.ty.deref().size() > 16 {
-        return false;
-    }
-    true
 }
 
 fn signature_param_is_query(params: &[Param]) -> Option<(usize, usize)> {
