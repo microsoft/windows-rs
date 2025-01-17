@@ -538,10 +538,10 @@ impl CppMethod {
                     let ty = param.deref();
                     let ty = ty.write_default(writer);
                     let len = Literal::u32_unsuffixed(fixed as u32);
-                    let ty = if !param.is_input() {
-                        quote! { &mut [#ty; #len] }
-                    } else {
+                    let ty = if param.is_input() {
                         quote! { &[#ty; #len] }
+                    } else {
+                        quote! { &mut [#ty; #len] }
                     };
                     if param.is_optional() {
                         tokens.combine(&quote! { #name: Option<#ty>, });
@@ -552,10 +552,10 @@ impl CppMethod {
                 ParamHint::ArrayRelativeLen(_) => {
                     let ty = param.deref();
                     let ty = ty.write_default(writer);
-                    let ty = if !param.is_input() {
-                        quote! { &mut [#ty] }
-                    } else {
+                    let ty = if param.is_input() {
                         quote! { &[#ty] }
+                    } else {
+                        quote! { &mut [#ty] }
                     };
                     if param.is_optional() {
                         tokens.combine(&quote! { #name: Option<#ty>, });
@@ -564,10 +564,10 @@ impl CppMethod {
                     }
                 }
                 ParamHint::ArrayRelativeByteLen(_) => {
-                    let ty = if !param.is_input() {
-                        quote! { &mut [u8] }
-                    } else {
+                    let ty = if param.is_input() {
                         quote! { &[u8] }
+                    } else {
+                        quote! { &mut [u8] }
                     };
                     if param.is_optional() {
                         tokens.combine(&quote! { #name: Option<#ty>, });
@@ -663,10 +663,10 @@ impl CppMethod {
                             quote! { #name.into(), }
                         }
                         ParamHint::ValueType => {
-                            if !param.is_input() {
-                                quote! { #name as _, }
-                            } else {
+                            if param.is_input() {
                                 quote! { #name, }
+                            } else {
+                                quote! { #name as _, }
                             }
                         }
                         ParamHint::Blittable => {

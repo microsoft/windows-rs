@@ -81,16 +81,20 @@ fn write_param(writer: &Writer, param: &Param) -> TokenStream {
         return quote! { #name: #type_name, };
     }
 
-    if !param.is_input() {
-        if param.deref().is_interface() {
-            let type_name = param.deref().write_name(writer);
-            quote! { #name: windows_core::OutRef<'_, #type_name>, }
+    if param.is_input() {
+        if param.is_copyable() {
+            return quote! { #name: #type_name, };
         } else {
-            quote! { #name: #type_name, }
+            return quote! { #name: windows_core::Ref<'_, #type_name>, };
         }
-    } else if param.is_copyable() {
-        quote! { #name: #type_name, }
+    }
+
+    let deref = param.deref();
+
+    if deref.is_interface() {
+        let type_name = deref.write_name(writer);
+        quote! { #name: windows_core::OutRef<'_, #type_name>, }
     } else {
-        quote! { #name: windows_core::Ref<'_, #type_name>, }
+        quote! { #name: #type_name, }
     }
 }
