@@ -103,14 +103,6 @@ impl CppMethod {
                         param_hints[position] = ParamHint::None;
                     }
                 }
-                ParamHint::ArrayFixed(_) => {
-                    if signature.params[position]
-                        .def
-                        .has_attribute("FreeWithAttribute")
-                    {
-                        param_hints[position] = ParamHint::None;
-                    }
-                }
                 _ => {}
             }
         }
