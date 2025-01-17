@@ -143,7 +143,7 @@ impl CppFn {
             }
             ReturnHint::ResultValue => {
                 let where_clause = method.write_where(writer, false);
-                let return_type = signature.params[signature.params.len() - 1].ty.deref();
+                let return_type = signature.params[signature.params.len() - 1].deref();
                 let map = return_type.write_result_map();
                 let return_type = return_type.write_name(writer);
 
@@ -174,9 +174,8 @@ impl CppFn {
             ReturnHint::ReturnValue => {
                 let where_clause = method.write_where(writer, false);
 
-                let return_type = method.signature.params[method.signature.params.len() - 1]
-                    .ty
-                    .deref();
+                let return_type =
+                    method.signature.params[method.signature.params.len() - 1].deref();
 
                 if return_type.is_interface() {
                     let return_type = return_type.write_name(writer);

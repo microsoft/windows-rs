@@ -96,7 +96,7 @@ impl CppMethod {
                     // The len params must be input only.
                     if signature.params[relative].is_input()
                         && position != relative
-                        && !signature.params[relative].ty.is_pointer()
+                        && !signature.params[relative].is_pointer()
                     {
                         param_hints[relative] = ParamHint::ArrayRelativePtr(position);
                     } else {
@@ -141,7 +141,7 @@ impl CppMethod {
         // Remove any byte arrays that aren't byte-sized types.
         for position in 0..param_hints.len() {
             if let ParamHint::ArrayRelativeByteLen(relative) = param_hints[position] {
-                if !signature.params[position].ty.is_byte_size() {
+                if !signature.params[position].is_byte_size() {
                     param_hints[position] = ParamHint::None;
                     param_hints[relative] = ParamHint::None;
                 }
@@ -299,9 +299,7 @@ impl CppMethod {
             ReturnHint::ResultValue => {
                 let where_clause = self.write_where(writer, false);
 
-                let return_type = self.signature.params[self.signature.params.len() - 1]
-                    .ty
-                    .deref();
+                let return_type = self.signature.params[self.signature.params.len() - 1].deref();
 
                 let map = return_type.write_result_map();
                 let return_type = return_type.write_name(writer);
@@ -327,9 +325,7 @@ impl CppMethod {
             ReturnHint::ReturnValue => {
                 let where_clause = self.write_where(writer, false);
 
-                let return_type = self.signature.params[self.signature.params.len() - 1]
-                    .ty
-                    .deref();
+                let return_type = self.signature.params[self.signature.params.len() - 1].deref();
 
                 if return_type.is_interface() {
                     let return_type = return_type.write_name(writer);
@@ -397,12 +393,7 @@ impl CppMethod {
                     .iter()
                     .map(write_invoke_arg);
 
-                let result = to_ident(
-                    &self.signature.params[self.signature.params.len() - 1]
-                        .def
-                        .name()
-                        .to_lowercase(),
-                );
+                let result = self.signature.params[self.signature.params.len() - 1].write_ident();
 
                 quote! {
                     match #parent_impl::#name(this, #(#invoke_args,)*) {
@@ -457,9 +448,7 @@ impl CppMethod {
                 quote! { -> windows_core::Result<()> }
             }
             ReturnHint::ResultValue => {
-                let return_type = self.signature.params[self.signature.params.len() - 1]
-                    .ty
-                    .deref();
+                let return_type = self.signature.params[self.signature.params.len() - 1].deref();
                 let return_type = return_type.write_name(writer);
 
                 quote! { -> windows_core::Result<#return_type> }
@@ -642,7 +631,7 @@ impl CppMethod {
                         }
                         ParamHint::ArrayRelativePtr(relative) => {
                             let relative_param = &self.signature.params[relative];
-                            let name = to_ident(&relative_param.def.name().to_lowercase());
+                            let name = relative_param.write_ident();
                             if relative_param.is_optional() {
                                 quote! { #name.as_deref().map_or(0, |slice|slice.len().try_into().unwrap()), }
                             } else {
