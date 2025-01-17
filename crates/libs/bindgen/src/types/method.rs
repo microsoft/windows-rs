@@ -318,7 +318,7 @@ impl Method {
                         } else {
                             quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
                         }
-                    } else if param.ty.is_convertible() {
+                    } else if param.is_convertible() {
                         quote! { #name.param().abi() }
                     } else if param.ty.is_copyable() {
                         if param.ty.is_const_ref() {
@@ -368,7 +368,7 @@ impl Method {
         };
 
         let generics = params.iter().enumerate().filter_map(|(position, param)| {
-            if is_convertible(param) {
+            if param.is_convertible() {
                 let name: TokenStream = format!("P{position}").into();
                 Some(name)
             } else {
@@ -381,7 +381,7 @@ impl Method {
                 .iter()
                 .enumerate()
                 .filter_map(|(position, param)| {
-                    if is_convertible(param) {
+                    if param.is_convertible() {
                         let name: TokenStream = format!("P{position}").into();
                         let ty = param.ty.write_name(writer);
 
@@ -407,7 +407,7 @@ impl Method {
             if param.def.flags().contains(ParamAttributes::In) {
                 if param.ty.is_winrt_array() {
                     quote! { #name: &[#default_type], }
-                } else if is_convertible(param) {
+                } else if param.is_convertible() {
                     let kind: TokenStream = format!("P{position}").into();
                     quote! { #name: #kind, }
                 } else if param.ty.is_copyable() {
@@ -548,8 +548,4 @@ impl Method {
             }
         }
     }
-}
-
-fn is_convertible(param: &Param) -> bool {
-    param.def.flags().contains(ParamAttributes::In) && param.ty.is_convertible()
 }

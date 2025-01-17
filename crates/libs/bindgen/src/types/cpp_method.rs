@@ -154,7 +154,7 @@ impl CppMethod {
                 let param = &signature.params[position];
                 let flags = param.def.flags();
 
-                if is_convertible(param, *hint) {
+                if param.is_convertible() && !hint.is_array() {
                     *hint = ParamHint::IntoParam;
                 } else if param.ty.is_copyable()
                     && (flags.contains(ParamAttributes::Optional)
@@ -404,8 +404,7 @@ impl CppMethod {
             ReturnHint::ResultValue => {
                 let invoke_args = self.signature.params[..self.signature.params.len() - 1]
                     .iter()
-                    .enumerate()
-                    .map(|(position, param)| write_invoke_arg(param, self.param_hints[position]));
+                    .map(|param| write_invoke_arg(param));
 
                 let result = to_ident(
                     &self.signature.params[self.signature.params.len() - 1]
@@ -430,8 +429,7 @@ impl CppMethod {
                     .signature
                     .params
                     .iter()
-                    .enumerate()
-                    .map(|(position, param)| write_invoke_arg(param, self.param_hints[position]));
+                    .map(|param| write_invoke_arg(param));
 
                 quote! {
                     #parent_impl::#name(this, #(#invoke_args,)*).into()
@@ -442,8 +440,7 @@ impl CppMethod {
                     .signature
                     .params
                     .iter()
-                    .enumerate()
-                    .map(|(position, param)| write_invoke_arg(param, self.param_hints[position]));
+                    .map(|param| write_invoke_arg(param));
 
                 quote! {
                     *result__ = #parent_impl::#name(this, #(#invoke_args,)*)
@@ -454,8 +451,7 @@ impl CppMethod {
                     .signature
                     .params
                     .iter()
-                    .enumerate()
-                    .map(|(position, param)| write_invoke_arg(param, self.param_hints[position]));
+                    .map(|param| write_invoke_arg(param));
 
                 quote! {
                     #parent_impl::#name(this, #(#invoke_args,)*)
@@ -771,7 +767,7 @@ fn write_produce_type(writer: &Writer, param: &Param) -> TokenStream {
     }
 }
 
-fn write_invoke_arg(param: &Param, _hint: ParamHint) -> TokenStream {
+fn write_invoke_arg(param: &Param) -> TokenStream {
     let name = to_ident(&param.def.name().to_lowercase());
 
     if !param.def.flags().contains(ParamAttributes::Out) && param.ty.is_interface() {
@@ -783,12 +779,6 @@ fn write_invoke_arg(param: &Param, _hint: ParamHint) -> TokenStream {
     } else {
         quote! { core::mem::transmute_copy(&#name) }
     }
-}
-
-fn is_convertible(param: &Param, hint: ParamHint) -> bool {
-    !param.def.flags().contains(ParamAttributes::Out)
-        && !hint.is_array()
-        && param.ty.is_convertible()
 }
 
 fn is_retval(signature: &Signature, param_hints: &[ParamHint]) -> bool {
