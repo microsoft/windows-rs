@@ -25,6 +25,7 @@ impl Param {
 
     pub fn is_optional(&self) -> bool {
         self.def.flags().contains(ParamAttributes::Optional)
+            || self.def.has_attribute("ReservedAttribute")
     }
 
     pub fn is_retval(&self) -> bool {
@@ -66,5 +67,9 @@ impl Param {
         }
 
         true
+    }
+
+    pub fn write_ident(&self) -> TokenStream {
+        to_ident(&self.def.name().to_lowercase())
     }
 }

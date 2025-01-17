@@ -34,9 +34,9 @@ pub enum ParamHint {
     Bool,
 }
 
-impl ParamHint {
-    fn from_param(param: MethodParam) -> Self {
-        for attribute in param.attributes() {
+impl From<&Param> for ParamHint {
+    fn from(param: &Param) -> Self {
+        for attribute in param.def.attributes() {
             match attribute.name() {
                 "NativeArrayInfoAttribute" => {
                     for (_, value) in attribute.args() {
@@ -61,7 +61,9 @@ impl ParamHint {
         }
         ParamHint::None
     }
+}
 
+impl ParamHint {
     fn is_array(&self) -> bool {
         matches!(
             self,
@@ -80,7 +82,7 @@ impl CppMethod {
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 
         for (position, param) in signature.params.iter().enumerate() {
-            param_hints[position] = ParamHint::from_param(param.def);
+            param_hints[position] = param.into();
         }
 
         let mut dependencies = TypeMap::new();
@@ -152,9 +154,7 @@ impl CppMethod {
 
                 if param.is_convertible() && !hint.is_array() {
                     *hint = ParamHint::IntoParam;
-                } else if param.is_copyable()
-                    && (param.is_optional() || param.def.has_attribute("ReservedAttribute"))
-                {
+                } else if param.is_copyable() && param.is_optional() {
                     *hint = ParamHint::Optional;
                 } else if param.is_input() && param.ty == Type::BOOL {
                     *hint = ParamHint::Bool;
@@ -479,7 +479,7 @@ impl CppMethod {
                 let ty = param.write_abi(writer);
 
                 if named_params {
-                    let name = to_ident(&param.def.name().to_lowercase());
+                    let name = param.write_ident();
                     quote! { #name: #ty }
                 } else {
                     ty
@@ -531,7 +531,7 @@ impl CppMethod {
                 _ => {}
             }
 
-            let name = to_ident(&param.def.name().to_lowercase());
+            let name = param.write_ident();
 
             match self.param_hints[position] {
                 ParamHint::ArrayFixed(fixed) => {
@@ -628,7 +628,7 @@ impl CppMethod {
                     quote! { &T::IID, }
                 }
                 _ => {
-                    let name = to_ident(&param.def.name().to_lowercase());
+                    let name = param.write_ident();
                     match self.param_hints[position] {
                         ParamHint::ArrayFixed(_)
                         | ParamHint::ArrayRelativeLen(_)
@@ -723,7 +723,7 @@ impl CppMethod {
 }
 
 fn write_produce_type(writer: &Writer, param: &Param) -> TokenStream {
-    let name = to_ident(&param.def.name().to_lowercase());
+    let name = param.write_ident();
     let kind = param.write_default(writer);
 
     if param.is_input() && param.is_interface() {
@@ -744,7 +744,7 @@ fn write_produce_type(writer: &Writer, param: &Param) -> TokenStream {
 }
 
 fn write_invoke_arg(param: &Param) -> TokenStream {
-    let name = to_ident(&param.def.name().to_lowercase());
+    let name = param.write_ident();
 
     if param.is_input() && param.is_interface() {
         quote! { core::mem::transmute_copy(&#name) }

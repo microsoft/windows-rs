@@ -51,7 +51,7 @@ impl CppFn {
         let signature = self.method.signature(self.namespace, &[]);
 
         let params = signature.params.iter().map(|param| {
-            let name = to_ident(&param.def.name().to_lowercase());
+            let name = param.write_ident();
             let ty = if underlying_types {
                 param.underlying_type().write_abi(writer)
             } else {

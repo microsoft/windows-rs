@@ -39,8 +39,8 @@ impl Method {
         .params
         .iter()
         .map(|param| {
-            let name = to_ident(&param.def.name().to_lowercase());
-            let abi_size_name: TokenStream = format!("{}_array_size", param.def.name().to_lowercase()).into();
+            let name = param.write_ident();
+            let abi_size_name: TokenStream = format!("{}_array_size", param.write_ident()).into();
 
             if param.is_input() {
                 if param.is_winrt_array() {
@@ -215,7 +215,7 @@ impl Method {
 
     pub fn write_abi(&self, writer: &Writer, named_params: bool) -> TokenStream {
         let args = self.signature.params.iter().map(|param| {
-            let name = to_ident(&param.def.name().to_lowercase());
+            let name = param.write_ident();
             let abi = param.write_abi(writer);
             let abi_size_name: TokenStream = format!("{}_array_size", name.as_str()).into();
 
@@ -309,7 +309,7 @@ impl Method {
 
         let args = {
             let args = params.iter().map(|param|{
-                let name = to_ident(&param.def.name().to_lowercase());
+                let name = param.write_ident();
 
                 if param.is_input() {
                     if param.is_winrt_array() {
@@ -400,7 +400,7 @@ impl Method {
         };
 
         let params = params.iter().enumerate().map(|(position, param)| {
-            let name = to_ident(&param.def.name().to_lowercase());
+            let name = param.write_ident();
             let kind = param.write_name(writer);
             let default_type = param.write_default(writer);
 

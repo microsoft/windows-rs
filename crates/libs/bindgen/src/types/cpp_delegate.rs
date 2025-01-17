@@ -74,7 +74,7 @@ impl CppDelegate {
 }
 
 fn write_param(writer: &Writer, param: &Param) -> TokenStream {
-    let name = to_ident(&param.def.name().to_lowercase());
+    let name = param.write_ident();
     let type_name = param.write_name(writer);
 
     if writer.config.sys {
