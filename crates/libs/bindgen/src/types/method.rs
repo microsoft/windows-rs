@@ -39,22 +39,22 @@ impl Method {
         .params
         .iter()
         .map(|param| {
-            let name = to_ident(&param.1.name().to_lowercase());
-            let abi_size_name: TokenStream = format!("{}_array_size", param.1.name().to_lowercase()).into();
+            let name = to_ident(&param.def.name().to_lowercase());
+            let abi_size_name: TokenStream = format!("{}_array_size", param.def.name().to_lowercase()).into();
 
-            if param.1.flags().contains(ParamAttributes::In) {
-                if param.0.is_winrt_array() {
+            if param.def.flags().contains(ParamAttributes::In) {
+                if param.ty.is_winrt_array() {
                     quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
-                } else if param.0.is_primitive() {
+                } else if param.ty.is_primitive() {
                     quote! { #name }
-                } else if param.0.is_const_ref() || param.0.is_interface() || matches!(&param.0, Type::Param(_))  {
+                } else if param.ty.is_const_ref() || param.ty.is_interface() || matches!(&param.ty, Type::Param(_))  {
                     quote! { core::mem::transmute_copy(&#name) }
                 } else {
                     quote! { core::mem::transmute(&#name) }
                 }
-            } else if param.0.is_winrt_array() {
+            } else if param.ty.is_winrt_array() {
                 quote! { core::slice::from_raw_parts_mut(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
-            } else if param.0.is_winrt_array_ref() {
+            } else if param.ty.is_winrt_array_ref() {
                 quote! { windows_core::ArrayProxy::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
             } else {
                 quote! { core::mem::transmute_copy(&#name) }
@@ -145,33 +145,33 @@ impl Method {
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
 
         let params = self.signature.params.iter().map(|p| {
-            let default_type = p.0.write_default(writer);
+            let default_type = p.ty.write_default(writer);
 
-            let sig = if p.1.flags().contains(ParamAttributes::In) {
-                if p.0.is_winrt_array() {
+            let sig = if p.def.flags().contains(ParamAttributes::In) {
+                if p.ty.is_winrt_array() {
                     quote! { &[#default_type] }
-                } else if p.0.is_primitive() {
+                } else if p.ty.is_primitive() {
                     quote! { #default_type }
-                } else if p.0.is_interface() || matches!(&p.0, Type::Param(_)) {
-                    let type_name = p.0.write_name(writer);
+                } else if p.ty.is_interface() || matches!(&p.ty, Type::Param(_)) {
+                    let type_name = p.ty.write_name(writer);
                     quote! { windows_core::Ref<'_, #type_name> }
                 } else {
                     quote! { &#default_type }
                 }
-            } else if p.0.is_winrt_array() {
+            } else if p.ty.is_winrt_array() {
                 quote! { &mut [#default_type] }
-            } else if p.0.is_winrt_array_ref() {
-                let kind = p.0.write_name(writer);
+            } else if p.ty.is_winrt_array_ref() {
+                let kind = p.ty.write_name(writer);
                 quote! { &mut windows_core::Array<#kind> }
-            } else if p.0.is_interface() {
-                let type_name = p.0.write_name(writer);
+            } else if p.ty.is_interface() {
+                let type_name = p.ty.write_name(writer);
                 quote! { windows_core::OutRef<'_, #type_name> }
             } else {
                 quote! { &mut #default_type }
             };
 
             if named_params {
-                let name = to_ident(p.1.name());
+                let name = to_ident(p.def.name());
                 quote! { #name: #sig }
             } else {
                 sig
@@ -215,18 +215,18 @@ impl Method {
 
     pub fn write_abi(&self, writer: &Writer, named_params: bool) -> TokenStream {
         let args = self.signature.params.iter().map(|param| {
-            let name = to_ident(&param.1.name().to_lowercase());
-            let abi = param.0.write_abi(writer);
+            let name = to_ident(&param.def.name().to_lowercase());
+            let abi = param.ty.write_abi(writer);
             let abi_size_name: TokenStream = format!("{}_array_size", name.as_str()).into();
 
-            if param.1.flags().contains(ParamAttributes::In) {
-                if param.0.is_winrt_array() {
+            if param.def.flags().contains(ParamAttributes::In) {
+                if param.ty.is_winrt_array() {
                     if named_params {
                         quote! { #abi_size_name: u32, #name: *const #abi }
                     } else {
                         quote! { u32, *const #abi }
                     }
-                } else if param.0.is_const_ref() {
+                } else if param.ty.is_const_ref() {
                     if named_params {
                         quote! { #name: &#abi }
                     } else {
@@ -237,13 +237,13 @@ impl Method {
                 } else {
                     quote! { #abi }
                 }
-            } else if param.0.is_winrt_array() {
+            } else if param.ty.is_winrt_array() {
                 if named_params {
                     quote! { #abi_size_name: u32, #name: *mut #abi }
                 } else {
                     quote! { u32, *mut #abi }
                 }
-            } else if param.0.is_winrt_array_ref() {
+            } else if param.ty.is_winrt_array_ref() {
                 if named_params {
                     quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi }
                 } else {
@@ -309,19 +309,19 @@ impl Method {
 
         let args = {
             let args = params.iter().map(|param|{
-                let name = to_ident(&param.1.name().to_lowercase());
+                let name = to_ident(&param.def.name().to_lowercase());
 
-                if param.1.flags().contains(ParamAttributes::In) {
-                    if param.0.is_winrt_array() {
-                        if param.0.is_copyable() {
+                if param.def.flags().contains(ParamAttributes::In) {
+                    if param.ty.is_winrt_array() {
+                        if param.ty.is_copyable() {
                             quote! { #name.len().try_into().unwrap(), #name.as_ptr() }
                         } else {
                             quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
                         }
-                    } else if param.0.is_convertible() {
+                    } else if param.ty.is_convertible() {
                         quote! { #name.param().abi() }
-                    } else if param.0.is_copyable() {
-                        if param.0.is_const_ref() {
+                    } else if param.ty.is_copyable() {
+                        if param.ty.is_const_ref() {
                             quote! { &#name }
                         } else {
                             quote! { #name }
@@ -329,15 +329,15 @@ impl Method {
                     } else {
                         quote! { core::mem::transmute_copy(#name) }
                     }
-                } else if param.0.is_winrt_array() {
-                    if param.0.is_copyable() {
+                } else if param.ty.is_winrt_array() {
+                    if param.ty.is_copyable() {
                         quote! { #name.len().try_into().unwrap(), #name.as_mut_ptr() }
                     } else {
                         quote! { #name.len().try_into().unwrap(), core::mem::transmute_copy(&#name) }
                     }
-                } else if param.0.is_winrt_array_ref() {
+                } else if param.ty.is_winrt_array_ref() {
                     quote! { #name.set_abi_len(), #name as *mut _ as _ }
-                } else if param.0.is_copyable() {
+                } else if param.ty.is_copyable() {
                     quote! { #name }
                 } else {
                     quote! { #name as *mut _ as _ }
@@ -367,26 +367,23 @@ impl Method {
             }
         };
 
-        let generics = params
-            .iter()
-            .enumerate()
-            .filter_map(|(position, (ty, def))| {
-                if is_convertible(ty, *def) {
-                    let name: TokenStream = format!("P{position}").into();
-                    Some(name)
-                } else {
-                    None
-                }
-            });
+        let generics = params.iter().enumerate().filter_map(|(position, param)| {
+            if is_convertible(&param.ty, param.def) {
+                let name: TokenStream = format!("P{position}").into();
+                Some(name)
+            } else {
+                None
+            }
+        });
 
         let where_clause = {
             let constraints: Vec<_> = params
                 .iter()
                 .enumerate()
-                .filter_map(|(position, (ty, def))| {
-                    if is_convertible(ty, *def) {
+                .filter_map(|(position, param)| {
+                    if is_convertible(&param.ty, param.def) {
                         let name: TokenStream = format!("P{position}").into();
-                        let ty = ty.write_name(writer);
+                        let ty = param.ty.write_name(writer);
 
                         Some(quote! { #name: windows_core::Param<#ty>, })
                     } else {
@@ -403,24 +400,24 @@ impl Method {
         };
 
         let params = params.iter().enumerate().map(|(position, param)| {
-            let name = to_ident(&param.1.name().to_lowercase());
-            let kind = param.0.write_name(writer);
-            let default_type = param.0.write_default(writer);
+            let name = to_ident(&param.def.name().to_lowercase());
+            let kind = param.ty.write_name(writer);
+            let default_type = param.ty.write_default(writer);
 
-            if param.1.flags().contains(ParamAttributes::In) {
-                if param.0.is_winrt_array() {
+            if param.def.flags().contains(ParamAttributes::In) {
+                if param.ty.is_winrt_array() {
                     quote! { #name: &[#default_type], }
-                } else if is_convertible(&param.0, param.1) {
+                } else if is_convertible(&param.ty, param.def) {
                     let kind: TokenStream = format!("P{position}").into();
                     quote! { #name: #kind, }
-                } else if param.0.is_copyable() {
+                } else if param.ty.is_copyable() {
                     quote! { #name: #kind, }
                 } else {
                     quote! { #name: &#kind, }
                 }
-            } else if param.0.is_winrt_array() {
+            } else if param.ty.is_winrt_array() {
                 quote! { #name: &mut [#default_type], }
-            } else if param.0.is_winrt_array_ref() {
+            } else if param.ty.is_winrt_array_ref() {
                 quote! { #name: &mut windows_core::Array<#kind>, }
             } else {
                 quote! { #name: &mut #default_type, }

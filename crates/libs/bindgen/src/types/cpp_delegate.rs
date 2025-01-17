@@ -51,8 +51,8 @@ impl CppDelegate {
 
         let mut params = quote! {};
 
-        for (ty, param) in &signature.params {
-            params.combine(write_param(writer, ty, *param));
+        for param in &signature.params {
+            params.combine(write_param(writer, &param.ty, param.def));
         }
 
         let return_sig = writer.write_return_sig(method, &signature, false);

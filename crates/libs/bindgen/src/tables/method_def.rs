@@ -65,7 +65,7 @@ impl MethodDef {
                     }
                 }
 
-                params.push((ty, param));
+                params.push(Param { def: param, ty });
             }
         }
 

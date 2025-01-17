@@ -79,8 +79,8 @@ impl CppMethod {
 
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 
-        for (position, (_, param)) in signature.params.iter().enumerate() {
-            param_hints[position] = ParamHint::from_param(*param);
+        for (position, param) in signature.params.iter().enumerate() {
+            param_hints[position] = ParamHint::from_param(param.def);
         }
 
         let mut dependencies = TypeMap::new();
@@ -93,11 +93,11 @@ impl CppMethod {
                 | ParamHint::ArrayRelativeByteLen(relative) => {
                     // The len params must be input only.
                     if !signature.params[relative]
-                        .1
+                        .def
                         .flags()
                         .contains(ParamAttributes::Out)
                         && position != relative
-                        && !signature.params[relative].0.is_pointer()
+                        && !signature.params[relative].ty.is_pointer()
                     {
                         param_hints[relative] = ParamHint::ArrayRelativePtr(position);
                     } else {
@@ -106,7 +106,7 @@ impl CppMethod {
                 }
                 ParamHint::ArrayFixed(_) => {
                     if signature.params[position]
-                        .1
+                        .def
                         .has_attribute("FreeWithAttribute")
                     {
                         param_hints[position] = ParamHint::None;
@@ -142,7 +142,7 @@ impl CppMethod {
         // Remove any byte arrays that aren't byte-sized types.
         for position in 0..param_hints.len() {
             if let ParamHint::ArrayRelativeByteLen(relative) = param_hints[position] {
-                if !signature.params[position].0.is_byte_size() {
+                if !signature.params[position].ty.is_byte_size() {
                     param_hints[position] = ParamHint::None;
                     param_hints[relative] = ParamHint::None;
                 }
@@ -151,8 +151,8 @@ impl CppMethod {
 
         for (position, hint) in param_hints.iter_mut().enumerate() {
             if *hint == ParamHint::None {
-                let ty = &signature.params[position].0;
-                let param = signature.params[position].1;
+                let ty = &signature.params[position].ty;
+                let param = signature.params[position].def;
                 let flags = param.flags();
 
                 if is_convertible(ty, param, *hint) {
@@ -194,7 +194,7 @@ impl CppMethod {
                     if signature.params.len() >= 2 {
                         if let Some((guid, object)) = signature_param_is_query(&signature.params) {
                             if signature.params[object]
-                                .1
+                                .def
                                 .flags()
                                 .contains(ParamAttributes::Optional)
                             {
@@ -251,10 +251,10 @@ impl CppMethod {
     pub fn write_where(&self, writer: &Writer, query: bool) -> TokenStream {
         let mut tokens = quote! {};
 
-        for (position, (ty, _)) in self.signature.params.iter().enumerate() {
+        for (position, param) in self.signature.params.iter().enumerate() {
             if self.param_hints[position] == ParamHint::IntoParam {
                 let name: TokenStream = format!("P{position}").into();
-                let into = ty.write_name(writer);
+                let into = param.ty.write_name(writer);
                 tokens.combine(quote! { #name: windows_core::Param<#into>, })
             }
         }
@@ -308,7 +308,7 @@ impl CppMethod {
                 let where_clause = self.write_where(writer, false);
 
                 let return_type = self.signature.params[self.signature.params.len() - 1]
-                    .0
+                    .ty
                     .deref();
 
                 let map = return_type.write_result_map();
@@ -336,7 +336,7 @@ impl CppMethod {
                 let where_clause = self.write_where(writer, false);
 
                 let return_type = self.signature.params[self.signature.params.len() - 1]
-                    .0
+                    .ty
                     .deref();
 
                 if return_type.is_interface() {
@@ -405,12 +405,12 @@ impl CppMethod {
                     .iter()
                     .enumerate()
                     .map(|(position, param)| {
-                        write_invoke_arg(&param.0, param.1, self.param_hints[position])
+                        write_invoke_arg(&param.ty, param.def, self.param_hints[position])
                     });
 
                 let result = to_ident(
                     &self.signature.params[self.signature.params.len() - 1]
-                        .1
+                        .def
                         .name()
                         .to_lowercase(),
                 );
@@ -433,7 +433,7 @@ impl CppMethod {
                         .iter()
                         .enumerate()
                         .map(|(position, param)| {
-                            write_invoke_arg(&param.0, param.1, self.param_hints[position])
+                            write_invoke_arg(&param.ty, param.def, self.param_hints[position])
                         });
 
                 quote! {
@@ -447,7 +447,7 @@ impl CppMethod {
                         .iter()
                         .enumerate()
                         .map(|(position, param)| {
-                            write_invoke_arg(&param.0, param.1, self.param_hints[position])
+                            write_invoke_arg(&param.ty, param.def, self.param_hints[position])
                         });
 
                 quote! {
@@ -461,7 +461,7 @@ impl CppMethod {
                         .iter()
                         .enumerate()
                         .map(|(position, param)| {
-                            write_invoke_arg(&param.0, param.1, self.param_hints[position])
+                            write_invoke_arg(&param.ty, param.def, self.param_hints[position])
                         });
 
                 quote! {
@@ -475,12 +475,12 @@ impl CppMethod {
         let mut params = quote! {};
 
         if self.return_hint == ReturnHint::ResultValue {
-            for (ty, param) in &self.signature.params[..self.signature.params.len() - 1] {
-                params.combine(write_produce_type(writer, ty, *param));
+            for param in &self.signature.params[..self.signature.params.len() - 1] {
+                params.combine(write_produce_type(writer, &param.ty, param.def));
             }
         } else {
-            for (ty, param) in &self.signature.params {
-                params.combine(write_produce_type(writer, ty, *param));
+            for param in &self.signature.params {
+                params.combine(write_produce_type(writer, &param.ty, param.def));
             }
         }
 
@@ -490,7 +490,7 @@ impl CppMethod {
             }
             ReturnHint::ResultValue => {
                 let return_type = self.signature.params[self.signature.params.len() - 1]
-                    .0
+                    .ty
                     .deref();
                 let return_type = return_type.write_name(writer);
 
@@ -507,11 +507,11 @@ impl CppMethod {
             .signature
             .params
             .iter()
-            .map(|(ty, param)| {
-                let ty = ty.write_abi(writer);
+            .map(|param| {
+                let ty = param.ty.write_abi(writer);
 
                 if named_params {
-                    let name = to_ident(&param.name().to_lowercase());
+                    let name = to_ident(&param.def.name().to_lowercase());
                     quote! { #name: #ty }
                 } else {
                     ty
@@ -548,7 +548,7 @@ impl CppMethod {
     pub fn write_params(&self, writer: &Writer) -> TokenStream {
         let mut tokens = quote! {};
 
-        for (position, (ty, param)) in self.signature.params.iter().enumerate() {
+        for (position, param) in self.signature.params.iter().enumerate() {
             match self.return_hint {
                 ReturnHint::Query(object, guid) | ReturnHint::QueryOptional(object, guid) => {
                     if object == position || guid == position {
@@ -563,45 +563,45 @@ impl CppMethod {
                 _ => {}
             }
 
-            let name = to_ident(&param.name().to_lowercase());
+            let name = to_ident(&param.def.name().to_lowercase());
 
             match self.param_hints[position] {
                 ParamHint::ArrayFixed(fixed) => {
-                    let ty = ty.deref();
+                    let ty = param.ty.deref();
                     let ty = ty.write_default(writer);
                     let len = Literal::u32_unsuffixed(fixed as u32);
-                    let ty = if param.flags().contains(ParamAttributes::Out) {
+                    let ty = if param.def.flags().contains(ParamAttributes::Out) {
                         quote! { &mut [#ty; #len] }
                     } else {
                         quote! { &[#ty; #len] }
                     };
-                    if param.flags().contains(ParamAttributes::Optional) {
+                    if param.def.flags().contains(ParamAttributes::Optional) {
                         tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
                     }
                 }
                 ParamHint::ArrayRelativeLen(_) => {
-                    let ty = ty.deref();
+                    let ty = param.ty.deref();
                     let ty = ty.write_default(writer);
-                    let ty = if param.flags().contains(ParamAttributes::Out) {
+                    let ty = if param.def.flags().contains(ParamAttributes::Out) {
                         quote! { &mut [#ty] }
                     } else {
                         quote! { &[#ty] }
                     };
-                    if param.flags().contains(ParamAttributes::Optional) {
+                    if param.def.flags().contains(ParamAttributes::Optional) {
                         tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
                     }
                 }
                 ParamHint::ArrayRelativeByteLen(_) => {
-                    let ty = if param.flags().contains(ParamAttributes::Out) {
+                    let ty = if param.def.flags().contains(ParamAttributes::Out) {
                         quote! { &mut [u8] }
                     } else {
                         quote! { &[u8] }
                     };
-                    if param.flags().contains(ParamAttributes::Optional) {
+                    if param.def.flags().contains(ParamAttributes::Optional) {
                         tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
@@ -613,11 +613,11 @@ impl CppMethod {
                     tokens.combine(&quote! { #name: #kind, });
                 }
                 ParamHint::Optional => {
-                    if matches!(ty, Type::CppDelegate(..)) {
-                        let kind = ty.write_name(writer);
+                    if matches!(param.ty, Type::CppDelegate(..)) {
+                        let kind = param.ty.write_name(writer);
                         tokens.combine(&quote! { #name: #kind, });
                     } else {
-                        let kind = ty.write_name(writer);
+                        let kind = param.ty.write_name(writer);
                         tokens.combine(&quote! { #name: Option<#kind>, });
                     }
                 }
@@ -625,11 +625,11 @@ impl CppMethod {
                     tokens.combine(&quote! { #name: bool, });
                 }
                 ParamHint::ValueType | ParamHint::Blittable => {
-                    let kind = ty.write_default(writer);
+                    let kind = param.ty.write_default(writer);
                     tokens.combine(&quote! { #name: #kind, });
                 }
                 ParamHint::None => {
-                    let kind = ty.write_default(writer);
+                    let kind = param.ty.write_default(writer);
                     tokens.combine(&quote! { #name: &#kind, });
                 }
             }
@@ -641,7 +641,7 @@ impl CppMethod {
     pub fn write_args(&self) -> TokenStream {
         let mut tokens = quote! {};
 
-        for (position, (ty, param)) in self.signature.params.iter().enumerate() {
+        for (position, param) in self.signature.params.iter().enumerate() {
             let new = match self.return_hint {
                 ReturnHint::Query(object, _) if object == position => {
                     quote! { &mut result__, }
@@ -660,8 +660,8 @@ impl CppMethod {
                     quote! { &T::IID, }
                 }
                 _ => {
-                    let name = to_ident(&param.name().to_lowercase());
-                    let flags = param.flags();
+                    let name = to_ident(&param.def.name().to_lowercase());
+                    let flags = param.def.flags();
                     match self.param_hints[position] {
                         ParamHint::ArrayFixed(_)
                         | ParamHint::ArrayRelativeLen(_)
@@ -674,9 +674,10 @@ impl CppMethod {
                             quote! { core::mem::transmute(#map), }
                         }
                         ParamHint::ArrayRelativePtr(relative) => {
-                            let name =
-                                to_ident(&self.signature.params[relative].1.name().to_lowercase());
-                            let flags = self.signature.params[relative].1.flags();
+                            let name = to_ident(
+                                &self.signature.params[relative].def.name().to_lowercase(),
+                            );
+                            let flags = self.signature.params[relative].def.flags();
                             if flags.contains(ParamAttributes::Optional) {
                                 quote! { #name.as_deref().map_or(0, |slice|slice.len().try_into().unwrap()), }
                             } else {
@@ -687,7 +688,7 @@ impl CppMethod {
                             quote! { #name.param().abi(), }
                         }
                         ParamHint::Optional => {
-                            if matches!(ty, Type::CppDelegate(..)) {
+                            if matches!(param.ty, Type::CppDelegate(..)) {
                                 quote! { #name, }
                             } else {
                                 quote! { #name.unwrap_or(core::mem::zeroed()) as _, }
@@ -704,7 +705,7 @@ impl CppMethod {
                             }
                         }
                         ParamHint::Blittable => {
-                            if matches!(ty, Type::PrimitiveOrEnum(_, _)) {
+                            if matches!(param.ty, Type::PrimitiveOrEnum(_, _)) {
                                 quote! { #name.0 as _, }
                             } else {
                                 quote! { core::mem::transmute(#name), }
@@ -798,16 +799,16 @@ fn is_convertible(ty: &Type, param: MethodParam, hint: ParamHint) -> bool {
 fn is_retval(signature: &Signature, param_hints: &[ParamHint]) -> bool {
     // First we check whether there's an actual retval parameter.
     if let Some(param) = signature.params.last() {
-        if param.1.has_attribute("RetValAttribute") {
+        if param.def.has_attribute("RetValAttribute") {
             return true;
         }
     }
 
-    if let Some((ty, param)) = signature.params.last() {
-        if is_param_retval(ty, *param, param_hints[param_hints.len() - 1]) {
+    if let Some(param) = signature.params.last() {
+        if is_param_retval(&param.ty, param.def, param_hints[param_hints.len() - 1]) {
             return signature.params[..signature.params.len() - 1]
                 .iter()
-                .all(|(_, param)| !param.flags().contains(ParamAttributes::Out));
+                .all(|param| !param.def.flags().contains(ParamAttributes::Out));
         }
     }
 
@@ -847,14 +848,14 @@ fn is_param_retval(ty: &Type, param: MethodParam, hint: ParamHint) -> bool {
     true
 }
 
-fn signature_param_is_query(params: &[(Type, MethodParam)]) -> Option<(usize, usize)> {
-    if let Some(guid) = params.iter().rposition(|(ty, param)| {
-        *ty == Type::PtrConst(Box::new(Type::GUID), 1)
-            && !param.flags().contains(ParamAttributes::Out)
+fn signature_param_is_query(params: &[Param]) -> Option<(usize, usize)> {
+    if let Some(guid) = params.iter().rposition(|param| {
+        param.ty == Type::PtrConst(Box::new(Type::GUID), 1)
+            && !param.def.flags().contains(ParamAttributes::Out)
     }) {
-        if let Some(object) = params.iter().rposition(|(ty, param)| {
-            *ty == Type::PtrMut(Box::new(Type::Void), 2)
-                && param.has_attribute("ComOutPtrAttribute")
+        if let Some(object) = params.iter().rposition(|param| {
+            param.ty == Type::PtrMut(Box::new(Type::Void), 2)
+                && param.def.has_attribute("ComOutPtrAttribute")
         }) {
             return Some((guid, object));
         }

@@ -50,12 +50,12 @@ impl CppFn {
 
         let signature = self.method.signature(self.namespace, &[]);
 
-        let params = signature.params.iter().map(|(ty, param)| {
-            let name = to_ident(&param.name().to_lowercase());
+        let params = signature.params.iter().map(|param| {
+            let name = to_ident(&param.def.name().to_lowercase());
             let ty = if underlying_types {
-                ty.underlying_type().write_abi(writer)
+                param.ty.underlying_type().write_abi(writer)
             } else {
-                ty.write_abi(writer)
+                param.ty.write_abi(writer)
             };
             quote! { #name: #ty }
         });
@@ -143,7 +143,7 @@ impl CppFn {
             }
             ReturnHint::ResultValue => {
                 let where_clause = method.write_where(writer, false);
-                let return_type = signature.params[signature.params.len() - 1].0.deref();
+                let return_type = signature.params[signature.params.len() - 1].ty.deref();
                 let map = return_type.write_result_map();
                 let return_type = return_type.write_name(writer);
 
@@ -175,7 +175,7 @@ impl CppFn {
                 let where_clause = method.write_where(writer, false);
 
                 let return_type = method.signature.params[method.signature.params.len() - 1]
-                    .0
+                    .ty
                     .deref();
 
                 if return_type.is_interface() {
