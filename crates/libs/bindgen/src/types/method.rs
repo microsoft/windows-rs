@@ -47,7 +47,7 @@ impl Method {
                     quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
                 } else if param.ty.is_primitive() {
                     quote! { #name }
-                } else if param.ty.is_const_ref() || param.ty.is_interface() || matches!(&param.ty, Type::Param(_))  {
+                } else if param.ty.is_const_ref() || param.ty.is_interface() || matches!(&param.ty, Type::Generic(_))  {
                     quote! { core::mem::transmute_copy(&#name) }
                 } else {
                     quote! { core::mem::transmute(&#name) }
@@ -152,7 +152,7 @@ impl Method {
                     quote! { &[#default_type] }
                 } else if p.ty.is_primitive() {
                     quote! { #default_type }
-                } else if p.ty.is_interface() || matches!(&p.ty, Type::Param(_)) {
+                } else if p.ty.is_interface() || matches!(&p.ty, Type::Generic(_)) {
                     let type_name = p.ty.write_name(writer);
                     quote! { windows_core::Ref<'_, #type_name> }
                 } else {

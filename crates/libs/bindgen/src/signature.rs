@@ -15,11 +15,7 @@ impl Signature {
     }
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        // TODO: This can call types()?
-        self.return_type.dependencies(dependencies);
-        self.params
-            .iter()
-            .for_each(|param| param.ty.dependencies(dependencies));
+        self.types().for_each(|ty| ty.dependencies(dependencies));
     }
 
     pub fn types(&self) -> impl Iterator<Item = &Type> + '_ {
