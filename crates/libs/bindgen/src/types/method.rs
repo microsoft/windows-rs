@@ -67,7 +67,7 @@ impl Method {
             quote! {}
         };
 
-        match &self.signature.return_type.0 {
+        match &self.signature.return_type {
             Type::Void => {
                 if noexcept {
                     quote! {
@@ -80,7 +80,7 @@ impl Method {
                     }
                 }
             }
-            _ if self.signature.return_type.0.is_winrt_array() => {
+            _ if self.signature.return_type.is_winrt_array() => {
                 if noexcept {
                     quote! {
                         let ok__ = #inner(#this #(#invoke_args,)*);
@@ -105,7 +105,7 @@ impl Method {
                 }
             }
             _ => {
-                let forget = if self.signature.return_type.0.is_copyable() {
+                let forget = if self.signature.return_type.is_copyable() {
                     quote! {}
                 } else {
                     quote! { core::mem::forget(ok__); }
@@ -178,12 +178,12 @@ impl Method {
             }
         });
 
-        let return_type_tokens = if self.signature.return_type.0 == Type::Void {
+        let return_type_tokens = if self.signature.return_type == Type::Void {
             quote! { () }
         } else {
-            let tokens = self.signature.return_type.0.write_name(writer);
+            let tokens = self.signature.return_type.write_name(writer);
 
-            if self.signature.return_type.0.is_winrt_array() {
+            if self.signature.return_type.is_winrt_array() {
                 quote! { windows_core::Array<#tokens> }
             } else {
                 tokens
@@ -191,9 +191,9 @@ impl Method {
         };
 
         let return_type_tokens = if noexcept {
-            if self.signature.return_type.0.is_interface() {
+            if self.signature.return_type.is_interface() {
                 quote! { -> Option<#return_type_tokens> }
-            } else if self.signature.return_type.0 == Type::Void {
+            } else if self.signature.return_type == Type::Void {
                 quote! {}
             } else {
                 quote! { -> #return_type_tokens }
@@ -256,7 +256,7 @@ impl Method {
             }
         });
 
-        let return_arg = match &self.signature.return_type.0 {
+        let return_arg = match &self.signature.return_type {
             Type::Void => quote! {},
             Type::Array(ty) => {
                 let ty = ty.write_abi(writer);
@@ -344,7 +344,7 @@ impl Method {
                 }
             });
 
-            let return_arg = match &self.signature.return_type.0 {
+            let return_arg = match &self.signature.return_type {
                 Type::Void => quote! {},
                 ty => {
                     if ty.is_winrt_array() {
@@ -427,11 +427,11 @@ impl Method {
             }
         });
 
-        let return_type = match &self.signature.return_type.0 {
+        let return_type = match &self.signature.return_type {
             Type::Void => quote! { () },
             _ => {
-                let tokens = self.signature.return_type.0.write_name(writer);
-                if self.signature.return_type.0.is_winrt_array() {
+                let tokens = self.signature.return_type.write_name(writer);
+                if self.signature.return_type.is_winrt_array() {
                     quote! { windows_core::Array<#tokens> }
                 } else {
                     quote! { #tokens }
@@ -442,9 +442,9 @@ impl Method {
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
 
         let return_type = if noexcept {
-            if self.signature.return_type.0.is_interface() {
+            if self.signature.return_type.is_interface() {
                 quote! { -> Option<#return_type> }
-            } else if self.signature.return_type.0 == Type::Void {
+            } else if self.signature.return_type == Type::Void {
                 quote! {}
             } else {
                 quote! { -> #return_type }
@@ -456,7 +456,7 @@ impl Method {
         let vname = virtual_names.add(self.def);
         let vcall = quote! { (windows_core::Interface::vtable(this).#vname)(windows_core::Interface::as_raw(this), #args) };
 
-        let vcall = match &self.signature.return_type.0 {
+        let vcall = match &self.signature.return_type {
             Type::Void => {
                 if noexcept {
                     quote! {
@@ -469,7 +469,7 @@ impl Method {
                     }
                 }
             }
-            _ if self.signature.return_type.0.is_winrt_array() => {
+            _ if self.signature.return_type.is_winrt_array() => {
                 if noexcept {
                     quote! {
                         let mut result__ = core::mem::MaybeUninit::zeroed();
@@ -487,7 +487,7 @@ impl Method {
             }
             _ => {
                 if noexcept {
-                    if self.signature.return_type.0.is_copyable() {
+                    if self.signature.return_type.is_copyable() {
                         quote! {
                             let mut result__ = core::mem::zeroed();
                             let hresult__ = #vcall;
@@ -503,7 +503,7 @@ impl Method {
                         }
                     }
                 } else {
-                    let map = self.signature.return_type.0.write_result_map();
+                    let map = self.signature.return_type.write_result_map();
 
                     quote! {
                         let mut result__ = core::mem::zeroed();

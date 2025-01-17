@@ -221,7 +221,7 @@ impl CppFn {
                 let where_clause = method.write_where(writer, false);
 
                 if method.handle_last_error() {
-                    let return_type = signature.return_type.0.write_name(writer);
+                    let return_type = signature.return_type.write_name(writer);
 
                     quote! {
                         #cfg
@@ -302,7 +302,7 @@ impl Writer {
         signature: &Signature,
         underlying_types: bool,
     ) -> TokenStream {
-        match &signature.return_type.0 {
+        match &signature.return_type {
             Type::Void => {
                 if method.has_attribute("DoesNotReturnAttribute") {
                     quote! { -> ! }

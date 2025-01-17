@@ -182,7 +182,7 @@ impl CppMethod {
         };
 
         if !def.has_attribute("CanReturnMultipleSuccessValuesAttribute") {
-            match &signature.return_type.0 {
+            match &signature.return_type {
                 Type::Void if is_retval => return_hint = ReturnHint::ReturnValue,
                 Type::HRESULT => {
                     if is_retval {
@@ -373,7 +373,7 @@ impl CppMethod {
                 }
             }
             ReturnHint::ReturnStruct => {
-                let return_type = self.signature.return_type.0.write_name(writer);
+                let return_type = self.signature.return_type.write_name(writer);
                 let where_clause = self.write_where(writer, false);
 
                 quote! {
@@ -523,7 +523,7 @@ impl CppMethod {
 
         match self.return_hint {
             ReturnHint::ReturnStruct => {
-                let return_type = self.signature.return_type.0.write_abi(writer);
+                let return_type = self.signature.return_type.write_abi(writer);
 
                 if named_params {
                     params.insert(0, quote! { result__: *mut #return_type });
@@ -723,7 +723,7 @@ impl CppMethod {
     }
 
     pub fn write_return(&self, writer: &Writer) -> TokenStream {
-        match &self.signature.return_type.0 {
+        match &self.signature.return_type {
             Type::Void if self.def.has_attribute("DoesNotReturnAttribute") => quote! {  -> ! },
             Type::Void => quote! {},
             ty => {
@@ -736,7 +736,7 @@ impl CppMethod {
     pub fn handle_last_error(&self) -> bool {
         if let Some(map) = self.def.impl_map() {
             if map.flags().contains(PInvokeAttributes::SupportsLastError) {
-                if let Type::CppStruct(ty) = &self.signature.return_type.0 {
+                if let Type::CppStruct(ty) = &self.signature.return_type {
                     if ty.is_handle() {
                         // https://github.com/microsoft/windows-rs/issues/2392#issuecomment-1477765781
                         if self.def.name() == "LocalFree" {

@@ -3,7 +3,7 @@ use super::*;
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Signature {
     pub call_flags: MethodCallAttributes,
-    pub return_type: (Type, Option<MethodParam>),
+    pub return_type: Type,
     pub params: Vec<(Type, MethodParam)>,
 }
 
@@ -15,14 +15,14 @@ impl Signature {
     }
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        self.return_type.0.dependencies(dependencies);
+        self.return_type.dependencies(dependencies);
         self.params
             .iter()
             .for_each(|(ty, _)| ty.dependencies(dependencies));
     }
 
     pub fn types(&self) -> impl Iterator<Item = &Type> + '_ {
-        std::iter::once(&self.return_type.0)
+        std::iter::once(&self.return_type)
             .chain(self.params.iter().map(|(ty, _)| ty))
             .map(|ty| ty.decay())
     }
