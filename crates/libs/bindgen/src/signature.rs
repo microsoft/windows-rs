@@ -11,7 +11,7 @@ impl Signature {
     pub fn size(&self) -> usize {
         self.params
             .iter()
-            .fold(0, |sum, param| sum + std::cmp::max(4, param.ty.size()))
+            .fold(0, |sum, param| sum + std::cmp::max(4, param.size()))
     }
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {

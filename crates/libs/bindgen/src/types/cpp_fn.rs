@@ -53,9 +53,9 @@ impl CppFn {
         let params = signature.params.iter().map(|param| {
             let name = to_ident(&param.def.name().to_lowercase());
             let ty = if underlying_types {
-                param.ty.underlying_type().write_abi(writer)
+                param.underlying_type().write_abi(writer)
             } else {
-                param.ty.write_abi(writer)
+                param.write_abi(writer)
             };
             quote! { #name: #ty }
         });

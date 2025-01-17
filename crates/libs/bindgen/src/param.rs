@@ -6,6 +6,14 @@ pub struct Param {
     pub ty: Type,
 }
 
+impl std::ops::Deref for Param {
+    type Target = Type;
+
+    fn deref(&self) -> &Self::Target {
+        &self.ty
+    }
+}
+
 impl Param {
     pub fn is_convertible(&self) -> bool {
         self.is_input() && self.ty.is_convertible()

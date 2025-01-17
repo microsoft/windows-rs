@@ -152,17 +152,17 @@ impl CppMethod {
 
                 if param.is_convertible() && !hint.is_array() {
                     *hint = ParamHint::IntoParam;
-                } else if param.ty.is_copyable()
+                } else if param.is_copyable()
                     && (param.is_optional() || param.def.has_attribute("ReservedAttribute"))
                 {
                     *hint = ParamHint::Optional;
                 } else if param.is_input() && param.ty == Type::BOOL {
                     *hint = ParamHint::Bool;
-                } else if param.ty.is_primitive()
-                    && (!param.ty.is_pointer() || param.ty.deref().is_copyable())
+                } else if param.is_primitive()
+                    && (!param.is_pointer() || param.deref().is_copyable())
                 {
                     *hint = ParamHint::ValueType;
-                } else if param.ty.is_copyable() {
+                } else if param.is_copyable() {
                     *hint = ParamHint::Blittable;
                 }
             }
@@ -246,7 +246,7 @@ impl CppMethod {
         for (position, param) in self.signature.params.iter().enumerate() {
             if self.param_hints[position] == ParamHint::IntoParam {
                 let name: TokenStream = format!("P{position}").into();
-                let into = param.ty.write_name(writer);
+                let into = param.write_name(writer);
                 tokens.combine(quote! { #name: windows_core::Param<#into>, })
             }
         }
@@ -476,7 +476,7 @@ impl CppMethod {
             .params
             .iter()
             .map(|param| {
-                let ty = param.ty.write_abi(writer);
+                let ty = param.write_abi(writer);
 
                 if named_params {
                     let name = to_ident(&param.def.name().to_lowercase());
@@ -535,7 +535,7 @@ impl CppMethod {
 
             match self.param_hints[position] {
                 ParamHint::ArrayFixed(fixed) => {
-                    let ty = param.ty.deref();
+                    let ty = param.deref();
                     let ty = ty.write_default(writer);
                     let len = Literal::u32_unsuffixed(fixed as u32);
                     let ty = if !param.is_input() {
@@ -550,7 +550,7 @@ impl CppMethod {
                     }
                 }
                 ParamHint::ArrayRelativeLen(_) => {
-                    let ty = param.ty.deref();
+                    let ty = param.deref();
                     let ty = ty.write_default(writer);
                     let ty = if !param.is_input() {
                         quote! { &mut [#ty] }
@@ -582,10 +582,10 @@ impl CppMethod {
                 }
                 ParamHint::Optional => {
                     if matches!(param.ty, Type::CppDelegate(..)) {
-                        let kind = param.ty.write_name(writer);
+                        let kind = param.write_name(writer);
                         tokens.combine(&quote! { #name: #kind, });
                     } else {
-                        let kind = param.ty.write_name(writer);
+                        let kind = param.write_name(writer);
                         tokens.combine(&quote! { #name: Option<#kind>, });
                     }
                 }
@@ -593,11 +593,11 @@ impl CppMethod {
                     tokens.combine(&quote! { #name: bool, });
                 }
                 ParamHint::ValueType | ParamHint::Blittable => {
-                    let kind = param.ty.write_default(writer);
+                    let kind = param.write_default(writer);
                     tokens.combine(&quote! { #name: #kind, });
                 }
                 ParamHint::None => {
-                    let kind = param.ty.write_default(writer);
+                    let kind = param.write_default(writer);
                     tokens.combine(&quote! { #name: &#kind, });
                 }
             }
@@ -724,16 +724,16 @@ impl CppMethod {
 
 fn write_produce_type(writer: &Writer, param: &Param) -> TokenStream {
     let name = to_ident(&param.def.name().to_lowercase());
-    let kind = param.ty.write_default(writer);
+    let kind = param.write_default(writer);
 
-    if param.is_input() && param.ty.is_interface() {
-        let type_name = param.ty.write_name(writer);
+    if param.is_input() && param.is_interface() {
+        let type_name = param.write_name(writer);
         quote! { #name: windows_core::Ref<'_, #type_name>, }
-    } else if !param.is_input() && param.ty.deref().is_interface() {
-        let type_name = param.ty.deref().write_name(writer);
+    } else if !param.is_input() && param.deref().is_interface() {
+        let type_name = param.deref().write_name(writer);
         quote! { #name: windows_core::OutRef<'_, #type_name>, }
     } else if param.is_input() {
-        if param.ty.is_primitive() {
+        if param.is_primitive() {
             quote! { #name: #kind, }
         } else {
             quote! { #name: &#kind, }
@@ -746,10 +746,10 @@ fn write_produce_type(writer: &Writer, param: &Param) -> TokenStream {
 fn write_invoke_arg(param: &Param) -> TokenStream {
     let name = to_ident(&param.def.name().to_lowercase());
 
-    if param.is_input() && param.ty.is_interface() {
+    if param.is_input() && param.is_interface() {
         quote! { core::mem::transmute_copy(&#name) }
-    } else if (!param.ty.is_pointer() && param.ty.is_interface())
-        || (param.is_input() && !param.ty.is_primitive())
+    } else if (!param.is_pointer() && param.is_interface())
+        || (param.is_input() && !param.is_primitive())
     {
         quote! { core::mem::transmute(&#name) }
     } else {

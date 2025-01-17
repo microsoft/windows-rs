@@ -75,20 +75,20 @@ impl CppDelegate {
 
 fn write_param(writer: &Writer, param: &Param) -> TokenStream {
     let name = to_ident(&param.def.name().to_lowercase());
-    let type_name = param.ty.write_name(writer);
+    let type_name = param.write_name(writer);
 
     if writer.config.sys {
         return quote! { #name: #type_name, };
     }
 
     if !param.is_input() {
-        if param.ty.deref().is_interface() {
-            let type_name = param.ty.deref().write_name(writer);
+        if param.deref().is_interface() {
+            let type_name = param.deref().write_name(writer);
             quote! { #name: windows_core::OutRef<'_, #type_name>, }
         } else {
             quote! { #name: #type_name, }
         }
-    } else if param.ty.is_copyable() {
+    } else if param.is_copyable() {
         quote! { #name: #type_name, }
     } else {
         quote! { #name: windows_core::Ref<'_, #type_name>, }
