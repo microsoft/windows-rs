@@ -50,21 +50,21 @@ impl PerceptionTimestamp {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PredictionAmount(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PredictionAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PredictionAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SystemRelativeTargetTime(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IPerceptionTimestamp2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemRelativeTargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SystemRelativeTargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }

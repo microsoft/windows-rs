@@ -3,7 +3,7 @@ pub unsafe fn CheckGamingPrivilegeSilently(privilegeid: u32, scope: &windows_cor
     windows_link::link!("api-ms-win-gaming-tcui-l1-1-1.dll" "system" fn CheckGamingPrivilegeSilently(privilegeid : u32, scope : * mut core::ffi::c_void, policy : * mut core::ffi::c_void, hasprivilege : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CheckGamingPrivilegeSilently(privilegeid, core::mem::transmute_copy(scope), core::mem::transmute_copy(policy), &mut result__).map(|| core::mem::transmute(result__))
+        CheckGamingPrivilegeSilently(privilegeid, core::mem::transmute_copy(scope), core::mem::transmute_copy(policy), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -14,7 +14,7 @@ where
     windows_link::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn CheckGamingPrivilegeSilentlyForUser(user : * mut core::ffi::c_void, privilegeid : u32, scope : * mut core::ffi::c_void, policy : * mut core::ffi::c_void, hasprivilege : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CheckGamingPrivilegeSilentlyForUser(user.param().abi(), privilegeid, core::mem::transmute_copy(scope), core::mem::transmute_copy(policy), &mut result__).map(|| core::mem::transmute(result__))
+        CheckGamingPrivilegeSilentlyForUser(user.param().abi(), privilegeid, core::mem::transmute_copy(scope), core::mem::transmute_copy(policy), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -35,7 +35,7 @@ pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> windows_core::Result<u32
     windows_link::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn GetExpandedResourceExclusiveCpuCount(exclusivecpucount : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetExpandedResourceExclusiveCpuCount(&mut result__).map(|| core::mem::transmute(result__))
+        GetExpandedResourceExclusiveCpuCount(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -43,7 +43,7 @@ pub unsafe fn GetGamingDeviceModelInformation() -> windows_core::Result<GAMING_D
     windows_link::link!("api-ms-win-gaming-deviceinformation-l1-1-0.dll" "system" fn GetGamingDeviceModelInformation(information : *mut GAMING_DEVICE_MODEL_INFORMATION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetGamingDeviceModelInformation(&mut result__).map(|| core::mem::transmute(result__))
+        GetGamingDeviceModelInformation(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -51,7 +51,7 @@ pub unsafe fn HasExpandedResources() -> windows_core::Result<windows_core::BOOL>
     windows_link::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn HasExpandedResources(hasexpandedresources : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HasExpandedResources(&mut result__).map(|| core::mem::transmute(result__))
+        HasExpandedResources(&mut result__).map(|| result__)
     }
 }
 #[inline]

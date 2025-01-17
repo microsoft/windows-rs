@@ -87,7 +87,7 @@ impl CoreFrameworkInputViewAnimationStartingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AnimationDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AnimationDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -360,7 +360,7 @@ impl CoreInputViewAnimationStartingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AnimationDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AnimationDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -428,7 +428,7 @@ impl CoreInputViewOcclusion {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OccludingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).OccludingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OcclusionKind(&self) -> windows_core::Result<CoreInputViewOcclusionKind> {
@@ -536,7 +536,7 @@ impl CoreInputViewTransferringXYFocusEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Origin)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Origin)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Direction(&self) -> windows_core::Result<CoreInputViewXYFocusTransferDirection> {

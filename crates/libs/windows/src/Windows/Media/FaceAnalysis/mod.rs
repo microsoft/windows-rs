@@ -8,7 +8,7 @@ impl DetectedFace {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FaceBox)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).FaceBox)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -56,7 +56,7 @@ impl FaceDetector {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MinDetectableFaceSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MinDetectableFaceSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -69,7 +69,7 @@ impl FaceDetector {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxDetectableFaceSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MaxDetectableFaceSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -141,7 +141,7 @@ impl FaceTracker {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MinDetectableFaceSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MinDetectableFaceSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -154,7 +154,7 @@ impl FaceTracker {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxDetectableFaceSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MaxDetectableFaceSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Graphics_Imaging")]

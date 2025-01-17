@@ -3657,7 +3657,7 @@ pub unsafe fn VerifySignature(phcontext: *const SecHandle, pmessage: *const SecB
     windows_link::link!("secur32.dll" "system" fn VerifySignature(phcontext : *const SecHandle, pmessage : *const SecBufferDesc, messageseqno : u32, pfqop : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        VerifySignature(phcontext, pmessage, messageseqno, &mut result__).map(|| core::mem::transmute(result__))
+        VerifySignature(phcontext, pmessage, messageseqno, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_Security")]

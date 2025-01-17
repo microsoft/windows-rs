@@ -2782,7 +2782,7 @@ impl PrintTaskOptionDetails {
         let this = &windows_core::Interface::cast::<super::IPrintTaskOptionsCore>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPageDescription)(windows_core::Interface::as_raw(this), jobpagenumber, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetPageDescription)(windows_core::Interface::as_raw(this), jobpagenumber, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]

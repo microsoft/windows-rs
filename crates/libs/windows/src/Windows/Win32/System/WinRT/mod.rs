@@ -33,7 +33,7 @@ pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> windows_
     windows_link::link!("ole32.dll" "system" fn CoDecodeProxy(dwclientpid : u32, ui64proxyaddress : u64, pserverinformation : *mut ServerInformation) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoDecodeProxy(dwclientpid, ui64proxyaddress, &mut result__).map(|| core::mem::transmute(result__))
+        CoDecodeProxy(dwclientpid, ui64proxyaddress, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -196,7 +196,7 @@ pub unsafe fn RoGetApartmentIdentifier() -> windows_core::Result<u64> {
     windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetApartmentIdentifier(apartmentidentifier : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RoGetApartmentIdentifier(&mut result__).map(|| core::mem::transmute(result__))
+        RoGetApartmentIdentifier(&mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com_Marshal")]
@@ -213,7 +213,7 @@ pub unsafe fn RoGetErrorReportingFlags() -> windows_core::Result<u32> {
     windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoGetErrorReportingFlags(pflags : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RoGetErrorReportingFlags(&mut result__).map(|| core::mem::transmute(result__))
+        RoGetErrorReportingFlags(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -244,7 +244,7 @@ pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, re
     windows_link::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoInspectThreadErrorInfo(targettebaddress : usize, machine : u16, readmemorycallback : PINSPECT_MEMORY_CALLBACK, context : *const core::ffi::c_void, targeterrorinfoaddress : *mut usize) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RoInspectThreadErrorInfo(targettebaddress, machine, readmemorycallback, context.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        RoInspectThreadErrorInfo(targettebaddress, machine, readmemorycallback, context.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -270,7 +270,7 @@ pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const windows_
     windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterActivationFactories(activatableclassids : *const * mut core::ffi::c_void, activationfactorycallbacks : *const PFNGETACTIVATIONFACTORY, count : u32, cookie : *mut RO_REGISTRATION_COOKIE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RoRegisterActivationFactories(core::mem::transmute(activatableclassids), activationfactorycallbacks, count, &mut result__).map(|| core::mem::transmute(result__))
+        RoRegisterActivationFactories(core::mem::transmute(activatableclassids), activationfactorycallbacks, count, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -352,7 +352,7 @@ pub unsafe fn WindowsCompareStringOrdinal(string1: &windows_core::HSTRING, strin
     windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCompareStringOrdinal(string1 : * mut core::ffi::c_void, string2 : * mut core::ffi::c_void, result : *mut i32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WindowsCompareStringOrdinal(core::mem::transmute_copy(string1), core::mem::transmute_copy(string2), &mut result__).map(|| core::mem::transmute(result__))
+        WindowsCompareStringOrdinal(core::mem::transmute_copy(string1), core::mem::transmute_copy(string2), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -448,7 +448,7 @@ pub unsafe fn WindowsStringHasEmbeddedNull(string: &windows_core::HSTRING) -> wi
     windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsStringHasEmbeddedNull(string : * mut core::ffi::c_void, hasembednull : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WindowsStringHasEmbeddedNull(core::mem::transmute_copy(string), &mut result__).map(|| core::mem::transmute(result__))
+        WindowsStringHasEmbeddedNull(core::mem::transmute_copy(string), &mut result__).map(|| result__)
     }
 }
 #[inline]

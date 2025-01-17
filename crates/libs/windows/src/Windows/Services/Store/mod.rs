@@ -722,7 +722,7 @@ impl StoreAppLicense {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExpirationDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ExpirationDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ExtendedJsonData(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -744,7 +744,7 @@ impl StoreAppLicense {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrialTimeRemaining)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TrialTimeRemaining)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsTrialOwnedByThisUser(&self) -> windows_core::Result<bool> {
@@ -797,7 +797,7 @@ impl StoreAvailability {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EndDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).EndDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Price(&self) -> windows_core::Result<StorePrice> {
@@ -929,28 +929,28 @@ impl StoreCollectionData {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcquiredDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AcquiredDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartDate(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).StartDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn EndDate(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EndDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).EndDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TrialTimeRemaining(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrialTimeRemaining)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TrialTimeRemaining)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ExtendedJsonData(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -989,7 +989,7 @@ impl StoreConsumableResult {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrackingId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TrackingId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BalanceRemaining(&self) -> windows_core::Result<u32> {
@@ -1551,7 +1551,7 @@ impl StoreLicense {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExpirationDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ExpirationDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ExtendedJsonData(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1813,7 +1813,7 @@ impl StorePrice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaleEndDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SaleEndDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CurrencyCode(&self) -> windows_core::Result<windows_core::HSTRING> {

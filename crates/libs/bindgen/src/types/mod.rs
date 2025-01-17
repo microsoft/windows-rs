@@ -860,9 +860,7 @@ impl Type {
             _ => self.clone(),
         }
     }
-}
 
-impl Type {
     fn write_no_deps(&self, writer: &Writer) -> TokenStream {
         if !writer.config.no_core {
             return quote! {};
@@ -990,6 +988,16 @@ impl Type {
                 | Self::BSTR
                 | Self::String
         )
+    }
+
+    pub fn write_result_map(&self) -> TokenStream {
+        if self.is_copyable() {
+            quote! { map(|| result__) }
+        } else if self.is_convertible() {
+            quote! { and_then(||windows_core::Type::from_abi(result__)) }
+        } else {
+            quote! { map(|| core::mem::transmute(result__)) }
+        }
     }
 }
 

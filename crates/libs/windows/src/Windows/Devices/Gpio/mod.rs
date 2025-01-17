@@ -52,14 +52,14 @@ impl GpioChangeCounter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Read)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Read)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Reset(&self) -> windows_core::Result<GpioChangeCount> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Reset)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Reset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Create<P0>(pin: P0) -> windows_core::Result<GpioChangeCounter>
@@ -174,14 +174,14 @@ impl GpioChangeReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNextItem)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetNextItem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PeekNextItem(&self) -> windows_core::Result<GpioChangeRecord> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PeekNextItem)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PeekNextItem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -366,7 +366,7 @@ impl GpioPin {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DebounceTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DebounceTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetDebounceTimeout(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {

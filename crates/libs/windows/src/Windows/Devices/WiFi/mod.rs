@@ -345,7 +345,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Uptime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Uptime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Ssid(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -409,7 +409,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BeaconInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BeaconInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsWiFiDirect(&self) -> windows_core::Result<bool> {
@@ -512,7 +512,7 @@ impl WiFiNetworkReport {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -687,7 +687,7 @@ impl WiFiOnDemandHotspotNetwork {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetOrCreateById(networkid: windows_core::GUID) -> windows_core::Result<WiFiOnDemandHotspotNetwork> {

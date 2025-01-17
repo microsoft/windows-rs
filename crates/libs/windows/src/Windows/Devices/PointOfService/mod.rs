@@ -1293,7 +1293,7 @@ impl CashDrawerCloseAlarm {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlarmTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AlarmTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBeepFrequency(&self, value: u32) -> windows_core::Result<()> {
@@ -1315,7 +1315,7 @@ impl CashDrawerCloseAlarm {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BeepDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BeepDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBeepDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -1326,7 +1326,7 @@ impl CashDrawerCloseAlarm {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BeepDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BeepDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AlarmTimeoutExpired<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -2238,7 +2238,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxBitmapSizeInPixels)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MaxBitmapSizeInPixels)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2887,14 +2887,14 @@ impl ClaimedReceiptPrinter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PageSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PageSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PrintArea(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrintArea)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PrintArea)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CreateJob(&self) -> windows_core::Result<ReceiptPrintJob> {
@@ -3080,14 +3080,14 @@ impl ClaimedSlipPrinter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PageSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PageSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PrintArea(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrintArea)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PrintArea)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OpenJaws(&self) -> windows_core::Result<()> {
@@ -6628,7 +6628,7 @@ impl LineDisplayAttributes {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BlinkRate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BlinkRate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBlinkRate(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -6639,7 +6639,7 @@ impl LineDisplayAttributes {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScreenSizeInCharacters)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ScreenSizeInCharacters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetScreenSizeInCharacters(&self, value: super::super::Foundation::Size) -> windows_core::Result<()> {
@@ -6965,7 +6965,7 @@ impl LineDisplayCursorAttributes {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetPosition(&self, value: super::super::Foundation::Point) -> windows_core::Result<()> {
@@ -7011,7 +7011,7 @@ impl LineDisplayCustomGlyphs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SizeInPixels)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SizeInPixels)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -7094,7 +7094,7 @@ impl LineDisplayMarquee {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RepeatWaitInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RepeatWaitInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetRepeatWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -7105,7 +7105,7 @@ impl LineDisplayMarquee {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScrollWaitInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ScrollWaitInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetScrollWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -7337,14 +7337,14 @@ impl LineDisplayWindow {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SizeInCharacters)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SizeInCharacters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn InterCharacterWaitInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InterCharacterWaitInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).InterCharacterWaitInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetInterCharacterWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {

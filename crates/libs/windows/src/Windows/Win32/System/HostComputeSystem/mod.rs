@@ -53,7 +53,7 @@ where
     windows_link::link!("computecore.dll" "system" fn HcsCreateComputeSystem(id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HcsCreateComputeSystem(id.param().abi(), configuration.param().abi(), operation, securitydescriptor.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        HcsCreateComputeSystem(id.param().abi(), configuration.param().abi(), operation, securitydescriptor.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -66,7 +66,7 @@ where
     windows_link::link!("computecore.dll" "system" fn HcsCreateComputeSystemInNamespace(idnamespace : windows_core::PCWSTR, id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, options : *const HCS_CREATE_OPTIONS, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HcsCreateComputeSystemInNamespace(idnamespace.param().abi(), id.param().abi(), configuration.param().abi(), operation, options.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        HcsCreateComputeSystemInNamespace(idnamespace.param().abi(), id.param().abi(), configuration.param().abi(), operation, options.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -104,7 +104,7 @@ where
     windows_link::link!("computecore.dll" "system" fn HcsCreateProcess(computesystem : HCS_SYSTEM, processparameters : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, process : *mut HCS_PROCESS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HcsCreateProcess(computesystem, processparameters.param().abi(), operation, securitydescriptor.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        HcsCreateProcess(computesystem, processparameters.param().abi(), operation, securitydescriptor.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -185,7 +185,7 @@ pub unsafe fn HcsGetLayerVhdMountPath(vhdhandle: super::super::Foundation::HANDL
     windows_link::link!("computestorage.dll" "system" fn HcsGetLayerVhdMountPath(vhdhandle : super::super::Foundation:: HANDLE, mountpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HcsGetLayerVhdMountPath(vhdhandle, &mut result__).map(|| core::mem::transmute(result__))
+        HcsGetLayerVhdMountPath(vhdhandle, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -247,7 +247,7 @@ where
     windows_link::link!("computecore.dll" "system" fn HcsGetServiceProperties(propertyquery : windows_core::PCWSTR, result : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HcsGetServiceProperties(propertyquery.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        HcsGetServiceProperties(propertyquery.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -330,7 +330,7 @@ where
     windows_link::link!("computecore.dll" "system" fn HcsOpenComputeSystem(id : windows_core::PCWSTR, requestedaccess : u32, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HcsOpenComputeSystem(id.param().abi(), requestedaccess, &mut result__).map(|| core::mem::transmute(result__))
+        HcsOpenComputeSystem(id.param().abi(), requestedaccess, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -342,7 +342,7 @@ where
     windows_link::link!("computecore.dll" "system" fn HcsOpenComputeSystemInNamespace(idnamespace : windows_core::PCWSTR, id : windows_core::PCWSTR, requestedaccess : u32, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HcsOpenComputeSystemInNamespace(idnamespace.param().abi(), id.param().abi(), requestedaccess, &mut result__).map(|| core::mem::transmute(result__))
+        HcsOpenComputeSystemInNamespace(idnamespace.param().abi(), id.param().abi(), requestedaccess, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -350,7 +350,7 @@ pub unsafe fn HcsOpenProcess(computesystem: HCS_SYSTEM, processid: u32, requeste
     windows_link::link!("computecore.dll" "system" fn HcsOpenProcess(computesystem : HCS_SYSTEM, processid : u32, requestedaccess : u32, process : *mut HCS_PROCESS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HcsOpenProcess(computesystem, processid, requestedaccess, &mut result__).map(|| core::mem::transmute(result__))
+        HcsOpenProcess(computesystem, processid, requestedaccess, &mut result__).map(|| result__)
     }
 }
 #[inline]

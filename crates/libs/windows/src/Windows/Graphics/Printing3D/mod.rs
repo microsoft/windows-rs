@@ -1248,7 +1248,7 @@ impl Printing3DColorMaterial {
         let this = &windows_core::Interface::cast::<IPrinting3DColorMaterial2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Color)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Color)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "UI")]
@@ -1437,7 +1437,7 @@ impl Printing3DComponentWithMatrix {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Matrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Matrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -1717,7 +1717,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VertexPositionsDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).VertexPositionsDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetVertexPositionsDescription(&self, value: Printing3DBufferDescription) -> windows_core::Result<()> {
@@ -1728,7 +1728,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VertexNormalsDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).VertexNormalsDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetVertexNormalsDescription(&self, value: Printing3DBufferDescription) -> windows_core::Result<()> {
@@ -1739,7 +1739,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TriangleIndicesDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TriangleIndicesDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetTriangleIndicesDescription(&self, value: Printing3DBufferDescription) -> windows_core::Result<()> {
@@ -1750,7 +1750,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TriangleMaterialIndicesDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TriangleMaterialIndicesDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetTriangleMaterialIndicesDescription(&self, value: Printing3DBufferDescription) -> windows_core::Result<()> {

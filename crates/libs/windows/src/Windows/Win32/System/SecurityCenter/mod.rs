@@ -3,7 +3,7 @@ pub unsafe fn WscGetAntiMalwareUri() -> windows_core::Result<windows_core::PWSTR
     windows_link::link!("wscapi.dll" "system" fn WscGetAntiMalwareUri(ppszuri : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WscGetAntiMalwareUri(&mut result__).map(|| core::mem::transmute(result__))
+        WscGetAntiMalwareUri(&mut result__).map(|| result__)
     }
 }
 #[inline]

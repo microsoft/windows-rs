@@ -740,7 +740,7 @@ pub unsafe fn GetMachineTypeAttributes(machine: u16) -> windows_core::Result<MAC
     windows_link::link!("kernel32.dll" "system" fn GetMachineTypeAttributes(machine : u16, machinetypeattributes : *mut MACHINE_ATTRIBUTES) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetMachineTypeAttributes(machine, &mut result__).map(|| core::mem::transmute(result__))
+        GetMachineTypeAttributes(machine, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -927,7 +927,7 @@ pub unsafe fn GetThreadDescription(hthread: super::super::Foundation::HANDLE) ->
     windows_link::link!("kernel32.dll" "system" fn GetThreadDescription(hthread : super::super::Foundation:: HANDLE, ppszthreaddescription : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetThreadDescription(hthread, &mut result__).map(|| core::mem::transmute(result__))
+        GetThreadDescription(hthread, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -1352,7 +1352,7 @@ pub unsafe fn RtwqAllocateSerialWorkQueue(workqueueidin: u32) -> windows_core::R
     windows_link::link!("rtworkq.dll" "system" fn RtwqAllocateSerialWorkQueue(workqueueidin : u32, workqueueidout : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RtwqAllocateSerialWorkQueue(workqueueidin, &mut result__).map(|| core::mem::transmute(result__))
+        RtwqAllocateSerialWorkQueue(workqueueidin, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1360,7 +1360,7 @@ pub unsafe fn RtwqAllocateWorkQueue(workqueuetype: RTWQ_WORKQUEUE_TYPE) -> windo
     windows_link::link!("rtworkq.dll" "system" fn RtwqAllocateWorkQueue(workqueuetype : RTWQ_WORKQUEUE_TYPE, workqueueid : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RtwqAllocateWorkQueue(workqueuetype, &mut result__).map(|| core::mem::transmute(result__))
+        RtwqAllocateWorkQueue(workqueuetype, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1413,7 +1413,7 @@ where
     windows_link::link!("rtworkq.dll" "system" fn RtwqEndRegisterWorkQueueWithMMCSS(result : * mut core::ffi::c_void, taskid : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RtwqEndRegisterWorkQueueWithMMCSS(result.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        RtwqEndRegisterWorkQueueWithMMCSS(result.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1426,7 +1426,7 @@ pub unsafe fn RtwqGetWorkQueueMMCSSPriority(workqueueid: u32) -> windows_core::R
     windows_link::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSPriority(workqueueid : u32, priority : *mut i32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RtwqGetWorkQueueMMCSSPriority(workqueueid, &mut result__).map(|| core::mem::transmute(result__))
+        RtwqGetWorkQueueMMCSSPriority(workqueueid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1434,7 +1434,7 @@ pub unsafe fn RtwqGetWorkQueueMMCSSTaskId(workqueueid: u32) -> windows_core::Res
     windows_link::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSTaskId(workqueueid : u32, taskid : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RtwqGetWorkQueueMMCSSTaskId(workqueueid, &mut result__).map(|| core::mem::transmute(result__))
+        RtwqGetWorkQueueMMCSSTaskId(workqueueid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1450,7 +1450,7 @@ pub unsafe fn RtwqJoinWorkQueue(workqueueid: u32, hfile: super::super::Foundatio
     windows_link::link!("rtworkq.dll" "system" fn RtwqJoinWorkQueue(workqueueid : u32, hfile : super::super::Foundation:: HANDLE, out : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RtwqJoinWorkQueue(workqueueid, hfile, &mut result__).map(|| core::mem::transmute(result__))
+        RtwqJoinWorkQueue(workqueueid, hfile, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1521,7 +1521,7 @@ pub unsafe fn RtwqSetDeadline(workqueueid: u32, deadlineinhns: i64) -> windows_c
     windows_link::link!("rtworkq.dll" "system" fn RtwqSetDeadline(workqueueid : u32, deadlineinhns : i64, prequest : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RtwqSetDeadline(workqueueid, deadlineinhns, &mut result__).map(|| core::mem::transmute(result__))
+        RtwqSetDeadline(workqueueid, deadlineinhns, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1529,7 +1529,7 @@ pub unsafe fn RtwqSetDeadline2(workqueueid: u32, deadlineinhns: i64, predeadline
     windows_link::link!("rtworkq.dll" "system" fn RtwqSetDeadline2(workqueueid : u32, deadlineinhns : i64, predeadlineinhns : i64, prequest : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RtwqSetDeadline2(workqueueid, deadlineinhns, predeadlineinhns, &mut result__).map(|| core::mem::transmute(result__))
+        RtwqSetDeadline2(workqueueid, deadlineinhns, predeadlineinhns, &mut result__).map(|| result__)
     }
 }
 #[inline]

@@ -253,13 +253,13 @@ impl SystemUpdateManager {
     pub fn UserActiveHoursStart() -> windows_core::Result<super::super::Foundation::TimeSpan> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserActiveHoursStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UserActiveHoursStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn UserActiveHoursEnd() -> windows_core::Result<super::super::Foundation::TimeSpan> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserActiveHoursEnd)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UserActiveHoursEnd)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn UserActiveHoursMax() -> windows_core::Result<i32> {
@@ -277,13 +277,13 @@ impl SystemUpdateManager {
     pub fn LastUpdateCheckTime() -> windows_core::Result<super::super::Foundation::DateTime> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LastUpdateCheckTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).LastUpdateCheckTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn LastUpdateInstallTime() -> windows_core::Result<super::super::Foundation::DateTime> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LastUpdateInstallTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).LastUpdateInstallTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn LastErrorInfo() -> windows_core::Result<SystemUpdateLastErrorInfo> {

@@ -1085,7 +1085,7 @@ impl ConversationalAgentSignal {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignalStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SignalStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetSignalStart(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -1096,7 +1096,7 @@ impl ConversationalAgentSignal {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignalEnd)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SignalEnd)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetSignalEnd(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {

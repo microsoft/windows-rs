@@ -50,7 +50,7 @@ where
     windows_link::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoIsApiContractMajorVersionPresent(name : windows_core::PCWSTR, majorversion : u16, present : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RoIsApiContractMajorVersionPresent(name.param().abi(), majorversion, &mut result__).map(|| core::mem::transmute(result__))
+        RoIsApiContractMajorVersionPresent(name.param().abi(), majorversion, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -61,7 +61,7 @@ where
     windows_link::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoIsApiContractPresent(name : windows_core::PCWSTR, majorversion : u16, minorversion : u16, present : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RoIsApiContractPresent(name.param().abi(), majorversion, minorversion, &mut result__).map(|| core::mem::transmute(result__))
+        RoIsApiContractPresent(name.param().abi(), majorversion, minorversion, &mut result__).map(|| result__)
     }
 }
 #[inline]

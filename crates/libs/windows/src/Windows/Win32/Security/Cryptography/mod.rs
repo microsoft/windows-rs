@@ -1970,7 +1970,7 @@ pub unsafe fn CryptXmlAddObject(hsignatureorobject: *const core::ffi::c_void, dw
     windows_link::link!("cryptxml.dll" "system" fn CryptXmlAddObject(hsignatureorobject : *const core::ffi::c_void, dwflags : u32, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, ppobject : *mut *mut CRYPT_XML_OBJECT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlAddObject(hsignatureorobject, dwflags, core::mem::transmute(rgproperty.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, &mut result__).map(|| core::mem::transmute(result__))
+        CryptXmlAddObject(hsignatureorobject, dwflags, core::mem::transmute(rgproperty.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2013,7 +2013,7 @@ pub unsafe fn CryptXmlGetAlgorithmInfo(pxmlalgorithm: *const CRYPT_XML_ALGORITHM
     windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetAlgorithmInfo(pxmlalgorithm : *const CRYPT_XML_ALGORITHM, dwflags : CRYPT_XML_FLAGS, ppalginfo : *mut *mut CRYPT_XML_ALGORITHM_INFO) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlGetAlgorithmInfo(pxmlalgorithm, dwflags, &mut result__).map(|| core::mem::transmute(result__))
+        CryptXmlGetAlgorithmInfo(pxmlalgorithm, dwflags, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2021,7 +2021,7 @@ pub unsafe fn CryptXmlGetDocContext(hcryptxml: *const core::ffi::c_void) -> wind
     windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetDocContext(hcryptxml : *const core::ffi::c_void, ppstruct : *mut *mut CRYPT_XML_DOC_CTXT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlGetDocContext(hcryptxml, &mut result__).map(|| core::mem::transmute(result__))
+        CryptXmlGetDocContext(hcryptxml, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2029,7 +2029,7 @@ pub unsafe fn CryptXmlGetReference(hcryptxml: *const core::ffi::c_void) -> windo
     windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetReference(hcryptxml : *const core::ffi::c_void, ppstruct : *mut *mut CRYPT_XML_REFERENCE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlGetReference(hcryptxml, &mut result__).map(|| core::mem::transmute(result__))
+        CryptXmlGetReference(hcryptxml, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2037,7 +2037,7 @@ pub unsafe fn CryptXmlGetSignature(hcryptxml: *const core::ffi::c_void) -> windo
     windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetSignature(hcryptxml : *const core::ffi::c_void, ppstruct : *mut *mut CRYPT_XML_SIGNATURE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlGetSignature(hcryptxml, &mut result__).map(|| core::mem::transmute(result__))
+        CryptXmlGetSignature(hcryptxml, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2045,7 +2045,7 @@ pub unsafe fn CryptXmlGetStatus(hcryptxml: *const core::ffi::c_void) -> windows_
     windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetStatus(hcryptxml : *const core::ffi::c_void, pstatus : *mut CRYPT_XML_STATUS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlGetStatus(hcryptxml, &mut result__).map(|| core::mem::transmute(result__))
+        CryptXmlGetStatus(hcryptxml, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2053,7 +2053,7 @@ pub unsafe fn CryptXmlGetTransforms() -> windows_core::Result<*mut CRYPT_XML_TRA
     windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetTransforms(ppconfig : *mut *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlGetTransforms(&mut result__).map(|| core::mem::transmute(result__))
+        CryptXmlGetTransforms(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2061,7 +2061,7 @@ pub unsafe fn CryptXmlImportPublicKey(dwflags: CRYPT_XML_FLAGS, pkeyvalue: *cons
     windows_link::link!("cryptxml.dll" "system" fn CryptXmlImportPublicKey(dwflags : CRYPT_XML_FLAGS, pkeyvalue : *const CRYPT_XML_KEY_VALUE, phkey : *mut BCRYPT_KEY_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlImportPublicKey(dwflags, pkeyvalue, &mut result__).map(|| core::mem::transmute(result__))
+        CryptXmlImportPublicKey(dwflags, pkeyvalue, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2151,7 +2151,7 @@ pub unsafe fn GetCryptoTransform(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO
     windows_link::link!("infocardapi.dll" "system" fn GetCryptoTransform(hsymmetriccrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, mode : u32, padding : PaddingMode, feedbacksize : u32, direction : Direction, cbiv : u32, piv : *const u8, pphtransform : *mut *mut INFORMATIONCARD_CRYPTO_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetCryptoTransform(hsymmetriccrypto, mode, padding, feedbacksize, direction, piv.len().try_into().unwrap(), core::mem::transmute(piv.as_ptr()), &mut result__).map(|| core::mem::transmute(result__))
+        GetCryptoTransform(hsymmetriccrypto, mode, padding, feedbacksize, direction, piv.len().try_into().unwrap(), core::mem::transmute(piv.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2185,7 +2185,7 @@ pub unsafe fn GetKeyedHash(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDL
     windows_link::link!("infocardapi.dll" "system" fn GetKeyedHash(hsymmetriccrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, pphhash : *mut *mut INFORMATIONCARD_CRYPTO_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetKeyedHash(hsymmetriccrypto, &mut result__).map(|| core::mem::transmute(result__))
+        GetKeyedHash(hsymmetriccrypto, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2277,7 +2277,7 @@ where
     windows_link::link!("ncrypt.dll" "system" fn NCryptCreateProtectionDescriptor(pwszdescriptorstring : windows_core::PCWSTR, dwflags : u32, phdescriptor : *mut super:: NCRYPT_DESCRIPTOR_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        NCryptCreateProtectionDescriptor(pwszdescriptorstring.param().abi(), dwflags, &mut result__).map(|| core::mem::transmute(result__))
+        NCryptCreateProtectionDescriptor(pwszdescriptorstring.param().abi(), dwflags, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2454,7 +2454,7 @@ pub unsafe fn NCryptStreamOpenToProtect(hdescriptor: super::NCRYPT_DESCRIPTOR_HA
     windows_link::link!("ncrypt.dll" "system" fn NCryptStreamOpenToProtect(hdescriptor : super:: NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, hwnd : super::super::Foundation:: HWND, pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        NCryptStreamOpenToProtect(hdescriptor, dwflags, hwnd.unwrap_or(core::mem::zeroed()) as _, pstreaminfo, &mut result__).map(|| core::mem::transmute(result__))
+        NCryptStreamOpenToProtect(hdescriptor, dwflags, hwnd.unwrap_or(core::mem::zeroed()) as _, pstreaminfo, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2462,7 +2462,7 @@ pub unsafe fn NCryptStreamOpenToUnprotect(pstreaminfo: *const NCRYPT_PROTECT_STR
     windows_link::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotect(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, dwflags : u32, hwnd : super::super::Foundation:: HWND, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        NCryptStreamOpenToUnprotect(pstreaminfo, dwflags, hwnd.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        NCryptStreamOpenToUnprotect(pstreaminfo, dwflags, hwnd.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2470,7 +2470,7 @@ pub unsafe fn NCryptStreamOpenToUnprotectEx(pstreaminfo: *const NCRYPT_PROTECT_S
     windows_link::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotectEx(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags : u32, hwnd : super::super::Foundation:: HWND, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        NCryptStreamOpenToUnprotectEx(pstreaminfo, dwflags, hwnd.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        NCryptStreamOpenToUnprotectEx(pstreaminfo, dwflags, hwnd.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2575,7 +2575,7 @@ where
     windows_link::link!("mssign32.dll" "system" fn SignerSignEx(dwflags : SIGNER_SIGN_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SignerSignEx(dwflags, psubjectinfo, psignercert, psignatureinfo, pproviderinfo.unwrap_or(core::mem::zeroed()) as _, pwszhttptimestamp.param().abi(), psrequest.unwrap_or(core::mem::zeroed()) as _, psipdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        SignerSignEx(dwflags, psubjectinfo, psignercert, psignatureinfo, pproviderinfo.unwrap_or(core::mem::zeroed()) as _, pwszhttptimestamp.param().abi(), psrequest.unwrap_or(core::mem::zeroed()) as _, psipdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2630,7 +2630,7 @@ where
     windows_link::link!("mssign32.dll" "system" fn SignerTimeStampEx(dwflags : u32, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SignerTimeStampEx(dwflags.unwrap_or(core::mem::zeroed()) as _, psubjectinfo, pwszhttptimestamp.param().abi(), psrequest, psipdata, &mut result__).map(|| core::mem::transmute(result__))
+        SignerTimeStampEx(dwflags.unwrap_or(core::mem::zeroed()) as _, psubjectinfo, pwszhttptimestamp.param().abi(), psrequest, psipdata, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2641,7 +2641,7 @@ where
     windows_link::link!("mssign32.dll" "system" fn SignerTimeStampEx2(dwflags : SIGNER_TIMESTAMP_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : windows_core::PCWSTR, dwalgid : ALG_ID, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SignerTimeStampEx2(dwflags.unwrap_or(core::mem::zeroed()) as _, psubjectinfo, pwszhttptimestamp.param().abi(), dwalgid, psrequest, psipdata, &mut result__).map(|| core::mem::transmute(result__))
+        SignerTimeStampEx2(dwflags.unwrap_or(core::mem::zeroed()) as _, psubjectinfo, pwszhttptimestamp.param().abi(), dwalgid, psrequest, psipdata, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2925,7 +2925,7 @@ where
     windows_link::link!("infocardapi.dll" "system" fn VerifyHash(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash : u32, phash : *const u8, hashalgoid : windows_core::PCWSTR, cbsig : u32, psig : *const u8, pfverified : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        VerifyHash(hcrypto, phash.len().try_into().unwrap(), core::mem::transmute(phash.as_ptr()), hashalgoid.param().abi(), psig.len().try_into().unwrap(), core::mem::transmute(psig.as_ptr()), &mut result__).map(|| core::mem::transmute(result__))
+        VerifyHash(hcrypto, phash.len().try_into().unwrap(), core::mem::transmute(phash.as_ptr()), hashalgoid.param().abi(), psig.len().try_into().unwrap(), core::mem::transmute(psig.as_ptr()), &mut result__).map(|| result__)
     }
 }
 pub const ALG_CLASS_ALL: u32 = 57344u32;

@@ -35,7 +35,7 @@ where
     windows_link::link!("windowscodecs.dll" "system" fn WICGetMetadataContentSize(guidcontainerformat : *const windows_core::GUID, piwriter : * mut core::ffi::c_void, pcbsize : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WICGetMetadataContentSize(guidcontainerformat, piwriter.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        WICGetMetadataContentSize(guidcontainerformat, piwriter.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -59,7 +59,7 @@ where
     windows_link::link!("windowscodecs.dll" "system" fn WICMapShortNameToGuid(wzname : windows_core::PCWSTR, pguid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WICMapShortNameToGuid(wzname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        WICMapShortNameToGuid(wzname.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -71,7 +71,7 @@ where
     windows_link::link!("windowscodecs.dll" "system" fn WICMatchMetadataContent(guidcontainerformat : *const windows_core::GUID, pguidvendor : *const windows_core::GUID, pistream : * mut core::ffi::c_void, pguidmetadataformat : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WICMatchMetadataContent(guidcontainerformat, pguidvendor.unwrap_or(core::mem::zeroed()) as _, pistream.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        WICMatchMetadataContent(guidcontainerformat, pguidvendor.unwrap_or(core::mem::zeroed()) as _, pistream.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]

@@ -60,7 +60,7 @@ impl CrossSlidingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CrossSlidingState(&self) -> windows_core::Result<CrossSlidingState> {
@@ -123,7 +123,7 @@ impl DraggingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DraggingState(&self) -> windows_core::Result<DraggingState> {
@@ -337,7 +337,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PivotCenter)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PivotCenter)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetPivotCenter(&self, value: super::super::Foundation::Point) -> windows_core::Result<()> {
@@ -436,7 +436,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CrossSlideThresholds)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CrossSlideThresholds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetCrossSlideThresholds(&self, value: CrossSlideThresholds) -> windows_core::Result<()> {
@@ -715,7 +715,7 @@ impl GestureRecognizer {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HoldStartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HoldStartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetHoldStartDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -834,7 +834,7 @@ impl HoldingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HoldingState(&self) -> windows_core::Result<HoldingState> {
@@ -1413,7 +1413,7 @@ impl IPointerPointTransform {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransformBounds)(windows_core::Interface::as_raw(this), rect, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TransformBounds)(windows_core::Interface::as_raw(this), rect, &mut result__).map(|| result__)
         }
     }
 }
@@ -2152,21 +2152,21 @@ impl ManipulationCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Velocities(&self) -> windows_core::Result<ManipulationVelocities> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ContactCount(&self) -> windows_core::Result<u32> {
@@ -2225,28 +2225,28 @@ impl ManipulationInertiaStartingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Delta(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Delta)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Delta)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Velocities(&self) -> windows_core::Result<ManipulationVelocities> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ContactCount(&self) -> windows_core::Result<u32> {
@@ -2284,14 +2284,14 @@ impl ManipulationStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ContactCount(&self) -> windows_core::Result<u32> {
@@ -2329,28 +2329,28 @@ impl ManipulationUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Delta(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Delta)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Delta)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Velocities(&self) -> windows_core::Result<ManipulationVelocities> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ContactCount(&self) -> windows_core::Result<u32> {
@@ -2400,7 +2400,7 @@ impl MouseWheelParameters {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CharTranslation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CharTranslation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetCharTranslation(&self, value: super::super::Foundation::Point) -> windows_core::Result<()> {
@@ -2433,7 +2433,7 @@ impl MouseWheelParameters {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PageTranslation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PageTranslation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetPageTranslation(&self, value: super::super::Foundation::Point) -> windows_core::Result<()> {
@@ -2533,7 +2533,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HoldStartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).HoldStartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetHoldStartDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -2686,14 +2686,14 @@ impl PointerPoint {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn RawPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RawPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PointerId(&self) -> windows_core::Result<u32> {
@@ -2742,7 +2742,7 @@ impl PointerPoint {
         let this = &windows_core::Interface::cast::<IPointerPointPhysicalPosition>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhysicalPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PhysicalPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetCurrentPoint(pointerid: u32) -> windows_core::Result<PointerPoint> {
@@ -2850,14 +2850,14 @@ impl PointerPointProperties {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ContactRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ContactRectRaw(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactRectRaw)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ContactRectRaw)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TouchConfidence(&self) -> windows_core::Result<bool> {
@@ -3753,14 +3753,14 @@ impl RadialControllerScreenContact {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Bounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -3922,7 +3922,7 @@ impl RightTappedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ContactCount(&self) -> windows_core::Result<u32> {
@@ -4175,7 +4175,7 @@ impl TappedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TapCount(&self) -> windows_core::Result<u32> {

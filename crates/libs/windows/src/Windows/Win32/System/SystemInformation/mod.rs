@@ -36,7 +36,7 @@ pub unsafe fn GetIntegratedDisplaySize() -> windows_core::Result<f64> {
     windows_link::link!("api-ms-win-core-sysinfo-l1-2-3.dll" "system" fn GetIntegratedDisplaySize(sizeininches : *mut f64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetIntegratedDisplaySize(&mut result__).map(|| core::mem::transmute(result__))
+        GetIntegratedDisplaySize(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -245,7 +245,7 @@ pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE) 
     windows_link::link!("kernel32.dll" "system" fn IsWow64GuestMachineSupported(wowguestmachine : IMAGE_FILE_MACHINE, machineissupported : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        IsWow64GuestMachineSupported(wowguestmachine, &mut result__).map(|| core::mem::transmute(result__))
+        IsWow64GuestMachineSupported(wowguestmachine, &mut result__).map(|| result__)
     }
 }
 #[inline]

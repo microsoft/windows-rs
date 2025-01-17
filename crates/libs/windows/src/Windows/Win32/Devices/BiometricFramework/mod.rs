@@ -150,7 +150,7 @@ pub unsafe fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO
     windows_link::link!("winbio.dll" "system" fn WinBioGetCredentialState(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE, credentialstate : *mut WINBIO_CREDENTIAL_STATE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WinBioGetCredentialState(core::mem::transmute(identity), r#type, &mut result__).map(|| core::mem::transmute(result__))
+        WinBioGetCredentialState(core::mem::transmute(identity), r#type, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -168,7 +168,7 @@ pub unsafe fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY) -> 
     windows_link::link!("winbio.dll" "system" fn WinBioGetEnrolledFactors(accountowner : *const WINBIO_IDENTITY, enrolledfactors : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WinBioGetEnrolledFactors(accountowner, &mut result__).map(|| core::mem::transmute(result__))
+        WinBioGetEnrolledFactors(accountowner, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -231,7 +231,7 @@ pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, 
     windows_link::link!("winbio.dll" "system" fn WinBioOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const windows_core::GUID, sessionhandle : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WinBioOpenSession(factor, pooltype, flags, core::mem::transmute(unitarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), unitarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        WinBioOpenSession(factor, pooltype, flags, core::mem::transmute(unitarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), unitarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]

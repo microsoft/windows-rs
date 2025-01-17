@@ -1729,7 +1729,7 @@ impl BluetoothUuidHelper {
     pub fn FromShortId(shortid: u32) -> windows_core::Result<windows_core::GUID> {
         Self::IBluetoothUuidHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromShortId)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).FromShortId)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
     pub fn TryGetShortId(uuid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IReference<u32>> {

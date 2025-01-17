@@ -15,7 +15,7 @@ impl GuidHelper {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .map(|| core::mem::transmute(result__))
+            .map(|| result__)
         })
     }
     pub fn Empty() -> windows_core::Result<windows_core::GUID> {
@@ -25,7 +25,7 @@ impl GuidHelper {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .map(|| core::mem::transmute(result__))
+            .map(|| result__)
         })
     }
     pub fn Equals(

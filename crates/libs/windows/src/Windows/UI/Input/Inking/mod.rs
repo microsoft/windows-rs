@@ -434,7 +434,7 @@ impl IInkPresenterStencil {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBackgroundColor(&self, value: super::super::Color) -> windows_core::Result<()> {
@@ -445,7 +445,7 @@ impl IInkPresenterStencil {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetForegroundColor(&self, value: super::super::Color) -> windows_core::Result<()> {
@@ -457,7 +457,7 @@ impl IInkPresenterStencil {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Transform)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Transform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -844,7 +844,7 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AddStroke<P0>(&self, stroke: P0) -> windows_core::Result<()>
@@ -858,14 +858,14 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteSelected)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DeleteSelected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MoveSelected(&self, translation: super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveSelected)(windows_core::Interface::as_raw(this), translation, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MoveSelected)(windows_core::Interface::as_raw(this), translation, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -876,14 +876,14 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), polyline.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), polyline.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn SelectWithLine(&self, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectWithLine)(windows_core::Interface::as_raw(this), from, to, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SelectWithLine)(windows_core::Interface::as_raw(this), from, to, &mut result__).map(|| result__)
         }
     }
     pub fn CopySelectedToClipboard(&self) -> windows_core::Result<()> {
@@ -894,7 +894,7 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PasteFromClipboard)(windows_core::Interface::as_raw(this), position, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PasteFromClipboard)(windows_core::Interface::as_raw(this), position, &mut result__).map(|| result__)
         }
     }
     pub fn CanPasteFromClipboard(&self) -> windows_core::Result<bool> {
@@ -1386,7 +1386,7 @@ impl InkDrawingAttributes {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Color)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Color)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetColor(&self, value: super::super::Color) -> windows_core::Result<()> {
@@ -1408,7 +1408,7 @@ impl InkDrawingAttributes {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetSize(&self, value: super::super::super::Foundation::Size) -> windows_core::Result<()> {
@@ -1442,7 +1442,7 @@ impl InkDrawingAttributes {
         let this = &windows_core::Interface::cast::<IInkDrawingAttributes2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PenTipTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PenTipTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -1738,7 +1738,7 @@ impl InkManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProcessPointerUp)(windows_core::Interface::as_raw(this), pointerpoint.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ProcessPointerUp)(windows_core::Interface::as_raw(this), pointerpoint.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn SetDefaultDrawingAttributes<P0>(&self, drawingattributes: P0) -> windows_core::Result<()>
@@ -1786,7 +1786,7 @@ impl InkManager {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AddStroke<P0>(&self, stroke: P0) -> windows_core::Result<()>
@@ -1800,14 +1800,14 @@ impl InkManager {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteSelected)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DeleteSelected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MoveSelected(&self, translation: super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveSelected)(windows_core::Interface::as_raw(this), translation, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MoveSelected)(windows_core::Interface::as_raw(this), translation, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1818,14 +1818,14 @@ impl InkManager {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), polyline.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), polyline.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn SelectWithLine(&self, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectWithLine)(windows_core::Interface::as_raw(this), from, to, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SelectWithLine)(windows_core::Interface::as_raw(this), from, to, &mut result__).map(|| result__)
         }
     }
     pub fn CopySelectedToClipboard(&self) -> windows_core::Result<()> {
@@ -1836,7 +1836,7 @@ impl InkManager {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PasteFromClipboard)(windows_core::Interface::as_raw(this), position, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PasteFromClipboard)(windows_core::Interface::as_raw(this), position, &mut result__).map(|| result__)
         }
     }
     pub fn CanPasteFromClipboard(&self) -> windows_core::Result<bool> {
@@ -1926,7 +1926,7 @@ impl InkModelerAttributes {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PredictionTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PredictionTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetPredictionTime(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -1991,7 +1991,7 @@ impl InkPoint {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Pressure(&self) -> windows_core::Result<f32> {
@@ -2292,7 +2292,7 @@ impl InkPresenterProtractor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccentColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AccentColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetAccentColor(&self, value: super::super::Color) -> windows_core::Result<()> {
@@ -2330,7 +2330,7 @@ impl InkPresenterProtractor {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBackgroundColor(&self, value: super::super::Color) -> windows_core::Result<()> {
@@ -2341,7 +2341,7 @@ impl InkPresenterProtractor {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetForegroundColor(&self, value: super::super::Color) -> windows_core::Result<()> {
@@ -2353,7 +2353,7 @@ impl InkPresenterProtractor {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Transform)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Transform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -2459,7 +2459,7 @@ impl InkPresenterRuler {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBackgroundColor(&self, value: super::super::Color) -> windows_core::Result<()> {
@@ -2470,7 +2470,7 @@ impl InkPresenterRuler {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetForegroundColor(&self, value: super::super::Color) -> windows_core::Result<()> {
@@ -2482,7 +2482,7 @@ impl InkPresenterRuler {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Transform)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Transform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -2530,7 +2530,7 @@ impl InkRecognitionResult {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2671,7 +2671,7 @@ impl InkStroke {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Selected(&self) -> windows_core::Result<bool> {
@@ -2712,7 +2712,7 @@ impl InkStroke {
         let this = &windows_core::Interface::cast::<IInkStroke2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PointTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -2891,7 +2891,7 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AddStroke<P0>(&self, stroke: P0) -> windows_core::Result<()>
@@ -2905,14 +2905,14 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteSelected)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DeleteSelected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MoveSelected(&self, translation: super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveSelected)(windows_core::Interface::as_raw(this), translation, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MoveSelected)(windows_core::Interface::as_raw(this), translation, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2923,14 +2923,14 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), polyline.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), polyline.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn SelectWithLine(&self, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectWithLine)(windows_core::Interface::as_raw(this), from, to, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SelectWithLine)(windows_core::Interface::as_raw(this), from, to, &mut result__).map(|| result__)
         }
     }
     pub fn CopySelectedToClipboard(&self) -> windows_core::Result<()> {
@@ -2941,7 +2941,7 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PasteFromClipboard)(windows_core::Interface::as_raw(this), position, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PasteFromClipboard)(windows_core::Interface::as_raw(this), position, &mut result__).map(|| result__)
         }
     }
     pub fn CanPasteFromClipboard(&self) -> windows_core::Result<bool> {
@@ -3132,21 +3132,21 @@ impl InkStrokeRenderingSegment {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BezierControlPoint1(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BezierControlPoint1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BezierControlPoint1)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BezierControlPoint2(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BezierControlPoint2)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).BezierControlPoint2)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Pressure(&self) -> windows_core::Result<f32> {

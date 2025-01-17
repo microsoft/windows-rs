@@ -152,7 +152,7 @@ where
     windows_link::link!("ole32.dll" "system" fn CoUnmarshalHresult(pstm : * mut core::ffi::c_void, phresult : *mut windows_core::HRESULT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoUnmarshalHresult(pstm.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        CoUnmarshalHresult(pstm.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]

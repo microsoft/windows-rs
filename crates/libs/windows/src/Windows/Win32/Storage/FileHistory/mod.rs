@@ -13,7 +13,7 @@ pub unsafe fn FhServiceOpenPipe(startserviceifstopped: bool) -> windows_core::Re
     windows_link::link!("fhsvcctl.dll" "system" fn FhServiceOpenPipe(startserviceifstopped : windows_core::BOOL, pipe : *mut FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        FhServiceOpenPipe(startserviceifstopped.into(), &mut result__).map(|| core::mem::transmute(result__))
+        FhServiceOpenPipe(startserviceifstopped.into(), &mut result__).map(|| result__)
     }
 }
 #[inline]

@@ -274,7 +274,7 @@ where
     windows_link::link!("netapi32.dll" "system" fn NetGetAadJoinInformation(pcsztenantid : windows_core::PCWSTR, ppjoininfo : *mut *mut DSREG_JOIN_INFO) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        NetGetAadJoinInformation(pcsztenantid.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        NetGetAadJoinInformation(pcsztenantid.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]

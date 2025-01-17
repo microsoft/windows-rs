@@ -20,7 +20,7 @@ where
     windows_link::link!("srpapi.dll" "system" fn SrpCreateThreadNetworkContext(enterpriseid : windows_core::PCWSTR, threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SrpCreateThreadNetworkContext(enterpriseid.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        SrpCreateThreadNetworkContext(enterpriseid.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -34,7 +34,7 @@ pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Sto
     windows_link::link!("srpapi.dll" "system" fn SrpDoesPolicyAllowAppExecution(packageid : *const super::super::Storage::Packaging::Appx:: PACKAGE_ID, isallowed : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SrpDoesPolicyAllowAppExecution(packageid, &mut result__).map(|| core::mem::transmute(result__))
+        SrpDoesPolicyAllowAppExecution(packageid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -55,7 +55,7 @@ pub unsafe fn SrpGetEnterprisePolicy(tokenhandle: super::super::Foundation::HAND
     windows_link::link!("srpapi.dll" "system" fn SrpGetEnterprisePolicy(tokenhandle : super::super::Foundation:: HANDLE, policyflags : *mut ENTERPRISE_DATA_POLICIES) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SrpGetEnterprisePolicy(tokenhandle, &mut result__).map(|| core::mem::transmute(result__))
+        SrpGetEnterprisePolicy(tokenhandle, &mut result__).map(|| result__)
     }
 }
 #[inline]

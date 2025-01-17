@@ -8,7 +8,7 @@ pub unsafe fn KsCreateAllocator2(connectionhandle: super::super::Foundation::HAN
     windows_link::link!("ksuser.dll" "system" fn KsCreateAllocator2(connectionhandle : super::super::Foundation:: HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        KsCreateAllocator2(connectionhandle, allocatorframing, &mut result__).map(|| core::mem::transmute(result__))
+        KsCreateAllocator2(connectionhandle, allocatorframing, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -21,7 +21,7 @@ pub unsafe fn KsCreateClock2(connectionhandle: super::super::Foundation::HANDLE,
     windows_link::link!("ksuser.dll" "system" fn KsCreateClock2(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        KsCreateClock2(connectionhandle, clockcreate, &mut result__).map(|| core::mem::transmute(result__))
+        KsCreateClock2(connectionhandle, clockcreate, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -34,7 +34,7 @@ pub unsafe fn KsCreatePin2(filterhandle: super::super::Foundation::HANDLE, conne
     windows_link::link!("ksuser.dll" "system" fn KsCreatePin2(filterhandle : super::super::Foundation:: HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        KsCreatePin2(filterhandle, connect, desiredaccess, &mut result__).map(|| core::mem::transmute(result__))
+        KsCreatePin2(filterhandle, connect, desiredaccess, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -47,7 +47,7 @@ pub unsafe fn KsCreateTopologyNode2(parenthandle: super::super::Foundation::HAND
     windows_link::link!("ksuser.dll" "system" fn KsCreateTopologyNode2(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        KsCreateTopologyNode2(parenthandle, nodecreate, desiredaccess, &mut result__).map(|| core::mem::transmute(result__))
+        KsCreateTopologyNode2(parenthandle, nodecreate, desiredaccess, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -61,7 +61,7 @@ pub unsafe fn KsGetMediaTypeCount(filterhandle: super::super::Foundation::HANDLE
     windows_link::link!("ksproxy.ax" "system" fn KsGetMediaTypeCount(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, mediatypecount : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        KsGetMediaTypeCount(filterhandle, pinfactoryid, &mut result__).map(|| core::mem::transmute(result__))
+        KsGetMediaTypeCount(filterhandle, pinfactoryid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -74,7 +74,7 @@ pub unsafe fn KsOpenDefaultDevice(category: *const windows_core::GUID, access: u
     windows_link::link!("ksproxy.ax" "system" fn KsOpenDefaultDevice(category : *const windows_core::GUID, access : u32, devicehandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        KsOpenDefaultDevice(category, access, &mut result__).map(|| core::mem::transmute(result__))
+        KsOpenDefaultDevice(category, access, &mut result__).map(|| result__)
     }
 }
 #[inline]

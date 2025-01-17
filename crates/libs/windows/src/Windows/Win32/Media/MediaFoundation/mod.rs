@@ -55,7 +55,7 @@ pub unsafe fn MFAllocateSerialWorkQueue(dwworkqueue: u32) -> windows_core::Resul
     windows_link::link!("mfplat.dll" "system" fn MFAllocateSerialWorkQueue(dwworkqueue : u32, pdwworkqueue : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFAllocateSerialWorkQueue(dwworkqueue, &mut result__).map(|| core::mem::transmute(result__))
+        MFAllocateSerialWorkQueue(dwworkqueue, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -63,7 +63,7 @@ pub unsafe fn MFAllocateWorkQueue() -> windows_core::Result<u32> {
     windows_link::link!("mfplat.dll" "system" fn MFAllocateWorkQueue(pdwworkqueue : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFAllocateWorkQueue(&mut result__).map(|| core::mem::transmute(result__))
+        MFAllocateWorkQueue(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -71,7 +71,7 @@ pub unsafe fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE) -> wi
     windows_link::link!("mfplat.dll" "system" fn MFAllocateWorkQueueEx(workqueuetype : MFASYNC_WORKQUEUE_TYPE, pdwworkqueue : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFAllocateWorkQueueEx(workqueuetype, &mut result__).map(|| core::mem::transmute(result__))
+        MFAllocateWorkQueueEx(workqueuetype, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -132,7 +132,7 @@ pub unsafe fn MFCalculateImageSize(guidsubtype: *const windows_core::GUID, unwid
     windows_link::link!("mfplat.dll" "system" fn MFCalculateImageSize(guidsubtype : *const windows_core::GUID, unwidth : u32, unheight : u32, pcbimagesize : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFCalculateImageSize(guidsubtype, unwidth, unheight, &mut result__).map(|| core::mem::transmute(result__))
+        MFCalculateImageSize(guidsubtype, unwidth, unheight, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -157,7 +157,7 @@ where
     windows_link::link!("mfplat.dll" "system" fn MFCombineSamples(psample : * mut core::ffi::c_void, psampletoadd : * mut core::ffi::c_void, dwmaxmergeddurationinms : u32, pmerged : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFCombineSamples(psample.param().abi(), psampletoadd.param().abi(), dwmaxmergeddurationinms, &mut result__).map(|| core::mem::transmute(result__))
+        MFCombineSamples(psample.param().abi(), psampletoadd.param().abi(), dwmaxmergeddurationinms, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1443,7 +1443,7 @@ where
     windows_link::link!("mfplat.dll" "system" fn MFEndRegisterWorkQueueWithMMCSS(presult : * mut core::ffi::c_void, pdwtaskid : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFEndRegisterWorkQueueWithMMCSS(presult.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        MFEndRegisterWorkQueueWithMMCSS(presult.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1467,7 +1467,7 @@ pub unsafe fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: 
     windows_link::link!("mfplat.dll" "system" fn MFFrameRateToAverageTimePerFrame(unnumerator : u32, undenominator : u32, punaveragetimeperframe : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFFrameRateToAverageTimePerFrame(unnumerator, undenominator, &mut result__).map(|| core::mem::transmute(result__))
+        MFFrameRateToAverageTimePerFrame(unnumerator, undenominator, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1486,7 +1486,7 @@ where
     windows_link::link!("mfplat.dll" "system" fn MFGetAttributesAsBlobSize(pattributes : * mut core::ffi::c_void, pcbbufsize : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFGetAttributesAsBlobSize(pattributes.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        MFGetAttributesAsBlobSize(pattributes.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1494,7 +1494,7 @@ pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const w
     windows_link::link!("mfplat.dll" "system" fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid : *const windows_core::GUID, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFGetContentProtectionSystemCLSID(guidprotectionsystemid, &mut result__).map(|| core::mem::transmute(result__))
+        MFGetContentProtectionSystemCLSID(guidprotectionsystemid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1502,7 +1502,7 @@ pub unsafe fn MFGetLocalId(verifier: &[u8]) -> windows_core::Result<windows_core
     windows_link::link!("mf.dll" "system" fn MFGetLocalId(verifier : *const u8, size : u32, id : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFGetLocalId(core::mem::transmute(verifier.as_ptr()), verifier.len().try_into().unwrap(), &mut result__).map(|| core::mem::transmute(result__))
+        MFGetLocalId(core::mem::transmute(verifier.as_ptr()), verifier.len().try_into().unwrap(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1513,7 +1513,7 @@ where
     windows_link::link!("mfplat.dll" "system" fn MFGetMFTMerit(pmft : * mut core::ffi::c_void, cbverifier : u32, verifier : *const u8, merit : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFGetMFTMerit(pmft.param().abi(), verifier.len().try_into().unwrap(), core::mem::transmute(verifier.as_ptr()), &mut result__).map(|| core::mem::transmute(result__))
+        MFGetMFTMerit(pmft.param().abi(), verifier.len().try_into().unwrap(), core::mem::transmute(verifier.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1521,7 +1521,7 @@ pub unsafe fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32) -> window
     windows_link::link!("evr.dll" "system" fn MFGetPlaneSize(format : u32, dwwidth : u32, dwheight : u32, pdwplanesize : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFGetPlaneSize(format, dwwidth, dwheight, &mut result__).map(|| core::mem::transmute(result__))
+        MFGetPlaneSize(format, dwwidth, dwheight, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1545,7 +1545,7 @@ pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> windo
     windows_link::link!("mfplat.dll" "system" fn MFGetStrideForBitmapInfoHeader(format : u32, dwwidth : u32, pstride : *mut i32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFGetStrideForBitmapInfoHeader(format, dwwidth, &mut result__).map(|| core::mem::transmute(result__))
+        MFGetStrideForBitmapInfoHeader(format, dwwidth, &mut result__).map(|| result__)
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -1584,7 +1584,7 @@ pub unsafe fn MFGetTimerPeriodicity() -> windows_core::Result<u32> {
     windows_link::link!("mfplat.dll" "system" fn MFGetTimerPeriodicity(periodicity : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFGetTimerPeriodicity(&mut result__).map(|| core::mem::transmute(result__))
+        MFGetTimerPeriodicity(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1613,7 +1613,7 @@ pub unsafe fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32) -> windows_core::R
     windows_link::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSPriority(dwworkqueueid : u32, lpriority : *mut i32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFGetWorkQueueMMCSSPriority(dwworkqueueid, &mut result__).map(|| core::mem::transmute(result__))
+        MFGetWorkQueueMMCSSPriority(dwworkqueueid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1621,7 +1621,7 @@ pub unsafe fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32) -> windows_core::Res
     windows_link::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid : u32, pdwtaskid : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFGetWorkQueueMMCSSTaskId(dwworkqueueid, &mut result__).map(|| core::mem::transmute(result__))
+        MFGetWorkQueueMMCSSTaskId(dwworkqueueid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1737,7 +1737,7 @@ pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const wi
     windows_link::link!("mfplat.dll" "system" fn MFIsContentProtectionDeviceSupported(protectionsystemid : *const windows_core::GUID, issupported : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFIsContentProtectionDeviceSupported(protectionsystemid, &mut result__).map(|| core::mem::transmute(result__))
+        MFIsContentProtectionDeviceSupported(protectionsystemid, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1750,7 +1750,7 @@ pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: MFVirtualCameraType) -> win
     windows_link::link!("mfsensorgroup.dll" "system" fn MFIsVirtualCameraTypeSupported(r#type : MFVirtualCameraType, supported : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFIsVirtualCameraTypeSupported(r#type, &mut result__).map(|| core::mem::transmute(result__))
+        MFIsVirtualCameraTypeSupported(r#type, &mut result__).map(|| result__)
     }
 }
 #[inline]

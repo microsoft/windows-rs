@@ -55,7 +55,7 @@ pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> windows_core::Result<wi
     windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamClient(uindex : u32, pclientuuid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DwmGetGraphicsStreamClient(uindex, &mut result__).map(|| core::mem::transmute(result__))
+        DwmGetGraphicsStreamClient(uindex, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -73,7 +73,7 @@ pub unsafe fn DwmGetUnmetTabRequirements(appwindow: Option<super::super::Foundat
     windows_link::link!("dwmapi.dll" "system" fn DwmGetUnmetTabRequirements(appwindow : super::super::Foundation:: HWND, value : *mut DWM_TAB_WINDOW_REQUIREMENTS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DwmGetUnmetTabRequirements(appwindow.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
+        DwmGetUnmetTabRequirements(appwindow.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -91,7 +91,7 @@ pub unsafe fn DwmIsCompositionEnabled() -> windows_core::Result<windows_core::BO
     windows_link::link!("dwmapi.dll" "system" fn DwmIsCompositionEnabled(pfenabled : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DwmIsCompositionEnabled(&mut result__).map(|| core::mem::transmute(result__))
+        DwmIsCompositionEnabled(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -104,7 +104,7 @@ pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> windows_core::Re
     windows_link::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : isize, psize : *mut super::super::Foundation:: SIZE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DwmQueryThumbnailSourceSize(hthumbnail, &mut result__).map(|| core::mem::transmute(result__))
+        DwmQueryThumbnailSourceSize(hthumbnail, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -112,7 +112,7 @@ pub unsafe fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HW
     windows_link::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::super::Foundation:: HWND, hwndsource : super::super::Foundation:: HWND, phthumbnailid : *mut isize) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DwmRegisterThumbnail(hwnddestination, hwndsource, &mut result__).map(|| core::mem::transmute(result__))
+        DwmRegisterThumbnail(hwnddestination, hwndsource, &mut result__).map(|| result__)
     }
 }
 #[inline]

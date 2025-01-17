@@ -212,7 +212,7 @@ impl FileInformation {
         let this = &windows_core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DateCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DateCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsOfType(&self, r#type: super::StorageItemTypes) -> windows_core::Result<bool> {
@@ -811,7 +811,7 @@ impl FolderInformation {
         let this = &windows_core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DateCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DateCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsOfType(&self, r#type: super::StorageItemTypes) -> windows_core::Result<bool> {

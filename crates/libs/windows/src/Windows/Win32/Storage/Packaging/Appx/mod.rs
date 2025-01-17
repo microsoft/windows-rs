@@ -3,7 +3,7 @@ pub unsafe fn ActivatePackageVirtualizationContext(context: PACKAGE_VIRTUALIZATI
     windows_link::link!("kernel32.dll" "system" fn ActivatePackageVirtualizationContext(context : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE, cookie : *mut usize) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        ActivatePackageVirtualizationContext(context, &mut result__).map(|| core::mem::transmute(result__))
+        ActivatePackageVirtualizationContext(context, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -62,7 +62,7 @@ where
     windows_link::link!("kernel32.dll" "system" fn CheckIsMSIXPackage(packagefullname : windows_core::PCWSTR, ismsixpackage : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CheckIsMSIXPackage(packagefullname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        CheckIsMSIXPackage(packagefullname.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -78,7 +78,7 @@ where
     windows_link::link!("kernel32.dll" "system" fn CreatePackageVirtualizationContext(packagefamilyname : windows_core::PCWSTR, context : *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreatePackageVirtualizationContext(packagefamilyname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        CreatePackageVirtualizationContext(packagefamilyname.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -99,7 +99,7 @@ pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: PACKAGE_VIRTU
     windows_link::link!("kernel32.dll" "system" fn DuplicatePackageVirtualizationContext(sourcecontext : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE, destcontext : *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DuplicatePackageVirtualizationContext(sourcecontext, &mut result__).map(|| core::mem::transmute(result__))
+        DuplicatePackageVirtualizationContext(sourcecontext, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -184,7 +184,7 @@ pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: PACKAGE
     windows_link::link!("kernelbase.dll" "system" fn GetIdForPackageDependencyContext(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetIdForPackageDependencyContext(packagedependencycontext, &mut result__).map(|| core::mem::transmute(result__))
+        GetIdForPackageDependencyContext(packagedependencycontext, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -277,7 +277,7 @@ where
     windows_link::link!("kernelbase.dll" "system" fn GetResolvedPackageFullNameForPackageDependency(packagedependencyid : windows_core::PCWSTR, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetResolvedPackageFullNameForPackageDependency(packagedependencyid.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        GetResolvedPackageFullNameForPackageDependency(packagedependencyid.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -383,7 +383,7 @@ where
     windows_link::link!("kernelbase.dll" "system" fn TryCreatePackageDependency(user : super::super::super::Security:: PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        TryCreatePackageDependency(user, packagefamilyname.param().abi(), core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, &mut result__).map(|| core::mem::transmute(result__))
+        TryCreatePackageDependency(user, packagefamilyname.param().abi(), core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, &mut result__).map(|| result__)
     }
 }
 #[inline]

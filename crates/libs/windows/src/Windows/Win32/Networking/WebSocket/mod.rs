@@ -39,7 +39,7 @@ pub unsafe fn WebSocketCreateClientHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -
     windows_link::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WebSocketCreateClientHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| core::mem::transmute(result__))
+        WebSocketCreateClientHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -47,7 +47,7 @@ pub unsafe fn WebSocketCreateServerHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -
     windows_link::link!("websocket.dll" "system" fn WebSocketCreateServerHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WebSocketCreateServerHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| core::mem::transmute(result__))
+        WebSocketCreateServerHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| result__)
     }
 }
 #[inline]

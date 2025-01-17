@@ -411,7 +411,7 @@ pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_F
     windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn CreateIoRing(ioringversion : IORING_VERSION, flags : IORING_CREATE_FLAGS, submissionqueuesize : u32, completionqueuesize : u32, h : *mut HIORING) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateIoRing(ioringversion, core::mem::transmute(flags), submissionqueuesize, completionqueuesize, &mut result__).map(|| core::mem::transmute(result__))
+        CreateIoRing(ioringversion, core::mem::transmute(flags), submissionqueuesize, completionqueuesize, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_IO")]
@@ -2060,7 +2060,7 @@ pub unsafe fn QueryIoRingCapabilities() -> windows_core::Result<IORING_CAPABILIT
     windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn QueryIoRingCapabilities(capabilities : *mut IORING_CAPABILITIES) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        QueryIoRingCapabilities(&mut result__).map(|| core::mem::transmute(result__))
+        QueryIoRingCapabilities(&mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2778,7 +2778,7 @@ pub unsafe fn WofGetDriverVersion(fileorvolumehandle: super::super::Foundation::
     windows_link::link!("wofutil.dll" "system" fn WofGetDriverVersion(fileorvolumehandle : super::super::Foundation:: HANDLE, provider : u32, wofversion : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WofGetDriverVersion(fileorvolumehandle, provider, &mut result__).map(|| core::mem::transmute(result__))
+        WofGetDriverVersion(fileorvolumehandle, provider, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2811,7 +2811,7 @@ where
     windows_link::link!("wofutil.dll" "system" fn WofWimAddEntry(volumename : windows_core::PCWSTR, wimpath : windows_core::PCWSTR, wimtype : u32, wimindex : u32, datasourceid : *mut i64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WofWimAddEntry(volumename.param().abi(), wimpath.param().abi(), wimtype, wimindex, &mut result__).map(|| core::mem::transmute(result__))
+        WofWimAddEntry(volumename.param().abi(), wimpath.param().abi(), wimtype, wimindex, &mut result__).map(|| result__)
     }
 }
 #[inline]

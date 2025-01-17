@@ -158,7 +158,7 @@ impl DataReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadGuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ReadGuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ReadInt16(&self) -> windows_core::Result<i16> {
@@ -228,14 +228,14 @@ impl DataReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadDateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ReadDateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ReadTimeSpan(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadTimeSpan)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ReadTimeSpan)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn LoadAsync(&self, count: u32) -> windows_core::Result<DataReaderLoadOperation> {
@@ -971,7 +971,7 @@ impl IDataReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadGuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ReadGuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ReadInt16(&self) -> windows_core::Result<i16> {
@@ -1041,14 +1041,14 @@ impl IDataReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadDateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ReadDateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ReadTimeSpan(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadTimeSpan)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ReadTimeSpan)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn LoadAsync(&self, count: u32) -> windows_core::Result<DataReaderLoadOperation> {

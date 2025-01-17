@@ -357,7 +357,7 @@ impl AlarmNotificationTriggerDetails {
         let this = &windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -396,7 +396,7 @@ impl AlarmNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlarmId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AlarmId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -410,7 +410,7 @@ impl AlarmNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ReminderState(&self) -> windows_core::Result<ReminderState> {
@@ -526,7 +526,7 @@ impl CalendarChangedNotificationTriggerDetails {
         let this = &windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -596,7 +596,7 @@ impl CortanaTileNotificationTriggerDetails {
         let this = &windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -782,7 +782,7 @@ impl EmailNotificationTriggerDetails {
         let this = &windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -857,7 +857,7 @@ impl EmailNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MessageEntryId(&self) -> windows_core::Result<BinaryId> {
@@ -888,7 +888,7 @@ impl EmailReadNotificationTriggerDetails {
         let this = &windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1080,7 +1080,7 @@ impl IAccessoryNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1526,7 +1526,7 @@ impl MediaControlsTriggerDetails {
         let this = &windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1630,7 +1630,7 @@ impl MediaMetadata {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1675,7 +1675,7 @@ impl PhoneCallDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhoneLine)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PhoneLine)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CallId(&self) -> windows_core::Result<u32> {
@@ -1724,14 +1724,14 @@ impl PhoneCallDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn EndTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EndTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).EndTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1818,7 +1818,7 @@ impl PhoneLineDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LineId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).LineId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1911,7 +1911,7 @@ impl PhoneNotificationTriggerDetails {
         let this = &windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1964,7 +1964,7 @@ impl PhoneNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhoneLineChangedId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PhoneLineChangedId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -2096,7 +2096,7 @@ impl ReminderNotificationTriggerDetails {
         let this = &windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2135,7 +2135,7 @@ impl ReminderNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReminderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ReminderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2163,7 +2163,7 @@ impl ReminderNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Appointments")]
@@ -2290,7 +2290,7 @@ impl ToastNotificationTriggerDetails {
         let this = &windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {

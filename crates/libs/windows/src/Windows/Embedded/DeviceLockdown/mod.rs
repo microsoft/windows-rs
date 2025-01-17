@@ -10,7 +10,7 @@ impl DeviceLockdownProfile {
     pub fn GetCurrentLockdownProfile() -> windows_core::Result<windows_core::GUID> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentLockdownProfile)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetCurrentLockdownProfile)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ApplyLockdownProfileAsync(profileid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
