@@ -16,7 +16,7 @@ impl MethodDef {
     }
 
     pub fn import_name(&self) -> Option<&'static str> {
-        self.impl_map().map_or(None, |map| {
+        self.impl_map().and_then(|map| {
             let import_name = map.import_name();
             if self.name() != import_name {
                 Some(import_name)
