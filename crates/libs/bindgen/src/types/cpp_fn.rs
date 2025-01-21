@@ -28,26 +28,10 @@ impl CppFn {
     }
 
     pub fn write_link(&self, writer: &Writer, underlying_types: bool) -> TokenStream {
-        let name = self.method.name();
         let library = self.method.module_name().to_lowercase();
-        let impl_map = self.method.impl_map().unwrap();
-        let mut symbol = Some(impl_map.import_name());
-
-        if symbol == Some(name) {
-            symbol = None;
-        }
-
+        let symbol = self.method.import_name();
         let name = to_ident(self.method.name());
-        let impl_flags = impl_map.flags();
-
-        let abi = if impl_flags.contains(PInvokeAttributes::CallConvPlatformapi) {
-            "system"
-        } else if impl_flags.contains(PInvokeAttributes::CallConvCdecl) {
-            "cdecl"
-        } else {
-            panic!()
-        };
-
+        let abi = self.method.calling_convention();
         let signature = self.method.signature(self.namespace, &[]);
 
         let params = signature.params.iter().map(|param| {
@@ -81,19 +65,12 @@ impl CppFn {
             return quote! {};
         }
 
-        let mut dependencies = TypeMap::new();
-        self.dependencies(&mut dependencies);
-        Cfg::new(self.method, &dependencies).write(writer, false)
+        Cfg::new(self.method, &self.dependencies()).write(writer, false)
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.method.name());
         let signature = self.method.signature(self.namespace, &[]);
-        let mut dependencies = TypeMap::new();
-
-        if writer.config.package {
-            self.dependencies(&mut dependencies);
-        }
 
         let link = self.write_link(writer, false);
         let arches = write_arches(self.method);
@@ -271,11 +248,13 @@ impl CppFn {
             _ => quote! {},
         }
     }
+}
 
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
+impl Dependencies for CppFn {
+    fn combine(&self, dependencies: &mut TypeMap) {
         self.method
             .signature(self.namespace, &[])
-            .dependencies(dependencies);
+            .combine(dependencies);
 
         let dependency = match self.method.name() {
             "GetWindowLongPtrA" => Some("GetWindowLongA"),
@@ -289,7 +268,7 @@ impl CppFn {
             self.method
                 .reader()
                 .unwrap_full_name(self.namespace, dependency)
-                .dependencies(dependencies);
+                .combine(dependencies);
         }
     }
 }

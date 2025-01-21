@@ -15,6 +15,17 @@ impl MethodDef {
         self.str(3)
     }
 
+    pub fn import_name(&self) -> Option<&'static str> {
+        self.impl_map().map_or(None, |map| {
+            let import_name = map.import_name();
+            if self.name() != import_name {
+                Some(import_name)
+            } else {
+                None
+            }
+        })
+    }
+
     pub fn params(&self) -> RowIterator<MethodParam> {
         self.list(5)
     }
@@ -27,6 +38,20 @@ impl MethodDef {
 
     pub fn module_name(&self) -> &'static str {
         self.impl_map().map_or("", |map| map.scope().name())
+    }
+
+    pub fn calling_convention(&self) -> &'static str {
+        self.impl_map().map_or("", |map| {
+            let flags = map.flags();
+
+            if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
+                "system"
+            } else if flags.contains(PInvokeAttributes::CallConvCdecl) {
+                "cdecl"
+            } else {
+                ""
+            }
+        })
     }
 
     #[track_caller]

@@ -3,6 +3,16 @@ use super::*;
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct TypeMap(HashMap<TypeName, HashSet<Type>>);
 
+pub trait Dependencies {
+    fn combine(&self, dependencies: &mut TypeMap);
+
+    fn dependencies(&self) -> TypeMap {
+        let mut dependencies = TypeMap::new();
+        self.combine(&mut dependencies);
+        dependencies
+    }
+}
+
 impl std::ops::Deref for TypeMap {
     type Target = HashMap<TypeName, HashSet<Type>>;
 
@@ -27,7 +37,7 @@ impl TypeMap {
                         let mut item_dependencies = Self::new();
 
                         for ty in types {
-                            ty.dependencies(&mut item_dependencies);
+                            ty.combine(&mut item_dependencies);
                         }
 
                         if item_dependencies.excluded(filter) {

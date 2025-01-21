@@ -49,9 +49,7 @@ impl CppInterface {
             return (Cfg::default(), quote! {});
         }
 
-        let mut dependencies = TypeMap::new();
-        self.dependencies(&mut dependencies);
-        let cfg = Cfg::new(self.def, &dependencies);
+        let cfg = Cfg::new(self.def, &self.dependencies());
         let tokens = cfg.write(writer, false);
         (cfg, tokens)
     }
@@ -223,7 +221,7 @@ impl CppInterface {
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
             let cfg = if writer.config.package {
-                fn collect(interface: &CppInterface, dependencies: &mut TypeMap, writer: &Writer) {
+                fn combine(interface: &CppInterface, dependencies: &mut TypeMap, writer: &Writer) {
                     for method in interface.get_methods(writer).iter() {
                         if let CppMethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);
@@ -231,13 +229,12 @@ impl CppInterface {
                     }
                 }
 
-                let mut dependencies = TypeMap::new();
-                self.dependencies(&mut dependencies);
+                let mut dependencies = self.dependencies();
+                combine(self, &mut dependencies, writer);
 
-                collect(self, &mut dependencies, writer);
                 base_interfaces.iter().for_each(|interface| {
                     if let Type::CppInterface(ty) = interface {
-                        collect(ty, &mut dependencies, writer);
+                        combine(ty, &mut dependencies, writer);
                     }
                 });
 
@@ -417,23 +414,6 @@ impl CppInterface {
         quote! { #namespace #name }
     }
 
-    #[track_caller]
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        let base_interfaces = self.base_interfaces();
-
-        for interface in &base_interfaces {
-            interface.dependencies(dependencies);
-        }
-
-        for method in self.def.methods() {
-            for ty in method.signature(self.def.namespace(), &[]).types() {
-                if ty.is_core() {
-                    ty.dependencies(dependencies);
-                }
-            }
-        }
-    }
-
     pub fn base_interfaces(&self) -> Vec<Type> {
         let mut bases = vec![];
         let mut def = self.def;
@@ -458,5 +438,23 @@ impl CppInterface {
         }
 
         bases
+    }
+}
+
+impl Dependencies for CppInterface {
+    fn combine(&self, dependencies: &mut TypeMap) {
+        let base_interfaces = self.base_interfaces();
+
+        for interface in &base_interfaces {
+            interface.combine(dependencies);
+        }
+
+        for method in self.def.methods() {
+            for ty in method.signature(self.def.namespace(), &[]).types() {
+                if ty.is_core() {
+                    ty.combine(dependencies);
+                }
+            }
+        }
     }
 }

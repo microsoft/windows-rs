@@ -32,9 +32,7 @@ impl CppConst {
             return quote! {};
         }
 
-        let mut dependencies = TypeMap::new();
-        self.dependencies(&mut dependencies);
-        Cfg::new(self.field, &dependencies).write(writer, false)
+        Cfg::new(self.field, &self.dependencies()).write(writer, false)
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
@@ -137,12 +135,11 @@ impl CppConst {
             panic!()
         }
     }
+}
 
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        self.field
-            .ty(None)
-            .to_const_type()
-            .dependencies(dependencies);
+impl Dependencies for CppConst {
+    fn combine(&self, dependencies: &mut TypeMap) {
+        self.field.ty(None).to_const_type().combine(dependencies);
     }
 }
 

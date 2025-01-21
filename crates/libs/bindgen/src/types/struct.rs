@@ -83,12 +83,6 @@ impl Struct {
         signature
     }
 
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        for field in self.def.fields() {
-            field.ty(None).dependencies(dependencies);
-        }
-    }
-
     pub fn is_copyable(&self) -> bool {
         self.def.fields().all(|field| field.ty(None).is_copyable())
     }
@@ -111,5 +105,13 @@ impl Struct {
             .map(|field| field.ty(None).align())
             .max()
             .unwrap_or(1)
+    }
+}
+
+impl Dependencies for Struct {
+    fn combine(&self, dependencies: &mut TypeMap) {
+        for field in self.def.fields() {
+            field.ty(None).combine(dependencies);
+        }
     }
 }

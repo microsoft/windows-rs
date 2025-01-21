@@ -38,9 +38,7 @@ impl CppDelegate {
             return quote! {};
         }
 
-        let mut dependencies = TypeMap::new();
-        self.dependencies(&mut dependencies);
-        Cfg::new(self.def, &dependencies).write(writer, false)
+        Cfg::new(self.def, &self.dependencies()).write(writer, false)
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
@@ -65,11 +63,13 @@ impl CppDelegate {
             pub type #name = Option<unsafe extern "system" fn(#params) #return_sig>;
         }
     }
+}
 
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
+impl Dependencies for CppDelegate {
+    fn combine(&self, dependencies: &mut TypeMap) {
         self.method()
             .signature(self.def.namespace(), &[])
-            .dependencies(dependencies);
+            .combine(dependencies);
     }
 }
 

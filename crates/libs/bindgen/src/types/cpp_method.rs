@@ -78,15 +78,12 @@ impl ParamHint {
 impl CppMethod {
     pub fn new(def: MethodDef, namespace: &'static str) -> Self {
         let signature = def.signature(namespace, &[]);
-
+        let dependencies = signature.dependencies();
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 
         for (position, param) in signature.params.iter().enumerate() {
             param_hints[position] = param.into();
         }
-
-        let mut dependencies = TypeMap::new();
-        signature.dependencies(&mut dependencies);
 
         for position in 0..signature.params.len() {
             // Point len params back to the corresponding ptr params.
