@@ -30,3 +30,27 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
+
+Use the `options()` method for even more control:
+
+```rust,no_run
+use windows_registry::*;
+
+fn main() -> Result<()> {
+    let tx = Transaction::new()?;
+
+    let key = CURRENT_USER
+        .options()
+        .read(true)
+        .write(true)
+        .create(true)
+        .transaction(&tx)
+        .open("software\\windows-rs")?;
+
+    key.set_u32("name", 123)?;
+
+    tx.commit()?;
+
+    Ok(())
+}
+```
