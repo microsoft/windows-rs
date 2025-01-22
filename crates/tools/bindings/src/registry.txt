@@ -3,6 +3,9 @@
 --flat --sys --no-core --no-comment
 
 --filter
+    CloseHandle
+    CommitTransaction
+    CreateTransaction
     ERROR_INVALID_DATA
     ERROR_NO_MORE_ITEMS
     GetProcessHeap
@@ -13,6 +16,7 @@
     HKEY_CURRENT_USER
     HKEY_LOCAL_MACHINE
     HKEY_USERS
+    INVALID_HANDLE_VALUE
     KEY_READ
     KEY_WRITE
     REG_BINARY
@@ -24,17 +28,13 @@
     REG_SZ
     RegCloseKey
     RegCreateKeyExW
+    RegCreateKeyTransactedW
     RegDeleteTreeW
     RegDeleteValueW
     RegEnumKeyExW
     RegEnumValueW
     RegOpenKeyExW
+    RegOpenKeyTransactedW
     RegQueryInfoKeyW
     RegQueryValueExW
     RegSetValueExW
-    CreateTransaction
-    INVALID_HANDLE_VALUE
-    CloseHandle
-    CommitTransaction
-    RegCreateKeyTransactedW
-    RegOpenKeyTransactedW
