@@ -132,7 +132,7 @@ pub trait IUnknownImpl {
     /// The returned reference does not have an additional reference count.
     /// You can AddRef it by calling to_owned().
     #[inline(always)]
-    fn as_interface<I: Interface>(&self) -> InterfaceRef<'_, I>
+    fn as_interface<I: Interface>(&self) -> &I
     where
         Self: ComObjectInterface<I>,
     {
@@ -145,7 +145,7 @@ pub trait IUnknownImpl {
     where
         Self: ComObjectInterface<I>,
     {
-        <Self as ComObjectInterface<I>>::as_interface_ref(self).to_owned()
+        self.as_interface().clone()
     }
 
     /// Creates a new owned reference to this object.

@@ -5,7 +5,7 @@ use std::borrow::Borrow;
 use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
 use std::sync::Arc;
 use windows_core::{
-    implement, interface, ComObject, IUnknown, IUnknownImpl, IUnknown_Vtbl, Interface, InterfaceRef,
+    implement, interface, ComObject, IUnknown, IUnknownImpl, IUnknown_Vtbl, Interface,
 };
 
 #[interface("818f2fd1-d479-4398-b286-a93c4c7904d1")]
@@ -360,7 +360,7 @@ fn hashable() {
 #[test]
 fn from_inner_ref() {
     let app = MyApp::new(42);
-    let ifoo: InterfaceRef<IFoo> = app.as_interface();
+    let ifoo: &IFoo = app.as_interface();
     let ibar: IBar = unsafe { ifoo.get_self_as_bar() };
     unsafe { ibar.say_hello() };
 }

@@ -27,15 +27,6 @@ where
     }
 }
 
-impl<T> Param<T> for InterfaceRef<'_, T>
-where
-    T: Type<T>,
-{
-    unsafe fn param(self) -> ParamValue<T> {
-        unsafe { ParamValue::Borrowed(transmute_copy(&self)) }
-    }
-}
-
 impl<T, U> Param<T, InterfaceType> for &U
 where
     T: TypeKind<TypeKind = InterfaceType> + Clone,

@@ -1,9 +1,7 @@
 use super::*;
 use core::any::Any;
 use core::ffi::c_void;
-use core::marker::PhantomData;
 use core::mem::{forget, transmute_copy, MaybeUninit};
-use core::ptr::NonNull;
 
 /// Provides low-level access to an interface vtable.
 ///
@@ -254,81 +252,6 @@ pub unsafe trait Interface: Sized + Clone {
                 panic!("Non-COM interfaces cannot be queried.")
             }
         }
-    }
-
-    /// Creates an `InterfaceRef` for this reference. The `InterfaceRef` tracks lifetimes statically,
-    /// and eliminates the need for dynamic reference count adjustments (AddRef/Release).
-    fn to_ref(&self) -> InterfaceRef<'_, Self> {
-        InterfaceRef::from_interface(self)
-    }
-}
-
-/// This has the same memory representation as `IFoo`, but represents a borrowed interface pointer.
-///
-/// This type has no `Drop` impl; it does not AddRef/Release the given interface. However, because
-/// it has a lifetime parameter, it always represents a non-null pointer to an interface.
-#[repr(transparent)]
-pub struct InterfaceRef<'a, I>(NonNull<c_void>, PhantomData<&'a I>);
-
-impl<I> Copy for InterfaceRef<'_, I> {}
-
-impl<I> Clone for InterfaceRef<'_, I> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-
-impl<I: core::fmt::Debug + Interface> core::fmt::Debug for InterfaceRef<'_, I> {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        <I as core::fmt::Debug>::fmt(&**self, f)
-    }
-}
-
-impl<I: Interface> InterfaceRef<'_, I> {
-    /// Creates an `InterfaceRef` from a raw pointer. _This is extremely dangerous, since there
-    /// is no lifetime tracking at all!_
-    ///
-    /// # Safety
-    /// The caller must guarantee that the `'a` lifetime parameter is bound by context to a correct
-    /// lifetime.
-    #[inline(always)]
-    pub unsafe fn from_raw(ptr: NonNull<c_void>) -> Self {
-        Self(ptr, PhantomData)
-    }
-
-    /// Creates an `InterfaceRef` from an interface reference. This safely associates the lifetime
-    /// of the interface reference with the `'a` parameter of `InterfaceRef`. This allows for
-    /// lifetime checking _without_ calling AddRef/Release on the underlying lifetime, which can
-    /// improve efficiency.
-    #[inline(always)]
-    pub fn from_interface(interface: &I) -> Self {
-        unsafe {
-            // SAFETY: new_unchecked() should be valid because Interface::as_raw should always
-            // return a non-null pointer.
-            Self(NonNull::new_unchecked(interface.as_raw()), PhantomData)
-        }
-    }
-
-    /// Calls AddRef on the underlying COM interface and returns an "owned" (counted) reference.
-    #[inline(always)]
-    pub fn to_owned(self) -> I {
-        (*self).clone()
-    }
-}
-
-impl<'a, 'i: 'a, I: Interface> From<&'i I> for InterfaceRef<'a, I> {
-    #[inline(always)]
-    fn from(interface: &'a I) -> InterfaceRef<'a, I> {
-        InterfaceRef::from_interface(interface)
-    }
-}
-
-impl<I: Interface> core::ops::Deref for InterfaceRef<'_, I> {
-    type Target = I;
-
-    #[inline(always)]
-    fn deref(&self) -> &I {
-        unsafe { core::mem::transmute(self) }
     }
 }
 

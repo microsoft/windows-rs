@@ -139,10 +139,10 @@ pub fn implement(
 
             impl #generics ::windows_core::ComObjectInterface<#interface_ident> for #impl_ident::#generics where #constraints {
                 #[inline(always)]
-                fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, #interface_ident> {
+                fn as_interface_ref(&self) -> &#interface_ident {
                     unsafe {
                         let interface_ptr = &self.vtables.#offset;
-                        ::core::mem::transmute(interface_ptr)
+                        ::core::mem::transmute(&interface_ptr)
                     }
                 }
             }
@@ -361,20 +361,20 @@ pub fn implement(
 
         impl #generics ::windows_core::ComObjectInterface<::windows_core::IUnknown> for #impl_ident::#generics where #constraints {
             #[inline(always)]
-            fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IUnknown> {
+            fn as_interface_ref(&self) -> &::windows_core::IUnknown {
                 unsafe {
                     let interface_ptr = &self.identity;
-                    ::core::mem::transmute(interface_ptr)
+                    ::core::mem::transmute(&interface_ptr)
                 }
             }
         }
 
         impl #generics ::windows_core::ComObjectInterface<::windows_core::IInspectable> for #impl_ident::#generics where #constraints {
             #[inline(always)]
-            fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IInspectable> {
+            fn as_interface_ref(&self) -> &::windows_core::IInspectable {
                 unsafe {
                     let interface_ptr = &self.identity;
-                    ::core::mem::transmute(interface_ptr)
+                    ::core::mem::transmute(&interface_ptr)
                 }
             }
         }
