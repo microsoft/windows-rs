@@ -12,8 +12,14 @@ use core::ptr::{null, null_mut};
 mod bindings;
 use bindings::*;
 
+mod open_options;
+pub use open_options::OpenOptions;
+
 mod key;
 pub use key::Key;
+
+mod transaction;
+pub use transaction::Transaction;
 
 mod value;
 pub use value::Value;
