@@ -40,7 +40,7 @@ impl Transaction {
         Self(handle)
     }
 
-    /// Returns the underlying transaction key handle.
+    /// Returns the underlying transaction handle.
     pub fn as_raw(&self) -> *mut core::ffi::c_void {
         self.0
     }
