@@ -610,78 +610,6 @@ impl Type {
         }
     }
 
-    #[track_caller]
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        let ty = self.decay();
-
-        if ty.is_intrinsic() {
-            return;
-        }
-
-        let mut nested = false;
-
-        if let Self::CppStruct(ty) = ty {
-            if ty.def.namespace().is_empty() {
-                nested = true;
-            }
-        }
-
-        let (ty, generics) = ty.split_generic();
-
-        for ty in generics {
-            ty.dependencies(dependencies);
-        }
-
-        if !nested && !dependencies.insert(ty.clone()) {
-            return;
-        }
-
-        if let Some(multi) = match &ty {
-            Self::CppStruct(ty) => Some(
-                ty.def
-                    .reader()
-                    .with_full_name(ty.def.namespace(), ty.def.name()),
-            ),
-            Self::CppFn(ty) => Some(
-                ty.method
-                    .reader()
-                    .with_full_name(ty.namespace, ty.method.name()),
-            ),
-            _ => None,
-        } {
-            multi.for_each(|multi| {
-                if ty != multi {
-                    multi.dependencies(dependencies)
-                }
-            });
-        }
-
-        match &ty {
-            Self::Class(ty) => ty.dependencies(dependencies),
-            Self::Delegate(ty) => ty.dependencies(dependencies),
-            Self::Enum(..) => {}
-            Self::Interface(ty) => ty.dependencies(dependencies),
-            Self::Struct(ty) => ty.dependencies(dependencies),
-            Self::CppConst(ty) => ty.dependencies(dependencies),
-            Self::CppDelegate(ty) => ty.dependencies(dependencies),
-            Self::CppFn(ty) => ty.dependencies(dependencies),
-            Self::CppInterface(ty) => ty.dependencies(dependencies),
-            Self::CppStruct(ty) => ty.dependencies(dependencies),
-            Self::CppEnum(ty) => ty.dependencies(dependencies),
-
-            Self::IUnknown => {
-                Self::GUID.dependencies(dependencies);
-                Self::HRESULT.dependencies(dependencies);
-            }
-
-            Self::Object => {
-                Self::IUnknown.dependencies(dependencies);
-            }
-
-            _ => {}
-        }
-    }
-
     pub fn is_exclusive(&self) -> bool {
         match self {
             Self::Interface(ty) => ty.def.has_attribute("ExclusiveToAttribute"),
@@ -997,6 +925,79 @@ impl Type {
             quote! { and_then(||windows_core::Type::from_abi(result__)) }
         } else {
             quote! { map(|| core::mem::transmute(result__)) }
+        }
+    }
+}
+
+impl Dependencies for Type {
+    fn combine(&self, dependencies: &mut TypeMap) {
+        let ty = self.decay();
+
+        if ty.is_intrinsic() {
+            return;
+        }
+
+        let mut nested = false;
+
+        if let Self::CppStruct(ty) = ty {
+            if ty.def.namespace().is_empty() {
+                nested = true;
+            }
+        }
+
+        let (ty, generics) = ty.split_generic();
+
+        for ty in generics {
+            ty.combine(dependencies);
+        }
+
+        if !nested && !dependencies.insert(ty.clone()) {
+            return;
+        }
+
+        if let Some(multi) = match &ty {
+            Self::CppStruct(ty) => Some(
+                ty.def
+                    .reader()
+                    .with_full_name(ty.def.namespace(), ty.def.name()),
+            ),
+            Self::CppFn(ty) => Some(
+                ty.method
+                    .reader()
+                    .with_full_name(ty.namespace, ty.method.name()),
+            ),
+            _ => None,
+        } {
+            multi.for_each(|multi| {
+                if ty != multi {
+                    multi.combine(dependencies)
+                }
+            });
+        }
+
+        match &ty {
+            Self::Class(ty) => ty.combine(dependencies),
+            Self::Delegate(ty) => ty.combine(dependencies),
+            Self::Enum(..) => {}
+            Self::Interface(ty) => ty.combine(dependencies),
+            Self::Struct(ty) => ty.combine(dependencies),
+            Self::CppConst(ty) => ty.combine(dependencies),
+            Self::CppDelegate(ty) => ty.combine(dependencies),
+            Self::CppFn(ty) => ty.combine(dependencies),
+            Self::CppInterface(ty) => ty.combine(dependencies),
+            Self::CppStruct(ty) => ty.combine(dependencies),
+            Self::CppEnum(ty) => ty.combine(dependencies),
+
+            Self::IUnknown => {
+                Self::GUID.combine(dependencies);
+                Self::HRESULT.combine(dependencies);
+            }
+
+            Self::Object => {
+                Self::IUnknown.combine(dependencies);
+            }
+
+            _ => {}
         }
     }
 }

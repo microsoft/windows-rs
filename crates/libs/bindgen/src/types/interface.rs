@@ -72,9 +72,7 @@ impl Interface {
             return (Cfg::default(), quote! {});
         }
 
-        let mut dependencies = TypeMap::new();
-        self.dependencies(&mut dependencies);
-        let cfg = Cfg::new(self.def, &dependencies);
+        let cfg = Cfg::new(self.def, &self.dependencies());
         let tokens = cfg.write(writer, false);
         (cfg, tokens)
     }
@@ -339,7 +337,7 @@ impl Interface {
                 let runtime_name = format!("{type_name}");
 
                 let cfg = if writer.config.package {
-                    fn collect(interface: &Interface, dependencies: &mut TypeMap, writer: &Writer) {
+                    fn combine(interface: &Interface, dependencies: &mut TypeMap, writer: &Writer) {
                         for method in interface.get_methods(writer).iter() {
                             if let MethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);
@@ -347,12 +345,12 @@ impl Interface {
                         }
                     }
 
-                    let mut dependencies = TypeMap::new();
-                    self.dependencies(&mut dependencies);
-                    collect(self, &mut dependencies, writer);
+                    let mut dependencies = self.dependencies();
+                    combine(self, &mut dependencies, writer);
+
                     required_interfaces
                         .iter()
-                        .for_each(|interface| collect(interface, &mut dependencies, writer));
+                        .for_each(|interface| combine(interface, &mut dependencies, writer));
 
                     Cfg::new(self.def, &dependencies).write(writer, false)
                 } else {
@@ -534,32 +532,6 @@ impl Interface {
         interface_signature(self.def, &self.generics)
     }
 
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        Type::Object.dependencies(dependencies);
-
-        for interface in self.required_interfaces() {
-            Type::Interface(interface).dependencies(dependencies);
-        }
-
-        // Different specializations of Interface may have different generics...
-        for ty in &self.generics {
-            ty.dependencies(dependencies);
-        }
-
-        let is_iterable = self.type_name() == TypeName::IIterable;
-
-        for method in self.def.methods() {
-            for ty in method
-                .signature(self.def.namespace(), &self.generics)
-                .types()
-            {
-                if is_iterable || ty.is_core() {
-                    ty.dependencies(dependencies);
-                }
-            }
-        }
-    }
-
     pub fn required_interfaces(&self) -> Vec<Self> {
         fn walk(interface: &Interface, set: &mut Vec<Interface>) {
             for ty in interface
@@ -580,5 +552,33 @@ impl Interface {
         let mut set = vec![];
         walk(self, &mut set);
         set
+    }
+}
+
+impl Dependencies for Interface {
+    fn combine(&self, dependencies: &mut TypeMap) {
+        Type::Object.combine(dependencies);
+
+        for interface in self.required_interfaces() {
+            Type::Interface(interface).combine(dependencies);
+        }
+
+        // Different specializations of Interface may have different generics...
+        for ty in &self.generics {
+            ty.combine(dependencies);
+        }
+
+        let is_iterable = self.type_name() == TypeName::IIterable;
+
+        for method in self.def.methods() {
+            for ty in method
+                .signature(self.def.namespace(), &self.generics)
+                .types()
+            {
+                if is_iterable || ty.is_core() {
+                    ty.combine(dependencies);
+                }
+            }
+        }
     }
 }

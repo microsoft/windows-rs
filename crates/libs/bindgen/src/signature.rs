@@ -14,10 +14,6 @@ impl Signature {
             .fold(0, |sum, param| sum + std::cmp::max(4, param.size()))
     }
 
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        self.types().for_each(|ty| ty.dependencies(dependencies));
-    }
-
     pub fn types(&self) -> impl Iterator<Item = &Type> + '_ {
         std::iter::once(&self.return_type)
             .chain(self.params.iter().map(|param| &param.ty))
@@ -42,5 +38,11 @@ impl Signature {
         }
 
         false
+    }
+}
+
+impl Dependencies for Signature {
+    fn combine(&self, dependencies: &mut TypeMap) {
+        self.types().for_each(|ty| ty.combine(dependencies));
     }
 }

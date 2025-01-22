@@ -11,9 +11,7 @@ pub struct Method {
 impl Method {
     pub fn new(def: MethodDef, generics: &[Type]) -> Self {
         let signature = def.signature("", generics);
-
-        let mut dependencies = TypeMap::new();
-        signature.dependencies(&mut dependencies);
+        let dependencies = signature.dependencies();
 
         Self {
             def,

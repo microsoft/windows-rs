@@ -16,9 +16,7 @@ impl Delegate {
             return quote! {};
         }
 
-        let mut dependencies = TypeMap::new();
-        self.dependencies(&mut dependencies);
-        Cfg::new(self.def, &dependencies).write(writer, false)
+        Cfg::new(self.def, &self.dependencies()).write(writer, false)
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
@@ -201,15 +199,17 @@ impl Delegate {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        self.type_name().write(writer, &self.generics)
+    }
+}
+
+impl Dependencies for Delegate {
+    fn combine(&self, dependencies: &mut TypeMap) {
         dependencies.combine(&self.method().dependencies);
 
         for ty in &self.generics {
-            ty.dependencies(dependencies);
+            ty.combine(dependencies);
         }
-    }
-
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        self.type_name().write(writer, &self.generics)
     }
 }

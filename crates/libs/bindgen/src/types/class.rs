@@ -15,9 +15,7 @@ impl Class {
             return (Cfg::default(), quote! {});
         }
 
-        let mut dependencies = TypeMap::new();
-        self.dependencies(&mut dependencies);
-        let cfg = Cfg::new(self.def, &dependencies);
+        let cfg = Cfg::new(self.def, &self.dependencies());
         let tokens = cfg.write(writer, false);
         (cfg, tokens)
     }
@@ -92,10 +90,7 @@ impl Class {
                         let interface_type = interface.write_name(writer);
 
                         let cfg = if writer.config.package {
-                            let mut dependencies = TypeMap::new();
-                            interface.dependencies(&mut dependencies);
-
-                            class_cfg.difference(interface.def, &dependencies).write(writer, false)
+                            class_cfg.difference(interface.def, &interface.dependencies()).write(writer, false)
                         } else {
                             quote! {}
                         };
@@ -252,12 +247,6 @@ impl Class {
         )
     }
 
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        for interface in self.required_interfaces() {
-            Type::Interface(interface).dependencies(dependencies);
-        }
-    }
-
     fn bases(&self) -> Vec<Self> {
         let mut bases = Vec::new();
         let mut def = self.def;
@@ -354,5 +343,13 @@ impl Class {
                     .iter()
                     .any(|arg| matches!(arg.1, Value::TypeName(_)))
             })
+    }
+}
+
+impl Dependencies for Class {
+    fn combine(&self, dependencies: &mut TypeMap) {
+        for interface in self.required_interfaces() {
+            Type::Interface(interface).combine(dependencies);
+        }
     }
 }

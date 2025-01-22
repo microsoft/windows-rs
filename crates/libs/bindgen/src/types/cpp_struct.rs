@@ -51,9 +51,7 @@ impl CppStruct {
             return quote! {};
         }
 
-        let mut dependencies = TypeMap::new();
-        self.dependencies(&mut dependencies);
-        Cfg::new(self.def, &dependencies).write(writer, false)
+        Cfg::new(self.def, &self.dependencies()).write(writer, false)
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
@@ -226,21 +224,6 @@ impl CppStruct {
         tokens
     }
 
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        for field in self.def.fields() {
-            field.ty(Some(self)).dependencies(dependencies);
-        }
-
-        if let Some(attribute) = self.def.find_attribute("AlsoUsableForAttribute") {
-            if let Some((_, Value::Str(type_name))) = attribute.args().first() {
-                self.def
-                    .reader()
-                    .unwrap_full_name(self.def.namespace(), type_name)
-                    .dependencies(dependencies);
-            }
-        }
-    }
-
     pub fn is_copyable(&self) -> bool {
         if matches!(
             self.def.type_name(),
@@ -296,5 +279,22 @@ impl CppStruct {
             .map(|field| field.ty(Some(self)).align())
             .max()
             .unwrap_or(1)
+    }
+}
+
+impl Dependencies for CppStruct {
+    fn combine(&self, dependencies: &mut TypeMap) {
+        for field in self.def.fields() {
+            field.ty(Some(self)).combine(dependencies);
+        }
+
+        if let Some(attribute) = self.def.find_attribute("AlsoUsableForAttribute") {
+            if let Some((_, Value::Str(type_name))) = attribute.args().first() {
+                self.def
+                    .reader()
+                    .unwrap_full_name(self.def.namespace(), type_name)
+                    .combine(dependencies);
+            }
+        }
     }
 }
