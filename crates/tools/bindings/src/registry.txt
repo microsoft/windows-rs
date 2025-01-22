@@ -32,3 +32,9 @@
     RegQueryInfoKeyW
     RegQueryValueExW
     RegSetValueExW
+    CreateTransaction
+    INVALID_HANDLE_VALUE
+    CloseHandle
+    CommitTransaction
+    RegCreateKeyTransactedW
+    RegOpenKeyTransactedW
