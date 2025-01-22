@@ -81,7 +81,7 @@ impl Class {
             }
         );
 
-        let factories = required_interfaces.                 iter().filter_map(|interface| match interface.kind {
+        let factories = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
                 if interface.def.methods().next().is_none() {
                     None
