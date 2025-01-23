@@ -9,15 +9,16 @@ The [windows](https://crates.io/crates/windows) and [windows-sys](https://crates
 
 This repo is the home of the following crates (and other supporting crates):
 
+* [windows-sys](https://crates.io/crates/windows-sys) - Raw bindings for C-style Windows APIs.
 * [windows](https://crates.io/crates/windows) - Safer bindings including C-style APIs as well as COM and WinRT APIs.
-* [windows-bindgen](https://crates.io/crates/windows-bindgen) - Windows metadata compiler library.
-* [windows-core](https://crates.io/crates/windows-core) - Type support for the `windows` crate.
-* [windows-implement](https://crates.io/crates/windows-implement) - The `implement` macro for the `windows` crate, for implementing COM interfaces.
-* [windows-interface](https://crates.io/crates/windows-interface) - The `interface` macro for the `windows` crate, for declaring COM interfaces.
+
+* [windows-bindgen](https://crates.io/crates/windows-bindgen) - Code generator for Windows metadata.
+* [windows-core](https://crates.io/crates/windows-core) - Core type support for the Windows bindings.
 * [windows-registry](https://crates.io/crates/windows-registry) - Windows registry.
 * [windows-result](https://crates.io/crates/windows-result) - Windows error handling.
 * [windows-strings](https://crates.io/crates/windows-strings) - Windows string types.
-* [windows-sys](https://crates.io/crates/windows-sys) - Raw bindings for C-style Windows APIs.
-* [windows-targets](https://crates.io/crates/windows-targets) - Import libs for Windows.
+* [windows-link](https://crates.io/crates/windows-link) - Direct linking for Windows.
+* [windows-targets](https://crates.io/crates/windows-targets) - Import libs for Windows (and the precursor to `windows-link` for older compilers).
 * [windows-version](https://crates.io/crates/windows-version) - Windows version information.
+
 * [cppwinrt](https://crates.io/crates/cppwinrt) - Bundles the C++/WinRT compiler for use in Rust.
