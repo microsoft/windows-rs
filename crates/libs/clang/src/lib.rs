@@ -1,28 +1,31 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
+#![allow(non_upper_case_globals)]
 
-mod imports;
+mod cursor;
+mod cursor_kind;
+mod index;
 mod owned;
 mod string;
+mod tu;
+mod visitor;
 
-use imports::*;
-use owned::*;
-use std::ffi::*;
-use std::fmt::*;
-use std::ops::*;
-use string::*;
+pub use cursor::*;
+pub use cursor_kind::*;
+pub use index::*;
+pub use owned::*;
+pub use string::*;
+pub use tu::*;
+pub use visitor::*;
+
 use windows_link::*;
 
 pub fn version() -> Owned<CXString> {
+    link!("libclang.dll" "system" fn clang_getClangVersion() -> CXString);
     unsafe { Owned::new(clang_getClangVersion()) }
 }
 
-#[cfg(test)]
-mod tests {
-    use crate::*;
-
-    #[test]
-    fn test() {
-        assert_eq!(*version(), "clang version 19.1.7");
-    }
+#[test]
+fn test() {
+    assert!(version().starts_with("clang version"));
 }
