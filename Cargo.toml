@@ -9,7 +9,6 @@ members = [
     "crates/tests/bindgen",
     "crates/tests/misc/*",
     "crates/tests/winrt/*",
-    "crates/tests/libs/*",
     "crates/tools/*",
 ]
 exclude = [
@@ -34,5 +33,4 @@ windows-sys = { path = "crates/libs/sys" }
 windows-targets = { path = "crates/libs/targets" }
 windows-link = { path = "crates/libs/link" }
 windows-version = { path = "crates/libs/version" }
-windows-clang = { path = "crates/libs/clang" }
 helpers = { path = "crates/libs/helpers" }

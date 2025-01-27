@@ -1,1 +1,0 @@
-## Windows clang parser

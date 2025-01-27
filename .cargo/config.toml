@@ -1,9 +1,9 @@
 [build]
 rustflags = [
-    # "-D", "warnings",
+    "-D", "warnings",
 
     # "--cfg", "windows_debugger_visualizer",
     # "--cfg", "windows_raw_dylib",
     # "--cfg", "windows_slim_errors",
-    "-C", "target-feature=+crt-static",
+    # "-C", "target-feature=+crt-static",
 ]
