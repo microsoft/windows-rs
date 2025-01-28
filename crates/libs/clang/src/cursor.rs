@@ -45,9 +45,9 @@ impl Cursor {
         self.visit(|next, _| {
             if predicate(next) {
                 result = Some(next);
-                VisitResult::Break
+                Visit::Break
             } else {
-                VisitResult::Continue
+                Visit::Continue
             }
         });
 
@@ -56,13 +56,13 @@ impl Cursor {
 
     pub fn visit<Visitor>(&self, mut visitor: Visitor)
     where
-        Visitor: FnMut(Self, Self) -> VisitResult,
+        Visitor: FnMut(Self, Self) -> Visit,
     {
         type CXCursorVisitor = extern "system" fn(
             child: Cursor,
             parent: Cursor,
             data: *const std::ffi::c_void,
-        ) -> VisitResult;
+        ) -> Visit;
 
         link!("libclang.dll" "system" fn clang_visitChildren(_: Cursor, _: CXCursorVisitor, _: *const std::ffi::c_void) -> u32);
 
@@ -70,16 +70,16 @@ impl Cursor {
             child: Cursor,
             parent: Cursor,
             data: *const std::ffi::c_void,
-        ) -> VisitResult
+        ) -> Visit
         where
-            Visitor: FnMut(Cursor, Cursor) -> VisitResult,
+            Visitor: FnMut(Cursor, Cursor) -> Visit,
         {
             let callback: &mut Visitor = unsafe { &mut *(data as *mut _) };
             let result = (*callback)(child, parent);
 
             debug_assert!(matches!(
                 result,
-                VisitResult::Break | VisitResult::Continue | VisitResult::Recurse
+                Visit::Break | Visit::Continue | Visit::Recurse
             ));
 
             result

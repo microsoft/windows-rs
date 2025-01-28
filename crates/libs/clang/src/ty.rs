@@ -26,9 +26,9 @@ impl Type {
         self.visit(|next| {
             if predicate(next) {
                 result = Some(next);
-                VisitResult::Break
+                Visit::Break
             } else {
-                VisitResult::Continue
+                Visit::Continue
             }
         });
 
@@ -37,23 +37,20 @@ impl Type {
 
     pub fn visit<Visitor>(&self, mut visitor: Visitor)
     where
-        Visitor: FnMut(Cursor) -> VisitResult,
+        Visitor: FnMut(Cursor) -> Visit,
     {
         type CXFieldVisitor =
-            extern "system" fn(field: Cursor, data: *const std::ffi::c_void) -> VisitResult;
+            extern "system" fn(field: Cursor, data: *const std::ffi::c_void) -> Visit;
 
         link!("libclang.dll" "system" fn clang_Type_visitFields(_: Type, _: CXFieldVisitor, _: *const std::ffi::c_void) -> u32);
 
-        extern "system" fn callback<Visitor>(
-            field: Cursor,
-            data: *const std::ffi::c_void,
-        ) -> VisitResult
+        extern "system" fn callback<Visitor>(field: Cursor, data: *const std::ffi::c_void) -> Visit
         where
-            Visitor: FnMut(Cursor) -> VisitResult,
+            Visitor: FnMut(Cursor) -> Visit,
         {
             let callback: &mut Visitor = unsafe { &mut *(data as *mut _) };
             let result = (*callback)(field);
-            debug_assert!(matches!(result, VisitResult::Break | VisitResult::Continue));
+            debug_assert!(matches!(result, Visit::Break | Visit::Continue));
             result
         }
 
