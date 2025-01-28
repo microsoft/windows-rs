@@ -19,15 +19,15 @@ impl std::ops::Deref for CXString {
     }
 }
 
-impl std::fmt::Debug for CXString {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "\"{}\"", self.as_str())
-    }
-}
-
 impl PartialEq<&str> for CXString {
     fn eq(&self, other: &&str) -> bool {
         self.as_str() == *other
+    }
+}
+
+impl std::fmt::Debug for CXString {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "\"{}\"", self.as_str())
     }
 }
 
@@ -38,7 +38,7 @@ impl std::fmt::Display for CXString {
 }
 
 impl CXString {
-    fn as_str(&self) -> &str {
+    pub fn as_str(&self) -> &str {
         link!("libclang.dll" "system" fn clang_getCString(_: CXString) -> *const u8);
 
         extern "C" {

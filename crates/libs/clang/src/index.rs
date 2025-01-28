@@ -17,11 +17,7 @@ impl CXIndex {
         unsafe { Owned::new(clang_createIndex(0, 0)) }
     }
 
-    pub fn parse(
-        &self,
-        filename: &std::ffi::CStr,
-        options: u32,
-    ) -> Option<Owned<CXTranslationUnit>> {
+    pub fn tu(&self, filename: &std::ffi::CStr, options: u32) -> Option<Owned<CXTranslationUnit>> {
         link!("libclang.dll" "system" fn clang_parseTranslationUnit(_: CXIndex, _: *const i8, _: *const *const u8, _: i32, _: *const std::ffi::c_void, _: u32, _: u32) -> CXTranslationUnit);
 
         let tu = unsafe {

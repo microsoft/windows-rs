@@ -10,11 +10,25 @@ pub struct CXCursor {
 
 impl std::fmt::Debug for CXCursor {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(fmt, "{:?} {}", self.kind, self.name())
+        write!(fmt, "{:?}", (self.kind, self.name()))
     }
 }
 
 impl CXCursor {
+    pub fn name(&self) -> Owned<CXString> {
+        link!("libclang.dll" "system" fn clang_getCursorDisplayName(_: CXCursor) -> CXString);
+        unsafe { Owned::new(clang_getCursorDisplayName(*self)) }
+    }
+
+    pub fn kind(&self) -> CXCursorKind {
+        self.kind
+    }
+
+    pub fn ty(&self) -> CXType {
+        link!("libclang.dll" "system" fn clang_getCursorType(_: CXCursor) -> CXType);
+        unsafe { clang_getCursorType(*self) }
+    }
+
     pub fn visit<Visitor>(&self, mut visitor: Visitor)
     where
         Visitor: FnMut(CXCursor) -> CXChildVisitResult,
@@ -42,14 +56,5 @@ impl CXCursor {
         unsafe {
             clang_visitChildren(*self, callback::<Visitor>, &mut visitor as *mut _ as _);
         }
-    }
-
-    pub fn kind(&self) -> CXCursorKind {
-        self.kind
-    }
-
-    pub fn name(&self) -> Owned<CXString> {
-        link!("libclang.dll" "system" fn clang_getCursorDisplayName(_: CXCursor) -> CXString);
-        unsafe { Owned::new(clang_getCursorDisplayName(*self)) }
     }
 }

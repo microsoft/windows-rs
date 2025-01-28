@@ -8,7 +8,9 @@ mod index;
 mod owned;
 mod string;
 mod tu;
-mod visitor;
+mod ty;
+mod type_kind;
+mod visit;
 
 pub use cursor::*;
 pub use cursor_kind::*;
@@ -16,7 +18,9 @@ pub use index::*;
 pub use owned::*;
 pub use string::*;
 pub use tu::*;
-pub use visitor::*;
+pub use ty::*;
+pub use type_kind::*;
+pub use visit::*;
 
 use windows_link::*;
 

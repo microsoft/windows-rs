@@ -1,6 +1,27 @@
+use super::*;
+
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, PartialEq)]
 pub struct CXCursorKind(i32);
+
+impl CXCursorKind {
+    pub fn name(&self) -> Owned<CXString> {
+        link!("libclang.dll" "system" fn clang_getCursorKindSpelling(_: CXCursorKind) -> CXString);
+        unsafe { Owned::new(clang_getCursorKindSpelling(*self)) }
+    }
+}
+
+impl std::fmt::Debug for CXCursorKind {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.name())
+    }
+}
+
+impl std::fmt::Display for CXCursorKind {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(fmt, "{}", self.name())
+    }
+}
 
 pub const CXCursor_UnexposedDecl: CXCursorKind = CXCursorKind(1);
 pub const CXCursor_StructDecl: CXCursorKind = CXCursorKind(2);
