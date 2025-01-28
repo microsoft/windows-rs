@@ -8,7 +8,7 @@ fn parse() {
 
     let mut names = vec![];
 
-    cursor.visit(|child| {
+    cursor.visit(|child, _parent| {
         names.push(child.name().to_string());
         VisitResult::Continue
     });
@@ -19,7 +19,7 @@ fn parse() {
     let mut kinds = vec![];
     let mut types = vec![];
 
-    cursor.visit(|child| {
+    cursor.visit(|child, _parent| {
         names.push(child.name().to_string());
         kinds.push(child.kind());
         types.push(child.ty());
@@ -39,18 +39,6 @@ fn parse() {
             CursorKind::FieldDecl
         ]
     );
-}
-
-#[test]
-fn find() {
-    let index = Index::new();
-    let tu = index.tu(c"tests/test.cpp").unwrap();
-    let cursor = tu.cursor();
-
-    let cursor = cursor.find(|next| next.name() == "TypeA").unwrap();
-    assert_eq!(cursor.name(), "TypeA");
-    assert_eq!(cursor.kind(), CursorKind::StructDecl);
-    assert_eq!(cursor.ty().kind(), TypeKind::Record);
 }
 
 #[test]

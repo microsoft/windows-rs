@@ -40,19 +40,19 @@ impl Type {
         Visitor: FnMut(Cursor) -> VisitResult,
     {
         type CXFieldVisitor =
-            extern "system" fn(cursor: Cursor, data: *const std::ffi::c_void) -> VisitResult;
+            extern "system" fn(field: Cursor, data: *const std::ffi::c_void) -> VisitResult;
 
         link!("libclang.dll" "system" fn clang_Type_visitFields(_: Type, _: CXFieldVisitor, _: *const std::ffi::c_void) -> u32);
 
         extern "system" fn callback<Visitor>(
-            cursor: Cursor,
+            field: Cursor,
             data: *const std::ffi::c_void,
         ) -> VisitResult
         where
             Visitor: FnMut(Cursor) -> VisitResult,
         {
             let callback: &mut Visitor = unsafe { &mut *(data as *mut _) };
-            let result = (*callback)(cursor);
+            let result = (*callback)(field);
             debug_assert!(matches!(result, VisitResult::Break | VisitResult::Continue));
             result
         }

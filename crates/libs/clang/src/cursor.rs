@@ -14,6 +14,13 @@ impl std::fmt::Debug for Cursor {
     }
 }
 
+impl PartialEq for Cursor {
+    fn eq(&self, other: &Self) -> bool {
+        link!("libclang.dll" "system" fn clang_equalCursors(_: Cursor, _: Cursor) -> u32);
+        unsafe { clang_equalCursors(*self, *other) != 0 }
+    }
+}
+
 impl Cursor {
     pub fn name(&self) -> Owned<CXString> {
         link!("libclang.dll" "system" fn clang_getCursorDisplayName(_: Cursor) -> CXString);
@@ -35,7 +42,7 @@ impl Cursor {
     {
         let mut result = None;
 
-        self.visit(|next| {
+        self.visit(|next, _| {
             if predicate(next) {
                 result = Some(next);
                 VisitResult::Break
@@ -49,10 +56,10 @@ impl Cursor {
 
     pub fn visit<Visitor>(&self, mut visitor: Visitor)
     where
-        Visitor: FnMut(Self) -> VisitResult,
+        Visitor: FnMut(Self, Self) -> VisitResult,
     {
         type CXCursorVisitor = extern "system" fn(
-            cursor: Cursor,
+            child: Cursor,
             parent: Cursor,
             data: *const std::ffi::c_void,
         ) -> VisitResult;
@@ -60,15 +67,15 @@ impl Cursor {
         link!("libclang.dll" "system" fn clang_visitChildren(_: Cursor, _: CXCursorVisitor, _: *const std::ffi::c_void) -> u32);
 
         extern "system" fn callback<Visitor>(
-            cursor: Cursor,
-            _: Cursor,
+            child: Cursor,
+            parent: Cursor,
             data: *const std::ffi::c_void,
         ) -> VisitResult
         where
-            Visitor: FnMut(Cursor) -> VisitResult,
+            Visitor: FnMut(Cursor, Cursor) -> VisitResult,
         {
             let callback: &mut Visitor = unsafe { &mut *(data as *mut _) };
-            let result = (*callback)(cursor);
+            let result = (*callback)(child, parent);
 
             debug_assert!(matches!(
                 result,
