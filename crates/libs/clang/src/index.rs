@@ -17,7 +17,7 @@ impl Index {
         unsafe { Owned::new(clang_createIndex(0, 0)) }
     }
 
-    pub fn tu(&self, filename: &std::ffi::CStr, options: u32) -> Option<Owned<TranslationUnit>> {
+    pub fn tu(&self, filename: &std::ffi::CStr) -> Option<Owned<TranslationUnit>> {
         link!("libclang.dll" "system" fn clang_parseTranslationUnit(_: Index, _: *const i8, _: *const *const u8, _: i32, _: *const std::ffi::c_void, _: u32, _: u32) -> TranslationUnit);
 
         let tu = unsafe {
@@ -28,7 +28,7 @@ impl Index {
                 0,
                 std::ptr::null(),
                 0,
-                options,
+                0,
             ))
         };
 

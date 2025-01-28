@@ -25,6 +25,12 @@ impl PartialEq<&str> for CXString {
     }
 }
 
+impl PartialEq<&str> for Owned<CXString> {
+    fn eq(&self, other: &&str) -> bool {
+        self.as_str() == *other
+    }
+}
+
 impl std::fmt::Debug for CXString {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "\"{}\"", self.as_str())

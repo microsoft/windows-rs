@@ -3,7 +3,7 @@ use windows_clang::*;
 #[test]
 fn parse() {
     let index = Index::new();
-    let tu = index.tu(c"tests/test.cpp", 0).unwrap();
+    let tu = index.tu(c"tests/test.cpp").unwrap();
     let cursor = tu.cursor();
 
     let mut names = vec![];
@@ -39,6 +39,18 @@ fn parse() {
             CursorKind::FieldDecl
         ]
     );
+}
+
+#[test]
+fn find() {
+    let index = Index::new();
+    let tu = index.tu(c"tests/test.cpp").unwrap();
+    let cursor = tu.cursor();
+
+    let cursor = cursor.find(|next| next.name() == "TypeA").unwrap();
+    assert_eq!(cursor.name(), "TypeA");
+    assert_eq!(cursor.kind(), CursorKind::StructDecl);
+    assert_eq!(cursor.ty().kind(), TypeKind::Record);
 }
 
 #[test]

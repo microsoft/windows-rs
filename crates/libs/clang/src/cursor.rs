@@ -29,6 +29,24 @@ impl Cursor {
         unsafe { clang_getCursorType(*self) }
     }
 
+    pub fn find<P>(&self, mut predicate: P) -> Option<Cursor>
+    where
+        P: FnMut(Self) -> bool,
+    {
+        let mut result = None;
+
+        self.visit(|next| {
+            if predicate(next) {
+                result = Some(next);
+                VisitResult::Break
+            } else {
+                VisitResult::Continue
+            }
+        });
+
+        result
+    }
+
     pub fn visit<Visitor>(&self, mut visitor: Visitor)
     where
         Visitor: FnMut(Self) -> VisitResult,
@@ -51,10 +69,12 @@ impl Cursor {
         {
             let callback: &mut Visitor = unsafe { &mut *(data as *mut _) };
             let result = (*callback)(cursor);
-            debug_assert!(
-                matches!(result,
-                VisitResult::Break | VisitResult::Continue | VisitResult::Recurse)
-            );
+
+            debug_assert!(matches!(
+                result,
+                VisitResult::Break | VisitResult::Continue | VisitResult::Recurse
+            ));
+
             result
         }
 
