@@ -11,7 +11,24 @@ impl Free for TranslationUnit {
     }
 }
 
+impl std::fmt::Debug for TranslationUnit {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.spelling())
+    }
+}
+
+impl std::fmt::Display for TranslationUnit {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(fmt, "{}", self.spelling())
+    }
+}
+
 impl TranslationUnit {
+    pub fn spelling(&self) -> Owned<CXString> {
+        link!("libclang.dll" "system" fn clang_getTranslationUnitSpelling(_: TranslationUnit) -> CXString);
+        unsafe { Owned::new(clang_getTranslationUnitSpelling(*self)) }
+    }
+
     pub fn cursor(&self) -> Cursor {
         link!("libclang.dll" "system" fn clang_getTranslationUnitCursor(_: TranslationUnit) -> Cursor);
         unsafe { clang_getTranslationUnitCursor(*self) }

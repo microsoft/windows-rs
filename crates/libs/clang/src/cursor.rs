@@ -36,6 +36,16 @@ impl Cursor {
         unsafe { clang_getCursorType(*self) }
     }
 
+    pub fn semantic_parent(&self) -> Self {
+        link!("libclang.dll" "system" fn clang_getCursorSemanticParent(_: Cursor) -> Cursor);
+        unsafe { clang_getCursorSemanticParent(*self) }
+    }
+
+    pub fn lexical_parent(&self) -> Self {
+        link!("libclang.dll" "system" fn clang_getCursorLexicalParent(_: Cursor) -> Cursor);
+        unsafe { clang_getCursorLexicalParent(*self) }
+    }
+
     pub fn find<P>(&self, mut predicate: P) -> Option<Cursor>
     where
         P: FnMut(Self) -> bool,
