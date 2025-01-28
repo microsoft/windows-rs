@@ -2,150 +2,150 @@ use super::*;
 
 #[repr(transparent)]
 #[derive(Clone, Copy, PartialEq)]
-pub struct CXTypeKind(i32);
+pub struct TypeKind(i32);
 
-impl CXTypeKind {
-    pub fn name(&self) -> Owned<CXString> {
-        link!("libclang.dll" "system" fn clang_getTypeKindSpelling(_: CXTypeKind) -> CXString);
+impl std::fmt::Debug for TypeKind {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.spelling())
+    }
+}
+
+impl std::fmt::Display for TypeKind {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(fmt, "{}", self.spelling())
+    }
+}
+
+impl TypeKind {
+    pub fn spelling(&self) -> Owned<CXString> {
+        link!("libclang.dll" "system" fn clang_getTypeKindSpelling(_: TypeKind) -> CXString);
         unsafe { Owned::new(clang_getTypeKindSpelling(*self)) }
     }
-}
 
-impl std::fmt::Debug for CXTypeKind {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.name())
-    }
+    pub const Invalid: Self = Self(0);
+    pub const Unexposed: Self = Self(1);
+    pub const Void: Self = Self(2);
+    pub const Bool: Self = Self(3);
+    pub const Char_U: Self = Self(4);
+    pub const UChar: Self = Self(5);
+    pub const Char16: Self = Self(6);
+    pub const Char32: Self = Self(7);
+    pub const UShort: Self = Self(8);
+    pub const UInt: Self = Self(9);
+    pub const ULong: Self = Self(10);
+    pub const ULongLong: Self = Self(11);
+    pub const UInt128: Self = Self(12);
+    pub const Char_S: Self = Self(13);
+    pub const SChar: Self = Self(14);
+    pub const WChar: Self = Self(15);
+    pub const Short: Self = Self(16);
+    pub const Int: Self = Self(17);
+    pub const Long: Self = Self(18);
+    pub const LongLong: Self = Self(19);
+    pub const Int128: Self = Self(20);
+    pub const Float: Self = Self(21);
+    pub const Double: Self = Self(22);
+    pub const LongDouble: Self = Self(23);
+    pub const NullPtr: Self = Self(24);
+    pub const Overload: Self = Self(25);
+    pub const Dependent: Self = Self(26);
+    pub const ObjCId: Self = Self(27);
+    pub const ObjCClass: Self = Self(28);
+    pub const ObjCSel: Self = Self(29);
+    pub const Float128: Self = Self(30);
+    pub const Half: Self = Self(31);
+    pub const Float16: Self = Self(32);
+    pub const ShortAccum: Self = Self(33);
+    pub const Accum: Self = Self(34);
+    pub const LongAccum: Self = Self(35);
+    pub const UShortAccum: Self = Self(36);
+    pub const UAccum: Self = Self(37);
+    pub const ULongAccum: Self = Self(38);
+    pub const BFloat16: Self = Self(39);
+    pub const Ibm128: Self = Self(40);
+    pub const FirstBuiltin: Self = Self::Void;
+    pub const LastBuiltin: Self = Self::Ibm128;
+    pub const Complex: Self = Self(100);
+    pub const Pointer: Self = Self(101);
+    pub const BlockPointer: Self = Self(102);
+    pub const LValueReference: Self = Self(103);
+    pub const RValueReference: Self = Self(104);
+    pub const Record: Self = Self(105);
+    pub const Enum: Self = Self(106);
+    pub const Typedef: Self = Self(107);
+    pub const ObjCInterface: Self = Self(108);
+    pub const ObjCObjectPointer: Self = Self(109);
+    pub const FunctionNoProto: Self = Self(110);
+    pub const FunctionProto: Self = Self(111);
+    pub const ConstantArray: Self = Self(112);
+    pub const Vector: Self = Self(113);
+    pub const IncompleteArray: Self = Self(114);
+    pub const VariableArray: Self = Self(115);
+    pub const DependentSizedArray: Self = Self(116);
+    pub const MemberPointer: Self = Self(117);
+    pub const Auto: Self = Self(118);
+    pub const Elaborated: Self = Self(119);
+    pub const Pipe: Self = Self(120);
+    pub const OCLImage1dRO: Self = Self(121);
+    pub const OCLImage1dArrayRO: Self = Self(122);
+    pub const OCLImage1dBufferRO: Self = Self(123);
+    pub const OCLImage2dRO: Self = Self(124);
+    pub const OCLImage2dArrayRO: Self = Self(125);
+    pub const OCLImage2dDepthRO: Self = Self(126);
+    pub const OCLImage2dArrayDepthRO: Self = Self(127);
+    pub const OCLImage2dMSAARO: Self = Self(128);
+    pub const OCLImage2dArrayMSAARO: Self = Self(129);
+    pub const OCLImage2dMSAADepthRO: Self = Self(130);
+    pub const OCLImage2dArrayMSAADepthRO: Self = Self(131);
+    pub const OCLImage3dRO: Self = Self(132);
+    pub const OCLImage1dWO: Self = Self(133);
+    pub const OCLImage1dArrayWO: Self = Self(134);
+    pub const OCLImage1dBufferWO: Self = Self(135);
+    pub const OCLImage2dWO: Self = Self(136);
+    pub const OCLImage2dArrayWO: Self = Self(137);
+    pub const OCLImage2dDepthWO: Self = Self(138);
+    pub const OCLImage2dArrayDepthWO: Self = Self(139);
+    pub const OCLImage2dMSAAWO: Self = Self(140);
+    pub const OCLImage2dArrayMSAAWO: Self = Self(141);
+    pub const OCLImage2dMSAADepthWO: Self = Self(142);
+    pub const OCLImage2dArrayMSAADepthWO: Self = Self(143);
+    pub const OCLImage3dWO: Self = Self(144);
+    pub const OCLImage1dRW: Self = Self(145);
+    pub const OCLImage1dArrayRW: Self = Self(146);
+    pub const OCLImage1dBufferRW: Self = Self(147);
+    pub const OCLImage2dRW: Self = Self(148);
+    pub const OCLImage2dArrayRW: Self = Self(149);
+    pub const OCLImage2dDepthRW: Self = Self(150);
+    pub const OCLImage2dArrayDepthRW: Self = Self(151);
+    pub const OCLImage2dMSAARW: Self = Self(152);
+    pub const OCLImage2dArrayMSAARW: Self = Self(153);
+    pub const OCLImage2dMSAADepthRW: Self = Self(154);
+    pub const OCLImage2dArrayMSAADepthRW: Self = Self(155);
+    pub const OCLImage3dRW: Self = Self(156);
+    pub const OCLSampler: Self = Self(157);
+    pub const OCLEvent: Self = Self(158);
+    pub const OCLQueue: Self = Self(159);
+    pub const OCLReserveID: Self = Self(160);
+    pub const ObjCObject: Self = Self(161);
+    pub const ObjCTypeParam: Self = Self(162);
+    pub const Attributed: Self = Self(163);
+    pub const OCLIntelSubgroupAVCMcePayload: Self = Self(164);
+    pub const OCLIntelSubgroupAVCImePayload: Self = Self(165);
+    pub const OCLIntelSubgroupAVCRefPayload: Self = Self(166);
+    pub const OCLIntelSubgroupAVCSicPayload: Self = Self(167);
+    pub const OCLIntelSubgroupAVCMceResult: Self = Self(168);
+    pub const OCLIntelSubgroupAVCImeResult: Self = Self(169);
+    pub const OCLIntelSubgroupAVCRefResult: Self = Self(170);
+    pub const OCLIntelSubgroupAVCSicResult: Self = Self(171);
+    pub const OCLIntelSubgroupAVCImeResultSingleReferenceStreamout: Self = Self(172);
+    pub const OCLIntelSubgroupAVCImeResultDualReferenceStreamout: Self = Self(173);
+    pub const OCLIntelSubgroupAVCImeSingleReferenceStreamin: Self = Self(174);
+    pub const OCLIntelSubgroupAVCImeDualReferenceStreamin: Self = Self(175);
+    pub const OCLIntelSubgroupAVCImeResultSingleRefStreamout: Self = Self(172);
+    pub const OCLIntelSubgroupAVCImeResultDualRefStreamout: Self = Self(173);
+    pub const OCLIntelSubgroupAVCImeSingleRefStreamin: Self = Self(174);
+    pub const OCLIntelSubgroupAVCImeDualRefStreamin: Self = Self(175);
+    pub const ExtVector: Self = Self(176);
+    pub const Atomic: Self = Self(177);
+    pub const BTFTagAttributed: Self = Self(178);
 }
-
-impl std::fmt::Display for CXTypeKind {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(fmt, "{}", self.name())
-    }
-}
-
-pub const CXType_Invalid: CXTypeKind = CXTypeKind(0);
-pub const CXType_Unexposed: CXTypeKind = CXTypeKind(1);
-pub const CXType_Void: CXTypeKind = CXTypeKind(2);
-pub const CXType_Bool: CXTypeKind = CXTypeKind(3);
-pub const CXType_Char_U: CXTypeKind = CXTypeKind(4);
-pub const CXType_UChar: CXTypeKind = CXTypeKind(5);
-pub const CXType_Char16: CXTypeKind = CXTypeKind(6);
-pub const CXType_Char32: CXTypeKind = CXTypeKind(7);
-pub const CXType_UShort: CXTypeKind = CXTypeKind(8);
-pub const CXType_UInt: CXTypeKind = CXTypeKind(9);
-pub const CXType_ULong: CXTypeKind = CXTypeKind(10);
-pub const CXType_ULongLong: CXTypeKind = CXTypeKind(11);
-pub const CXType_UInt128: CXTypeKind = CXTypeKind(12);
-pub const CXType_Char_S: CXTypeKind = CXTypeKind(13);
-pub const CXType_SChar: CXTypeKind = CXTypeKind(14);
-pub const CXType_WChar: CXTypeKind = CXTypeKind(15);
-pub const CXType_Short: CXTypeKind = CXTypeKind(16);
-pub const CXType_Int: CXTypeKind = CXTypeKind(17);
-pub const CXType_Long: CXTypeKind = CXTypeKind(18);
-pub const CXType_LongLong: CXTypeKind = CXTypeKind(19);
-pub const CXType_Int128: CXTypeKind = CXTypeKind(20);
-pub const CXType_Float: CXTypeKind = CXTypeKind(21);
-pub const CXType_Double: CXTypeKind = CXTypeKind(22);
-pub const CXType_LongDouble: CXTypeKind = CXTypeKind(23);
-pub const CXType_NullPtr: CXTypeKind = CXTypeKind(24);
-pub const CXType_Overload: CXTypeKind = CXTypeKind(25);
-pub const CXType_Dependent: CXTypeKind = CXTypeKind(26);
-pub const CXType_ObjCId: CXTypeKind = CXTypeKind(27);
-pub const CXType_ObjCClass: CXTypeKind = CXTypeKind(28);
-pub const CXType_ObjCSel: CXTypeKind = CXTypeKind(29);
-pub const CXType_Float128: CXTypeKind = CXTypeKind(30);
-pub const CXType_Half: CXTypeKind = CXTypeKind(31);
-pub const CXType_Float16: CXTypeKind = CXTypeKind(32);
-pub const CXType_ShortAccum: CXTypeKind = CXTypeKind(33);
-pub const CXType_Accum: CXTypeKind = CXTypeKind(34);
-pub const CXType_LongAccum: CXTypeKind = CXTypeKind(35);
-pub const CXType_UShortAccum: CXTypeKind = CXTypeKind(36);
-pub const CXType_UAccum: CXTypeKind = CXTypeKind(37);
-pub const CXType_ULongAccum: CXTypeKind = CXTypeKind(38);
-pub const CXType_BFloat16: CXTypeKind = CXTypeKind(39);
-pub const CXType_Ibm128: CXTypeKind = CXTypeKind(40);
-pub const CXType_FirstBuiltin: CXTypeKind = CXType_Void;
-pub const CXType_LastBuiltin: CXTypeKind = CXType_Ibm128;
-pub const CXType_Complex: CXTypeKind = CXTypeKind(100);
-pub const CXType_Pointer: CXTypeKind = CXTypeKind(101);
-pub const CXType_BlockPointer: CXTypeKind = CXTypeKind(102);
-pub const CXType_LValueReference: CXTypeKind = CXTypeKind(103);
-pub const CXType_RValueReference: CXTypeKind = CXTypeKind(104);
-pub const CXType_Record: CXTypeKind = CXTypeKind(105);
-pub const CXType_Enum: CXTypeKind = CXTypeKind(106);
-pub const CXType_Typedef: CXTypeKind = CXTypeKind(107);
-pub const CXType_ObjCInterface: CXTypeKind = CXTypeKind(108);
-pub const CXType_ObjCObjectPointer: CXTypeKind = CXTypeKind(109);
-pub const CXType_FunctionNoProto: CXTypeKind = CXTypeKind(110);
-pub const CXType_FunctionProto: CXTypeKind = CXTypeKind(111);
-pub const CXType_ConstantArray: CXTypeKind = CXTypeKind(112);
-pub const CXType_Vector: CXTypeKind = CXTypeKind(113);
-pub const CXType_IncompleteArray: CXTypeKind = CXTypeKind(114);
-pub const CXType_VariableArray: CXTypeKind = CXTypeKind(115);
-pub const CXType_DependentSizedArray: CXTypeKind = CXTypeKind(116);
-pub const CXType_MemberPointer: CXTypeKind = CXTypeKind(117);
-pub const CXType_Auto: CXTypeKind = CXTypeKind(118);
-pub const CXType_Elaborated: CXTypeKind = CXTypeKind(119);
-pub const CXType_Pipe: CXTypeKind = CXTypeKind(120);
-pub const CXType_OCLImage1dRO: CXTypeKind = CXTypeKind(121);
-pub const CXType_OCLImage1dArrayRO: CXTypeKind = CXTypeKind(122);
-pub const CXType_OCLImage1dBufferRO: CXTypeKind = CXTypeKind(123);
-pub const CXType_OCLImage2dRO: CXTypeKind = CXTypeKind(124);
-pub const CXType_OCLImage2dArrayRO: CXTypeKind = CXTypeKind(125);
-pub const CXType_OCLImage2dDepthRO: CXTypeKind = CXTypeKind(126);
-pub const CXType_OCLImage2dArrayDepthRO: CXTypeKind = CXTypeKind(127);
-pub const CXType_OCLImage2dMSAARO: CXTypeKind = CXTypeKind(128);
-pub const CXType_OCLImage2dArrayMSAARO: CXTypeKind = CXTypeKind(129);
-pub const CXType_OCLImage2dMSAADepthRO: CXTypeKind = CXTypeKind(130);
-pub const CXType_OCLImage2dArrayMSAADepthRO: CXTypeKind = CXTypeKind(131);
-pub const CXType_OCLImage3dRO: CXTypeKind = CXTypeKind(132);
-pub const CXType_OCLImage1dWO: CXTypeKind = CXTypeKind(133);
-pub const CXType_OCLImage1dArrayWO: CXTypeKind = CXTypeKind(134);
-pub const CXType_OCLImage1dBufferWO: CXTypeKind = CXTypeKind(135);
-pub const CXType_OCLImage2dWO: CXTypeKind = CXTypeKind(136);
-pub const CXType_OCLImage2dArrayWO: CXTypeKind = CXTypeKind(137);
-pub const CXType_OCLImage2dDepthWO: CXTypeKind = CXTypeKind(138);
-pub const CXType_OCLImage2dArrayDepthWO: CXTypeKind = CXTypeKind(139);
-pub const CXType_OCLImage2dMSAAWO: CXTypeKind = CXTypeKind(140);
-pub const CXType_OCLImage2dArrayMSAAWO: CXTypeKind = CXTypeKind(141);
-pub const CXType_OCLImage2dMSAADepthWO: CXTypeKind = CXTypeKind(142);
-pub const CXType_OCLImage2dArrayMSAADepthWO: CXTypeKind = CXTypeKind(143);
-pub const CXType_OCLImage3dWO: CXTypeKind = CXTypeKind(144);
-pub const CXType_OCLImage1dRW: CXTypeKind = CXTypeKind(145);
-pub const CXType_OCLImage1dArrayRW: CXTypeKind = CXTypeKind(146);
-pub const CXType_OCLImage1dBufferRW: CXTypeKind = CXTypeKind(147);
-pub const CXType_OCLImage2dRW: CXTypeKind = CXTypeKind(148);
-pub const CXType_OCLImage2dArrayRW: CXTypeKind = CXTypeKind(149);
-pub const CXType_OCLImage2dDepthRW: CXTypeKind = CXTypeKind(150);
-pub const CXType_OCLImage2dArrayDepthRW: CXTypeKind = CXTypeKind(151);
-pub const CXType_OCLImage2dMSAARW: CXTypeKind = CXTypeKind(152);
-pub const CXType_OCLImage2dArrayMSAARW: CXTypeKind = CXTypeKind(153);
-pub const CXType_OCLImage2dMSAADepthRW: CXTypeKind = CXTypeKind(154);
-pub const CXType_OCLImage2dArrayMSAADepthRW: CXTypeKind = CXTypeKind(155);
-pub const CXType_OCLImage3dRW: CXTypeKind = CXTypeKind(156);
-pub const CXType_OCLSampler: CXTypeKind = CXTypeKind(157);
-pub const CXType_OCLEvent: CXTypeKind = CXTypeKind(158);
-pub const CXType_OCLQueue: CXTypeKind = CXTypeKind(159);
-pub const CXType_OCLReserveID: CXTypeKind = CXTypeKind(160);
-pub const CXType_ObjCObject: CXTypeKind = CXTypeKind(161);
-pub const CXType_ObjCTypeParam: CXTypeKind = CXTypeKind(162);
-pub const CXType_Attributed: CXTypeKind = CXTypeKind(163);
-pub const CXType_OCLIntelSubgroupAVCMcePayload: CXTypeKind = CXTypeKind(164);
-pub const CXType_OCLIntelSubgroupAVCImePayload: CXTypeKind = CXTypeKind(165);
-pub const CXType_OCLIntelSubgroupAVCRefPayload: CXTypeKind = CXTypeKind(166);
-pub const CXType_OCLIntelSubgroupAVCSicPayload: CXTypeKind = CXTypeKind(167);
-pub const CXType_OCLIntelSubgroupAVCMceResult: CXTypeKind = CXTypeKind(168);
-pub const CXType_OCLIntelSubgroupAVCImeResult: CXTypeKind = CXTypeKind(169);
-pub const CXType_OCLIntelSubgroupAVCRefResult: CXTypeKind = CXTypeKind(170);
-pub const CXType_OCLIntelSubgroupAVCSicResult: CXTypeKind = CXTypeKind(171);
-pub const CXType_OCLIntelSubgroupAVCImeResultSingleReferenceStreamout: CXTypeKind = CXTypeKind(172);
-pub const CXType_OCLIntelSubgroupAVCImeResultDualReferenceStreamout: CXTypeKind = CXTypeKind(173);
-pub const CXType_OCLIntelSubgroupAVCImeSingleReferenceStreamin: CXTypeKind = CXTypeKind(174);
-pub const CXType_OCLIntelSubgroupAVCImeDualReferenceStreamin: CXTypeKind = CXTypeKind(175);
-pub const CXType_OCLIntelSubgroupAVCImeResultSingleRefStreamout: CXTypeKind = CXTypeKind(172);
-pub const CXType_OCLIntelSubgroupAVCImeResultDualRefStreamout: CXTypeKind = CXTypeKind(173);
-pub const CXType_OCLIntelSubgroupAVCImeSingleRefStreamin: CXTypeKind = CXTypeKind(174);
-pub const CXType_OCLIntelSubgroupAVCImeDualRefStreamin: CXTypeKind = CXTypeKind(175);
-pub const CXType_ExtVector: CXTypeKind = CXTypeKind(176);
-pub const CXType_Atomic: CXTypeKind = CXTypeKind(177);
-pub const CXType_BTFTagAttributed: CXTypeKind = CXTypeKind(178);
