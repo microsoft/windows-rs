@@ -2,9 +2,19 @@
 --out crates/libs/windows
 --package --no-comment --no-allow
 --rustfmt max_width=800,newline_style=Unix
+--reference windows_foundation,flat,Windows.Foundation
 
 --filter
     Windows
+
+    !IAsyncAction
+    !IAsyncActionWithProgress
+    !IAsyncOperation
+    !IAsyncOperationWithProgress
+    !AsyncStatus
+    !EventHandler
+    !IAsyncInfo
+
     !Windows.AI.MachineLearning.Preview
     !Windows.ApplicationModel.SocialInfo
     !Windows.ApplicationModel.Store
