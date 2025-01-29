@@ -1,3 +1,3 @@
 struct Type {
     int field;
-}
+};

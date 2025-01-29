@@ -10,3 +10,6 @@ doctest = false
 
 [dependencies.windows-clang]
 workspace = true
+
+[build-dependencies.cc]
+version = "1.0"
