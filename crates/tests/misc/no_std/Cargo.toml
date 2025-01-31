@@ -42,7 +42,13 @@ path = "../../../libs/windows"
 default-features = false
 features = [
     "Foundation_Collections",
+    "Foundation_Numerics",
     "Win32_Graphics_Direct3D",
+    "Win32_Networking_WinSock",
+    "Win32_System_Com_StructuredStorage",
+    "Win32_System_Ole",
+    "Win32_System_Rpc",
+    "Win32_System_Variant",
 ]
 
 [lints]
