@@ -1,2 +1,2 @@
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[cfg(all(feature = "std", feature = "Win32_Networking_WinSock"))]
 mod WinSock;
