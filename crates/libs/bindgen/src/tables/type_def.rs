@@ -56,6 +56,10 @@ impl TypeDef {
         self.file().equal_range(2, self.index() + 1).next()
     }
 
+    pub fn nested(&self) -> Option<NestedClass> {
+        self.file().equal_range(0, self.index() + 1).next()
+    }
+
     pub fn underlying_type(&self) -> Type {
         let field = self.fields().next().unwrap();
         if let Some(constant) = field.constant() {

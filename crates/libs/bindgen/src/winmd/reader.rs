@@ -29,12 +29,12 @@ impl Reader {
             }
 
             for def in file.table::<TypeDef>() {
-                let type_name = def.type_name();
-
-                if type_name.namespace().is_empty() {
+                if def.nested().is_some() {
                     // This skips the nested types as we've already retrieved them.
                     continue;
                 }
+
+                let type_name = def.type_name();
 
                 if Type::remap(type_name) != Remap::None {
                     continue;
@@ -67,12 +67,12 @@ impl Reader {
                         }
                     };
 
-                    insert(types, type_name.1, ty);
+                    insert(types, type_name.name(), ty);
                 } else {
                     match category {
                         Category::Attribute => continue,
                         Category::Class => {
-                            if type_name.1 == "Apis" {
+                            if type_name.name() == "Apis" {
                                 for method in def.methods() {
                                     if let Some(map) = method.impl_map() {
                                         // Skip inline and ordinal functions.
@@ -88,7 +88,7 @@ impl Reader {
                                         types,
                                         name,
                                         Type::CppFn(CppFn {
-                                            namespace: def.namespace(),
+                                            namespace: type_name.namespace(),
                                             method,
                                         }),
                                     );
@@ -100,7 +100,7 @@ impl Reader {
                                         types,
                                         name,
                                         Type::CppConst(CppConst {
-                                            namespace: def.namespace(),
+                                            namespace: type_name.namespace(),
                                             field,
                                         }),
                                     );
@@ -108,10 +108,14 @@ impl Reader {
                             }
                         }
                         Category::Delegate => {
-                            insert(types, type_name.1, Type::CppDelegate(CppDelegate { def }));
+                            insert(
+                                types,
+                                type_name.name(),
+                                Type::CppDelegate(CppDelegate { def }),
+                            );
                         }
                         Category::Enum => {
-                            insert(types, type_name.1, Type::CppEnum(CppEnum { def }));
+                            insert(types, type_name.name(), Type::CppEnum(CppEnum { def }));
 
                             if !def.has_attribute("ScopedEnumAttribute") {
                                 for field in def.fields() {
@@ -121,7 +125,7 @@ impl Reader {
                                             types,
                                             name,
                                             Type::CppConst(CppConst {
-                                                namespace: def.namespace(),
+                                                namespace: type_name.namespace(),
                                                 field,
                                             }),
                                         );
@@ -130,7 +134,11 @@ impl Reader {
                             }
                         }
                         Category::Interface => {
-                            insert(types, type_name.1, Type::CppInterface(CppInterface { def }));
+                            insert(
+                                types,
+                                type_name.name(),
+                                Type::CppInterface(CppInterface { def }),
+                            );
                         }
                         Category::Struct => {
                             fn make(
@@ -147,10 +155,17 @@ impl Reader {
                                 for (index, def) in
                                     nested.get(&def).into_iter().flatten().enumerate()
                                 {
-                                    ty.nested.insert(
-                                        def.name(),
-                                        make(*def, format!("{}_{index}", ty.name).leak(), nested),
-                                    );
+                                    // Only nested structs are supported. https://github.com/microsoft/windows-rs/issues/3468
+                                    if Category::new(*def) == Category::Struct {
+                                        ty.nested.insert(
+                                            def.name(),
+                                            make(
+                                                *def,
+                                                format!("{}_{index}", ty.name).leak(),
+                                                nested,
+                                            ),
+                                        );
+                                    }
                                 }
 
                                 ty
@@ -158,8 +173,8 @@ impl Reader {
 
                             insert(
                                 types,
-                                type_name.1,
-                                Type::CppStruct(make(def, def.name(), &nested)),
+                                type_name.name(),
+                                Type::CppStruct(make(def, type_name.name(), &nested)),
                             );
                         }
                     };
@@ -189,6 +204,7 @@ impl Reader {
     }
 }
 
+#[derive(PartialEq)]
 enum Category {
     Interface,
     Class,
