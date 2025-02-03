@@ -29,7 +29,9 @@ impl Reader {
             }
 
             for def in file.table::<TypeDef>() {
-                if def.nested().is_some() {
+                let flags = def.flags();
+
+                if flags.is_nested() || def.nested().is_some() {
                     // This skips the nested types as we've already retrieved them.
                     continue;
                 }
@@ -43,7 +45,7 @@ impl Reader {
                 let types = reader.0.entry(type_name.namespace()).or_default();
                 let category = Category::new(def);
 
-                if def.flags().contains(TypeAttributes::WindowsRuntime) {
+                if flags.contains(TypeAttributes::WindowsRuntime) {
                     let ty = match category {
                         Category::Attribute => continue,
                         Category::Class => Type::Class(Class { def }),
