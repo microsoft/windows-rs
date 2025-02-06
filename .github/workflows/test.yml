@@ -173,6 +173,8 @@ jobs:
         run:  cargo test -p test_cfg_generic --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_class_hierarchy
         run:  cargo test -p test_class_hierarchy --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_collection_interop
+        run:  cargo test -p test_collection_interop --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_collections
         run:  cargo test -p test_collections --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_component
@@ -257,10 +259,10 @@ jobs:
         run:  cargo test -p test_readme --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_ref_params
         run:  cargo test -p test_ref_params --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_reference
-        run:  cargo test -p test_reference --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_reference
+        run:  cargo test -p test_reference --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reference_client
         run:  cargo test -p test_reference_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reference_float
@@ -359,10 +361,10 @@ jobs:
         run:  cargo test -p windows_i686_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_x86_64_gnu
         run:  cargo test -p windows_x86_64_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test windows_x86_64_gnullvm
-        run:  cargo test -p windows_x86_64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test windows_x86_64_gnullvm
+        run:  cargo test -p windows_x86_64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_x86_64_msvc
         run:  cargo test -p windows_x86_64_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Check diff

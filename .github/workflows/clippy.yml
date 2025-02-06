@@ -147,6 +147,8 @@ jobs:
         run:  cargo clippy -p test_cfg_generic
       - name: Clippy test_class_hierarchy
         run:  cargo clippy -p test_class_hierarchy
+      - name: Clippy test_collection_interop
+        run:  cargo clippy -p test_collection_interop
       - name: Clippy test_collections
         run:  cargo clippy -p test_collections
       - name: Clippy test_component
