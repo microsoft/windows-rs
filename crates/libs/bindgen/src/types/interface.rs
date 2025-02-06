@@ -461,7 +461,11 @@ impl Interface {
                         type Item = T;
 
                         fn next(&mut self) -> Option<Self::Item> {
-                            let result = self.Current().ok();
+                            let result = if self.HasCurrent().unwrap_or(false) {
+                                self.Current().ok()
+                            } else {
+                                None
+                            };
 
                             if result.is_some() {
                                 self.MoveNext().ok()?;
