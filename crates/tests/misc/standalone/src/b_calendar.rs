@@ -1162,7 +1162,7 @@ pub struct ICalendar_Vtbl {
     ) -> windows_core::HRESULT,
     pub SetToMin: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetToMax: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    get_Languages: usize,
+    Languages: usize,
     pub NumeralSystem: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
@@ -1286,7 +1286,7 @@ pub struct ICalendar_Vtbl {
         i32,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_DayOfWeek: usize,
+    DayOfWeek: usize,
     pub DayOfWeekAsFullString: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
