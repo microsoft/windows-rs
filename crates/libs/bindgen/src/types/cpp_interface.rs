@@ -3,7 +3,7 @@ use super::*;
 #[derive(Clone, Debug)]
 pub enum CppMethodOrName {
     Method(CppMethod),
-    Name(&'static str),
+    Name(MethodDef),
 }
 
 #[derive(Clone, Debug, Hash, PartialEq, Eq)]
@@ -38,7 +38,7 @@ impl CppInterface {
                 if method.dependencies.included(writer.config) {
                     CppMethodOrName::Method(method)
                 } else {
-                    CppMethodOrName::Name(method.def.name())
+                    CppMethodOrName::Name(method.def)
                 }
             })
             .collect()
@@ -104,8 +104,8 @@ impl CppInterface {
                         }
                     }
                 }
-                CppMethodOrName::Name(name) => {
-                    let name = to_ident(name);
+                CppMethodOrName::Name(method) => {
+                    let name = names.add(*method);
                     quote! { #name: usize, }
                 }
             });
@@ -256,8 +256,8 @@ impl CppInterface {
                             quote! { #name: #name::<Identity>, }
                         }
                     }
-                    CppMethodOrName::Name(name) => {
-                        let name = to_ident(name);
+                    CppMethodOrName::Name(method) => {
+                        let name = names.add(*method);
                         quote! { #name: 0, }
                     }
                 })
