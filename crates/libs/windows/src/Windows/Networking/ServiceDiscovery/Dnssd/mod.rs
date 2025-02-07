@@ -140,14 +140,14 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(feature = "Networking_Sockets")]
-    pub fn RegisterStreamSocketListenerAsync1<P0>(&self, socket: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
+    pub fn RegisterStreamSocketListenerAsync<P0>(&self, socket: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
     where
         P0: windows_core::Param<super::super::Sockets::StreamSocketListener>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterStreamSocketListenerAsync1)(windows_core::Interface::as_raw(this), socket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegisterStreamSocketListenerAsync)(windows_core::Interface::as_raw(this), socket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
@@ -163,14 +163,14 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(feature = "Networking_Sockets")]
-    pub fn RegisterDatagramSocketAsync1<P0>(&self, socket: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
+    pub fn RegisterDatagramSocketAsync<P0>(&self, socket: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
     where
         P0: windows_core::Param<super::super::Sockets::DatagramSocket>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterDatagramSocketAsync1)(windows_core::Interface::as_raw(this), socket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegisterDatagramSocketAsync)(windows_core::Interface::as_raw(this), socket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
@@ -425,17 +425,17 @@ pub struct IDnssdServiceInstance_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     TextAttributes: usize,
     #[cfg(feature = "Networking_Sockets")]
-    pub RegisterStreamSocketListenerAsync1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RegisterStreamSocketListenerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))]
-    RegisterStreamSocketListenerAsync1: usize,
+    RegisterStreamSocketListenerAsync: usize,
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
     pub RegisterStreamSocketListenerAsync2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Networking_Connectivity", feature = "Networking_Sockets")))]
     RegisterStreamSocketListenerAsync2: usize,
     #[cfg(feature = "Networking_Sockets")]
-    pub RegisterDatagramSocketAsync1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RegisterDatagramSocketAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))]
-    RegisterDatagramSocketAsync1: usize,
+    RegisterDatagramSocketAsync: usize,
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
     pub RegisterDatagramSocketAsync2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Networking_Connectivity", feature = "Networking_Sockets")))]
