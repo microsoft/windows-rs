@@ -256,14 +256,18 @@ jobs:
         run:  cargo test -p test_noexcept --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_not_dll
         run:  cargo test -p test_not_dll --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_overloads
+        run:  cargo test -p test_overloads --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_overloads_client
+        run:  cargo test -p test_overloads_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_query_signature
         run:  cargo test -p test_query_signature --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_readme
         run:  cargo test -p test_readme --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_ref_params
         run:  cargo test -p test_ref_params --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_reference
         run:  cargo test -p test_reference --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reference_client
@@ -360,12 +364,12 @@ jobs:
         run:  cargo test -p windows_i686_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_i686_gnullvm
         run:  cargo test -p windows_i686_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test windows_i686_msvc
         run:  cargo test -p windows_i686_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_x86_64_gnu
         run:  cargo test -p windows_x86_64_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test windows_x86_64_gnullvm
         run:  cargo test -p windows_x86_64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_x86_64_msvc
