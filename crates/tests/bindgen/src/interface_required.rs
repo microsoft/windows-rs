@@ -89,8 +89,8 @@ impl IAsyncAction_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IAsyncAction, OFFSET>(),
-            put_Completed: 0,
-            get_Completed: 0,
+            SetCompleted: 0,
+            Completed: 0,
             GetResults: GetResults::<Identity, OFFSET>,
         }
     }
@@ -101,8 +101,8 @@ impl IAsyncAction_Vtbl {
 #[repr(C)]
 pub struct IAsyncAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    put_Completed: usize,
-    get_Completed: usize,
+    SetCompleted: usize,
+    Completed: usize,
     pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -221,7 +221,7 @@ impl IAsyncInfo_Vtbl {
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IAsyncInfo, OFFSET>(),
             Id: Id::<Identity, OFFSET>,
-            get_Status: 0,
+            Status: 0,
             ErrorCode: ErrorCode::<Identity, OFFSET>,
             Cancel: Cancel::<Identity, OFFSET>,
             Close: Close::<Identity, OFFSET>,
@@ -235,7 +235,7 @@ impl IAsyncInfo_Vtbl {
 pub struct IAsyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    get_Status: usize,
+    Status: usize,
     pub ErrorCode: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut windows_core::HRESULT,

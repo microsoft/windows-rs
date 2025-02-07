@@ -159,7 +159,7 @@ pub mod Windows {
                         OFFSET,
                     >(),
                     Capacity: Capacity::<Identity, OFFSET>,
-                    add_Closed: 0,
+                    Closed: 0,
                     RemoveClosed: RemoveClosed::<Identity, OFFSET>,
                 }
             }
@@ -174,7 +174,7 @@ pub mod Windows {
                 *mut core::ffi::c_void,
                 *mut u32,
             ) -> windows_core::HRESULT,
-            add_Closed: usize,
+            Closed: usize,
             pub RemoveClosed:
                 unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
         }
