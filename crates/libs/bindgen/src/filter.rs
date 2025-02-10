@@ -4,6 +4,7 @@ use super::*;
 pub struct Filter(Vec<(String, bool)>);
 
 impl Filter {
+    #[track_caller]
     pub fn new(reader: &Reader, include: &[&str], exclude: &[&str]) -> Self {
         let mut rules = vec![];
 
@@ -68,6 +69,7 @@ impl Filter {
     }
 }
 
+#[track_caller]
 fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, include: bool) {
     if reader.contains_key(filter) {
         rules.push((filter.to_string(), include));

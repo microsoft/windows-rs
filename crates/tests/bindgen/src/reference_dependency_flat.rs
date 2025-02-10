@@ -150,7 +150,7 @@ impl IMemoryBufferReference_Vtbl {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IMemoryBufferReference, OFFSET>(
             ),
             Capacity: Capacity::<Identity, OFFSET>,
-            add_Closed: 0,
+            Closed: 0,
             RemoveClosed: RemoveClosed::<Identity, OFFSET>,
         }
     }
@@ -163,7 +163,7 @@ pub struct IMemoryBufferReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Capacity:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    add_Closed: usize,
+    Closed: usize,
     pub RemoveClosed:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }

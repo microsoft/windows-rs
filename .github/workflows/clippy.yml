@@ -227,6 +227,10 @@ jobs:
         run:  cargo clippy -p test_noexcept
       - name: Clippy test_not_dll
         run:  cargo clippy -p test_not_dll
+      - name: Clippy test_overloads
+        run:  cargo clippy -p test_overloads
+      - name: Clippy test_overloads_client
+        run:  cargo clippy -p test_overloads_client
       - name: Clippy test_query_signature
         run:  cargo clippy -p test_query_signature
       - name: Clippy test_readme

@@ -1,0 +1,27 @@
+[package]
+name = "test_overloads_client"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[build-dependencies.windows-bindgen]
+workspace = true
+
+[dependencies.windows-core]
+workspace = true
+
+[dependencies.windows]
+workspace = true
+features = [
+    "Foundation",
+    "Win32_Foundation",
+]
+
+# The build needs the output (.dll) of the component. This causes a warning about lack of linkage target.
+# Cargo doesn't understand cdylib targets. https://github.com/rust-lang/cargo/issues/7825
+[dependencies.test_overloads]
+path = "../overloads"

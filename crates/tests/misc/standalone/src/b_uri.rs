@@ -146,7 +146,7 @@ pub struct IUriRuntimeClass_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_QueryParsed: usize,
+    QueryParsed: usize,
     pub RawUri: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,

@@ -12,7 +12,7 @@ pub enum InterfaceKind {
 #[derive(Clone, Debug)]
 pub enum MethodOrName {
     Method(Method),
-    Name(&'static str),
+    Name(MethodDef),
 }
 
 #[derive(Clone, Debug)]
@@ -61,7 +61,7 @@ impl Interface {
                 if method.dependencies.included(writer.config) {
                     MethodOrName::Method(method)
                 } else {
-                    MethodOrName::Name(method.def.name())
+                    MethodOrName::Name(method.def)
                 }
             })
             .collect()
@@ -120,8 +120,8 @@ impl Interface {
                         }
                     }
                 }
-                MethodOrName::Name(name) => {
-                    let name = to_ident(name);
+                MethodOrName::Name(method) => {
+                    let name = virtual_names.add(*method);
                     quote! { #name: usize, }
                 }
             });
@@ -373,8 +373,8 @@ impl Interface {
                             let name = names.add(method.def);
                             quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
                         }
-                        MethodOrName::Name(name) => {
-                            let name = to_ident(name);
+                        MethodOrName::Name(method) => {
+                            let name = names.add(*method);
                             quote! { #name: 0, }
                         }
                     })

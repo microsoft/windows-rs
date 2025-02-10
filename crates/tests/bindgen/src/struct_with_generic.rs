@@ -962,7 +962,7 @@ impl IPropertyValue_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IPropertyValue, OFFSET>(),
-            get_Type: 0,
+            Type: 0,
             IsNumericScalar: IsNumericScalar::<Identity, OFFSET>,
             GetUInt8: GetUInt8::<Identity, OFFSET>,
             GetInt16: GetInt16::<Identity, OFFSET>,
@@ -1010,7 +1010,7 @@ impl IPropertyValue_Vtbl {
 #[repr(C)]
 pub struct IPropertyValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Type: usize,
+    Type: usize,
     pub IsNumericScalar:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetUInt8:
