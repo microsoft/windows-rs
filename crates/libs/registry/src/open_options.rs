@@ -1,10 +1,10 @@
 use super::*;
 
 /// Options and flags used to configure how a registry key is opened.
+#[derive(Debug)]
 pub struct OpenOptions<'a> {
     parent: &'a Key,
-    read: bool,
-    write: bool,
+    access: u32,
     create: bool,
     transaction: Option<&'a Transaction>,
 }
@@ -13,28 +13,33 @@ impl<'a> OpenOptions<'a> {
     pub(crate) fn new(parent: &'a Key) -> Self {
         Self {
             parent,
-            read: false,
-            write: false,
+            access: 0,
             create: false,
             transaction: None,
         }
     }
 
     /// Sets the option for read access.
-    pub fn read(&mut self, read: bool) -> &mut Self {
-        self.read = read;
+    pub fn read(&mut self) -> &mut Self {
+        self.access |= KEY_READ;
         self
     }
 
     /// Sets the option for write access.
-    pub fn write(&mut self, write: bool) -> &mut Self {
-        self.write = write;
+    pub fn write(&mut self) -> &mut Self {
+        self.access |= KEY_WRITE;
+        self
+    }
+
+    /// Sets additional access rights.
+    pub fn access(&mut self, access: u32) -> &mut Self {
+        self.access |= access;
         self
     }
 
     /// Sets the option to create a new registry key, or open it if it already exists.
-    pub fn create(&mut self, create: bool) -> &mut Self {
-        self.create = create;
+    pub fn create(&mut self) -> &mut Self {
+        self.create = true;
         self
     }
 
@@ -46,16 +51,6 @@ impl<'a> OpenOptions<'a> {
 
     /// Opens a registry key with the options provided by `self`.
     pub fn open<T: AsRef<str>>(&self, path: T) -> Result<Key> {
-        let mut flags = 0;
-
-        if self.read {
-            flags |= KEY_READ;
-        }
-
-        if self.write {
-            flags |= KEY_WRITE;
-        }
-
         let mut handle = null_mut();
 
         let result = unsafe {
@@ -67,7 +62,7 @@ impl<'a> OpenOptions<'a> {
                         0,
                         null(),
                         REG_OPTION_NON_VOLATILE,
-                        flags,
+                        self.access,
                         null(),
                         &mut handle,
                         null_mut(),
@@ -79,7 +74,7 @@ impl<'a> OpenOptions<'a> {
                         self.parent.0,
                         pcwstr(path).as_ptr(),
                         0,
-                        flags,
+                        self.access,
                         &mut handle,
                         transaction.0,
                         null(),
@@ -92,13 +87,19 @@ impl<'a> OpenOptions<'a> {
                     0,
                     null(),
                     REG_OPTION_NON_VOLATILE,
-                    flags,
+                    self.access,
                     null(),
                     &mut handle,
                     null_mut(),
                 )
             } else {
-                RegOpenKeyExW(self.parent.0, pcwstr(path).as_ptr(), 0, flags, &mut handle)
+                RegOpenKeyExW(
+                    self.parent.0,
+                    pcwstr(path).as_ptr(),
+                    0,
+                    self.access,
+                    &mut handle,
+                )
             }
         };
 

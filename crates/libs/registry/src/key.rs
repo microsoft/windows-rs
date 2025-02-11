@@ -8,16 +8,12 @@ pub struct Key(pub(crate) HKEY);
 impl Key {
     /// Creates a registry key. If the key already exists, the function opens it.
     pub fn create<T: AsRef<str>>(&self, path: T) -> Result<Self> {
-        self.options()
-            .read(true)
-            .write(true)
-            .create(true)
-            .open(path)
+        self.options().read().write().create().open(path)
     }
 
     /// Opens a registry key.
     pub fn open<T: AsRef<str>>(&self, path: T) -> Result<Self> {
-        self.options().read(true).open(path)
+        self.options().read().open(path)
     }
 
     /// Creates an `OpenOptions` object for the registry key.
