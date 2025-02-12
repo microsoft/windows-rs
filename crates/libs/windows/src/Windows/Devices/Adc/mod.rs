@@ -115,8 +115,8 @@ impl AdcController {
             (windows_core::Interface::vtable(this).OpenChannel)(windows_core::Interface::as_raw(this), channelnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>
+    #[cfg(feature = "Devices_Adc_Provider")]
+    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<AdcController>>>
     where
         P0: windows_core::Param<Provider::IAdcProvider>,
     {
@@ -186,9 +186,9 @@ impl windows_core::RuntimeType for IAdcControllerStatics {
 #[repr(C)]
 pub struct IAdcControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Adc_Provider")]
     pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Adc_Provider"))]
     GetControllersAsync: usize,
 }
 windows_core::imp::define_interface!(IAdcControllerStatics2, IAdcControllerStatics2_Vtbl, 0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);

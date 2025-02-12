@@ -55,8 +55,7 @@ impl windows_core::RuntimeType for HdmiDisplayHdrOption {
 pub struct HdmiDisplayInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HdmiDisplayInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl HdmiDisplayInformation {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSupportedDisplayModes(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>> {
+    pub fn GetSupportedDisplayModes(&self) -> windows_core::Result<windows_collections::IVectorView<HdmiDisplayMode>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -271,10 +270,7 @@ impl windows_core::RuntimeType for IHdmiDisplayInformation {
 #[repr(C)]
 pub struct IHdmiDisplayInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSupportedDisplayModes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedDisplayModes: usize,
     pub GetCurrentDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDefaultDisplayModeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestSetCurrentDisplayModeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

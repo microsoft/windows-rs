@@ -90,17 +90,17 @@ impl windows_core::RuntimeType for ISpatialSurfaceMeshOptionsStatics {
 #[repr(C)]
 pub struct ISpatialSurfaceMeshOptionsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
+    #[cfg(feature = "Graphics_DirectX")]
     pub SupportedVertexPositionFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX")))]
+    #[cfg(not(feature = "Graphics_DirectX"))]
     SupportedVertexPositionFormats: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
+    #[cfg(feature = "Graphics_DirectX")]
     pub SupportedTriangleIndexFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX")))]
+    #[cfg(not(feature = "Graphics_DirectX"))]
     SupportedTriangleIndexFormats: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
+    #[cfg(feature = "Graphics_DirectX")]
     pub SupportedVertexNormalFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX")))]
+    #[cfg(not(feature = "Graphics_DirectX"))]
     SupportedVertexNormalFormats: usize,
 }
 windows_core::imp::define_interface!(ISpatialSurfaceObserver, ISpatialSurfaceObserver_Vtbl, 0x10b69819_ddca_3483_ac3a_748fe8c86df5);
@@ -110,15 +110,9 @@ impl windows_core::RuntimeType for ISpatialSurfaceObserver {
 #[repr(C)]
 pub struct ISpatialSurfaceObserver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetObservedSurfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetObservedSurfaces: usize,
     pub SetBoundingVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetBoundingVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetBoundingVolumes: usize,
     pub ObservedSurfacesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveObservedSurfacesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
@@ -371,22 +365,22 @@ impl SpatialSurfaceMeshOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIncludeVertexNormals)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
-    pub fn SupportedVertexPositionFormats() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
+    #[cfg(feature = "Graphics_DirectX")]
+    pub fn SupportedVertexPositionFormats() -> windows_core::Result<windows_collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedVertexPositionFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
-    pub fn SupportedTriangleIndexFormats() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
+    #[cfg(feature = "Graphics_DirectX")]
+    pub fn SupportedTriangleIndexFormats() -> windows_core::Result<windows_collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedTriangleIndexFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
-    pub fn SupportedVertexNormalFormats() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
+    #[cfg(feature = "Graphics_DirectX")]
+    pub fn SupportedVertexNormalFormats() -> windows_core::Result<windows_collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedVertexNormalFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -421,8 +415,7 @@ impl SpatialSurfaceObserver {
         static SHARED: windows_core::imp::FactoryCache<SpatialSurfaceObserver, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetObservedSurfaces(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::GUID, SpatialSurfaceInfo>> {
+    pub fn GetObservedSurfaces(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::GUID, SpatialSurfaceInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -436,10 +429,9 @@ impl SpatialSurfaceObserver {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBoundingVolume)(windows_core::Interface::as_raw(this), bounds.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetBoundingVolumes<P0>(&self, bounds: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>,
+        P0: windows_core::Param<windows_collections::IIterable<super::SpatialBoundingVolume>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBoundingVolumes)(windows_core::Interface::as_raw(this), bounds.param().abi()).ok() }

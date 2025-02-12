@@ -59,18 +59,14 @@ impl windows_core::TypeKind for AccessListEntry {
 impl windows_core::RuntimeType for AccessListEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Storage.AccessCache.AccessListEntry;string;string)");
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AccessListEntryView(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(AccessListEntryView, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView<AccessListEntry>);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(AccessListEntryView, super::super::Foundation::Collections::IIterable<AccessListEntry>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(AccessListEntryView, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVectorView<AccessListEntry>);
+windows_core::imp::required_hierarchy!(AccessListEntryView, windows_collections::IIterable<AccessListEntry>);
 impl AccessListEntryView {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<AccessListEntry>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<AccessListEntry>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<AccessListEntry>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<AccessListEntry>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -105,31 +101,26 @@ impl AccessListEntryView {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for AccessListEntryView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<AccessListEntry>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVectorView<AccessListEntry>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for AccessListEntryView {
-    type Vtable = <super::super::Foundation::Collections::IVectorView<AccessListEntry> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IVectorView<AccessListEntry> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IVectorView<AccessListEntry> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IVectorView<AccessListEntry> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for AccessListEntryView {
     const NAME: &'static str = "Windows.Storage.AccessCache.AccessListEntryView";
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for AccessListEntryView {
     type Item = AccessListEntry;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &AccessListEntryView {
     type Item = AccessListEntry;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -280,7 +271,6 @@ impl IStorageItemAccessList {
             (windows_core::Interface::vtable(this).CheckAccess)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Entries(&self) -> windows_core::Result<AccessListEntryView> {
         let this = self;
         unsafe {
@@ -296,11 +286,11 @@ impl IStorageItemAccessList {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "Storage_Streams"))]
+#[cfg(all(feature = "Storage_Search", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IStorageItemAccessList {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageItemAccessList";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "Storage_Streams"))]
+#[cfg(all(feature = "Storage_Search", feature = "Storage_Streams"))]
 pub trait IStorageItemAccessList_Impl: windows_core::IUnknownImpl {
     fn AddOverloadDefaultMetadata(&self, file: windows_core::Ref<'_, super::IStorageItem>) -> windows_core::Result<windows_core::HSTRING>;
     fn Add(&self, file: windows_core::Ref<'_, super::IStorageItem>, metadata: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
@@ -319,7 +309,7 @@ pub trait IStorageItemAccessList_Impl: windows_core::IUnknownImpl {
     fn Entries(&self) -> windows_core::Result<AccessListEntryView>;
     fn MaximumItemsAllowed(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "Storage_Streams"))]
+#[cfg(all(feature = "Storage_Search", feature = "Storage_Streams"))]
 impl IStorageItemAccessList_Vtbl {
     pub const fn new<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddOverloadDefaultMetadata<Identity: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -552,10 +542,7 @@ pub struct IStorageItemAccessList_Vtbl {
     pub ContainsItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CheckAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Entries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Entries: usize,
     pub MaximumItemsAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageItemMostRecentlyUsedList, IStorageItemMostRecentlyUsedList_Vtbl, 0x016239d5_510d_411e_8cf1_c3d1effa4c33);
@@ -770,7 +757,6 @@ impl StorageItemAccessList {
             (windows_core::Interface::vtable(this).CheckAccess)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Entries(&self) -> windows_core::Result<AccessListEntryView> {
         let this = self;
         unsafe {
@@ -907,7 +893,6 @@ impl StorageItemMostRecentlyUsedList {
             (windows_core::Interface::vtable(this).CheckAccess)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Entries(&self) -> windows_core::Result<AccessListEntryView> {
         let this = &windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {

@@ -39,8 +39,7 @@ impl AudioCaptureEffectsManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAudioCaptureEffectsChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAudioCaptureEffects(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>> {
+    pub fn GetAudioCaptureEffects(&self) -> windows_core::Result<windows_collections::IVectorView<AudioEffect>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -264,8 +263,7 @@ impl AudioRenderEffectsManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAudioRenderEffectsChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAudioRenderEffects(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>> {
+    pub fn GetAudioRenderEffects(&self) -> windows_core::Result<windows_collections::IVectorView<AudioEffect>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -311,8 +309,8 @@ unsafe impl Sync for AudioRenderEffectsManager {}
 pub struct CompositeVideoFrameContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositeVideoFrameContext, windows_core::IUnknown, windows_core::IInspectable);
 impl CompositeVideoFrameContext {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn SurfacesToOverlay(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>> {
+    #[cfg(feature = "Graphics_DirectX_Direct3D11")]
+    pub fn SurfacesToOverlay(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -375,10 +373,7 @@ pub struct IAudioCaptureEffectsManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AudioCaptureEffectsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAudioCaptureEffectsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAudioCaptureEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAudioCaptureEffects: usize,
 }
 windows_core::imp::define_interface!(IAudioEffect, IAudioEffect_Vtbl, 0x34aafa51_9207_4055_be93_6e5734a86ae4);
 impl windows_core::RuntimeType for IAudioEffect {
@@ -526,10 +521,7 @@ pub struct IAudioRenderEffectsManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AudioRenderEffectsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAudioRenderEffectsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAudioRenderEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAudioRenderEffects: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IAudioRenderEffectsManager2, IAudioRenderEffectsManager2_Vtbl, 0xa844cd09_5ecc_44b3_bb4e_1db07287139c);
@@ -562,8 +554,8 @@ impl IBasicAudioEffect {
             (windows_core::Interface::vtable(this).UseInputFrameForOutput)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn SupportedEncodingProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>> {
+    #[cfg(feature = "Media_MediaProperties")]
+    pub fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::AudioEncodingProperties>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -609,7 +601,7 @@ impl windows_core::RuntimeName for IBasicAudioEffect {
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
 pub trait IBasicAudioEffect_Impl: super::IMediaExtension_Impl {
     fn UseInputFrameForOutput(&self) -> windows_core::Result<bool>;
-    fn SupportedEncodingProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
+    fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
     fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<'_, super::MediaProperties::AudioEncodingProperties>) -> windows_core::Result<()>;
     fn ProcessFrame(&self, context: windows_core::Ref<'_, ProcessAudioFrameContext>) -> windows_core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
@@ -685,9 +677,9 @@ impl IBasicAudioEffect_Vtbl {
 pub struct IBasicAudioEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UseInputFrameForOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
+    #[cfg(feature = "Media_MediaProperties")]
     pub SupportedEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
+    #[cfg(not(feature = "Media_MediaProperties"))]
     SupportedEncodingProperties: usize,
     #[cfg(feature = "Media_MediaProperties")]
     pub SetEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -725,8 +717,8 @@ impl IBasicVideoEffect {
             (windows_core::Interface::vtable(this).TimeIndependent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn SupportedEncodingProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>> {
+    #[cfg(feature = "Media_MediaProperties")]
+    pub fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::VideoEncodingProperties>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -775,7 +767,7 @@ pub trait IBasicVideoEffect_Impl: super::IMediaExtension_Impl {
     fn IsReadOnly(&self) -> windows_core::Result<bool>;
     fn SupportedMemoryTypes(&self) -> windows_core::Result<MediaMemoryTypes>;
     fn TimeIndependent(&self) -> windows_core::Result<bool>;
-    fn SupportedEncodingProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
+    fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
     fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<'_, super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<'_, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
     fn ProcessFrame(&self, context: windows_core::Ref<'_, ProcessVideoFrameContext>) -> windows_core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
@@ -879,9 +871,9 @@ pub struct IBasicVideoEffect_Vtbl {
     pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SupportedMemoryTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaMemoryTypes) -> windows_core::HRESULT,
     pub TimeIndependent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
+    #[cfg(feature = "Media_MediaProperties")]
     pub SupportedEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
+    #[cfg(not(feature = "Media_MediaProperties"))]
     SupportedEncodingProperties: usize,
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
     pub SetEncodingProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -898,9 +890,9 @@ impl windows_core::RuntimeType for ICompositeVideoFrameContext {
 #[repr(C)]
 pub struct ICompositeVideoFrameContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
+    #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub SurfacesToOverlay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11")))]
+    #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     SurfacesToOverlay: usize,
     pub BackgroundFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OutputFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

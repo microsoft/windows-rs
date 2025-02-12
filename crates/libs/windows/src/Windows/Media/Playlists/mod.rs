@@ -5,9 +5,9 @@ impl windows_core::RuntimeType for IPlaylist {
 #[repr(C)]
 pub struct IPlaylist_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     Files: usize,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -43,8 +43,8 @@ impl Playlist {
         static SHARED: windows_core::imp::FactoryCache<Playlist, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>> {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Files(&self) -> windows_core::Result<windows_collections::IVector<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

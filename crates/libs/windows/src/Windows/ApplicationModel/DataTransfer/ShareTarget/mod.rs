@@ -17,14 +17,8 @@ pub struct IQuickLink_Vtbl {
     SetThumbnail: usize,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedDataFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedDataFormats: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedFileTypes: usize,
 }
 windows_core::imp::define_interface!(IShareOperation, IShareOperation_Vtbl, 0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
 impl windows_core::RuntimeType for IShareOperation {
@@ -59,9 +53,9 @@ impl windows_core::RuntimeType for IShareOperation3 {
 #[repr(C)]
 pub struct IShareOperation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel_Contacts")]
     pub Contacts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contacts: usize,
 }
 #[repr(transparent)]
@@ -114,16 +108,14 @@ impl QuickLink {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedDataFormats(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn SupportedDataFormats(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedDataFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedFileTypes(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn SupportedFileTypes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -195,8 +187,8 @@ impl ShareOperation {
         let this = &windows_core::Interface::cast::<IShareOperation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).DismissUI)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
-    pub fn Contacts(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>> {
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn Contacts(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Contacts::Contact>> {
         let this = &windows_core::Interface::cast::<IShareOperation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

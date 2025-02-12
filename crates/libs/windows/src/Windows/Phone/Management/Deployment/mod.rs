@@ -60,8 +60,7 @@ unsafe impl Send for Enterprise {}
 unsafe impl Sync for Enterprise {}
 pub struct EnterpriseEnrollmentManager;
 impl EnterpriseEnrollmentManager {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EnrolledEnterprises() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Enterprise>> {
+    pub fn EnrolledEnterprises() -> windows_core::Result<windows_collections::IVectorView<Enterprise>> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnrolledEnterprises)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -182,10 +181,7 @@ impl windows_core::RuntimeType for IEnterpriseEnrollmentManager {
 #[repr(C)]
 pub struct IEnterpriseEnrollmentManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub EnrolledEnterprises: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EnrolledEnterprises: usize,
     pub CurrentEnterprise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ValidateEnterprisesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestEnrollmentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -210,17 +206,14 @@ pub struct IInstallationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddPackagePreloadedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetPendingPackageInstalls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetPendingPackageInstalls: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesForCurrentPublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesForCurrentPublisher: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackages: usize,
 }
 windows_core::imp::define_interface!(IInstallationManagerStatics2, IInstallationManagerStatics2_Vtbl, 0x7c6c2cbd_fa4a_4c8e_ab97_d959452f19e5);
@@ -234,13 +227,13 @@ pub struct IInstallationManagerStatics2_Vtbl {
     pub RemovePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Management::Deployment::RemovalOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Management_Deployment"))]
     RemovePackageAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment"))]
+    #[cfg(feature = "Management_Deployment")]
     pub RegisterPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Management::Deployment::DeploymentOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Management_Deployment")))]
+    #[cfg(not(feature = "Management_Deployment"))]
     RegisterPackageAsync: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByNamePublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByNamePublisher: usize,
 }
 windows_core::imp::define_interface!(IPackageInstallResult, IPackageInstallResult_Vtbl, 0x33e8eed5_0f7e_4473_967c_7d6e1c0e7de1);
@@ -286,22 +279,21 @@ impl InstallationManager {
             (windows_core::Interface::vtable(this).AddPackagePreloadedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), sourcelocation.param().abi(), core::mem::transmute_copy(instanceid), core::mem::transmute_copy(offerid), license.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPendingPackageInstalls() -> windows_core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>> {
+    pub fn GetPendingPackageInstalls() -> windows_core::Result<windows_collections::IIterable<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>> {
         Self::IInstallationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPendingPackageInstalls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesForCurrentPublisher() -> windows_core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesForCurrentPublisher() -> windows_core::Result<windows_collections::IIterable<super::super::super::ApplicationModel::Package>> {
         Self::IInstallationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesForCurrentPublisher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackages() -> windows_core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackages() -> windows_core::Result<windows_collections::IIterable<super::super::super::ApplicationModel::Package>> {
         Self::IInstallationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -314,19 +306,19 @@ impl InstallationManager {
             (windows_core::Interface::vtable(this).RemovePackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), removaloptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment"))]
+    #[cfg(feature = "Management_Deployment")]
     pub fn RegisterPackageAsync<P0, P1>(manifesturi: P0, dependencypackageuris: P1, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::super::Foundation::Uri>>,
     {
         Self::IInstallationManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RegisterPackageAsync)(windows_core::Interface::as_raw(this), manifesturi.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByNamePublisher(packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByNamePublisher(packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<super::super::super::ApplicationModel::Package>> {
         Self::IInstallationManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByNamePublisher)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagename), core::mem::transmute_copy(packagepublisher), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

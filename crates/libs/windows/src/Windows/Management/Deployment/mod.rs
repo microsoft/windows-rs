@@ -61,8 +61,7 @@ impl AddPackageOptions {
         static SHARED: windows_core::imp::FactoryCache<AddPackageOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DependencyPackageUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn DependencyPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -83,24 +82,21 @@ impl AddPackageOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTargetVolume)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionalPackageFamilyNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OptionalPackageUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn OptionalPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionalPackageUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RelatedPackageUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn RelatedPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -242,8 +238,7 @@ impl AddPackageOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ExpectedDigests(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>> {
+    pub fn ExpectedDigests(&self) -> windows_core::Result<windows_collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IAddPackageOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -439,32 +434,28 @@ impl AutoUpdateSettingsOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsAutoRepairEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn UpdateUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RepairUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn RepairUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RepairUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DependencyPackageUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn DependencyPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DependencyPackageUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OptionalPackageUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn OptionalPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -510,8 +501,7 @@ impl CreateSharedPackageContainerOptions {
         static SHARED: windows_core::imp::FactoryCache<CreateSharedPackageContainerOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Members(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>> {
+    pub fn Members(&self) -> windows_core::Result<windows_collections::IVector<SharedPackageContainerMember>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -849,24 +839,12 @@ impl windows_core::RuntimeType for IAddPackageOptions {
 #[repr(C)]
 pub struct IAddPackageOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub DependencyPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DependencyPackageUris: usize,
     pub TargetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTargetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub OptionalPackageFamilyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    OptionalPackageFamilyNames: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub OptionalPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    OptionalPackageUris: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RelatedPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RelatedPackageUris: usize,
     pub ExternalLocationUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetExternalLocationUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StubPackageOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StubPackageOption) -> windows_core::HRESULT,
@@ -899,10 +877,7 @@ impl windows_core::RuntimeType for IAddPackageOptions2 {
 #[repr(C)]
 pub struct IAddPackageOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ExpectedDigests: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExpectedDigests: usize,
     pub LimitToExistingPackages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetLimitToExistingPackages: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
@@ -958,22 +933,10 @@ pub struct IAutoUpdateSettingsOptions_Vtbl {
     pub SetForceUpdateFromAnyVersion: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub IsAutoRepairEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsAutoRepairEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub UpdateUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UpdateUris: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RepairUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RepairUris: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub DependencyPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DependencyPackageUris: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub OptionalPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    OptionalPackageUris: usize,
 }
 windows_core::imp::define_interface!(IAutoUpdateSettingsOptionsStatics, IAutoUpdateSettingsOptionsStatics_Vtbl, 0x887b337d_0c05_54d0_bd49_3bb7a2c084cb);
 impl windows_core::RuntimeType for IAutoUpdateSettingsOptionsStatics {
@@ -994,10 +957,7 @@ impl windows_core::RuntimeType for ICreateSharedPackageContainerOptions {
 #[repr(C)]
 pub struct ICreateSharedPackageContainerOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Members: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Members: usize,
     pub ForceAppShutdown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetForceAppShutdown: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub CreateCollisionOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SharedPackageContainerCreationCollisionOptions) -> windows_core::HRESULT,
@@ -1075,14 +1035,8 @@ impl windows_core::RuntimeType for IPackageAllUserProvisioningOptions {
 #[repr(C)]
 pub struct IPackageAllUserProvisioningOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub OptionalPackageFamilyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    OptionalPackageFamilyNames: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ProjectionOrderPackageFamilyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ProjectionOrderPackageFamilyNames: usize,
 }
 windows_core::imp::define_interface!(IPackageAllUserProvisioningOptions2, IPackageAllUserProvisioningOptions2_Vtbl, 0xb9e3cab5_2d97_579f_9368_d10bb4d4542b);
 impl windows_core::RuntimeType for IPackageAllUserProvisioningOptions2 {
@@ -1101,56 +1055,41 @@ impl windows_core::RuntimeType for IPackageManager {
 #[repr(C)]
 pub struct IPackageManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AddPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AddPackageAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub UpdatePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UpdatePackageAsync: usize,
     pub RemovePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub StagePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StagePackageAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RegisterPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RegisterPackageAsync: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackages: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityId: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByNamePublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByNamePublisher: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityIdNamePublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityIdNamePublisher: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindUsers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindUsers: usize,
     pub SetPackageState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PackageState) -> windows_core::HRESULT,
     #[cfg(feature = "ApplicationModel")]
     pub FindPackageByPackageFullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ApplicationModel"))]
     FindPackageByPackageFullName: usize,
     pub CleanupPackageForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByPackageFamilyName: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityIdPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityIdPackageFamilyName: usize,
     #[cfg(feature = "ApplicationModel")]
     pub FindPackageByUserSecurityIdPackageFullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1195,37 +1134,31 @@ impl windows_core::RuntimeType for IPackageManager2 {
 pub struct IPackageManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemovePackageWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, RemovalOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub StagePackageWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StagePackageWithOptionsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RegisterPackageByFullNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RegisterPackageByFullNameAsync: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesWithPackageTypes: unsafe extern "system" fn(*mut core::ffi::c_void, PackageTypes, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesWithPackageTypes: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityIdWithPackageTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PackageTypes, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityIdWithPackageTypes: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByNamePublisherWithPackageTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, PackageTypes, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByNamePublisherWithPackageTypes: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityIdNamePublisherWithPackageTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, PackageTypes, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityIdNamePublisherWithPackageTypes: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByPackageFamilyNameWithPackageTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PackageTypes, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByPackageFamilyNameWithPackageTypes: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, PackageTypes, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes: usize,
     pub StageUserDataAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -1237,20 +1170,11 @@ impl windows_core::RuntimeType for IPackageManager3 {
 pub struct IPackageManager3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddPackageVolumeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub AddPackageToVolumeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AddPackageToVolumeAsync: usize,
     pub ClearPackageStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PackageStatus) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub RegisterPackageWithAppDataVolumeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RegisterPackageWithAppDataVolumeAsync: usize,
     pub FindPackageVolumeByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindPackageVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindPackageVolumes: usize,
     pub GetDefaultPackageVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MovePackageToVolumeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemovePackageVolumeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1258,10 +1182,7 @@ pub struct IPackageManager3_Vtbl {
     pub SetPackageStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PackageStatus) -> windows_core::HRESULT,
     pub SetPackageVolumeOfflineAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPackageVolumeOnlineAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub StagePackageToVolumeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StagePackageToVolumeAsync: usize,
     pub StageUserDataWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageManager4, IPackageManager4_Vtbl, 0x3c719963_bab6_46bf_8ff7_da4719230ae6);
@@ -1271,10 +1192,7 @@ impl windows_core::RuntimeType for IPackageManager4 {
 #[repr(C)]
 pub struct IPackageManager4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetPackageVolumesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetPackageVolumesAsync: usize,
 }
 windows_core::imp::define_interface!(IPackageManager5, IPackageManager5_Vtbl, 0x711f3117_1afd_4313_978c_9bb6e1b864a7);
 impl windows_core::RuntimeType for IPackageManager5 {
@@ -1283,18 +1201,9 @@ impl windows_core::RuntimeType for IPackageManager5 {
 #[repr(C)]
 pub struct IPackageManager5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AddPackageToVolumeAndOptionalPackagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AddPackageToVolumeAndOptionalPackagesAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub StagePackageToVolumeAndOptionalPackagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StagePackageToVolumeAndOptionalPackagesAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RegisterPackageByFamilyNameAndOptionalPackagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RegisterPackageByFamilyNameAndOptionalPackagesAsync: usize,
     pub DebugSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageManager6, IPackageManager6_Vtbl, 0x0847e909_53cd_4e4f_832e_57d180f6e447);
@@ -1307,18 +1216,9 @@ pub struct IPackageManager6_Vtbl {
     pub ProvisionPackageForAllUsersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddPackageByAppInstallerFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, AddPackageByAppInstallerOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestAddPackageByAppInstallerFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, AddPackageByAppInstallerOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub AddPackageToVolumeAndRelatedSetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AddPackageToVolumeAndRelatedSetAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub StagePackageToVolumeAndRelatedSetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StagePackageToVolumeAndRelatedSetAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RequestAddPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequestAddPackageAsync: usize,
 }
 windows_core::imp::define_interface!(IPackageManager7, IPackageManager7_Vtbl, 0xf28654f4_2ba7_4b80_88d6_be15f9a23fba);
 impl windows_core::RuntimeType for IPackageManager7 {
@@ -1327,10 +1227,7 @@ impl windows_core::RuntimeType for IPackageManager7 {
 #[repr(C)]
 pub struct IPackageManager7_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub RequestAddPackageAndRelatedSetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequestAddPackageAndRelatedSetAsync: usize,
 }
 windows_core::imp::define_interface!(IPackageManager8, IPackageManager8_Vtbl, 0xb8575330_1298_4ee2_80ee_7f659c5d2782);
 impl windows_core::RuntimeType for IPackageManager8 {
@@ -1348,17 +1245,14 @@ impl windows_core::RuntimeType for IPackageManager9 {
 #[repr(C)]
 pub struct IPackageManager9_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindProvisionedPackages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindProvisionedPackages: usize,
     pub AddPackageByUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StagePackageByUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RegisterPackageByUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub RegisterPackagesByFullNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RegisterPackagesByFullNameAsync: usize,
     pub SetPackageStubPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PackageStubPreference) -> windows_core::HRESULT,
     pub GetPackageStubPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut PackageStubPreference) -> windows_core::HRESULT,
 }
@@ -1401,61 +1295,61 @@ pub struct IPackageVolume_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PackageStorePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SupportsHardLinks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackages: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByNamePublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByNamePublisher: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByPackageFamilyName: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesWithPackageTypes: unsafe extern "system" fn(*mut core::ffi::c_void, PackageTypes, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesWithPackageTypes: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByNamePublisherWithPackagesTypes: unsafe extern "system" fn(*mut core::ffi::c_void, PackageTypes, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByNamePublisherWithPackagesTypes: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByPackageFamilyNameWithPackageTypes: unsafe extern "system" fn(*mut core::ffi::c_void, PackageTypes, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByPackageFamilyNameWithPackageTypes: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackageByPackageFullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackageByPackageFullName: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityId: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityIdNamePublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityIdNamePublisher: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityIdPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityIdPackageFamilyName: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityIdWithPackageTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PackageTypes, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityIdWithPackageTypes: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityIdNamePublisherWithPackageTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PackageTypes, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityIdNamePublisherWithPackageTypes: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PackageTypes, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindPackageByUserSecurityIdPackageFullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindPackageByUserSecurityIdPackageFullName: usize,
 }
 windows_core::imp::define_interface!(IPackageVolume2, IPackageVolume2_Vtbl, 0x46abcf2e_9dd4_47a2_ab8c_c6408349bcd8);
@@ -1476,16 +1370,10 @@ impl windows_core::RuntimeType for IRegisterPackageOptions {
 #[repr(C)]
 pub struct IRegisterPackageOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub DependencyPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DependencyPackageUris: usize,
     pub AppDataVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAppDataVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub OptionalPackageFamilyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    OptionalPackageFamilyNames: usize,
     pub ExternalLocationUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetExternalLocationUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeveloperMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1512,10 +1400,7 @@ impl windows_core::RuntimeType for IRegisterPackageOptions2 {
 #[repr(C)]
 pub struct IRegisterPackageOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ExpectedDigests: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExpectedDigests: usize,
 }
 windows_core::imp::define_interface!(IRemovePackageOptions, IRemovePackageOptions_Vtbl, 0x13cf01f3_c450_4f7c_a5a3_5e3c631b7462);
 impl windows_core::RuntimeType for IRemovePackageOptions {
@@ -1550,10 +1435,7 @@ pub struct ISharedPackageContainer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetMembers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetMembers: usize,
     pub RemovePackageFamily: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -1567,14 +1449,8 @@ pub struct ISharedPackageContainerManager_Vtbl {
     pub CreateContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindContainers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindContainers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindContainersWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindContainersWithOptions: usize,
 }
 windows_core::imp::define_interface!(ISharedPackageContainerManagerStatics, ISharedPackageContainerManagerStatics_Vtbl, 0x2ef56348_838a_5f55_a89e_1198a2c627e6);
 impl windows_core::RuntimeType for ISharedPackageContainerManagerStatics {
@@ -1612,24 +1488,12 @@ impl windows_core::RuntimeType for IStagePackageOptions {
 #[repr(C)]
 pub struct IStagePackageOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub DependencyPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DependencyPackageUris: usize,
     pub TargetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTargetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub OptionalPackageFamilyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    OptionalPackageFamilyNames: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub OptionalPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    OptionalPackageUris: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RelatedPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RelatedPackageUris: usize,
     pub ExternalLocationUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetExternalLocationUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StubPackageOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StubPackageOption) -> windows_core::HRESULT,
@@ -1654,10 +1518,7 @@ impl windows_core::RuntimeType for IStagePackageOptions2 {
 #[repr(C)]
 pub struct IStagePackageOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ExpectedDigests: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExpectedDigests: usize,
 }
 windows_core::imp::define_interface!(IUpdateSharedPackageContainerOptions, IUpdateSharedPackageContainerOptions_Vtbl, 0x80672e83_7194_59f9_b5b9_daa5375f130a);
 impl windows_core::RuntimeType for IUpdateSharedPackageContainerOptions {
@@ -1693,16 +1554,14 @@ impl PackageAllUserProvisioningOptions {
         static SHARED: windows_core::imp::FactoryCache<PackageAllUserProvisioningOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionalPackageFamilyNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ProjectionOrderPackageFamilyNames(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn ProjectionOrderPackageFamilyNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1760,11 +1619,10 @@ impl PackageManager {
         static SHARED: windows_core::imp::FactoryCache<PackageManager, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn AddPackageAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = self;
         unsafe {
@@ -1772,11 +1630,10 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).AddPackageAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn UpdatePackageAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = self;
         unsafe {
@@ -1791,11 +1648,10 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RemovePackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn StagePackageAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = self;
         unsafe {
@@ -1803,11 +1659,10 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).StagePackageAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterPackageAsync<P0, P1>(&self, manifesturi: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = self;
         unsafe {
@@ -1815,40 +1670,39 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RegisterPackageAsync)(windows_core::Interface::as_raw(this), manifesturi.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackages(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackages(&self) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityId(&self, usersecurityid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityId(&self, usersecurityid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByNamePublisher(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByNamePublisher(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByNamePublisher)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagename), core::mem::transmute_copy(packagepublisher), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdNamePublisher(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityIdNamePublisher(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisher)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), core::mem::transmute_copy(packagename), core::mem::transmute_copy(packagepublisher), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindUsers(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IIterable<PackageUserInformation>> {
+    pub fn FindUsers(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<PackageUserInformation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1874,16 +1728,16 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).CleanupPackageForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagename), core::mem::transmute_copy(usersecurityid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByPackageFamilyName(&self, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByPackageFamilyName(&self, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyName(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityIdPackageFamilyName(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1960,11 +1814,10 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RemovePackageWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), removaloptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn StagePackageWithOptionsAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -1972,10 +1825,9 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).StagePackageWithOptionsAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterPackageByFullNameAsync<P1>(&self, mainpackagefullname: &windows_core::HSTRING, dependencypackagefullnames: P1, deploymentoptions: DeploymentOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -1983,48 +1835,48 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RegisterPackageByFullNameAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(mainpackagefullname), dependencypackagefullnames.param().abi(), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesWithPackageTypes)(windows_core::Interface::as_raw(this), packagetypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityIdWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityIdWithPackageTypes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), packagetypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByNamePublisherWithPackageTypes(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByNamePublisherWithPackageTypes(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByNamePublisherWithPackageTypes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagename), core::mem::transmute_copy(packagepublisher), packagetypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), core::mem::transmute_copy(packagename), core::mem::transmute_copy(packagepublisher), packagetypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByPackageFamilyNameWithPackageTypes(&self, packagefamilyname: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByPackageFamilyNameWithPackageTypes(&self, packagefamilyname: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByPackageFamilyNameWithPackageTypes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), packagetypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2045,11 +1897,10 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).AddPackageVolumeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagestorepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn AddPackageToVolumeAsync<P0, P1, P3>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
         P3: windows_core::Param<PackageVolume>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
@@ -2062,11 +1913,10 @@ impl PackageManager {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ClearPackageStatus)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), status).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterPackageWithAppDataVolumeAsync<P0, P1, P3>(&self, manifesturi: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, appdatavolume: P3) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
         P3: windows_core::Param<PackageVolume>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
@@ -2082,8 +1932,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).FindPackageVolumeByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(volumename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindPackageVolumes(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterable<PackageVolume>> {
+    pub fn FindPackageVolumes(&self) -> windows_core::Result<windows_collections::IIterable<PackageVolume>> {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2148,11 +1997,10 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).SetPackageVolumeOnlineAsync)(windows_core::Interface::as_raw(this), packagevolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn StagePackageToVolumeAsync<P0, P1, P3>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
         P3: windows_core::Param<PackageVolume>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
@@ -2168,22 +2016,20 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).StageUserDataWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPackageVolumesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PackageVolume>>> {
+    pub fn GetPackageVolumesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<PackageVolume>>> {
         let this = &windows_core::Interface::cast::<IPackageManager4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPackageVolumesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn AddPackageToVolumeAndOptionalPackagesAsync<P0, P1, P3, P4, P5>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, externalpackageuris: P5) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
         P3: windows_core::Param<PackageVolume>,
-        P4: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P5: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P4: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
+        P5: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
@@ -2191,14 +2037,13 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).AddPackageToVolumeAndOptionalPackagesAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, targetvolume.param().abi(), optionalpackagefamilynames.param().abi(), externalpackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn StagePackageToVolumeAndOptionalPackagesAsync<P0, P1, P3, P4, P5>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, externalpackageuris: P5) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
         P3: windows_core::Param<PackageVolume>,
-        P4: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P5: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P4: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
+        P5: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
@@ -2206,12 +2051,11 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).StagePackageToVolumeAndOptionalPackagesAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, targetvolume.param().abi(), optionalpackagefamilynames.param().abi(), externalpackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterPackageByFamilyNameAndOptionalPackagesAsync<P1, P3, P4>(&self, mainpackagefamilyname: &windows_core::HSTRING, dependencypackagefamilynames: P1, deploymentoptions: DeploymentOptions, appdatavolume: P3, optionalpackagefamilynames: P4) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
         P3: windows_core::Param<PackageVolume>,
-        P4: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P4: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
@@ -2255,15 +2099,14 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RequestAddPackageByAppInstallerFileAsync)(windows_core::Interface::as_raw(this), appinstallerfileuri.param().abi(), options, targetvolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn AddPackageToVolumeAndRelatedSetAsync<P0, P1, P3, P4, P5, P6>(&self, packageuri: P0, dependencypackageuris: P1, options: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, packageuristoinstall: P5, relatedpackageuris: P6) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
         P3: windows_core::Param<PackageVolume>,
-        P4: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P5: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
-        P6: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P4: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
+        P5: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
+        P6: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
@@ -2271,15 +2114,14 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).AddPackageToVolumeAndRelatedSetAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), options, targetvolume.param().abi(), optionalpackagefamilynames.param().abi(), packageuristoinstall.param().abi(), relatedpackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn StagePackageToVolumeAndRelatedSetAsync<P0, P1, P3, P4, P5, P6>(&self, packageuri: P0, dependencypackageuris: P1, options: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, packageuristoinstall: P5, relatedpackageuris: P6) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
         P3: windows_core::Param<PackageVolume>,
-        P4: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P5: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
-        P6: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P4: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
+        P5: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
+        P6: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
@@ -2287,14 +2129,13 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).StagePackageToVolumeAndRelatedSetAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), options, targetvolume.param().abi(), optionalpackagefamilynames.param().abi(), packageuristoinstall.param().abi(), relatedpackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestAddPackageAsync<P0, P1, P3, P4, P5>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, relatedpackageuris: P5) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
         P3: windows_core::Param<PackageVolume>,
-        P4: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P5: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P4: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
+        P5: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
@@ -2302,15 +2143,14 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RequestAddPackageAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, targetvolume.param().abi(), optionalpackagefamilynames.param().abi(), relatedpackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestAddPackageAndRelatedSetAsync<P0, P1, P3, P4, P5, P6>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, relatedpackageuris: P5, packageuristoinstall: P6) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
         P3: windows_core::Param<PackageVolume>,
-        P4: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P5: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
-        P6: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P4: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
+        P5: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
+        P6: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager7>(self)?;
         unsafe {
@@ -2325,8 +2165,8 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).DeprovisionPackageForAllUsersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindProvisionedPackages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindProvisionedPackages(&self) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = &windows_core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2366,10 +2206,9 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RegisterPackageByUriAsync)(windows_core::Interface::as_raw(this), manifesturi.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterPackagesByFullNameAsync<P0, P1>(&self, packagefullnames: P0, options: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
         P1: windows_core::Param<RegisterPackageOptions>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager9>(self)?;
@@ -2650,112 +2489,112 @@ impl PackageVolume {
             (windows_core::Interface::vtable(this).SupportsHardLinks)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackages(&self) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByNamePublisher(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByNamePublisher(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByNamePublisher)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagename), core::mem::transmute_copy(packagepublisher), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByPackageFamilyName(&self, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByPackageFamilyName(&self, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesWithPackageTypes)(windows_core::Interface::as_raw(this), packagetypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByNamePublisherWithPackagesTypes(&self, packagetypes: PackageTypes, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByNamePublisherWithPackagesTypes(&self, packagetypes: PackageTypes, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByNamePublisherWithPackagesTypes)(windows_core::Interface::as_raw(this), packagetypes, core::mem::transmute_copy(packagename), core::mem::transmute_copy(packagepublisher), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByPackageFamilyNameWithPackageTypes(&self, packagetypes: PackageTypes, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByPackageFamilyNameWithPackageTypes(&self, packagetypes: PackageTypes, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByPackageFamilyNameWithPackageTypes)(windows_core::Interface::as_raw(this), packagetypes, core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackageByPackageFullName(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackageByPackageFullName(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackageByPackageFullName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityId(&self, usersecurityid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityId(&self, usersecurityid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdNamePublisher(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityIdNamePublisher(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisher)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), core::mem::transmute_copy(packagename), core::mem::transmute_copy(packagepublisher), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyName(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityIdPackageFamilyName(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityIdWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityIdWithPackageTypes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), packagetypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), packagetypes, core::mem::transmute_copy(packagename), core::mem::transmute_copy(packagepublisher), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), packagetypes, core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackageByUserSecurityIdPackageFullName(&self, usersecurityid: &windows_core::HSTRING, packagefullname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindPackageByUserSecurityIdPackageFullName(&self, usersecurityid: &windows_core::HSTRING, packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2808,8 +2647,7 @@ impl RegisterPackageOptions {
         static SHARED: windows_core::imp::FactoryCache<RegisterPackageOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DependencyPackageUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn DependencyPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2830,8 +2668,7 @@ impl RegisterPackageOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAppDataVolume)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2940,8 +2777,7 @@ impl RegisterPackageOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ExpectedDigests(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>> {
+    pub fn ExpectedDigests(&self) -> windows_core::Result<windows_collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IRegisterPackageOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3098,8 +2934,7 @@ impl SharedPackageContainer {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMembers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>> {
+    pub fn GetMembers(&self) -> windows_core::Result<windows_collections::IVector<SharedPackageContainerMember>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3182,16 +3017,14 @@ impl SharedPackageContainerManager {
             (windows_core::Interface::vtable(this).GetContainer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindContainers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SharedPackageContainer>> {
+    pub fn FindContainers(&self) -> windows_core::Result<windows_collections::IVector<SharedPackageContainer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindContainers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindContainersWithOptions<P0>(&self, options: P0) -> windows_core::Result<super::super::Foundation::Collections::IVector<SharedPackageContainer>>
+    pub fn FindContainersWithOptions<P0>(&self, options: P0) -> windows_core::Result<windows_collections::IVector<SharedPackageContainer>>
     where
         P0: windows_core::Param<FindSharedPackageContainerOptions>,
     {
@@ -3300,8 +3133,7 @@ impl StagePackageOptions {
         static SHARED: windows_core::imp::FactoryCache<StagePackageOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DependencyPackageUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn DependencyPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3322,24 +3154,21 @@ impl StagePackageOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTargetVolume)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionalPackageFamilyNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OptionalPackageUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn OptionalPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionalPackageUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RelatedPackageUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn RelatedPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3437,8 +3266,7 @@ impl StagePackageOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAllowUnsigned)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ExpectedDigests(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>> {
+    pub fn ExpectedDigests(&self) -> windows_core::Result<windows_collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IStagePackageOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

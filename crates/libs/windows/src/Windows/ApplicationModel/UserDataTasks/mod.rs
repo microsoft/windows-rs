@@ -42,10 +42,7 @@ impl windows_core::RuntimeType for IUserDataTaskBatch {
 #[repr(C)]
 pub struct IUserDataTaskBatch_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Tasks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Tasks: usize,
 }
 windows_core::imp::define_interface!(IUserDataTaskList, IUserDataTaskList_Vtbl, 0x49412e39_7c1d_4df1_bed3_314b7cbf5e4e);
 impl windows_core::RuntimeType for IUserDataTaskList {
@@ -199,10 +196,7 @@ pub struct IUserDataTaskStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateListAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateListInAccountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindListsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindListsAsync: usize,
     pub GetListAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -406,8 +400,7 @@ unsafe impl Sync for UserDataTask {}
 pub struct UserDataTaskBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskBatch, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskBatch {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Tasks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UserDataTask>> {
+    pub fn Tasks(&self) -> windows_core::Result<windows_collections::IVectorView<UserDataTask>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1254,8 +1247,7 @@ impl UserDataTaskStore {
             (windows_core::Interface::vtable(this).CreateListInAccountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(userdataaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindListsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataTaskList>>> {
+    pub fn FindListsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<UserDataTaskList>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -57,21 +57,20 @@ impl AppCapability {
         let this = &windows_core::Interface::cast::<IAppCapability2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestAccessForCapabilitiesAsync<P0>(capabilitynames: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
+    pub fn RequestAccessForCapabilitiesAsync<P0>(capabilitynames: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessForCapabilitiesAsync)(windows_core::Interface::as_raw(this), capabilitynames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub fn RequestAccessForCapabilitiesForUserAsync<P0, P1>(user: P0, capabilitynames: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
+    #[cfg(feature = "System")]
+    pub fn RequestAccessForCapabilitiesForUserAsync<P0, P1>(user: P0, capabilitynames: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
     where
         P0: windows_core::Param<super::super::super::System::User>,
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -186,13 +185,10 @@ impl windows_core::RuntimeType for IAppCapabilityStatics {
 #[repr(C)]
 pub struct IAppCapabilityStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub RequestAccessForCapabilitiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequestAccessForCapabilitiesAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
+    #[cfg(feature = "System")]
     pub RequestAccessForCapabilitiesForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "System")))]
+    #[cfg(not(feature = "System"))]
     RequestAccessForCapabilitiesForUserAsync: usize,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "System")]

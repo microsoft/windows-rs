@@ -35,6 +35,11 @@ default-features = false
 version = "0.1.0"
 path = "../link"
 
+[dependencies.windows-collections]
+version = "0.1.0"
+path = "../collections"
+default-features = false
+
 [features]
 default = ["std"]
 docs = []

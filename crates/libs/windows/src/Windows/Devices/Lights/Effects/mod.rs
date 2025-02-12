@@ -217,18 +217,9 @@ impl windows_core::RuntimeType for ILampArrayEffectPlaylistStatics {
 #[repr(C)]
 pub struct ILampArrayEffectPlaylistStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub StartAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StartAll: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub StopAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StopAll: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub PauseAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PauseAll: usize,
 }
 windows_core::imp::define_interface!(ILampArraySolidEffect, ILampArraySolidEffect_Vtbl, 0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
 impl windows_core::RuntimeType for ILampArraySolidEffect {
@@ -730,15 +721,11 @@ impl windows_core::TypeKind for LampArrayEffectCompletionBehavior {
 impl windows_core::RuntimeType for LampArrayEffectCompletionBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampArrayEffectPlaylist(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(LampArrayEffectPlaylist, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(LampArrayEffectPlaylist, super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>, super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(LampArrayEffectPlaylist, windows_collections::IIterable<ILampArrayEffect>, windows_collections::IVectorView<ILampArrayEffect>);
 impl LampArrayEffectPlaylist {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -747,8 +734,8 @@ impl LampArrayEffectPlaylist {
         static SHARED: windows_core::imp::FactoryCache<LampArrayEffectPlaylist, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<ILampArrayEffect>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<ILampArrayEffect>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -812,31 +799,31 @@ impl LampArrayEffectPlaylist {
     }
     pub fn StartAll<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: windows_core::Param<windows_collections::IIterable<LampArrayEffectPlaylist>>,
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).StartAll)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     pub fn StopAll<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: windows_core::Param<windows_collections::IIterable<LampArrayEffectPlaylist>>,
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).StopAll)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     pub fn PauseAll<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: windows_core::Param<windows_collections::IIterable<LampArrayEffectPlaylist>>,
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).PauseAll)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<ILampArrayEffect> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -846,14 +833,14 @@ impl LampArrayEffectPlaylist {
     where
         P0: windows_core::Param<ILampArrayEffect>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<ILampArrayEffect>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -864,35 +851,28 @@ impl LampArrayEffectPlaylist {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for LampArrayEffectPlaylist {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayEffectPlaylist>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for LampArrayEffectPlaylist {
     type Vtable = <ILampArrayEffectPlaylist as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayEffectPlaylist as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for LampArrayEffectPlaylist {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayEffectPlaylist";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for LampArrayEffectPlaylist {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for LampArrayEffectPlaylist {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for LampArrayEffectPlaylist {
     type Item = ILampArrayEffect;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &LampArrayEffectPlaylist {
     type Item = ILampArrayEffect;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }

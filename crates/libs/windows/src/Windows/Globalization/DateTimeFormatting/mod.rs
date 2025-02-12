@@ -3,8 +3,7 @@
 pub struct DateTimeFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DateTimeFormatter, windows_core::IUnknown, windows_core::IInspectable);
 impl DateTimeFormatter {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Languages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -43,8 +42,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetNumeralSystem)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Patterns(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Patterns(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -141,20 +139,18 @@ impl DateTimeFormatter {
             (windows_core::Interface::vtable(this).CreateDateTimeFormatter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formattemplate), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterLanguages<P1>(formattemplate: &windows_core::HSTRING, languages: P1) -> windows_core::Result<DateTimeFormatter>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateDateTimeFormatterLanguages)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formattemplate), languages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterContext<P1>(formattemplate: &windows_core::HSTRING, languages: P1, geographicregion: &windows_core::HSTRING, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<DateTimeFormatter>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -173,20 +169,18 @@ impl DateTimeFormatter {
             (windows_core::Interface::vtable(this).CreateDateTimeFormatterTime)(windows_core::Interface::as_raw(this), hourformat, minuteformat, secondformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterDateTimeLanguages<P7>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P7) -> windows_core::Result<DateTimeFormatter>
     where
-        P7: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P7: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateDateTimeFormatterDateTimeLanguages)(windows_core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterDateTimeContext<P7>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P7, geographicregion: &windows_core::HSTRING, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<DateTimeFormatter>
     where
-        P7: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P7: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -286,19 +280,13 @@ impl windows_core::RuntimeType for IDateTimeFormatter {
 #[repr(C)]
 pub struct IDateTimeFormatter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Languages: usize,
     pub GeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Calendar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetNumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Patterns: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Patterns: usize,
     pub Template: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IncludeYear: unsafe extern "system" fn(*mut core::ffi::c_void, *mut YearFormat) -> windows_core::HRESULT,
@@ -328,24 +316,12 @@ impl windows_core::RuntimeType for IDateTimeFormatterFactory {
 pub struct IDateTimeFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateDateTimeFormatter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateDateTimeFormatterLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateDateTimeFormatterLanguages: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateDateTimeFormatterContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateDateTimeFormatterContext: usize,
     pub CreateDateTimeFormatterDate: unsafe extern "system" fn(*mut core::ffi::c_void, YearFormat, MonthFormat, DayFormat, DayOfWeekFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateDateTimeFormatterTime: unsafe extern "system" fn(*mut core::ffi::c_void, HourFormat, MinuteFormat, SecondFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateDateTimeFormatterDateTimeLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, YearFormat, MonthFormat, DayFormat, DayOfWeekFormat, HourFormat, MinuteFormat, SecondFormat, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateDateTimeFormatterDateTimeLanguages: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateDateTimeFormatterDateTimeContext: unsafe extern "system" fn(*mut core::ffi::c_void, YearFormat, MonthFormat, DayFormat, DayOfWeekFormat, HourFormat, MinuteFormat, SecondFormat, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateDateTimeFormatterDateTimeContext: usize,
 }
 windows_core::imp::define_interface!(IDateTimeFormatterStatics, IDateTimeFormatterStatics_Vtbl, 0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212);
 impl windows_core::RuntimeType for IDateTimeFormatterStatics {

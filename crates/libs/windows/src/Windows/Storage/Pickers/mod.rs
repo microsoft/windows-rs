@@ -1,17 +1,13 @@
 #[cfg(feature = "Storage_Pickers_Provider")]
 pub mod Provider;
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileExtensionVector(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(FileExtensionVector, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVector<windows_core::HSTRING>);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(FileExtensionVector, super::super::Foundation::Collections::IIterable<windows_core::HSTRING>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(FileExtensionVector, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVector<windows_core::HSTRING>);
+windows_core::imp::required_hierarchy!(FileExtensionVector, windows_collections::IIterable<windows_core::HSTRING>);
 impl FileExtensionVector {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<windows_core::HSTRING>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_core::HSTRING>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -31,7 +27,7 @@ impl FileExtensionVector {
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -81,35 +77,28 @@ impl FileExtensionVector {
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for FileExtensionVector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVector<windows_core::HSTRING>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for FileExtensionVector {
-    type Vtable = <super::super::Foundation::Collections::IVector<windows_core::HSTRING> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IVector<windows_core::HSTRING> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IVector<windows_core::HSTRING> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IVector<windows_core::HSTRING> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for FileExtensionVector {
     const NAME: &'static str = "Windows.Storage.Pickers.FileExtensionVector";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for FileExtensionVector {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for FileExtensionVector {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for FileExtensionVector {
     type Item = windows_core::HSTRING;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &FileExtensionVector {
     type Item = windows_core::HSTRING;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -170,8 +159,7 @@ impl FileOpenPicker {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCommitButtonText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FileTypeFilter(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn FileTypeFilter(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -186,8 +174,8 @@ impl FileOpenPicker {
             (windows_core::Interface::vtable(this).PickSingleFileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn PickMultipleFilesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn PickMultipleFilesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -266,24 +254,20 @@ impl windows_core::RuntimeName for FileOpenPicker {
 }
 unsafe impl Send for FileOpenPicker {}
 unsafe impl Sync for FileOpenPicker {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FilePickerFileTypesOrderedMap(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy ! ( FilePickerFileTypesOrderedMap , windows_core::IUnknown , windows_core::IInspectable , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , super::super::Foundation::Collections:: IVector < windows_core::HSTRING > > );
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(FilePickerFileTypesOrderedMap, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy ! ( FilePickerFileTypesOrderedMap , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMap < windows_core::HSTRING , windows_collections:: IVector < windows_core::HSTRING > > );
+windows_core::imp::required_hierarchy!(FilePickerFileTypesOrderedMap, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>>);
 impl FilePickerFileTypesOrderedMap {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -304,7 +288,7 @@ impl FilePickerFileTypesOrderedMap {
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>> {
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -313,7 +297,7 @@ impl FilePickerFileTypesOrderedMap {
     }
     pub fn Insert<P1>(&self, key: &windows_core::HSTRING, value: P1) -> windows_core::Result<bool>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IVector<windows_core::HSTRING>>,
+        P1: windows_core::Param<windows_collections::IVector<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -330,51 +314,44 @@ impl FilePickerFileTypesOrderedMap {
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for FilePickerFileTypesOrderedMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IMap<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for FilePickerFileTypesOrderedMap {
-    type Vtable = <super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IMap<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IMap<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for FilePickerFileTypesOrderedMap {
     const NAME: &'static str = "Windows.Storage.Pickers.FilePickerFileTypesOrderedMap";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for FilePickerFileTypesOrderedMap {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for FilePickerFileTypesOrderedMap {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for FilePickerFileTypesOrderedMap {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &FilePickerFileTypesOrderedMap {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FilePickerSelectedFilesArray(windows_core::IUnknown);
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-windows_core::imp::interface_hierarchy!(FilePickerSelectedFilesArray, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView<super::StorageFile>);
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-windows_core::imp::required_hierarchy!(FilePickerSelectedFilesArray, super::super::Foundation::Collections::IIterable<super::StorageFile>);
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
+windows_core::imp::interface_hierarchy!(FilePickerSelectedFilesArray, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVectorView<super::StorageFile>);
+#[cfg(feature = "Storage_Streams")]
+windows_core::imp::required_hierarchy!(FilePickerSelectedFilesArray, windows_collections::IIterable<super::StorageFile>);
+#[cfg(feature = "Storage_Streams")]
 impl FilePickerSelectedFilesArray {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::StorageFile>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::StorageFile>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<super::StorageFile>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<super::StorageFile>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -412,35 +389,35 @@ impl FilePickerSelectedFilesArray {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for FilePickerSelectedFilesArray {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<super::StorageFile>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVectorView<super::StorageFile>>();
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 unsafe impl windows_core::Interface for FilePickerSelectedFilesArray {
-    type Vtable = <super::super::Foundation::Collections::IVectorView<super::StorageFile> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IVectorView<super::StorageFile> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IVectorView<super::StorageFile> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IVectorView<super::StorageFile> as windows_core::Interface>::IID;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for FilePickerSelectedFilesArray {
     const NAME: &'static str = "Windows.Storage.Pickers.FilePickerSelectedFilesArray";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 unsafe impl Send for FilePickerSelectedFilesArray {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 unsafe impl Sync for FilePickerSelectedFilesArray {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl IntoIterator for FilePickerSelectedFilesArray {
     type Item = super::StorageFile;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+#[cfg(feature = "Storage_Streams")]
 impl IntoIterator for &FilePickerSelectedFilesArray {
     type Item = super::StorageFile;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -490,8 +467,7 @@ impl FileSavePicker {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCommitButtonText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FileTypeChoices(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>> {
+    pub fn FileTypeChoices(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -659,8 +635,7 @@ impl FolderPicker {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCommitButtonText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FileTypeFilter(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn FileTypeFilter(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -738,17 +713,14 @@ pub struct IFileOpenPicker_Vtbl {
     pub SetSuggestedStartLocation: unsafe extern "system" fn(*mut core::ffi::c_void, PickerLocationId) -> windows_core::HRESULT,
     pub CommitButtonText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCommitButtonText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FileTypeFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FileTypeFilter: usize,
     #[cfg(feature = "Storage_Streams")]
     pub PickSingleFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     PickSingleFileAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub PickMultipleFilesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     PickMultipleFilesAsync: usize,
 }
 windows_core::imp::define_interface!(IFileOpenPicker2, IFileOpenPicker2_Vtbl, 0x8ceb6cd2_b446_46f7_b265_90f8e55ad650);
@@ -832,10 +804,7 @@ pub struct IFileSavePicker_Vtbl {
     pub SetSuggestedStartLocation: unsafe extern "system" fn(*mut core::ffi::c_void, PickerLocationId) -> windows_core::HRESULT,
     pub CommitButtonText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCommitButtonText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FileTypeChoices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FileTypeChoices: usize,
     pub DefaultFileExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDefaultFileExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -918,10 +887,7 @@ pub struct IFolderPicker_Vtbl {
     pub SetSuggestedStartLocation: unsafe extern "system" fn(*mut core::ffi::c_void, PickerLocationId) -> windows_core::HRESULT,
     pub CommitButtonText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCommitButtonText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FileTypeFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FileTypeFilter: usize,
     #[cfg(feature = "Storage_Search")]
     pub PickSingleFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Search"))]

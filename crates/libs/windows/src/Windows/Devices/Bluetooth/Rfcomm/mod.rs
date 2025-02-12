@@ -19,13 +19,13 @@ pub struct IRfcommDeviceService_Vtbl {
     pub MaxProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Networking::Sockets::SocketProtectionLevel) -> windows_core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))]
     MaxProtectionLevel: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub GetSdpRawAttributesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     GetSdpRawAttributesAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub GetSdpRawAttributesWithCacheModeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::BluetoothCacheMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     GetSdpRawAttributesWithCacheModeAsync: usize,
 }
 windows_core::imp::define_interface!(IRfcommDeviceService2, IRfcommDeviceService2_Vtbl, 0x536ced14_ebcd_49fe_bf9f_40efc689b20d);
@@ -83,10 +83,7 @@ impl windows_core::RuntimeType for IRfcommDeviceServicesResult {
 pub struct IRfcommDeviceServicesResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Services: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Services: usize,
 }
 windows_core::imp::define_interface!(IRfcommServiceId, IRfcommServiceId_Vtbl, 0x22629204_7e02_4017_8136_da1b6a1b9bbf);
 impl windows_core::RuntimeType for IRfcommServiceId {
@@ -123,9 +120,9 @@ impl windows_core::RuntimeType for IRfcommServiceProvider {
 pub struct IRfcommServiceProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub SdpRawAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     SdpRawAttributes: usize,
     #[cfg(feature = "Networking_Sockets")]
     pub StartAdvertising: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -202,16 +199,16 @@ impl RfcommDeviceService {
             (windows_core::Interface::vtable(this).MaxProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GetSdpRawAttributesAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn GetSdpRawAttributesAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSdpRawAttributesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GetSdpRawAttributesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn GetSdpRawAttributesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -327,8 +324,7 @@ impl RfcommDeviceServicesResult {
             (windows_core::Interface::vtable(this).Error)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Services(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<RfcommDeviceService>> {
+    pub fn Services(&self) -> windows_core::Result<windows_collections::IVectorView<RfcommDeviceService>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -451,8 +447,8 @@ impl RfcommServiceProvider {
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn SdpRawAttributes(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<u32, super::super::super::Storage::Streams::IBuffer>> {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn SdpRawAttributes(&self) -> windows_core::Result<windows_collections::IMap<u32, super::super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

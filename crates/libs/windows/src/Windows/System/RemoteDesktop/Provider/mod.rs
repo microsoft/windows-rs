@@ -87,10 +87,7 @@ impl windows_core::RuntimeType for IRemoteDesktopRegistrarStatics {
 #[repr(C)]
 pub struct IRemoteDesktopRegistrarStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub DesktopInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DesktopInfos: usize,
     pub IsSwitchToLocalSessionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -311,8 +308,7 @@ impl windows_core::RuntimeType for RemoteDesktopLocalAction {
 }
 pub struct RemoteDesktopRegistrar;
 impl RemoteDesktopRegistrar {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DesktopInfos() -> windows_core::Result<super::super::super::Foundation::Collections::IVector<RemoteDesktopInfo>> {
+    pub fn DesktopInfos() -> windows_core::Result<windows_collections::IVector<RemoteDesktopInfo>> {
         Self::IRemoteDesktopRegistrarStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesktopInfos)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -271,9 +271,9 @@ pub struct IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl {
     pub SourceContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UILauncher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateJobOnPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Printers")]
     pub CreateJobOnPrinterWithAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Printers", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Printers"))]
     CreateJobOnPrinterWithAttributes: usize,
     #[cfg(feature = "Storage_Streams")]
     pub CreateJobOnPrinterWithAttributesBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -289,9 +289,9 @@ impl windows_core::RuntimeType for IPrintWorkflowPdlModificationRequestedEventAr
 #[repr(C)]
 pub struct IPrintWorkflowPdlModificationRequestedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Printers")]
     pub CreateJobOnPrinterWithAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, PrintWorkflowAttributesMergePolicy, PrintWorkflowAttributesMergePolicy, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Printers", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Printers"))]
     CreateJobOnPrinterWithAttributes: usize,
     #[cfg(feature = "Storage_Streams")]
     pub CreateJobOnPrinterWithAttributesBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, PrintWorkflowAttributesMergePolicy, PrintWorkflowAttributesMergePolicy, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -345,21 +345,21 @@ pub struct IPrintWorkflowPrinterJob_Vtbl {
     pub GetJobPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
     GetJobPrintTicket: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub GetJobAttributesAsBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     GetJobAttributesAsBuffer: usize,
-    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Printers")]
     pub GetJobAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Printers", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Printers"))]
     GetJobAttributes: usize,
     #[cfg(all(feature = "Devices_Printers", feature = "Storage_Streams"))]
     pub SetJobAttributesFromBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Devices_Printers", feature = "Storage_Streams")))]
     SetJobAttributesFromBuffer: usize,
-    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Printers")]
     pub SetJobAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Printers", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Printers"))]
     SetJobAttributes: usize,
 }
 windows_core::imp::define_interface!(IPrintWorkflowPrinterJob2, IPrintWorkflowPrinterJob2_Vtbl, 0x747e21d7_69a9_5229_b8f0_874ca1a8871b);
@@ -369,9 +369,9 @@ impl windows_core::RuntimeType for IPrintWorkflowPrinterJob2 {
 #[repr(C)]
 pub struct IPrintWorkflowPrinterJob2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections", feature = "Graphics_Printing_PrintTicket"))]
+    #[cfg(all(feature = "Devices_Printers", feature = "Graphics_Printing_PrintTicket"))]
     pub ConvertPrintTicketToJobAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Printers", feature = "Foundation_Collections", feature = "Graphics_Printing_PrintTicket")))]
+    #[cfg(not(all(feature = "Devices_Printers", feature = "Graphics_Printing_PrintTicket")))]
     ConvertPrintTicketToJobAttributes: usize,
 }
 windows_core::imp::define_interface!(IPrintWorkflowSourceContent, IPrintWorkflowSourceContent_Vtbl, 0x1a28c641_ceb1_4533_bb73_fbe63eefdb18);
@@ -1494,10 +1494,10 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (windows_core::Interface::vtable(this).CreateJobOnPrinter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(targetcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Printers")]
     pub fn CreateJobOnPrinterWithAttributes<P0>(&self, jobattributes: P0, targetcontenttype: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
     {
         let this = self;
         unsafe {
@@ -1530,11 +1530,11 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Printers")]
     pub fn CreateJobOnPrinterWithAttributes2<P0, P2>(&self, jobattributes: P0, targetcontenttype: &windows_core::HSTRING, operationattributes: P2, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> windows_core::Result<PrintWorkflowPdlTargetStream>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
-        P2: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
+        P2: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowPdlModificationRequestedEventArgs2>(self)?;
         unsafe {
@@ -1673,10 +1673,10 @@ impl PrintWorkflowPrinterJob {
             (windows_core::Interface::vtable(this).GetJobPrintTicket)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn GetJobAttributesAsBuffer<P0>(&self, attributenames: P0) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -1684,10 +1684,10 @@ impl PrintWorkflowPrinterJob {
             (windows_core::Interface::vtable(this).GetJobAttributesAsBuffer)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    pub fn GetJobAttributes<P0>(&self, attributenames: P0) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
+    #[cfg(feature = "Devices_Printers")]
+    pub fn GetJobAttributes<P0>(&self, attributenames: P0) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -1706,10 +1706,10 @@ impl PrintWorkflowPrinterJob {
             (windows_core::Interface::vtable(this).SetJobAttributesFromBuffer)(windows_core::Interface::as_raw(this), jobattributesbuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Printers")]
     pub fn SetJobAttributes<P0>(&self, jobattributes: P0) -> windows_core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
     {
         let this = self;
         unsafe {
@@ -1717,8 +1717,8 @@ impl PrintWorkflowPrinterJob {
             (windows_core::Interface::vtable(this).SetJobAttributes)(windows_core::Interface::as_raw(this), jobattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections", feature = "Graphics_Printing_PrintTicket"))]
-    pub fn ConvertPrintTicketToJobAttributes<P0>(&self, printticket: P0, targetpdlformat: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
+    #[cfg(all(feature = "Devices_Printers", feature = "Graphics_Printing_PrintTicket"))]
+    pub fn ConvertPrintTicketToJobAttributes<P0>(&self, printticket: P0, targetpdlformat: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {

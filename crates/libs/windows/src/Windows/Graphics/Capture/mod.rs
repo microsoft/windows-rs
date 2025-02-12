@@ -30,8 +30,7 @@ impl Direct3D11CaptureFrame {
             (windows_core::Interface::vtable(this).ContentSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DirtyRegions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::RectInt32>> {
+    pub fn DirtyRegions(&self) -> windows_core::Result<windows_collections::IVectorView<super::RectInt32>> {
         let this = &windows_core::Interface::cast::<IDirect3D11CaptureFrame2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -421,10 +420,7 @@ impl windows_core::RuntimeType for IDirect3D11CaptureFrame2 {
 #[repr(C)]
 pub struct IDirect3D11CaptureFrame2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub DirtyRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DirtyRegions: usize,
     pub DirtyRegionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GraphicsCaptureDirtyRegionMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3D11CaptureFramePool, IDirect3D11CaptureFramePool_Vtbl, 0x24eb6d22_1975_422e_82e7_780dbd8ddf24);

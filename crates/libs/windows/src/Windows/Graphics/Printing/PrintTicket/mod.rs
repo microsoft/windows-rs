@@ -44,10 +44,7 @@ pub struct IPrintTicketFeature_Vtbl {
     XmlNode: usize,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Options: usize,
     pub GetSelectedOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSelectedOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SelectionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintTicketFeatureSelectionType) -> windows_core::HRESULT,
@@ -369,8 +366,7 @@ impl PrintTicketFeature {
             (windows_core::Interface::vtable(this).GetOption)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(xmlnamespace), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Options(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<PrintTicketOption>> {
+    pub fn Options(&self) -> windows_core::Result<windows_collections::IVectorView<PrintTicketOption>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

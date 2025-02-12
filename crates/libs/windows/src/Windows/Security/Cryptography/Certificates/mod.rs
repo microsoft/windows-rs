@@ -3,10 +3,9 @@
 pub struct Certificate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Certificate, windows_core::IUnknown, windows_core::IInspectable);
 impl Certificate {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn BuildChainAsync<P0>(&self, certificates: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<Certificate>>,
+        P0: windows_core::Param<windows_collections::IIterable<Certificate>>,
     {
         let this = self;
         unsafe {
@@ -14,10 +13,9 @@ impl Certificate {
             (windows_core::Interface::vtable(this).BuildChainAsync)(windows_core::Interface::as_raw(this), certificates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn BuildChainWithParametersAsync<P0, P1>(&self, certificates: P0, parameters: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<Certificate>>,
+        P0: windows_core::Param<windows_collections::IIterable<Certificate>>,
         P1: windows_core::Param<ChainBuildingParameters>,
     {
         let this = self;
@@ -97,8 +95,7 @@ impl Certificate {
             (windows_core::Interface::vtable(this).ValidTo)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EnhancedKeyUsages(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn EnhancedKeyUsages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -228,8 +225,7 @@ impl CertificateChain {
             (windows_core::Interface::vtable(this).ValidateWithParameters)(windows_core::Interface::as_raw(this), parameter.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCertificates(&self, includeroot: bool) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
+    pub fn GetCertificates(&self, includeroot: bool) -> windows_core::Result<windows_collections::IVectorView<Certificate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -511,8 +507,7 @@ impl CertificateQuery {
         static SHARED: windows_core::imp::FactoryCache<CertificateQuery, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EnhancedKeyUsages(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn EnhancedKeyUsages(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -814,8 +809,7 @@ impl CertificateRequestProperties {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUseExistingKey)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SuppressedDefaults(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn SuppressedDefaults(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -829,8 +823,7 @@ impl CertificateRequestProperties {
             (windows_core::Interface::vtable(this).SubjectAlternativeName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Extensions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<CertificateExtension>> {
+    pub fn Extensions(&self) -> windows_core::Result<windows_collections::IVector<CertificateExtension>> {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -891,15 +884,13 @@ unsafe impl Send for CertificateStore {}
 unsafe impl Sync for CertificateStore {}
 pub struct CertificateStores;
 impl CertificateStores {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>> {
+    pub fn FindAllAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<Certificate>>> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllWithQueryAsync<P0>(query: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>
+    pub fn FindAllWithQueryAsync<P0>(query: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<Certificate>>>
     where
         P0: windows_core::Param<CertificateQuery>,
     {
@@ -956,8 +947,7 @@ impl ChainBuildingParameters {
         static SHARED: windows_core::imp::FactoryCache<ChainBuildingParameters, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EnhancedKeyUsages(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn EnhancedKeyUsages(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1019,8 +1009,7 @@ impl ChainBuildingParameters {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCurrentTimeValidationEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ExclusiveTrustRoots(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<Certificate>> {
+    pub fn ExclusiveTrustRoots(&self) -> windows_core::Result<windows_collections::IVector<Certificate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1122,8 +1111,7 @@ impl windows_core::RuntimeType for ChainValidationResult {
 pub struct CmsAttachedSignature(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CmsAttachedSignature, windows_core::IUnknown, windows_core::IInspectable);
 impl CmsAttachedSignature {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Certificates(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
+    pub fn Certificates(&self) -> windows_core::Result<windows_collections::IVectorView<Certificate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1137,8 +1125,7 @@ impl CmsAttachedSignature {
             (windows_core::Interface::vtable(this).Content)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Signers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>> {
+    pub fn Signers(&self) -> windows_core::Result<windows_collections::IVectorView<CmsSignerInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1162,12 +1149,12 @@ impl CmsAttachedSignature {
             (windows_core::Interface::vtable(this).CreateCmsAttachedSignature)(windows_core::Interface::as_raw(this), inputblob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn GenerateSignatureAsync<P0, P1, P2>(data: P0, signers: P1, certificates: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>,
-        P2: windows_core::Param<super::super::super::Foundation::Collections::IIterable<Certificate>>,
+        P1: windows_core::Param<windows_collections::IIterable<CmsSignerInfo>>,
+        P2: windows_core::Param<windows_collections::IIterable<Certificate>>,
     {
         Self::ICmsAttachedSignatureStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1200,16 +1187,14 @@ unsafe impl Sync for CmsAttachedSignature {}
 pub struct CmsDetachedSignature(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CmsDetachedSignature, windows_core::IUnknown, windows_core::IInspectable);
 impl CmsDetachedSignature {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Certificates(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
+    pub fn Certificates(&self) -> windows_core::Result<windows_collections::IVectorView<Certificate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Certificates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Signers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>> {
+    pub fn Signers(&self) -> windows_core::Result<windows_collections::IVectorView<CmsSignerInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1237,12 +1222,12 @@ impl CmsDetachedSignature {
             (windows_core::Interface::vtable(this).CreateCmsDetachedSignature)(windows_core::Interface::as_raw(this), inputblob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn GenerateSignatureAsync<P0, P1, P2>(data: P0, signers: P1, certificates: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>,
-        P2: windows_core::Param<super::super::super::Foundation::Collections::IIterable<Certificate>>,
+        P1: windows_core::Param<windows_collections::IIterable<CmsSignerInfo>>,
+        P2: windows_core::Param<windows_collections::IIterable<Certificate>>,
     {
         Self::ICmsDetachedSignatureStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1339,8 +1324,7 @@ impl CmsTimestampInfo {
             (windows_core::Interface::vtable(this).SigningCertificate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Certificates(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
+    pub fn Certificates(&self) -> windows_core::Result<windows_collections::IVectorView<Certificate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1436,14 +1420,8 @@ impl windows_core::RuntimeType for ICertificate {
 #[repr(C)]
 pub struct ICertificate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub BuildChainAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BuildChainAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub BuildChainWithParametersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BuildChainWithParametersAsync: usize,
     pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
     pub GetHashValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
     pub GetHashValueWithAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
@@ -1457,10 +1435,7 @@ pub struct ICertificate_Vtbl {
     pub IsStronglyProtected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ValidFrom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub ValidTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub EnhancedKeyUsages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EnhancedKeyUsages: usize,
     pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -1498,10 +1473,7 @@ pub struct ICertificateChain_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChainValidationResult) -> windows_core::HRESULT,
     pub ValidateWithParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut ChainValidationResult) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCertificates: usize,
 }
 windows_core::imp::define_interface!(ICertificateEnrollmentManagerStatics, ICertificateEnrollmentManagerStatics_Vtbl, 0x8846ef3f_a986_48fb_9fd7_9aec06935bf1);
 impl windows_core::RuntimeType for ICertificateEnrollmentManagerStatics {
@@ -1591,10 +1563,7 @@ impl windows_core::RuntimeType for ICertificateQuery {
 #[repr(C)]
 pub struct ICertificateQuery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub EnhancedKeyUsages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EnhancedKeyUsages: usize,
     pub IssuerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetIssuerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1683,15 +1652,9 @@ impl windows_core::RuntimeType for ICertificateRequestProperties4 {
 #[repr(C)]
 pub struct ICertificateRequestProperties4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SuppressedDefaults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SuppressedDefaults: usize,
     pub SubjectAlternativeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Extensions: usize,
 }
 windows_core::imp::define_interface!(ICertificateStore, ICertificateStore_Vtbl, 0xb0bff720_344e_4331_af14_a7f7a7ebc93a);
 impl windows_core::RuntimeType for ICertificateStore {
@@ -1719,14 +1682,8 @@ impl windows_core::RuntimeType for ICertificateStoresStatics {
 #[repr(C)]
 pub struct ICertificateStoresStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllWithQueryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllWithQueryAsync: usize,
     pub TrustedRootCertificationAuthorities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IntermediateCertificationAuthorities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetStoreByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1747,10 +1704,7 @@ impl windows_core::RuntimeType for IChainBuildingParameters {
 #[repr(C)]
 pub struct IChainBuildingParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub EnhancedKeyUsages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EnhancedKeyUsages: usize,
     pub ValidationTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub SetValidationTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub RevocationCheckEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1761,10 +1715,7 @@ pub struct IChainBuildingParameters_Vtbl {
     pub SetAuthorityInformationAccessEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub CurrentTimeValidationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetCurrentTimeValidationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ExclusiveTrustRoots: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExclusiveTrustRoots: usize,
 }
 windows_core::imp::define_interface!(IChainValidationParameters, IChainValidationParameters_Vtbl, 0xc4743b4a_7eb0_4b56_a040_b9c8e655ddf3);
 impl windows_core::RuntimeType for IChainValidationParameters {
@@ -1791,15 +1742,9 @@ impl windows_core::RuntimeType for ICmsAttachedSignature {
 #[repr(C)]
 pub struct ICmsAttachedSignature_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Certificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Certificates: usize,
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Signers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Signers: usize,
     pub VerifySignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SignatureValidationResult) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICmsAttachedSignatureFactory, ICmsAttachedSignatureFactory_Vtbl, 0xd0c8fc15_f757_4c64_a362_52cc1c77cffb);
@@ -1821,9 +1766,9 @@ impl windows_core::RuntimeType for ICmsAttachedSignatureStatics {
 #[repr(C)]
 pub struct ICmsAttachedSignatureStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub GenerateSignatureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     GenerateSignatureAsync: usize,
 }
 windows_core::imp::define_interface!(ICmsDetachedSignature, ICmsDetachedSignature_Vtbl, 0x0f1ef154_f65e_4536_8339_5944081db2ca);
@@ -1833,14 +1778,8 @@ impl windows_core::RuntimeType for ICmsDetachedSignature {
 #[repr(C)]
 pub struct ICmsDetachedSignature_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Certificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Certificates: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Signers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Signers: usize,
     #[cfg(feature = "Storage_Streams")]
     pub VerifySignatureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -1865,9 +1804,9 @@ impl windows_core::RuntimeType for ICmsDetachedSignatureStatics {
 #[repr(C)]
 pub struct ICmsDetachedSignatureStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub GenerateSignatureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     GenerateSignatureAsync: usize,
 }
 windows_core::imp::define_interface!(ICmsSignerInfo, ICmsSignerInfo_Vtbl, 0x50d020db_1d2f_4c1a_b5c5_d0188ff91f47);
@@ -1891,10 +1830,7 @@ impl windows_core::RuntimeType for ICmsTimestampInfo {
 pub struct ICmsTimestampInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SigningCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Certificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Certificates: usize,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKeyAlgorithmNamesStatics, IKeyAlgorithmNamesStatics_Vtbl, 0x479065d7_7ac7_4581_8c3b_d07027140448);
@@ -2002,30 +1938,12 @@ impl windows_core::RuntimeType for ISubjectAlternativeNameInfo {
 #[repr(C)]
 pub struct ISubjectAlternativeNameInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub EmailName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EmailName: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub IPAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    IPAddress: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Url: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Url: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub DnsName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DnsName: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub DistinguishedName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DistinguishedName: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub PrincipalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PrincipalName: usize,
 }
 windows_core::imp::define_interface!(ISubjectAlternativeNameInfo2, ISubjectAlternativeNameInfo2_Vtbl, 0x437a78c6_1c51_41ea_b34a_3d654398a370);
 impl windows_core::RuntimeType for ISubjectAlternativeNameInfo2 {
@@ -2034,30 +1952,12 @@ impl windows_core::RuntimeType for ISubjectAlternativeNameInfo2 {
 #[repr(C)]
 pub struct ISubjectAlternativeNameInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub EmailNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EmailNames: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub IPAddresses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    IPAddresses: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Urls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Urls: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub DnsNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DnsNames: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub DistinguishedNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DistinguishedNames: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub PrincipalNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PrincipalNames: usize,
     pub Extension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserCertificateEnrollmentManager, IUserCertificateEnrollmentManager_Vtbl, 0x96313718_22e1_4819_b20b_ab46a6eca06e);
@@ -2469,96 +2369,84 @@ impl SubjectAlternativeNameInfo {
         static SHARED: windows_core::imp::FactoryCache<SubjectAlternativeNameInfo, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EmailName(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn EmailName(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EmailName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn IPAddress(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn IPAddress(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IPAddress)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Url(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Url(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Url)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DnsName(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn DnsName(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DnsName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DistinguishedName(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn DistinguishedName(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DistinguishedName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PrincipalName(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn PrincipalName(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrincipalName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EmailNames(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn EmailNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EmailNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn IPAddresses(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn IPAddresses(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IPAddresses)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Urls(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Urls(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Urls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DnsNames(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn DnsNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DnsNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DistinguishedNames(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn DistinguishedNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DistinguishedNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PrincipalNames(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn PrincipalNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

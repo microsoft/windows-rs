@@ -61,15 +61,9 @@ impl windows_core::RuntimeType for IUsbConfiguration {
 #[repr(C)]
 pub struct IUsbConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub UsbInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UsbInterfaces: usize,
     pub ConfigurationDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Descriptors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Descriptors: usize,
 }
 windows_core::imp::define_interface!(IUsbConfigurationDescriptor, IUsbConfigurationDescriptor_Vtbl, 0xf2176d92_b442_407a_8207_7d646c0385f3);
 impl windows_core::RuntimeType for IUsbConfigurationDescriptor {
@@ -245,31 +239,13 @@ impl windows_core::RuntimeType for IUsbInterface {
 #[repr(C)]
 pub struct IUsbInterface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub BulkInPipes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BulkInPipes: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub InterruptInPipes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InterruptInPipes: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub BulkOutPipes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BulkOutPipes: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub InterruptOutPipes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InterruptOutPipes: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub InterfaceSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InterfaceSettings: usize,
     pub InterfaceNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Descriptors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Descriptors: usize,
 }
 windows_core::imp::define_interface!(IUsbInterfaceDescriptor, IUsbInterfaceDescriptor_Vtbl, 0x199670c7_b7ee_4f90_8cd5_94a2e257598a);
 impl windows_core::RuntimeType for IUsbInterfaceDescriptor {
@@ -301,29 +277,14 @@ impl windows_core::RuntimeType for IUsbInterfaceSetting {
 #[repr(C)]
 pub struct IUsbInterfaceSetting_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub BulkInEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BulkInEndpoints: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub InterruptInEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InterruptInEndpoints: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub BulkOutEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BulkOutEndpoints: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub InterruptOutEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InterruptOutEndpoints: usize,
     pub Selected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SelectSettingAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InterfaceDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Descriptors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Descriptors: usize,
 }
 windows_core::imp::define_interface!(IUsbInterruptInEndpointDescriptor, IUsbInterruptInEndpointDescriptor_Vtbl, 0xc0528967_c911_4c3a_86b2_419c2da89039);
 impl windows_core::RuntimeType for IUsbInterruptInEndpointDescriptor {
@@ -615,8 +576,7 @@ unsafe impl Sync for UsbBulkOutPipe {}
 pub struct UsbConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbConfiguration {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UsbInterfaces(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterface>> {
+    pub fn UsbInterfaces(&self) -> windows_core::Result<windows_collections::IVectorView<UsbInterface>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -630,8 +590,7 @@ impl UsbConfiguration {
             (windows_core::Interface::vtable(this).ConfigurationDescriptor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Descriptors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>> {
+    pub fn Descriptors(&self) -> windows_core::Result<windows_collections::IVectorView<UsbDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1293,40 +1252,35 @@ impl windows_core::RuntimeType for UsbEndpointType {
 pub struct UsbInterface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterface, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbInterface {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn BulkInPipes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInPipe>> {
+    pub fn BulkInPipes(&self) -> windows_core::Result<windows_collections::IVectorView<UsbBulkInPipe>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BulkInPipes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn InterruptInPipes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptInPipe>> {
+    pub fn InterruptInPipes(&self) -> windows_core::Result<windows_collections::IVectorView<UsbInterruptInPipe>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InterruptInPipes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn BulkOutPipes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkOutPipe>> {
+    pub fn BulkOutPipes(&self) -> windows_core::Result<windows_collections::IVectorView<UsbBulkOutPipe>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BulkOutPipes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn InterruptOutPipes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptOutPipe>> {
+    pub fn InterruptOutPipes(&self) -> windows_core::Result<windows_collections::IVectorView<UsbInterruptOutPipe>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InterruptOutPipes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn InterfaceSettings(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterfaceSetting>> {
+    pub fn InterfaceSettings(&self) -> windows_core::Result<windows_collections::IVectorView<UsbInterfaceSetting>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1340,8 +1294,7 @@ impl UsbInterface {
             (windows_core::Interface::vtable(this).InterfaceNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Descriptors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>> {
+    pub fn Descriptors(&self) -> windows_core::Result<windows_collections::IVectorView<UsbDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1441,32 +1394,28 @@ unsafe impl Sync for UsbInterfaceDescriptor {}
 pub struct UsbInterfaceSetting(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterfaceSetting, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbInterfaceSetting {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn BulkInEndpoints(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInEndpointDescriptor>> {
+    pub fn BulkInEndpoints(&self) -> windows_core::Result<windows_collections::IVectorView<UsbBulkInEndpointDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BulkInEndpoints)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn InterruptInEndpoints(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptInEndpointDescriptor>> {
+    pub fn InterruptInEndpoints(&self) -> windows_core::Result<windows_collections::IVectorView<UsbInterruptInEndpointDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InterruptInEndpoints)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn BulkOutEndpoints(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkOutEndpointDescriptor>> {
+    pub fn BulkOutEndpoints(&self) -> windows_core::Result<windows_collections::IVectorView<UsbBulkOutEndpointDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BulkOutEndpoints)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn InterruptOutEndpoints(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptOutEndpointDescriptor>> {
+    pub fn InterruptOutEndpoints(&self) -> windows_core::Result<windows_collections::IVectorView<UsbInterruptOutEndpointDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1494,8 +1443,7 @@ impl UsbInterfaceSetting {
             (windows_core::Interface::vtable(this).InterfaceDescriptor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Descriptors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>> {
+    pub fn Descriptors(&self) -> windows_core::Result<windows_collections::IVectorView<UsbDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

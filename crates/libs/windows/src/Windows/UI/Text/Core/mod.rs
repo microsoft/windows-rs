@@ -10,8 +10,7 @@ impl CoreTextCompositionCompletedEventArgs {
             (windows_core::Interface::vtable(this).IsCanceled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CompositionSegments(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>> {
+    pub fn CompositionSegments(&self) -> windows_core::Result<windows_collections::IVectorView<CoreTextCompositionSegment>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1034,10 +1033,7 @@ impl windows_core::RuntimeType for ICoreTextCompositionCompletedEventArgs {
 pub struct ICoreTextCompositionCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CompositionSegments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CompositionSegments: usize,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreTextCompositionSegment, ICoreTextCompositionSegment_Vtbl, 0x776c6bd9_4ead_4da7_8f47_3a88b523cc34);

@@ -117,8 +117,7 @@ impl GeofenceMonitor {
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Geofences(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<Geofence>> {
+    pub fn Geofences(&self) -> windows_core::Result<windows_collections::IVector<Geofence>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -146,8 +145,7 @@ impl GeofenceMonitor {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveGeofenceStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ReadReports(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GeofenceStateChangeReport>> {
+    pub fn ReadReports(&self) -> windows_core::Result<windows_collections::IVectorView<GeofenceStateChangeReport>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -350,17 +348,11 @@ impl windows_core::RuntimeType for IGeofenceMonitor {
 pub struct IGeofenceMonitor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GeofenceMonitorStatus) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Geofences: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Geofences: usize,
     pub LastKnownGeoposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GeofenceStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveGeofenceStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ReadReports: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ReadReports: usize,
     pub StatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }

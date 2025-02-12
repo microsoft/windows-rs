@@ -35,40 +35,35 @@ impl BluetoothLEAdvertisement {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLocalName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServiceUuids(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::GUID>> {
+    pub fn ServiceUuids(&self) -> windows_core::Result<windows_collections::IVector<windows_core::GUID>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUuids)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ManufacturerData(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEManufacturerData>> {
+    pub fn ManufacturerData(&self) -> windows_core::Result<windows_collections::IVector<BluetoothLEManufacturerData>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ManufacturerData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DataSections(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementDataSection>> {
+    pub fn DataSections(&self) -> windows_core::Result<windows_collections::IVector<BluetoothLEAdvertisementDataSection>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataSections)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetManufacturerDataByCompanyId(&self, companyid: u16) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<BluetoothLEManufacturerData>> {
+    pub fn GetManufacturerDataByCompanyId(&self, companyid: u16) -> windows_core::Result<windows_collections::IVectorView<BluetoothLEManufacturerData>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetManufacturerDataByCompanyId)(windows_core::Interface::as_raw(this), companyid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSectionsByType(&self, r#type: u8) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<BluetoothLEAdvertisementDataSection>> {
+    pub fn GetSectionsByType(&self, r#type: u8) -> windows_core::Result<windows_collections::IVectorView<BluetoothLEAdvertisementDataSection>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -399,8 +394,7 @@ impl BluetoothLEAdvertisementFilter {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAdvertisement)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn BytePatterns(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementBytePattern>> {
+    pub fn BytePatterns(&self) -> windows_core::Result<windows_collections::IVector<BluetoothLEAdvertisementBytePattern>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1057,26 +1051,11 @@ pub struct IBluetoothLEAdvertisement_Vtbl {
     pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LocalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLocalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ServiceUuids: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ServiceUuids: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ManufacturerData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ManufacturerData: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub DataSections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DataSections: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetManufacturerDataByCompanyId: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetManufacturerDataByCompanyId: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSectionsByType: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSectionsByType: usize,
 }
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementBytePattern, IBluetoothLEAdvertisementBytePattern_Vtbl, 0xfbfad7f2_b9c5_4a08_bc51_502f8ef68a79);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementBytePattern {
@@ -1179,10 +1158,7 @@ pub struct IBluetoothLEAdvertisementFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Advertisement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAdvertisement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub BytePatterns: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BytePatterns: usize,
 }
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisher, IBluetoothLEAdvertisementPublisher_Vtbl, 0xcde820f9_d9fa_43d6_a264_ddd8b7da8b78);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisher {

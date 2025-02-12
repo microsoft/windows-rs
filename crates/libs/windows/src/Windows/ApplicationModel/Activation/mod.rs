@@ -1409,8 +1409,8 @@ impl FileActivatedEventArgs {
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
+    #[cfg(feature = "Storage")]
+    pub fn Files(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1570,8 +1570,8 @@ impl FileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Files(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4248,8 +4248,8 @@ impl windows_core::RuntimeType for IFileActivatedEventArgs {
 windows_core::imp::interface_hierarchy!(IFileActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IFileActivatedEventArgs, IActivatedEventArgs);
 impl IFileActivatedEventArgs {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
+    #[cfg(feature = "Storage")]
+    pub fn Files(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4285,16 +4285,16 @@ impl IFileActivatedEventArgs {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+#[cfg(feature = "Storage")]
 impl windows_core::RuntimeName for IFileActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileActivatedEventArgs";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+#[cfg(feature = "Storage")]
 pub trait IFileActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
-    fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>;
+    fn Files(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::IStorageItem>>;
     fn Verb(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+#[cfg(feature = "Storage")]
 impl IFileActivatedEventArgs_Vtbl {
     pub const fn new<Identity: IFileActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Files<Identity: IFileActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4336,9 +4336,9 @@ impl IFileActivatedEventArgs_Vtbl {
 #[repr(C)]
 pub struct IFileActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(feature = "Storage")]
     pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
+    #[cfg(not(feature = "Storage"))]
     Files: usize,
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -4449,8 +4449,8 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
+    #[cfg(feature = "Storage")]
+    pub fn Files(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = &windows_core::Interface::cast::<IFileActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4465,15 +4465,15 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
+#[cfg(feature = "Storage_Search")]
 impl windows_core::RuntimeName for IFileActivatedEventArgsWithNeighboringFiles {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithNeighboringFiles";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
+#[cfg(feature = "Storage_Search")]
 pub trait IFileActivatedEventArgsWithNeighboringFiles_Impl: IActivatedEventArgs_Impl + IFileActivatedEventArgs_Impl {
     fn NeighboringFilesQuery(&self) -> windows_core::Result<super::super::Storage::Search::StorageFileQueryResult>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
+#[cfg(feature = "Storage_Search")]
 impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
     pub const fn new<Identity: IFileActivatedEventArgsWithNeighboringFiles_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NeighboringFilesQuery<Identity: IFileActivatedEventArgsWithNeighboringFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4645,8 +4645,8 @@ windows_core::imp::interface_hierarchy!(IFileOpenPickerContinuationEventArgs, wi
 windows_core::imp::required_hierarchy!(IFileOpenPickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl IFileOpenPickerContinuationEventArgs {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Files(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4689,7 +4689,7 @@ impl windows_core::RuntimeName for IFileOpenPickerContinuationEventArgs {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
 pub trait IFileOpenPickerContinuationEventArgs_Impl: IActivatedEventArgs_Impl + IContinuationActivatedEventArgs_Impl {
-    fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>;
+    fn Files(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::StorageFile>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
 impl IFileOpenPickerContinuationEventArgs_Vtbl {
@@ -4717,9 +4717,9 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
 #[repr(C)]
 pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     Files: usize,
 }
 windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs, IFileSavePickerActivatedEventArgs_Vtbl, 0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
@@ -6379,9 +6379,9 @@ impl windows_core::RuntimeType for ITileActivatedInfo {
 #[repr(C)]
 pub struct ITileActivatedInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications"))]
+    #[cfg(feature = "UI_Notifications")]
     pub RecentlyShownNotifications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Notifications")))]
+    #[cfg(not(feature = "UI_Notifications"))]
     RecentlyShownNotifications: usize,
 }
 windows_core::imp::define_interface!(IToastNotificationActivatedEventArgs, IToastNotificationActivatedEventArgs_Vtbl, 0x92a86f82_5290_431d_be85_c4aaeeb8685f);
@@ -7937,8 +7937,8 @@ unsafe impl Sync for StartupTaskActivatedEventArgs {}
 pub struct TileActivatedInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TileActivatedInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl TileActivatedInfo {
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications"))]
-    pub fn RecentlyShownNotifications(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::UI::Notifications::ShownTileNotification>> {
+    #[cfg(feature = "UI_Notifications")]
+    pub fn RecentlyShownNotifications(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::UI::Notifications::ShownTileNotification>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

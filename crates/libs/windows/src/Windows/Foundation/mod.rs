@@ -3155,10 +3155,7 @@ pub struct IUriRuntimeClass_Vtbl {
     pub Password: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Query: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub QueryParsed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    QueryParsed: usize,
     pub RawUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SchemeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3259,13 +3256,10 @@ pub struct IWwwFormUrlDecoderEntry_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClass, IWwwFormUrlDecoderRuntimeClass_Vtbl, 0xd45a0451_f225_4542_9296_0e1df5d254df);
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
 pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -3278,10 +3272,7 @@ impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClassFactory {
 #[repr(C)]
 pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateWwwFormUrlDecoder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWwwFormUrlDecoder: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3852,7 +3843,6 @@ impl Uri {
             (windows_core::Interface::vtable(this).Query)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn QueryParsed(&self) -> windows_core::Result<WwwFormUrlDecoder> {
         let this = self;
         unsafe {
@@ -3959,32 +3949,28 @@ impl windows_core::RuntimeName for Uri {
 }
 unsafe impl Send for Uri {}
 unsafe impl Sync for Uri {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WwwFormUrlDecoder(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(WwwFormUrlDecoder, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(WwwFormUrlDecoder, Collections::IIterable<IWwwFormUrlDecoderEntry>, Collections::IVectorView<IWwwFormUrlDecoderEntry>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(WwwFormUrlDecoder, windows_collections::IIterable<IWwwFormUrlDecoderEntry>, windows_collections::IVectorView<IWwwFormUrlDecoderEntry>);
 impl WwwFormUrlDecoder {
-    pub fn First(&self) -> windows_core::Result<Collections::IIterator<IWwwFormUrlDecoderEntry>> {
-        let this = &windows_core::Interface::cast::<Collections::IIterable<IWwwFormUrlDecoderEntry>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<IWwwFormUrlDecoderEntry>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<IWwwFormUrlDecoderEntry> {
-        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -3994,14 +3980,14 @@ impl WwwFormUrlDecoder {
     where
         P0: windows_core::Param<IWwwFormUrlDecoderEntry>,
     {
-        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<IWwwFormUrlDecoderEntry>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -4025,35 +4011,28 @@ impl WwwFormUrlDecoder {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for WwwFormUrlDecoder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderRuntimeClass>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for WwwFormUrlDecoder {
     type Vtable = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for WwwFormUrlDecoder {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoder";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for WwwFormUrlDecoder {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for WwwFormUrlDecoder {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for WwwFormUrlDecoder {
     type Item = IWwwFormUrlDecoderEntry;
-    type IntoIter = Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &WwwFormUrlDecoder {
     type Item = IWwwFormUrlDecoderEntry;
-    type IntoIter = Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }

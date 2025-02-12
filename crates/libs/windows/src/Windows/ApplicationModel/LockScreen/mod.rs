@@ -52,16 +52,10 @@ pub struct ILockScreenInfo_Vtbl {
     LockScreenImage: usize,
     pub BadgesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveBadgesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Badges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Badges: usize,
     pub DetailTextChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDetailTextChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub DetailText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DetailText: usize,
     pub AlarmIconChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAlarmIconChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -227,8 +221,7 @@ impl LockScreenInfo {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveBadgesChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Badges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<LockScreenBadge>> {
+    pub fn Badges(&self) -> windows_core::Result<windows_collections::IVectorView<LockScreenBadge>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -249,8 +242,7 @@ impl LockScreenInfo {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDetailTextChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DetailText(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn DetailText(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

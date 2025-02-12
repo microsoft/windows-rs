@@ -333,8 +333,7 @@ unsafe impl Sync for DialDevicePicker {}
 pub struct DialDevicePickerFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialDevicePickerFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl DialDevicePickerFilter {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedAppNames(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn SupportedAppNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -409,18 +408,16 @@ unsafe impl Sync for DialDisconnectButtonClickedEventArgs {}
 pub struct DialReceiverApp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialReceiverApp, windows_core::IUnknown, windows_core::IInspectable);
 impl DialReceiverApp {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAdditionalDataAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>> {
+    pub fn GetAdditionalDataAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAdditionalDataAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetAdditionalDataAsync<P0>(&self, additionaldata: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         let this = self;
         unsafe {
@@ -541,10 +538,7 @@ impl windows_core::RuntimeType for IDialDevicePickerFilter {
 #[repr(C)]
 pub struct IDialDevicePickerFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedAppNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedAppNames: usize,
 }
 windows_core::imp::define_interface!(IDialDeviceSelectedEventArgs, IDialDeviceSelectedEventArgs_Vtbl, 0x480b92ad_ac76_47eb_9c06_a19304da0247);
 impl windows_core::RuntimeType for IDialDeviceSelectedEventArgs {
@@ -585,14 +579,8 @@ impl windows_core::RuntimeType for IDialReceiverApp {
 #[repr(C)]
 pub struct IDialReceiverApp_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAdditionalDataAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAdditionalDataAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetAdditionalDataAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetAdditionalDataAsync: usize,
 }
 windows_core::imp::define_interface!(IDialReceiverApp2, IDialReceiverApp2_Vtbl, 0x530c5805_9130_42ac_a504_1977dcb2ea8a);
 impl windows_core::RuntimeType for IDialReceiverApp2 {

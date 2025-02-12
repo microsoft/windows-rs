@@ -1202,8 +1202,8 @@ impl windows_core::RuntimeType for INDStorageFileHelper {
 windows_core::imp::interface_hierarchy!(INDStorageFileHelper, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDStorageFileHelper {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GetFileURLs<P0>(&self, file: P0) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>>
+    #[cfg(feature = "Storage_Streams")]
+    pub fn GetFileURLs<P0>(&self, file: P0) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
@@ -1214,15 +1214,15 @@ impl INDStorageFileHelper {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
 impl windows_core::RuntimeName for INDStorageFileHelper {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStorageFileHelper";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
 pub trait INDStorageFileHelper_Impl: windows_core::IUnknownImpl {
-    fn GetFileURLs(&self, file: windows_core::Ref<'_, super::super::super::Storage::IStorageFile>) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>>;
+    fn GetFileURLs(&self, file: windows_core::Ref<'_, super::super::super::Storage::IStorageFile>) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
 impl INDStorageFileHelper_Vtbl {
     pub const fn new<Identity: INDStorageFileHelper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFileURLs<Identity: INDStorageFileHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1248,9 +1248,9 @@ impl INDStorageFileHelper_Vtbl {
 #[repr(C)]
 pub struct INDStorageFileHelper_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub GetFileURLs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     GetFileURLs: usize,
 }
 #[cfg(feature = "deprecated")]
@@ -1395,11 +1395,11 @@ impl INDStreamParserNotifier {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub fn OnMediaStreamDescriptorCreated<P0, P1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>,
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>,
+        P0: windows_core::Param<windows_collections::IVector<super::super::Core::AudioStreamDescriptor>>,
+        P1: windows_core::Param<windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(windows_core::Interface::as_raw(this), audiostreamdescriptors.param().abi(), videostreamdescriptors.param().abi()).ok() }
@@ -1421,18 +1421,18 @@ impl INDStreamParserNotifier {
         unsafe { (windows_core::Interface::vtable(this).OnBeginSetupDecryptor)(windows_core::Interface::as_raw(this), descriptor.param().abi(), keyid, probytes.len().try_into().unwrap(), probytes.as_ptr()).ok() }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
+#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 impl windows_core::RuntimeName for INDStreamParserNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStreamParserNotifier";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
+#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParserNotifier_Impl: windows_core::IUnknownImpl {
     fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<'_, INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
-    fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: windows_core::Ref<'_, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, videoStreamDescriptors: windows_core::Ref<'_, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> windows_core::Result<()>;
+    fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: windows_core::Ref<'_, windows_collections::IVector<super::super::Core::AudioStreamDescriptor>>, videoStreamDescriptors: windows_core::Ref<'_, windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> windows_core::Result<()>;
     fn OnSampleParsed(&self, streamID: u32, streamType: NDMediaStreamType, streamSample: windows_core::Ref<'_, super::super::Core::MediaStreamSample>, pts: i64, ccFormat: NDClosedCaptionFormat, ccDataBytes: &[u8]) -> windows_core::Result<()>;
     fn OnBeginSetupDecryptor(&self, descriptor: windows_core::Ref<'_, super::super::Core::IMediaStreamDescriptor>, keyID: &windows_core::GUID, proBytes: &[u8]) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
+#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 impl INDStreamParserNotifier_Vtbl {
     pub const fn new<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnContentIDReceived<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchdescriptor: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1476,9 +1476,9 @@ impl INDStreamParserNotifier_Vtbl {
 pub struct INDStreamParserNotifier_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OnContentIDReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub OnMediaStreamDescriptorCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Core")))]
+    #[cfg(not(feature = "Media_Core"))]
     OnMediaStreamDescriptorCreated: usize,
     #[cfg(feature = "Media_Core")]
     pub OnSampleParsed: unsafe extern "system" fn(*mut core::ffi::c_void, u32, NDMediaStreamType, *mut core::ffi::c_void, i64, NDClosedCaptionFormat, u32, *const u8) -> windows_core::HRESULT,
@@ -1988,10 +1988,7 @@ impl windows_core::RuntimeType for IPlayReadyDomainIterableFactory {
 #[repr(C)]
 pub struct IPlayReadyDomainIterableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateInstance: usize,
 }
 windows_core::imp::define_interface!(IPlayReadyDomainJoinServiceRequest, IPlayReadyDomainJoinServiceRequest_Vtbl, 0x171b4a5a_405f_4739_b040_67b9f0c38758);
 impl windows_core::RuntimeType for IPlayReadyDomainJoinServiceRequest {
@@ -2423,10 +2420,7 @@ impl windows_core::RuntimeType for IPlayReadyLicenseAcquisitionServiceRequest3 {
 #[repr(C)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateLicenseIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateLicenseIterable: usize,
 }
 windows_core::imp::define_interface!(IPlayReadyLicenseIterableFactory, IPlayReadyLicenseIterableFactory_Vtbl, 0xd4179f08_0837_4978_8e68_be4293c8d7a6);
 impl windows_core::RuntimeType for IPlayReadyLicenseIterableFactory {
@@ -2435,10 +2429,7 @@ impl windows_core::RuntimeType for IPlayReadyLicenseIterableFactory {
 #[repr(C)]
 pub struct IPlayReadyLicenseIterableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateInstance: usize,
 }
 windows_core::imp::define_interface!(IPlayReadyLicenseManagement, IPlayReadyLicenseManagement_Vtbl, 0xaaeb2141_0957_4405_b892_8bf3ec5dadd9);
 impl windows_core::RuntimeType for IPlayReadyLicenseManagement {
@@ -2521,7 +2512,6 @@ impl windows_core::RuntimeType for IPlayReadyLicenseSession2 {
 windows_core::imp::interface_hierarchy!(IPlayReadyLicenseSession2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPlayReadyLicenseSession2, IPlayReadyLicenseSession);
 impl IPlayReadyLicenseSession2 {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
@@ -2547,15 +2537,12 @@ impl IPlayReadyLicenseSession2 {
         unsafe { (windows_core::Interface::vtable(this).ConfigureMediaProtectionManager)(windows_core::Interface::as_raw(this), mpm.param().abi()).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IPlayReadyLicenseSession2 {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession2";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait IPlayReadyLicenseSession2_Impl: IPlayReadyLicenseSession_Impl {
     fn CreateLicenseIterable(&self, contentHeader: windows_core::Ref<'_, PlayReadyContentHeader>, fullyEvaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IPlayReadyLicenseSession2_Vtbl {
     pub const fn new<Identity: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateLicenseIterable<Identity: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentheader: *mut core::ffi::c_void, fullyevaluated: bool, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2583,10 +2570,7 @@ impl IPlayReadyLicenseSession2_Vtbl {
 #[repr(C)]
 pub struct IPlayReadyLicenseSession2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateLicenseIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateLicenseIterable: usize,
 }
 windows_core::imp::define_interface!(IPlayReadyLicenseSessionFactory, IPlayReadyLicenseSessionFactory_Vtbl, 0x62492699_6527_429e_98be_48d798ac2739);
 impl windows_core::RuntimeType for IPlayReadyLicenseSessionFactory {
@@ -2625,10 +2609,7 @@ impl windows_core::RuntimeType for IPlayReadySecureStopIterableFactory {
 #[repr(C)]
 pub struct IPlayReadySecureStopIterableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateInstance: usize,
 }
 windows_core::imp::define_interface!(IPlayReadySecureStopServiceRequest, IPlayReadySecureStopServiceRequest_Vtbl, 0xb5501ee5_01bf_4401_9677_05630a6a4cc8);
 impl windows_core::RuntimeType for IPlayReadySecureStopServiceRequest {
@@ -3609,8 +3590,8 @@ impl NDStorageFileHelper {
         static SHARED: windows_core::imp::FactoryCache<NDStorageFileHelper, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GetFileURLs<P0>(&self, file: P0) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>>
+    #[cfg(feature = "Storage_Streams")]
+    pub fn GetFileURLs<P0>(&self, file: P0) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
@@ -3656,11 +3637,11 @@ impl NDStreamParserNotifier {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub fn OnMediaStreamDescriptorCreated<P0, P1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>,
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>,
+        P0: windows_core::Param<windows_collections::IVector<super::super::Core::AudioStreamDescriptor>>,
+        P1: windows_core::Param<windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(windows_core::Interface::as_raw(this), audiostreamdescriptors.param().abi(), videostreamdescriptors.param().abi()).ok() }
@@ -3982,15 +3963,12 @@ unsafe impl windows_core::Interface for PlayReadyDomain {
 impl windows_core::RuntimeName for PlayReadyDomain {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomain";
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PlayReadyDomainIterable(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadyDomainIterable, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(PlayReadyDomainIterable, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterable<IPlayReadyDomain>);
 impl PlayReadyDomainIterable {
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<IPlayReadyDomain>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4008,42 +3986,34 @@ impl PlayReadyDomainIterable {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadyDomainIterable {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IIterable<IPlayReadyDomain>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyDomainIterable {
-    type Vtable = <super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IIterable<IPlayReadyDomain> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IIterable<IPlayReadyDomain> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for PlayReadyDomainIterable {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainIterable";
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for PlayReadyDomainIterable {
     type Item = IPlayReadyDomain;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &PlayReadyDomainIterable {
     type Item = IPlayReadyDomain;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PlayReadyDomainIterator(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadyDomainIterator, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(PlayReadyDomainIterator, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterator<IPlayReadyDomain>);
 impl PlayReadyDomainIterator {
     pub fn Current(&self) -> windows_core::Result<IPlayReadyDomain> {
         let this = self;
@@ -4074,16 +4044,13 @@ impl PlayReadyDomainIterator {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadyDomainIterator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IIterator<IPlayReadyDomain>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyDomainIterator {
-    type Vtable = <super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IIterator<IPlayReadyDomain> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IIterator<IPlayReadyDomain> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for PlayReadyDomainIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainIterator";
 }
@@ -4666,7 +4633,6 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
             (windows_core::Interface::vtable(this).SessionId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
@@ -4748,13 +4714,10 @@ unsafe impl windows_core::Interface for PlayReadyLicenseAcquisitionServiceReques
 impl windows_core::RuntimeName for PlayReadyLicenseAcquisitionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest";
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PlayReadyLicenseIterable(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterable, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterable, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterable<IPlayReadyLicense>);
 impl PlayReadyLicenseIterable {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -4763,7 +4726,7 @@ impl PlayReadyLicenseIterable {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyLicenseIterable, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<IPlayReadyLicense>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4784,42 +4747,34 @@ impl PlayReadyLicenseIterable {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadyLicenseIterable {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IIterable<IPlayReadyLicense>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyLicenseIterable {
-    type Vtable = <super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IIterable<IPlayReadyLicense> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IIterable<IPlayReadyLicense> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for PlayReadyLicenseIterable {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable";
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for PlayReadyLicenseIterable {
     type Item = IPlayReadyLicense;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &PlayReadyLicenseIterable {
     type Item = IPlayReadyLicense;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PlayReadyLicenseIterator(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterator, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterator, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterator<IPlayReadyLicense>);
 impl PlayReadyLicenseIterator {
     pub fn Current(&self) -> windows_core::Result<IPlayReadyLicense> {
         let this = self;
@@ -4850,16 +4805,13 @@ impl PlayReadyLicenseIterator {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadyLicenseIterator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IIterator<IPlayReadyLicense>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyLicenseIterator {
-    type Vtable = <super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IIterator<IPlayReadyLicense> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IIterator<IPlayReadyLicense> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for PlayReadyLicenseIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseIterator";
 }
@@ -4902,7 +4854,6 @@ impl PlayReadyLicenseSession {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ConfigureMediaProtectionManager)(windows_core::Interface::as_raw(this), mpm.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
@@ -5145,15 +5096,12 @@ unsafe impl windows_core::Interface for PlayReadyRevocationServiceRequest {
 impl windows_core::RuntimeName for PlayReadyRevocationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest";
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PlayReadySecureStopIterable(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterable, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterable, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterable<IPlayReadySecureStopServiceRequest>);
 impl PlayReadySecureStopIterable {
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<IPlayReadySecureStopServiceRequest>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5171,42 +5119,34 @@ impl PlayReadySecureStopIterable {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadySecureStopIterable {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IIterable<IPlayReadySecureStopServiceRequest>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadySecureStopIterable {
-    type Vtable = <super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IIterable<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IIterable<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for PlayReadySecureStopIterable {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable";
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for PlayReadySecureStopIterable {
     type Item = IPlayReadySecureStopServiceRequest;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &PlayReadySecureStopIterable {
     type Item = IPlayReadySecureStopServiceRequest;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PlayReadySecureStopIterator(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterator, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterator, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterator<IPlayReadySecureStopServiceRequest>);
 impl PlayReadySecureStopIterator {
     pub fn Current(&self) -> windows_core::Result<IPlayReadySecureStopServiceRequest> {
         let this = self;
@@ -5237,16 +5177,13 @@ impl PlayReadySecureStopIterator {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadySecureStopIterator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IIterator<IPlayReadySecureStopServiceRequest>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadySecureStopIterator {
-    type Vtable = <super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IIterator<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IIterator<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for PlayReadySecureStopIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator";
 }

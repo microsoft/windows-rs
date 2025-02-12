@@ -117,19 +117,10 @@ impl windows_core::RuntimeType for IInputInjector {
 #[repr(C)]
 pub struct IInputInjector_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub InjectKeyboardInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InjectKeyboardInput: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub InjectMouseInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InjectMouseInput: usize,
     pub InitializeTouchInjection: unsafe extern "system" fn(*mut core::ffi::c_void, InjectedInputVisualizationMode) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub InjectTouchInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InjectTouchInput: usize,
     pub UninitializeTouchInjection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InitializePenInjection: unsafe extern "system" fn(*mut core::ffi::c_void, InjectedInputVisualizationMode) -> windows_core::HRESULT,
     pub InjectPenInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -996,18 +987,16 @@ impl windows_core::RuntimeType for InjectedInputVisualizationMode {
 pub struct InputInjector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputInjector, windows_core::IUnknown, windows_core::IInspectable);
 impl InputInjector {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InjectKeyboardInput<P0>(&self, input: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>>,
+        P0: windows_core::Param<windows_collections::IIterable<InjectedInputKeyboardInfo>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InjectKeyboardInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InjectMouseInput<P0>(&self, input: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>>,
+        P0: windows_core::Param<windows_collections::IIterable<InjectedInputMouseInfo>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InjectMouseInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
@@ -1016,10 +1005,9 @@ impl InputInjector {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InitializeTouchInjection)(windows_core::Interface::as_raw(this), visualmode).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InjectTouchInput<P0>(&self, input: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>>,
+        P0: windows_core::Param<windows_collections::IIterable<InjectedInputTouchInfo>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InjectTouchInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }

@@ -127,8 +127,7 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
             (windows_core::Interface::vtable(this).Initiator)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SourceLocations(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpDiagnosticSourceLocation>> {
+    pub fn SourceLocations(&self) -> windows_core::Result<windows_collections::IVectorView<HttpDiagnosticSourceLocation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -276,8 +275,7 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
             (windows_core::Interface::vtable(this).Initiator)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SourceLocations(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpDiagnosticSourceLocation>> {
+    pub fn SourceLocations(&self) -> windows_core::Result<windows_collections::IVectorView<HttpDiagnosticSourceLocation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -428,10 +426,7 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
     pub ProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ThreadId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Initiator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpDiagnosticRequestInitiator) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SourceLocations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SourceLocations: usize,
 }
 windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestResponseTimestamps, IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl, 0xe0afde10_55cf_4c01_91d4_a20557d849f0);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderRequestResponseTimestamps {
@@ -463,10 +458,7 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
     pub ProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ThreadId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Initiator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpDiagnosticRequestInitiator) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SourceLocations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SourceLocations: usize,
 }
 windows_core::imp::define_interface!(IHttpDiagnosticProviderResponseReceivedEventArgs, IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl, 0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderResponseReceivedEventArgs {

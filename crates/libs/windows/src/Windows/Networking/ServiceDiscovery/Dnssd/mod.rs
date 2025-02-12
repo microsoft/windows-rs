@@ -131,8 +131,7 @@ impl DnssdServiceInstance {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetWeight)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TextAttributes(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn TextAttributes(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -218,18 +217,14 @@ impl windows_core::RuntimeName for DnssdServiceInstance {
 }
 unsafe impl Send for DnssdServiceInstance {}
 unsafe impl Sync for DnssdServiceInstance {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DnssdServiceInstanceCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(DnssdServiceInstanceCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(DnssdServiceInstanceCollection, super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(DnssdServiceInstanceCollection, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVectorView<DnssdServiceInstance>);
+windows_core::imp::required_hierarchy!(DnssdServiceInstanceCollection, windows_collections::IIterable<DnssdServiceInstance>);
 impl DnssdServiceInstanceCollection {
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<DnssdServiceInstance>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<DnssdServiceInstance>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<DnssdServiceInstance>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -267,35 +262,28 @@ impl DnssdServiceInstanceCollection {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for DnssdServiceInstanceCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVectorView<DnssdServiceInstance>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for DnssdServiceInstanceCollection {
-    type Vtable = <super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IVectorView<DnssdServiceInstance> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IVectorView<DnssdServiceInstance> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for DnssdServiceInstanceCollection {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstanceCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for DnssdServiceInstanceCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for DnssdServiceInstanceCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for DnssdServiceInstanceCollection {
     type Item = DnssdServiceInstance;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &DnssdServiceInstanceCollection {
     type Item = DnssdServiceInstance;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -420,10 +408,7 @@ pub struct IDnssdServiceInstance_Vtbl {
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
     pub Weight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub SetWeight: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub TextAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TextAttributes: usize,
     #[cfg(feature = "Networking_Sockets")]
     pub RegisterStreamSocketListenerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))]

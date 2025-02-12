@@ -339,8 +339,7 @@ impl DatagramSocket {
         let this = &windows_core::Interface::cast::<IDatagramSocket3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(socketid), data.param().abi(), keepalivetime).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetEndpointPairsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
+    pub fn GetEndpointPairsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -349,8 +348,7 @@ impl DatagramSocket {
             (windows_core::Interface::vtable(this).GetEndpointPairsAsync)(windows_core::Interface::as_raw(this), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetEndpointPairsWithSortOptionsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING, sortoptions: super::HostNameSortOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
+    pub fn GetEndpointPairsWithSortOptionsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING, sortoptions: super::HostNameSortOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -862,14 +860,8 @@ impl windows_core::RuntimeType for IDatagramSocketStatics {
 #[repr(C)]
 pub struct IDatagramSocketStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetEndpointPairsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetEndpointPairsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetEndpointPairsWithSortOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::HostNameSortOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetEndpointPairsWithSortOptionsAsync: usize,
 }
 windows_core::imp::define_interface!(IMessageWebSocket, IMessageWebSocket_Vtbl, 0x33727d08_34d5_4746_ad7b_8dde5bc2ef88);
 impl windows_core::RuntimeType for IMessageWebSocket {
@@ -1085,10 +1077,7 @@ impl windows_core::RuntimeType for ISocketActivityInformationStatics {
 #[repr(C)]
 pub struct ISocketActivityInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AllSockets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllSockets: usize,
 }
 windows_core::imp::define_interface!(ISocketActivityTriggerDetails, ISocketActivityTriggerDetails_Vtbl, 0x45f406a7_fc9f_4f81_acad_355fef51e67b);
 impl windows_core::RuntimeType for ISocketActivityTriggerDetails {
@@ -1183,9 +1172,9 @@ impl windows_core::RuntimeType for IStreamSocketControl2 {
 #[repr(C)]
 pub struct IStreamSocketControl2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub IgnorableServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     IgnorableServerCertificateErrors: usize,
 }
 windows_core::imp::define_interface!(IStreamSocketControl3, IStreamSocketControl3_Vtbl, 0xc56a444c_4e74_403e_894c_b31cae5c7342);
@@ -1245,17 +1234,17 @@ impl windows_core::RuntimeType for IStreamSocketInformation2 {
 pub struct IStreamSocketInformation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServerCertificateErrorSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SocketSslErrorSeverity) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerCertificateErrors: usize,
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerCertificate: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerIntermediateCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerIntermediateCertificates: usize,
 }
 windows_core::imp::define_interface!(IStreamSocketListener, IStreamSocketListener_Vtbl, 0xff513437_df9f_4df0_bf82_0ec5d7b35aae);
@@ -1349,14 +1338,8 @@ impl windows_core::RuntimeType for IStreamSocketStatics {
 #[repr(C)]
 pub struct IStreamSocketStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetEndpointPairsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetEndpointPairsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetEndpointPairsWithSortOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::HostNameSortOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetEndpointPairsWithSortOptionsAsync: usize,
 }
 windows_core::imp::define_interface!(IStreamWebSocket, IStreamWebSocket_Vtbl, 0xbd4a49d8_b289_45bb_97eb_c7525205a843);
 impl windows_core::RuntimeType for IStreamWebSocket {
@@ -1621,8 +1604,7 @@ impl IWebSocketControl {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedProtocols(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn SupportedProtocols(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1630,11 +1612,11 @@ impl IWebSocketControl {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
+#[cfg(feature = "Security_Credentials")]
 impl windows_core::RuntimeName for IWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketControl";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
+#[cfg(feature = "Security_Credentials")]
 pub trait IWebSocketControl_Impl: windows_core::IUnknownImpl {
     fn OutboundBufferSizeInBytes(&self) -> windows_core::Result<u32>;
     fn SetOutboundBufferSizeInBytes(&self, value: u32) -> windows_core::Result<()>;
@@ -1642,9 +1624,9 @@ pub trait IWebSocketControl_Impl: windows_core::IUnknownImpl {
     fn SetServerCredential(&self, value: windows_core::Ref<'_, super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
     fn ProxyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn SetProxyCredential(&self, value: windows_core::Ref<'_, super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
-    fn SupportedProtocols(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>>;
+    fn SupportedProtocols(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
+#[cfg(feature = "Security_Credentials")]
 impl IWebSocketControl_Vtbl {
     pub const fn new<Identity: IWebSocketControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OutboundBufferSizeInBytes<Identity: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
@@ -1752,10 +1734,7 @@ pub struct IWebSocketControl_Vtbl {
     pub SetProxyCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
     SetProxyCredential: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedProtocols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedProtocols: usize,
 }
 windows_core::imp::define_interface!(IWebSocketControl2, IWebSocketControl2_Vtbl, 0x79c3be03_f2ca_461e_af4e_9665bc2d0620);
 impl windows_core::RuntimeType for IWebSocketControl2 {
@@ -1764,8 +1743,8 @@ impl windows_core::RuntimeType for IWebSocketControl2 {
 windows_core::imp::interface_hierarchy!(IWebSocketControl2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IWebSocketControl2, IWebSocketControl);
 impl IWebSocketControl2 {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1815,8 +1794,7 @@ impl IWebSocketControl2 {
         let this = &windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedProtocols(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn SupportedProtocols(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1824,15 +1802,15 @@ impl IWebSocketControl2 {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
+#[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 impl windows_core::RuntimeName for IWebSocketControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketControl2";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
+#[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 pub trait IWebSocketControl2_Impl: IWebSocketControl_Impl {
-    fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
+    fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
+#[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 impl IWebSocketControl2_Vtbl {
     pub const fn new<Identity: IWebSocketControl2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IgnorableServerCertificateErrors<Identity: IWebSocketControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1860,9 +1838,9 @@ impl IWebSocketControl2_Vtbl {
 #[repr(C)]
 pub struct IWebSocketControl2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub IgnorableServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     IgnorableServerCertificateErrors: usize,
 }
 windows_core::imp::define_interface!(IWebSocketErrorStatics, IWebSocketErrorStatics_Vtbl, 0x27cdf35b_1f61_4709_8e02_61283ada4e9d);
@@ -1993,16 +1971,16 @@ impl IWebSocketInformation2 {
             (windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCertificateErrors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2031,18 +2009,18 @@ impl IWebSocketInformation2 {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+#[cfg(feature = "Security_Cryptography_Certificates")]
 impl windows_core::RuntimeName for IWebSocketInformation2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketInformation2";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+#[cfg(feature = "Security_Cryptography_Certificates")]
 pub trait IWebSocketInformation2_Impl: IWebSocketInformation_Impl {
     fn ServerCertificate(&self) -> windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn ServerCertificateErrorSeverity(&self) -> windows_core::Result<SocketSslErrorSeverity>;
-    fn ServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
-    fn ServerIntermediateCertificates(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
+    fn ServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
+    fn ServerIntermediateCertificates(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+#[cfg(feature = "Security_Cryptography_Certificates")]
 impl IWebSocketInformation2_Vtbl {
     pub const fn new<Identity: IWebSocketInformation2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ServerCertificate<Identity: IWebSocketInformation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2116,13 +2094,13 @@ pub struct IWebSocketInformation2_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerCertificate: usize,
     pub ServerCertificateErrorSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SocketSslErrorSeverity) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerCertificateErrors: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerIntermediateCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerIntermediateCertificates: usize,
 }
 windows_core::imp::define_interface!(IWebSocketServerCustomValidationRequestedEventArgs, IWebSocketServerCustomValidationRequestedEventArgs_Vtbl, 0xffeffe48_022a_4ab7_8b36_e10af4640e6b);
@@ -2137,13 +2115,13 @@ pub struct IWebSocketServerCustomValidationRequestedEventArgs_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerCertificate: usize,
     pub ServerCertificateErrorSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SocketSslErrorSeverity) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerCertificateErrors: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerIntermediateCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerIntermediateCertificates: usize,
     pub Reject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2398,16 +2376,15 @@ impl MessageWebSocketControl {
         let this = &windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedProtocols(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn SupportedProtocols(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedProtocols)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &windows_core::Interface::cast::<IWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2469,16 +2446,16 @@ impl MessageWebSocketInformation {
             (windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &windows_core::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCertificateErrors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = &windows_core::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2928,8 +2905,7 @@ impl SocketActivityInformation {
             (windows_core::Interface::vtable(this).StreamSocketListener)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllSockets() -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, SocketActivityInformation>> {
+    pub fn AllSockets() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, SocketActivityInformation>> {
         Self::ISocketActivityInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllSockets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3277,8 +3253,7 @@ impl StreamSocket {
         let this = &windows_core::Interface::cast::<IStreamSocket3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(socketid), data.param().abi(), keepalivetime).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetEndpointPairsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
+    pub fn GetEndpointPairsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -3287,8 +3262,7 @@ impl StreamSocket {
             (windows_core::Interface::vtable(this).GetEndpointPairsAsync)(windows_core::Interface::as_raw(this), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetEndpointPairsWithSortOptionsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING, sortoptions: super::HostNameSortOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
+    pub fn GetEndpointPairsWithSortOptionsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING, sortoptions: super::HostNameSortOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -3374,8 +3348,8 @@ impl StreamSocketControl {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOutboundUnicastHopLimit)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &windows_core::Interface::cast::<IStreamSocketControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3516,8 +3490,8 @@ impl StreamSocketInformation {
             (windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &windows_core::Interface::cast::<IStreamSocketInformation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3532,8 +3506,8 @@ impl StreamSocketInformation {
             (windows_core::Interface::vtable(this).ServerCertificate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = &windows_core::Interface::cast::<IStreamSocketInformation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3995,16 +3969,15 @@ impl StreamWebSocketControl {
         let this = &windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedProtocols(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn SupportedProtocols(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedProtocols)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &windows_core::Interface::cast::<IWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4066,16 +4039,16 @@ impl StreamWebSocketInformation {
             (windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &windows_core::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCertificateErrors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = &windows_core::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4204,16 +4177,16 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
             (windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCertificateErrors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
