@@ -23,3 +23,7 @@ default-features = false
 [features]
 default = ["std"]
 std = []
+
+[dev-dependencies]
+windows-result = { path = "../result" }
+windows-strings = { path = "../strings" }
