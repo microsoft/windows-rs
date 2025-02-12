@@ -44,3 +44,6 @@ workspace = true
 
 [dev-dependencies.cppwinrt]
 workspace = true
+
+[dev-dependencies.windows-collections]
+workspace = true

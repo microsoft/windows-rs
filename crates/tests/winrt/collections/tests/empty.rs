@@ -1,5 +1,5 @@
 use std::collections::BTreeMap;
-use windows::Foundation::Collections::*;
+use windows_collections::*;
 
 #[test]
 fn iterable() {

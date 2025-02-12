@@ -11,11 +11,8 @@ doctest = false
 [dependencies.windows-core]
 workspace = true
 
-[dependencies.windows]
+[dependencies.windows-collections]
 workspace = true
-features = [
-    "Foundation_Collections",
-]
 
 [build-dependencies.windows-bindgen]
 workspace = true

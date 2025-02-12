@@ -38,7 +38,7 @@ fn main() {
         "--implement",
         "--flat",
         "--reference",
-        "windows,skip-root,Windows",
+        "windows_collections,flat,Windows",
     ]);
 
     let include = std::env::var("OUT_DIR").unwrap();

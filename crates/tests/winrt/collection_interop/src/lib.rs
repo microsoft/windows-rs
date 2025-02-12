@@ -2,7 +2,7 @@
 
 mod bindings;
 pub use bindings::*;
-pub use windows::core::*;
+pub use windows_core::*;
 
 pub fn make_cpp() -> Result<ITest> {
     extern "system" {
