@@ -32,7 +32,7 @@ impl CppConst {
             return quote! {};
         }
 
-        Cfg::new(self.field, &self.dependencies()).write(writer, false)
+        Cfg::new(self.field, &self.dependencies(), writer).write(writer, false)
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {

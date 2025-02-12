@@ -15,7 +15,7 @@ impl Class {
             return (Cfg::default(), quote! {});
         }
 
-        let cfg = Cfg::new(self.def, &self.dependencies());
+        let cfg = Cfg::new(self.def, &self.dependencies(), writer);
         let tokens = cfg.write(writer, false);
         (cfg, tokens)
     }
@@ -90,7 +90,7 @@ impl Class {
                         let interface_type = interface.write_name(writer);
 
                         let cfg = if writer.config.package {
-                            class_cfg.difference(interface.def, &interface.dependencies()).write(writer, false)
+                            class_cfg.difference(interface.def, &interface.dependencies(), writer).write(writer, false)
                         } else {
                             quote! {}
                         };

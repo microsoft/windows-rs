@@ -49,7 +49,7 @@ impl CppInterface {
             return (Cfg::default(), quote! {});
         }
 
-        let cfg = Cfg::new(self.def, &self.dependencies());
+        let cfg = Cfg::new(self.def, &self.dependencies(), writer);
         let tokens = cfg.write(writer, false);
         (cfg, tokens)
     }
@@ -83,7 +83,7 @@ impl CppInterface {
 
             let methods = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
-                    let method_cfg = class_cfg.difference(method.def, &method.dependencies);
+                    let method_cfg = class_cfg.difference(method.def, &method.dependencies, writer);
                     let yes = method_cfg.write(writer, false);
 
                     let name = names.add(method.def);
@@ -238,7 +238,7 @@ impl CppInterface {
                     }
                 });
 
-                Cfg::new(self.def, &dependencies).write(writer, false)
+                Cfg::new(self.def, &dependencies, writer).write(writer, false)
             } else {
                 quote! {}
             };
