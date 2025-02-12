@@ -7,6 +7,5 @@ publish = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Foundation_Collections",
     "Web_Syndication",
 ]
