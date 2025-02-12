@@ -10,6 +10,7 @@ mod derive;
 mod derive_writer;
 mod filter;
 mod guid;
+mod index;
 mod io;
 mod libraries;
 mod param;
@@ -195,7 +196,8 @@ where
         namespace: "",
     };
 
-    writer.write(tree)
+    writer.write(tree);
+    index::write();
 }
 
 enum ArgKind {

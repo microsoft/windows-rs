@@ -1,0 +1,126 @@
+#![allow(unused)]
+use super::*;
+use serde::Serialize;
+
+#[derive(Default, Serialize)]
+struct Index {
+    version: u8,
+    namespaces: Vec<String>,
+    items: BTreeMap<usize, Vec<IndexItem>>,
+}
+
+#[derive(Default, Serialize)]
+struct IndexItem {
+    #[serde(rename = "n")]
+    name: String,
+    #[serde(rename = "f")]
+    features: Vec<usize>,
+}
+
+impl Index {
+    fn new() -> Self {
+        Self {
+            version: 2,
+            ..Default::default()
+        }
+    }
+
+    fn get_or_create_namespace_index(&mut self, namespace: &str) -> usize {
+        match self.namespaces.iter().position(|ns| ns == namespace) {
+            Some(idx) => idx,
+            None => {
+                self.namespaces.push(namespace.to_string());
+                self.namespaces.len() - 1
+            }
+        }
+    }
+
+    fn add_item(&mut self, namespace: &str, name: &str, features: BTreeSet<String>) {
+        let namespace_idx = self.get_or_create_namespace_index(namespace);
+
+        let mut compact = BTreeSet::new();
+        for feature in features.iter().rev() {
+            if feature.is_empty() {
+                continue;
+            }
+
+            if !compact
+                .iter()
+                .any(|c: &&str| namespace_starts_with(c, feature))
+            {
+                compact.insert(feature.as_str());
+            }
+        }
+
+        let index_item = IndexItem {
+            name: name.to_string(),
+            features: compact
+                .iter()
+                .map(|dep| self.get_or_create_namespace_index(dep))
+                .collect(),
+        };
+
+        self.items
+            .entry(namespace_idx)
+            .or_default()
+            .push(index_item);
+    }
+}
+
+const EXCLUDED_NAMESPACES: &[&str] = &["Windows.Foundation", "Windows.Win32.Foundation"];
+
+#[doc(hidden)]
+pub fn write() {
+    let mut feature_index = Index::new();
+    let reader = Reader::new(expand_input(&["default"]));
+
+    for types in reader.values() {
+        for ty in types.values().flatten() {
+            let mut type_deps = ty.dependencies();
+
+            let type_name = ty.type_name();
+            let namespace = type_name.namespace();
+
+            let features: BTreeSet<String> = type_deps
+                .keys()
+                .filter(|tn| !EXCLUDED_NAMESPACES.contains(&tn.namespace()))
+                .map(|tn| tn.namespace().to_string())
+                .chain(std::iter::once(namespace.to_string()))
+                .collect();
+
+            feature_index.add_item(namespace, type_name.name(), features);
+
+            let methods = match ty {
+                Type::CppInterface(ty) => {
+                    let interface_name = ty.def.name();
+                    Some((ty.def.methods(), interface_name))
+                }
+                Type::Interface(ty) => {
+                    let interface_name = ty.def.name();
+                    Some((ty.def.methods(), interface_name))
+                }
+                _ => None,
+            };
+
+            if let Some((methods, interface_name)) = methods {
+                for method in methods {
+                    let mut method_deps = method.signature(namespace, &[]).dependencies();
+                    let method_features: BTreeSet<String> = method_deps
+                        .keys()
+                        .filter(|tn| !EXCLUDED_NAMESPACES.contains(&tn.namespace()))
+                        .map(|tn| tn.namespace().to_string())
+                        .chain(std::iter::once(namespace.to_string()))
+                        .collect();
+
+                    let scoped_name = format!("{}.{}", interface_name, method.name());
+                    feature_index.add_item(namespace, &scoped_name, method_features);
+                }
+            }
+        }
+    }
+
+    write_to_file(
+        "features.json",
+        serde_json::to_string(&feature_index).unwrap(),
+    );
+}
