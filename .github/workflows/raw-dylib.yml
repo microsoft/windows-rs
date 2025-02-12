@@ -336,6 +336,8 @@ jobs:
         run:  cargo test -p windows --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-bindgen
         run:  cargo test -p windows-bindgen --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-collections
+        run:  cargo test -p windows-collections --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-core
         run:  cargo test -p windows-core --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-implement
@@ -362,10 +364,10 @@ jobs:
         run:  cargo test -p windows_aarch64_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_i686_gnu
         run:  cargo test -p windows_i686_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test windows_i686_gnullvm
-        run:  cargo test -p windows_i686_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test windows_i686_gnullvm
+        run:  cargo test -p windows_i686_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_i686_msvc
         run:  cargo test -p windows_i686_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_x86_64_gnu
