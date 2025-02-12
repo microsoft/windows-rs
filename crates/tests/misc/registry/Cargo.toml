@@ -24,3 +24,6 @@ features = ["Win32_System_Registry"]
 
 [dependencies.windows-strings]
 workspace = true
+
+[dependencies.regex]
+version = "1.7"
