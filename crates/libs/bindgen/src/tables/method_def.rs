@@ -30,6 +30,10 @@ impl MethodDef {
         self.list(5)
     }
 
+    pub fn parent(&self) -> MemberRefParent {
+        MemberRefParent::TypeDef(self.file().parent(5, *self))
+    }
+
     pub fn impl_map(&self) -> Option<ImplMap> {
         self.file()
             .equal_range(1, MemberForwarded::MethodDef(*self).encode())

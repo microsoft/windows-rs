@@ -38,7 +38,24 @@ macro_rules! code {
 }
 
 code! { AttributeType(3)
+    (MethodDef, 2)
     (MemberRef, 3)
+}
+
+impl AttributeType {
+    pub fn parent(&self) -> MemberRefParent {
+        match self {
+            Self::MethodDef(row) => row.parent(),
+            Self::MemberRef(row) => row.parent(),
+        }
+    }
+
+    pub fn signature(&self) -> Blob {
+        match self {
+            Self::MethodDef(row) => row.blob(4),
+            Self::MemberRef(row) => row.blob(2),
+        }
+    }
 }
 
 code! { HasAttribute(5)
@@ -62,7 +79,17 @@ code! { MemberForwarded(1)
 }
 
 code! { MemberRefParent(3)
+    (TypeDef, 0)
     (TypeRef, 1)
+}
+
+impl MemberRefParent {
+    pub fn name(&self) -> &'static str {
+        match self {
+            Self::TypeDef(row) => row.name(),
+            Self::TypeRef(row) => row.name(),
+        }
+    }
 }
 
 code! { TypeDefOrRef(2)
