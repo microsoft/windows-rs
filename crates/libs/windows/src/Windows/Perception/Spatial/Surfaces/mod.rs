@@ -25,10 +25,7 @@ pub struct ISpatialSurfaceMesh_Vtbl {
     pub CoordinateSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TriangleIndices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub VertexPositions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub VertexPositionScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    VertexPositionScale: usize,
+    pub VertexPositionScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub VertexNormals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialSurfaceMeshBuffer, ISpatialSurfaceMeshBuffer_Vtbl, 0x93cf59e0_871f_33f8_98b2_03d101458f6f);
@@ -227,8 +224,7 @@ impl SpatialSurfaceMesh {
             (windows_core::Interface::vtable(this).VertexPositions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn VertexPositionScale(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn VertexPositionScale(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

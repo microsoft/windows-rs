@@ -329,13 +329,13 @@ pub struct ITileMixedRealityModel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub SetBoundingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(feature = "Perception_Spatial"))]
     SetBoundingBox: usize,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub BoundingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(feature = "Perception_Spatial"))]
     BoundingBox: usize,
 }
 windows_core::imp::define_interface!(ITileMixedRealityModel2, ITileMixedRealityModel2_Vtbl, 0x439470b2_d7c5_410b_8319_9486a27b6c67);
@@ -1223,7 +1223,7 @@ impl TileMixedRealityModel {
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub fn SetBoundingBox<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>,
@@ -1231,7 +1231,7 @@ impl TileMixedRealityModel {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBoundingBox)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub fn BoundingBox(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>> {
         let this = self;
         unsafe {

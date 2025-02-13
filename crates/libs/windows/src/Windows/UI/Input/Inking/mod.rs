@@ -43,14 +43,8 @@ impl windows_core::RuntimeType for IInkDrawingAttributes2 {
 #[repr(C)]
 pub struct IInkDrawingAttributes2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub PenTipTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    PenTipTransform: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetPenTipTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetPenTipTransform: usize,
+    pub PenTipTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix3x2) -> windows_core::HRESULT,
+    pub SetPenTipTransform: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Matrix3x2) -> windows_core::HRESULT,
     pub DrawAsHighlighter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetDrawAsHighlighter: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
@@ -449,25 +443,21 @@ impl IInkPresenterStencil {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Transform(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn Transform(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Transform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransform(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTransform)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::RuntimeName for IInkPresenterStencil {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterStencil";
 }
-#[cfg(feature = "Foundation_Numerics")]
 pub trait IInkPresenterStencil_Impl: windows_core::IUnknownImpl {
     fn Kind(&self) -> windows_core::Result<InkPresenterStencilKind>;
     fn IsVisible(&self) -> windows_core::Result<bool>;
@@ -476,10 +466,9 @@ pub trait IInkPresenterStencil_Impl: windows_core::IUnknownImpl {
     fn SetBackgroundColor(&self, value: &super::super::Color) -> windows_core::Result<()>;
     fn ForegroundColor(&self) -> windows_core::Result<super::super::Color>;
     fn SetForegroundColor(&self, value: &super::super::Color) -> windows_core::Result<()>;
-    fn Transform(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Matrix3x2>;
-    fn SetTransform(&self, value: &super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()>;
+    fn Transform(&self) -> windows_core::Result<windows_numerics::Matrix3x2>;
+    fn SetTransform(&self, value: &windows_numerics::Matrix3x2) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Foundation_Numerics")]
 impl IInkPresenterStencil_Vtbl {
     pub const fn new<Identity: IInkPresenterStencil_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Kind<Identity: IInkPresenterStencil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut InkPresenterStencilKind) -> windows_core::HRESULT {
@@ -548,7 +537,7 @@ impl IInkPresenterStencil_Vtbl {
                 IInkPresenterStencil_Impl::SetForegroundColor(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn Transform<Identity: IInkPresenterStencil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT {
+        unsafe extern "system" fn Transform<Identity: IInkPresenterStencil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_numerics::Matrix3x2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkPresenterStencil_Impl::Transform(this) {
@@ -560,7 +549,7 @@ impl IInkPresenterStencil_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetTransform<Identity: IInkPresenterStencil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransform<Identity: IInkPresenterStencil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_numerics::Matrix3x2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkPresenterStencil_Impl::SetTransform(this, core::mem::transmute(&value)).into()
@@ -593,14 +582,8 @@ pub struct IInkPresenterStencil_Vtbl {
     pub SetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Color) -> windows_core::HRESULT,
     pub ForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Color) -> windows_core::HRESULT,
     pub SetForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Color) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Transform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Transform: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTransform: usize,
+    pub Transform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix3x2) -> windows_core::HRESULT,
+    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Matrix3x2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkRecognitionResult, IInkRecognitionResult_Vtbl, 0x36461a94_5068_40ef_8a05_2c2fb60908a2);
 impl windows_core::RuntimeType for IInkRecognitionResult {
@@ -736,14 +719,8 @@ impl windows_core::RuntimeType for IInkStroke2 {
 #[repr(C)]
 pub struct IInkStroke2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub PointTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    PointTransform: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetPointTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetPointTransform: usize,
+    pub PointTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix3x2) -> windows_core::HRESULT,
+    pub SetPointTransform: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Matrix3x2) -> windows_core::HRESULT,
     pub GetInkPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkStroke3, IInkStroke3_Vtbl, 0x4a807374_9499_411d_a1c4_68855d03d65f);
@@ -788,10 +765,7 @@ impl windows_core::RuntimeType for IInkStrokeBuilder2 {
 #[repr(C)]
 pub struct IInkStrokeBuilder2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub CreateStrokeFromInkPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::Numerics::Matrix3x2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    CreateStrokeFromInkPoints: usize,
+    pub CreateStrokeFromInkPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Matrix3x2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkStrokeBuilder3, IInkStrokeBuilder3_Vtbl, 0xb2c71fcd_5472_46b1_a81d_c37a3d169441);
 impl windows_core::RuntimeType for IInkStrokeBuilder3 {
@@ -800,10 +774,7 @@ impl windows_core::RuntimeType for IInkStrokeBuilder3 {
 #[repr(C)]
 pub struct IInkStrokeBuilder3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub CreateStrokeFromInkPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::Numerics::Matrix3x2, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    CreateStrokeFromInkPoints: usize,
+    pub CreateStrokeFromInkPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Matrix3x2, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkStrokeContainer, IInkStrokeContainer_Vtbl, 0x22accbc6_faa9_4f14_b68c_f6cee670ae16);
 impl windows_core::RuntimeType for IInkStrokeContainer {
@@ -1380,16 +1351,14 @@ impl InkDrawingAttributes {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFitToCurve)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn PenTipTransform(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn PenTipTransform(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<IInkDrawingAttributes2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PenTipTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetPenTipTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetPenTipTransform(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IInkDrawingAttributes2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPenTipTransform)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2284,16 +2253,14 @@ impl InkPresenterProtractor {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Transform(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn Transform(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Transform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransform(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransform)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2413,16 +2380,14 @@ impl InkPresenterRuler {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Transform(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn Transform(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Transform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransform(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransform)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2638,16 +2603,14 @@ impl InkStroke {
             (windows_core::Interface::vtable(this).Clone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn PointTransform(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn PointTransform(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<IInkStroke2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetPointTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetPointTransform(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IInkStroke2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPointTransform)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2769,8 +2732,7 @@ impl InkStrokeBuilder {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDefaultDrawingAttributes)(windows_core::Interface::as_raw(this), drawingattributes.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CreateStrokeFromInkPoints<P0>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<InkStroke>
+    pub fn CreateStrokeFromInkPoints<P0>(&self, inkpoints: P0, transform: windows_numerics::Matrix3x2) -> windows_core::Result<InkStroke>
     where
         P0: windows_core::Param<windows_collections::IIterable<InkPoint>>,
     {
@@ -2780,8 +2742,7 @@ impl InkStrokeBuilder {
             (windows_core::Interface::vtable(this).CreateStrokeFromInkPoints)(windows_core::Interface::as_raw(this), inkpoints.param().abi(), transform, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CreateStrokeFromInkPoints2<P0, P2, P3>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2, strokestartedtime: P2, strokeduration: P3) -> windows_core::Result<InkStroke>
+    pub fn CreateStrokeFromInkPoints2<P0, P2, P3>(&self, inkpoints: P0, transform: windows_numerics::Matrix3x2, strokestartedtime: P2, strokeduration: P3) -> windows_core::Result<InkStroke>
     where
         P0: windows_core::Param<windows_collections::IIterable<InkPoint>>,
         P2: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
