@@ -343,6 +343,8 @@ jobs:
         run:  cargo test -p windows-interface --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-link
         run:  cargo test -p windows-link --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-numerics
+        run:  cargo test -p windows-numerics --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-registry
         run:  cargo test -p windows-registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-result
@@ -359,10 +361,10 @@ jobs:
         run:  cargo test -p windows_aarch64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_aarch64_msvc
         run:  cargo test -p windows_aarch64_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test windows_i686_gnu
-        run:  cargo test -p windows_i686_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test windows_i686_gnu
+        run:  cargo test -p windows_i686_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_i686_gnullvm
         run:  cargo test -p windows_i686_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_i686_msvc

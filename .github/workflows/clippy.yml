@@ -315,6 +315,8 @@ jobs:
         run:  cargo clippy -p windows-interface
       - name: Clippy windows-link
         run:  cargo clippy -p windows-link
+      - name: Clippy windows-numerics
+        run:  cargo clippy -p windows-numerics
       - name: Clippy windows-registry
         run:  cargo clippy -p windows-registry
       - name: Clippy windows-result
