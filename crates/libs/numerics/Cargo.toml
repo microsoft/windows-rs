@@ -1,0 +1,29 @@
+[package]
+name = "windows-numerics"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+license = "MIT OR Apache-2.0"
+description = "Windows numeric types"
+repository = "https://github.com/microsoft/windows-rs"
+readme = "readme.md"
+
+[lints]
+workspace = true
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []
+
+[features]
+default = ["std"]
+std = []
+
+[dependencies.windows-core]
+version = "0.59.0"
+path = "../core"
+default-features = false
+
+[dependencies.windows-link]
+version = "0.1.0"
+path = "../link"
