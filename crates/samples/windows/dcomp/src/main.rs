@@ -1,6 +1,5 @@
 use windows::{
     core::*,
-    Foundation::Numerics::*,
     Win32::{
         Foundation::*, Graphics::Direct2D::Common::*, Graphics::Direct2D::*, Graphics::Direct3D::*,
         Graphics::Direct3D11::*, Graphics::DirectComposition::*, Graphics::DirectWrite::*,
@@ -9,6 +8,8 @@ use windows::{
         UI::HiDpi::*, UI::Shell::*, UI::WindowsAndMessaging::*,
     },
 };
+
+use windows_numerics::*;
 
 const CARD_ROWS: usize = 3;
 const CARD_COLUMNS: usize = 6;
