@@ -24,6 +24,7 @@ fn _test() {
     let _ = windows_strings::s!("hello");
     let _ = windows_strings::w!("hello");
     let _: Option<windows_collections::IVector<i32>> = None;
+    let _ = windows_numerics::Vector2::new(0.0, 0.0);
 }
 
 // This panic handler will cause a build error if an indirect `std` dependency exists as `std`

@@ -8,8 +8,5 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows]
+[dependencies.windows-numerics]
 workspace = true
-features = [
-    "Foundation_Numerics",
-]
