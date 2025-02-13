@@ -34,8 +34,7 @@ impl AdaptiveNotificationText {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Hints(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Hints(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IAdaptiveNotificationContent>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -300,8 +299,7 @@ impl IAdaptiveNotificationContent {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Hints(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Hints(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -309,16 +307,13 @@ impl IAdaptiveNotificationContent {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IAdaptiveNotificationContent {
     const NAME: &'static str = "Windows.UI.Notifications.IAdaptiveNotificationContent";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait IAdaptiveNotificationContent_Impl: windows_core::IUnknownImpl {
     fn Kind(&self) -> windows_core::Result<AdaptiveNotificationContentKind>;
-    fn Hints(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>;
+    fn Hints(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IAdaptiveNotificationContent_Vtbl {
     pub const fn new<Identity: IAdaptiveNotificationContent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Kind<Identity: IAdaptiveNotificationContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AdaptiveNotificationContentKind) -> windows_core::HRESULT {
@@ -360,10 +355,7 @@ impl IAdaptiveNotificationContent_Vtbl {
 pub struct IAdaptiveNotificationContent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdaptiveNotificationContentKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Hints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Hints: usize,
 }
 windows_core::imp::define_interface!(IAdaptiveNotificationText, IAdaptiveNotificationText_Vtbl, 0x46d4a3be_609a_4326_a40b_bfde872034a3);
 impl windows_core::RuntimeType for IAdaptiveNotificationText {
@@ -531,14 +523,8 @@ pub struct INotificationBinding_Vtbl {
     pub SetTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Hints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Hints: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetTextElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetTextElements: usize,
 }
 windows_core::imp::define_interface!(INotificationData, INotificationData_Vtbl, 0x9ffd2312_9d6a_4aaf_b6ac_ff17f0c1f280);
 impl windows_core::RuntimeType for INotificationData {
@@ -547,10 +533,7 @@ impl windows_core::RuntimeType for INotificationData {
 #[repr(C)]
 pub struct INotificationData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Values: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Values: usize,
     pub SequenceNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetSequenceNumber: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
@@ -561,14 +544,8 @@ impl windows_core::RuntimeType for INotificationDataFactory {
 #[repr(C)]
 pub struct INotificationDataFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateNotificationDataWithValuesAndSequenceNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateNotificationDataWithValuesAndSequenceNumber: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateNotificationDataWithValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateNotificationDataWithValues: usize,
 }
 windows_core::imp::define_interface!(INotificationVisual, INotificationVisual_Vtbl, 0x68835b8e_aa56_4e11_86d3_5f9a6957bc5b);
 impl windows_core::RuntimeType for INotificationVisual {
@@ -579,10 +556,7 @@ pub struct INotificationVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Bindings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Bindings: usize,
     pub GetBinding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IScheduledTileNotification, IScheduledTileNotification_Vtbl, 0x0abca6d5_99dc_4c78_a11c_c9e7f86d7ef7);
@@ -844,21 +818,12 @@ pub struct ITileUpdater_Vtbl {
     pub Setting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NotificationSetting) -> windows_core::HRESULT,
     pub AddToSchedule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveFromSchedule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetScheduledTileNotifications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetScheduledTileNotifications: usize,
     pub StartPeriodicUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
     pub StartPeriodicUpdateAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
     pub StopPeriodicUpdate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub StartPeriodicUpdateBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StartPeriodicUpdateBatch: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub StartPeriodicUpdateBatchAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StartPeriodicUpdateBatchAtTime: usize,
 }
 windows_core::imp::define_interface!(ITileUpdater2, ITileUpdater2_Vtbl, 0xa2266e12_15ee_43ed_83f5_65b352bb1a84);
 impl windows_core::RuntimeType for ITileUpdater2 {
@@ -924,10 +889,7 @@ impl windows_core::RuntimeType for IToastCollectionManager {
 pub struct IToastCollectionManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SaveToastCollectionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllToastCollectionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllToastCollectionsAsync: usize,
     pub GetToastCollectionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveToastCollectionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAllToastCollectionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1070,14 +1032,8 @@ impl windows_core::RuntimeType for IToastNotificationHistory2 {
 #[repr(C)]
 pub struct IToastNotificationHistory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetHistory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetHistory: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetHistoryWithId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetHistoryWithId: usize,
 }
 windows_core::imp::define_interface!(IToastNotificationHistoryChangedTriggerDetail, IToastNotificationHistoryChangedTriggerDetail_Vtbl, 0xdb037ffa_0068_412c_9c83_267c37f65670);
 impl windows_core::RuntimeType for IToastNotificationHistoryChangedTriggerDetail {
@@ -1192,10 +1148,7 @@ pub struct IToastNotifier_Vtbl {
     pub Setting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NotificationSetting) -> windows_core::HRESULT,
     pub AddToSchedule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveFromSchedule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetScheduledToastNotifications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetScheduledToastNotifications: usize,
 }
 windows_core::imp::define_interface!(IToastNotifier2, IToastNotifier2_Vtbl, 0x354389c6_7c01_4bd5_9c20_604340cd2b74);
 impl windows_core::RuntimeType for IToastNotifier2 {
@@ -1508,16 +1461,14 @@ impl NotificationBinding {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Hints(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Hints(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Hints)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetTextElements(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AdaptiveNotificationText>> {
+    pub fn GetTextElements(&self) -> windows_core::Result<windows_collections::IVectorView<AdaptiveNotificationText>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1549,8 +1500,7 @@ impl NotificationData {
         static SHARED: windows_core::imp::FactoryCache<NotificationData, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Values(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Values(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1568,20 +1518,18 @@ impl NotificationData {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSequenceNumber)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateNotificationDataWithValuesAndSequenceNumber<P0>(initialvalues: P0, sequencenumber: u32) -> windows_core::Result<NotificationData>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         Self::INotificationDataFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateNotificationDataWithValuesAndSequenceNumber)(windows_core::Interface::as_raw(this), initialvalues.param().abi(), sequencenumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateNotificationDataWithValues<P0>(initialvalues: P0) -> windows_core::Result<NotificationData>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         Self::INotificationDataFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1710,8 +1658,7 @@ impl NotificationVisual {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Bindings(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<NotificationBinding>> {
+    pub fn Bindings(&self) -> windows_core::Result<windows_collections::IVector<NotificationBinding>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2548,8 +2495,7 @@ impl TileUpdater {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFromSchedule)(windows_core::Interface::as_raw(this), scheduledtile.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetScheduledTileNotifications(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ScheduledTileNotification>> {
+    pub fn GetScheduledTileNotifications(&self) -> windows_core::Result<windows_collections::IVectorView<ScheduledTileNotification>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2574,18 +2520,16 @@ impl TileUpdater {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopPeriodicUpdate)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn StartPeriodicUpdateBatch<P0>(&self, tilecontents: P0, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P0: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateBatch)(windows_core::Interface::as_raw(this), tilecontents.param().abi(), requestedinterval).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn StartPeriodicUpdateBatchAtTime<P0>(&self, tilecontents: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
+        P0: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateBatchAtTime)(windows_core::Interface::as_raw(this), tilecontents.param().abi(), starttime, requestedinterval).ok() }
@@ -2735,8 +2679,7 @@ impl ToastCollectionManager {
             (windows_core::Interface::vtable(this).SaveToastCollectionAsync)(windows_core::Interface::as_raw(this), collection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllToastCollectionsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ToastCollection>>> {
+    pub fn FindAllToastCollectionsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ToastCollection>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3122,16 +3065,14 @@ impl ToastNotificationHistory {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ClearWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetHistory(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>> {
+    pub fn GetHistory(&self) -> windows_core::Result<windows_collections::IVectorView<ToastNotification>> {
         let this = &windows_core::Interface::cast::<IToastNotificationHistory2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetHistory)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetHistoryWithId(&self, applicationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>> {
+    pub fn GetHistoryWithId(&self, applicationid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<ToastNotification>> {
         let this = &windows_core::Interface::cast::<IToastNotificationHistory2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3408,8 +3349,7 @@ impl ToastNotifier {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFromSchedule)(windows_core::Interface::as_raw(this), scheduledtoast.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetScheduledToastNotifications(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ScheduledToastNotification>> {
+    pub fn GetScheduledToastNotifications(&self) -> windows_core::Result<windows_collections::IVectorView<ScheduledToastNotification>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

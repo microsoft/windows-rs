@@ -1,12 +1,8 @@
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCacheDirectiveHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpCacheDirectiveHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpCacheDirectiveHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<HttpNameValueHeaderValue>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpCacheDirectiveHeaderValueCollection, windows_collections::IIterable<HttpNameValueHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpNameValueHeaderValue>);
 impl HttpCacheDirectiveHeaderValueCollection {
     pub fn MaxAge(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -75,8 +71,8 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<HttpNameValueHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpNameValueHeaderValue>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpNameValueHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpNameValueHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -90,21 +86,21 @@ impl HttpCacheDirectiveHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<HttpNameValueHeaderValue> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpNameValueHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<HttpNameValueHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -114,7 +110,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
     where
         P0: windows_core::Param<HttpNameValueHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -124,76 +120,69 @@ impl HttpCacheDirectiveHeaderValueCollection {
     where
         P1: windows_core::Param<HttpNameValueHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpNameValueHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HttpNameValueHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpNameValueHeaderValue>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpNameValueHeaderValue>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpCacheDirectiveHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpCacheDirectiveHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpCacheDirectiveHeaderValueCollection {
     type Vtable = <IHttpCacheDirectiveHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpCacheDirectiveHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpCacheDirectiveHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCacheDirectiveHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpCacheDirectiveHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpCacheDirectiveHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpCacheDirectiveHeaderValueCollection {
     type Item = HttpNameValueHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpCacheDirectiveHeaderValueCollection {
     type Item = HttpNameValueHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -204,8 +193,7 @@ pub struct HttpChallengeHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpChallengeHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpChallengeHeaderValue, super::super::super::Foundation::IStringable);
 impl HttpChallengeHeaderValue {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Parameters(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
+    pub fn Parameters(&self) -> windows_core::Result<windows_collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -278,15 +266,11 @@ impl windows_core::RuntimeName for HttpChallengeHeaderValue {
 }
 unsafe impl Send for HttpChallengeHeaderValue {}
 unsafe impl Sync for HttpChallengeHeaderValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpChallengeHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpChallengeHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpChallengeHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<HttpChallengeHeaderValue>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpChallengeHeaderValueCollection, windows_collections::IIterable<HttpChallengeHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpChallengeHeaderValue>);
 impl HttpChallengeHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -299,8 +283,8 @@ impl HttpChallengeHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<HttpChallengeHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpChallengeHeaderValue>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpChallengeHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpChallengeHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -314,21 +298,21 @@ impl HttpChallengeHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<HttpChallengeHeaderValue> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpChallengeHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<HttpChallengeHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -338,7 +322,7 @@ impl HttpChallengeHeaderValueCollection {
     where
         P0: windows_core::Param<HttpChallengeHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -348,76 +332,69 @@ impl HttpChallengeHeaderValueCollection {
     where
         P1: windows_core::Param<HttpChallengeHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpChallengeHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HttpChallengeHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpChallengeHeaderValue>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpChallengeHeaderValue>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpChallengeHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpChallengeHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpChallengeHeaderValueCollection {
     type Vtable = <IHttpChallengeHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpChallengeHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpChallengeHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpChallengeHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpChallengeHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpChallengeHeaderValueCollection {
     type Item = HttpChallengeHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpChallengeHeaderValueCollection {
     type Item = HttpChallengeHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -481,15 +458,11 @@ impl windows_core::RuntimeName for HttpConnectionOptionHeaderValue {
 }
 unsafe impl Send for HttpConnectionOptionHeaderValue {}
 unsafe impl Sync for HttpConnectionOptionHeaderValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpConnectionOptionHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpConnectionOptionHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpConnectionOptionHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<HttpConnectionOptionHeaderValue>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpConnectionOptionHeaderValueCollection, windows_collections::IIterable<HttpConnectionOptionHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpConnectionOptionHeaderValue>);
 impl HttpConnectionOptionHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -502,8 +475,8 @@ impl HttpConnectionOptionHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<HttpConnectionOptionHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpConnectionOptionHeaderValue>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpConnectionOptionHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -517,21 +490,21 @@ impl HttpConnectionOptionHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<HttpConnectionOptionHeaderValue> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpConnectionOptionHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<HttpConnectionOptionHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -541,7 +514,7 @@ impl HttpConnectionOptionHeaderValueCollection {
     where
         P0: windows_core::Param<HttpConnectionOptionHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -551,76 +524,69 @@ impl HttpConnectionOptionHeaderValueCollection {
     where
         P1: windows_core::Param<HttpConnectionOptionHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpConnectionOptionHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HttpConnectionOptionHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpConnectionOptionHeaderValue>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpConnectionOptionHeaderValue>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpConnectionOptionHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpConnectionOptionHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpConnectionOptionHeaderValueCollection {
     type Vtable = <IHttpConnectionOptionHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpConnectionOptionHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpConnectionOptionHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpConnectionOptionHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpConnectionOptionHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpConnectionOptionHeaderValueCollection {
     type Item = HttpConnectionOptionHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpConnectionOptionHeaderValueCollection {
     type Item = HttpConnectionOptionHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -684,15 +650,11 @@ impl windows_core::RuntimeName for HttpContentCodingHeaderValue {
 }
 unsafe impl Send for HttpContentCodingHeaderValue {}
 unsafe impl Sync for HttpContentCodingHeaderValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpContentCodingHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpContentCodingHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpContentCodingHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<HttpContentCodingHeaderValue>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpContentCodingHeaderValueCollection, windows_collections::IIterable<HttpContentCodingHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpContentCodingHeaderValue>);
 impl HttpContentCodingHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -705,8 +667,8 @@ impl HttpContentCodingHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<HttpContentCodingHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpContentCodingHeaderValue>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpContentCodingHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpContentCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -720,21 +682,21 @@ impl HttpContentCodingHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<HttpContentCodingHeaderValue> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpContentCodingHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<HttpContentCodingHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -744,7 +706,7 @@ impl HttpContentCodingHeaderValueCollection {
     where
         P0: windows_core::Param<HttpContentCodingHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -754,76 +716,69 @@ impl HttpContentCodingHeaderValueCollection {
     where
         P1: windows_core::Param<HttpContentCodingHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpContentCodingHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HttpContentCodingHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpContentCodingHeaderValue>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpContentCodingHeaderValue>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpContentCodingHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContentCodingHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpContentCodingHeaderValueCollection {
     type Vtable = <IHttpContentCodingHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpContentCodingHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpContentCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpContentCodingHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpContentCodingHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpContentCodingHeaderValueCollection {
     type Item = HttpContentCodingHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpContentCodingHeaderValueCollection {
     type Item = HttpContentCodingHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -900,15 +855,11 @@ impl windows_core::RuntimeName for HttpContentCodingWithQualityHeaderValue {
 }
 unsafe impl Send for HttpContentCodingWithQualityHeaderValue {}
 unsafe impl Sync for HttpContentCodingWithQualityHeaderValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpContentCodingWithQualityHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpContentCodingWithQualityHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpContentCodingWithQualityHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<HttpContentCodingWithQualityHeaderValue>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpContentCodingWithQualityHeaderValueCollection, windows_collections::IIterable<HttpContentCodingWithQualityHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>);
 impl HttpContentCodingWithQualityHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -921,8 +872,8 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<HttpContentCodingWithQualityHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpContentCodingWithQualityHeaderValue>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpContentCodingWithQualityHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -936,21 +887,21 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<HttpContentCodingWithQualityHeaderValue> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpContentCodingWithQualityHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<HttpContentCodingWithQualityHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -960,7 +911,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
     where
         P0: windows_core::Param<HttpContentCodingWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -970,76 +921,69 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
     where
         P1: windows_core::Param<HttpContentCodingWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpContentCodingWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HttpContentCodingWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpContentCodingWithQualityHeaderValue>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpContentCodingWithQualityHeaderValue>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpContentCodingWithQualityHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContentCodingWithQualityHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpContentCodingWithQualityHeaderValueCollection {
     type Vtable = <IHttpContentCodingWithQualityHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpContentCodingWithQualityHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpContentCodingWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpContentCodingWithQualityHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpContentCodingWithQualityHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpContentCodingWithQualityHeaderValueCollection {
     type Item = HttpContentCodingWithQualityHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpContentCodingWithQualityHeaderValueCollection {
     type Item = HttpContentCodingWithQualityHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -1094,8 +1038,7 @@ impl HttpContentDispositionHeaderValue {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Parameters(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
+    pub fn Parameters(&self) -> windows_core::Result<windows_collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1162,15 +1105,11 @@ impl windows_core::RuntimeName for HttpContentDispositionHeaderValue {
 }
 unsafe impl Send for HttpContentDispositionHeaderValue {}
 unsafe impl Sync for HttpContentDispositionHeaderValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpContentHeaderCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpContentHeaderCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( HttpContentHeaderCollection , super::super::super::Foundation::Collections:: IIterable < super::super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , super::super::super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > , super::super::super::Foundation:: IStringable );
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy ! ( HttpContentHeaderCollection , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > , super::super::super::Foundation:: IStringable );
 impl HttpContentHeaderCollection {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1319,54 +1258,54 @@ impl HttpContentHeaderCollection {
             (windows_core::Interface::vtable(this).TryAppendWithoutValidation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Insert(&self, key: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(value), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1377,35 +1316,28 @@ impl HttpContentHeaderCollection {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpContentHeaderCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContentHeaderCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpContentHeaderCollection {
     type Vtable = <IHttpContentHeaderCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpContentHeaderCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpContentHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentHeaderCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpContentHeaderCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpContentHeaderCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpContentHeaderCollection {
-    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpContentHeaderCollection {
-    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -1582,15 +1514,11 @@ impl windows_core::RuntimeName for HttpCookiePairHeaderValue {
 }
 unsafe impl Send for HttpCookiePairHeaderValue {}
 unsafe impl Sync for HttpCookiePairHeaderValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCookiePairHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpCookiePairHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpCookiePairHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<HttpCookiePairHeaderValue>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpCookiePairHeaderValueCollection, windows_collections::IIterable<HttpCookiePairHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpCookiePairHeaderValue>);
 impl HttpCookiePairHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -1603,8 +1531,8 @@ impl HttpCookiePairHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<HttpCookiePairHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpCookiePairHeaderValue>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpCookiePairHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpCookiePairHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1618,21 +1546,21 @@ impl HttpCookiePairHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<HttpCookiePairHeaderValue> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpCookiePairHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<HttpCookiePairHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1642,7 +1570,7 @@ impl HttpCookiePairHeaderValueCollection {
     where
         P0: windows_core::Param<HttpCookiePairHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -1652,76 +1580,69 @@ impl HttpCookiePairHeaderValueCollection {
     where
         P1: windows_core::Param<HttpCookiePairHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpCookiePairHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HttpCookiePairHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpCookiePairHeaderValue>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpCookiePairHeaderValue>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpCookiePairHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpCookiePairHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpCookiePairHeaderValueCollection {
     type Vtable = <IHttpCookiePairHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpCookiePairHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpCookiePairHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpCookiePairHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpCookiePairHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpCookiePairHeaderValueCollection {
     type Item = HttpCookiePairHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpCookiePairHeaderValueCollection {
     type Item = HttpCookiePairHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -1732,8 +1653,7 @@ pub struct HttpCredentialsHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCredentialsHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpCredentialsHeaderValue, super::super::super::Foundation::IStringable);
 impl HttpCredentialsHeaderValue {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Parameters(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
+    pub fn Parameters(&self) -> windows_core::Result<windows_collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1886,8 +1806,7 @@ impl HttpExpectationHeaderValue {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Parameters(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
+    pub fn Parameters(&self) -> windows_core::Result<windows_collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1946,15 +1865,11 @@ impl windows_core::RuntimeName for HttpExpectationHeaderValue {
 }
 unsafe impl Send for HttpExpectationHeaderValue {}
 unsafe impl Sync for HttpExpectationHeaderValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpExpectationHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpExpectationHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpExpectationHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<HttpExpectationHeaderValue>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpExpectationHeaderValueCollection, windows_collections::IIterable<HttpExpectationHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpExpectationHeaderValue>);
 impl HttpExpectationHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -1967,8 +1882,8 @@ impl HttpExpectationHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<HttpExpectationHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpExpectationHeaderValue>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpExpectationHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpExpectationHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1982,21 +1897,21 @@ impl HttpExpectationHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<HttpExpectationHeaderValue> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpExpectationHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<HttpExpectationHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2006,7 +1921,7 @@ impl HttpExpectationHeaderValueCollection {
     where
         P0: windows_core::Param<HttpExpectationHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -2016,89 +1931,82 @@ impl HttpExpectationHeaderValueCollection {
     where
         P1: windows_core::Param<HttpExpectationHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpExpectationHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HttpExpectationHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpExpectationHeaderValue>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpExpectationHeaderValue>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpExpectationHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpExpectationHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpExpectationHeaderValueCollection {
     type Vtable = <IHttpExpectationHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpExpectationHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpExpectationHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpExpectationHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpExpectationHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpExpectationHeaderValueCollection {
     type Item = HttpExpectationHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpExpectationHeaderValueCollection {
     type Item = HttpExpectationHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+#[cfg(feature = "Globalization")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpLanguageHeaderValueCollection(windows_core::IUnknown);
-#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+#[cfg(feature = "Globalization")]
 windows_core::imp::interface_hierarchy!(HttpLanguageHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
-windows_core::imp::required_hierarchy!(HttpLanguageHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<super::super::super::Globalization::Language>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>);
-#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+#[cfg(feature = "Globalization")]
+windows_core::imp::required_hierarchy!(HttpLanguageHeaderValueCollection, windows_collections::IIterable<super::super::super::Globalization::Language>, super::super::super::Foundation::IStringable, windows_collections::IVector<super::super::super::Globalization::Language>);
+#[cfg(feature = "Globalization")]
 impl HttpLanguageHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -2111,8 +2019,8 @@ impl HttpLanguageHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Globalization::Language>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Globalization::Language>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<super::super::super::Globalization::Language>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<super::super::super::Globalization::Language>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2126,21 +2034,21 @@ impl HttpLanguageHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<super::super::super::Globalization::Language> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Globalization::Language>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Globalization::Language>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2150,7 +2058,7 @@ impl HttpLanguageHeaderValueCollection {
     where
         P0: windows_core::Param<super::super::super::Globalization::Language>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -2160,76 +2068,76 @@ impl HttpLanguageHeaderValueCollection {
     where
         P1: windows_core::Param<super::super::super::Globalization::Language>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<super::super::super::Globalization::Language>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Globalization::Language>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<super::super::super::Globalization::Language>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<super::super::super::Globalization::Language>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+#[cfg(feature = "Globalization")]
 impl windows_core::RuntimeType for HttpLanguageHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpLanguageHeaderValueCollection>();
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+#[cfg(feature = "Globalization")]
 unsafe impl windows_core::Interface for HttpLanguageHeaderValueCollection {
     type Vtable = <IHttpLanguageHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpLanguageHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+#[cfg(feature = "Globalization")]
 impl windows_core::RuntimeName for HttpLanguageHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageHeaderValueCollection";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+#[cfg(feature = "Globalization")]
 unsafe impl Send for HttpLanguageHeaderValueCollection {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+#[cfg(feature = "Globalization")]
 unsafe impl Sync for HttpLanguageHeaderValueCollection {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+#[cfg(feature = "Globalization")]
 impl IntoIterator for HttpLanguageHeaderValueCollection {
     type Item = super::super::super::Globalization::Language;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+#[cfg(feature = "Globalization")]
 impl IntoIterator for &HttpLanguageHeaderValueCollection {
     type Item = super::super::super::Globalization::Language;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -2306,15 +2214,11 @@ impl windows_core::RuntimeName for HttpLanguageRangeWithQualityHeaderValue {
 }
 unsafe impl Send for HttpLanguageRangeWithQualityHeaderValue {}
 unsafe impl Sync for HttpLanguageRangeWithQualityHeaderValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpLanguageRangeWithQualityHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpLanguageRangeWithQualityHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpLanguageRangeWithQualityHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<HttpLanguageRangeWithQualityHeaderValue>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpLanguageRangeWithQualityHeaderValueCollection, windows_collections::IIterable<HttpLanguageRangeWithQualityHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>);
 impl HttpLanguageRangeWithQualityHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -2327,8 +2231,8 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<HttpLanguageRangeWithQualityHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpLanguageRangeWithQualityHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2342,21 +2246,21 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<HttpLanguageRangeWithQualityHeaderValue> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpLanguageRangeWithQualityHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<HttpLanguageRangeWithQualityHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2366,7 +2270,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
     where
         P0: windows_core::Param<HttpLanguageRangeWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -2376,76 +2280,69 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
     where
         P1: windows_core::Param<HttpLanguageRangeWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpLanguageRangeWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HttpLanguageRangeWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpLanguageRangeWithQualityHeaderValue>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpLanguageRangeWithQualityHeaderValue>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpLanguageRangeWithQualityHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpLanguageRangeWithQualityHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpLanguageRangeWithQualityHeaderValueCollection {
     type Vtable = <IHttpLanguageRangeWithQualityHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpLanguageRangeWithQualityHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpLanguageRangeWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpLanguageRangeWithQualityHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpLanguageRangeWithQualityHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpLanguageRangeWithQualityHeaderValueCollection {
     type Item = HttpLanguageRangeWithQualityHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpLanguageRangeWithQualityHeaderValueCollection {
     type Item = HttpLanguageRangeWithQualityHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -2478,8 +2375,7 @@ impl HttpMediaTypeHeaderValue {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMediaType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Parameters(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
+    pub fn Parameters(&self) -> windows_core::Result<windows_collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2560,8 +2456,7 @@ impl HttpMediaTypeWithQualityHeaderValue {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMediaType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Parameters(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
+    pub fn Parameters(&self) -> windows_core::Result<windows_collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2634,15 +2529,11 @@ impl windows_core::RuntimeName for HttpMediaTypeWithQualityHeaderValue {
 }
 unsafe impl Send for HttpMediaTypeWithQualityHeaderValue {}
 unsafe impl Sync for HttpMediaTypeWithQualityHeaderValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMediaTypeWithQualityHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpMediaTypeWithQualityHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpMediaTypeWithQualityHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<HttpMediaTypeWithQualityHeaderValue>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpMediaTypeWithQualityHeaderValueCollection, windows_collections::IIterable<HttpMediaTypeWithQualityHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>);
 impl HttpMediaTypeWithQualityHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -2655,8 +2546,8 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<HttpMediaTypeWithQualityHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpMediaTypeWithQualityHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2670,21 +2561,21 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<HttpMediaTypeWithQualityHeaderValue> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpMediaTypeWithQualityHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<HttpMediaTypeWithQualityHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2694,7 +2585,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
     where
         P0: windows_core::Param<HttpMediaTypeWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -2704,89 +2595,78 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
     where
         P1: windows_core::Param<HttpMediaTypeWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpMediaTypeWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HttpMediaTypeWithQualityHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpMediaTypeWithQualityHeaderValue>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpMediaTypeWithQualityHeaderValue>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpMediaTypeWithQualityHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpMediaTypeWithQualityHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpMediaTypeWithQualityHeaderValueCollection {
     type Vtable = <IHttpMediaTypeWithQualityHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpMediaTypeWithQualityHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpMediaTypeWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpMediaTypeWithQualityHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpMediaTypeWithQualityHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpMediaTypeWithQualityHeaderValueCollection {
     type Item = HttpMediaTypeWithQualityHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpMediaTypeWithQualityHeaderValueCollection {
     type Item = HttpMediaTypeWithQualityHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMethodHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpMethodHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpMethodHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<super::HttpMethod>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<super::HttpMethod>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpMethodHeaderValueCollection, windows_collections::IIterable<super::HttpMethod>, super::super::super::Foundation::IStringable, windows_collections::IVector<super::HttpMethod>);
 impl HttpMethodHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -2799,8 +2679,8 @@ impl HttpMethodHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<super::HttpMethod>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::HttpMethod>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<super::HttpMethod>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<super::HttpMethod>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2814,21 +2694,21 @@ impl HttpMethodHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<super::HttpMethod> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::HttpMethod>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<super::HttpMethod>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2838,7 +2718,7 @@ impl HttpMethodHeaderValueCollection {
     where
         P0: windows_core::Param<super::HttpMethod>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -2848,76 +2728,69 @@ impl HttpMethodHeaderValueCollection {
     where
         P1: windows_core::Param<super::HttpMethod>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<super::HttpMethod>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::HttpMethod>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<super::HttpMethod>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<super::HttpMethod>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpMethodHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpMethodHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpMethodHeaderValueCollection {
     type Vtable = <IHttpMethodHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpMethodHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpMethodHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMethodHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpMethodHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpMethodHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpMethodHeaderValueCollection {
     type Item = super::HttpMethod;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpMethodHeaderValueCollection {
     type Item = super::HttpMethod;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -3142,15 +3015,11 @@ impl windows_core::RuntimeName for HttpProductInfoHeaderValue {
 }
 unsafe impl Send for HttpProductInfoHeaderValue {}
 unsafe impl Sync for HttpProductInfoHeaderValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpProductInfoHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpProductInfoHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpProductInfoHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<HttpProductInfoHeaderValue>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpProductInfoHeaderValueCollection, windows_collections::IIterable<HttpProductInfoHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpProductInfoHeaderValue>);
 impl HttpProductInfoHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -3163,8 +3032,8 @@ impl HttpProductInfoHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<HttpProductInfoHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpProductInfoHeaderValue>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpProductInfoHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpProductInfoHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3178,21 +3047,21 @@ impl HttpProductInfoHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<HttpProductInfoHeaderValue> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpProductInfoHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<HttpProductInfoHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3202,7 +3071,7 @@ impl HttpProductInfoHeaderValueCollection {
     where
         P0: windows_core::Param<HttpProductInfoHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -3212,89 +3081,78 @@ impl HttpProductInfoHeaderValueCollection {
     where
         P1: windows_core::Param<HttpProductInfoHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpProductInfoHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HttpProductInfoHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpProductInfoHeaderValue>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpProductInfoHeaderValue>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpProductInfoHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpProductInfoHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpProductInfoHeaderValueCollection {
     type Vtable = <IHttpProductInfoHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpProductInfoHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpProductInfoHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpProductInfoHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpProductInfoHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpProductInfoHeaderValueCollection {
     type Item = HttpProductInfoHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpProductInfoHeaderValueCollection {
     type Item = HttpProductInfoHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpRequestHeaderCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpRequestHeaderCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( HttpRequestHeaderCollection , super::super::super::Foundation::Collections:: IIterable < super::super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , super::super::super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > , super::super::super::Foundation:: IStringable );
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy ! ( HttpRequestHeaderCollection , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > , super::super::super::Foundation:: IStringable );
 impl HttpRequestHeaderCollection {
     pub fn Accept(&self) -> windows_core::Result<HttpMediaTypeWithQualityHeaderValueCollection> {
         let this = self;
@@ -3495,54 +3353,54 @@ impl HttpRequestHeaderCollection {
             (windows_core::Interface::vtable(this).TryAppendWithoutValidation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Insert(&self, key: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(value), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -3553,48 +3411,37 @@ impl HttpRequestHeaderCollection {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpRequestHeaderCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpRequestHeaderCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpRequestHeaderCollection {
     type Vtable = <IHttpRequestHeaderCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpRequestHeaderCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpRequestHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpRequestHeaderCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpRequestHeaderCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpRequestHeaderCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpRequestHeaderCollection {
-    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpRequestHeaderCollection {
-    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpResponseHeaderCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpResponseHeaderCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( HttpResponseHeaderCollection , super::super::super::Foundation::Collections:: IIterable < super::super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , super::super::super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > , super::super::super::Foundation:: IStringable );
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy ! ( HttpResponseHeaderCollection , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > , super::super::super::Foundation:: IStringable );
 impl HttpResponseHeaderCollection {
     pub fn Age(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -3705,54 +3552,54 @@ impl HttpResponseHeaderCollection {
             (windows_core::Interface::vtable(this).TryAppendWithoutValidation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Insert(&self, key: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(value), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -3763,35 +3610,28 @@ impl HttpResponseHeaderCollection {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpResponseHeaderCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpResponseHeaderCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpResponseHeaderCollection {
     type Vtable = <IHttpResponseHeaderCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpResponseHeaderCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpResponseHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpResponseHeaderCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpResponseHeaderCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpResponseHeaderCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpResponseHeaderCollection {
-    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpResponseHeaderCollection {
-    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -3802,8 +3642,7 @@ pub struct HttpTransferCodingHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpTransferCodingHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpTransferCodingHeaderValue, super::super::super::Foundation::IStringable);
 impl HttpTransferCodingHeaderValue {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Parameters(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
+    pub fn Parameters(&self) -> windows_core::Result<windows_collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3863,15 +3702,11 @@ impl windows_core::RuntimeName for HttpTransferCodingHeaderValue {
 }
 unsafe impl Send for HttpTransferCodingHeaderValue {}
 unsafe impl Sync for HttpTransferCodingHeaderValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpTransferCodingHeaderValueCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpTransferCodingHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpTransferCodingHeaderValueCollection, super::super::super::Foundation::Collections::IIterable<HttpTransferCodingHeaderValue>, super::super::super::Foundation::IStringable, super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpTransferCodingHeaderValueCollection, windows_collections::IIterable<HttpTransferCodingHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpTransferCodingHeaderValue>);
 impl HttpTransferCodingHeaderValueCollection {
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -3884,8 +3719,8 @@ impl HttpTransferCodingHeaderValueCollection {
             (windows_core::Interface::vtable(this).TryParseAdd)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<HttpTransferCodingHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpTransferCodingHeaderValue>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpTransferCodingHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpTransferCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3899,21 +3734,21 @@ impl HttpTransferCodingHeaderValueCollection {
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<HttpTransferCodingHeaderValue> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HttpTransferCodingHeaderValue>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<HttpTransferCodingHeaderValue>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3923,7 +3758,7 @@ impl HttpTransferCodingHeaderValueCollection {
     where
         P0: windows_core::Param<HttpTransferCodingHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -3933,76 +3768,69 @@ impl HttpTransferCodingHeaderValueCollection {
     where
         P1: windows_core::Param<HttpTransferCodingHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpTransferCodingHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HttpTransferCodingHeaderValue>,
     {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpTransferCodingHeaderValue>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<HttpTransferCodingHeaderValue>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpTransferCodingHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpTransferCodingHeaderValueCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpTransferCodingHeaderValueCollection {
     type Vtable = <IHttpTransferCodingHeaderValueCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpTransferCodingHeaderValueCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpTransferCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValueCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpTransferCodingHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpTransferCodingHeaderValueCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpTransferCodingHeaderValueCollection {
     type Item = HttpTransferCodingHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpTransferCodingHeaderValueCollection {
     type Item = HttpTransferCodingHeaderValue;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -4032,10 +3860,7 @@ impl windows_core::RuntimeType for IHttpChallengeHeaderValue {
 #[repr(C)]
 pub struct IHttpChallengeHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Parameters: usize,
     pub Scheme: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Token: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -4200,10 +4025,7 @@ pub struct IHttpContentDispositionHeaderValue_Vtbl {
     pub SetFileNameStar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Parameters: usize,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -4235,13 +4057,10 @@ pub struct IHttpContentHeaderCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentDisposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetContentDisposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ContentEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ContentEncoding: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+    #[cfg(feature = "Globalization")]
     pub ContentLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Globalization")))]
+    #[cfg(not(feature = "Globalization"))]
     ContentLanguage: usize,
     pub ContentLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetContentLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4348,10 +4167,7 @@ impl windows_core::RuntimeType for IHttpCredentialsHeaderValue {
 #[repr(C)]
 pub struct IHttpCredentialsHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Parameters: usize,
     pub Scheme: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Token: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -4405,10 +4221,7 @@ pub struct IHttpExpectationHeaderValue_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Parameters: usize,
 }
 windows_core::imp::define_interface!(IHttpExpectationHeaderValueCollection, IHttpExpectationHeaderValueCollection_Vtbl, 0xe78521b3_a0e2_4ac4_9e66_79706cb9fd58);
 impl windows_core::RuntimeType for IHttpExpectationHeaderValueCollection {
@@ -4501,10 +4314,7 @@ pub struct IHttpMediaTypeHeaderValue_Vtbl {
     pub SetCharSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Parameters: usize,
 }
 windows_core::imp::define_interface!(IHttpMediaTypeHeaderValueFactory, IHttpMediaTypeHeaderValueFactory_Vtbl, 0xbed747a8_cd17_42dd_9367_ab9c5b56dd7d);
 impl windows_core::RuntimeType for IHttpMediaTypeHeaderValueFactory {
@@ -4536,10 +4346,7 @@ pub struct IHttpMediaTypeWithQualityHeaderValue_Vtbl {
     pub SetCharSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Parameters: usize,
     pub Quality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -4691,38 +4498,17 @@ impl windows_core::RuntimeType for IHttpRequestHeaderCollection {
 #[repr(C)]
 pub struct IHttpRequestHeaderCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Accept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Accept: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub AcceptEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AcceptEncoding: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub AcceptLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AcceptLanguage: usize,
     pub Authorization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAuthorization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CacheControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CacheControl: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Connection: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Cookie: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Cookie: usize,
     pub Date: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Expect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Expect: usize,
     pub From: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFrom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Networking")]
@@ -4743,14 +4529,8 @@ pub struct IHttpRequestHeaderCollection_Vtbl {
     pub SetProxyAuthorization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Referer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetReferer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub TransferEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TransferEncoding: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub UserAgent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UserAgent: usize,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryAppendWithoutValidation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
@@ -4763,36 +4543,18 @@ pub struct IHttpResponseHeaderCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Age: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Allow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Allow: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CacheControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CacheControl: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Connection: usize,
     pub Date: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Location: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ProxyAuthenticate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ProxyAuthenticate: usize,
     pub RetryAfter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRetryAfter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub TransferEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TransferEncoding: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub WwwAuthenticate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    WwwAuthenticate: usize,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryAppendWithoutValidation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
@@ -4803,10 +4565,7 @@ impl windows_core::RuntimeType for IHttpTransferCodingHeaderValue {
 #[repr(C)]
 pub struct IHttpTransferCodingHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Parameters: usize,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpTransferCodingHeaderValueCollection, IHttpTransferCodingHeaderValueCollection_Vtbl, 0x202c8c34_2c03_49b8_9665_73e27cb2fc79);

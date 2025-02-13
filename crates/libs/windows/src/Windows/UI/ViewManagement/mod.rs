@@ -332,8 +332,8 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).WindowingEnvironment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_WindowManagement"))]
-    pub fn GetDisplayRegions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::WindowManagement::DisplayRegion>> {
+    #[cfg(feature = "UI_WindowManagement")]
+    pub fn GetDisplayRegions(&self) -> windows_core::Result<windows_collections::IVectorView<super::WindowManagement::DisplayRegion>> {
         let this = &windows_core::Interface::cast::<IApplicationView9>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1092,9 +1092,9 @@ pub struct IApplicationView9_Vtbl {
     pub WindowingEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "UI_WindowManagement"))]
     WindowingEnvironment: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_WindowManagement"))]
+    #[cfg(feature = "UI_WindowManagement")]
     pub GetDisplayRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_WindowManagement")))]
+    #[cfg(not(feature = "UI_WindowManagement"))]
     GetDisplayRegions: usize,
 }
 windows_core::imp::define_interface!(IApplicationViewConsolidatedEventArgs, IApplicationViewConsolidatedEventArgs_Vtbl, 0x514449ec_7ea2_4de7_a6a6_7dfbaaebb6fb);

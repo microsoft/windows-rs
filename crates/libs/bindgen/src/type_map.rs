@@ -40,7 +40,7 @@ impl TypeMap {
                             ty.combine(&mut item_dependencies);
                         }
 
-                        if item_dependencies.excluded(filter) {
+                        if item_dependencies.excluded(filter, references) {
                             continue;
                         }
 
@@ -101,7 +101,9 @@ impl TypeMap {
         })
     }
 
-    fn excluded(&self, filter: &Filter) -> bool {
-        self.0.iter().any(|(tn, _)| filter.excludes_type_name(*tn))
+    fn excluded(&self, filter: &Filter, references: &References) -> bool {
+        self.0
+            .iter()
+            .any(|(tn, _)| filter.excludes_type_name(*tn) && references.contains(*tn).is_none())
     }
 }

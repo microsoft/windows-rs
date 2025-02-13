@@ -26,7 +26,7 @@ impl Method {
         }
 
         parent
-            .difference(self.def, &self.dependencies)
+            .difference(self.def, &self.dependencies, writer)
             .write(writer, not)
     }
 

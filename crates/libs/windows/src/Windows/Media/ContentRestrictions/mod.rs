@@ -84,14 +84,8 @@ pub struct IRatedContentDescription_Vtbl {
     SetImage: usize,
     pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RatedContentCategory) -> windows_core::HRESULT,
     pub SetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, RatedContentCategory) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Ratings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Ratings: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetRatings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetRatings: usize,
 }
 windows_core::imp::define_interface!(IRatedContentDescriptionFactory, IRatedContentDescriptionFactory_Vtbl, 0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
 impl windows_core::RuntimeType for IRatedContentDescriptionFactory {
@@ -195,18 +189,16 @@ impl RatedContentDescription {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCategory)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Ratings(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Ratings(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Ratings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetRatings<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IVector<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRatings)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }

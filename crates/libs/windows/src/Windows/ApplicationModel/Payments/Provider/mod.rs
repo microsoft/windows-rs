@@ -15,10 +15,7 @@ impl windows_core::RuntimeType for IPaymentAppManager {
 #[repr(C)]
 pub struct IPaymentAppManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub RegisterAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RegisterAsync: usize,
     pub UnregisterAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPaymentAppManagerStatics, IPaymentAppManagerStatics_Vtbl, 0xa341ac28_fc89_4406_b4d9_34e7fe79dfb6);
@@ -104,10 +101,9 @@ unsafe impl Sync for PaymentAppCanMakePaymentTriggerDetails {}
 pub struct PaymentAppManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentAppManager, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentAppManager {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterAsync<P0>(&self, supportedpaymentmethodids: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {

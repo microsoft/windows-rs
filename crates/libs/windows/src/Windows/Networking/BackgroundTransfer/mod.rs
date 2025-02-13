@@ -158,22 +158,20 @@ impl BackgroundDownloader {
             (windows_core::Interface::vtable(this).CreateWithCompletionGroup)(windows_core::Interface::as_raw(this), completiongroup.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCurrentDownloadsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>> {
+    pub fn GetCurrentDownloadsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<DownloadOperation>>> {
         Self::IBackgroundDownloaderStaticMethods(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentDownloadsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetCurrentDownloadsForGroupAsync(group: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>> {
+    #[cfg(feature = "deprecated")]
+    pub fn GetCurrentDownloadsForGroupAsync(group: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<DownloadOperation>>> {
         Self::IBackgroundDownloaderStaticMethods(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentDownloadsForGroupAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(group), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCurrentDownloadsForTransferGroupAsync<P0>(group: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>
+    pub fn GetCurrentDownloadsForTransferGroupAsync<P0>(group: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<DownloadOperation>>>
     where
         P0: windows_core::Param<BackgroundTransferGroup>,
     {
@@ -182,10 +180,10 @@ impl BackgroundDownloader {
             (windows_core::Interface::vtable(this).GetCurrentDownloadsForTransferGroupAsync)(windows_core::Interface::as_raw(this), group.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub fn RequestUnconstrainedDownloadsAsync<P0>(operations: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<DownloadOperation>>,
+        P0: windows_core::Param<windows_collections::IIterable<DownloadOperation>>,
     {
         Self::IBackgroundDownloaderUserConsent(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -355,16 +353,14 @@ unsafe impl Sync for BackgroundTransferCompletionGroup {}
 pub struct BackgroundTransferCompletionGroupTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTransferCompletionGroupTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundTransferCompletionGroupTriggerDetails {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Downloads(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<DownloadOperation>> {
+    pub fn Downloads(&self) -> windows_core::Result<windows_collections::IVectorView<DownloadOperation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Downloads)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Uploads(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UploadOperation>> {
+    pub fn Uploads(&self) -> windows_core::Result<windows_collections::IVectorView<UploadOperation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -557,8 +553,7 @@ impl BackgroundTransferRangesDownloadedEventArgs {
             (windows_core::Interface::vtable(this).WasDownloadRestarted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AddedRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>> {
+    pub fn AddedRanges(&self) -> windows_core::Result<windows_collections::IVector<BackgroundTransferFileRange>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -731,11 +726,10 @@ impl BackgroundUploader {
             (windows_core::Interface::vtable(this).CreateUploadFromStreamAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), sourcestream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateUploadWithFormDataAndAutoBoundaryAsync<P0, P1>(&self, uri: P0, parts: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>,
+        P1: windows_core::Param<windows_collections::IIterable<BackgroundTransferContentPart>>,
     {
         let this = self;
         unsafe {
@@ -743,11 +737,10 @@ impl BackgroundUploader {
             (windows_core::Interface::vtable(this).CreateUploadWithFormDataAndAutoBoundaryAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), parts.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateUploadWithSubTypeAsync<P0, P1>(&self, uri: P0, parts: P1, subtype: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>,
+        P1: windows_core::Param<windows_collections::IIterable<BackgroundTransferContentPart>>,
     {
         let this = self;
         unsafe {
@@ -755,11 +748,10 @@ impl BackgroundUploader {
             (windows_core::Interface::vtable(this).CreateUploadWithSubTypeAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), parts.param().abi(), core::mem::transmute_copy(subtype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateUploadWithSubTypeAndBoundaryAsync<P0, P1>(&self, uri: P0, parts: P1, subtype: &windows_core::HSTRING, boundary: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>,
+        P1: windows_core::Param<windows_collections::IIterable<BackgroundTransferContentPart>>,
     {
         let this = self;
         unsafe {
@@ -861,22 +853,20 @@ impl BackgroundUploader {
             (windows_core::Interface::vtable(this).CreateWithCompletionGroup)(windows_core::Interface::as_raw(this), completiongroup.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCurrentUploadsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>> {
+    pub fn GetCurrentUploadsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<UploadOperation>>> {
         Self::IBackgroundUploaderStaticMethods(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentUploadsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetCurrentUploadsForGroupAsync(group: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>> {
+    #[cfg(feature = "deprecated")]
+    pub fn GetCurrentUploadsForGroupAsync(group: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<UploadOperation>>> {
         Self::IBackgroundUploaderStaticMethods(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentUploadsForGroupAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(group), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCurrentUploadsForTransferGroupAsync<P0>(group: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>
+    pub fn GetCurrentUploadsForTransferGroupAsync<P0>(group: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<UploadOperation>>>
     where
         P0: windows_core::Param<BackgroundTransferGroup>,
     {
@@ -885,10 +875,10 @@ impl BackgroundUploader {
             (windows_core::Interface::vtable(this).GetCurrentUploadsForTransferGroupAsync)(windows_core::Interface::as_raw(this), group.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub fn RequestUnconstrainedUploadsAsync<P0>(operations: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<UploadOperation>>,
+        P0: windows_core::Param<windows_collections::IIterable<UploadOperation>>,
     {
         Self::IBackgroundUploaderUserConsent(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -927,8 +917,7 @@ unsafe impl Send for BackgroundUploader {}
 unsafe impl Sync for BackgroundUploader {}
 pub struct ContentPrefetcher;
 impl ContentPrefetcher {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ContentUris() -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+    pub fn ContentUris() -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
         Self::IContentPrefetcher(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1099,8 +1088,7 @@ impl DownloadOperation {
             (windows_core::Interface::vtable(this).GetResultRandomAccessStreamReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetDownloadedRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>> {
+    pub fn GetDownloadedRanges(&self) -> windows_core::Result<windows_collections::IVector<BackgroundTransferFileRange>> {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1128,8 +1116,8 @@ impl DownloadOperation {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRequestedUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web"))]
-    pub fn RecoverableWebErrorStatuses(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Web::WebErrorStatus>> {
+    #[cfg(feature = "Web")]
+    pub fn RecoverableWebErrorStatuses(&self) -> windows_core::Result<windows_collections::IVector<super::super::Web::WebErrorStatus>> {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1256,13 +1244,10 @@ impl windows_core::RuntimeType for IBackgroundDownloaderStaticMethods {
 #[repr(C)]
 pub struct IBackgroundDownloaderStaticMethods_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentDownloadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCurrentDownloadsAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub GetCurrentDownloadsForGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     GetCurrentDownloadsForGroupAsync: usize,
 }
 windows_core::imp::define_interface!(IBackgroundDownloaderStaticMethods2, IBackgroundDownloaderStaticMethods2_Vtbl, 0x2faa1327_1ad4_4ca5_b2cd_08dbf0746afe);
@@ -1272,10 +1257,7 @@ impl windows_core::RuntimeType for IBackgroundDownloaderStaticMethods2 {
 #[repr(C)]
 pub struct IBackgroundDownloaderStaticMethods2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentDownloadsForTransferGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCurrentDownloadsForTransferGroupAsync: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IBackgroundDownloaderUserConsent, IBackgroundDownloaderUserConsent_Vtbl, 0x5d14e906_9266_4808_bd71_5925f2a3130a);
@@ -1287,10 +1269,7 @@ impl windows_core::RuntimeType for IBackgroundDownloaderUserConsent {
 #[repr(C)]
 pub struct IBackgroundDownloaderUserConsent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub RequestUnconstrainedDownloadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequestUnconstrainedDownloadsAsync: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTransferBase, IBackgroundTransferBase_Vtbl, 0x2a9da250_c769_458c_afe8_feb8d4d3b2ef);
 impl windows_core::RuntimeType for IBackgroundTransferBase {
@@ -1564,14 +1543,8 @@ impl windows_core::RuntimeType for IBackgroundTransferCompletionGroupTriggerDeta
 #[repr(C)]
 pub struct IBackgroundTransferCompletionGroupTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Downloads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Downloads: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Uploads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Uploads: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTransferContentPart, IBackgroundTransferContentPart_Vtbl, 0xe8e15657_d7d1_4ed8_838e_674ac217ace6);
 impl windows_core::RuntimeType for IBackgroundTransferContentPart {
@@ -1969,10 +1942,7 @@ impl windows_core::RuntimeType for IBackgroundTransferRangesDownloadedEventArgs 
 pub struct IBackgroundTransferRangesDownloadedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WasDownloadRestarted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub AddedRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AddedRanges: usize,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundUploader, IBackgroundUploader_Vtbl, 0xc595c9ae_cead_465b_8801_c55ac90a01ce);
@@ -1990,18 +1960,9 @@ pub struct IBackgroundUploader_Vtbl {
     pub CreateUploadFromStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateUploadFromStreamAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateUploadWithFormDataAndAutoBoundaryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateUploadWithFormDataAndAutoBoundaryAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateUploadWithSubTypeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateUploadWithSubTypeAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateUploadWithSubTypeAndBoundaryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateUploadWithSubTypeAndBoundaryAsync: usize,
 }
 windows_core::imp::define_interface!(IBackgroundUploader2, IBackgroundUploader2_Vtbl, 0x8e0612ce_0c34_4463_807f_198a1b8bd4ad);
 impl windows_core::RuntimeType for IBackgroundUploader2 {
@@ -2070,13 +2031,10 @@ impl windows_core::RuntimeType for IBackgroundUploaderStaticMethods {
 #[repr(C)]
 pub struct IBackgroundUploaderStaticMethods_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentUploadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCurrentUploadsAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub GetCurrentUploadsForGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     GetCurrentUploadsForGroupAsync: usize,
 }
 windows_core::imp::define_interface!(IBackgroundUploaderStaticMethods2, IBackgroundUploaderStaticMethods2_Vtbl, 0xe919ac62_ea08_42f0_a2ac_07e467549080);
@@ -2086,10 +2044,7 @@ impl windows_core::RuntimeType for IBackgroundUploaderStaticMethods2 {
 #[repr(C)]
 pub struct IBackgroundUploaderStaticMethods2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentUploadsForTransferGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCurrentUploadsForTransferGroupAsync: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IBackgroundUploaderUserConsent, IBackgroundUploaderUserConsent_Vtbl, 0x3bb384cb_0760_461d_907f_5138f84d44c1);
@@ -2101,10 +2056,7 @@ impl windows_core::RuntimeType for IBackgroundUploaderUserConsent {
 #[repr(C)]
 pub struct IBackgroundUploaderUserConsent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub RequestUnconstrainedUploadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequestUnconstrainedUploadsAsync: usize,
 }
 windows_core::imp::define_interface!(IContentPrefetcher, IContentPrefetcher_Vtbl, 0xa8d6f754_7dc1_4cd9_8810_2a6aa9417e11);
 impl windows_core::RuntimeType for IContentPrefetcher {
@@ -2113,10 +2065,7 @@ impl windows_core::RuntimeType for IContentPrefetcher {
 #[repr(C)]
 pub struct IContentPrefetcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ContentUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ContentUris: usize,
     pub SetIndirectContentUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IndirectContentUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -2168,16 +2117,13 @@ pub struct IDownloadOperation3_Vtbl {
     pub GetResultRandomAccessStreamReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     GetResultRandomAccessStreamReference: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetDownloadedRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetDownloadedRanges: usize,
     pub RangesDownloaded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRangesDownloaded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub SetRequestedUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web"))]
+    #[cfg(feature = "Web")]
     pub RecoverableWebErrorStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Web")))]
+    #[cfg(not(feature = "Web"))]
     RecoverableWebErrorStatuses: usize,
     #[cfg(feature = "Web")]
     pub CurrentWebErrorStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2213,10 +2159,7 @@ pub struct IResponseInformation_Vtbl {
     pub IsResumable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ActualUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Headers: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IUnconstrainedTransferRequestResult, IUnconstrainedTransferRequestResult_Vtbl, 0x4c24b81f_d944_4112_a98e_6a69522b7ebb);
@@ -2299,8 +2242,7 @@ impl ResponseInformation {
             (windows_core::Interface::vtable(this).StatusCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Headers(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Headers(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

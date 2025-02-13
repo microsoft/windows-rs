@@ -17,7 +17,7 @@ windows_core::imp::interface_hierarchy!(ITest, windows_core::IUnknown, windows_c
 impl ITest {
     pub fn TestIterable<P0>(&self, collection: P0, values: &[i32]) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows::Foundation::Collections::IIterable<i32>>,
+        P0: windows_core::Param<windows_collections::IIterable<i32>>,
     {
         let this = self;
         unsafe {
@@ -33,7 +33,7 @@ impl ITest {
     pub fn GetIterable(
         &self,
         values: &[i32],
-    ) -> windows_core::Result<windows::Foundation::Collections::IIterable<i32>> {
+    ) -> windows_core::Result<windows_collections::IIterable<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -50,10 +50,7 @@ impl ITest {
         &self,
         values: &[i32],
     ) -> windows_core::Result<
-        windows::Foundation::Collections::IMapView<
-            i32,
-            windows::Foundation::Collections::IVectorView<i32>,
-        >,
+        windows_collections::IMapView<i32, windows_collections::IVectorView<i32>>,
     > {
         let this = self;
         unsafe {
@@ -74,21 +71,18 @@ impl windows_core::RuntimeName for ITest {
 pub trait ITest_Impl: windows_core::IUnknownImpl {
     fn TestIterable(
         &self,
-        collection: windows_core::Ref<'_, windows::Foundation::Collections::IIterable<i32>>,
+        collection: windows_core::Ref<'_, windows_collections::IIterable<i32>>,
         values: &[i32],
     ) -> windows_core::Result<()>;
     fn GetIterable(
         &self,
         values: &[i32],
-    ) -> windows_core::Result<windows::Foundation::Collections::IIterable<i32>>;
+    ) -> windows_core::Result<windows_collections::IIterable<i32>>;
     fn GetMapView(
         &self,
         values: &[i32],
     ) -> windows_core::Result<
-        windows::Foundation::Collections::IMapView<
-            i32,
-            windows::Foundation::Collections::IVectorView<i32>,
-        >,
+        windows_collections::IMapView<i32, windows_collections::IVectorView<i32>>,
     >;
 }
 impl ITest_Vtbl {

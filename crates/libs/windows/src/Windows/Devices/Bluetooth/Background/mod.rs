@@ -64,8 +64,8 @@ impl BluetoothLEAdvertisementWatcherTriggerDetails {
             (windows_core::Interface::vtable(this).Error)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "Foundation_Collections"))]
-    pub fn Advertisements(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>> {
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn Advertisements(&self) -> windows_core::Result<windows_collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -127,8 +127,8 @@ impl GattCharacteristicNotificationTriggerDetails {
             (windows_core::Interface::vtable(this).EventTriggeringMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections"))]
-    pub fn ValueChangedEvents(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::GenericAttributeProfile::GattValueChangedEventArgs>> {
+    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
+    pub fn ValueChangedEvents(&self) -> windows_core::Result<windows_collections::IVectorView<super::GenericAttributeProfile::GattValueChangedEventArgs>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristicNotificationTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -172,8 +172,7 @@ impl GattServiceProviderConnection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllServices() -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, GattServiceProviderConnection>> {
+    pub fn AllServices() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, GattServiceProviderConnection>> {
         Self::IGattServiceProviderConnectionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllServices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -251,9 +250,9 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTriggerDetail
 pub struct IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub Advertisements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Bluetooth_Advertisement", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
     Advertisements: usize,
     pub SignalStrengthFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -282,9 +281,9 @@ pub struct IGattCharacteristicNotificationTriggerDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
     pub EventTriggeringMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BluetoothEventTriggeringMode) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub ValueChangedEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     ValueChangedEvents: usize,
 }
 windows_core::imp::define_interface!(IGattServiceProviderConnection, IGattServiceProviderConnection_Vtbl, 0x7fa1b9b9_2f13_40b5_9582_8eb78e98ef13);
@@ -308,10 +307,7 @@ impl windows_core::RuntimeType for IGattServiceProviderConnectionStatics {
 #[repr(C)]
 pub struct IGattServiceProviderConnectionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AllServices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllServices: usize,
 }
 windows_core::imp::define_interface!(IGattServiceProviderTriggerDetails, IGattServiceProviderTriggerDetails_Vtbl, 0xae8c0625_05ff_4afb_b16a_de95f3cf0158);
 impl windows_core::RuntimeType for IGattServiceProviderTriggerDetails {

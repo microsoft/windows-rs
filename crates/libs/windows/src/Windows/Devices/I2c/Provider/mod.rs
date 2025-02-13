@@ -215,8 +215,7 @@ impl windows_core::RuntimeType for II2cProvider {
 }
 windows_core::imp::interface_hierarchy!(II2cProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl II2cProvider {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>> {
+    pub fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -224,15 +223,12 @@ impl II2cProvider {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for II2cProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cProvider";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait II2cProvider_Impl: windows_core::IUnknownImpl {
-    fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>;
+    fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl II2cProvider_Vtbl {
     pub const fn new<Identity: II2cProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetControllersAsync<Identity: II2cProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -257,10 +253,7 @@ impl II2cProvider_Vtbl {
 #[repr(C)]
 pub struct II2cProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetControllersAsync: usize,
 }
 windows_core::imp::define_interface!(IProviderI2cConnectionSettings, IProviderI2cConnectionSettings_Vtbl, 0xe9db4e34_e510_44b7_809d_f2f85b555339);
 impl windows_core::RuntimeType for IProviderI2cConnectionSettings {

@@ -128,10 +128,7 @@ impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEv
 #[repr(C)]
 pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetSupportedPdlPassthroughContentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetSupportedPdlPassthroughContentTypes: usize,
     pub ResourceLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Data_Xml_Dom")]
     pub GetCurrentPrintDeviceResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -224,14 +221,8 @@ pub struct IPrintSupportPrinterSelectedEventArgs_Vtbl {
     pub SetPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
     SetPrintTicket: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetAdditionalFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetAdditionalFeatures: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetAdditionalParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetAdditionalParameters: usize,
     pub AllowedAdditionalFeaturesAndParametersCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "UI_Shell")]
     pub SetAdaptiveCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -704,10 +695,9 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetSupportedPdlPassthroughContentTypes<P0>(&self, supportedpdlcontenttypes: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSupportedPdlPassthroughContentTypes)(windows_core::Interface::as_raw(this), supportedpdlcontenttypes.param().abi()).ok() }
@@ -916,18 +906,16 @@ impl PrintSupportPrinterSelectedEventArgs {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPrintTicket)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetAdditionalFeatures<P0>(&self, features: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>>,
+        P0: windows_core::Param<windows_collections::IIterable<PrintSupportPrintTicketElement>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAdditionalFeatures)(windows_core::Interface::as_raw(this), features.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetAdditionalParameters<P0>(&self, parameters: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>>,
+        P0: windows_core::Param<windows_collections::IIterable<PrintSupportPrintTicketElement>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAdditionalParameters)(windows_core::Interface::as_raw(this), parameters.param().abi()).ok() }

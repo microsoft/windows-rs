@@ -59,7 +59,6 @@ impl DesktopWindowTarget {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -67,7 +66,6 @@ impl DesktopWindowTarget {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,

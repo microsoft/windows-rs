@@ -183,8 +183,7 @@ impl DevicePortalConnectionRequestReceivedEventArgs {
             (windows_core::Interface::vtable(this).IsWebSocketUpgradeRequest)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn WebSocketProtocolsRequested(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn WebSocketProtocolsRequested(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -296,9 +295,6 @@ impl windows_core::RuntimeType for IDevicePortalWebSocketConnectionRequestReceiv
 pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsWebSocketUpgradeRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub WebSocketProtocolsRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    WebSocketProtocolsRequested: usize,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }

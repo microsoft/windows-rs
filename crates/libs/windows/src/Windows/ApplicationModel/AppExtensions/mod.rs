@@ -102,8 +102,7 @@ unsafe impl Sync for AppExtension {}
 pub struct AppExtensionCatalog(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppExtensionCatalog, windows_core::IUnknown, windows_core::IInspectable);
 impl AppExtensionCatalog {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppExtension>>> {
+    pub fn FindAllAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<AppExtension>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -187,8 +186,7 @@ impl AppExtensionCatalog {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePackageStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAll(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AppExtension>> {
+    pub fn FindAll(&self) -> windows_core::Result<windows_collections::IVectorView<AppExtension>> {
         let this = &windows_core::Interface::cast::<IAppExtensionCatalog2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -235,8 +233,7 @@ impl AppExtensionPackageInstalledEventArgs {
             (windows_core::Interface::vtable(this).Package)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Extensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AppExtension>> {
+    pub fn Extensions(&self) -> windows_core::Result<windows_collections::IVectorView<AppExtension>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -339,8 +336,7 @@ impl AppExtensionPackageUpdatedEventArgs {
             (windows_core::Interface::vtable(this).Package)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Extensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AppExtension>> {
+    pub fn Extensions(&self) -> windows_core::Result<windows_collections::IVectorView<AppExtension>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -446,10 +442,7 @@ impl windows_core::RuntimeType for IAppExtensionCatalog {
 #[repr(C)]
 pub struct IAppExtensionCatalog_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllAsync: usize,
     pub RequestRemovePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PackageInstalled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemovePackageInstalled: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -469,10 +462,7 @@ impl windows_core::RuntimeType for IAppExtensionCatalog2 {
 #[repr(C)]
 pub struct IAppExtensionCatalog2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAll: usize,
 }
 windows_core::imp::define_interface!(IAppExtensionCatalogStatics, IAppExtensionCatalogStatics_Vtbl, 0x3c36668a_5f18_4f0b_9ce5_cab61d196f11);
 impl windows_core::RuntimeType for IAppExtensionCatalogStatics {
@@ -492,10 +482,7 @@ pub struct IAppExtensionPackageInstalledEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Extensions: usize,
 }
 windows_core::imp::define_interface!(IAppExtensionPackageStatusChangedEventArgs, IAppExtensionPackageStatusChangedEventArgs_Vtbl, 0x1ce17433_1153_44fd_87b1_8ae1050303df);
 impl windows_core::RuntimeType for IAppExtensionPackageStatusChangedEventArgs {
@@ -526,10 +513,7 @@ pub struct IAppExtensionPackageUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Extensions: usize,
 }
 windows_core::imp::define_interface!(IAppExtensionPackageUpdatingEventArgs, IAppExtensionPackageUpdatingEventArgs_Vtbl, 0x7ed59329_1a65_4800_a700_b321009e306a);
 impl windows_core::RuntimeType for IAppExtensionPackageUpdatingEventArgs {

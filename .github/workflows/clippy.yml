@@ -305,6 +305,8 @@ jobs:
         run:  cargo clippy -p windows
       - name: Clippy windows-bindgen
         run:  cargo clippy -p windows-bindgen
+      - name: Clippy windows-collections
+        run:  cargo clippy -p windows-collections
       - name: Clippy windows-core
         run:  cargo clippy -p windows-core
       - name: Clippy windows-implement

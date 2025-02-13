@@ -8,10 +8,7 @@ impl windows_core::RuntimeType for IWalletItemSystemStore {
 #[repr(C)]
 pub struct IWalletItemSystemStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetItemsAsync: usize,
     pub DeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub ImportItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -67,8 +64,7 @@ pub struct WalletItemSystemStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WalletItemSystemStore, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl WalletItemSystemStore {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetItemsAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>> {
+    pub fn GetItemsAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::WalletItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

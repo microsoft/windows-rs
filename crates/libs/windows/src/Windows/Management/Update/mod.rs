@@ -110,10 +110,7 @@ pub struct IWindowsUpdateAdministrator_Vtbl {
     pub RevokeWindowsUpdateActionApproval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ApproveWindowsUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RevokeWindowsUpdateApproval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetUpdates: usize,
 }
 windows_core::imp::define_interface!(IWindowsUpdateAdministratorStatics, IWindowsUpdateAdministratorStatics_Vtbl, 0x013e6d36_ef69_53bc_8db8_c403bca550ed);
 impl windows_core::RuntimeType for IWindowsUpdateAdministratorStatics {
@@ -215,18 +212,9 @@ pub struct IWindowsUpdateManager_Vtbl {
     pub IsScanning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsWorking: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub LastSuccessfulScanTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetApplicableUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetApplicableUpdates: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetMostRecentCompletedUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetMostRecentCompletedUpdates: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetMostRecentCompletedUpdatesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetMostRecentCompletedUpdatesAsync: usize,
     pub StartScan: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWindowsUpdateManagerFactory, IWindowsUpdateManagerFactory_Vtbl, 0x1b394df8_decb_5f44_b47c_6ccf3bcfdb37);
@@ -289,10 +277,7 @@ pub struct IWindowsUpdateScanCompletedEventArgs_Vtbl {
     pub ProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Updates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Updates: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -714,8 +699,7 @@ impl WindowsUpdateAdministrator {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RevokeWindowsUpdateApproval)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(updateid)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetUpdates(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
+    pub fn GetUpdates(&self) -> windows_core::Result<windows_collections::IVectorView<WindowsUpdate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1256,24 +1240,21 @@ impl WindowsUpdateManager {
             (windows_core::Interface::vtable(this).LastSuccessfulScanTimestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetApplicableUpdates(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
+    pub fn GetApplicableUpdates(&self) -> windows_core::Result<windows_collections::IVectorView<WindowsUpdate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetApplicableUpdates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMostRecentCompletedUpdates(&self, count: i32) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>> {
+    pub fn GetMostRecentCompletedUpdates(&self, count: i32) -> windows_core::Result<windows_collections::IVectorView<WindowsUpdateItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMostRecentCompletedUpdates)(windows_core::Interface::as_raw(this), count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMostRecentCompletedUpdatesAsync(&self, count: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>>> {
+    pub fn GetMostRecentCompletedUpdatesAsync(&self, count: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<WindowsUpdateItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1483,8 +1464,7 @@ impl WindowsUpdateScanCompletedEventArgs {
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Updates(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
+    pub fn Updates(&self) -> windows_core::Result<windows_collections::IVectorView<WindowsUpdate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

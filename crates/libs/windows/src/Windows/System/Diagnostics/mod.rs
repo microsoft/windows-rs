@@ -60,7 +60,7 @@ impl windows_core::RuntimeType for DiagnosticActionState {
 pub struct DiagnosticInvoker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DiagnosticInvoker, windows_core::IUnknown, windows_core::IInspectable);
 impl DiagnosticInvoker {
-    #[cfg(all(feature = "Data_Json", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Data_Json")]
     pub fn RunDiagnosticActionAsync<P0>(&self, context: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
     where
         P0: windows_core::Param<super::super::Data::Json::JsonObject>,
@@ -136,9 +136,9 @@ impl windows_core::RuntimeType for IDiagnosticInvoker {
 #[repr(C)]
 pub struct IDiagnosticInvoker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Data_Json", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Data_Json")]
     pub RunDiagnosticActionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Data_Json", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Data_Json"))]
     RunDiagnosticActionAsync: usize,
 }
 windows_core::imp::define_interface!(IDiagnosticInvoker2, IDiagnosticInvoker2_Vtbl, 0xe3bf945c_155a_4b52_a8ec_070c44f95000);
@@ -202,10 +202,7 @@ impl windows_core::RuntimeType for IProcessDiagnosticInfo2 {
 #[repr(C)]
 pub struct IProcessDiagnosticInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAppDiagnosticInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAppDiagnosticInfos: usize,
     pub IsPackaged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProcessDiagnosticInfoStatics, IProcessDiagnosticInfoStatics_Vtbl, 0x2f41b260_b49f_428c_aa0e_84744f49ca95);
@@ -215,10 +212,7 @@ impl windows_core::RuntimeType for IProcessDiagnosticInfoStatics {
 #[repr(C)]
 pub struct IProcessDiagnosticInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetForProcesses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetForProcesses: usize,
     pub GetForCurrentProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProcessDiagnosticInfoStatics2, IProcessDiagnosticInfoStatics2_Vtbl, 0x4a869897_9899_4a44_a29b_091663be09b6);
@@ -462,8 +456,7 @@ impl ProcessDiagnosticInfo {
             (windows_core::Interface::vtable(this).CpuUsage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAppDiagnosticInfos(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>> {
+    pub fn GetAppDiagnosticInfos(&self) -> windows_core::Result<windows_collections::IVector<super::AppDiagnosticInfo>> {
         let this = &windows_core::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -477,8 +470,7 @@ impl ProcessDiagnosticInfo {
             (windows_core::Interface::vtable(this).IsPackaged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetForProcesses() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>> {
+    pub fn GetForProcesses() -> windows_core::Result<windows_collections::IVectorView<ProcessDiagnosticInfo>> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForProcesses)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

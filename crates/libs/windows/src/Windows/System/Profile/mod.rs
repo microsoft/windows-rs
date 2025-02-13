@@ -14,10 +14,9 @@ impl AnalyticsInfo {
             (windows_core::Interface::vtable(this).DeviceForm)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSystemPropertiesAsync<P0>(attributenames: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>>
+    pub fn GetSystemPropertiesAsync<P0>(attributenames: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IAnalyticsInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -77,10 +76,9 @@ unsafe impl Send for AnalyticsVersionInfo {}
 unsafe impl Sync for AnalyticsVersionInfo {}
 pub struct AppApplicability;
 impl AppApplicability {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetUnsupportedAppRequirements<P0>(capabilities: P0) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>
+    pub fn GetUnsupportedAppRequirements<P0>(capabilities: P0) -> windows_core::Result<windows_collections::IVectorView<UnsupportedAppRequirement>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IAppApplicabilityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -190,10 +188,7 @@ impl windows_core::RuntimeType for IAnalyticsInfoStatics2 {
 #[repr(C)]
 pub struct IAnalyticsInfoStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSystemPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSystemPropertiesAsync: usize,
 }
 windows_core::imp::define_interface!(IAnalyticsVersionInfo, IAnalyticsVersionInfo_Vtbl, 0x926130b8_9955_4c74_bdc1_7cd0decf9b03);
 impl windows_core::RuntimeType for IAnalyticsVersionInfo {
@@ -221,10 +216,7 @@ impl windows_core::RuntimeType for IAppApplicabilityStatics {
 #[repr(C)]
 pub struct IAppApplicabilityStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetUnsupportedAppRequirements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetUnsupportedAppRequirements: usize,
 }
 windows_core::imp::define_interface!(IEducationSettingsStatics, IEducationSettingsStatics_Vtbl, 0xfc53f0ef_4d3e_4e13_9b23_505f4d091e92);
 impl windows_core::RuntimeType for IEducationSettingsStatics {
@@ -326,10 +318,7 @@ impl windows_core::RuntimeType for IRetailInfoStatics {
 pub struct IRetailInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsDemoModeEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(ISharedModeSettingsStatics, ISharedModeSettingsStatics_Vtbl, 0x893df40e_cad6_4d50_8c49_6fcfc03edb29);
 impl windows_core::RuntimeType for ISharedModeSettingsStatics {
@@ -647,8 +636,7 @@ impl RetailInfo {
             (windows_core::Interface::vtable(this).IsDemoModeEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties() -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         Self::IRetailInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

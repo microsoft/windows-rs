@@ -105,9 +105,9 @@ pub struct ISmartCardAppletIdGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub AppletIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     AppletIds: usize,
     pub SmartCardEmulationCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardEmulationCategory) -> windows_core::HRESULT,
     pub SetSmartCardEmulationCategory: unsafe extern "system" fn(*mut core::ffi::c_void, SmartCardEmulationCategory) -> windows_core::HRESULT,
@@ -147,9 +147,9 @@ impl windows_core::RuntimeType for ISmartCardAppletIdGroupFactory {
 #[repr(C)]
 pub struct ISmartCardAppletIdGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, SmartCardEmulationCategory, SmartCardEmulationType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     Create: usize,
 }
 windows_core::imp::define_interface!(ISmartCardAppletIdGroupRegistration, ISmartCardAppletIdGroupRegistration_Vtbl, 0xdf1208d1_31bb_5596_43b1_6d69a0257b3a);
@@ -163,10 +163,7 @@ pub struct ISmartCardAppletIdGroupRegistration_Vtbl {
     pub AppletIdGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestActivationPolicyChangeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, SmartCardAppletIdGroupActivationPolicy, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetAutomaticResponseApdusAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetAutomaticResponseApdusAsync: usize,
 }
 windows_core::imp::define_interface!(ISmartCardAppletIdGroupRegistration2, ISmartCardAppletIdGroupRegistration2_Vtbl, 0x5f5508d8_98a7_4f2e_91d9_6cfcceda407f);
 impl windows_core::RuntimeType for ISmartCardAppletIdGroupRegistration2 {
@@ -322,26 +319,11 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGenerator {
 #[repr(C)]
 pub struct ISmartCardCryptogramGenerator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedCryptogramMaterialTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedCryptogramMaterialTypes: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedCryptogramAlgorithms: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedCryptogramAlgorithms: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedCryptogramMaterialPackageFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedCryptogramMaterialPackageFormats: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedCryptogramMaterialPackageConfirmationResponseFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedCryptogramMaterialPackageConfirmationResponseFormats: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedSmartCardCryptogramStorageKeyCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedSmartCardCryptogramStorageKeyCapabilities: usize,
     pub DeleteCryptogramMaterialStorageKeyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateCryptogramMaterialStorageKeyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, SmartCardUnlockPromptingBehavior, *mut core::ffi::c_void, SmartCardCryptogramStorageKeyAlgorithm, SmartCardCryptogramStorageKeyCapabilities, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Security_Cryptography_Core")]
@@ -366,9 +348,9 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGenerator2 {
 #[repr(C)]
 pub struct ISmartCardCryptogramGenerator2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub ValidateRequestApduAsync: unsafe extern "system" fn(*mut core::ffi::c_void, SmartCardUnlockPromptingBehavior, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     ValidateRequestApduAsync: usize,
     pub GetAllCryptogramStorageKeyCharacteristicsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAllCryptogramMaterialPackageCharacteristicsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -401,10 +383,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGetAllCryptogramMaterialC
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OperationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramGeneratorOperationStatus) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Characteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Characteristics: usize,
 }
 windows_core::imp::define_interface!(ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl, 0x4e6a8a5c_9773_46c4_a32f_b1e543159e04);
 impl windows_core::RuntimeType for ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
@@ -414,10 +393,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGetAllCryptogramMaterialP
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OperationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramGeneratorOperationStatus) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Characteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Characteristics: usize,
 }
 windows_core::imp::define_interface!(ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl, 0x8c7ce857_a7e7_489d_b9d6_368061515012);
 impl windows_core::RuntimeType for ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
@@ -427,10 +403,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGetAllCryptogramStorageKe
 pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OperationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramGeneratorOperationStatus) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Characteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Characteristics: usize,
 }
 windows_core::imp::define_interface!(ISmartCardCryptogramMaterialCharacteristics, ISmartCardCryptogramMaterialCharacteristics_Vtbl, 0xfc9ac5cc_c1d7_4153_923b_a2d43c6c8d49);
 impl windows_core::RuntimeType for ISmartCardCryptogramMaterialCharacteristics {
@@ -440,18 +413,9 @@ impl windows_core::RuntimeType for ISmartCardCryptogramMaterialCharacteristics {
 pub struct ISmartCardCryptogramMaterialCharacteristics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaterialName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub AllowedAlgorithms: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllowedAlgorithms: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub AllowedProofOfPossessionAlgorithms: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllowedProofOfPossessionAlgorithms: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub AllowedValidations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllowedValidations: usize,
     pub MaterialType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramMaterialType) -> windows_core::HRESULT,
     pub ProtectionMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramMaterialProtectionMethod) -> windows_core::HRESULT,
     pub ProtectionVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -623,13 +587,13 @@ impl windows_core::RuntimeType for ISmartCardEmulatorApduReceivedEventArgsWithCr
 #[repr(C)]
 pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub TryRespondWithCryptogramsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     TryRespondWithCryptogramsAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub TryRespondWithCryptogramsAndStateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     TryRespondWithCryptogramsAndStateAsync: usize,
 }
 windows_core::imp::define_interface!(ISmartCardEmulatorConnectionDeactivatedEventArgs, ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl, 0x2186d8d3_c5eb_5262_43df_62a0a1b55557);
@@ -668,10 +632,7 @@ impl windows_core::RuntimeType for ISmartCardEmulatorStatics2 {
 #[repr(C)]
 pub struct ISmartCardEmulatorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAppletIdGroupRegistrationsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAppletIdGroupRegistrationsAsync: usize,
     pub RegisterAppletIdGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnregisterAppletIdGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MaxAppletIdGroupRegistrations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -800,10 +761,7 @@ pub struct ISmartCardReader_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardReaderKind) -> windows_core::HRESULT,
     pub GetStatusAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllCardsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllCardsAsync: usize,
     pub CardAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveCardAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub CardRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -964,8 +922,8 @@ impl SmartCardAppletIdGroup {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn AppletIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>> {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn AppletIds(&self) -> windows_core::Result<windows_collections::IVector<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1051,10 +1009,10 @@ impl SmartCardAppletIdGroup {
         let this = &windows_core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSecureUserAuthenticationRequired)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn Create<P1>(displayname: &windows_core::HSTRING, appletids: P1, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType) -> windows_core::Result<SmartCardAppletIdGroup>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>,
+        P1: windows_core::Param<windows_collections::IVector<super::super::Storage::Streams::IBuffer>>,
     {
         Self::ISmartCardAppletIdGroupFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1135,10 +1093,9 @@ impl SmartCardAppletIdGroupRegistration {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetAutomaticResponseApdusAsync<P0>(&self, apdus: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu>>,
+        P0: windows_core::Param<windows_collections::IIterable<SmartCardAutomaticResponseApdu>>,
     {
         let this = self;
         unsafe {
@@ -1473,40 +1430,35 @@ impl windows_core::RuntimeType for SmartCardCryptogramAlgorithm {
 pub struct SmartCardCryptogramGenerator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramGenerator, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardCryptogramGenerator {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCryptogramMaterialTypes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialType>> {
+    pub fn SupportedCryptogramMaterialTypes(&self) -> windows_core::Result<windows_collections::IVectorView<SmartCardCryptogramMaterialType>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedCryptogramMaterialTypes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCryptogramAlgorithms(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>> {
+    pub fn SupportedCryptogramAlgorithms(&self) -> windows_core::Result<windows_collections::IVectorView<SmartCardCryptogramAlgorithm>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedCryptogramAlgorithms)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCryptogramMaterialPackageFormats(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageFormat>> {
+    pub fn SupportedCryptogramMaterialPackageFormats(&self) -> windows_core::Result<windows_collections::IVectorView<SmartCardCryptogramMaterialPackageFormat>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedCryptogramMaterialPackageFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCryptogramMaterialPackageConfirmationResponseFormats(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>> {
+    pub fn SupportedCryptogramMaterialPackageConfirmationResponseFormats(&self) -> windows_core::Result<windows_collections::IVectorView<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedCryptogramMaterialPackageConfirmationResponseFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedSmartCardCryptogramStorageKeyCapabilities(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramStorageKeyCapabilities>> {
+    pub fn SupportedSmartCardCryptogramStorageKeyCapabilities(&self) -> windows_core::Result<windows_collections::IVectorView<SmartCardCryptogramStorageKeyCapabilities>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1571,11 +1523,11 @@ impl SmartCardCryptogramGenerator {
             (windows_core::Interface::vtable(this).DeleteCryptogramMaterialPackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(materialpackagename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn ValidateRequestApduAsync<P1, P2>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: P1, cryptogramplacementsteps: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
-        P2: windows_core::Param<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
+        P2: windows_core::Param<windows_collections::IIterable<SmartCardCryptogramPlacementStep>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
@@ -1688,8 +1640,7 @@ impl SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
             (windows_core::Interface::vtable(this).OperationStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Characteristics(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialCharacteristics>> {
+    pub fn Characteristics(&self) -> windows_core::Result<windows_collections::IVectorView<SmartCardCryptogramMaterialCharacteristics>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1728,8 +1679,7 @@ impl SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
             (windows_core::Interface::vtable(this).OperationStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Characteristics(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageCharacteristics>> {
+    pub fn Characteristics(&self) -> windows_core::Result<windows_collections::IVectorView<SmartCardCryptogramMaterialPackageCharacteristics>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1768,8 +1718,7 @@ impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
             (windows_core::Interface::vtable(this).OperationStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Characteristics(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramStorageKeyCharacteristics>> {
+    pub fn Characteristics(&self) -> windows_core::Result<windows_collections::IVectorView<SmartCardCryptogramStorageKeyCharacteristics>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1808,24 +1757,21 @@ impl SmartCardCryptogramMaterialCharacteristics {
             (windows_core::Interface::vtable(this).MaterialName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllowedAlgorithms(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>> {
+    pub fn AllowedAlgorithms(&self) -> windows_core::Result<windows_collections::IVectorView<SmartCardCryptogramAlgorithm>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowedAlgorithms)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllowedProofOfPossessionAlgorithms(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>> {
+    pub fn AllowedProofOfPossessionAlgorithms(&self) -> windows_core::Result<windows_collections::IVectorView<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowedProofOfPossessionAlgorithms)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllowedValidations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>> {
+    pub fn AllowedValidations(&self) -> windows_core::Result<windows_collections::IVectorView<SmartCardCryptogramAlgorithm>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2487,8 +2433,7 @@ impl SmartCardEmulator {
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAppletIdGroupRegistrationsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SmartCardAppletIdGroupRegistration>>> {
+    pub fn GetAppletIdGroupRegistrationsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<SmartCardAppletIdGroupRegistration>>> {
         Self::ISmartCardEmulatorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAppletIdGroupRegistrationsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2606,11 +2551,11 @@ impl SmartCardEmulatorApduReceivedEventArgs {
             (windows_core::Interface::vtable(this).TryRespondWithStateAsync)(windows_core::Interface::as_raw(this), responseapdu.param().abi(), nextstate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn TryRespondWithCryptogramsAsync<P0, P1>(&self, responsetemplate: P0, cryptogramplacementsteps: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
+        P1: windows_core::Param<windows_collections::IIterable<SmartCardCryptogramPlacementStep>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
         unsafe {
@@ -2618,11 +2563,11 @@ impl SmartCardEmulatorApduReceivedEventArgs {
             (windows_core::Interface::vtable(this).TryRespondWithCryptogramsAsync)(windows_core::Interface::as_raw(this), responsetemplate.param().abi(), cryptogramplacementsteps.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn TryRespondWithCryptogramsAndStateAsync<P0, P1, P2>(&self, responsetemplate: P0, cryptogramplacementsteps: P1, nextstate: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
+        P1: windows_core::Param<windows_collections::IIterable<SmartCardCryptogramPlacementStep>>,
         P2: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
@@ -3179,8 +3124,7 @@ impl SmartCardReader {
             (windows_core::Interface::vtable(this).GetStatusAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllCardsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SmartCard>>> {
+    pub fn FindAllCardsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<SmartCard>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -29,8 +29,8 @@ unsafe impl Sync for DetectedFace {}
 pub struct FaceDetector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FaceDetector, windows_core::IUnknown, windows_core::IInspectable);
 impl FaceDetector {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn DetectFacesAsync<P0>(&self, image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
+    #[cfg(feature = "Graphics_Imaging")]
+    pub fn DetectFacesAsync<P0>(&self, image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
     where
         P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {
@@ -40,8 +40,8 @@ impl FaceDetector {
             (windows_core::Interface::vtable(this).DetectFacesAsync)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn DetectFacesWithSearchAreaAsync<P0>(&self, image: P0, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
+    #[cfg(feature = "Graphics_Imaging")]
+    pub fn DetectFacesWithSearchAreaAsync<P0>(&self, image: P0, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
     where
         P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {
@@ -83,8 +83,8 @@ impl FaceDetector {
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn GetSupportedBitmapPixelFormats() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
+    #[cfg(feature = "Graphics_Imaging")]
+    pub fn GetSupportedBitmapPixelFormats() -> windows_core::Result<windows_collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedBitmapPixelFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -125,8 +125,7 @@ unsafe impl Sync for FaceDetector {}
 pub struct FaceTracker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FaceTracker, windows_core::IUnknown, windows_core::IInspectable);
 impl FaceTracker {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ProcessNextFrameAsync<P0>(&self, videoframe: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
+    pub fn ProcessNextFrameAsync<P0>(&self, videoframe: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
     where
         P0: windows_core::Param<super::VideoFrame>,
     {
@@ -168,8 +167,8 @@ impl FaceTracker {
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn GetSupportedBitmapPixelFormats() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
+    #[cfg(feature = "Graphics_Imaging")]
+    pub fn GetSupportedBitmapPixelFormats() -> windows_core::Result<windows_collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedBitmapPixelFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -224,13 +223,13 @@ impl windows_core::RuntimeType for IFaceDetector {
 #[repr(C)]
 pub struct IFaceDetector_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[cfg(feature = "Graphics_Imaging")]
     pub DetectFacesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
+    #[cfg(not(feature = "Graphics_Imaging"))]
     DetectFacesAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[cfg(feature = "Graphics_Imaging")]
     pub DetectFacesWithSearchAreaAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Graphics::Imaging::BitmapBounds, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
+    #[cfg(not(feature = "Graphics_Imaging"))]
     DetectFacesWithSearchAreaAsync: usize,
     #[cfg(feature = "Graphics_Imaging")]
     pub MinDetectableFaceSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Graphics::Imaging::BitmapSize) -> windows_core::HRESULT,
@@ -257,9 +256,9 @@ impl windows_core::RuntimeType for IFaceDetectorStatics {
 pub struct IFaceDetectorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[cfg(feature = "Graphics_Imaging")]
     pub GetSupportedBitmapPixelFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
+    #[cfg(not(feature = "Graphics_Imaging"))]
     GetSupportedBitmapPixelFormats: usize,
     #[cfg(feature = "Graphics_Imaging")]
     pub IsBitmapPixelFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Graphics::Imaging::BitmapPixelFormat, *mut bool) -> windows_core::HRESULT,
@@ -274,10 +273,7 @@ impl windows_core::RuntimeType for IFaceTracker {
 #[repr(C)]
 pub struct IFaceTracker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ProcessNextFrameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ProcessNextFrameAsync: usize,
     #[cfg(feature = "Graphics_Imaging")]
     pub MinDetectableFaceSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Graphics::Imaging::BitmapSize) -> windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
@@ -303,9 +299,9 @@ impl windows_core::RuntimeType for IFaceTrackerStatics {
 pub struct IFaceTrackerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[cfg(feature = "Graphics_Imaging")]
     pub GetSupportedBitmapPixelFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
+    #[cfg(not(feature = "Graphics_Imaging"))]
     GetSupportedBitmapPixelFormats: usize,
     #[cfg(feature = "Graphics_Imaging")]
     pub IsBitmapPixelFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Graphics::Imaging::BitmapPixelFormat, *mut bool) -> windows_core::HRESULT,

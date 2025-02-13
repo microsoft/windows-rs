@@ -49,7 +49,6 @@ impl AmbientLight {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> windows_core::Result<VisualUnorderedCollection> {
         let this = &windows_core::Interface::cast::<ICompositionLight>(self)?;
         unsafe {
@@ -57,7 +56,6 @@ impl AmbientLight {
             (windows_core::Interface::vtable(this).Targets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ExclusionsFromTargets(&self) -> windows_core::Result<VisualUnorderedCollection> {
         let this = &windows_core::Interface::cast::<ICompositionLight2>(self)?;
         unsafe {
@@ -120,7 +118,6 @@ impl AmbientLight {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -128,7 +125,6 @@ impl AmbientLight {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -300,7 +296,6 @@ impl AnimationController {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -308,7 +303,6 @@ impl AnimationController {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -525,7 +519,6 @@ impl AnimationPropertyInfo {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -533,7 +526,6 @@ impl AnimationPropertyInfo {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -680,7 +672,6 @@ impl BackEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -688,7 +679,6 @@ impl BackEasingFunction {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -835,7 +825,6 @@ impl BooleanKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -894,7 +883,6 @@ impl BooleanKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -902,7 +890,6 @@ impl BooleanKeyFrameAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -1137,7 +1124,6 @@ impl BounceEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -1145,7 +1131,6 @@ impl BounceEasingFunction {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -1310,7 +1295,6 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -1369,7 +1353,6 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -1377,7 +1360,6 @@ impl BounceScalarNaturalMotionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -1614,7 +1596,6 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -1673,7 +1654,6 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -1681,7 +1661,6 @@ impl BounceVector2NaturalMotionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -1924,7 +1903,6 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -1983,7 +1961,6 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -1991,7 +1968,6 @@ impl BounceVector3NaturalMotionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -2195,7 +2171,6 @@ impl CircleEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -2203,7 +2178,6 @@ impl CircleEasingFunction {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -2368,7 +2342,6 @@ impl ColorKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -2427,7 +2400,6 @@ impl ColorKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -2435,7 +2407,6 @@ impl ColorKeyFrameAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -2673,7 +2644,6 @@ impl CompositionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -2732,7 +2702,6 @@ impl CompositionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -2740,7 +2709,6 @@ impl CompositionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -2798,15 +2766,11 @@ impl windows_core::RuntimeName for CompositionAnimation {
 }
 unsafe impl Send for CompositionAnimation {}
 unsafe impl Sync for CompositionAnimation {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionAnimationGroup(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionAnimationGroup, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionAnimationGroup, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, super::super::Foundation::Collections::IIterable<CompositionAnimation>, CompositionObject);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(CompositionAnimationGroup, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, windows_collections::IIterable<CompositionAnimation>, CompositionObject);
 impl CompositionAnimationGroup {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
@@ -2939,43 +2903,36 @@ impl CompositionAnimationGroup {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionAnimation>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionAnimation>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<CompositionAnimation>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<CompositionAnimation>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for CompositionAnimationGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionAnimationGroup>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionAnimationGroup {
     type Vtable = <ICompositionAnimationGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionAnimationGroup as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for CompositionAnimationGroup {
     const NAME: &'static str = "Windows.UI.Composition.CompositionAnimationGroup";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for CompositionAnimationGroup {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionAnimationGroup {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for CompositionAnimationGroup {
     type Item = CompositionAnimation;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &CompositionAnimationGroup {
     type Item = CompositionAnimation;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -3041,7 +2998,6 @@ impl CompositionBackdropBrush {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -3049,7 +3005,6 @@ impl CompositionBackdropBrush {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -3182,7 +3137,6 @@ impl CompositionBatchCompletedEventArgs {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -3190,7 +3144,6 @@ impl CompositionBatchCompletedEventArgs {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -3393,7 +3346,6 @@ impl CompositionBrush {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -3401,7 +3353,6 @@ impl CompositionBrush {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -3663,7 +3614,6 @@ impl CompositionClip {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -3671,7 +3621,6 @@ impl CompositionClip {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -3801,7 +3750,6 @@ impl CompositionColorBrush {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -3809,7 +3757,6 @@ impl CompositionColorBrush {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -3950,7 +3897,6 @@ impl CompositionColorGradientStop {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -3958,7 +3904,6 @@ impl CompositionColorGradientStop {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -4016,39 +3961,35 @@ impl windows_core::RuntimeName for CompositionColorGradientStop {
 }
 unsafe impl Send for CompositionColorGradientStop {}
 unsafe impl Sync for CompositionColorGradientStop {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionColorGradientStopCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionColorGradientStopCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionColorGradientStopCollection, super::super::Foundation::Collections::IIterable<CompositionColorGradientStop>, super::super::Foundation::Collections::IVector<CompositionColorGradientStop>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(CompositionColorGradientStopCollection, windows_collections::IIterable<CompositionColorGradientStop>, windows_collections::IVector<CompositionColorGradientStop>);
 impl CompositionColorGradientStopCollection {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionColorGradientStop>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionColorGradientStop>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<CompositionColorGradientStop>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<CompositionColorGradientStop>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<CompositionColorGradientStop> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<CompositionColorGradientStop>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<CompositionColorGradientStop>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4058,7 +3999,7 @@ impl CompositionColorGradientStopCollection {
     where
         P0: windows_core::Param<CompositionColorGradientStop>,
     {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -4068,76 +4009,69 @@ impl CompositionColorGradientStopCollection {
     where
         P1: windows_core::Param<CompositionColorGradientStop>,
     {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<CompositionColorGradientStop>,
     {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<CompositionColorGradientStop>,
     {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<CompositionColorGradientStop>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<CompositionColorGradientStop>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for CompositionColorGradientStopCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionColorGradientStopCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionColorGradientStopCollection {
     type Vtable = <ICompositionColorGradientStopCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionColorGradientStopCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for CompositionColorGradientStopCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorGradientStopCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for CompositionColorGradientStopCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionColorGradientStopCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for CompositionColorGradientStopCollection {
     type Item = CompositionColorGradientStop;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &CompositionColorGradientStopCollection {
     type Item = CompositionColorGradientStop;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -4247,7 +4181,6 @@ impl CompositionCommitBatch {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -4255,7 +4188,6 @@ impl CompositionCommitBatch {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -4345,7 +4277,6 @@ impl CompositionContainerShape {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Shapes(&self) -> windows_core::Result<CompositionShapeCollection> {
         let this = self;
         unsafe {
@@ -4397,7 +4328,6 @@ impl CompositionContainerShape {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -4405,7 +4335,6 @@ impl CompositionContainerShape {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -4654,7 +4583,6 @@ impl CompositionDrawingSurface {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -4662,7 +4590,6 @@ impl CompositionDrawingSurface {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -4894,7 +4821,6 @@ impl CompositionEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -4902,7 +4828,6 @@ impl CompositionEasingFunction {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -5053,7 +4978,6 @@ impl CompositionEffectBrush {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -5061,7 +4985,6 @@ impl CompositionEffectBrush {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -5201,7 +5124,6 @@ impl CompositionEffectFactory {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -5209,7 +5131,6 @@ impl CompositionEffectFactory {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -5447,7 +5368,6 @@ impl CompositionEllipseGeometry {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -5455,7 +5375,6 @@ impl CompositionEllipseGeometry {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -5689,7 +5608,6 @@ impl CompositionGeometricClip {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -5697,7 +5615,6 @@ impl CompositionGeometricClip {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -5849,7 +5766,6 @@ impl CompositionGeometry {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -5857,7 +5773,6 @@ impl CompositionGeometry {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -5972,7 +5887,6 @@ impl CompositionGradientBrush {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ColorStops(&self) -> windows_core::Result<CompositionColorGradientStopCollection> {
         let this = self;
         unsafe {
@@ -6118,7 +6032,6 @@ impl CompositionGradientBrush {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -6126,7 +6039,6 @@ impl CompositionGradientBrush {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -6320,7 +6232,6 @@ impl CompositionGraphicsDevice {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -6328,7 +6239,6 @@ impl CompositionGraphicsDevice {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -6403,7 +6313,6 @@ impl CompositionLight {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> windows_core::Result<VisualUnorderedCollection> {
         let this = self;
         unsafe {
@@ -6411,7 +6320,6 @@ impl CompositionLight {
             (windows_core::Interface::vtable(this).Targets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ExclusionsFromTargets(&self) -> windows_core::Result<VisualUnorderedCollection> {
         let this = &windows_core::Interface::cast::<ICompositionLight2>(self)?;
         unsafe {
@@ -6474,7 +6382,6 @@ impl CompositionLight {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -6482,7 +6389,6 @@ impl CompositionLight {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -6660,7 +6566,6 @@ impl CompositionLineGeometry {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -6668,7 +6573,6 @@ impl CompositionLineGeometry {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -6769,7 +6673,6 @@ impl CompositionLinearGradientBrush {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ColorStops(&self) -> windows_core::Result<CompositionColorGradientStopCollection> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
@@ -6941,7 +6844,6 @@ impl CompositionLinearGradientBrush {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -6949,7 +6851,6 @@ impl CompositionLinearGradientBrush {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -7109,7 +7010,6 @@ impl CompositionMaskBrush {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -7117,7 +7017,6 @@ impl CompositionMaskBrush {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -7274,7 +7173,6 @@ impl CompositionMipmapSurface {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -7282,7 +7180,6 @@ impl CompositionMipmapSurface {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -7530,7 +7427,6 @@ impl CompositionNineGridBrush {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -7538,7 +7434,6 @@ impl CompositionNineGridBrush {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -7657,7 +7552,6 @@ impl CompositionObject {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -7665,7 +7559,6 @@ impl CompositionObject {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -7876,7 +7769,6 @@ impl CompositionPathGeometry {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -7884,7 +7776,6 @@ impl CompositionPathGeometry {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -8019,7 +7910,6 @@ impl CompositionProjectedShadow {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -8027,7 +7917,6 @@ impl CompositionProjectedShadow {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -8083,7 +7972,6 @@ impl CompositionProjectedShadow {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBlurRadiusMultiplier)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Casters(&self) -> windows_core::Result<CompositionProjectedShadowCasterCollection> {
         let this = self;
         unsafe {
@@ -8127,7 +8015,6 @@ impl CompositionProjectedShadow {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMinBlurRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Receivers(&self) -> windows_core::Result<CompositionProjectedShadowReceiverUnorderedCollection> {
         let this = self;
         unsafe {
@@ -8209,7 +8096,6 @@ impl CompositionProjectedShadowCaster {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -8217,7 +8103,6 @@ impl CompositionProjectedShadowCaster {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -8303,15 +8188,11 @@ impl windows_core::RuntimeName for CompositionProjectedShadowCaster {
 }
 unsafe impl Send for CompositionProjectedShadowCaster {}
 unsafe impl Sync for CompositionProjectedShadowCaster {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionProjectedShadowCasterCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowCasterCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionProjectedShadowCasterCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster>, CompositionObject);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(CompositionProjectedShadowCasterCollection, IAnimationObject, super::super::Foundation::IClosable, windows_collections::IIterable<CompositionProjectedShadowCaster>, CompositionObject);
 impl CompositionProjectedShadowCasterCollection {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
@@ -8473,8 +8354,8 @@ impl CompositionProjectedShadowCasterCollection {
             (windows_core::Interface::vtable(this).MaxRespectedCasters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowCaster>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<CompositionProjectedShadowCaster>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<CompositionProjectedShadowCaster>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8485,35 +8366,28 @@ impl CompositionProjectedShadowCasterCollection {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for CompositionProjectedShadowCasterCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadowCasterCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionProjectedShadowCasterCollection {
     type Vtable = <ICompositionProjectedShadowCasterCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionProjectedShadowCasterCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for CompositionProjectedShadowCasterCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowCasterCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for CompositionProjectedShadowCasterCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionProjectedShadowCasterCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for CompositionProjectedShadowCasterCollection {
     type Item = CompositionProjectedShadowCaster;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &CompositionProjectedShadowCasterCollection {
     type Item = CompositionProjectedShadowCaster;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -8579,7 +8453,6 @@ impl CompositionProjectedShadowReceiver {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -8587,7 +8460,6 @@ impl CompositionProjectedShadowReceiver {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -8659,15 +8531,11 @@ impl windows_core::RuntimeName for CompositionProjectedShadowReceiver {
 }
 unsafe impl Send for CompositionProjectedShadowReceiver {}
 unsafe impl Sync for CompositionProjectedShadowReceiver {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionProjectedShadowReceiverUnorderedCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowReceiverUnorderedCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionProjectedShadowReceiverUnorderedCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>, CompositionObject);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(CompositionProjectedShadowReceiverUnorderedCollection, IAnimationObject, super::super::Foundation::IClosable, windows_collections::IIterable<CompositionProjectedShadowReceiver>, CompositionObject);
 impl CompositionProjectedShadowReceiverUnorderedCollection {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
@@ -8800,43 +8668,36 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAll)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowReceiver>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<CompositionProjectedShadowReceiver>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<CompositionProjectedShadowReceiver>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for CompositionProjectedShadowReceiverUnorderedCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadowReceiverUnorderedCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionProjectedShadowReceiverUnorderedCollection {
     type Vtable = <ICompositionProjectedShadowReceiverUnorderedCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionProjectedShadowReceiverUnorderedCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for CompositionProjectedShadowReceiverUnorderedCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for CompositionProjectedShadowReceiverUnorderedCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionProjectedShadowReceiverUnorderedCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for CompositionProjectedShadowReceiverUnorderedCollection {
     type Item = CompositionProjectedShadowReceiver;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &CompositionProjectedShadowReceiverUnorderedCollection {
     type Item = CompositionProjectedShadowReceiver;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -8902,7 +8763,6 @@ impl CompositionPropertySet {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -8910,7 +8770,6 @@ impl CompositionPropertySet {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -9122,7 +8981,6 @@ impl CompositionRadialGradientBrush {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ColorStops(&self) -> windows_core::Result<CompositionColorGradientStopCollection> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
@@ -9268,7 +9126,6 @@ impl CompositionRadialGradientBrush {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -9276,7 +9133,6 @@ impl CompositionRadialGradientBrush {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -9467,7 +9323,6 @@ impl CompositionRectangleGeometry {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -9475,7 +9330,6 @@ impl CompositionRectangleGeometry {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -9653,7 +9507,6 @@ impl CompositionRoundedRectangleGeometry {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -9661,7 +9514,6 @@ impl CompositionRoundedRectangleGeometry {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -9819,7 +9671,6 @@ impl CompositionScopedBatch {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -9827,7 +9678,6 @@ impl CompositionScopedBatch {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -9986,7 +9836,6 @@ impl CompositionShadow {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -9994,7 +9843,6 @@ impl CompositionShadow {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -10113,7 +9961,6 @@ impl CompositionShape {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -10121,7 +9968,6 @@ impl CompositionShape {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -10253,15 +10099,11 @@ impl windows_core::RuntimeName for CompositionShape {
 }
 unsafe impl Send for CompositionShape {}
 unsafe impl Sync for CompositionShape {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionShapeCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(CompositionShapeCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVector<CompositionShape>);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionShapeCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<CompositionShape>, CompositionObject);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(CompositionShapeCollection, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVector<CompositionShape>);
+windows_core::imp::required_hierarchy!(CompositionShapeCollection, IAnimationObject, super::super::Foundation::IClosable, windows_collections::IIterable<CompositionShape>, CompositionObject);
 impl CompositionShapeCollection {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
@@ -10369,8 +10211,8 @@ impl CompositionShapeCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionShape>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionShape>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<CompositionShape>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<CompositionShape>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10390,7 +10232,7 @@ impl CompositionShapeCollection {
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<CompositionShape>> {
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<CompositionShape>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10452,35 +10294,28 @@ impl CompositionShapeCollection {
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for CompositionShapeCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVector<CompositionShape>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVector<CompositionShape>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionShapeCollection {
-    type Vtable = <super::super::Foundation::Collections::IVector<CompositionShape> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IVector<CompositionShape> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IVector<CompositionShape> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IVector<CompositionShape> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for CompositionShapeCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShapeCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for CompositionShapeCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionShapeCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for CompositionShapeCollection {
     type Item = CompositionShape;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &CompositionShapeCollection {
     type Item = CompositionShape;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -10546,7 +10381,6 @@ impl CompositionSpriteShape {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -10554,7 +10388,6 @@ impl CompositionSpriteShape {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -10726,7 +10559,6 @@ impl CompositionSpriteShape {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStrokeBrush)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn StrokeDashArray(&self) -> windows_core::Result<CompositionStrokeDashArray> {
         let this = self;
         unsafe {
@@ -10854,15 +10686,11 @@ impl windows_core::TypeKind for CompositionStrokeCap {
 impl windows_core::RuntimeType for CompositionStrokeCap {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeCap;i4)");
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionStrokeDashArray(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(CompositionStrokeDashArray, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVector<f32>);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionStrokeDashArray, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<f32>, CompositionObject);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(CompositionStrokeDashArray, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVector<f32>);
+windows_core::imp::required_hierarchy!(CompositionStrokeDashArray, IAnimationObject, super::super::Foundation::IClosable, windows_collections::IIterable<f32>, CompositionObject);
 impl CompositionStrokeDashArray {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
@@ -10970,8 +10798,8 @@ impl CompositionStrokeDashArray {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<f32>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<f32>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<f32>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<f32>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10991,7 +10819,7 @@ impl CompositionStrokeDashArray {
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<f32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11041,35 +10869,28 @@ impl CompositionStrokeDashArray {
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr()).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for CompositionStrokeDashArray {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVector<f32>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVector<f32>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionStrokeDashArray {
-    type Vtable = <super::super::Foundation::Collections::IVector<f32> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IVector<f32> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IVector<f32> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IVector<f32> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for CompositionStrokeDashArray {
     const NAME: &'static str = "Windows.UI.Composition.CompositionStrokeDashArray";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for CompositionStrokeDashArray {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionStrokeDashArray {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for CompositionStrokeDashArray {
     type Item = f32;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &CompositionStrokeDashArray {
     type Item = f32;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -11150,7 +10971,6 @@ impl CompositionSurfaceBrush {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -11158,7 +10978,6 @@ impl CompositionSurfaceBrush {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -11433,7 +11252,6 @@ impl CompositionTarget {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -11441,7 +11259,6 @@ impl CompositionTarget {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -11574,7 +11391,6 @@ impl CompositionTexture {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -11582,7 +11398,6 @@ impl CompositionTexture {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -11740,7 +11555,6 @@ impl CompositionTransform {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -11748,7 +11562,6 @@ impl CompositionTransform {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -11867,7 +11680,6 @@ impl CompositionViewBox {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -11875,7 +11687,6 @@ impl CompositionViewBox {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -12109,7 +11920,6 @@ impl CompositionVirtualDrawingSurface {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -12117,7 +11927,6 @@ impl CompositionVirtualDrawingSurface {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -12241,7 +12050,6 @@ impl CompositionVisualSurface {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -12249,7 +12057,6 @@ impl CompositionVisualSurface {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -12411,11 +12218,11 @@ impl Compositor {
             (windows_core::Interface::vtable(this).CreateEffectFactory)(windows_core::Interface::as_raw(this), graphicseffect.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Effects"))]
+    #[cfg(feature = "Graphics_Effects")]
     pub fn CreateEffectFactoryWithProperties<P0, P1>(&self, graphicseffect: P0, animatableproperties: P1) -> windows_core::Result<CompositionEffectFactory>
     where
         P0: windows_core::Param<super::super::Graphics::Effects::IGraphicsEffect>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -12552,7 +12359,6 @@ impl Compositor {
             (windows_core::Interface::vtable(this).CreateAmbientLight)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateAnimationGroup(&self) -> windows_core::Result<CompositionAnimationGroup> {
         let this = &windows_core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
@@ -12581,7 +12387,6 @@ impl Compositor {
             (windows_core::Interface::vtable(this).CreateDropShadow)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateImplicitAnimationCollection(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
@@ -13045,7 +12850,6 @@ impl ContainerVisual {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -13053,7 +12857,6 @@ impl ContainerVisual {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -13098,7 +12901,6 @@ impl ContainerVisual {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> windows_core::Result<VisualCollection> {
         let this = self;
         unsafe {
@@ -13444,7 +13246,6 @@ impl CubicBezierEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -13452,7 +13253,6 @@ impl CubicBezierEasingFunction {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -13587,7 +13387,6 @@ impl DelegatedInkTrailVisual {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -13595,7 +13394,6 @@ impl DelegatedInkTrailVisual {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -13979,7 +13777,6 @@ impl DistantLight {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> windows_core::Result<VisualUnorderedCollection> {
         let this = &windows_core::Interface::cast::<ICompositionLight>(self)?;
         unsafe {
@@ -13987,7 +13784,6 @@ impl DistantLight {
             (windows_core::Interface::vtable(this).Targets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ExclusionsFromTargets(&self) -> windows_core::Result<VisualUnorderedCollection> {
         let this = &windows_core::Interface::cast::<ICompositionLight2>(self)?;
         unsafe {
@@ -14050,7 +13846,6 @@ impl DistantLight {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -14058,7 +13853,6 @@ impl DistantLight {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -14226,7 +14020,6 @@ impl DropShadow {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -14234,7 +14027,6 @@ impl DropShadow {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -14424,7 +14216,6 @@ impl ElasticEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -14432,7 +14223,6 @@ impl ElasticEasingFunction {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -14572,7 +14362,6 @@ impl ExponentialEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -14580,7 +14369,6 @@ impl ExponentialEasingFunction {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -14737,7 +14525,6 @@ impl ExpressionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -14796,7 +14583,6 @@ impl ExpressionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -14804,7 +14590,6 @@ impl ExpressionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -15123,10 +14908,7 @@ impl windows_core::RuntimeType for ICompositionAnimation3 {
 #[repr(C)]
 pub struct ICompositionAnimation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub InitialValueExpressions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InitialValueExpressions: usize,
 }
 windows_core::imp::define_interface!(ICompositionAnimation4, ICompositionAnimation4_Vtbl, 0x770137be_76bc_4e23_bfed_fe9cc20f6ec9);
 impl windows_core::RuntimeType for ICompositionAnimation4 {
@@ -15348,10 +15130,7 @@ impl windows_core::RuntimeType for ICompositionContainerShape {
 #[repr(C)]
 pub struct ICompositionContainerShape_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Shapes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Shapes: usize,
 }
 windows_core::imp::define_interface!(ICompositionDrawingSurface, ICompositionDrawingSurface_Vtbl, 0xa166c300_fad0_4d11_9e67_e433162ff49e);
 impl windows_core::RuntimeType for ICompositionDrawingSurface {
@@ -15571,10 +15350,7 @@ pub struct ICompositionGradientBrush_Vtbl {
     pub SetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetCenterPoint: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ColorStops: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ColorStops: usize,
     pub ExtendMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionGradientExtendMode) -> windows_core::HRESULT,
     pub SetExtendMode: unsafe extern "system" fn(*mut core::ffi::c_void, CompositionGradientExtendMode) -> windows_core::HRESULT,
     pub InterpolationSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionColorSpace) -> windows_core::HRESULT,
@@ -15688,10 +15464,7 @@ impl windows_core::RuntimeType for ICompositionLight {
 #[repr(C)]
 pub struct ICompositionLight_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Targets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Targets: usize,
 }
 windows_core::imp::define_interface!(ICompositionLight2, ICompositionLight2_Vtbl, 0xa7bcda72_f35d_425d_9b98_23f4205f6669);
 impl windows_core::RuntimeType for ICompositionLight2 {
@@ -15700,10 +15473,7 @@ impl windows_core::RuntimeType for ICompositionLight2 {
 #[repr(C)]
 pub struct ICompositionLight2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ExclusionsFromTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExclusionsFromTargets: usize,
 }
 windows_core::imp::define_interface!(ICompositionLight3, ICompositionLight3_Vtbl, 0x4b0b00e4_df07_4959_b7a4_4f7e4233f838);
 impl windows_core::RuntimeType for ICompositionLight3 {
@@ -15862,14 +15632,8 @@ pub struct ICompositionObject2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Comment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetComment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ImplicitAnimations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ImplicitAnimations: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetImplicitAnimations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetImplicitAnimations: usize,
     pub StartAnimationGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopAnimationGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -15966,20 +15730,14 @@ pub struct ICompositionProjectedShadow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BlurRadiusMultiplier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetBlurRadiusMultiplier: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Casters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Casters: usize,
     pub LightSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLightSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MaxBlurRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetMaxBlurRadius: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub MinBlurRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetMinBlurRadius: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Receivers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Receivers: usize,
 }
 windows_core::imp::define_interface!(ICompositionProjectedShadowCaster, ICompositionProjectedShadowCaster_Vtbl, 0xb1d7d426_1e36_5a62_be56_a16112fdd148);
 impl windows_core::RuntimeType for ICompositionProjectedShadowCaster {
@@ -16295,10 +16053,7 @@ pub struct ICompositionSpriteShape_Vtbl {
     pub SetIsStrokeNonScaling: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub StrokeBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetStrokeBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub StrokeDashArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StrokeDashArray: usize,
     pub StrokeDashCap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionStrokeCap) -> windows_core::HRESULT,
     pub SetStrokeDashCap: unsafe extern "system" fn(*mut core::ffi::c_void, CompositionStrokeCap) -> windows_core::HRESULT,
     pub StrokeDashOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16698,9 +16453,9 @@ pub struct ICompositor_Vtbl {
     pub CreateEffectFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Effects"))]
     CreateEffectFactory: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Effects"))]
+    #[cfg(feature = "Graphics_Effects")]
     pub CreateEffectFactoryWithProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Effects")))]
+    #[cfg(not(feature = "Graphics_Effects"))]
     CreateEffectFactoryWithProperties: usize,
     pub CreateExpressionAnimation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateExpressionAnimationWithExpression: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16728,17 +16483,11 @@ impl windows_core::RuntimeType for ICompositor2 {
 pub struct ICompositor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAmbientLight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateAnimationGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateAnimationGroup: usize,
     pub CreateBackdropBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateDistantLight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateDropShadow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateImplicitAnimationCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateImplicitAnimationCollection: usize,
     pub CreateLayerVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateMaskBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateNineGridBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16897,10 +16646,7 @@ impl windows_core::RuntimeType for IContainerVisual {
 #[repr(C)]
 pub struct IContainerVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Children: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Children: usize,
 }
 windows_core::imp::define_interface!(IContainerVisualFactory, IContainerVisualFactory_Vtbl, 0x0363a65b_c7da_4d9a_95f4_69b5c8df670b);
 impl windows_core::RuntimeType for IContainerVisualFactory {
@@ -17362,10 +17108,7 @@ impl windows_core::RuntimeType for IShapeVisual {
 #[repr(C)]
 pub struct IShapeVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Shapes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Shapes: usize,
     pub ViewBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetViewBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -17885,15 +17628,11 @@ pub struct IVisualUnorderedCollection_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImplicitAnimationCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ImplicitAnimationCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( ImplicitAnimationCollection , IAnimationObject , super::super::Foundation:: IClosable , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , ICompositionAnimationBase > > , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , ICompositionAnimationBase > , CompositionObject );
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy ! ( ImplicitAnimationCollection , IAnimationObject , super::super::Foundation:: IClosable , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , ICompositionAnimationBase > > , windows_collections:: IMap < windows_core::HSTRING , ICompositionAnimationBase > , CompositionObject );
 impl ImplicitAnimationCollection {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
@@ -18001,36 +17740,36 @@ impl ImplicitAnimationCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<ICompositionAnimationBase> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, ICompositionAnimationBase>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, ICompositionAnimationBase>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -18040,63 +17779,52 @@ impl ImplicitAnimationCollection {
     where
         P1: windows_core::Param<ICompositionAnimationBase>,
     {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for ImplicitAnimationCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImplicitAnimationCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for ImplicitAnimationCollection {
     type Vtable = <IImplicitAnimationCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImplicitAnimationCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ImplicitAnimationCollection {
     const NAME: &'static str = "Windows.UI.Composition.ImplicitAnimationCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for ImplicitAnimationCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ImplicitAnimationCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for ImplicitAnimationCollection {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &ImplicitAnimationCollection {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InitialValueExpressionCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy ! ( InitialValueExpressionCollection , windows_core::IUnknown , windows_core::IInspectable , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > );
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(InitialValueExpressionCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>, CompositionObject);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy ! ( InitialValueExpressionCollection , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > );
+windows_core::imp::required_hierarchy!(InitialValueExpressionCollection, IAnimationObject, super::super::Foundation::IClosable, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>, CompositionObject);
 impl InitialValueExpressionCollection {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
@@ -18204,8 +17932,8 @@ impl InitialValueExpressionCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -18232,7 +17960,7 @@ impl InitialValueExpressionCollection {
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -18255,35 +17983,28 @@ impl InitialValueExpressionCollection {
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for InitialValueExpressionCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for InitialValueExpressionCollection {
-    type Vtable = <super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for InitialValueExpressionCollection {
     const NAME: &'static str = "Windows.UI.Composition.InitialValueExpressionCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for InitialValueExpressionCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for InitialValueExpressionCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for InitialValueExpressionCollection {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &InitialValueExpressionCollection {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -18448,7 +18169,6 @@ impl InsetClip {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -18456,7 +18176,6 @@ impl InsetClip {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -18643,7 +18362,6 @@ impl KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -18702,7 +18420,6 @@ impl KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -18710,7 +18427,6 @@ impl KeyFrameAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -18924,7 +18640,6 @@ impl LayerVisual {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -18932,7 +18647,6 @@ impl LayerVisual {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -18977,7 +18691,6 @@ impl LayerVisual {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> windows_core::Result<VisualCollection> {
         let this = &windows_core::Interface::cast::<IContainerVisual>(self)?;
         unsafe {
@@ -19351,7 +19064,6 @@ impl LinearEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -19359,7 +19071,6 @@ impl LinearEasingFunction {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -19502,7 +19213,6 @@ impl NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -19561,7 +19271,6 @@ impl NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -19569,7 +19278,6 @@ impl NaturalMotionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -19745,7 +19453,6 @@ impl PathKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -19804,7 +19511,6 @@ impl PathKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -19812,7 +19518,6 @@ impl PathKeyFrameAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -19999,7 +19704,6 @@ impl PointLight {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> windows_core::Result<VisualUnorderedCollection> {
         let this = &windows_core::Interface::cast::<ICompositionLight>(self)?;
         unsafe {
@@ -20007,7 +19711,6 @@ impl PointLight {
             (windows_core::Interface::vtable(this).Targets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ExclusionsFromTargets(&self) -> windows_core::Result<VisualUnorderedCollection> {
         let this = &windows_core::Interface::cast::<ICompositionLight2>(self)?;
         unsafe {
@@ -20070,7 +19773,6 @@ impl PointLight {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -20078,7 +19780,6 @@ impl PointLight {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -20301,7 +20002,6 @@ impl PowerEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -20309,7 +20009,6 @@ impl PowerEasingFunction {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -20466,7 +20165,6 @@ impl QuaternionKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -20525,7 +20223,6 @@ impl QuaternionKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -20533,7 +20230,6 @@ impl QuaternionKeyFrameAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -20847,7 +20543,6 @@ impl RectangleClip {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -20855,7 +20550,6 @@ impl RectangleClip {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -21070,7 +20764,6 @@ impl RedirectVisual {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -21078,7 +20771,6 @@ impl RedirectVisual {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -21123,7 +20815,6 @@ impl RedirectVisual {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> windows_core::Result<VisualCollection> {
         let this = &windows_core::Interface::cast::<IContainerVisual>(self)?;
         unsafe {
@@ -21483,7 +21174,6 @@ impl RenderingDeviceReplacedEventArgs {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -21491,7 +21181,6 @@ impl RenderingDeviceReplacedEventArgs {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -21641,7 +21330,6 @@ impl ScalarKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -21700,7 +21388,6 @@ impl ScalarKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -21708,7 +21395,6 @@ impl ScalarKeyFrameAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -21957,7 +21643,6 @@ impl ScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -22016,7 +21701,6 @@ impl ScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -22024,7 +21708,6 @@ impl ScalarNaturalMotionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -22215,7 +21898,6 @@ impl ShapeVisual {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -22223,7 +21905,6 @@ impl ShapeVisual {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -22268,7 +21949,6 @@ impl ShapeVisual {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> windows_core::Result<VisualCollection> {
         let this = &windows_core::Interface::cast::<IContainerVisual>(self)?;
         unsafe {
@@ -22276,7 +21956,6 @@ impl ShapeVisual {
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Shapes(&self) -> windows_core::Result<CompositionShapeCollection> {
         let this = self;
         unsafe {
@@ -22636,7 +22315,6 @@ impl SineEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -22644,7 +22322,6 @@ impl SineEasingFunction {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -22726,7 +22403,6 @@ impl SpotLight {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> windows_core::Result<VisualUnorderedCollection> {
         let this = &windows_core::Interface::cast::<ICompositionLight>(self)?;
         unsafe {
@@ -22734,7 +22410,6 @@ impl SpotLight {
             (windows_core::Interface::vtable(this).Targets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ExclusionsFromTargets(&self) -> windows_core::Result<VisualUnorderedCollection> {
         let this = &windows_core::Interface::cast::<ICompositionLight2>(self)?;
         unsafe {
@@ -22797,7 +22472,6 @@ impl SpotLight {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -22805,7 +22479,6 @@ impl SpotLight {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -23131,7 +22804,6 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -23190,7 +22862,6 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -23198,7 +22869,6 @@ impl SpringScalarNaturalMotionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -23435,7 +23105,6 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -23494,7 +23163,6 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -23502,7 +23170,6 @@ impl SpringVector2NaturalMotionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -23745,7 +23412,6 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -23804,7 +23470,6 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -23812,7 +23477,6 @@ impl SpringVector3NaturalMotionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -24031,7 +23695,6 @@ impl SpriteVisual {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -24039,7 +23702,6 @@ impl SpriteVisual {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -24084,7 +23746,6 @@ impl SpriteVisual {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> windows_core::Result<VisualCollection> {
         let this = &windows_core::Interface::cast::<IContainerVisual>(self)?;
         unsafe {
@@ -24458,7 +24119,6 @@ impl StepEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -24466,7 +24126,6 @@ impl StepEasingFunction {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -24664,7 +24323,6 @@ impl Vector2KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -24723,7 +24381,6 @@ impl Vector2KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -24731,7 +24388,6 @@ impl Vector2KeyFrameAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -24982,7 +24638,6 @@ impl Vector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -25041,7 +24696,6 @@ impl Vector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -25049,7 +24703,6 @@ impl Vector2NaturalMotionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -25270,7 +24923,6 @@ impl Vector3KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -25329,7 +24981,6 @@ impl Vector3KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -25337,7 +24988,6 @@ impl Vector3KeyFrameAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -25588,7 +25238,6 @@ impl Vector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -25647,7 +25296,6 @@ impl Vector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -25655,7 +25303,6 @@ impl Vector3NaturalMotionAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -25876,7 +25523,6 @@ impl Vector4KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> windows_core::Result<InitialValueExpressionCollection> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
@@ -25935,7 +25581,6 @@ impl Vector4KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -25943,7 +25588,6 @@ impl Vector4KeyFrameAnimation {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -26170,7 +25814,6 @@ impl Visual {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
@@ -26178,7 +25821,6 @@ impl Visual {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ImplicitAnimationCollection>,
@@ -26500,15 +26142,11 @@ impl windows_core::RuntimeName for Visual {
 }
 unsafe impl Send for Visual {}
 unsafe impl Sync for Visual {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VisualCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(VisualCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(VisualCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<Visual>, CompositionObject);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(VisualCollection, IAnimationObject, super::super::Foundation::IClosable, windows_collections::IIterable<Visual>, CompositionObject);
 impl VisualCollection {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
@@ -26616,8 +26254,8 @@ impl VisualCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<Visual>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<Visual>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -26672,48 +26310,37 @@ impl VisualCollection {
         unsafe { (windows_core::Interface::vtable(this).RemoveAll)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for VisualCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for VisualCollection {
     type Vtable = <IVisualCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVisualCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for VisualCollection {
     const NAME: &'static str = "Windows.UI.Composition.VisualCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for VisualCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for VisualCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for VisualCollection {
     type Item = Visual;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &VisualCollection {
     type Item = Visual;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VisualUnorderedCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(VisualUnorderedCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(VisualUnorderedCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<Visual>, CompositionObject);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(VisualUnorderedCollection, IAnimationObject, super::super::Foundation::IClosable, windows_collections::IIterable<Visual>, CompositionObject);
 impl VisualUnorderedCollection {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
@@ -26821,8 +26448,8 @@ impl VisualUnorderedCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<Visual>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<Visual>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -26854,35 +26481,28 @@ impl VisualUnorderedCollection {
         unsafe { (windows_core::Interface::vtable(this).RemoveAll)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for VisualUnorderedCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualUnorderedCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for VisualUnorderedCollection {
     type Vtable = <IVisualUnorderedCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVisualUnorderedCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for VisualUnorderedCollection {
     const NAME: &'static str = "Windows.UI.Composition.VisualUnorderedCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for VisualUnorderedCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for VisualUnorderedCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for VisualUnorderedCollection {
     type Item = Visual;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &VisualUnorderedCollection {
     type Item = Visual;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }

@@ -6,22 +6,13 @@ impl windows_core::RuntimeType for IPlatformDiagnosticActionsStatics {
 pub struct IPlatformDiagnosticActionsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsScenarioEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub TryEscalateScenario: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, PlatformDiagnosticEscalationType, *mut core::ffi::c_void, bool, bool, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TryEscalateScenario: usize,
     pub DownloadLatestSettingsForNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, bool, bool, bool, *mut PlatformDiagnosticActionState) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetActiveScenarioList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetActiveScenarioList: usize,
     pub ForceUpload: unsafe extern "system" fn(*mut core::ffi::c_void, PlatformDiagnosticEventBufferLatencies, bool, bool, *mut PlatformDiagnosticActionState) -> windows_core::HRESULT,
     pub IsTraceRunning: unsafe extern "system" fn(*mut core::ffi::c_void, PlatformDiagnosticTraceSlotType, windows_core::GUID, u64, *mut PlatformDiagnosticTraceSlotState) -> windows_core::HRESULT,
     pub GetActiveTraceRuntime: unsafe extern "system" fn(*mut core::ffi::c_void, PlatformDiagnosticTraceSlotType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetKnownTraceList: unsafe extern "system" fn(*mut core::ffi::c_void, PlatformDiagnosticTraceSlotType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetKnownTraceList: usize,
 }
 windows_core::imp::define_interface!(IPlatformDiagnosticTraceInfo, IPlatformDiagnosticTraceInfo_Vtbl, 0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
 impl windows_core::RuntimeType for IPlatformDiagnosticTraceInfo {
@@ -69,10 +60,9 @@ impl PlatformDiagnosticActions {
             (windows_core::Interface::vtable(this).IsScenarioEnabled)(windows_core::Interface::as_raw(this), scenarioid, &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn TryEscalateScenario<P5>(scenarioid: windows_core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: &windows_core::HSTRING, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P5) -> windows_core::Result<bool>
     where
-        P5: windows_core::Param<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
+        P5: windows_core::Param<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
     {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -85,8 +75,7 @@ impl PlatformDiagnosticActions {
             (windows_core::Interface::vtable(this).DownloadLatestSettingsForNamespace)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(partner), core::mem::transmute_copy(feature), isscenarionamespace, downloadovercostednetwork, downloadoverbattery, &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetActiveScenarioList() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::GUID>> {
+    pub fn GetActiveScenarioList() -> windows_core::Result<windows_collections::IVectorView<windows_core::GUID>> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetActiveScenarioList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -110,8 +99,7 @@ impl PlatformDiagnosticActions {
             (windows_core::Interface::vtable(this).GetActiveTraceRuntime)(windows_core::Interface::as_raw(this), slottype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetKnownTraceList(slottype: PlatformDiagnosticTraceSlotType) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>> {
+    pub fn GetKnownTraceList(slottype: PlatformDiagnosticTraceSlotType) -> windows_core::Result<windows_collections::IVectorView<PlatformDiagnosticTraceInfo>> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetKnownTraceList)(windows_core::Interface::as_raw(this), slottype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

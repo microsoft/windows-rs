@@ -368,8 +368,7 @@ impl CastingDevicePickerFilter {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSupportsPictures)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCastingSources(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<CastingSource>> {
+    pub fn SupportedCastingSources(&self) -> windows_core::Result<windows_collections::IVector<CastingSource>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -574,10 +573,7 @@ pub struct ICastingDevicePickerFilter_Vtbl {
     pub SetSupportsVideo: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub SupportsPictures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetSupportsPictures: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedCastingSources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedCastingSources: usize,
 }
 windows_core::imp::define_interface!(ICastingDeviceSelectedEventArgs, ICastingDeviceSelectedEventArgs_Vtbl, 0xdc439e86_dd57_4d0d_9400_af45e4fb3663);
 impl windows_core::RuntimeType for ICastingDeviceSelectedEventArgs {

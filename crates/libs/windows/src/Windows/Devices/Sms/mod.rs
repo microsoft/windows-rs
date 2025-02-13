@@ -20,8 +20,8 @@ pub type DeleteSmsMessagesOperation = super::super::Foundation::IAsyncAction;
 pub type GetSmsDeviceOperation = super::super::Foundation::IAsyncOperation<SmsDevice>;
 #[cfg(feature = "deprecated")]
 pub type GetSmsMessageOperation = super::super::Foundation::IAsyncOperation<ISmsMessage>;
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-pub type GetSmsMessagesOperation = super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>;
+#[cfg(feature = "deprecated")]
+pub type GetSmsMessagesOperation = super::super::Foundation::IAsyncOperationWithProgress<windows_collections::IVectorView<ISmsMessage>, i32>;
 windows_core::imp::define_interface!(ISmsAppMessage, ISmsAppMessage_Vtbl, 0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
 impl windows_core::RuntimeType for ISmsAppMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -493,10 +493,7 @@ pub struct ISmsDeviceMessageStore_Vtbl {
     pub DeleteMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteMessagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, SmsMessageFilter, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetMessagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, SmsMessageFilter, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetMessagesAsync: usize,
     pub MaxMessages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
@@ -533,52 +530,19 @@ impl windows_core::RuntimeType for ISmsFilterRule {
 pub struct ISmsFilterRule_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MessageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsMessageType) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ImsiPrefixes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ImsiPrefixes: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub DeviceIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DeviceIds: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SenderNumbers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SenderNumbers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub TextMessagePrefixes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TextMessagePrefixes: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub PortNumbers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PortNumbers: usize,
     pub CellularClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CellularClass) -> windows_core::HRESULT,
     pub SetCellularClass: unsafe extern "system" fn(*mut core::ffi::c_void, CellularClass) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ProtocolIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ProtocolIds: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub TeleserviceIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TeleserviceIds: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub WapApplicationIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    WapApplicationIds: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub WapContentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    WapContentTypes: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub BroadcastTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BroadcastTypes: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub BroadcastChannels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BroadcastChannels: usize,
 }
 windows_core::imp::define_interface!(ISmsFilterRuleFactory, ISmsFilterRuleFactory_Vtbl, 0x00c36508_6296_4f29_9aad_8920ceba3ce8);
 impl windows_core::RuntimeType for ISmsFilterRuleFactory {
@@ -597,10 +561,7 @@ impl windows_core::RuntimeType for ISmsFilterRules {
 pub struct ISmsFilterRules_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ActionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsFilterActionType) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Rules: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Rules: usize,
 }
 windows_core::imp::define_interface!(ISmsFilterRulesFactory, ISmsFilterRulesFactory_Vtbl, 0xa09924ed_6e2e_4530_9fde_465d02eed00e);
 impl windows_core::RuntimeType for ISmsFilterRulesFactory {
@@ -868,10 +829,7 @@ impl windows_core::RuntimeType for ISmsMessageRegistrationStatics {
 #[repr(C)]
 pub struct ISmsMessageRegistrationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AllRegistrations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllRegistrations: usize,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
@@ -908,10 +866,7 @@ impl windows_core::RuntimeType for ISmsSendMessageResult {
 pub struct ISmsSendMessageResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSuccessful: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub MessageReferenceNumbers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    MessageReferenceNumbers: usize,
     pub CellularClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CellularClass) -> windows_core::HRESULT,
     pub ModemErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsModemErrorCode) -> windows_core::HRESULT,
     pub IsErrorTransient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1017,8 +972,7 @@ impl ISmsTextMessage {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEncoding)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>> {
+    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> windows_core::Result<windows_collections::IVectorView<ISmsBinaryMessage>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1040,11 +994,11 @@ impl ISmsTextMessage {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for ISmsTextMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsTextMessage";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+#[cfg(feature = "deprecated")]
 pub trait ISmsTextMessage_Impl: ISmsMessage_Impl {
     fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime>;
     fn PartReferenceId(&self) -> windows_core::Result<u32>;
@@ -1058,9 +1012,9 @@ pub trait ISmsTextMessage_Impl: ISmsMessage_Impl {
     fn SetBody(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Encoding(&self) -> windows_core::Result<SmsEncoding>;
     fn SetEncoding(&self, value: SmsEncoding) -> windows_core::Result<()>;
-    fn ToBinaryMessages(&self, format: SmsDataFormat) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>;
+    fn ToBinaryMessages(&self, format: SmsDataFormat) -> windows_core::Result<windows_collections::IVectorView<ISmsBinaryMessage>>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+#[cfg(feature = "deprecated")]
 impl ISmsTextMessage_Vtbl {
     pub const fn new<Identity: ISmsTextMessage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Timestamp<Identity: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> windows_core::HRESULT {
@@ -1236,10 +1190,7 @@ pub struct ISmsTextMessage_Vtbl {
     pub SetBody: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Encoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsEncoding) -> windows_core::HRESULT,
     pub SetEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, SmsEncoding) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ToBinaryMessages: unsafe extern "system" fn(*mut core::ffi::c_void, SmsDataFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ToBinaryMessages: usize,
 }
 windows_core::imp::define_interface!(ISmsTextMessage2, ISmsTextMessage2_Vtbl, 0x22a0d893_4555_4755_b5a1_e7fd84955f8d);
 impl windows_core::RuntimeType for ISmsTextMessage2 {
@@ -1306,10 +1257,7 @@ pub struct ISmsWapMessage_Vtbl {
     pub BinaryBody: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     BinaryBody: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Headers: usize,
 }
 #[cfg(feature = "deprecated")]
 pub type SendSmsMessageOperation = super::super::Foundation::IAsyncAction;
@@ -2023,8 +1971,7 @@ impl SmsDeviceMessageStore {
             (windows_core::Interface::vtable(this).GetMessageAsync)(windows_core::Interface::as_raw(this), messageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMessagesAsync(&self, messagefilter: SmsMessageFilter) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
+    pub fn GetMessagesAsync(&self, messagefilter: SmsMessageFilter) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_collections::IVectorView<ISmsMessage>, i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2209,40 +2156,35 @@ impl SmsFilterRule {
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ImsiPrefixes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn ImsiPrefixes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ImsiPrefixes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DeviceIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn DeviceIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SenderNumbers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn SenderNumbers(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SenderNumbers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TextMessagePrefixes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn TextMessagePrefixes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextMessagePrefixes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PortNumbers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<i32>> {
+    pub fn PortNumbers(&self) -> windows_core::Result<windows_collections::IVector<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2260,48 +2202,42 @@ impl SmsFilterRule {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCellularClass)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ProtocolIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<i32>> {
+    pub fn ProtocolIds(&self) -> windows_core::Result<windows_collections::IVector<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtocolIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TeleserviceIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<i32>> {
+    pub fn TeleserviceIds(&self) -> windows_core::Result<windows_collections::IVector<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TeleserviceIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn WapApplicationIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn WapApplicationIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WapApplicationIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn WapContentTypes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn WapContentTypes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WapContentTypes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn BroadcastTypes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SmsBroadcastType>> {
+    pub fn BroadcastTypes(&self) -> windows_core::Result<windows_collections::IVector<SmsBroadcastType>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BroadcastTypes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn BroadcastChannels(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<i32>> {
+    pub fn BroadcastChannels(&self) -> windows_core::Result<windows_collections::IVector<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2343,8 +2279,7 @@ impl SmsFilterRules {
             (windows_core::Interface::vtable(this).ActionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Rules(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SmsFilterRule>> {
+    pub fn Rules(&self) -> windows_core::Result<windows_collections::IVector<SmsFilterRule>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2638,8 +2573,7 @@ impl SmsMessageRegistration {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMessageReceived)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllRegistrations() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SmsMessageRegistration>> {
+    pub fn AllRegistrations() -> windows_core::Result<windows_collections::IVectorView<SmsMessageRegistration>> {
         Self::ISmsMessageRegistrationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllRegistrations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2776,8 +2710,7 @@ impl SmsSendMessageResult {
             (windows_core::Interface::vtable(this).IsSuccessful)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn MessageReferenceNumbers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
+    pub fn MessageReferenceNumbers(&self) -> windows_core::Result<windows_collections::IVectorView<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3038,8 +2971,7 @@ impl SmsTextMessage {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEncoding)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>> {
+    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> windows_core::Result<windows_collections::IVectorView<ISmsBinaryMessage>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3404,8 +3336,7 @@ impl SmsWapMessage {
             (windows_core::Interface::vtable(this).BinaryBody)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Headers(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Headers(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

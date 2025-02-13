@@ -560,8 +560,7 @@ impl DisplayEnhancementOverrideCapabilities {
             (windows_core::Interface::vtable(this).IsBrightnessNitsControlSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSupportedNitRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<NitRange>> {
+    pub fn GetSupportedNitRanges(&self) -> windows_core::Result<windows_collections::IVectorView<NitRange>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1223,10 +1222,7 @@ pub struct IDisplayEnhancementOverrideCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsBrightnessControlSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsBrightnessNitsControlSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSupportedNitRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedNitRanges: usize,
 }
 windows_core::imp::define_interface!(IDisplayEnhancementOverrideCapabilitiesChangedEventArgs, IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl, 0xdb61e664_15fa_49da_8b77_07dbd2af585d);
 impl windows_core::RuntimeType for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {

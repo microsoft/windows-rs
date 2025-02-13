@@ -12,14 +12,11 @@ impl Attribute {
     }
 
     pub fn name(&self) -> &'static str {
-        let AttributeType::MemberRef(ctor) = self.ty();
-        let MemberRefParent::TypeRef(ty) = ctor.parent();
-        ty.name()
+        self.ty().parent().name()
     }
 
     pub fn args(&self) -> Vec<(&'static str, Value)> {
-        let AttributeType::MemberRef(member) = self.ty();
-        let mut sig = member.blob(2);
+        let mut sig = self.ty().signature();
         let mut values = self.blob(2);
         let prolog = values.read_u16();
         std::debug_assert_eq!(prolog, 1);

@@ -12,8 +12,7 @@ impl AudioDeviceInputNode {
             (windows_core::Interface::vtable(this).Device)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
+    pub fn OutgoingConnections(&self) -> windows_core::Result<windows_collections::IVectorView<AudioGraphConnection>> {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -48,8 +47,8 @@ impl AudioDeviceInputNode {
             (windows_core::Interface::vtable(this).Emitter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -161,8 +160,8 @@ impl AudioDeviceOutputNode {
             (windows_core::Interface::vtable(this).Device)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -440,8 +439,7 @@ impl AudioFileInputNode {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFileCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
+    pub fn OutgoingConnections(&self) -> windows_core::Result<windows_collections::IVectorView<AudioGraphConnection>> {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -476,8 +474,8 @@ impl AudioFileInputNode {
             (windows_core::Interface::vtable(this).Emitter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -605,8 +603,8 @@ impl AudioFileOutputNode {
             (windows_core::Interface::vtable(this).FinalizeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -776,8 +774,7 @@ impl AudioFrameInputNode {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveQuantumStarted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
+    pub fn OutgoingConnections(&self) -> windows_core::Result<windows_collections::IVectorView<AudioGraphConnection>> {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -812,8 +809,8 @@ impl AudioFrameInputNode {
             (windows_core::Interface::vtable(this).Emitter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -908,8 +905,8 @@ impl AudioFrameOutputNode {
             (windows_core::Interface::vtable(this).GetFrame)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2287,8 +2284,7 @@ pub struct AudioSubmixNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioSubmixNode, windows_core::IUnknown, windows_core::IInspectable, IAudioInputNode);
 windows_core::imp::required_hierarchy!(AudioSubmixNode, IAudioInputNode2, IAudioNode, super::super::Foundation::IClosable);
 impl AudioSubmixNode {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
+    pub fn OutgoingConnections(&self) -> windows_core::Result<windows_collections::IVectorView<AudioGraphConnection>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2323,8 +2319,8 @@ impl AudioSubmixNode {
             (windows_core::Interface::vtable(this).Emitter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2805,8 +2801,7 @@ impl EqualizerEffectDefinition {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Bands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<EqualizerBand>> {
+    pub fn Bands(&self) -> windows_core::Result<windows_collections::IVectorView<EqualizerBand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3202,8 +3197,7 @@ impl windows_core::RuntimeType for IAudioInputNode {
 windows_core::imp::interface_hierarchy!(IAudioInputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IAudioInputNode, IAudioNode, super::super::Foundation::IClosable);
 impl IAudioInputNode {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
+    pub fn OutgoingConnections(&self) -> windows_core::Result<windows_collections::IVectorView<AudioGraphConnection>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3231,8 +3225,8 @@ impl IAudioInputNode {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3302,18 +3296,18 @@ impl IAudioInputNode {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IAudioInputNode {
     const NAME: &'static str = "Windows.Media.Audio.IAudioInputNode";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioInputNode_Impl: IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
-    fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>;
+    fn OutgoingConnections(&self) -> windows_core::Result<windows_collections::IVectorView<AudioGraphConnection>>;
     fn AddOutgoingConnection(&self, destination: windows_core::Ref<'_, IAudioNode>) -> windows_core::Result<()>;
     fn AddOutgoingConnectionWithGain(&self, destination: windows_core::Ref<'_, IAudioNode>, gain: f64) -> windows_core::Result<()>;
     fn RemoveOutgoingConnection(&self, destination: windows_core::Ref<'_, IAudioNode>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl IAudioInputNode_Vtbl {
     pub const fn new<Identity: IAudioInputNode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OutgoingConnections<Identity: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3362,10 +3356,7 @@ impl IAudioInputNode_Vtbl {
 #[repr(C)]
 pub struct IAudioInputNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub OutgoingConnections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    OutgoingConnections: usize,
     pub AddOutgoingConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddOutgoingConnectionWithGain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub RemoveOutgoingConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3384,8 +3375,7 @@ impl IAudioInputNode2 {
             (windows_core::Interface::vtable(this).Emitter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
+    pub fn OutgoingConnections(&self) -> windows_core::Result<windows_collections::IVectorView<AudioGraphConnection>> {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3413,8 +3403,8 @@ impl IAudioInputNode2 {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3484,15 +3474,15 @@ impl IAudioInputNode2 {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IAudioInputNode2 {
     const NAME: &'static str = "Windows.Media.Audio.IAudioInputNode2";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioInputNode2_Impl: IAudioInputNode_Impl + IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
     fn Emitter(&self) -> windows_core::Result<AudioNodeEmitter>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl IAudioInputNode2_Vtbl {
     pub const fn new<Identity: IAudioInputNode2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Emitter<Identity: IAudioInputNode2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3526,8 +3516,8 @@ impl windows_core::RuntimeType for IAudioNode {
 windows_core::imp::interface_hierarchy!(IAudioNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IAudioNode, super::super::Foundation::IClosable);
 impl IAudioNode {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3597,13 +3587,13 @@ impl IAudioNode {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IAudioNode {
     const NAME: &'static str = "Windows.Media.Audio.IAudioNode";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioNode_Impl: super::super::Foundation::IClosable_Impl {
-    fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
+    fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>>;
     fn SetOutgoingGain(&self, value: f64) -> windows_core::Result<()>;
     fn OutgoingGain(&self) -> windows_core::Result<f64>;
     fn EncodingProperties(&self) -> windows_core::Result<super::MediaProperties::AudioEncodingProperties>;
@@ -3615,7 +3605,7 @@ pub trait IAudioNode_Impl: super::super::Foundation::IClosable_Impl {
     fn DisableEffectsByDefinition(&self, definition: windows_core::Ref<'_, super::Effects::IAudioEffectDefinition>) -> windows_core::Result<()>;
     fn EnableEffectsByDefinition(&self, definition: windows_core::Ref<'_, super::Effects::IAudioEffectDefinition>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl IAudioNode_Vtbl {
     pub const fn new<Identity: IAudioNode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EffectDefinitions<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3732,9 +3722,9 @@ impl IAudioNode_Vtbl {
 #[repr(C)]
 pub struct IAudioNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[cfg(feature = "Media_Effects")]
     pub EffectDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Effects")))]
+    #[cfg(not(feature = "Media_Effects"))]
     EffectDefinitions: usize,
     pub SetOutgoingGain: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub OutgoingGain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -3934,8 +3924,8 @@ impl IAudioNodeWithListener {
             (windows_core::Interface::vtable(this).Listener)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4005,16 +3995,16 @@ impl IAudioNodeWithListener {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IAudioNodeWithListener {
     const NAME: &'static str = "Windows.Media.Audio.IAudioNodeWithListener";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioNodeWithListener_Impl: IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
     fn SetListener(&self, value: windows_core::Ref<'_, AudioNodeListener>) -> windows_core::Result<()>;
     fn Listener(&self) -> windows_core::Result<AudioNodeListener>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl IAudioNodeWithListener_Vtbl {
     pub const fn new<Identity: IAudioNodeWithListener_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetListener<Identity: IAudioNodeWithListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4300,10 +4290,7 @@ impl windows_core::RuntimeType for IEqualizerEffectDefinition {
 #[repr(C)]
 pub struct IEqualizerEffectDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Bands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Bands: usize,
 }
 windows_core::imp::define_interface!(IEqualizerEffectDefinitionFactory, IEqualizerEffectDefinitionFactory_Vtbl, 0xd2876fc4_d410_4eb5_9e69_c9aa1277eaf0);
 impl windows_core::RuntimeType for IEqualizerEffectDefinitionFactory {
@@ -4609,8 +4596,7 @@ pub struct MediaSourceAudioInputNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaSourceAudioInputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaSourceAudioInputNode, IAudioInputNode, IAudioInputNode2, IAudioNode, super::super::Foundation::IClosable);
 impl MediaSourceAudioInputNode {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
+    pub fn OutgoingConnections(&self) -> windows_core::Result<windows_collections::IVectorView<AudioGraphConnection>> {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4645,8 +4631,8 @@ impl MediaSourceAudioInputNode {
             (windows_core::Interface::vtable(this).Emitter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    #[cfg(feature = "Media_Effects")]
+    pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

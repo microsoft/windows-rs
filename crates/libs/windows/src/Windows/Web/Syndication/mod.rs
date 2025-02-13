@@ -360,34 +360,19 @@ impl windows_core::RuntimeType for ISyndicationFeed {
 #[repr(C)]
 pub struct ISyndicationFeed_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Authors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Authors: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Categories: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Categories: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Contributors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Contributors: usize,
     pub Generator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetGenerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IconUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetIconUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Items: usize,
     pub LastUpdatedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub SetLastUpdatedTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Links: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Links: usize,
     pub ImageUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetImageUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Rights: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -446,28 +431,16 @@ impl windows_core::RuntimeType for ISyndicationItem {
 #[repr(C)]
 pub struct ISyndicationItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Authors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Authors: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Categories: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Categories: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Contributors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Contributors: usize,
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LastUpdatedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub SetLastUpdatedTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Links: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Links: usize,
     pub PublishedDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub SetPublishedDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub Rights: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -593,16 +566,14 @@ impl ISyndicationNode {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -618,11 +589,11 @@ impl ISyndicationNode {
         }
     }
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
+#[cfg(feature = "Data_Xml_Dom")]
 impl windows_core::RuntimeName for ISyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationNode";
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
+#[cfg(feature = "Data_Xml_Dom")]
 pub trait ISyndicationNode_Impl: windows_core::IUnknownImpl {
     fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetNodeName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
@@ -634,11 +605,11 @@ pub trait ISyndicationNode_Impl: windows_core::IUnknownImpl {
     fn SetLanguage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn BaseUri(&self) -> windows_core::Result<super::super::Foundation::Uri>;
     fn SetBaseUri(&self, value: windows_core::Ref<'_, super::super::Foundation::Uri>) -> windows_core::Result<()>;
-    fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>>;
-    fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>>;
+    fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>>;
+    fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>>;
     fn GetXmlDocument(&self, format: SyndicationFormat) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
+#[cfg(feature = "Data_Xml_Dom")]
 impl ISyndicationNode_Vtbl {
     pub const fn new<Identity: ISyndicationNode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NodeName<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -809,14 +780,8 @@ pub struct ISyndicationNode_Vtbl {
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BaseUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetBaseUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub AttributeExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AttributeExtensions: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ElementExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ElementExtensions: usize,
     #[cfg(feature = "Data_Xml_Dom")]
     pub GetXmlDocument: unsafe extern "system" fn(*mut core::ffi::c_void, SyndicationFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
@@ -958,16 +923,14 @@ impl ISyndicationText {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -983,11 +946,11 @@ impl ISyndicationText {
         }
     }
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
+#[cfg(feature = "Data_Xml_Dom")]
 impl windows_core::RuntimeName for ISyndicationText {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationText";
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
+#[cfg(feature = "Data_Xml_Dom")]
 pub trait ISyndicationText_Impl: ISyndicationNode_Impl {
     fn Text(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
@@ -996,7 +959,7 @@ pub trait ISyndicationText_Impl: ISyndicationNode_Impl {
     fn Xml(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument>;
     fn SetXml(&self, value: windows_core::Ref<'_, super::super::Data::Xml::Dom::XmlDocument>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
+#[cfg(feature = "Data_Xml_Dom")]
 impl ISyndicationText_Vtbl {
     pub const fn new<Identity: ISyndicationText_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Text<Identity: ISyndicationText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1292,16 +1255,14 @@ impl SyndicationCategory {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1551,16 +1512,14 @@ impl SyndicationContent {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1676,24 +1635,21 @@ impl SyndicationFeed {
         static SHARED: windows_core::imp::FactoryCache<SyndicationFeed, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Authors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>> {
+    pub fn Authors(&self) -> windows_core::Result<windows_collections::IVector<SyndicationPerson>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Authors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Categories(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationCategory>> {
+    pub fn Categories(&self) -> windows_core::Result<windows_collections::IVector<SyndicationCategory>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Categories)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Contributors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>> {
+    pub fn Contributors(&self) -> windows_core::Result<windows_collections::IVector<SyndicationPerson>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1739,8 +1695,7 @@ impl SyndicationFeed {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Items(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationItem>> {
+    pub fn Items(&self) -> windows_core::Result<windows_collections::IVector<SyndicationItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1758,8 +1713,7 @@ impl SyndicationFeed {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLastUpdatedTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Links(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationLink>> {
+    pub fn Links(&self) -> windows_core::Result<windows_collections::IVector<SyndicationLink>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1936,16 +1890,14 @@ impl SyndicationFeed {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2107,16 +2059,14 @@ impl SyndicationGenerator {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2161,24 +2111,21 @@ impl SyndicationItem {
         static SHARED: windows_core::imp::FactoryCache<SyndicationItem, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Authors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>> {
+    pub fn Authors(&self) -> windows_core::Result<windows_collections::IVector<SyndicationPerson>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Authors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Categories(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationCategory>> {
+    pub fn Categories(&self) -> windows_core::Result<windows_collections::IVector<SyndicationCategory>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Categories)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Contributors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>> {
+    pub fn Contributors(&self) -> windows_core::Result<windows_collections::IVector<SyndicationPerson>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2221,8 +2168,7 @@ impl SyndicationItem {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLastUpdatedTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Links(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationLink>> {
+    pub fn Links(&self) -> windows_core::Result<windows_collections::IVector<SyndicationLink>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2418,16 +2364,14 @@ impl SyndicationItem {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2617,16 +2561,14 @@ impl SyndicationLink {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2728,16 +2670,14 @@ impl SyndicationNode {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2846,16 +2786,14 @@ impl SyndicationPerson {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3009,16 +2947,14 @@ impl SyndicationText {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AttributeExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ElementExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
         let this = &windows_core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

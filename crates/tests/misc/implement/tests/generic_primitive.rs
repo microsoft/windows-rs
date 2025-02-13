@@ -1,5 +1,5 @@
 use windows::core::*;
-use windows::Foundation::Collections::*;
+use windows_collections::*;
 
 // TODO: test whether we can implement two different IIterable's.
 

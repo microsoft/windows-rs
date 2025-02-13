@@ -608,6 +608,19 @@ impl File {
         RowIterator::new(self, first..last)
     }
 
+    pub(crate) fn parent<P: AsRow, C: AsRow>(&'static self, column: usize, child: C) -> P {
+        P::from_row(Row::new(
+            self,
+            self.upper_bound_of(
+                P::TABLE,
+                0,
+                self.tables[P::TABLE].len,
+                column,
+                child.index() + 1,
+            ) - 1,
+        ))
+    }
+
     fn lower_bound_of(
         &self,
         table: usize,

@@ -9,10 +9,7 @@ pub struct IUserNotificationListener_Vtbl {
     pub GetAccessStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserNotificationListenerAccessStatus) -> windows_core::HRESULT,
     pub NotificationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveNotificationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetNotificationsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::NotificationKinds, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNotificationsAsync: usize,
     pub GetNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearNotifications: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -59,8 +56,7 @@ impl UserNotificationListener {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveNotificationChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>> {
+    pub fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::UserNotification>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
