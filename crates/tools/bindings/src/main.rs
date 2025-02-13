@@ -7,6 +7,7 @@ fn main() {
     bindgen(["--etc", "crates/tools/bindings/src/core_com.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/core.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/metadata.txt"]);
+    bindgen(["--etc", "crates/tools/bindings/src/numerics.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/registry.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/result.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/strings.txt"]);
