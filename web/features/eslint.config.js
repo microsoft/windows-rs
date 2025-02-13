@@ -7,11 +7,11 @@ import reactHooks from 'eslint-plugin-react-hooks';
 export default [
     {
         ignores: [
-            '**/webpack.config.js',
-            '**/webpack.*.js',
+            '**/webpack.config.*',
             '**/eslint.*.js',
             '**/react-app-env.d.ts',
             'dist/**',
+            'build/**',
             'node_modules/**',
         ]
     },
