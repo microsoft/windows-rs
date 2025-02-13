@@ -1,5 +1,5 @@
 use windows::core::*;
-use windows::Foundation::Collections::*;
+use windows_collections::*;
 
 #[implement(
     IKeyValuePair<i32, f32>,

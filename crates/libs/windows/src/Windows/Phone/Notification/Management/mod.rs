@@ -18,8 +18,7 @@ impl AccessoryManager {
     {
         Self::IAccessoryManager(|this| unsafe { (windows_core::Interface::vtable(this).ProcessTriggerDetails)(windows_core::Interface::as_raw(this), pdetails.param().abi()).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PhoneLineDetails() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<PhoneLineDetails>> {
+    pub fn PhoneLineDetails() -> windows_core::Result<windows_collections::IVectorView<PhoneLineDetails>> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhoneLineDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -145,8 +144,7 @@ impl AccessoryManager {
             (windows_core::Interface::vtable(this).BatterySaverState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetApps() -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, AppNotificationInfo>> {
+    pub fn GetApps() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, AppNotificationInfo>> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetApps)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -192,8 +190,7 @@ impl AccessoryManager {
     pub fn RingDevice() -> windows_core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (windows_core::Interface::vtable(this).RingDevice)(windows_core::Interface::as_raw(this)).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SpeedDialList() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<SpeedDialEntry>> {
+    pub fn SpeedDialList() -> windows_core::Result<windows_collections::IVectorView<SpeedDialEntry>> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SpeedDialList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -226,15 +223,13 @@ impl AccessoryManager {
             (windows_core::Interface::vtable(this).VolumeInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAllEmailAccounts() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<EmailAccountInfo>> {
+    pub fn GetAllEmailAccounts() -> windows_core::Result<windows_collections::IVectorView<EmailAccountInfo>> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllEmailAccounts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetFolders(emailaccount: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>> {
+    pub fn GetFolders(emailaccount: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<EmailFolderInfo>> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFolders)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(emailaccount), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -246,10 +241,9 @@ impl AccessoryManager {
     pub fn DisableEmailNotificationEmailAccount(emailaccount: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (windows_core::Interface::vtable(this).DisableEmailNotificationEmailAccount)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(emailaccount)).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn EnableEmailNotificationFolderFilter<P1>(emailaccount: &windows_core::HSTRING, folders: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+        P1: windows_core::Param<windows_collections::IVectorView<windows_core::HSTRING>>,
     {
         Self::IAccessoryManager2(|this| unsafe { (windows_core::Interface::vtable(this).EnableEmailNotificationFolderFilter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(emailaccount), folders.param().abi()).ok() })
     }
@@ -972,10 +966,7 @@ pub struct IAccessoryManager_Vtbl {
     pub RegisterAccessoryApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNextTriggerDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProcessTriggerDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PhoneLineDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PhoneLineDetails: usize,
     pub GetPhoneLineDetails: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AcceptPhoneCall: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub AcceptPhoneCallOnEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, PhoneCallAudioEndpoint) -> windows_core::HRESULT,
@@ -1007,10 +998,7 @@ pub struct IAccessoryManager_Vtbl {
     pub DoNotDisturbEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub DrivingModeEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub BatterySaverState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetApps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetApps: usize,
     pub EnableNotificationsForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisableNotificationsForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsNotificationEnabledForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1031,10 +1019,7 @@ impl windows_core::RuntimeType for IAccessoryManager2 {
 pub struct IAccessoryManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RingDevice: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SpeedDialList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SpeedDialList: usize,
     pub ClearToast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsPhonePinLocked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IncreaseVolume: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -1042,20 +1027,11 @@ pub struct IAccessoryManager2_Vtbl {
     pub SetMute: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub SetRingerVibrate: unsafe extern "system" fn(*mut core::ffi::c_void, bool, bool) -> windows_core::HRESULT,
     pub VolumeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAllEmailAccounts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAllEmailAccounts: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetFolders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetFolders: usize,
     pub EnableEmailNotificationEmailAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisableEmailNotificationEmailAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub EnableEmailNotificationFolderFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EnableEmailNotificationFolderFilter: usize,
     pub UpdateEmailReadStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAccessoryManager3, IAccessoryManager3_Vtbl, 0x81f75137_edc7_47e0_b2f7_7e577c833f7d);
@@ -1394,10 +1370,7 @@ pub struct IPhoneCallDetails_Vtbl {
     pub EndTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub PhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ContactName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PresetTextResponses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PresetTextResponses: usize,
 }
 windows_core::imp::define_interface!(IPhoneLineDetails, IPhoneLineDetails_Vtbl, 0x47eb32dc_33ed_49b9_995c_a296bac82b77);
 impl windows_core::RuntimeType for IPhoneLineDetails {
@@ -1748,8 +1721,7 @@ impl PhoneCallDetails {
             (windows_core::Interface::vtable(this).ContactName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PresetTextResponses(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<TextResponse>> {
+    pub fn PresetTextResponses(&self) -> windows_core::Result<windows_collections::IVectorView<TextResponse>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

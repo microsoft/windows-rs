@@ -65,8 +65,7 @@ impl AgentProvisioningProgressReport {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayProgressSecondary)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Batches(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<DeploymentWorkloadBatch>> {
+    pub fn Batches(&self) -> windows_core::Result<windows_collections::IVector<DeploymentWorkloadBatch>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -461,8 +460,7 @@ impl DeploymentWorkloadBatch {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayCategoryTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn BatchWorkloads(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<DeploymentWorkload>> {
+    pub fn BatchWorkloads(&self) -> windows_core::Result<windows_collections::IVector<DeploymentWorkload>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -549,10 +547,7 @@ pub struct IAgentProvisioningProgressReport_Vtbl {
     pub SetDisplayProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisplayProgressSecondary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDisplayProgressSecondary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Batches: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Batches: usize,
     pub CurrentBatchIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetCurrentBatchIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
@@ -623,10 +618,7 @@ pub struct IDeploymentWorkloadBatch_Vtbl {
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub DisplayCategoryTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDisplayCategoryTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub BatchWorkloads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BatchWorkloads: usize,
 }
 windows_core::imp::define_interface!(IDeploymentWorkloadBatchFactory, IDeploymentWorkloadBatchFactory_Vtbl, 0xd0209697_9560_5a05_bdf6_f1af535cb0d4);
 impl windows_core::RuntimeType for IDeploymentWorkloadBatchFactory {

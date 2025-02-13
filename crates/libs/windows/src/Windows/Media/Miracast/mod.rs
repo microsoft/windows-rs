@@ -230,10 +230,7 @@ pub struct IMiracastReceiverStatus_Vtbl {
     pub WiFiStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MiracastReceiverWiFiStatus) -> windows_core::HRESULT,
     pub IsConnectionTakeoverSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub MaxSimultaneousConnections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub KnownTransmitters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    KnownTransmitters: usize,
 }
 windows_core::imp::define_interface!(IMiracastReceiverStreamControl, IMiracastReceiverStreamControl_Vtbl, 0x38ea2d8b_2769_5ad7_8a8a_254b9df7ba82);
 impl windows_core::RuntimeType for IMiracastReceiverStreamControl {
@@ -278,10 +275,7 @@ pub struct IMiracastTransmitter_Vtbl {
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AuthorizationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MiracastTransmitterAuthorizationStatus) -> windows_core::HRESULT,
     pub SetAuthorizationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, MiracastTransmitterAuthorizationStatus) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetConnections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetConnections: usize,
     pub MacAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LastConnectionTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
@@ -1249,8 +1243,7 @@ impl MiracastReceiverStatus {
             (windows_core::Interface::vtable(this).MaxSimultaneousConnections)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn KnownTransmitters(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MiracastTransmitter>> {
+    pub fn KnownTransmitters(&self) -> windows_core::Result<windows_collections::IVectorView<MiracastTransmitter>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1414,8 +1407,7 @@ impl MiracastTransmitter {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAuthorizationStatus)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MiracastReceiverConnection>> {
+    pub fn GetConnections(&self) -> windows_core::Result<windows_collections::IVectorView<MiracastReceiverConnection>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

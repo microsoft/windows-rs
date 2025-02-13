@@ -105,10 +105,7 @@ pub struct IXboxLiveEndpointPairTemplate_Vtbl {
     pub InitiatorBoundPortRangeUpper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub AcceptorBoundPortRangeLower: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub AcceptorBoundPortRangeUpper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub EndpointPairs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EndpointPairs: usize,
 }
 windows_core::imp::define_interface!(IXboxLiveEndpointPairTemplateStatics, IXboxLiveEndpointPairTemplateStatics_Vtbl, 0x1e13137b_737b_4a23_bc64_0870f75655ba);
 impl windows_core::RuntimeType for IXboxLiveEndpointPairTemplateStatics {
@@ -118,10 +115,7 @@ impl windows_core::RuntimeType for IXboxLiveEndpointPairTemplateStatics {
 pub struct IXboxLiveEndpointPairTemplateStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetTemplateByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Templates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Templates: usize,
 }
 windows_core::imp::define_interface!(IXboxLiveInboundEndpointPairCreatedEventArgs, IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl, 0xdc183b62_22ba_48d2_80de_c23968bd198b);
 impl windows_core::RuntimeType for IXboxLiveInboundEndpointPairCreatedEventArgs {
@@ -140,24 +134,12 @@ impl windows_core::RuntimeType for IXboxLiveQualityOfServiceMeasurement {
 pub struct IXboxLiveQualityOfServiceMeasurement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MeasureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetMetricResultsForDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetMetricResultsForDevice: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetMetricResultsForMetric: unsafe extern "system" fn(*mut core::ffi::c_void, XboxLiveQualityOfServiceMetric, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetMetricResultsForMetric: usize,
     pub GetMetricResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XboxLiveQualityOfServiceMetric, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPrivatePayloadResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Metrics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Metrics: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub DeviceAddresses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DeviceAddresses: usize,
     pub ShouldRequestPrivatePayloads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetShouldRequestPrivatePayloads: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub TimeoutInMilliseconds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -165,14 +147,8 @@ pub struct IXboxLiveQualityOfServiceMeasurement_Vtbl {
     pub NumberOfProbesToAttempt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetNumberOfProbesToAttempt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub NumberOfResultsPending: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub MetricResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    MetricResults: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub PrivatePayloadResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PrivatePayloadResults: usize,
 }
 windows_core::imp::define_interface!(IXboxLiveQualityOfServiceMeasurementStatics, IXboxLiveQualityOfServiceMeasurementStatics_Vtbl, 0x6e352dca_23cf_440a_b077_5e30857a8234);
 impl windows_core::RuntimeType for IXboxLiveQualityOfServiceMeasurementStatics {
@@ -724,8 +700,7 @@ impl XboxLiveEndpointPairTemplate {
             (windows_core::Interface::vtable(this).AcceptorBoundPortRangeUpper)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EndpointPairs(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPair>> {
+    pub fn EndpointPairs(&self) -> windows_core::Result<windows_collections::IVectorView<XboxLiveEndpointPair>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -738,8 +713,7 @@ impl XboxLiveEndpointPairTemplate {
             (windows_core::Interface::vtable(this).GetTemplateByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Templates() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPairTemplate>> {
+    pub fn Templates() -> windows_core::Result<windows_collections::IVectorView<XboxLiveEndpointPairTemplate>> {
         Self::IXboxLiveEndpointPairTemplateStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Templates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -820,8 +794,7 @@ impl XboxLiveQualityOfServiceMeasurement {
             (windows_core::Interface::vtable(this).MeasureAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMetricResultsForDevice<P0>(&self, deviceaddress: P0) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>
+    pub fn GetMetricResultsForDevice<P0>(&self, deviceaddress: P0) -> windows_core::Result<windows_collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>
     where
         P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
@@ -831,8 +804,7 @@ impl XboxLiveQualityOfServiceMeasurement {
             (windows_core::Interface::vtable(this).GetMetricResultsForDevice)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMetricResultsForMetric(&self, metric: XboxLiveQualityOfServiceMetric) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
+    pub fn GetMetricResultsForMetric(&self, metric: XboxLiveQualityOfServiceMetric) -> windows_core::Result<windows_collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -859,16 +831,14 @@ impl XboxLiveQualityOfServiceMeasurement {
             (windows_core::Interface::vtable(this).GetPrivatePayloadResult)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Metrics(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<XboxLiveQualityOfServiceMetric>> {
+    pub fn Metrics(&self) -> windows_core::Result<windows_collections::IVector<XboxLiveQualityOfServiceMetric>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Metrics)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DeviceAddresses(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<XboxLiveDeviceAddress>> {
+    pub fn DeviceAddresses(&self) -> windows_core::Result<windows_collections::IVector<XboxLiveDeviceAddress>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -915,16 +885,14 @@ impl XboxLiveQualityOfServiceMeasurement {
             (windows_core::Interface::vtable(this).NumberOfResultsPending)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn MetricResults(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
+    pub fn MetricResults(&self) -> windows_core::Result<windows_collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MetricResults)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PrivatePayloadResults(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServicePrivatePayloadResult>> {
+    pub fn PrivatePayloadResults(&self) -> windows_core::Result<windows_collections::IVectorView<XboxLiveQualityOfServicePrivatePayloadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

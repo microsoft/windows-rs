@@ -16,7 +16,7 @@ impl Delegate {
             return quote! {};
         }
 
-        Cfg::new(self.def, &self.dependencies()).write(writer, false)
+        Cfg::new(self.def, &self.dependencies(), writer).write(writer, false)
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {

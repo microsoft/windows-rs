@@ -8,6 +8,9 @@ publish = false
 doc = false
 doctest = false
 
+[dependencies.windows-collections]
+workspace = true
+
 [dependencies.windows]
 workspace = true
 features = [

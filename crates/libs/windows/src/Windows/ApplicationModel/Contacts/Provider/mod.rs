@@ -39,8 +39,8 @@ impl ContactPickerUI {
             (windows_core::Interface::vtable(this).ContainsContact)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn DesiredFields(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    #[cfg(feature = "deprecated")]
+    pub fn DesiredFields(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -78,8 +78,7 @@ impl ContactPickerUI {
             (windows_core::Interface::vtable(this).AddContact)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DesiredFieldsWithContactFieldType(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<super::ContactFieldType>> {
+    pub fn DesiredFieldsWithContactFieldType(&self) -> windows_core::Result<windows_collections::IVector<super::ContactFieldType>> {
         let this = &windows_core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -133,9 +132,9 @@ pub struct IContactPickerUI_Vtbl {
     AddContact: usize,
     pub RemoveContact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ContainsContact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub DesiredFields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     DesiredFields: usize,
     pub SelectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ContactSelectionMode) -> windows_core::HRESULT,
     pub ContactRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -149,10 +148,7 @@ impl windows_core::RuntimeType for IContactPickerUI2 {
 pub struct IContactPickerUI2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddContact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut AddContactResult) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub DesiredFieldsWithContactFieldType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DesiredFieldsWithContactFieldType: usize,
 }
 windows_core::imp::define_interface!(IContactRemovedEventArgs, IContactRemovedEventArgs_Vtbl, 0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
 impl windows_core::RuntimeType for IContactRemovedEventArgs {

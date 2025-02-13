@@ -363,8 +363,7 @@ impl windows_core::RuntimeType for IGpioProvider {
 }
 windows_core::imp::interface_hierarchy!(IGpioProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IGpioProvider {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>> {
+    pub fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IGpioControllerProvider>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -372,15 +371,12 @@ impl IGpioProvider {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IGpioProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioProvider";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait IGpioProvider_Impl: windows_core::IUnknownImpl {
-    fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>>;
+    fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IGpioControllerProvider>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IGpioProvider_Vtbl {
     pub const fn new<Identity: IGpioProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetControllers<Identity: IGpioProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -405,10 +401,7 @@ impl IGpioProvider_Vtbl {
 #[repr(C)]
 pub struct IGpioProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetControllers: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -89,8 +89,8 @@ impl I2cController {
             (windows_core::Interface::vtable(this).GetDevice)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>>
+    #[cfg(feature = "Devices_I2c_Provider")]
+    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<I2cController>>>
     where
         P0: windows_core::Param<Provider::II2cProvider>,
     {
@@ -297,9 +297,9 @@ impl windows_core::RuntimeType for II2cControllerStatics {
 #[repr(C)]
 pub struct II2cControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_I2c_Provider")]
     pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_I2c_Provider", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_I2c_Provider"))]
     GetControllersAsync: usize,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }

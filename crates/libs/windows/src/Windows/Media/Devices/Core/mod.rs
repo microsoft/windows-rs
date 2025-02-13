@@ -1031,10 +1031,7 @@ pub struct IVariablePhotoSequenceController_Vtbl {
     #[cfg(not(feature = "Media_MediaProperties"))]
     GetCurrentFrameRate: usize,
     pub FrameCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub DesiredFrameControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DesiredFrameControllers: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1092,8 +1089,7 @@ impl VariablePhotoSequenceController {
             (windows_core::Interface::vtable(this).FrameCapabilities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DesiredFrameControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<FrameController>> {
+    pub fn DesiredFrameControllers(&self) -> windows_core::Result<windows_collections::IVector<FrameController>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

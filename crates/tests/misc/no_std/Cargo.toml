@@ -33,6 +33,10 @@ workspace = true
 [dependencies.windows-link]
 workspace = true
 
+[dependencies.windows-collections]
+path = "../../../libs/collections"
+default-features = false
+
 [dependencies.windows-version]
 path = "../../../libs/version"
 default-features = false

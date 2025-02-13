@@ -7,8 +7,7 @@ pub mod Provider;
 pub struct AggregateContactManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AggregateContactManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AggregateContactManager {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindRawContactsAsync<P0>(&self, contact: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>
+    pub fn FindRawContactsAsync<P0>(&self, contact: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<Contact>>>
     where
         P0: windows_core::Param<Contact>,
     {
@@ -109,8 +108,7 @@ impl Contact {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Fields(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<IContactField>> {
+    pub fn Fields(&self) -> windows_core::Result<windows_collections::IVector<IContactField>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -139,72 +137,63 @@ impl Contact {
         let this = &windows_core::Interface::cast::<IContact2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNotes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Phones(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ContactPhone>> {
+    pub fn Phones(&self) -> windows_core::Result<windows_collections::IVector<ContactPhone>> {
         let this = &windows_core::Interface::cast::<IContact2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Phones)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Emails(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ContactEmail>> {
+    pub fn Emails(&self) -> windows_core::Result<windows_collections::IVector<ContactEmail>> {
         let this = &windows_core::Interface::cast::<IContact2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Emails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Addresses(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ContactAddress>> {
+    pub fn Addresses(&self) -> windows_core::Result<windows_collections::IVector<ContactAddress>> {
         let this = &windows_core::Interface::cast::<IContact2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Addresses)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ConnectedServiceAccounts(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ContactConnectedServiceAccount>> {
+    pub fn ConnectedServiceAccounts(&self) -> windows_core::Result<windows_collections::IVector<ContactConnectedServiceAccount>> {
         let this = &windows_core::Interface::cast::<IContact2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectedServiceAccounts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ImportantDates(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ContactDate>> {
+    pub fn ImportantDates(&self) -> windows_core::Result<windows_collections::IVector<ContactDate>> {
         let this = &windows_core::Interface::cast::<IContact2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ImportantDates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DataSuppliers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn DataSuppliers(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IContact2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataSuppliers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn JobInfo(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ContactJobInfo>> {
+    pub fn JobInfo(&self) -> windows_core::Result<windows_collections::IVector<ContactJobInfo>> {
         let this = &windows_core::Interface::cast::<IContact2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).JobInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SignificantOthers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ContactSignificantOther>> {
+    pub fn SignificantOthers(&self) -> windows_core::Result<windows_collections::IVector<ContactSignificantOther>> {
         let this = &windows_core::Interface::cast::<IContact2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SignificantOthers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Websites(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ContactWebsite>> {
+    pub fn Websites(&self) -> windows_core::Result<windows_collections::IVector<ContactWebsite>> {
         let this = &windows_core::Interface::cast::<IContact2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -734,16 +723,14 @@ impl ContactAnnotationList {
             (windows_core::Interface::vtable(this).GetAnnotationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(annotationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAnnotationsByRemoteIdAsync(&self, remoteid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
+    pub fn FindAnnotationsByRemoteIdAsync(&self, remoteid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ContactAnnotation>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAnnotationsByRemoteIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(remoteid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAnnotationsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
+    pub fn FindAnnotationsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ContactAnnotation>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -829,24 +816,21 @@ impl core::ops::Not for ContactAnnotationOperations {
 pub struct ContactAnnotationStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactAnnotationStore, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactAnnotationStore {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindContactIdsByEmailAsync(&self, emailaddress: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>> {
+    pub fn FindContactIdsByEmailAsync(&self, emailaddress: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindContactIdsByEmailAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(emailaddress), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindContactIdsByPhoneNumberAsync(&self, phonenumber: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>> {
+    pub fn FindContactIdsByPhoneNumberAsync(&self, phonenumber: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindContactIdsByPhoneNumberAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phonenumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAnnotationsForContactAsync<P0>(&self, contact: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>
+    pub fn FindAnnotationsForContactAsync<P0>(&self, contact: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ContactAnnotation>>>
     where
         P0: windows_core::Param<Contact>,
     {
@@ -887,16 +871,14 @@ impl ContactAnnotationStore {
             (windows_core::Interface::vtable(this).GetAnnotationListAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(annotationlistid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAnnotationListsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotationList>>> {
+    pub fn FindAnnotationListsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ContactAnnotationList>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAnnotationListsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAnnotationsForContactListAsync(&self, contactlistid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
+    pub fn FindAnnotationsForContactListAsync(&self, contactlistid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ContactAnnotation>>> {
         let this = &windows_core::Interface::cast::<IContactAnnotationStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -934,8 +916,7 @@ impl windows_core::RuntimeType for ContactAnnotationStoreAccessType {
 pub struct ContactBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactBatch, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactBatch {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Contacts(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<Contact>> {
+    pub fn Contacts(&self) -> windows_core::Result<windows_collections::IVectorView<Contact>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1054,8 +1035,7 @@ impl ContactCardOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInitialTabKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServerSearchContactListIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn ServerSearchContactListIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IContactCardOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1140,8 +1120,7 @@ impl ContactChangeReader {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AcceptChangesThrough)(windows_core::Interface::as_raw(this), lastchangetoaccept.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactChange>>> {
+    pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ContactChange>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1722,48 +1701,42 @@ impl ContactInformation {
             (windows_core::Interface::vtable(this).GetThumbnailAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Emails(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
+    pub fn Emails(&self) -> windows_core::Result<windows_collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Emails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
+    pub fn PhoneNumbers(&self) -> windows_core::Result<windows_collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhoneNumbers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Locations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactLocationField>> {
+    pub fn Locations(&self) -> windows_core::Result<windows_collections::IVectorView<ContactLocationField>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Locations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn InstantMessages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactInstantMessageField>> {
+    pub fn InstantMessages(&self) -> windows_core::Result<windows_collections::IVectorView<ContactInstantMessageField>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstantMessages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CustomFields(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
+    pub fn CustomFields(&self) -> windows_core::Result<windows_collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CustomFields)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn QueryCustomFields(&self, customname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
+    pub fn QueryCustomFields(&self, customname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3221,8 +3194,8 @@ impl ContactMatchReason {
             (windows_core::Interface::vtable(this).Field)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections"))]
-    pub fn Segments(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>> {
+    #[cfg(feature = "Data_Text")]
+    pub fn Segments(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Data::Text::TextSegment>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3512,8 +3485,7 @@ impl ContactPicker {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSelectionMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DesiredFields(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn DesiredFields(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3527,16 +3499,14 @@ impl ContactPicker {
             (windows_core::Interface::vtable(this).PickSingleContactAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PickMultipleContactsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactInformation>>> {
+    pub fn PickMultipleContactsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ContactInformation>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PickMultipleContactsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DesiredFieldsWithContactFieldType(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ContactFieldType>> {
+    pub fn DesiredFieldsWithContactFieldType(&self) -> windows_core::Result<windows_collections::IVector<ContactFieldType>> {
         let this = &windows_core::Interface::cast::<IContactPicker2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3550,8 +3520,7 @@ impl ContactPicker {
             (windows_core::Interface::vtable(this).PickContactAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PickContactsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<Contact>>> {
+    pub fn PickContactsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVector<Contact>>> {
         let this = &windows_core::Interface::cast::<IContactPicker2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3664,8 +3633,7 @@ impl ContactQueryOptions {
             (windows_core::Interface::vtable(this).TextSearch)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ContactListIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn ContactListIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3705,8 +3673,7 @@ impl ContactQueryOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDesiredOperations)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AnnotationListIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn AnnotationListIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3867,8 +3834,7 @@ impl ContactReader {
             (windows_core::Interface::vtable(this).ReadBatchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMatchingPropertiesWithMatchReason<P0>(&self, contact: P0) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactMatchReason>>
+    pub fn GetMatchingPropertiesWithMatchReason<P0>(&self, contact: P0) -> windows_core::Result<windows_collections::IVectorView<ContactMatchReason>>
     where
         P0: windows_core::Param<Contact>,
     {
@@ -3984,16 +3950,14 @@ unsafe impl Sync for ContactSignificantOther {}
 pub struct ContactStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactStore, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactStore {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindContactsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
+    pub fn FindContactsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<Contact>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindContactsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindContactsWithSearchTextAsync(&self, searchtext: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
+    pub fn FindContactsWithSearchTextAsync(&self, searchtext: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<Contact>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4035,8 +3999,7 @@ impl ContactStore {
             (windows_core::Interface::vtable(this).AggregateContactManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindContactListsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactList>>> {
+    pub fn FindContactListsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ContactList>>> {
         let this = &windows_core::Interface::cast::<IContactStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4245,10 +4208,7 @@ impl windows_core::RuntimeType for IAggregateContactManager {
 #[repr(C)]
 pub struct IAggregateContactManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindRawContactsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindRawContactsAsync: usize,
     pub TryLinkContactsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnlinkRawContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TrySetPreferredSourceForPictureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4279,10 +4239,7 @@ pub struct IContact_Vtbl {
     pub SetThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     SetThumbnail: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Fields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Fields: usize,
 }
 windows_core::imp::define_interface!(IContact2, IContact2_Vtbl, 0xf312f365_bb77_4c94_802d_8328cee40c08);
 impl windows_core::RuntimeType for IContact2 {
@@ -4295,42 +4252,15 @@ pub struct IContact2_Vtbl {
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Notes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetNotes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Phones: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Phones: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Emails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Emails: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Addresses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Addresses: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConnectedServiceAccounts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConnectedServiceAccounts: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ImportantDates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ImportantDates: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub DataSuppliers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DataSuppliers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub JobInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    JobInfo: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SignificantOthers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SignificantOthers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Websites: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Websites: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub ProviderProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -4445,14 +4375,8 @@ pub struct IContactAnnotationList_Vtbl {
     pub DeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TrySaveAnnotationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAnnotationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAnnotationsByRemoteIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAnnotationsByRemoteIdAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAnnotationsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAnnotationsAsync: usize,
     pub DeleteAnnotationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAnnotationStore, IContactAnnotationStore_Vtbl, 0x23acf4aa_7a77_457d_8203_987f4b31af09);
@@ -4462,26 +4386,14 @@ impl windows_core::RuntimeType for IContactAnnotationStore {
 #[repr(C)]
 pub struct IContactAnnotationStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindContactIdsByEmailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindContactIdsByEmailAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindContactIdsByPhoneNumberAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindContactIdsByPhoneNumberAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAnnotationsForContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAnnotationsForContactAsync: usize,
     pub DisableAnnotationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateAnnotationListAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateAnnotationListInAccountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAnnotationListAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAnnotationListsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAnnotationListsAsync: usize,
 }
 windows_core::imp::define_interface!(IContactAnnotationStore2, IContactAnnotationStore2_Vtbl, 0x7ede23fd_61e7_4967_8ec5_bdf280a24063);
 impl windows_core::RuntimeType for IContactAnnotationStore2 {
@@ -4490,10 +4402,7 @@ impl windows_core::RuntimeType for IContactAnnotationStore2 {
 #[repr(C)]
 pub struct IContactAnnotationStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAnnotationsForContactListAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAnnotationsForContactListAsync: usize,
 }
 windows_core::imp::define_interface!(IContactBatch, IContactBatch_Vtbl, 0x35d1972d_bfce_46bb_93f8_a5b06ec5e201);
 impl windows_core::RuntimeType for IContactBatch {
@@ -4502,10 +4411,7 @@ impl windows_core::RuntimeType for IContactBatch {
 #[repr(C)]
 pub struct IContactBatch_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Contacts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Contacts: usize,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactBatchStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactCardDelayedDataLoader, IContactCardDelayedDataLoader_Vtbl, 0xb60af902_1546_434d_869c_6e3520760ef3);
@@ -4536,10 +4442,7 @@ impl windows_core::RuntimeType for IContactCardOptions2 {
 #[repr(C)]
 pub struct IContactCardOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ServerSearchContactListIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ServerSearchContactListIds: usize,
 }
 windows_core::imp::define_interface!(IContactChange, IContactChange_Vtbl, 0x951d4b10_6a59_4720_a4e1_363d98c135d5);
 impl windows_core::RuntimeType for IContactChange {
@@ -4560,10 +4463,7 @@ pub struct IContactChangeReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AcceptChanges: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AcceptChangesThrough: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ReadBatchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ReadBatchAsync: usize,
 }
 windows_core::imp::define_interface!(IContactChangeTracker, IContactChangeTracker_Vtbl, 0x6e992952_309b_404d_9712_b37bd30278aa);
 impl windows_core::RuntimeType for IContactChangeTracker {
@@ -4878,30 +4778,12 @@ pub struct IContactInformation_Vtbl {
     pub GetThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     GetThumbnailAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Emails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Emails: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub PhoneNumbers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PhoneNumbers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Locations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Locations: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub InstantMessages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InstantMessages: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CustomFields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CustomFields: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub QueryCustomFields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    QueryCustomFields: usize,
 }
 windows_core::imp::define_interface!(IContactInstantMessageField, IContactInstantMessageField_Vtbl, 0xcce33b37_0d85_41fa_b43d_da599c3eb009);
 impl windows_core::RuntimeType for IContactInstantMessageField {
@@ -5445,9 +5327,9 @@ impl windows_core::RuntimeType for IContactMatchReason {
 pub struct IContactMatchReason_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Field: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactMatchReasonKind) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Data_Text")]
     pub Segments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Data_Text", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Data_Text"))]
     Segments: usize,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -5540,15 +5422,9 @@ pub struct IContactPicker_Vtbl {
     pub SetCommitButtonText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SelectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactSelectionMode) -> windows_core::HRESULT,
     pub SetSelectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, ContactSelectionMode) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub DesiredFields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DesiredFields: usize,
     pub PickSingleContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PickMultipleContactsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PickMultipleContactsAsync: usize,
 }
 windows_core::imp::define_interface!(IContactPicker2, IContactPicker2_Vtbl, 0xb35011cf_5cef_4d24_aa0c_340c5208725d);
 impl windows_core::RuntimeType for IContactPicker2 {
@@ -5557,15 +5433,9 @@ impl windows_core::RuntimeType for IContactPicker2 {
 #[repr(C)]
 pub struct IContactPicker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub DesiredFieldsWithContactFieldType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DesiredFieldsWithContactFieldType: usize,
     pub PickContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PickContactsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PickContactsAsync: usize,
 }
 windows_core::imp::define_interface!(IContactPicker3, IContactPicker3_Vtbl, 0x0e723315_b243_4bed_8516_22b1a7ac0ace);
 impl windows_core::RuntimeType for IContactPicker3 {
@@ -5600,20 +5470,14 @@ impl windows_core::RuntimeType for IContactQueryOptions {
 pub struct IContactQueryOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TextSearch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ContactListIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ContactListIds: usize,
     pub IncludeContactsFromHiddenLists: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIncludeContactsFromHiddenLists: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub DesiredFields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactQueryDesiredFields) -> windows_core::HRESULT,
     pub SetDesiredFields: unsafe extern "system" fn(*mut core::ffi::c_void, ContactQueryDesiredFields) -> windows_core::HRESULT,
     pub DesiredOperations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactAnnotationOperations) -> windows_core::HRESULT,
     pub SetDesiredOperations: unsafe extern "system" fn(*mut core::ffi::c_void, ContactAnnotationOperations) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub AnnotationListIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AnnotationListIds: usize,
 }
 windows_core::imp::define_interface!(IContactQueryOptionsFactory, IContactQueryOptionsFactory_Vtbl, 0x543fba47_8ce7_46cb_9dac_9aa42a1bc8e2);
 impl windows_core::RuntimeType for IContactQueryOptionsFactory {
@@ -5647,10 +5511,7 @@ impl windows_core::RuntimeType for IContactReader {
 pub struct IContactReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadBatchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetMatchingPropertiesWithMatchReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetMatchingPropertiesWithMatchReason: usize,
 }
 windows_core::imp::define_interface!(IContactSignificantOther, IContactSignificantOther_Vtbl, 0x8873b5ab_c5fb_46d8_93fe_da3ff1934054);
 impl windows_core::RuntimeType for IContactSignificantOther {
@@ -5681,14 +5542,8 @@ impl windows_core::RuntimeType for IContactStore {
 #[repr(C)]
 pub struct IContactStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindContactsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindContactsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindContactsWithSearchTextAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindContactsWithSearchTextAsync: usize,
     pub GetContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactStore2, IContactStore2_Vtbl, 0x18ce1c22_ebd5_4bfb_b690_5f4f27c4f0e8);
@@ -5702,10 +5557,7 @@ pub struct IContactStore2_Vtbl {
     pub ContactChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveContactChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub AggregateContactManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindContactListsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindContactListsAsync: usize,
     pub GetContactListAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateContactListAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMeContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5792,10 +5644,7 @@ impl windows_core::RuntimeType for IPinnedContactIdsQueryResult {
 #[repr(C)]
 pub struct IPinnedContactIdsQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ContactIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ContactIds: usize,
 }
 windows_core::imp::define_interface!(IPinnedContactManager, IPinnedContactManager_Vtbl, 0xfcbc740c_e1d6_45c3_b8b6_a35604e167a0);
 impl windows_core::RuntimeType for IPinnedContactManager {
@@ -5811,10 +5660,7 @@ pub struct IPinnedContactManager_Vtbl {
     pub IsPinSurfaceSupported: unsafe extern "system" fn(*mut core::ffi::c_void, PinnedContactSurface, *mut bool) -> windows_core::HRESULT,
     pub IsContactPinned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PinnedContactSurface, *mut bool) -> windows_core::HRESULT,
     pub RequestPinContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PinnedContactSurface, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub RequestPinContactsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PinnedContactSurface, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequestPinContactsAsync: usize,
     pub RequestUnpinContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PinnedContactSurface, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SignalContactActivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPinnedContactIdsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5887,8 +5733,7 @@ impl windows_core::RuntimeName for KnownContactField {
 pub struct PinnedContactIdsQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PinnedContactIdsQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PinnedContactIdsQueryResult {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ContactIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn ContactIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5948,10 +5793,9 @@ impl PinnedContactManager {
             (windows_core::Interface::vtable(this).RequestPinContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestPinContactsAsync<P0>(&self, contacts: P0, surface: PinnedContactSurface) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<Contact>>,
+        P0: windows_core::Param<windows_collections::IIterable<Contact>>,
     {
         let this = self;
         unsafe {

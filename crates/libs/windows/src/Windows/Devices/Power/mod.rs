@@ -178,10 +178,7 @@ pub struct IPowerGridForecast_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub BlockDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Forecast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Forecast: usize,
 }
 windows_core::imp::define_interface!(IPowerGridForecastStatics, IPowerGridForecastStatics_Vtbl, 0x5b78c806_2e4e_5bcc_bb34_cb81c60f9e12);
 impl windows_core::RuntimeType for IPowerGridForecastStatics {
@@ -245,8 +242,7 @@ impl PowerGridForecast {
             (windows_core::Interface::vtable(this).BlockDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Forecast(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PowerGridData>> {
+    pub fn Forecast(&self) -> windows_core::Result<windows_collections::IVectorView<PowerGridData>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

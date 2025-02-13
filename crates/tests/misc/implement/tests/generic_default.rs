@@ -1,9 +1,9 @@
 #![allow(non_snake_case)]
 
 use windows::core::*;
-use windows::Foundation::Collections::*;
 use windows::Foundation::*;
 use windows::Win32::Foundation::E_BOUNDS;
+use windows_collections::*;
 
 #[implement(
     IVectorView<T>,

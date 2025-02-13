@@ -37,10 +37,9 @@ impl CurrencyFormatter {
             (windows_core::Interface::vtable(this).CreateCurrencyFormatterCode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currencycode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCurrencyFormatterCodeContext<P1>(currencycode: &windows_core::HSTRING, languages: P1, geographicregion: &windows_core::HSTRING) -> windows_core::Result<CurrencyFormatter>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICurrencyFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -89,8 +88,7 @@ impl CurrencyFormatter {
             (windows_core::Interface::vtable(this).FormatDouble)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Languages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -273,10 +271,9 @@ impl DecimalFormatter {
         static SHARED: windows_core::imp::FactoryCache<DecimalFormatter, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDecimalFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<DecimalFormatter>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDecimalFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -325,8 +322,7 @@ impl DecimalFormatter {
             (windows_core::Interface::vtable(this).FormatDouble)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Languages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -515,10 +511,7 @@ impl windows_core::RuntimeType for ICurrencyFormatterFactory {
 pub struct ICurrencyFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateCurrencyFormatterCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateCurrencyFormatterCodeContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateCurrencyFormatterCodeContext: usize,
 }
 windows_core::imp::define_interface!(IDecimalFormatterFactory, IDecimalFormatterFactory_Vtbl, 0x0d018c9a_e393_46b8_b830_7a69c8f89fbb);
 impl windows_core::RuntimeType for IDecimalFormatterFactory {
@@ -527,10 +520,7 @@ impl windows_core::RuntimeType for IDecimalFormatterFactory {
 #[repr(C)]
 pub struct IDecimalFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateDecimalFormatter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateDecimalFormatter: usize,
 }
 windows_core::imp::define_interface!(IIncrementNumberRounder, IIncrementNumberRounder_Vtbl, 0x70a64ff8_66ab_4155_9da1_739e46764543);
 impl windows_core::RuntimeType for IIncrementNumberRounder {
@@ -740,8 +730,7 @@ impl windows_core::RuntimeType for INumberFormatterOptions {
 }
 windows_core::imp::interface_hierarchy!(INumberFormatterOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberFormatterOptions {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Languages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -825,13 +814,11 @@ impl INumberFormatterOptions {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for INumberFormatterOptions {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatterOptions";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait INumberFormatterOptions_Impl: windows_core::IUnknownImpl {
-    fn Languages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>;
+    fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>>;
     fn GeographicRegion(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn IntegerDigits(&self) -> windows_core::Result<i32>;
     fn SetIntegerDigits(&self, value: i32) -> windows_core::Result<()>;
@@ -846,7 +833,6 @@ pub trait INumberFormatterOptions_Impl: windows_core::IUnknownImpl {
     fn ResolvedLanguage(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn ResolvedGeographicRegion(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl INumberFormatterOptions_Vtbl {
     pub const fn new<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Languages<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1017,10 +1003,7 @@ impl INumberFormatterOptions_Vtbl {
 #[repr(C)]
 pub struct INumberFormatterOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Languages: usize,
     pub GeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IntegerDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetIntegerDigits: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -1360,10 +1343,7 @@ impl windows_core::RuntimeType for INumeralSystemTranslator {
 #[repr(C)]
 pub struct INumeralSystemTranslator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Languages: usize,
     pub ResolvedLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetNumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1376,10 +1356,7 @@ impl windows_core::RuntimeType for INumeralSystemTranslatorFactory {
 #[repr(C)]
 pub struct INumeralSystemTranslatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create: usize,
 }
 windows_core::imp::define_interface!(IPercentFormatterFactory, IPercentFormatterFactory_Vtbl, 0xb7828aef_fed4_4018_a6e2_e09961e03765);
 impl windows_core::RuntimeType for IPercentFormatterFactory {
@@ -1388,10 +1365,7 @@ impl windows_core::RuntimeType for IPercentFormatterFactory {
 #[repr(C)]
 pub struct IPercentFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreatePercentFormatter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreatePercentFormatter: usize,
 }
 windows_core::imp::define_interface!(IPermilleFormatterFactory, IPermilleFormatterFactory_Vtbl, 0x2b37b4ac_e638_4ed5_a998_62f6b06a49ae);
 impl windows_core::RuntimeType for IPermilleFormatterFactory {
@@ -1400,10 +1374,7 @@ impl windows_core::RuntimeType for IPermilleFormatterFactory {
 #[repr(C)]
 pub struct IPermilleFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreatePermilleFormatter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreatePermilleFormatter: usize,
 }
 windows_core::imp::define_interface!(ISignedZeroOption, ISignedZeroOption_Vtbl, 0xfd1cdd31_0a3c_49c4_a642_96a1564f4f30);
 impl windows_core::RuntimeType for ISignedZeroOption {
@@ -1640,8 +1611,7 @@ impl NumeralSystemTranslator {
         static SHARED: windows_core::imp::FactoryCache<NumeralSystemTranslator, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Languages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1673,10 +1643,9 @@ impl NumeralSystemTranslator {
             (windows_core::Interface::vtable(this).TranslateNumerals)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(languages: P0) -> windows_core::Result<NumeralSystemTranslator>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::INumeralSystemTranslatorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1755,8 +1724,7 @@ impl PercentFormatter {
             (windows_core::Interface::vtable(this).FormatDouble)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Languages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1874,10 +1842,9 @@ impl PercentFormatter {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePercentFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<PercentFormatter>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IPercentFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1978,8 +1945,7 @@ impl PermilleFormatter {
             (windows_core::Interface::vtable(this).FormatDouble)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Languages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2097,10 +2063,9 @@ impl PermilleFormatter {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePermilleFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<PermilleFormatter>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IPermilleFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();

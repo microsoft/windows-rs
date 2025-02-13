@@ -182,10 +182,7 @@ pub struct IPointerDevice_Vtbl {
     pub MaxContacts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub PhysicalDeviceRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
     pub ScreenRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedUsages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedUsages: usize,
 }
 windows_core::imp::define_interface!(IPointerDevice2, IPointerDevice2_Vtbl, 0xf8a6d2a0_c484_489f_ae3e_30d2ee1ffd3e);
 impl windows_core::RuntimeType for IPointerDevice2 {
@@ -204,10 +201,7 @@ impl windows_core::RuntimeType for IPointerDeviceStatics {
 pub struct IPointerDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetPointerDevice: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetPointerDevices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetPointerDevices: usize,
 }
 windows_core::imp::define_interface!(ITouchCapabilities, ITouchCapabilities_Vtbl, 0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f);
 impl windows_core::RuntimeType for ITouchCapabilities {
@@ -722,8 +716,7 @@ impl PointerDevice {
             (windows_core::Interface::vtable(this).ScreenRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedUsages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PointerDeviceUsage>> {
+    pub fn SupportedUsages(&self) -> windows_core::Result<windows_collections::IVectorView<PointerDeviceUsage>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -743,8 +736,7 @@ impl PointerDevice {
             (windows_core::Interface::vtable(this).GetPointerDevice)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPointerDevices() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PointerDevice>> {
+    pub fn GetPointerDevices() -> windows_core::Result<windows_collections::IVectorView<PointerDevice>> {
         Self::IPointerDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPointerDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

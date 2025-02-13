@@ -728,10 +728,7 @@ impl windows_core::RuntimeType for IUserDataAccountSystemAccessManagerStatics {
 #[repr(C)]
 pub struct IUserDataAccountSystemAccessManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AddAndShowDeviceAccountsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AddAndShowDeviceAccountsAsync: usize,
 }
 windows_core::imp::define_interface!(IUserDataAccountSystemAccessManagerStatics2, IUserDataAccountSystemAccessManagerStatics2_Vtbl, 0x943f854d_4b4e_439f_83d3_979b27c05ac7);
 impl windows_core::RuntimeType for IUserDataAccountSystemAccessManagerStatics2 {
@@ -747,10 +744,9 @@ pub struct IUserDataAccountSystemAccessManagerStatics2_Vtbl {
 }
 pub struct UserDataAccountSystemAccessManager;
 impl UserDataAccountSystemAccessManager {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AddAndShowDeviceAccountsAsync<P0>(accounts: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>>
+    pub fn AddAndShowDeviceAccountsAsync<P0>(accounts: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>>,
+        P0: windows_core::Param<windows_collections::IIterable<DeviceAccountConfiguration>>,
     {
         Self::IUserDataAccountSystemAccessManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();

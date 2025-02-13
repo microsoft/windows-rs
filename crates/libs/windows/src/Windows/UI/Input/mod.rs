@@ -500,10 +500,9 @@ impl GestureRecognizer {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessDownEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessMoveEvents<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<PointerPoint>>,
+        P0: windows_core::Param<windows_collections::IVector<PointerPoint>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessMoveEvents)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -1019,10 +1018,7 @@ pub struct IGestureRecognizer_Vtbl {
     pub MouseWheelParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CanBeDoubleTap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ProcessDownEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ProcessMoveEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ProcessMoveEvents: usize,
     pub ProcessUpEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProcessMouseWheelEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, bool) -> windows_core::HRESULT,
     pub ProcessInertia: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1284,10 +1280,7 @@ pub struct IPhysicalGestureRecognizer_Vtbl {
     pub TranslationMaxContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetTranslationMaxContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ProcessDownEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ProcessMoveEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ProcessMoveEvents: usize,
     pub ProcessUpEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CompleteGesture: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ManipulationStarted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1379,15 +1372,9 @@ impl windows_core::RuntimeType for IPointerPointStatics {
 pub struct IPointerPointStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentPoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetIntermediatePoints: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetIntermediatePoints: usize,
     pub GetCurrentPointTransformed: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetIntermediatePointsTransformed: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetIntermediatePointsTransformed: usize,
 }
 windows_core::imp::define_interface!(IPointerPointTransform, IPointerPointTransform_Vtbl, 0x4d5fe14f_b87c_4028_bc9c_59e9947fb056);
 impl windows_core::RuntimeType for IPointerPointTransform {
@@ -1611,10 +1598,7 @@ impl windows_core::RuntimeType for IRadialControllerConfiguration {
 #[repr(C)]
 pub struct IRadialControllerConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetDefaultMenuItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetDefaultMenuItems: usize,
     pub ResetToDefaultMenuItems: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TrySelectDefaultMenuItem: unsafe extern "system" fn(*mut core::ffi::c_void, RadialControllerSystemMenuItemKind, *mut bool) -> windows_core::HRESULT,
 }
@@ -1680,10 +1664,7 @@ impl windows_core::RuntimeType for IRadialControllerMenu {
 #[repr(C)]
 pub struct IRadialControllerMenu_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Items: usize,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub GetSelectedMenuItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2569,10 +2550,9 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessDownEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessMoveEvents<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<PointerPoint>>,
+        P0: windows_core::Param<windows_collections::IVector<PointerPoint>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessMoveEvents)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -2751,8 +2731,7 @@ impl PointerPoint {
             (windows_core::Interface::vtable(this).GetCurrentPoint)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetIntermediatePoints(pointerid: u32) -> windows_core::Result<super::super::Foundation::Collections::IVector<PointerPoint>> {
+    pub fn GetIntermediatePoints(pointerid: u32) -> windows_core::Result<windows_collections::IVector<PointerPoint>> {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIntermediatePoints)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2767,8 +2746,7 @@ impl PointerPoint {
             (windows_core::Interface::vtable(this).GetCurrentPointTransformed)(windows_core::Interface::as_raw(this), pointerid, transform.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetIntermediatePointsTransformed<P1>(pointerid: u32, transform: P1) -> windows_core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>
+    pub fn GetIntermediatePointsTransformed<P1>(pointerid: u32, transform: P1) -> windows_core::Result<windows_collections::IVector<PointerPoint>>
     where
         P1: windows_core::Param<IPointerPointTransform>,
     {
@@ -3395,10 +3373,9 @@ unsafe impl Sync for RadialControllerButtonReleasedEventArgs {}
 pub struct RadialControllerConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerConfiguration {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetDefaultMenuItems<P0>(&self, buttons: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>>,
+        P0: windows_core::Param<windows_collections::IIterable<RadialControllerSystemMenuItemKind>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDefaultMenuItems)(windows_core::Interface::as_raw(this), buttons.param().abi()).ok() }
@@ -3532,8 +3509,7 @@ unsafe impl Sync for RadialControllerControlAcquiredEventArgs {}
 pub struct RadialControllerMenu(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerMenu, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerMenu {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Items(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<RadialControllerMenuItem>> {
+    pub fn Items(&self) -> windows_core::Result<windows_collections::IVector<RadialControllerMenuItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

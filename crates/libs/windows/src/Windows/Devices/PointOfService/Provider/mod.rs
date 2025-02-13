@@ -430,8 +430,7 @@ impl BarcodeScannerProviderConnection {
             (windows_core::Interface::vtable(this).VideoDeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedSymbologies(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<u32>> {
+    pub fn SupportedSymbologies(&self) -> windows_core::Result<windows_collections::IVector<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -695,8 +694,7 @@ unsafe impl Sync for BarcodeScannerProviderTriggerDetails {}
 pub struct BarcodeScannerSetActiveSymbologiesRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerSetActiveSymbologiesRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerSetActiveSymbologiesRequest {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Symbologies(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn Symbologies(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1308,10 +1306,7 @@ pub struct IBarcodeScannerProviderConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub VideoDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedSymbologies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedSymbologies: usize,
     pub CompanyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCompanyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1373,10 +1368,7 @@ impl windows_core::RuntimeType for IBarcodeScannerSetActiveSymbologiesRequest {
 #[repr(C)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Symbologies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Symbologies: usize,
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }

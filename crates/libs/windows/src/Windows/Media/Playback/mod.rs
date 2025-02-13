@@ -244,10 +244,7 @@ pub struct IMediaBreakSchedule_Vtbl {
     pub RemoveScheduleChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub InsertMidrollBreak: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveMidrollBreak: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub MidrollBreaks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    MidrollBreaks: usize,
     pub SetPrerollBreak: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PrerollBreak: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPostrollBreak: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -261,10 +258,7 @@ impl windows_core::RuntimeType for IMediaBreakSeekedOverEventArgs {
 #[repr(C)]
 pub struct IMediaBreakSeekedOverEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SeekedOverBreaks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SeekedOverBreaks: usize,
     pub OldPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub NewPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
@@ -575,17 +569,17 @@ pub struct IMediaPlaybackItem_Vtbl {
     pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Media_Core"))]
     Source: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub AudioTracks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Core")))]
+    #[cfg(not(feature = "Media_Core"))]
     AudioTracks: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub VideoTracks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Core")))]
+    #[cfg(not(feature = "Media_Core"))]
     VideoTracks: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub TimedMetadataTracks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Core")))]
+    #[cfg(not(feature = "Media_Core"))]
     TimedMetadataTracks: usize,
 }
 windows_core::imp::define_interface!(IMediaPlaybackItem2, IMediaPlaybackItem2_Vtbl, 0xd859d171_d7ef_4b81_ac1f_f40493cbb091);
@@ -723,14 +717,8 @@ pub struct IMediaPlaybackList2_Vtbl {
     pub SetMaxPrefetchTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartingItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetStartingItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ShuffledItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ShuffledItems: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetShuffledItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetShuffledItems: usize,
 }
 windows_core::imp::define_interface!(IMediaPlaybackList3, IMediaPlaybackList3_Vtbl, 0xdd24bba9_bc47_4463_aa90_c18b7e5ffde1);
 impl windows_core::RuntimeType for IMediaPlaybackList3 {
@@ -812,18 +800,9 @@ pub struct IMediaPlaybackSession2_Vtbl {
     pub SphericalVideoProjection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsMirroring: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsMirroring: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetBufferedRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetBufferedRanges: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetPlayedRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetPlayedRanges: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSeekableRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSeekableRanges: usize,
     pub IsSupportedPlaybackRateRange: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackSession3, IMediaPlaybackSession3_Vtbl, 0x7ba2b41a_a3e2_405f_b77b_a4812c238b66);
@@ -919,9 +898,9 @@ impl windows_core::RuntimeType for IMediaPlaybackTimedMetadataTrackList {
 #[repr(C)]
 pub struct IMediaPlaybackTimedMetadataTrackList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub PresentationModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Core")))]
+    #[cfg(not(feature = "Media_Core"))]
     PresentationModeChanged: usize,
     pub RemovePresentationModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub GetPresentationMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut TimedMetadataTrackPresentationMode) -> windows_core::HRESULT,
@@ -982,9 +961,9 @@ pub struct IMediaPlayer_Vtbl {
     SetPlaybackRate: usize,
     pub Volume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub PlaybackMediaMarkers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     PlaybackMediaMarkers: usize,
     pub MediaOpened: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveMediaOpened: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -1310,13 +1289,10 @@ pub struct IPlaybackMediaMarkerReachedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PlaybackMediaMarker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::define_interface!(IPlaybackMediaMarkerSequence, IPlaybackMediaMarkerSequence_Vtbl, 0xf2810cee_638b_46cf_8817_1d111fe9d8c4);
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for IPlaybackMediaMarkerSequence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
 pub struct IPlaybackMediaMarkerSequence_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1582,8 +1558,7 @@ impl MediaBreakSchedule {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMidrollBreak)(windows_core::Interface::as_raw(this), mediabreak.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn MidrollBreaks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MediaBreak>> {
+    pub fn MidrollBreaks(&self) -> windows_core::Result<windows_collections::IVectorView<MediaBreak>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1643,8 +1618,7 @@ unsafe impl Sync for MediaBreakSchedule {}
 pub struct MediaBreakSeekedOverEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaBreakSeekedOverEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaBreakSeekedOverEventArgs {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SeekedOverBreaks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MediaBreak>> {
+    pub fn SeekedOverBreaks(&self) -> windows_core::Result<windows_collections::IVectorView<MediaBreak>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1805,18 +1779,18 @@ impl windows_core::RuntimeName for MediaItemDisplayProperties {
 }
 unsafe impl Send for MediaItemDisplayProperties {}
 unsafe impl Sync for MediaItemDisplayProperties {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaPlaybackAudioTrackList(windows_core::IUnknown);
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::interface_hierarchy!(MediaPlaybackAudioTrackList, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>);
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::required_hierarchy!(MediaPlaybackAudioTrackList, super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>, super::Core::ISingleSelectMediaTrackList);
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
+windows_core::imp::interface_hierarchy!(MediaPlaybackAudioTrackList, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVectorView<super::Core::AudioTrack>);
+#[cfg(feature = "Media_Core")]
+windows_core::imp::required_hierarchy!(MediaPlaybackAudioTrackList, windows_collections::IIterable<super::Core::AudioTrack>, super::Core::ISingleSelectMediaTrackList);
+#[cfg(feature = "Media_Core")]
 impl MediaPlaybackAudioTrackList {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::Core::AudioTrack>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<super::Core::AudioTrack>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<super::Core::AudioTrack>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1879,35 +1853,35 @@ impl MediaPlaybackAudioTrackList {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl windows_core::RuntimeType for MediaPlaybackAudioTrackList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVectorView<super::Core::AudioTrack>>();
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 unsafe impl windows_core::Interface for MediaPlaybackAudioTrackList {
-    type Vtable = <super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IVectorView<super::Core::AudioTrack> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IVectorView<super::Core::AudioTrack> as windows_core::Interface>::IID;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl windows_core::RuntimeName for MediaPlaybackAudioTrackList {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackAudioTrackList";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 unsafe impl Send for MediaPlaybackAudioTrackList {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 unsafe impl Sync for MediaPlaybackAudioTrackList {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl IntoIterator for MediaPlaybackAudioTrackList {
     type Item = super::Core::AudioTrack;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl IntoIterator for &MediaPlaybackAudioTrackList {
     type Item = super::Core::AudioTrack;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -2662,7 +2636,7 @@ impl MediaPlaybackItem {
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub fn AudioTracks(&self) -> windows_core::Result<MediaPlaybackAudioTrackList> {
         let this = self;
         unsafe {
@@ -2670,7 +2644,7 @@ impl MediaPlaybackItem {
             (windows_core::Interface::vtable(this).AudioTracks)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub fn VideoTracks(&self) -> windows_core::Result<MediaPlaybackVideoTrackList> {
         let this = self;
         unsafe {
@@ -2678,7 +2652,7 @@ impl MediaPlaybackItem {
             (windows_core::Interface::vtable(this).VideoTracks)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[cfg(feature = "Media_Core")]
     pub fn TimedMetadataTracks(&self) -> windows_core::Result<MediaPlaybackTimedMetadataTrackList> {
         let this = self;
         unsafe {
@@ -3095,18 +3069,16 @@ impl MediaPlaybackList {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStartingItem)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ShuffledItems(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MediaPlaybackItem>> {
+    pub fn ShuffledItems(&self) -> windows_core::Result<windows_collections::IVectorView<MediaPlaybackItem>> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShuffledItems)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetShuffledItems<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<MediaPlaybackItem>>,
+        P0: windows_core::Param<windows_collections::IIterable<MediaPlaybackItem>>,
     {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetShuffledItems)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -3473,24 +3445,21 @@ impl MediaPlaybackSession {
         let this = &windows_core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsMirroring)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetBufferedRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaTimeRange>> {
+    pub fn GetBufferedRanges(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaTimeRange>> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBufferedRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPlayedRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaTimeRange>> {
+    pub fn GetPlayedRanges(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaTimeRange>> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPlayedRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSeekableRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaTimeRange>> {
+    pub fn GetSeekableRanges(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaTimeRange>> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3698,18 +3667,18 @@ impl windows_core::TypeKind for MediaPlaybackState {
 impl windows_core::RuntimeType for MediaPlaybackState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackState;i4)");
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaPlaybackTimedMetadataTrackList(windows_core::IUnknown);
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::interface_hierarchy!(MediaPlaybackTimedMetadataTrackList, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>);
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::required_hierarchy!(MediaPlaybackTimedMetadataTrackList, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>);
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
+windows_core::imp::interface_hierarchy!(MediaPlaybackTimedMetadataTrackList, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVectorView<super::Core::TimedMetadataTrack>);
+#[cfg(feature = "Media_Core")]
+windows_core::imp::required_hierarchy!(MediaPlaybackTimedMetadataTrackList, windows_collections::IIterable<super::Core::TimedMetadataTrack>);
+#[cfg(feature = "Media_Core")]
 impl MediaPlaybackTimedMetadataTrackList {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::Core::TimedMetadataTrack>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<super::Core::TimedMetadataTrack>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<super::Core::TimedMetadataTrack>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3772,51 +3741,51 @@ impl MediaPlaybackTimedMetadataTrackList {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl windows_core::RuntimeType for MediaPlaybackTimedMetadataTrackList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVectorView<super::Core::TimedMetadataTrack>>();
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 unsafe impl windows_core::Interface for MediaPlaybackTimedMetadataTrackList {
-    type Vtable = <super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IVectorView<super::Core::TimedMetadataTrack> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IVectorView<super::Core::TimedMetadataTrack> as windows_core::Interface>::IID;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl windows_core::RuntimeName for MediaPlaybackTimedMetadataTrackList {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackTimedMetadataTrackList";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 unsafe impl Send for MediaPlaybackTimedMetadataTrackList {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 unsafe impl Sync for MediaPlaybackTimedMetadataTrackList {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl IntoIterator for MediaPlaybackTimedMetadataTrackList {
     type Item = super::Core::TimedMetadataTrack;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl IntoIterator for &MediaPlaybackTimedMetadataTrackList {
     type Item = super::Core::TimedMetadataTrack;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaPlaybackVideoTrackList(windows_core::IUnknown);
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::interface_hierarchy!(MediaPlaybackVideoTrackList, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>);
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::required_hierarchy!(MediaPlaybackVideoTrackList, super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>, super::Core::ISingleSelectMediaTrackList);
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
+windows_core::imp::interface_hierarchy!(MediaPlaybackVideoTrackList, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVectorView<super::Core::VideoTrack>);
+#[cfg(feature = "Media_Core")]
+windows_core::imp::required_hierarchy!(MediaPlaybackVideoTrackList, windows_collections::IIterable<super::Core::VideoTrack>, super::Core::ISingleSelectMediaTrackList);
+#[cfg(feature = "Media_Core")]
 impl MediaPlaybackVideoTrackList {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::Core::VideoTrack>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<super::Core::VideoTrack>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<super::Core::VideoTrack>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3879,35 +3848,35 @@ impl MediaPlaybackVideoTrackList {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl windows_core::RuntimeType for MediaPlaybackVideoTrackList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVectorView<super::Core::VideoTrack>>();
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 unsafe impl windows_core::Interface for MediaPlaybackVideoTrackList {
-    type Vtable = <super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IVectorView<super::Core::VideoTrack> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IVectorView<super::Core::VideoTrack> as windows_core::Interface>::IID;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl windows_core::RuntimeName for MediaPlaybackVideoTrackList {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackVideoTrackList";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 unsafe impl Send for MediaPlaybackVideoTrackList {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 unsafe impl Sync for MediaPlaybackVideoTrackList {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl IntoIterator for MediaPlaybackVideoTrackList {
     type Item = super::Core::VideoTrack;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+#[cfg(feature = "Media_Core")]
 impl IntoIterator for &MediaPlaybackVideoTrackList {
     type Item = super::Core::VideoTrack;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -4047,7 +4016,7 @@ impl MediaPlayer {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVolume)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub fn PlaybackMediaMarkers(&self) -> windows_core::Result<PlaybackMediaMarkerSequence> {
         let this = self;
         unsafe {
@@ -4871,18 +4840,14 @@ impl windows_core::RuntimeName for PlaybackMediaMarkerReachedEventArgs {
 }
 unsafe impl Send for PlaybackMediaMarkerReachedEventArgs {}
 unsafe impl Sync for PlaybackMediaMarkerReachedEventArgs {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PlaybackMediaMarkerSequence(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PlaybackMediaMarkerSequence, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(PlaybackMediaMarkerSequence, super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(PlaybackMediaMarkerSequence, windows_collections::IIterable<PlaybackMediaMarker>);
 impl PlaybackMediaMarkerSequence {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<PlaybackMediaMarker>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<PlaybackMediaMarker>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<PlaybackMediaMarker>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4907,35 +4872,28 @@ impl PlaybackMediaMarkerSequence {
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlaybackMediaMarkerSequence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackMediaMarkerSequence>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlaybackMediaMarkerSequence {
     type Vtable = <IPlaybackMediaMarkerSequence as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlaybackMediaMarkerSequence as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for PlaybackMediaMarkerSequence {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarkerSequence";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for PlaybackMediaMarkerSequence {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for PlaybackMediaMarkerSequence {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for PlaybackMediaMarkerSequence {
     type Item = PlaybackMediaMarker;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &PlaybackMediaMarkerSequence {
     type Item = PlaybackMediaMarker;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }

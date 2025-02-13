@@ -425,10 +425,7 @@ impl windows_core::RuntimeType for IStorageProviderItemPropertiesStatics {
 #[repr(C)]
 pub struct IStorageProviderItemPropertiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetAsync: usize,
 }
 windows_core::imp::define_interface!(IStorageProviderItemProperty, IStorageProviderItemProperty_Vtbl, 0x476cb558_730b_4188_b7b5_63b716ed476d);
 impl windows_core::RuntimeType for IStorageProviderItemProperty {
@@ -462,8 +459,7 @@ impl windows_core::RuntimeType for IStorageProviderItemPropertySource {
 }
 windows_core::imp::interface_hierarchy!(IStorageProviderItemPropertySource, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderItemPropertySource {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetItemProperties(&self, itempath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>> {
+    pub fn GetItemProperties(&self, itempath: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<StorageProviderItemProperty>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -471,15 +467,12 @@ impl IStorageProviderItemPropertySource {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IStorageProviderItemPropertySource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderItemPropertySource";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait IStorageProviderItemPropertySource_Impl: windows_core::IUnknownImpl {
-    fn GetItemProperties(&self, itemPath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>;
+    fn GetItemProperties(&self, itemPath: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<StorageProviderItemProperty>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IStorageProviderItemPropertySource_Vtbl {
     pub const fn new<Identity: IStorageProviderItemPropertySource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetItemProperties<Identity: IStorageProviderItemPropertySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itempath: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -507,10 +500,7 @@ impl IStorageProviderItemPropertySource_Vtbl {
 #[repr(C)]
 pub struct IStorageProviderItemPropertySource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetItemProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetItemProperties: usize,
 }
 windows_core::imp::define_interface!(IStorageProviderKnownFolderEntry, IStorageProviderKnownFolderEntry_Vtbl, 0xeffa7db0_1d44_596b_8464_928800c5e2d8);
 impl windows_core::RuntimeType for IStorageProviderKnownFolderEntry {
@@ -533,10 +523,7 @@ pub struct IStorageProviderKnownFolderSyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProviderDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetProviderDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub KnownFolderEntries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    KnownFolderEntries: usize,
     pub SyncRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSyncRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -683,10 +670,7 @@ impl windows_core::RuntimeType for IStorageProviderKnownFolderSyncRequestArgs {
 #[repr(C)]
 pub struct IStorageProviderKnownFolderSyncRequestArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub KnownFolders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    KnownFolders: usize,
     #[cfg(feature = "Storage_Search")]
     pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Search"))]
@@ -780,10 +764,9 @@ impl windows_core::RuntimeType for IStorageProviderShareLinkSource {
 }
 windows_core::imp::interface_hierarchy!(IStorageProviderShareLinkSource, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderShareLinkSource {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateLinkAsync<P0>(&self, storageitemlist: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>,
+        P0: windows_core::Param<windows_collections::IVectorView<super::IStorageItem>>,
     {
         let this = self;
         unsafe {
@@ -791,10 +774,9 @@ impl IStorageProviderShareLinkSource {
             (windows_core::Interface::vtable(this).CreateLinkAsync)(windows_core::Interface::as_raw(this), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetDefaultAccessControlStringAsync<P0>(&self, storageitemlist: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>,
+        P0: windows_core::Param<windows_collections::IVectorView<super::IStorageItem>>,
     {
         let this = self;
         unsafe {
@@ -802,10 +784,9 @@ impl IStorageProviderShareLinkSource {
             (windows_core::Interface::vtable(this).GetDefaultAccessControlStringAsync)(windows_core::Interface::as_raw(this), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetState<P0>(&self, storageitemlist: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorageProviderShareLinkState>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>,
+        P0: windows_core::Param<windows_collections::IVectorView<super::IStorageItem>>,
     {
         let this = self;
         unsafe {
@@ -814,17 +795,14 @@ impl IStorageProviderShareLinkSource {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IStorageProviderShareLinkSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderShareLinkSource";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait IStorageProviderShareLinkSource_Impl: windows_core::IUnknownImpl {
-    fn CreateLinkAsync(&self, storageItemList: windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>;
-    fn GetDefaultAccessControlStringAsync(&self, storageItemList: windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>;
-    fn GetState(&self, storageItemList: windows_core::Ref<'_, super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorageProviderShareLinkState>>;
+    fn CreateLinkAsync(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>;
+    fn GetDefaultAccessControlStringAsync(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>;
+    fn GetState(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorageProviderShareLinkState>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IStorageProviderShareLinkSource_Vtbl {
     pub const fn new<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateLinkAsync<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storageitemlist: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -880,18 +858,9 @@ impl IStorageProviderShareLinkSource_Vtbl {
 #[repr(C)]
 pub struct IStorageProviderShareLinkSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateLinkAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateLinkAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetDefaultAccessControlStringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetDefaultAccessControlStringAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetState: usize,
 }
 windows_core::imp::define_interface!(IStorageProviderStatusUI, IStorageProviderStatusUI_Vtbl, 0xd6b6a758_198d_5b80_977f_5ff73da33118);
 impl windows_core::RuntimeType for IStorageProviderStatusUI {
@@ -914,14 +883,8 @@ pub struct IStorageProviderStatusUI_Vtbl {
     pub SetMoreInfoUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProviderPrimaryCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetProviderPrimaryCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ProviderSecondaryCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ProviderSecondaryCommands: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetProviderSecondaryCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetProviderSecondaryCommands: usize,
 }
 windows_core::imp::define_interface!(IStorageProviderStatusUISource, IStorageProviderStatusUISource_Vtbl, 0xa306c249_3d66_5e70_9007_e43df96051ff);
 impl windows_core::RuntimeType for IStorageProviderStatusUISource {
@@ -1100,10 +1063,7 @@ pub struct IStorageProviderSyncRootInfo_Vtbl {
     pub SetProtectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, StorageProviderProtectionMode) -> windows_core::HRESULT,
     pub AllowPinning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowPinning: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub StorageProviderItemPropertyDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StorageProviderItemPropertyDefinitions: usize,
     pub RecycleBinUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRecycleBinUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -1124,10 +1084,7 @@ impl windows_core::RuntimeType for IStorageProviderSyncRootInfo3 {
 #[repr(C)]
 pub struct IStorageProviderSyncRootInfo3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FallbackFileTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FallbackFileTypeInfo: usize,
 }
 windows_core::imp::define_interface!(IStorageProviderSyncRootManagerStatics, IStorageProviderSyncRootManagerStatics_Vtbl, 0x3e99fbbf_8fe3_4b40_abc7_f6fc3d74c98e);
 impl windows_core::RuntimeType for IStorageProviderSyncRootManagerStatics {
@@ -1140,10 +1097,7 @@ pub struct IStorageProviderSyncRootManagerStatics_Vtbl {
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSyncRootInformationForFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSyncRootInformationForId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentSyncRoots: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCurrentSyncRoots: usize,
 }
 windows_core::imp::define_interface!(IStorageProviderSyncRootManagerStatics2, IStorageProviderSyncRootManagerStatics2_Vtbl, 0xefb6cfee_1374_544e_9df1_5598d2e9cfdd);
 impl windows_core::RuntimeType for IStorageProviderSyncRootManagerStatics2 {
@@ -1670,11 +1624,10 @@ impl core::ops::Not for StorageProviderInSyncPolicy {
 }
 pub struct StorageProviderItemProperties;
 impl StorageProviderItemProperties {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetAsync<P0, P1>(item: P0, itemproperties: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: windows_core::Param<super::IStorageItem>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>,
+        P1: windows_core::Param<windows_collections::IIterable<StorageProviderItemProperty>>,
     {
         Self::IStorageProviderItemPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1864,8 +1817,7 @@ impl StorageProviderKnownFolderSyncInfo {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetProviderDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn KnownFolderEntries(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<StorageProviderKnownFolderEntry>> {
+    pub fn KnownFolderEntries(&self) -> windows_core::Result<windows_collections::IVector<StorageProviderKnownFolderEntry>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1904,8 +1856,7 @@ unsafe impl Sync for StorageProviderKnownFolderSyncInfo {}
 pub struct StorageProviderKnownFolderSyncRequestArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderKnownFolderSyncRequestArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderKnownFolderSyncRequestArgs {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn KnownFolders(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::GUID>> {
+    pub fn KnownFolders(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::GUID>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2299,18 +2250,16 @@ impl StorageProviderStatusUI {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetProviderPrimaryCommand)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ProviderSecondaryCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<IStorageProviderUICommand>> {
+    pub fn ProviderSecondaryCommands(&self) -> windows_core::Result<windows_collections::IVector<IStorageProviderUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProviderSecondaryCommands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetProviderSecondaryCommands<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<IStorageProviderUICommand>>,
+        P0: windows_core::Param<windows_collections::IVector<IStorageProviderUICommand>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetProviderSecondaryCommands)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -2502,8 +2451,7 @@ impl StorageProviderSyncRootInfo {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAllowPinning)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn StorageProviderItemPropertyDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>> {
+    pub fn StorageProviderItemPropertyDefinitions(&self) -> windows_core::Result<windows_collections::IVector<StorageProviderItemPropertyDefinition>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2535,8 +2483,7 @@ impl StorageProviderSyncRootInfo {
         let this = &windows_core::Interface::cast::<IStorageProviderSyncRootInfo2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetProviderId)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FallbackFileTypeInfo(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<StorageProviderFileTypeInfo>> {
+    pub fn FallbackFileTypeInfo(&self) -> windows_core::Result<windows_collections::IVector<StorageProviderFileTypeInfo>> {
         let this = &windows_core::Interface::cast::<IStorageProviderSyncRootInfo3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2582,8 +2529,7 @@ impl StorageProviderSyncRootManager {
             (windows_core::Interface::vtable(this).GetSyncRootInformationForId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCurrentSyncRoots() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>> {
+    pub fn GetCurrentSyncRoots() -> windows_core::Result<windows_collections::IVectorView<StorageProviderSyncRootInfo>> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentSyncRoots)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

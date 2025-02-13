@@ -41,10 +41,7 @@ pub struct IWebViewControlProcess_Vtbl {
     pub EnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsPrivateNetworkClientServerCapabilityEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub CreateWebViewControlAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i64, super::super::super::Foundation::Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetWebViewControls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetWebViewControls: usize,
     pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProcessExited: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveProcessExited: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -171,8 +168,7 @@ impl WebViewControl {
             (windows_core::Interface::vtable(this).Settings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DeferredPermissionRequests(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::WebViewControlDeferredPermissionRequest>> {
+    pub fn DeferredPermissionRequests(&self) -> windows_core::Result<windows_collections::IVectorView<super::WebViewControlDeferredPermissionRequest>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -222,10 +218,9 @@ impl WebViewControl {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).NavigateWithHttpRequestMessage)(windows_core::Interface::as_raw(this), requestmessage.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InvokeScriptAsync<P1>(&self, scriptname: &windows_core::HSTRING, arguments: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -768,8 +763,7 @@ impl WebViewControlProcess {
             (windows_core::Interface::vtable(this).CreateWebViewControlAsync)(windows_core::Interface::as_raw(this), hostwindowhandle, bounds, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetWebViewControls(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<WebViewControl>> {
+    pub fn GetWebViewControls(&self) -> windows_core::Result<windows_collections::IVectorView<WebViewControl>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

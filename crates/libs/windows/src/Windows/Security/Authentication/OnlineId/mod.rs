@@ -20,10 +20,7 @@ impl windows_core::RuntimeType for IOnlineIdAuthenticator {
 pub struct IOnlineIdAuthenticator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AuthenticateUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub AuthenticateUserAsyncAdvanced: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CredentialPromptType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AuthenticateUserAsyncAdvanced: usize,
     pub SignOutUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub ApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -117,10 +114,7 @@ impl windows_core::RuntimeType for IUserIdentity {
 #[repr(C)]
 pub struct IUserIdentity_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Tickets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Tickets: usize,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SafeCustomerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SignInName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -151,10 +145,9 @@ impl OnlineIdAuthenticator {
             (windows_core::Interface::vtable(this).AuthenticateUserAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn AuthenticateUserAsyncAdvanced<P0>(&self, requests: P0, credentialprompttype: CredentialPromptType) -> windows_core::Result<UserAuthenticationOperation>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>,
+        P0: windows_core::Param<windows_collections::IIterable<OnlineIdServiceTicketRequest>>,
     {
         let this = self;
         unsafe {
@@ -459,8 +452,7 @@ pub type UserAuthenticationOperation = super::super::super::Foundation::IAsyncOp
 pub struct UserIdentity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserIdentity, windows_core::IUnknown, windows_core::IInspectable);
 impl UserIdentity {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Tickets(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>> {
+    pub fn Tickets(&self) -> windows_core::Result<windows_collections::IVectorView<OnlineIdServiceTicket>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

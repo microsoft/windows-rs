@@ -1,4 +1,5 @@
 use windows::{core::*, Devices::Enumeration::*, Foundation::Collections::*, Foundation::*};
+use windows_collections::*;
 
 #[test]
 fn signatures() {

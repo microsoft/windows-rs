@@ -48,8 +48,7 @@ impl ArcadeStick {
     pub fn RemoveArcadeStickRemoved(token: i64) -> windows_core::Result<()> {
         Self::IArcadeStickStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveArcadeStickRemoved)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ArcadeSticks() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ArcadeStick>> {
+    pub fn ArcadeSticks() -> windows_core::Result<windows_collections::IVectorView<ArcadeStick>> {
         Self::IArcadeStickStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ArcadeSticks)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -278,8 +277,7 @@ impl FlightStick {
     pub fn RemoveFlightStickRemoved(token: i64) -> windows_core::Result<()> {
         Self::IFlightStickStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveFlightStickRemoved)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FlightSticks() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<FlightStick>> {
+    pub fn FlightSticks() -> windows_core::Result<windows_collections::IVectorView<FlightStick>> {
         Self::IFlightStickStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FlightSticks)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -690,8 +688,7 @@ impl Gamepad {
     pub fn RemoveGamepadRemoved(token: i64) -> windows_core::Result<()> {
         Self::IGamepadStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveGamepadRemoved)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Gamepads() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<Gamepad>> {
+    pub fn Gamepads() -> windows_core::Result<windows_collections::IVectorView<Gamepad>> {
         Self::IGamepadStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Gamepads)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -884,10 +881,7 @@ pub struct IArcadeStickStatics_Vtbl {
     pub RemoveArcadeStickAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub ArcadeStickRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveArcadeStickRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ArcadeSticks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ArcadeSticks: usize,
 }
 windows_core::imp::define_interface!(IArcadeStickStatics2, IArcadeStickStatics2_Vtbl, 0x52b5d744_bb86_445a_b59c_596f0e2a49df);
 impl windows_core::RuntimeType for IArcadeStickStatics2 {
@@ -920,10 +914,7 @@ pub struct IFlightStickStatics_Vtbl {
     pub RemoveFlightStickAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub FlightStickRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveFlightStickRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FlightSticks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FlightSticks: usize,
     pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameController, IGameController_Vtbl, 0x1baf6522_5f64_42c5_8267_b9fe2215bfbd);
@@ -1232,10 +1223,7 @@ pub struct IGamepadStatics_Vtbl {
     pub RemoveGamepadAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub GamepadRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveGamepadRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Gamepads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Gamepads: usize,
 }
 windows_core::imp::define_interface!(IGamepadStatics2, IGamepadStatics2_Vtbl, 0x42676dc5_0856_47c4_9213_b395504c3a3c);
 impl windows_core::RuntimeType for IGamepadStatics2 {
@@ -1286,10 +1274,7 @@ pub struct IRacingWheelStatics_Vtbl {
     pub RemoveRacingWheelAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub RacingWheelRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRacingWheelRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub RacingWheels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RacingWheels: usize,
 }
 windows_core::imp::define_interface!(IRacingWheelStatics2, IRacingWheelStatics2_Vtbl, 0xe666bcaa_edfd_4323_a9f6_3c384048d1ed);
 impl windows_core::RuntimeType for IRacingWheelStatics2 {
@@ -1309,9 +1294,9 @@ pub struct IRawGameController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AxisCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ButtonCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback"))]
+    #[cfg(feature = "Gaming_Input_ForceFeedback")]
     pub ForceFeedbackMotors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback")))]
+    #[cfg(not(feature = "Gaming_Input_ForceFeedback"))]
     ForceFeedbackMotors: usize,
     pub HardwareProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub HardwareVendorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -1327,9 +1312,9 @@ impl windows_core::RuntimeType for IRawGameController2 {
 #[repr(C)]
 pub struct IRawGameController2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Devices_Haptics", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Haptics")]
     pub SimpleHapticsControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Haptics", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Haptics"))]
     SimpleHapticsControllers: usize,
     pub NonRoamableId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1345,10 +1330,7 @@ pub struct IRawGameControllerStatics_Vtbl {
     pub RemoveRawGameControllerAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub RawGameControllerRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRawGameControllerRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub RawGameControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RawGameControllers: usize,
     pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUINavigationController, IUINavigationController_Vtbl, 0xe5aeefdd_f50e_4a55_8cdc_d33229548175);
@@ -1373,10 +1355,7 @@ pub struct IUINavigationControllerStatics_Vtbl {
     pub RemoveUINavigationControllerAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub UINavigationControllerRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveUINavigationControllerRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub UINavigationControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UINavigationControllers: usize,
 }
 windows_core::imp::define_interface!(IUINavigationControllerStatics2, IUINavigationControllerStatics2_Vtbl, 0xe0cb28e3_b20b_4b0b_9ed4_f3d53cec0de4);
 impl windows_core::RuntimeType for IUINavigationControllerStatics2 {
@@ -1604,8 +1583,7 @@ impl RacingWheel {
     pub fn RemoveRacingWheelRemoved(token: i64) -> windows_core::Result<()> {
         Self::IRacingWheelStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRacingWheelRemoved)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RacingWheels() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<RacingWheel>> {
+    pub fn RacingWheels() -> windows_core::Result<windows_collections::IVectorView<RacingWheel>> {
         Self::IRacingWheelStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RacingWheels)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1819,8 +1797,8 @@ impl RawGameController {
             (windows_core::Interface::vtable(this).ButtonCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback"))]
-    pub fn ForceFeedbackMotors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ForceFeedback::ForceFeedbackMotor>> {
+    #[cfg(feature = "Gaming_Input_ForceFeedback")]
+    pub fn ForceFeedbackMotors(&self) -> windows_core::Result<windows_collections::IVectorView<ForceFeedback::ForceFeedbackMotor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1869,8 +1847,8 @@ impl RawGameController {
             (windows_core::Interface::vtable(this).GetSwitchKind)(windows_core::Interface::as_raw(this), switchindex, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Devices_Haptics", feature = "Foundation_Collections"))]
-    pub fn SimpleHapticsControllers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Haptics::SimpleHapticsController>> {
+    #[cfg(feature = "Devices_Haptics")]
+    pub fn SimpleHapticsControllers(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Devices::Haptics::SimpleHapticsController>> {
         let this = &windows_core::Interface::cast::<IRawGameController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1915,8 +1893,7 @@ impl RawGameController {
     pub fn RemoveRawGameControllerRemoved(token: i64) -> windows_core::Result<()> {
         Self::IRawGameControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRawGameControllerRemoved)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RawGameControllers() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<RawGameController>> {
+    pub fn RawGameControllers() -> windows_core::Result<windows_collections::IVectorView<RawGameController>> {
         Self::IRawGameControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawGameControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2125,8 +2102,7 @@ impl UINavigationController {
     pub fn RemoveUINavigationControllerRemoved(token: i64) -> windows_core::Result<()> {
         Self::IUINavigationControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveUINavigationControllerRemoved)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UINavigationControllers() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UINavigationController>> {
+    pub fn UINavigationControllers() -> windows_core::Result<windows_collections::IVectorView<UINavigationController>> {
         Self::IUINavigationControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UINavigationControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

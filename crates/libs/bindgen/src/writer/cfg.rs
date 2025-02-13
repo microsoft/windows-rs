@@ -38,9 +38,17 @@ pub struct Cfg {
 }
 
 impl Cfg {
-    pub fn new<R: HasAttributes>(row: R, dependencies: &TypeMap) -> Self {
-        let features: BTreeSet<&'static str> =
-            dependencies.keys().map(|tn| tn.namespace()).collect();
+    pub fn new<R: HasAttributes>(row: R, dependencies: &TypeMap, writer: &Writer) -> Self {
+        let features: BTreeSet<&'static str> = dependencies
+            .keys()
+            .filter_map(|tn| {
+                if writer.config.types.contains_key(tn) {
+                    Some(tn.namespace())
+                } else {
+                    None
+                }
+            })
+            .collect();
 
         Self {
             features,
@@ -48,8 +56,13 @@ impl Cfg {
         }
     }
 
-    pub fn difference<R: HasAttributes>(&self, row: R, dependencies: &TypeMap) -> Self {
-        let mut difference = Self::new(row, dependencies);
+    pub fn difference<R: HasAttributes>(
+        &self,
+        row: R,
+        dependencies: &TypeMap,
+        writer: &Writer,
+    ) -> Self {
+        let mut difference = Self::new(row, dependencies, writer);
 
         for feature in &self.features {
             difference.features.remove(feature);

@@ -216,8 +216,7 @@ impl CoreApplication {
     pub fn DecrementApplicationUseCount() -> windows_core::Result<()> {
         Self::ICoreApplicationUseCount(|this| unsafe { (windows_core::Interface::vtable(this).DecrementApplicationUseCount)(windows_core::Interface::as_raw(this)).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Views() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<CoreApplicationView>> {
+    pub fn Views() -> windows_core::Result<windows_collections::IVectorView<CoreApplicationView>> {
         Self::ICoreImmersiveApplication(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Views)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -771,10 +770,7 @@ impl windows_core::RuntimeType for ICoreImmersiveApplication {
 #[repr(C)]
 pub struct ICoreImmersiveApplication_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Views: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Views: usize,
     pub CreateNewView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MainView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }

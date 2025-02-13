@@ -22,9 +22,9 @@ impl windows_core::RuntimeType for IOcrEngineStatics {
 pub struct IOcrEngineStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxImageDimension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+    #[cfg(feature = "Globalization")]
     pub AvailableRecognizerLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Globalization")))]
+    #[cfg(not(feature = "Globalization"))]
     AvailableRecognizerLanguages: usize,
     #[cfg(feature = "Globalization")]
     pub IsLanguageSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -43,10 +43,7 @@ impl windows_core::RuntimeType for IOcrLine {
 #[repr(C)]
 pub struct IOcrLine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Words: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Words: usize,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOcrResult, IOcrResult_Vtbl, 0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
@@ -56,10 +53,7 @@ impl windows_core::RuntimeType for IOcrResult {
 #[repr(C)]
 pub struct IOcrResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Lines: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Lines: usize,
     pub TextAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -103,8 +97,8 @@ impl OcrEngine {
             (windows_core::Interface::vtable(this).MaxImageDimension)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
-    pub fn AvailableRecognizerLanguages() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>> {
+    #[cfg(feature = "Globalization")]
+    pub fn AvailableRecognizerLanguages() -> windows_core::Result<windows_collections::IVectorView<super::super::Globalization::Language>> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AvailableRecognizerLanguages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -158,8 +152,7 @@ unsafe impl Sync for OcrEngine {}
 pub struct OcrLine(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrLine, windows_core::IUnknown, windows_core::IInspectable);
 impl OcrLine {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Words(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<OcrWord>> {
+    pub fn Words(&self) -> windows_core::Result<windows_collections::IVectorView<OcrWord>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -191,8 +184,7 @@ unsafe impl Sync for OcrLine {}
 pub struct OcrResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrResult, windows_core::IUnknown, windows_core::IInspectable);
 impl OcrResult {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Lines(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<OcrLine>> {
+    pub fn Lines(&self) -> windows_core::Result<windows_collections::IVectorView<OcrLine>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -3,8 +3,20 @@
 --package --no-comment --no-allow
 --rustfmt max_width=800,newline_style=Unix
 
+--reference
+    windows_collections,flat,Windows.Foundation.Collections
+
 --filter
     Windows
+
+    !IIterable
+    !IIterator
+    !IKeyValuePair
+    !IMap
+    !IMapView
+    !IVector
+    !IVectorView
+
     !Windows.AI.MachineLearning.Preview
     !Windows.ApplicationModel.SocialInfo
     !Windows.ApplicationModel.Store

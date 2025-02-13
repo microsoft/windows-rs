@@ -9,10 +9,7 @@ pub struct IWiFiDirectService_Vtbl {
     pub RemoteServiceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     RemoteServiceInfo: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedConfigurationMethods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedConfigurationMethods: usize,
     pub PreferGroupOwnerMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetPreferGroupOwnerMode: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -38,10 +35,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceAdvertiser {
 pub struct IWiFiDirectServiceAdvertiser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ServiceNamePrefixes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ServiceNamePrefixes: usize,
     #[cfg(feature = "Storage_Streams")]
     pub ServiceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -54,10 +48,7 @@ pub struct IWiFiDirectServiceAdvertiser_Vtbl {
     pub SetAutoAcceptSession: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub PreferGroupOwnerMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetPreferGroupOwnerMode: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PreferredConfigurationMethods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PreferredConfigurationMethods: usize,
     pub ServiceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiDirectServiceStatus) -> windows_core::HRESULT,
     pub SetServiceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, WiFiDirectServiceStatus) -> windows_core::HRESULT,
     pub CustomServiceStatusCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -128,9 +119,9 @@ impl windows_core::RuntimeType for IWiFiDirectServiceRemotePortAddedEventArgs {
 #[repr(C)]
 pub struct IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
+    #[cfg(feature = "Networking")]
     pub EndpointPairs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Networking")))]
+    #[cfg(not(feature = "Networking"))]
     EndpointPairs: usize,
     pub Protocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiDirectServiceIPProtocol) -> windows_core::HRESULT,
 }
@@ -148,9 +139,9 @@ pub struct IWiFiDirectServiceSession_Vtbl {
     pub AdvertisementId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ServiceAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SessionAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
+    #[cfg(feature = "Networking")]
     pub GetConnectionEndpointPairs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Networking")))]
+    #[cfg(not(feature = "Networking"))]
     GetConnectionEndpointPairs: usize,
     pub SessionStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveSessionStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -230,8 +221,7 @@ impl WiFiDirectService {
             (windows_core::Interface::vtable(this).RemoteServiceInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedConfigurationMethods(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<WiFiDirectServiceConfigurationMethod>> {
+    pub fn SupportedConfigurationMethods(&self) -> windows_core::Result<windows_collections::IVectorView<WiFiDirectServiceConfigurationMethod>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -373,8 +363,7 @@ impl WiFiDirectServiceAdvertiser {
             (windows_core::Interface::vtable(this).ServiceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServiceNamePrefixes(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn ServiceNamePrefixes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -419,8 +408,7 @@ impl WiFiDirectServiceAdvertiser {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPreferGroupOwnerMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PreferredConfigurationMethods(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<WiFiDirectServiceConfigurationMethod>> {
+    pub fn PreferredConfigurationMethods(&self) -> windows_core::Result<windows_collections::IVector<WiFiDirectServiceConfigurationMethod>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -687,8 +675,8 @@ unsafe impl Sync for WiFiDirectServiceProvisioningInfo {}
 pub struct WiFiDirectServiceRemotePortAddedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceRemotePortAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiDirectServiceRemotePortAddedEventArgs {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
-    pub fn EndpointPairs(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>> {
+    #[cfg(feature = "Networking")]
+    pub fn EndpointPairs(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Networking::EndpointPair>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -774,8 +762,8 @@ impl WiFiDirectServiceSession {
             (windows_core::Interface::vtable(this).SessionAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
-    pub fn GetConnectionEndpointPairs(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>> {
+    #[cfg(feature = "Networking")]
+    pub fn GetConnectionEndpointPairs(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Networking::EndpointPair>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

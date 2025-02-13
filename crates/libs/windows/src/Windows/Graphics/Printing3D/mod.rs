@@ -108,10 +108,7 @@ pub struct IPrinting3D3MFPackage_Vtbl {
     SetModelPart: usize,
     pub Thumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Textures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Textures: usize,
     #[cfg(feature = "Storage_Streams")]
     pub LoadModelFromPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -159,10 +156,7 @@ impl windows_core::RuntimeType for IPrinting3DBaseMaterialGroup {
 #[repr(C)]
 pub struct IPrinting3DBaseMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Bases: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Bases: usize,
     pub MaterialGroupId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrinting3DBaseMaterialGroupFactory, IPrinting3DBaseMaterialGroupFactory_Vtbl, 0x5c1546dc_8697_4193_976b_84bb4116e5bf);
@@ -217,10 +211,7 @@ impl windows_core::RuntimeType for IPrinting3DColorMaterialGroup {
 #[repr(C)]
 pub struct IPrinting3DColorMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Colors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Colors: usize,
     pub MaterialGroupId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrinting3DColorMaterialGroupFactory, IPrinting3DColorMaterialGroupFactory_Vtbl, 0x71d38d6d_b1ea_4a5b_bc54_19c65f3df044);
@@ -241,10 +232,7 @@ pub struct IPrinting3DComponent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Components: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Components: usize,
     pub Thumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Printing3DObjectType) -> windows_core::HRESULT,
@@ -279,10 +267,7 @@ impl windows_core::RuntimeType for IPrinting3DCompositeMaterial {
 #[repr(C)]
 pub struct IPrinting3DCompositeMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Values: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Values: usize,
 }
 windows_core::imp::define_interface!(IPrinting3DCompositeMaterialGroup, IPrinting3DCompositeMaterialGroup_Vtbl, 0x8d946a5b_40f1_496d_a5fb_340a5a678e30);
 impl windows_core::RuntimeType for IPrinting3DCompositeMaterialGroup {
@@ -291,15 +276,9 @@ impl windows_core::RuntimeType for IPrinting3DCompositeMaterialGroup {
 #[repr(C)]
 pub struct IPrinting3DCompositeMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Composites: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Composites: usize,
     pub MaterialGroupId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub MaterialIndices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    MaterialIndices: usize,
 }
 windows_core::imp::define_interface!(IPrinting3DCompositeMaterialGroup2, IPrinting3DCompositeMaterialGroup2_Vtbl, 0x06e86d62_7d3b_41e1_944c_bafde4555483);
 impl windows_core::RuntimeType for IPrinting3DCompositeMaterialGroup2 {
@@ -341,26 +320,11 @@ impl windows_core::RuntimeType for IPrinting3DMaterial {
 #[repr(C)]
 pub struct IPrinting3DMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub BaseGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BaseGroups: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ColorGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ColorGroups: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Texture2CoordGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Texture2CoordGroups: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CompositeGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CompositeGroups: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub MultiplePropertyGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    MultiplePropertyGroups: usize,
 }
 windows_core::imp::define_interface!(IPrinting3DMesh, IPrinting3DMesh_Vtbl, 0x192e90dc_0228_2e01_bc20_c5290cbf32c4);
 impl windows_core::RuntimeType for IPrinting3DMesh {
@@ -419,14 +383,8 @@ impl windows_core::RuntimeType for IPrinting3DMeshVerificationResult {
 pub struct IPrinting3DMeshVerificationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub NonmanifoldTriangles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    NonmanifoldTriangles: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ReversedNormalTriangles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ReversedNormalTriangles: usize,
 }
 windows_core::imp::define_interface!(IPrinting3DModel, IPrinting3DModel_Vtbl, 0x2d012ef0_52fb_919a_77b0_4b1a3b80324f);
 impl windows_core::RuntimeType for IPrinting3DModel {
@@ -437,32 +395,17 @@ pub struct IPrinting3DModel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Unit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Printing3DModelUnit) -> windows_core::HRESULT,
     pub SetUnit: unsafe extern "system" fn(*mut core::ffi::c_void, Printing3DModelUnit) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Textures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Textures: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Meshes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Meshes: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Components: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Components: usize,
     pub Material: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Build: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetBuild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub RequiredExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequiredExtensions: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Metadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Metadata: usize,
     pub RepairAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -501,10 +444,7 @@ impl windows_core::RuntimeType for IPrinting3DMultiplePropertyMaterial {
 #[repr(C)]
 pub struct IPrinting3DMultiplePropertyMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub MaterialIndices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    MaterialIndices: usize,
 }
 windows_core::imp::define_interface!(IPrinting3DMultiplePropertyMaterialGroup, IPrinting3DMultiplePropertyMaterialGroup_Vtbl, 0xf0950519_aeb9_4515_a39b_a088fbbb277c);
 impl windows_core::RuntimeType for IPrinting3DMultiplePropertyMaterialGroup {
@@ -513,14 +453,8 @@ impl windows_core::RuntimeType for IPrinting3DMultiplePropertyMaterialGroup {
 #[repr(C)]
 pub struct IPrinting3DMultiplePropertyMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub MultipleProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    MultipleProperties: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub MaterialGroupIndices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    MaterialGroupIndices: usize,
     pub MaterialGroupId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrinting3DMultiplePropertyMaterialGroupFactory, IPrinting3DMultiplePropertyMaterialGroupFactory_Vtbl, 0x323e196e_d4c6_451e_a814_4d78a210fe53);
@@ -553,10 +487,7 @@ impl windows_core::RuntimeType for IPrinting3DTexture2CoordMaterialGroup {
 #[repr(C)]
 pub struct IPrinting3DTexture2CoordMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Texture2Coords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Texture2Coords: usize,
     pub MaterialGroupId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrinting3DTexture2CoordMaterialGroup2, IPrinting3DTexture2CoordMaterialGroup2_Vtbl, 0x69fbdbba_b12e_429b_8386_df5284f6e80f);
@@ -1014,8 +945,7 @@ impl Printing3D3MFPackage {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Textures(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DTextureResource>> {
+    pub fn Textures(&self) -> windows_core::Result<windows_collections::IVector<Printing3DTextureResource>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1152,8 +1082,7 @@ unsafe impl Sync for Printing3DBaseMaterial {}
 pub struct Printing3DBaseMaterialGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Printing3DBaseMaterialGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl Printing3DBaseMaterialGroup {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Bases(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DBaseMaterial>> {
+    pub fn Bases(&self) -> windows_core::Result<windows_collections::IVector<Printing3DBaseMaterial>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1274,8 +1203,7 @@ unsafe impl Sync for Printing3DColorMaterial {}
 pub struct Printing3DColorMaterialGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Printing3DColorMaterialGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl Printing3DColorMaterialGroup {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Colors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DColorMaterial>> {
+    pub fn Colors(&self) -> windows_core::Result<windows_collections::IVector<Printing3DColorMaterial>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1338,8 +1266,7 @@ impl Printing3DComponent {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMesh)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Components(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DComponentWithMatrix>> {
+    pub fn Components(&self) -> windows_core::Result<windows_collections::IVector<Printing3DComponentWithMatrix>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1470,8 +1397,7 @@ impl Printing3DCompositeMaterial {
         static SHARED: windows_core::imp::FactoryCache<Printing3DCompositeMaterial, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Values(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<f64>> {
+    pub fn Values(&self) -> windows_core::Result<windows_collections::IVector<f64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1496,8 +1422,7 @@ unsafe impl Sync for Printing3DCompositeMaterial {}
 pub struct Printing3DCompositeMaterialGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Printing3DCompositeMaterialGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl Printing3DCompositeMaterialGroup {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Composites(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterial>> {
+    pub fn Composites(&self) -> windows_core::Result<windows_collections::IVector<Printing3DCompositeMaterial>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1511,8 +1436,7 @@ impl Printing3DCompositeMaterialGroup {
             (windows_core::Interface::vtable(this).MaterialGroupId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn MaterialIndices(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<u32>> {
+    pub fn MaterialIndices(&self) -> windows_core::Result<windows_collections::IVector<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1626,40 +1550,35 @@ impl Printing3DMaterial {
         static SHARED: windows_core::imp::FactoryCache<Printing3DMaterial, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn BaseGroups(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DBaseMaterialGroup>> {
+    pub fn BaseGroups(&self) -> windows_core::Result<windows_collections::IVector<Printing3DBaseMaterialGroup>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BaseGroups)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ColorGroups(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DColorMaterialGroup>> {
+    pub fn ColorGroups(&self) -> windows_core::Result<windows_collections::IVector<Printing3DColorMaterialGroup>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ColorGroups)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Texture2CoordGroups(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterialGroup>> {
+    pub fn Texture2CoordGroups(&self) -> windows_core::Result<windows_collections::IVector<Printing3DTexture2CoordMaterialGroup>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Texture2CoordGroups)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CompositeGroups(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterialGroup>> {
+    pub fn CompositeGroups(&self) -> windows_core::Result<windows_collections::IVector<Printing3DCompositeMaterialGroup>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CompositeGroups)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn MultiplePropertyGroups(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterialGroup>> {
+    pub fn MultiplePropertyGroups(&self) -> windows_core::Result<windows_collections::IVector<Printing3DMultiplePropertyMaterialGroup>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1866,16 +1785,14 @@ impl Printing3DMeshVerificationResult {
             (windows_core::Interface::vtable(this).IsValid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn NonmanifoldTriangles(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn NonmanifoldTriangles(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NonmanifoldTriangles)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ReversedNormalTriangles(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn ReversedNormalTriangles(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1918,24 +1835,21 @@ impl Printing3DModel {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUnit)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Textures(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DModelTexture>> {
+    pub fn Textures(&self) -> windows_core::Result<windows_collections::IVector<Printing3DModelTexture>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Textures)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Meshes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DMesh>> {
+    pub fn Meshes(&self) -> windows_core::Result<windows_collections::IVector<Printing3DMesh>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Meshes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Components(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DComponent>> {
+    pub fn Components(&self) -> windows_core::Result<windows_collections::IVector<Printing3DComponent>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1981,16 +1895,14 @@ impl Printing3DModel {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVersion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RequiredExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn RequiredExtensions(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequiredExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Metadata(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Metadata(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2162,8 +2074,7 @@ impl Printing3DMultiplePropertyMaterial {
         static SHARED: windows_core::imp::FactoryCache<Printing3DMultiplePropertyMaterial, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn MaterialIndices(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<u32>> {
+    pub fn MaterialIndices(&self) -> windows_core::Result<windows_collections::IVector<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2188,16 +2099,14 @@ unsafe impl Sync for Printing3DMultiplePropertyMaterial {}
 pub struct Printing3DMultiplePropertyMaterialGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Printing3DMultiplePropertyMaterialGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl Printing3DMultiplePropertyMaterialGroup {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn MultipleProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterial>> {
+    pub fn MultipleProperties(&self) -> windows_core::Result<windows_collections::IVector<Printing3DMultiplePropertyMaterial>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MultipleProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn MaterialGroupIndices(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<u32>> {
+    pub fn MaterialGroupIndices(&self) -> windows_core::Result<windows_collections::IVector<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2328,8 +2237,7 @@ unsafe impl Sync for Printing3DTexture2CoordMaterial {}
 pub struct Printing3DTexture2CoordMaterialGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Printing3DTexture2CoordMaterialGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl Printing3DTexture2CoordMaterialGroup {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Texture2Coords(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterial>> {
+    pub fn Texture2Coords(&self) -> windows_core::Result<windows_collections::IVector<Printing3DTexture2CoordMaterial>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

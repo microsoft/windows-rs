@@ -2,7 +2,7 @@
 
 use std::collections::BTreeMap;
 use test_collection_interop::*;
-use windows::Foundation::Collections::*;
+use windows_collections::*;
 
 #[implement(ITest)]
 #[derive(Default)]

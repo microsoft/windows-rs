@@ -96,7 +96,6 @@ impl CompositionConditionalValue {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -104,7 +103,6 @@ impl CompositionConditionalValue {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,
@@ -166,15 +164,11 @@ impl windows_core::RuntimeName for CompositionConditionalValue {
 }
 unsafe impl Send for CompositionConditionalValue {}
 unsafe impl Sync for CompositionConditionalValue {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionInteractionSourceCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionInteractionSourceCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionInteractionSourceCollection, super::IAnimationObject, super::super::super::Foundation::IClosable, super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>, super::CompositionObject);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(CompositionInteractionSourceCollection, super::IAnimationObject, super::super::super::Foundation::IClosable, windows_collections::IIterable<ICompositionInteractionSource>, super::CompositionObject);
 impl CompositionInteractionSourceCollection {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
@@ -307,43 +301,36 @@ impl CompositionInteractionSourceCollection {
         let this = &windows_core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<ICompositionInteractionSource>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<ICompositionInteractionSource>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<ICompositionInteractionSource>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for CompositionInteractionSourceCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionInteractionSourceCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionInteractionSourceCollection {
     type Vtable = <ICompositionInteractionSourceCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionInteractionSourceCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for CompositionInteractionSourceCollection {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for CompositionInteractionSourceCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionInteractionSourceCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for CompositionInteractionSourceCollection {
     type Item = ICompositionInteractionSource;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &CompositionInteractionSourceCollection {
     type Item = ICompositionInteractionSource;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -423,10 +410,7 @@ impl windows_core::RuntimeType for IInteractionTracker {
 #[repr(C)]
 pub struct IInteractionTracker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub InteractionSources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InteractionSources: usize,
     pub IsPositionRoundingSuggested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub MaxPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
@@ -476,18 +460,9 @@ pub struct IInteractionTracker_Vtbl {
     pub ScaleVelocityInPercentPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub AdjustPositionXIfGreaterThanThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32) -> windows_core::HRESULT,
     pub AdjustPositionYIfGreaterThanThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConfigurePositionXInertiaModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConfigurePositionXInertiaModifiers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConfigurePositionYInertiaModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConfigurePositionYInertiaModifiers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConfigureScaleInertiaModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConfigureScaleInertiaModifiers: usize,
     #[cfg(feature = "Foundation_Numerics")]
     pub TryUpdatePosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -521,14 +496,8 @@ impl windows_core::RuntimeType for IInteractionTracker2 {
 #[repr(C)]
 pub struct IInteractionTracker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConfigureCenterPointXInertiaModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConfigureCenterPointXInertiaModifiers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConfigureCenterPointYInertiaModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConfigureCenterPointYInertiaModifiers: usize,
 }
 windows_core::imp::define_interface!(IInteractionTracker3, IInteractionTracker3_Vtbl, 0xe6c5d7a2_5c4b_42c6_84b7_f69441b18091);
 impl windows_core::RuntimeType for IInteractionTracker3 {
@@ -537,10 +506,7 @@ impl windows_core::RuntimeType for IInteractionTracker3 {
 #[repr(C)]
 pub struct IInteractionTracker3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConfigureVector2PositionInertiaModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConfigureVector2PositionInertiaModifiers: usize,
 }
 windows_core::imp::define_interface!(IInteractionTracker4, IInteractionTracker4_Vtbl, 0xebd222bc_04af_4ac7_847d_06ea36e80a16);
 impl windows_core::RuntimeType for IInteractionTracker4 {
@@ -1007,26 +973,11 @@ pub struct IVisualInteractionSource2_Vtbl {
     PositionVelocity: usize,
     pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub ScaleVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConfigureCenterPointXModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConfigureCenterPointXModifiers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConfigureCenterPointYModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConfigureCenterPointYModifiers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConfigureDeltaPositionXModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConfigureDeltaPositionXModifiers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConfigureDeltaPositionYModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConfigureDeltaPositionYModifiers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ConfigureDeltaScaleModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ConfigureDeltaScaleModifiers: usize,
 }
 windows_core::imp::define_interface!(IVisualInteractionSource3, IVisualInteractionSource3_Vtbl, 0xd941ef2a_0d5c_4057_92d7_c9711533204f);
 impl windows_core::RuntimeType for IVisualInteractionSource3 {
@@ -1186,7 +1137,6 @@ impl InteractionSourceConfiguration {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -1194,7 +1144,6 @@ impl InteractionSourceConfiguration {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,
@@ -1373,7 +1322,6 @@ impl InteractionTracker {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -1381,7 +1329,6 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,
@@ -1426,7 +1373,6 @@ impl InteractionTracker {
         let this = &windows_core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn InteractionSources(&self) -> windows_core::Result<CompositionInteractionSourceCollection> {
         let this = self;
         unsafe {
@@ -1579,26 +1525,23 @@ impl InteractionTracker {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AdjustPositionYIfGreaterThanThreshold)(windows_core::Interface::as_raw(this), adjustment, positionthreshold).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigurePositionXInertiaModifiers<P0>(&self, modifiers: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>,
+        P0: windows_core::Param<windows_collections::IIterable<InteractionTrackerInertiaModifier>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ConfigurePositionXInertiaModifiers)(windows_core::Interface::as_raw(this), modifiers.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigurePositionYInertiaModifiers<P0>(&self, modifiers: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>,
+        P0: windows_core::Param<windows_collections::IIterable<InteractionTrackerInertiaModifier>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ConfigurePositionYInertiaModifiers)(windows_core::Interface::as_raw(this), modifiers.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureScaleInertiaModifiers<P0>(&self, modifiers: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>,
+        P0: windows_core::Param<windows_collections::IIterable<InteractionTrackerInertiaModifier>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ConfigureScaleInertiaModifiers)(windows_core::Interface::as_raw(this), modifiers.param().abi()).ok() }
@@ -1664,26 +1607,23 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(this).TryUpdateScaleWithAdditionalVelocity)(windows_core::Interface::as_raw(this), velocityinpercentpersecond, centerpoint, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureCenterPointXInertiaModifiers<P0>(&self, conditionalvalues: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>,
+        P0: windows_core::Param<windows_collections::IIterable<CompositionConditionalValue>>,
     {
         let this = &windows_core::Interface::cast::<IInteractionTracker2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ConfigureCenterPointXInertiaModifiers)(windows_core::Interface::as_raw(this), conditionalvalues.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureCenterPointYInertiaModifiers<P0>(&self, conditionalvalues: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>,
+        P0: windows_core::Param<windows_collections::IIterable<CompositionConditionalValue>>,
     {
         let this = &windows_core::Interface::cast::<IInteractionTracker2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ConfigureCenterPointYInertiaModifiers)(windows_core::Interface::as_raw(this), conditionalvalues.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureVector2PositionInertiaModifiers<P0>(&self, modifiers: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier>>,
+        P0: windows_core::Param<windows_collections::IIterable<InteractionTrackerVector2InertiaModifier>>,
     {
         let this = &windows_core::Interface::cast::<IInteractionTracker3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ConfigureVector2PositionInertiaModifiers)(windows_core::Interface::as_raw(this), modifiers.param().abi()).ok() }
@@ -1914,7 +1854,6 @@ impl InteractionTrackerInertiaModifier {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -1922,7 +1861,6 @@ impl InteractionTrackerInertiaModifier {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,
@@ -2041,7 +1979,6 @@ impl InteractionTrackerInertiaMotion {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -2049,7 +1986,6 @@ impl InteractionTrackerInertiaMotion {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,
@@ -2209,7 +2145,6 @@ impl InteractionTrackerInertiaNaturalMotion {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -2217,7 +2152,6 @@ impl InteractionTrackerInertiaNaturalMotion {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,
@@ -2377,7 +2311,6 @@ impl InteractionTrackerInertiaRestingValue {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -2385,7 +2318,6 @@ impl InteractionTrackerInertiaRestingValue {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,
@@ -2739,7 +2671,6 @@ impl InteractionTrackerVector2InertiaModifier {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -2747,7 +2678,6 @@ impl InteractionTrackerVector2InertiaModifier {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,
@@ -2866,7 +2796,6 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -2874,7 +2803,6 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,
@@ -3034,7 +2962,6 @@ impl VisualInteractionSource {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -3042,7 +2969,6 @@ impl VisualInteractionSource {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,
@@ -3246,42 +3172,37 @@ impl VisualInteractionSource {
             (windows_core::Interface::vtable(this).ScaleVelocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureCenterPointXModifiers<P0>(&self, conditionalvalues: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>,
+        P0: windows_core::Param<windows_collections::IIterable<CompositionConditionalValue>>,
     {
         let this = &windows_core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ConfigureCenterPointXModifiers)(windows_core::Interface::as_raw(this), conditionalvalues.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureCenterPointYModifiers<P0>(&self, conditionalvalues: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>,
+        P0: windows_core::Param<windows_collections::IIterable<CompositionConditionalValue>>,
     {
         let this = &windows_core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ConfigureCenterPointYModifiers)(windows_core::Interface::as_raw(this), conditionalvalues.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureDeltaPositionXModifiers<P0>(&self, conditionalvalues: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>,
+        P0: windows_core::Param<windows_collections::IIterable<CompositionConditionalValue>>,
     {
         let this = &windows_core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ConfigureDeltaPositionXModifiers)(windows_core::Interface::as_raw(this), conditionalvalues.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureDeltaPositionYModifiers<P0>(&self, conditionalvalues: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>,
+        P0: windows_core::Param<windows_collections::IIterable<CompositionConditionalValue>>,
     {
         let this = &windows_core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ConfigureDeltaPositionYModifiers)(windows_core::Interface::as_raw(this), conditionalvalues.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureDeltaScaleModifiers<P0>(&self, conditionalvalues: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>,
+        P0: windows_core::Param<windows_collections::IIterable<CompositionConditionalValue>>,
     {
         let this = &windows_core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ConfigureDeltaScaleModifiers)(windows_core::Interface::as_raw(this), conditionalvalues.param().abi()).ok() }

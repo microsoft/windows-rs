@@ -34,7 +34,7 @@ impl HttpBufferContent {
             (windows_core::Interface::vtable(this).CreateFromBufferWithOffset)(windows_core::Interface::as_raw(this), content.param().abi(), offset, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub fn Headers(&self) -> windows_core::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -235,7 +235,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).SendRequestWithOptionAsync)(windows_core::Interface::as_raw(this), request.param().abi(), completionoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub fn DefaultRequestHeaders(&self) -> windows_core::Result<Headers::HttpRequestHeaderCollection> {
         let this = self;
         unsafe {
@@ -507,18 +507,14 @@ impl windows_core::RuntimeName for HttpCookie {
 }
 unsafe impl Send for HttpCookie {}
 unsafe impl Sync for HttpCookie {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCookieCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(HttpCookieCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView<HttpCookie>);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpCookieCollection, super::super::Foundation::Collections::IIterable<HttpCookie>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(HttpCookieCollection, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVectorView<HttpCookie>);
+windows_core::imp::required_hierarchy!(HttpCookieCollection, windows_collections::IIterable<HttpCookie>);
 impl HttpCookieCollection {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<HttpCookie>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<HttpCookie>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<HttpCookie>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<HttpCookie>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -556,35 +552,28 @@ impl HttpCookieCollection {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpCookieCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<HttpCookie>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVectorView<HttpCookie>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpCookieCollection {
-    type Vtable = <super::super::Foundation::Collections::IVectorView<HttpCookie> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IVectorView<HttpCookie> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IVectorView<HttpCookie> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IVectorView<HttpCookie> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpCookieCollection {
     const NAME: &'static str = "Windows.Web.Http.HttpCookieCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpCookieCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpCookieCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpCookieCollection {
     type Item = HttpCookie;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpCookieCollection {
     type Item = HttpCookie;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -621,7 +610,6 @@ impl HttpCookieManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).DeleteCookie)(windows_core::Interface::as_raw(this), cookie.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn GetCookies<P0>(&self, uri: P0) -> windows_core::Result<HttpCookieCollection>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
@@ -655,7 +643,7 @@ impl HttpFormUrlEncodedContent {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub fn Headers(&self) -> windows_core::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -711,10 +699,9 @@ impl HttpFormUrlEncodedContent {
             (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(content: P0) -> windows_core::Result<HttpFormUrlEncodedContent>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         Self::IHttpFormUrlEncodedContentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1031,15 +1018,11 @@ impl windows_core::RuntimeName for HttpMethod {
 }
 unsafe impl Send for HttpMethod {}
 unsafe impl Sync for HttpMethod {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMultipartContent(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpMultipartContent, windows_core::IUnknown, windows_core::IInspectable, IHttpContent);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpMultipartContent, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<IHttpContent>, super::super::Foundation::IStringable);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpMultipartContent, super::super::Foundation::IClosable, windows_collections::IIterable<IHttpContent>, super::super::Foundation::IStringable);
 impl HttpMultipartContent {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1127,8 +1110,8 @@ impl HttpMultipartContent {
             (windows_core::Interface::vtable(this).CreateWithSubtypeAndBoundary)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(subtype), core::mem::transmute_copy(boundary), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<IHttpContent>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<IHttpContent>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<IHttpContent>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<IHttpContent>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1146,48 +1129,37 @@ impl HttpMultipartContent {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpMultipartContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpMultipartContent {
     type Vtable = <IHttpContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpContent as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpMultipartContent {
     const NAME: &'static str = "Windows.Web.Http.HttpMultipartContent";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpMultipartContent {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpMultipartContent {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpMultipartContent {
     type Item = IHttpContent;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpMultipartContent {
     type Item = IHttpContent;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMultipartFormDataContent(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpMultipartFormDataContent, windows_core::IUnknown, windows_core::IInspectable, IHttpContent);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpMultipartFormDataContent, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<IHttpContent>, super::super::Foundation::IStringable);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(HttpMultipartFormDataContent, super::super::Foundation::IClosable, windows_collections::IIterable<IHttpContent>, super::super::Foundation::IStringable);
 impl HttpMultipartFormDataContent {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1283,8 +1255,8 @@ impl HttpMultipartFormDataContent {
             (windows_core::Interface::vtable(this).CreateWithBoundary)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(boundary), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<IHttpContent>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<IHttpContent>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<IHttpContent>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<IHttpContent>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1302,35 +1274,28 @@ impl HttpMultipartFormDataContent {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpMultipartFormDataContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpMultipartFormDataContent {
     type Vtable = <IHttpContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpContent as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for HttpMultipartFormDataContent {
     const NAME: &'static str = "Windows.Web.Http.HttpMultipartFormDataContent";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for HttpMultipartFormDataContent {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpMultipartFormDataContent {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for HttpMultipartFormDataContent {
     type Item = IHttpContent;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &HttpMultipartFormDataContent {
     type Item = IHttpContent;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -1403,7 +1368,7 @@ impl HttpRequestMessage {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub fn Headers(&self) -> windows_core::Result<Headers::HttpRequestHeaderCollection> {
         let this = self;
         unsafe {
@@ -1425,8 +1390,7 @@ impl HttpRequestMessage {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMethod)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1588,7 +1552,7 @@ impl HttpResponseMessage {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub fn Headers(&self) -> windows_core::Result<Headers::HttpResponseHeaderCollection> {
         let this = self;
         unsafe {
@@ -1791,7 +1755,7 @@ impl HttpStreamContent {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub fn Headers(&self) -> windows_core::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -1891,7 +1855,7 @@ impl HttpStringContent {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub fn Headers(&self) -> windows_core::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -2013,16 +1977,16 @@ impl HttpTransportInformation {
             (windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerCertificateErrors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCertificateErrors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2103,9 +2067,9 @@ pub struct IHttpClient_Vtbl {
     pub PutAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendRequestWithOptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, HttpCompletionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub DefaultRequestHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Web_Http_Headers")))]
+    #[cfg(not(feature = "Web_Http_Headers"))]
     DefaultRequestHeaders: usize,
 }
 windows_core::imp::define_interface!(IHttpClient2, IHttpClient2_Vtbl, 0xcdd83348_e8b7_4cec_b1b0_dc455fe72c92);
@@ -2155,7 +2119,7 @@ impl windows_core::RuntimeType for IHttpContent {
 windows_core::imp::interface_hierarchy!(IHttpContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IHttpContent, super::super::Foundation::IClosable);
 impl IHttpContent {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub fn Headers(&self) -> windows_core::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -2216,11 +2180,11 @@ impl IHttpContent {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
+#[cfg(all(feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 impl windows_core::RuntimeName for IHttpContent {
     const NAME: &'static str = "Windows.Web.Http.IHttpContent";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
+#[cfg(all(feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 pub trait IHttpContent_Impl: super::super::Foundation::IClosable_Impl {
     fn Headers(&self) -> windows_core::Result<Headers::HttpContentHeaderCollection>;
     fn BufferAllAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
@@ -2230,7 +2194,7 @@ pub trait IHttpContent_Impl: super::super::Foundation::IClosable_Impl {
     fn TryComputeLength(&self, length: &mut u64) -> windows_core::Result<bool>;
     fn WriteToStreamAsync(&self, outputStream: windows_core::Ref<'_, super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
+#[cfg(all(feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 impl IHttpContent_Vtbl {
     pub const fn new<Identity: IHttpContent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Headers<Identity: IHttpContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2341,9 +2305,9 @@ impl IHttpContent_Vtbl {
 #[repr(C)]
 pub struct IHttpContent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Web_Http_Headers")))]
+    #[cfg(not(feature = "Web_Http_Headers"))]
     Headers: usize,
     pub BufferAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -2399,10 +2363,7 @@ pub struct IHttpCookieManager_Vtbl {
     pub SetCookie: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetCookieWithThirdParty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut bool) -> windows_core::HRESULT,
     pub DeleteCookie: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetCookies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCookies: usize,
 }
 windows_core::imp::define_interface!(IHttpFormUrlEncodedContentFactory, IHttpFormUrlEncodedContentFactory_Vtbl, 0x43f0138c_2f73_4302_b5f3_eae9238a5e01);
 impl windows_core::RuntimeType for IHttpFormUrlEncodedContentFactory {
@@ -2411,10 +2372,7 @@ impl windows_core::RuntimeType for IHttpFormUrlEncodedContentFactory {
 #[repr(C)]
 pub struct IHttpFormUrlEncodedContentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create: usize,
 }
 windows_core::imp::define_interface!(IHttpGetBufferResult, IHttpGetBufferResult_Vtbl, 0x53d08e7c_e209_404e_9a49_742d8236fd3a);
 impl windows_core::RuntimeType for IHttpGetBufferResult {
@@ -2510,14 +2468,8 @@ impl windows_core::RuntimeType for IHttpMultipartContentFactory {
 #[repr(C)]
 pub struct IHttpMultipartContentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateWithSubtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWithSubtype: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateWithSubtypeAndBoundary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWithSubtypeAndBoundary: usize,
 }
 windows_core::imp::define_interface!(IHttpMultipartFormDataContent, IHttpMultipartFormDataContent_Vtbl, 0x64d337e2_e967_4624_b6d1_cf74604a4a42);
 impl windows_core::RuntimeType for IHttpMultipartFormDataContent {
@@ -2537,10 +2489,7 @@ impl windows_core::RuntimeType for IHttpMultipartFormDataContentFactory {
 #[repr(C)]
 pub struct IHttpMultipartFormDataContentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateWithBoundary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWithBoundary: usize,
 }
 windows_core::imp::define_interface!(IHttpRequestMessage, IHttpRequestMessage_Vtbl, 0xf5762b3c_74d4_4811_b5dc_9f8b4e2f9abf);
 impl windows_core::RuntimeType for IHttpRequestMessage {
@@ -2551,16 +2500,13 @@ pub struct IHttpRequestMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Web_Http_Headers")))]
+    #[cfg(not(feature = "Web_Http_Headers"))]
     Headers: usize,
     pub Method: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
     pub RequestUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRequestUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TransportInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2605,9 +2551,9 @@ pub struct IHttpResponseMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http_Headers"))]
+    #[cfg(feature = "Web_Http_Headers")]
     pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Web_Http_Headers")))]
+    #[cfg(not(feature = "Web_Http_Headers"))]
     Headers: usize,
     pub IsSuccessStatusCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ReasonPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2675,12 +2621,12 @@ pub struct IHttpTransportInformation_Vtbl {
     pub ServerCertificateErrorSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Networking::Sockets::SocketSslErrorSeverity) -> windows_core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))]
     ServerCertificateErrorSeverity: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerCertificateErrors: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerIntermediateCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerIntermediateCertificates: usize,
 }

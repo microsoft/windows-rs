@@ -95,8 +95,7 @@ impl HidBooleanControlDescription {
             (windows_core::Interface::vtable(this).UsageId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ParentCollections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>> {
+    pub fn ParentCollections(&self) -> windows_core::Result<windows_collections::IVectorView<HidCollection>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -309,16 +308,14 @@ impl HidDevice {
             (windows_core::Interface::vtable(this).SendFeatureReportAsync)(windows_core::Interface::as_raw(this), featurereport.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetBooleanControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>> {
+    pub fn GetBooleanControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> windows_core::Result<windows_collections::IVectorView<HidBooleanControlDescription>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBooleanControlDescriptions)(windows_core::Interface::as_raw(this), reporttype, usagepage, usageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNumericControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>> {
+    pub fn GetNumericControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> windows_core::Result<windows_collections::IVectorView<HidNumericControlDescription>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -470,16 +467,14 @@ impl HidInputReport {
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ActivatedBooleanControls(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>> {
+    pub fn ActivatedBooleanControls(&self) -> windows_core::Result<windows_collections::IVectorView<HidBooleanControl>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatedBooleanControls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TransitionedBooleanControls(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>> {
+    pub fn TransitionedBooleanControls(&self) -> windows_core::Result<windows_collections::IVectorView<HidBooleanControl>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -743,8 +738,7 @@ impl HidNumericControlDescription {
             (windows_core::Interface::vtable(this).HasNull)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ParentCollections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>> {
+    pub fn ParentCollections(&self) -> windows_core::Result<windows_collections::IVectorView<HidCollection>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -879,10 +873,7 @@ pub struct IHidBooleanControlDescription_Vtbl {
     pub ReportType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HidReportType) -> windows_core::HRESULT,
     pub UsagePage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub UsageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ParentCollections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ParentCollections: usize,
 }
 windows_core::imp::define_interface!(IHidBooleanControlDescription2, IHidBooleanControlDescription2_Vtbl, 0xc8eed2ea_8a77_4c36_aa00_5ff0449d3e73);
 impl windows_core::RuntimeType for IHidBooleanControlDescription2 {
@@ -927,14 +918,8 @@ pub struct IHidDevice_Vtbl {
     pub CreateFeatureReportById: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendOutputReportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendFeatureReportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetBooleanControlDescriptions: unsafe extern "system" fn(*mut core::ffi::c_void, HidReportType, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetBooleanControlDescriptions: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetNumericControlDescriptions: unsafe extern "system" fn(*mut core::ffi::c_void, HidReportType, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNumericControlDescriptions: usize,
     pub InputReportReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveInputReportReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
@@ -985,14 +970,8 @@ pub struct IHidInputReport_Vtbl {
     pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     Data: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ActivatedBooleanControls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ActivatedBooleanControls: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub TransitionedBooleanControls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TransitionedBooleanControls: usize,
     pub GetBooleanControl: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBooleanControlByDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNumericControl: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1046,10 +1025,7 @@ pub struct IHidNumericControlDescription_Vtbl {
     pub Unit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub IsAbsolute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub HasNull: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ParentCollections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ParentCollections: usize,
 }
 windows_core::imp::define_interface!(IHidOutputReport, IHidOutputReport_Vtbl, 0x62cb2544_c896_4463_93c1_df9db053c450);
 impl windows_core::RuntimeType for IHidOutputReport {

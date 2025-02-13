@@ -223,8 +223,7 @@ impl windows_core::RuntimeType for IAdcProvider {
 }
 windows_core::imp::interface_hierarchy!(IAdcProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdcProvider {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>> {
+    pub fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IAdcControllerProvider>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -232,15 +231,12 @@ impl IAdcProvider {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IAdcProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcProvider";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait IAdcProvider_Impl: windows_core::IUnknownImpl {
-    fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>;
+    fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IAdcControllerProvider>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IAdcProvider_Vtbl {
     pub const fn new<Identity: IAdcProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetControllers<Identity: IAdcProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -265,10 +261,7 @@ impl IAdcProvider_Vtbl {
 #[repr(C)]
 pub struct IAdcProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetControllers: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

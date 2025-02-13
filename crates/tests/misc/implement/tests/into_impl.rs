@@ -1,9 +1,9 @@
 use windows::core::*;
-use windows::Foundation::Collections::*;
 use windows::Win32::Foundation::E_BOUNDS;
+use windows_collections::*;
 
 #[implement(
-    windows::Foundation::Collections::IIterator<T>,
+    IIterator<T>,
 )]
 struct Iterator<T>(std::cell::UnsafeCell<(IIterable<T>, usize)>)
 where
@@ -52,7 +52,7 @@ where
 }
 
 #[implement(
-    windows::Foundation::Collections::IIterable<T>,
+    IIterable<T>,
 )]
 struct Iterable<T>(Vec<T>)
 where

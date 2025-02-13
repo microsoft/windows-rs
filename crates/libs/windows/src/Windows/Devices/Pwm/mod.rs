@@ -21,9 +21,9 @@ impl windows_core::RuntimeType for IPwmControllerStatics {
 #[repr(C)]
 pub struct IPwmControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Pwm_Provider")]
     pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Pwm_Provider", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Pwm_Provider"))]
     GetControllersAsync: usize,
 }
 windows_core::imp::define_interface!(IPwmControllerStatics2, IPwmControllerStatics2_Vtbl, 0x44fc5b1f_f119_4bdd_97ad_f76ef986736d);
@@ -109,8 +109,8 @@ impl PwmController {
             (windows_core::Interface::vtable(this).OpenPin)(windows_core::Interface::as_raw(this), pinnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>
+    #[cfg(feature = "Devices_Pwm_Provider")]
+    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<PwmController>>>
     where
         P0: windows_core::Param<Provider::IPwmProvider>,
     {

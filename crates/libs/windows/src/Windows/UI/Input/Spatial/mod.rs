@@ -185,9 +185,9 @@ pub struct ISpatialInteractionManager_Vtbl {
     pub RemoveSourceReleased: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub InteractionDetected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveInteractionDetected: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Perception"))]
+    #[cfg(feature = "Perception")]
     pub GetDetectedSourcesAtTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Perception")))]
+    #[cfg(not(feature = "Perception"))]
     GetDetectedSourcesAtTimestamp: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionManagerStatics, ISpatialInteractionManagerStatics_Vtbl, 0x00e31fa6_8ca2_30bf_91fe_d9cb4a008990);
@@ -1309,8 +1309,8 @@ impl SpatialInteractionManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveInteractionDetected)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Perception"))]
-    pub fn GetDetectedSourcesAtTimestamp<P0>(&self, timestamp: P0) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>
+    #[cfg(feature = "Perception")]
+    pub fn GetDetectedSourcesAtTimestamp<P0>(&self, timestamp: P0) -> windows_core::Result<windows_collections::IVectorView<SpatialInteractionSourceState>>
     where
         P0: windows_core::Param<super::super::super::Perception::PerceptionTimestamp>,
     {

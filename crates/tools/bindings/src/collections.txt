@@ -1,0 +1,9 @@
+--out crates/libs/collections/src/bindings.rs
+--flat
+--no-comment
+
+--filter
+    IMap
+    IMapView
+    IVector
+    IVectorView

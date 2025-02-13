@@ -98,8 +98,7 @@ impl AppWindow {
             (windows_core::Interface::vtable(this).GetPlacement)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetDisplayRegions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
+    pub fn GetDisplayRegions(&self) -> windows_core::Result<windows_collections::IVectorView<DisplayRegion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -378,8 +377,8 @@ impl windows_core::RuntimeType for AppWindowClosedReason {
 pub struct AppWindowFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowFrame {
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition"))]
-    pub fn DragRegionVisuals(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>> {
+    #[cfg(feature = "UI_Composition")]
+    pub fn DragRegionVisuals(&self) -> windows_core::Result<windows_collections::IVector<super::Composition::IVisualElement>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -741,8 +740,7 @@ impl AppWindowTitleBar {
             (windows_core::Interface::vtable(this).IsVisible)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetTitleBarOcclusions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>> {
+    pub fn GetTitleBarOcclusions(&self) -> windows_core::Result<windows_collections::IVectorView<AppWindowTitleBarOcclusion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1012,10 +1010,7 @@ pub struct IAppWindow_Vtbl {
     pub WindowingEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CloseAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetDisplayRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetDisplayRegions: usize,
     pub RequestMoveToDisplayRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestMoveAdjacentToCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestMoveAdjacentToWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1074,9 +1069,9 @@ impl windows_core::RuntimeType for IAppWindowFrame {
 #[repr(C)]
 pub struct IAppWindowFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition"))]
+    #[cfg(feature = "UI_Composition")]
     pub DragRegionVisuals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Composition")))]
+    #[cfg(not(feature = "UI_Composition"))]
     DragRegionVisuals: usize,
 }
 windows_core::imp::define_interface!(IAppWindowFrameStyle, IAppWindowFrameStyle_Vtbl, 0xac412946_e1ac_5230_944a_c60873dcf4a9);
@@ -1174,10 +1169,7 @@ pub struct IAppWindowTitleBar_Vtbl {
     pub InactiveForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInactiveForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetTitleBarOcclusions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetTitleBarOcclusions: usize,
 }
 windows_core::imp::define_interface!(IAppWindowTitleBarOcclusion, IAppWindowTitleBarOcclusion_Vtbl, 0xfea3cffd_2ccf_5fc3_aeae_f843876bf37e);
 impl windows_core::RuntimeType for IAppWindowTitleBarOcclusion {
@@ -1246,10 +1238,7 @@ impl windows_core::RuntimeType for IWindowServicesStatics {
 #[repr(C)]
 pub struct IWindowServicesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllTopLevelWindowIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllTopLevelWindowIds: usize,
 }
 windows_core::imp::define_interface!(IWindowingEnvironment, IWindowingEnvironment_Vtbl, 0x264363c0_2a49_5417_b3ae_48a71c63a3bd);
 impl windows_core::RuntimeType for IWindowingEnvironment {
@@ -1260,10 +1249,7 @@ pub struct IWindowingEnvironment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowingEnvironmentKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetDisplayRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetDisplayRegions: usize,
     pub Changed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
@@ -1300,19 +1286,12 @@ impl windows_core::RuntimeType for IWindowingEnvironmentStatics {
 #[repr(C)]
 pub struct IWindowingEnvironmentStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAll: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllWithKind: unsafe extern "system" fn(*mut core::ffi::c_void, WindowingEnvironmentKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllWithKind: usize,
 }
 pub struct WindowServices;
 impl WindowServices {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllTopLevelWindowIds() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::WindowId>> {
+    pub fn FindAllTopLevelWindowIds() -> windows_core::Result<windows_collections::IVectorView<super::WindowId>> {
         Self::IWindowServicesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllTopLevelWindowIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1345,8 +1324,7 @@ impl WindowingEnvironment {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetDisplayRegions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
+    pub fn GetDisplayRegions(&self) -> windows_core::Result<windows_collections::IVectorView<DisplayRegion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1367,15 +1345,13 @@ impl WindowingEnvironment {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAll() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
+    pub fn FindAll() -> windows_core::Result<windows_collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
+    pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> windows_core::Result<windows_collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllWithKind)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
