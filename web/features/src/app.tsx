@@ -168,6 +168,10 @@ function App() {
     const [savedTheme, setSavedTheme] = useState(localStorage.getItem('theme') ?? 'light');
 
     const branches = process.env.REACT_APP_BRANCHES!.split(',');
+    if (process.env.REACT_APP_DEBUG) {
+        branches.push('local');
+    }
+
     const defaultBranch = branches.includes(params.branch!) ? params.branch : branches[0];
     const [branch, setBranch] = useState(defaultBranch);
 
@@ -204,7 +208,7 @@ function App() {
             setWorker(null);
             setSearchReady(false);
         };
-    }, [branch]);
+    }, [branch, onMessage]);
 
     useEffect(() => {
         if (!searchReady) return;
@@ -225,6 +229,7 @@ function App() {
         } else {
             setSearchResults([]);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query, worker, searchReady]);
 
     // Event handlers
