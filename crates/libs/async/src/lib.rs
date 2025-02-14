@@ -9,14 +9,20 @@
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
 mod bindings;
-pub use bindings::*;
+mod bindings_impl;
+mod get;
+mod waiter;
 
-#[cfg(feature = "std")]
-mod r#async;
+pub use bindings::*;
+use bindings_impl::*;
+use waiter::*;
+use windows_core::*;
+
 #[cfg(feature = "std")]
 mod async_ready;
 #[cfg(feature = "std")]
 mod async_spawn;
-
 #[cfg(feature = "std")]
-pub(crate) use r#async::*;
+mod future;
+#[cfg(feature = "std")]
+use future::*;

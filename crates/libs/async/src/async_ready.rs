@@ -1,6 +1,5 @@
 use super::*;
 use std::sync::atomic::{AtomicBool, Ordering};
-use windows_core::*;
 
 struct ReadyState<T: Async> {
     set_completed: AtomicBool,

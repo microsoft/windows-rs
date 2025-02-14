@@ -1,7 +1,6 @@
 use super::*;
 use std::ffi::c_void;
 use std::sync::Mutex;
-use windows_core::*;
 
 struct State<T: Async> {
     result: Option<Result<T::Output>>,

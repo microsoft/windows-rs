@@ -1,0 +1,12 @@
+--out crates/libs/async/src/bindings_impl.rs
+--flat
+--no-comment
+--no-allow
+--sys
+--no-core
+
+--filter
+    CloseHandle
+    CreateEventW
+    SetEvent
+    WaitForSingleObject
