@@ -40,12 +40,6 @@ fn invalid_option() {
 }
 
 #[test]
-#[should_panic(expected = "`--no-core` requires `--sys`")]
-fn no_core() {
-    bindgen("--in default --no-core");
-}
-
-#[test]
 #[should_panic(expected = "cannot combine `--package` and `--flat`")]
 fn flat_package() {
     bindgen("--in default --flat --package");

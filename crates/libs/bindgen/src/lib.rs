@@ -56,7 +56,7 @@ struct Config {
     pub flat: bool,
     pub no_allow: bool,
     pub no_comment: bool,
-    pub no_core: bool,
+    pub no_deps: bool,
     pub no_toml: bool,
     pub package: bool,
     pub rustfmt: String,
@@ -84,7 +84,7 @@ where
     let mut flat = false;
     let mut no_allow = false;
     let mut no_comment = false;
-    let mut no_core = false;
+    let mut no_deps = false;
     let mut no_toml = false;
     let mut package = false;
     let mut implement = false;
@@ -109,7 +109,7 @@ where
                 "--flat" => flat = true,
                 "--no-allow" => no_allow = true,
                 "--no-comment" => no_comment = true,
-                "--no-core" => no_core = true,
+                "--no-deps" => no_deps = true,
                 "--no-toml" => no_toml = true,
                 "--package" => package = true,
                 "--sys" => sys = true,
@@ -143,10 +143,6 @@ where
         }
     }
 
-    if !sys && no_core {
-        panic!("`--no-core` requires `--sys`");
-    }
-
     if package && flat {
         panic!("cannot combine `--package` and `--flat`");
     }
@@ -158,6 +154,21 @@ where
     if output.is_empty() {
         panic!("exactly one `--out` is required");
     };
+
+    if !sys && !no_deps {
+        references.insert(0, ReferenceStage::parse(
+            "windows_collections,flat,Windows.Foundation.Collections",
+        ));
+        references.insert(0, ReferenceStage::parse(
+            "windows_numerics,flat,Windows.Foundation.Numerics",
+        ));
+        references.insert(0, ReferenceStage::parse(
+            "windows_future,flat,Windows.Foundation.Async*",
+        ));
+        references.insert(0, ReferenceStage::parse(
+            "windows_future,flat,Windows.Foundation.IAsync*",
+        ));
+    }
 
     // This isn't strictly necessary but avoids a common newbie pitfall where all metadata
     // would be generated when building a component for a specific API.
@@ -178,7 +189,7 @@ where
         derive,
         no_allow,
         no_comment,
-        no_core,
+        no_deps,
         no_toml,
         package,
         rustfmt,

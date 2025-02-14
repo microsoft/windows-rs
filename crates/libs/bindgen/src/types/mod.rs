@@ -790,7 +790,7 @@ impl Type {
     }
 
     fn write_no_deps(&self, writer: &Writer) -> TokenStream {
-        if !writer.config.no_core {
+        if !writer.config.no_deps || !writer.config.sys {
             return quote! {};
         }
 
