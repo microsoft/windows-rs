@@ -21,8 +21,7 @@ impl Class {
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
-        let mut required_interfaces = self.required_interfaces();
-        required_interfaces.sort();
+        let required_interfaces = self.required_interfaces();
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
         let (class_cfg, cfg) = self.write_cfg(writer);
@@ -330,6 +329,8 @@ impl Class {
             }
         }
 
+        set.sort();
+        set.dedup();
         set
     }
 

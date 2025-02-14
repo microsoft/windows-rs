@@ -81,9 +81,7 @@ impl Interface {
         let type_name = self.def.type_name();
         let methods = self.get_methods(writer);
 
-        let mut required_interfaces = self.required_interfaces();
-        required_interfaces.sort();
-
+        let required_interfaces = self.required_interfaces();
         let name = self.write_name(writer);
 
         let vtbl_name = self.write_vtbl_name(writer);
@@ -555,6 +553,9 @@ impl Interface {
         }
         let mut set = vec![];
         walk(self, &mut set);
+
+        set.sort();
+        set.dedup();
         set
     }
 }
