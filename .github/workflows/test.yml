@@ -269,6 +269,8 @@ jobs:
         run:  cargo test -p test_reference --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reference_client
         run:  cargo test -p test_reference_client --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_reference_default
+        run:  cargo test -p test_reference_default --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reference_float
         run:  cargo test -p test_reference_float --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_registry
@@ -359,10 +361,10 @@ jobs:
         run:  cargo test -p windows-targets --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-version
         run:  cargo test -p windows-version --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test windows_aarch64_gnullvm
-        run:  cargo test -p windows_aarch64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test windows_aarch64_gnullvm
+        run:  cargo test -p windows_aarch64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_aarch64_msvc
         run:  cargo test -p windows_aarch64_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_i686_gnu

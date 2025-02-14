@@ -156,18 +156,22 @@ where
     };
 
     if !sys && !no_deps {
-        references.insert(0, ReferenceStage::parse(
-            "windows_collections,flat,Windows.Foundation.Collections",
-        ));
-        references.insert(0, ReferenceStage::parse(
-            "windows_numerics,flat,Windows.Foundation.Numerics",
-        ));
-        references.insert(0, ReferenceStage::parse(
-            "windows_future,flat,Windows.Foundation.Async*",
-        ));
-        references.insert(0, ReferenceStage::parse(
-            "windows_future,flat,Windows.Foundation.IAsync*",
-        ));
+        references.insert(
+            0,
+            ReferenceStage::parse("windows_collections,flat,Windows.Foundation.Collections"),
+        );
+        references.insert(
+            0,
+            ReferenceStage::parse("windows_numerics,flat,Windows.Foundation.Numerics"),
+        );
+        references.insert(
+            0,
+            ReferenceStage::parse("windows_future,flat,Windows.Foundation.Async*"),
+        );
+        references.insert(
+            0,
+            ReferenceStage::parse("windows_future,flat,Windows.Foundation.IAsync*"),
+        );
     }
 
     // This isn't strictly necessary but avoids a common newbie pitfall where all metadata
