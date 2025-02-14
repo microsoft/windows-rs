@@ -32,9 +32,9 @@ fn main() {
     test_raw("--out core_sys.rs --no-comment --in default --filter CoCreateGuid --sys");
     test_raw("--out core_sys_flat.rs --no-comment --in default --filter CoCreateGuid --sys --flat");
     test_raw(
-        "--out core_sys_no_core.rs --no-comment --in default --filter CoCreateGuid --sys --no-core",
+        "--out core_sys_no_core.rs --no-comment --in default --filter CoCreateGuid --sys --no-deps",
     );
-    test_raw("--out core_sys_flat_no_core.rs --no-comment --in default --filter CoCreateGuid --sys --flat --no-core");
+    test_raw("--out core_sys_flat_no_core.rs --no-comment --in default --filter CoCreateGuid --sys --flat --no-deps");
 
     // Tests adding custom derived traits for specific types
     test("--out derive_struct.rs --filter DateTime TimeSpan --derive DateTime=PartialOrd");
@@ -69,19 +69,19 @@ fn main() {
     // Tests for interfaces
     test("--out interface.rs --filter IStringable");
     test("--out interface_sys.rs --filter IStringable --sys");
-    test("--out interface_sys_no_core.rs --filter IStringable --sys --no-core");
+    test("--out interface_sys_no_core.rs --filter IStringable --sys --no-deps");
     test("--out interface_cpp.rs --filter IPersist");
     test("--out interface_cpp_sys.rs --filter IPersist --sys");
-    test("--out interface_cpp_sys_no_core.rs --filter IPersist --sys --no-core");
+    test("--out interface_cpp_sys_no_core.rs --filter IPersist --sys --no-deps");
     test("--out interface_cpp_derive.rs --filter IPersistFile");
     test("--out interface_cpp_derive_sys.rs --filter IPersistFile --sys");
     test("--out interface_cpp_return_udt.rs --filter ID2D1Bitmap D2D_SIZE_F");
-    test("--out interface_generic.rs --filter IAsyncOperation");
-    test("--out interface_required.rs --filter IAsyncAction");
+    test("--out interface_generic.rs --filter IAsyncOperation --no-deps");
+    test("--out interface_required.rs --filter IAsyncAction --no-deps");
     test("--out interface_required_sys.rs --filter IAsyncAction --sys");
-    test("--out interface_required_with_method.rs --filter IAsyncAction AsyncStatus");
+    test("--out interface_required_with_method.rs --filter IAsyncAction AsyncStatus --no-deps");
     test("--out interface_required_with_method_sys.rs --filter IAsyncAction AsyncStatus --sys");
-    test("--out interface_iterable.rs --filter IVector");
+    test("--out interface_iterable.rs --filter IVector --no-deps");
     test("--out interface_array_return.rs --filter IDispatch");
 
     // Tests for functions
@@ -107,7 +107,7 @@ fn main() {
     test("--out class.rs --filter Deferral");
     test("--out class_with_handler.rs --filter Deferral DeferralCompletedHandler");
     test("--out class_static.rs --filter GuidHelper");
-    test("--out class_dep.rs --filter WwwFormUrlDecoder");
+    test("--out class_dep.rs --filter WwwFormUrlDecoder --no-deps");
 
     // Tests for duplicate types
     test("--out multi.rs --filter HTTP_VERSION");
@@ -135,7 +135,7 @@ fn main() {
     // Tests for BOOL and BOOLEAN parameters
     test("--out bool.rs --filter EnableMouseInPointer");
     test("--out bool_sys.rs --filter EnableMouseInPointer --sys");
-    test("--out bool_sys_no_core.rs --filter EnableMouseInPointer --sys --no-core");
+    test("--out bool_sys_no_core.rs --filter EnableMouseInPointer --sys --no-deps");
     test("--out bool_event.rs --filter CreateEventW SetEvent NtWaitForSingleObject WaitForSingleObjectEx --reference windows,skip-root,Windows");
     test("--out bool_event_sans_reference.rs --filter CreateEventW SetEvent NtWaitForSingleObject WaitForSingleObjectEx");
 
@@ -158,7 +158,7 @@ fn main() {
     test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys");
 
     // Tests for sort order
-    test("--out sort.rs --filter E_FAIL S_FALSE E_OUTOFMEMORY ERROR_OUTOFMEMORY Windows.Foundation.Rect RECT GetTickCount FatalExit --sys --no-core");
+    test("--out sort.rs --filter E_FAIL S_FALSE E_OUTOFMEMORY ERROR_OUTOFMEMORY Windows.Foundation.Rect RECT GetTickCount FatalExit --sys --no-deps");
 
     // Tests input defaults
     test_raw(

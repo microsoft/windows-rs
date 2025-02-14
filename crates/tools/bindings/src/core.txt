@@ -2,7 +2,7 @@
 
 --in default
 --out crates/libs/core/src/imp/bindings.rs
---flat --sys --no-comment --no-core
+--flat --sys --no-comment --no-deps
 
 --filter
     CloseHandle

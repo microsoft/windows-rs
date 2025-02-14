@@ -2,7 +2,7 @@
 
 --in default
 --out crates/libs/core/src/imp/com_bindings.rs
---flat --no-comment
+--flat --no-comment --no-deps
 
 --filter
     AGILEREFERENCE_DEFAULT
