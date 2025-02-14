@@ -6093,7 +6093,7 @@ impl CompositionGraphicsDevice {
         unsafe { (windows_core::Interface::vtable(this).Trim)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn CaptureAsync<P0>(&self, capturevisual: P0, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ICompositionSurface>>
+    pub fn CaptureAsync<P0>(&self, capturevisual: P0, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32) -> windows_core::Result<windows_future::IAsyncOperation<ICompositionSurface>>
     where
         P0: windows_core::Param<Visual>,
     {
@@ -12452,7 +12452,7 @@ impl Compositor {
             (windows_core::Interface::vtable(this).CreateViewBox)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestCommitAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RequestCommitAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

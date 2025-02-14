@@ -832,14 +832,14 @@ impl WorkflowPrintTicket {
             (windows_core::Interface::vtable(this).GetFeature)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(xmlnamespace), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NotifyXmlChangedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn NotifyXmlChangedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NotifyXmlChangedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ValidateAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<WorkflowPrintTicketValidationResult>> {
+    pub fn ValidateAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<WorkflowPrintTicketValidationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

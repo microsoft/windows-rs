@@ -57,14 +57,14 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).PresentationFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadValueAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadValueAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -72,7 +72,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -83,7 +83,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueWithOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -93,14 +93,14 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).WriteValueWithOptionAsync)(windows_core::Interface::as_raw(this), value.param().abi(), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
+    pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadClientCharacteristicConfigurationDescriptorAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
+    pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -136,28 +136,28 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).GetAllDescriptors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptorsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptorsWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsForUuidAsync(&self, descriptoruuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsForUuidAsync(&self, descriptoruuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptorsForUuidAsync)(windows_core::Interface::as_raw(this), descriptoruuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -165,7 +165,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -176,7 +176,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithResultAndOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAndOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -186,7 +186,7 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(windows_core::Interface::as_raw(this), value.param().abi(), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
+    pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -916,14 +916,14 @@ impl GattDescriptor {
             (windows_core::Interface::vtable(this).AttributeHandle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ReadValueAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadValueAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -931,7 +931,7 @@ impl GattDescriptor {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -942,7 +942,7 @@ impl GattDescriptor {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1163,77 +1163,77 @@ impl GattDeviceService {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn RequestAccessAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
+    pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAsync(&self, sharingmode: GattSharingMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>> {
+    pub fn OpenAsync(&self, sharingmode: GattSharingMode) -> windows_core::Result<windows_future::IAsyncOperation<GattOpenStatus>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsForUuidAsync(&self, characteristicuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsForUuidAsync(&self, characteristicuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsForUuidAsync)(windows_core::Interface::as_raw(this), characteristicuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsForUuidWithCacheModeAsync)(windows_core::Interface::as_raw(this), characteristicuuid, cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesForUuidAsync(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesForUuidAsync(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesForUuidAsync)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(windows_core::Interface::as_raw(this), serviceuuid, cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1259,7 +1259,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
-    pub fn FromIdWithSharingModeAsync(deviceid: &windows_core::HSTRING, sharingmode: GattSharingMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>> {
+    pub fn FromIdWithSharingModeAsync(deviceid: &windows_core::HSTRING, sharingmode: GattSharingMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdWithSharingModeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1402,7 +1402,7 @@ impl GattLocalCharacteristic {
             (windows_core::Interface::vtable(this).WriteProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateDescriptorAsync<P1>(&self, descriptoruuid: windows_core::GUID, parameters: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>
+    pub fn CreateDescriptorAsync<P1>(&self, descriptoruuid: windows_core::GUID, parameters: P1) -> windows_core::Result<windows_future::IAsyncOperation<GattLocalDescriptorResult>>
     where
         P1: windows_core::Param<GattLocalDescriptorParameters>,
     {
@@ -1483,7 +1483,7 @@ impl GattLocalCharacteristic {
         unsafe { (windows_core::Interface::vtable(this).RemoveWriteRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn NotifyValueAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<GattClientNotificationResult>>>
+    pub fn NotifyValueAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GattClientNotificationResult>>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1494,7 +1494,7 @@ impl GattLocalCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn NotifyValueForSubscribedClientAsync<P0, P1>(&self, value: P0, subscribedclient: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>
+    pub fn NotifyValueForSubscribedClientAsync<P0, P1>(&self, value: P0, subscribedclient: P1) -> windows_core::Result<windows_future::IAsyncOperation<GattClientNotificationResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<GattSubscribedClient>,
@@ -1824,7 +1824,7 @@ impl GattLocalService {
             (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateCharacteristicAsync<P1>(&self, characteristicuuid: windows_core::GUID, parameters: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>
+    pub fn CreateCharacteristicAsync<P1>(&self, characteristicuuid: windows_core::GUID, parameters: P1) -> windows_core::Result<windows_future::IAsyncOperation<GattLocalCharacteristicResult>>
     where
         P1: windows_core::Param<GattLocalCharacteristicParameters>,
     {
@@ -2366,7 +2366,7 @@ impl GattReadRequestedEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetRequestAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadRequest>> {
+    pub fn GetRequestAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadRequest>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2447,14 +2447,14 @@ impl GattReliableWriteTransaction {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).WriteValue)(windows_core::Interface::as_raw(this), characteristic.param().abi(), value.param().abi()).ok() }
     }
-    pub fn CommitAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
+    pub fn CommitAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CommitAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CommitWithResultAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
+    pub fn CommitWithResultAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>> {
         let this = &windows_core::Interface::cast::<IGattReliableWriteTransaction2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2568,7 +2568,7 @@ impl GattServiceProvider {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopAdvertising)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn CreateAsync(serviceuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>> {
+    pub fn CreateAsync(serviceuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattServiceProviderResult>> {
         Self::IGattServiceProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2957,7 +2957,7 @@ impl GattSession {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSessionStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FromDeviceIdAsync<P0>(deviceid: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattSession>>
+    pub fn FromDeviceIdAsync<P0>(deviceid: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattSession>>
     where
         P0: windows_core::Param<super::BluetoothDeviceId>,
     {
@@ -3223,7 +3223,7 @@ impl GattWriteRequestedEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetRequestAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteRequest>> {
+    pub fn GetRequestAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteRequest>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

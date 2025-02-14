@@ -1,8 +1,8 @@
 use core::convert::*;
 
-use windows::{Foundation::Collections::*, Foundation::*};
-
 use windows::core::Interface;
+use windows::{Foundation::Collections::*, Foundation::*};
+use windows_future::*;
 
 #[test]
 fn non_generic() -> windows::core::Result<()> {

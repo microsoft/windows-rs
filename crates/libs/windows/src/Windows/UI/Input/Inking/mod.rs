@@ -618,7 +618,7 @@ impl IInkRecognizerContainer {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDefaultRecognizer)(windows_core::Interface::as_raw(this), recognizer.param().abi()).ok() }
     }
-    pub fn RecognizeAsync<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>
+    pub fn RecognizeAsync<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>
     where
         P0: windows_core::Param<InkStrokeContainer>,
     {
@@ -641,7 +641,7 @@ impl windows_core::RuntimeName for IInkRecognizerContainer {
 }
 pub trait IInkRecognizerContainer_Impl: windows_core::IUnknownImpl {
     fn SetDefaultRecognizer(&self, recognizer: windows_core::Ref<'_, InkRecognizer>) -> windows_core::Result<()>;
-    fn RecognizeAsync(&self, strokeCollection: windows_core::Ref<'_, InkStrokeContainer>, recognitionTarget: InkRecognitionTarget) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>;
+    fn RecognizeAsync(&self, strokeCollection: windows_core::Ref<'_, InkStrokeContainer>, recognitionTarget: InkRecognitionTarget) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>;
     fn GetRecognizers(&self) -> windows_core::Result<windows_collections::IVectorView<InkRecognizer>>;
 }
 impl IInkRecognizerContainer_Vtbl {
@@ -846,7 +846,7 @@ impl IInkStrokeContainer {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadAsync<P0>(&self, inputstream: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
+    pub fn LoadAsync<P0>(&self, inputstream: P0) -> windows_core::Result<windows_future::IAsyncActionWithProgress<u64>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {
@@ -857,7 +857,7 @@ impl IInkStrokeContainer {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveAsync<P0>(&self, outputstream: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,
     {
@@ -904,8 +904,8 @@ pub trait IInkStrokeContainer_Impl: windows_core::IUnknownImpl {
     fn CopySelectedToClipboard(&self) -> windows_core::Result<()>;
     fn PasteFromClipboard(&self, position: &super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect>;
     fn CanPasteFromClipboard(&self) -> windows_core::Result<bool>;
-    fn LoadAsync(&self, inputStream: windows_core::Ref<'_, super::super::super::Storage::Streams::IInputStream>) -> windows_core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>;
-    fn SaveAsync(&self, outputStream: windows_core::Ref<'_, super::super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
+    fn LoadAsync(&self, inputStream: windows_core::Ref<'_, super::super::super::Storage::Streams::IInputStream>) -> windows_core::Result<windows_future::IAsyncActionWithProgress<u64>>;
+    fn SaveAsync(&self, outputStream: windows_core::Ref<'_, super::super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>;
     fn UpdateRecognitionResults(&self, recognitionResults: windows_core::Ref<'_, windows_collections::IVectorView<InkRecognitionResult>>) -> windows_core::Result<()>;
     fn GetStrokes(&self) -> windows_core::Result<windows_collections::IVectorView<InkStroke>>;
     fn GetRecognitionResults(&self) -> windows_core::Result<windows_collections::IVectorView<InkRecognitionResult>>;
@@ -1660,7 +1660,7 @@ impl InkManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDefaultDrawingAttributes)(windows_core::Interface::as_raw(this), drawingattributes.param().abi()).ok() }
     }
-    pub fn RecognizeAsync(&self, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>> {
+    pub fn RecognizeAsync(&self, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1674,7 +1674,7 @@ impl InkManager {
         let this = &windows_core::Interface::cast::<IInkRecognizerContainer>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDefaultRecognizer)(windows_core::Interface::as_raw(this), recognizer.param().abi()).ok() }
     }
-    pub fn RecognizeAsync2<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>
+    pub fn RecognizeAsync2<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>
     where
         P0: windows_core::Param<InkStrokeContainer>,
     {
@@ -1755,7 +1755,7 @@ impl InkManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadAsync<P0>(&self, inputstream: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
+    pub fn LoadAsync<P0>(&self, inputstream: P0) -> windows_core::Result<windows_future::IAsyncActionWithProgress<u64>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {
@@ -1766,7 +1766,7 @@ impl InkManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveAsync<P0>(&self, outputstream: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,
     {
@@ -2517,7 +2517,7 @@ impl InkRecognizerContainer {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDefaultRecognizer)(windows_core::Interface::as_raw(this), recognizer.param().abi()).ok() }
     }
-    pub fn RecognizeAsync<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>
+    pub fn RecognizeAsync<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>
     where
         P0: windows_core::Param<InkStrokeContainer>,
     {
@@ -2841,7 +2841,7 @@ impl InkStrokeContainer {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadAsync<P0>(&self, inputstream: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
+    pub fn LoadAsync<P0>(&self, inputstream: P0) -> windows_core::Result<windows_future::IAsyncActionWithProgress<u64>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {
@@ -2852,7 +2852,7 @@ impl InkStrokeContainer {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveAsync<P0>(&self, outputstream: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,
     {
@@ -2895,7 +2895,7 @@ impl InkStrokeContainer {
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveWithFormatAsync<P0>(&self, outputstream: P0, inkpersistenceformat: InkPersistenceFormat) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveWithFormatAsync<P0>(&self, outputstream: P0, inkpersistenceformat: InkPersistenceFormat) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,
     {

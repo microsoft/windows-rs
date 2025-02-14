@@ -1,7 +1,8 @@
 use windows::{
-    core::*, Foundation::*, Security::Credentials::UI::*, Win32::Foundation::*,
-    Win32::System::WinRT::*,
+    core::*, Security::Credentials::UI::*, Win32::Foundation::*, Win32::System::WinRT::*,
 };
+
+use windows_future::*;
 
 fn main() -> Result<()> {
     unsafe {

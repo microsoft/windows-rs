@@ -212,7 +212,7 @@ impl windows_core::RuntimeType for ISpiProvider {
 }
 windows_core::imp::interface_hierarchy!(ISpiProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ISpiProvider {
-    pub fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ISpiControllerProvider>>> {
+    pub fn GetControllersAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ISpiControllerProvider>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -224,7 +224,7 @@ impl windows_core::RuntimeName for ISpiProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiProvider";
 }
 pub trait ISpiProvider_Impl: windows_core::IUnknownImpl {
-    fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ISpiControllerProvider>>>;
+    fn GetControllersAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ISpiControllerProvider>>>;
 }
 impl ISpiProvider_Vtbl {
     pub const fn new<Identity: ISpiProvider_Impl, const OFFSET: isize>() -> Self {

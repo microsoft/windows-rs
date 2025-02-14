@@ -1,6 +1,5 @@
-use super::Async::Async;
-use crate::{core::*, Foundation::*};
-use core::ffi::c_void;
+use super::*;
+use std::ffi::c_void;
 use std::sync::Mutex;
 
 struct State<T: Async> {
@@ -37,7 +36,11 @@ struct SyncState<T: Async>(Mutex<State<T>>);
 
 impl<T: Async> SyncState<T> {
     fn new() -> Self {
-        Self(Mutex::new(State { result: None, completed: None, completed_assigned: false }))
+        Self(Mutex::new(State {
+            result: None,
+            completed: None,
+            completed_assigned: false,
+        }))
     }
 
     fn status(&self) -> AsyncStatus {
@@ -210,7 +213,10 @@ impl<T: RuntimeType> IAsyncOperation_Impl<T> for Operation_Impl<T> {
 }
 
 impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ActionWithProgress_Impl<P> {
-    fn SetCompleted(&self, handler: Ref<'_, AsyncActionWithProgressCompletedHandler<P>>) -> Result<()> {
+    fn SetCompleted(
+        &self,
+        handler: Ref<'_, AsyncActionWithProgressCompletedHandler<P>>,
+    ) -> Result<()> {
         self.0.set_completed(&self.as_interface(), handler)
     }
     fn Completed(&self) -> Result<AsyncActionWithProgressCompletedHandler<P>> {
@@ -227,8 +233,13 @@ impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ActionWithProgress_Imp
     }
 }
 
-impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P> for OperationWithProgress_Impl<T, P> {
-    fn SetCompleted(&self, handler: Ref<'_, AsyncOperationWithProgressCompletedHandler<T, P>>) -> Result<()> {
+impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
+    for OperationWithProgress_Impl<T, P>
+{
+    fn SetCompleted(
+        &self,
+        handler: Ref<'_, AsyncOperationWithProgressCompletedHandler<T, P>>,
+    ) -> Result<()> {
         self.0.set_completed(&self.as_interface(), handler)
     }
     fn Completed(&self) -> Result<AsyncOperationWithProgressCompletedHandler<T, P>> {
@@ -314,17 +325,26 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
 }
 
 fn spawn<F: FnOnce() + Send + 'static>(f: F) {
-    type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *const c_void, context: *const c_void);
+    type PTP_SIMPLE_CALLBACK =
+        unsafe extern "system" fn(instance: *const c_void, context: *const c_void);
     windows_link::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(callback: PTP_SIMPLE_CALLBACK, context: *const c_void, environment: *const c_void) -> i32);
 
-    unsafe extern "system" fn callback<F: FnOnce() + Send + 'static>(_: *const c_void, callback: *const c_void) {
+    unsafe extern "system" fn callback<F: FnOnce() + Send + 'static>(
+        _: *const c_void,
+        callback: *const c_void,
+    ) {
         unsafe {
             Box::from_raw(callback as *mut F)();
         }
     }
 
     unsafe {
-        if TrySubmitThreadpoolCallback(callback::<F>, Box::into_raw(Box::new(f)) as _, core::ptr::null()) == 0 {
+        if TrySubmitThreadpoolCallback(
+            callback::<F>,
+            Box::into_raw(Box::new(f)) as _,
+            core::ptr::null(),
+        ) == 0
+        {
             panic!("allocation failed");
         }
     }

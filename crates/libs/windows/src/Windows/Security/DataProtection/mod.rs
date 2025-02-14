@@ -160,7 +160,7 @@ pub struct UserDataProtectionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataProtectionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataProtectionManager {
     #[cfg(feature = "Storage")]
-    pub fn ProtectStorageItemAsync<P0>(&self, storageitem: P0, availability: UserDataAvailability) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>
+    pub fn ProtectStorageItemAsync<P0>(&self, storageitem: P0, availability: UserDataAvailability) -> windows_core::Result<windows_future::IAsyncOperation<UserDataStorageItemProtectionStatus>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
     {
@@ -171,7 +171,7 @@ impl UserDataProtectionManager {
         }
     }
     #[cfg(feature = "Storage")]
-    pub fn GetStorageItemProtectionInfoAsync<P0>(&self, storageitem: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>
+    pub fn GetStorageItemProtectionInfoAsync<P0>(&self, storageitem: P0) -> windows_core::Result<windows_future::IAsyncOperation<UserDataStorageItemProtectionInfo>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
     {
@@ -182,7 +182,7 @@ impl UserDataProtectionManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ProtectBufferAsync<P0>(&self, unprotectedbuffer: P0, availability: UserDataAvailability) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    pub fn ProtectBufferAsync<P0>(&self, unprotectedbuffer: P0, availability: UserDataAvailability) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -193,7 +193,7 @@ impl UserDataProtectionManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn UnprotectBufferAsync<P0>(&self, protectedbuffer: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>
+    pub fn UnprotectBufferAsync<P0>(&self, protectedbuffer: P0) -> windows_core::Result<windows_future::IAsyncOperation<UserDataBufferUnprotectResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {

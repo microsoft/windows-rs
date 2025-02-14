@@ -1,5 +1,4 @@
-use crate::core::{imp::Waiter, *};
-use crate::Foundation::*;
+use super::*;
 use std::future::{Future, IntoFuture};
 use std::pin::Pin;
 use std::sync::{Arc, Mutex};
@@ -156,10 +155,12 @@ impl<P: RuntimeType> Async for IAsyncActionWithProgress<P> {
     type CompletedHandler = AsyncActionWithProgressCompletedHandler<P>;
 
     fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()> {
-        self.SetCompleted(&AsyncActionWithProgressCompletedHandler::new(move |_, _| {
-            handler();
-            Ok(())
-        }))
+        self.SetCompleted(&AsyncActionWithProgressCompletedHandler::new(
+            move |_, _| {
+                handler();
+                Ok(())
+            },
+        ))
     }
 
     fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus) {
@@ -176,10 +177,12 @@ impl<T: RuntimeType, P: RuntimeType> Async for IAsyncOperationWithProgress<T, P>
     type CompletedHandler = AsyncOperationWithProgressCompletedHandler<T, P>;
 
     fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()> {
-        self.SetCompleted(&AsyncOperationWithProgressCompletedHandler::new(move |_, _| {
-            handler();
-            Ok(())
-        }))
+        self.SetCompleted(&AsyncOperationWithProgressCompletedHandler::new(
+            move |_, _| {
+                handler();
+                Ok(())
+            },
+        ))
     }
 
     fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus) {
@@ -228,77 +231,5 @@ impl<T: RuntimeType, P: RuntimeType> IntoFuture for IAsyncOperationWithProgress<
 
     fn into_future(self) -> Self::IntoFuture {
         AsyncFuture::new(self)
-    }
-}
-
-//
-// The four `get` implementations for synchronous completion.
-//
-
-impl IAsyncAction {
-    /// Waits for the `IAsyncAction` to finish.
-    pub fn get(&self) -> Result<()> {
-        if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = Waiter::new()?;
-            self.SetCompleted(&AsyncActionCompletedHandler::new(move |_, _| {
-                // This is safe because the waiter will only be dropped after being signaled.
-                unsafe {
-                    signaler.signal();
-                }
-                Ok(())
-            }))?;
-        }
-        self.GetResults()
-    }
-}
-
-impl<T: RuntimeType> IAsyncOperation<T> {
-    /// Waits for the `IAsyncOperation<T>` to finish.
-    pub fn get(&self) -> Result<T> {
-        if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = Waiter::new()?;
-            self.SetCompleted(&AsyncOperationCompletedHandler::new(move |_, _| {
-                // This is safe because the waiter will only be dropped after being signaled.
-                unsafe {
-                    signaler.signal();
-                }
-                Ok(())
-            }))?;
-        }
-        self.GetResults()
-    }
-}
-
-impl<P: RuntimeType> IAsyncActionWithProgress<P> {
-    /// Waits for the `IAsyncActionWithProgress<P>` to finish.
-    pub fn get(&self) -> Result<()> {
-        if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = Waiter::new()?;
-            self.SetCompleted(&AsyncActionWithProgressCompletedHandler::new(move |_, _| {
-                // This is safe because the waiter will only be dropped after being signaled.
-                unsafe {
-                    signaler.signal();
-                }
-                Ok(())
-            }))?;
-        }
-        self.GetResults()
-    }
-}
-
-impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
-    /// Waits for the `IAsyncOperationWithProgress<T, P>` to finish.
-    pub fn get(&self) -> Result<T> {
-        if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = Waiter::new()?;
-            self.SetCompleted(&AsyncOperationWithProgressCompletedHandler::new(move |_, _| {
-                // This is safe because the waiter will only be dropped after being signaled.
-                unsafe {
-                    signaler.signal();
-                }
-                Ok(())
-            }))?;
-        }
-        self.GetResults()
     }
 }

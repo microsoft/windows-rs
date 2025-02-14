@@ -1048,7 +1048,7 @@ impl SpatialInteractionController {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryGetRenderableModelAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
+    pub fn TryGetRenderableModelAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = &windows_core::Interface::cast::<ISpatialInteractionController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1417,7 +1417,7 @@ impl SpatialInteractionSource {
         }
     }
     #[cfg(feature = "Perception_People")]
-    pub fn TryCreateHandMeshObserverAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>> {
+    pub fn TryCreateHandMeshObserverAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>> {
         let this = &windows_core::Interface::cast::<ISpatialInteractionSource4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

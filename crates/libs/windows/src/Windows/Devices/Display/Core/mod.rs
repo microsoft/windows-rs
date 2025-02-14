@@ -914,7 +914,7 @@ impl DisplayMuxDevice {
             (windows_core::Interface::vtable(this).IsAutomaticTargetSwitchingEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPreferredTarget<P0>(&self, target: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn SetPreferredTarget<P0>(&self, target: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<DisplayTarget>,
     {
@@ -924,7 +924,7 @@ impl DisplayMuxDevice {
             (windows_core::Interface::vtable(this).SetPreferredTarget)(windows_core::Interface::as_raw(this), target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetAutomaticTargetSwitching(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetAutomaticTargetSwitching(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -951,7 +951,7 @@ impl DisplayMuxDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceinterfaceid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<DisplayMuxDevice>> {
+    pub fn FromIdAsync(deviceinterfaceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DisplayMuxDevice>> {
         Self::IDisplayMuxDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

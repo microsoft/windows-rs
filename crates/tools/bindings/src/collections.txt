@@ -3,7 +3,7 @@
 --no-comment
 
 --filter
-    IMap
-    IMapView
-    IVector
-    IVectorView
+    Windows.Foundation.Collections.IMap
+    Windows.Foundation.Collections.IMapView
+    Windows.Foundation.Collections.IVector
+    Windows.Foundation.Collections.IVectorView

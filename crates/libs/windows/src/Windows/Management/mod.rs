@@ -219,7 +219,7 @@ impl MdmSession {
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AttachAsync(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
+    pub fn AttachAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -230,14 +230,14 @@ impl MdmSession {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Delete)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn StartAsync(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartWithAlertsAsync<P0>(&self, alerts: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
+    pub fn StartWithAlertsAsync<P0>(&self, alerts: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<windows_collections::IIterable<MdmAlert>>,
     {

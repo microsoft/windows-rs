@@ -1,5 +1,4 @@
-use super::Async::Async;
-use crate::{core::*, Foundation::*};
+use super::*;
 use std::sync::atomic::{AtomicBool, Ordering};
 
 struct ReadyState<T: Async> {
@@ -9,7 +8,10 @@ struct ReadyState<T: Async> {
 
 impl<T: Async> ReadyState<T> {
     fn new(result: Result<T::Output>) -> Self {
-        Self { set_completed: AtomicBool::new(false), result }
+        Self {
+            set_completed: AtomicBool::new(false),
+            result,
+        }
     }
 
     fn status(&self) -> AsyncStatus {
@@ -157,7 +159,10 @@ impl<T: RuntimeType> IAsyncOperation_Impl<T> for ReadyOperation_Impl<T> {
 }
 
 impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ReadyActionWithProgress_Impl<P> {
-    fn SetCompleted(&self, handler: Ref<'_, AsyncActionWithProgressCompletedHandler<P>>) -> Result<()> {
+    fn SetCompleted(
+        &self,
+        handler: Ref<'_, AsyncActionWithProgressCompletedHandler<P>>,
+    ) -> Result<()> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
     fn Completed(&self) -> Result<AsyncActionWithProgressCompletedHandler<P>> {
@@ -174,8 +179,13 @@ impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ReadyActionWithProgres
     }
 }
 
-impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P> for ReadyOperationWithProgress_Impl<T, P> {
-    fn SetCompleted(&self, handler: Ref<'_, AsyncOperationWithProgressCompletedHandler<T, P>>) -> Result<()> {
+impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
+    for ReadyOperationWithProgress_Impl<T, P>
+{
+    fn SetCompleted(
+        &self,
+        handler: Ref<'_, AsyncOperationWithProgressCompletedHandler<T, P>>,
+    ) -> Result<()> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
     fn Completed(&self) -> Result<AsyncOperationWithProgressCompletedHandler<T, P>> {

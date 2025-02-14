@@ -99,7 +99,7 @@ impl OfflineMapPackage {
             (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RequestStartDownloadAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>> {
+    pub fn RequestStartDownloadAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<OfflineMapPackageStartDownloadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -107,7 +107,7 @@ impl OfflineMapPackage {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindPackagesAsync<P0>(querypoint: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
+    pub fn FindPackagesAsync<P0>(querypoint: P0) -> windows_core::Result<windows_future::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
         P0: windows_core::Param<super::super::super::Devices::Geolocation::Geopoint>,
     {
@@ -117,7 +117,7 @@ impl OfflineMapPackage {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindPackagesInBoundingBoxAsync<P0>(queryboundingbox: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
+    pub fn FindPackagesInBoundingBoxAsync<P0>(queryboundingbox: P0) -> windows_core::Result<windows_future::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
         P0: windows_core::Param<super::super::super::Devices::Geolocation::GeoboundingBox>,
     {
@@ -127,7 +127,7 @@ impl OfflineMapPackage {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindPackagesInGeocircleAsync<P0>(querycircle: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
+    pub fn FindPackagesInGeocircleAsync<P0>(querycircle: P0) -> windows_core::Result<windows_future::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
         P0: windows_core::Param<super::super::super::Devices::Geolocation::Geocircle>,
     {

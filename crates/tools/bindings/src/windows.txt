@@ -6,25 +6,40 @@
 --reference
     windows_collections,flat,Windows.Foundation.Collections
     windows_numerics,flat,Windows.Foundation.Numerics
+    windows_future,flat,Windows.Foundation
 
 --filter
     Windows
 
 // Collections
-    !IIterable
-    !IIterator
-    !IKeyValuePair
-    !IMap
-    !IMapView
-    !IVector
-    !IVectorView
+    !Windows.Foundation.Collections.IIterable
+    !Windows.Foundation.Collections.IIterator
+    !Windows.Foundation.Collections.IKeyValuePair
+    !Windows.Foundation.Collections.IMap
+    !Windows.Foundation.Collections.IMapView
+    !Windows.Foundation.Collections.IVector
+    !Windows.Foundation.Collections.IVectorView
 
 // Numerics
-    !Matrix3x2
-    !Matrix4x4
-    !Vector2
-    !Vector3
-    !Vector4
+    !Windows.Foundation.Numerics.Matrix3x2
+    !Windows.Foundation.Numerics.Matrix4x4
+    !Windows.Foundation.Numerics.Vector2
+    !Windows.Foundation.Numerics.Vector3
+    !Windows.Foundation.Numerics.Vector4
+
+// Async
+    !Windows.Foundation.AsyncActionCompletedHandler
+    !Windows.Foundation.AsyncActionProgressHandler
+    !Windows.Foundation.AsyncActionWithProgressCompletedHandler
+    !Windows.Foundation.AsyncOperationCompletedHandler
+    !Windows.Foundation.AsyncOperationProgressHandler
+    !Windows.Foundation.AsyncOperationWithProgressCompletedHandler
+    !Windows.Foundation.AsyncStatus
+    !Windows.Foundation.IAsyncAction
+    !Windows.Foundation.IAsyncActionWithProgress
+    !Windows.Foundation.IAsyncInfo
+    !Windows.Foundation.IAsyncOperation
+    !Windows.Foundation.IAsyncOperationWithProgress
 
     !Windows.AI.MachineLearning.Preview
     !Windows.ApplicationModel.SocialInfo

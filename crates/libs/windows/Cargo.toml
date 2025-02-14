@@ -45,6 +45,10 @@ version = "0.1.0"
 path = "../numerics"
 default-features = false
 
+[dependencies.windows-future]
+version = "0.1.0"
+path = "../future"
+default-features = false
 
 [features]
 default = ["std"]

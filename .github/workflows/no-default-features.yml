@@ -43,6 +43,8 @@ jobs:
         run:  cargo check -p windows-collections --no-default-features
       - name: Check windows-core
         run:  cargo check -p windows-core --no-default-features
+      - name: Check windows-future
+        run:  cargo check -p windows-future --no-default-features
       - name: Check windows-implement
         run:  cargo check -p windows-implement --no-default-features
       - name: Check windows-interface

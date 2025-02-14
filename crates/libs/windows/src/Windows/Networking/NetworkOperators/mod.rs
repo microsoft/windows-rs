@@ -113,21 +113,21 @@ impl ESim {
             (windows_core::Interface::vtable(this).GetProfiles)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteProfileAsync(&self, profileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+    pub fn DeleteProfileAsync(&self, profileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ESimOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteProfileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(profileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DownloadProfileMetadataAsync(&self, activationcode: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>> {
+    pub fn DownloadProfileMetadataAsync(&self, activationcode: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ESimDownloadProfileMetadataResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DownloadProfileMetadataAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activationcode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ResetAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+    pub fn ResetAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ESimOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -162,14 +162,14 @@ impl ESim {
             (windows_core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(serveraddress), core::mem::transmute_copy(matchingid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DiscoverAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>> {
+    pub fn DiscoverAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ESimDiscoverResult>> {
         let this = &windows_core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DiscoverAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DiscoverWithServerAddressAndMatchingIdAsync(&self, serveraddress: &windows_core::HSTRING, matchingid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>> {
+    pub fn DiscoverWithServerAddressAndMatchingIdAsync(&self, serveraddress: &windows_core::HSTRING, matchingid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ESimDiscoverResult>> {
         let this = &windows_core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -545,21 +545,21 @@ impl ESimProfile {
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisableAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+    pub fn DisableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ESimOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EnableAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+    pub fn EnableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ESimOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetNicknameAsync(&self, newnickname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+    pub fn SetNicknameAsync(&self, newnickname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ESimOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -660,28 +660,28 @@ impl ESimProfileMetadata {
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DenyInstallAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+    pub fn DenyInstallAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ESimOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DenyInstallAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConfirmInstallAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>> {
+    pub fn ConfirmInstallAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConfirmInstallAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConfirmInstallWithConfirmationCodeAsync(&self, confirmationcode: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>> {
+    pub fn ConfirmInstallWithConfirmationCodeAsync(&self, confirmationcode: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConfirmInstallWithConfirmationCodeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(confirmationcode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PostponeInstallAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+    pub fn PostponeInstallAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ESimOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1006,7 +1006,7 @@ impl windows_core::RuntimeType for ESimWatcherStatus {
 }
 pub struct FdnAccessManager;
 impl FdnAccessManager {
-    pub fn RequestUnlockAsync(contactlistid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestUnlockAsync(contactlistid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IFdnAccessManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestUnlockAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contactlistid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1078,7 +1078,7 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).TriggerAttentionRequired)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagerelativeapplicationid), core::mem::transmute_copy(applicationparameters)).ok() }
     }
-    pub fn IssueCredentialsAsync(&self, username: &windows_core::HSTRING, password: &windows_core::HSTRING, extraparameters: &windows_core::HSTRING, markasmanualconnectonfailure: bool) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>> {
+    pub fn IssueCredentialsAsync(&self, username: &windows_core::HSTRING, password: &windows_core::HSTRING, extraparameters: &windows_core::HSTRING, markasmanualconnectonfailure: bool) -> windows_core::Result<windows_future::IAsyncOperation<HotspotCredentialsAuthenticationResult>> {
         let this = &windows_core::Interface::cast::<IHotspotAuthenticationContext2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3963,7 +3963,7 @@ pub struct MobileBroadbandDeviceServiceCommandSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandSession, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceServiceCommandSession {
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendQueryCommandAsync<P1>(&self, commandid: u32, data: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
+    pub fn SendQueryCommandAsync<P1>(&self, commandid: u32, data: P1) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -3974,7 +3974,7 @@ impl MobileBroadbandDeviceServiceCommandSession {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendSetCommandAsync<P1>(&self, commandid: u32, data: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
+    pub fn SendSetCommandAsync<P1>(&self, commandid: u32, data: P1) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -4047,7 +4047,7 @@ pub struct MobileBroadbandDeviceServiceDataSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceDataSession, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceServiceDataSession {
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteDataAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn WriteDataAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -4243,14 +4243,14 @@ impl MobileBroadbandModem {
             (windows_core::Interface::vtable(this).IsResetSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ResetAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ResetAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResetAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCurrentConfigurationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemConfiguration>> {
+    pub fn GetCurrentConfigurationAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandModemConfiguration>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4264,21 +4264,21 @@ impl MobileBroadbandModem {
             (windows_core::Interface::vtable(this).CurrentNetwork)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIsPassthroughEnabledAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn GetIsPassthroughEnabledAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IMobileBroadbandModem2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIsPassthroughEnabledAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetIsPassthroughEnabledAsync(&self, value: bool) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
+    pub fn SetIsPassthroughEnabledAsync(&self, value: bool) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandModemStatus>> {
         let this = &windows_core::Interface::cast::<IMobileBroadbandModem2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetIsPassthroughEnabledAsync)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetPcoAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPco>> {
+    pub fn TryGetPcoAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandPco>> {
         let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4306,14 +4306,14 @@ impl MobileBroadbandModem {
         let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveIsInEmergencyCallModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SetIsPassthroughEnabledWithSlotIndexAsync(&self, value: bool, slotindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
+    pub fn SetIsPassthroughEnabledWithSlotIndexAsync(&self, value: bool, slotindex: i32) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandModemStatus>> {
         let this = &windows_core::Interface::cast::<IMobileBroadbandModem4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetIsPassthroughEnabledWithSlotIndexAsync)(windows_core::Interface::as_raw(this), value, slotindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIsPassthroughEnabledWithSlotIndexAsync(&self, slotindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn GetIsPassthroughEnabledWithSlotIndexAsync(&self, slotindex: i32) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IMobileBroadbandModem4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4433,14 +4433,14 @@ impl MobileBroadbandModemIsolation {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddAllowedHostRange)(windows_core::Interface::as_raw(this), first.param().abi(), last.param().abi()).ok() }
     }
-    pub fn ApplyConfigurationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ApplyConfigurationAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApplyConfigurationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearConfigurationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ClearConfigurationAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4558,7 +4558,7 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ShowConnectionUI)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetVoiceCallSupportAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn GetVoiceCallSupportAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IMobileBroadbandNetwork2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4572,7 +4572,7 @@ impl MobileBroadbandNetwork {
             (windows_core::Interface::vtable(this).RegistrationUiccApps)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCellsInfoAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandCellsInfo>> {
+    pub fn GetCellsInfoAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandCellsInfo>> {
         let this = &windows_core::Interface::cast::<IMobileBroadbandNetwork3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4766,35 +4766,35 @@ impl MobileBroadbandPin {
             (windows_core::Interface::vtable(this).AttemptsRemaining)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EnableAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+    pub fn EnableAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandPinOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnableAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisableAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+    pub fn DisableAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandPinOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisableAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EnterAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+    pub fn EnterAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandPinOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnterAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ChangeAsync(&self, currentpin: &windows_core::HSTRING, newpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+    pub fn ChangeAsync(&self, currentpin: &windows_core::HSTRING, newpin: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandPinOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), core::mem::transmute_copy(newpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UnblockAsync(&self, pinunblockkey: &windows_core::HSTRING, newpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+    pub fn UnblockAsync(&self, pinunblockkey: &windows_core::HSTRING, newpin: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandPinOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5117,21 +5117,21 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTransmissionStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn EnableBackoffAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn EnableBackoffAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnableBackoffAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisableBackoffAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DisableBackoffAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisableBackoffAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetConfigurationAsync<P0>(&self, antennas: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetConfigurationAsync<P0>(&self, antennas: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<windows_collections::IIterable<MobileBroadbandAntennaSar>>,
     {
@@ -5141,21 +5141,21 @@ impl MobileBroadbandSarManager {
             (windows_core::Interface::vtable(this).SetConfigurationAsync)(windows_core::Interface::as_raw(this), antennas.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RevertSarToHardwareControlAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RevertSarToHardwareControlAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RevertSarToHardwareControlAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetTransmissionStateChangedHysteresisAsync(&self, timerperiod: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetTransmissionStateChangedHysteresisAsync(&self, timerperiod: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetTransmissionStateChangedHysteresisAsync)(windows_core::Interface::as_raw(this), timerperiod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIsTransmittingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn GetIsTransmittingAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5273,7 +5273,7 @@ impl MobileBroadbandSlotManager {
             (windows_core::Interface::vtable(this).SetCurrentSlot)(windows_core::Interface::as_raw(this), slotindex, &mut result__).map(|| result__)
         }
     }
-    pub fn SetCurrentSlotAsync(&self, slotindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
+    pub fn SetCurrentSlotAsync(&self, slotindex: i32) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandModemStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5379,7 +5379,7 @@ impl MobileBroadbandUicc {
             (windows_core::Interface::vtable(this).SimIccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetUiccAppsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppsResult>> {
+    pub fn GetUiccAppsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandUiccAppsResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5419,7 +5419,7 @@ impl MobileBroadbandUiccApp {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetRecordDetailsAsync<P0>(&self, uiccfilepath: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>
+    pub fn GetRecordDetailsAsync<P0>(&self, uiccfilepath: P0) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<u32>>,
     {
@@ -5429,7 +5429,7 @@ impl MobileBroadbandUiccApp {
             (windows_core::Interface::vtable(this).GetRecordDetailsAsync)(windows_core::Interface::as_raw(this), uiccfilepath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadRecordAsync<P0>(&self, uiccfilepath: P0, recordindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>
+    pub fn ReadRecordAsync<P0>(&self, uiccfilepath: P0, recordindex: i32) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<u32>>,
     {
@@ -5778,7 +5778,7 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
             (windows_core::Interface::vtable(this).IsBandSupported)(windows_core::Interface::as_raw(this), band, &mut result__).map(|| result__)
         }
     }
-    pub fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5803,7 +5803,7 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
             (windows_core::Interface::vtable(this).IsAuthenticationKindSupported)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).map(|| result__)
         }
     }
-    pub fn IsAuthenticationKindSupportedAsync(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsAuthenticationKindSupportedAsync(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5906,7 +5906,7 @@ impl NetworkOperatorTetheringManager {
             (windows_core::Interface::vtable(this).GetCurrentAccessPointConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConfigureAccessPointAsync<P0>(&self, configuration: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ConfigureAccessPointAsync<P0>(&self, configuration: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<NetworkOperatorTetheringAccessPointConfiguration>,
     {
@@ -5916,21 +5916,21 @@ impl NetworkOperatorTetheringManager {
             (windows_core::Interface::vtable(this).ConfigureAccessPointAsync)(windows_core::Interface::as_raw(this), configuration.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartTetheringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>> {
+    pub fn StartTetheringAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<NetworkOperatorTetheringOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartTetheringAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopTetheringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>> {
+    pub fn StopTetheringAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<NetworkOperatorTetheringOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopTetheringAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartTetheringAsync2<P0>(&self, configuration: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>
+    pub fn StartTetheringAsync2<P0>(&self, configuration: P0) -> windows_core::Result<windows_future::IAsyncOperation<NetworkOperatorTetheringOperationResult>>
     where
         P0: windows_core::Param<NetworkOperatorTetheringSessionAccessPointConfiguration>,
     {
@@ -5992,7 +5992,7 @@ impl NetworkOperatorTetheringManager {
     pub fn EnableNoConnectionsTimeout() -> windows_core::Result<()> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (windows_core::Interface::vtable(this).EnableNoConnectionsTimeout)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn EnableNoConnectionsTimeoutAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn EnableNoConnectionsTimeoutAsync() -> windows_core::Result<windows_future::IAsyncAction> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnableNoConnectionsTimeoutAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6001,7 +6001,7 @@ impl NetworkOperatorTetheringManager {
     pub fn DisableNoConnectionsTimeout() -> windows_core::Result<()> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (windows_core::Interface::vtable(this).DisableNoConnectionsTimeout)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn DisableNoConnectionsTimeoutAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DisableNoConnectionsTimeoutAsync() -> windows_core::Result<windows_future::IAsyncAction> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisableNoConnectionsTimeoutAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6105,7 +6105,7 @@ impl NetworkOperatorTetheringSessionAccessPointConfiguration {
             (windows_core::Interface::vtable(this).IsBandSupported)(windows_core::Interface::as_raw(this), band, &mut result__).map(|| result__)
         }
     }
-    pub fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6130,7 +6130,7 @@ impl NetworkOperatorTetheringSessionAccessPointConfiguration {
             (windows_core::Interface::vtable(this).IsAuthenticationKindSupported)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).map(|| result__)
         }
     }
-    pub fn IsAuthenticationKindSupportedAsync(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsAuthenticationKindSupportedAsync(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6282,7 +6282,7 @@ impl ProvisioningAgent {
         static SHARED: windows_core::imp::FactoryCache<ProvisioningAgent, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ProvisionFromXmlDocumentAsync(&self, provisioningxmldocument: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>> {
+    pub fn ProvisionFromXmlDocumentAsync(&self, provisioningxmldocument: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ProvisionFromXmlDocumentResults>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6613,7 +6613,7 @@ impl windows_core::RuntimeType for UssdResultCode {
 pub struct UssdSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UssdSession, windows_core::IUnknown, windows_core::IInspectable);
 impl UssdSession {
-    pub fn SendMessageAndGetReplyAsync<P0>(&self, message: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UssdReply>>
+    pub fn SendMessageAndGetReplyAsync<P0>(&self, message: P0) -> windows_core::Result<windows_future::IAsyncOperation<UssdReply>>
     where
         P0: windows_core::Param<UssdMessage>,
     {
