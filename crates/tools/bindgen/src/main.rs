@@ -124,15 +124,6 @@ fn main() {
     test("--out window_long_set_a_sys.rs --filter SetWindowLongPtrA --sys");
     test("--out window_long_set_w_sys.rs --filter SetWindowLongPtrW --sys");
 
-    // Tests for external references e.g. references to other crates
-    test("--out reference_async_info_no_status.rs --filter IAsyncInfo");
-    test("--out reference_async_info_status_filter.rs --filter IAsyncInfo AsyncStatus");
-    test("--out reference_async_info_status_reference.rs --filter IAsyncInfo --reference windows,skip-root,Windows");
-    test("--out reference_async_action.rs --filter IAsyncAction");
-    test("--out reference_async_action_reference_type.rs --filter IAsyncAction --reference windows,skip-root,IAsyncInfo");
-    test("--out reference_async_action_reference_namespace.rs --filter IAsyncAction --reference windows,skip-root,Windows");
-    test("--out reference_class_ref_static.rs --filter Windows.Foundation.Uri --reference windows,skip-root,Windows");
-
     // Tests for struct references
     test("--out reference_struct_filter.rs --filter InkTrailPoint");
     test("--out reference_struct_reference_type.rs --filter InkTrailPoint --reference windows,skip-root,Point");

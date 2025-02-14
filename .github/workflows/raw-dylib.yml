@@ -334,6 +334,8 @@ jobs:
         run:  cargo test -p tool_yml --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows
         run:  cargo test -p windows --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-async
+        run:  cargo test -p windows-async --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-bindgen
         run:  cargo test -p windows-bindgen --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-collections
@@ -362,10 +364,10 @@ jobs:
         run:  cargo test -p windows-version --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_aarch64_gnullvm
         run:  cargo test -p windows_aarch64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test windows_aarch64_msvc
-        run:  cargo test -p windows_aarch64_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test windows_aarch64_msvc
+        run:  cargo test -p windows_aarch64_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_i686_gnu
         run:  cargo test -p windows_i686_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_i686_gnullvm

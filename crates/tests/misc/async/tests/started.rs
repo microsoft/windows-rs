@@ -2,7 +2,8 @@
 // This tests the `spawn` implementations to confirm that we can observe the `Started` state.
 // The `GetResults` method may not be called in this state.
 
-use windows::{core::*, Foundation::*, Win32::Foundation::*};
+use windows::{core::*, Win32::Foundation::*};
+use windows_async::*;
 
 #[test]
 fn action() -> Result<()> {

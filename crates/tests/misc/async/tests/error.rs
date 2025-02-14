@@ -2,7 +2,8 @@
 // as that is the normal path for most callers. Older callers may also use `ErrorCode` so that is tested
 // as well.
 
-use windows::{core::*, Foundation::*, Win32::Foundation::*};
+use windows::{core::*, Win32::Foundation::*};
+use windows_async::*;
 
 #[test]
 fn action_ready() -> Result<()> {

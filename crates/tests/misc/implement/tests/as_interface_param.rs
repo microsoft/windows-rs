@@ -1,4 +1,5 @@
-use windows::{core::*, Foundation::*};
+use windows::core::*;
+use windows_async::*;
 
 #[implement(IAsyncAction)]
 struct Async;

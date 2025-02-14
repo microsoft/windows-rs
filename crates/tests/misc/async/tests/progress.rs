@@ -1,6 +1,7 @@
 // All stock implementations don't support progress notifications.
 
-use windows::{core::*, Foundation::*};
+use windows::core::*;
+use windows_async::*;
 
 #[test]
 fn test() -> Result<()> {

@@ -1,7 +1,8 @@
 // All stock implementations of `Completed` return S_OK and a null pointer giving them impression
 // that they do not store the `Completed` handler for consistency.
 
-use windows::{core::*, Foundation::*};
+use windows::core::*;
+use windows_async::*;
 
 #[test]
 fn test() -> Result<()> {

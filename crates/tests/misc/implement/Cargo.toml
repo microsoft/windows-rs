@@ -31,5 +31,8 @@ workspace = true
 [dependencies.windows-collections]
 workspace = true
 
+[dependencies.windows-async]
+workspace = true
+
 [dependencies]
 static_assertions = "1.1"

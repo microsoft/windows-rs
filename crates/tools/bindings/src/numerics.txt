@@ -4,8 +4,8 @@
 --no-allow
 
 --filter
-    Matrix3x2
-    Matrix4x4
-    Vector2
-    Vector3
-    Vector4
+    Windows.Foundation.Numerics.Matrix3x2
+    Windows.Foundation.Numerics.Matrix4x4
+    Windows.Foundation.Numerics.Vector2
+    Windows.Foundation.Numerics.Vector3
+    Windows.Foundation.Numerics.Vector4

@@ -1,0 +1,18 @@
+--out crates/libs/async/src/bindings.rs
+--flat
+--no-comment
+--no-allow
+
+--filter
+    Windows.Foundation.AsyncActionCompletedHandler
+    Windows.Foundation.AsyncActionProgressHandler
+    Windows.Foundation.AsyncActionWithProgressCompletedHandler
+    Windows.Foundation.AsyncOperationCompletedHandler
+    Windows.Foundation.AsyncOperationProgressHandler
+    Windows.Foundation.AsyncOperationWithProgressCompletedHandler
+    Windows.Foundation.AsyncStatus
+    Windows.Foundation.IAsyncAction
+    Windows.Foundation.IAsyncActionWithProgress
+    Windows.Foundation.IAsyncInfo
+    Windows.Foundation.IAsyncOperation
+    Windows.Foundation.IAsyncOperationWithProgress

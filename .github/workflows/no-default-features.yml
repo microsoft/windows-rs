@@ -37,6 +37,8 @@ jobs:
         run:  cargo check -p helpers --no-default-features
       - name: Check windows
         run:  cargo check -p windows --no-default-features
+      - name: Check windows-async
+        run:  cargo check -p windows-async --no-default-features
       - name: Check windows-bindgen
         run:  cargo check -p windows-bindgen --no-default-features
       - name: Check windows-collections
