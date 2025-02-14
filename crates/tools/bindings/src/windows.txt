@@ -5,10 +5,12 @@
 
 --reference
     windows_collections,flat,Windows.Foundation.Collections
+    windows_numerics,flat,Windows.Foundation.Numerics
 
 --filter
     Windows
 
+// Collections
     !IIterable
     !IIterator
     !IKeyValuePair
@@ -16,6 +18,13 @@
     !IMapView
     !IVector
     !IVectorView
+
+// Numerics
+    !Matrix3x2
+    !Matrix4x4
+    !Vector2
+    !Vector3
+    !Vector4
 
     !Windows.AI.MachineLearning.Preview
     !Windows.ApplicationModel.SocialInfo

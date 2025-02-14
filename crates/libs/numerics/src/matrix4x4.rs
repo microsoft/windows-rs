@@ -1,4 +1,4 @@
-use crate::Foundation::Numerics::Matrix4x4;
+use super::*;
 
 impl Matrix4x4 {
     pub const fn translation(x: f32, y: f32, z: f32) -> Self {

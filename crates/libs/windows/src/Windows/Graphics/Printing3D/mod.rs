@@ -251,14 +251,8 @@ pub struct IPrinting3DComponentWithMatrix_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Component: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Matrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Matrix: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetMatrix: usize,
+    pub Matrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT,
+    pub SetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Matrix4x4) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrinting3DCompositeMaterial, IPrinting3DCompositeMaterial_Vtbl, 0x462238dd_562e_4f6c_882d_f4d841fd63c7);
 impl windows_core::RuntimeType for IPrinting3DCompositeMaterial {
@@ -1359,16 +1353,14 @@ impl Printing3DComponentWithMatrix {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetComponent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Matrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
+    pub fn Matrix(&self) -> windows_core::Result<windows_numerics::Matrix4x4> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Matrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix(&self, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }

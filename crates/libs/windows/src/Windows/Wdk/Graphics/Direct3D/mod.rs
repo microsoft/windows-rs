@@ -3682,13 +3682,13 @@ impl Default for D3DHAL_DP2LINESTRIP {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DHAL_DP2MULTIPLYTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
+    pub matrix: windows_numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2MULTIPLYTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3938,13 +3938,13 @@ impl Default for D3DHAL_DP2SETTEXLOD {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DHAL_DP2SETTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
+    pub matrix: windows_numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2SETTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13356,13 +13356,13 @@ impl Default for D3DNTHAL_DP2LINESTRIP {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DNTHAL_DP2MULTIPLYTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
+    pub matrix: windows_numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2MULTIPLYTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13623,13 +13623,13 @@ impl Default for D3DNTHAL_DP2SETTEXLOD {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DNTHAL_DP2SETTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
+    pub matrix: windows_numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2SETTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

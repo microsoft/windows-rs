@@ -37,6 +37,10 @@ workspace = true
 path = "../../../libs/collections"
 default-features = false
 
+[dependencies.windows-numerics]
+path = "../../../libs/numerics"
+default-features = false
+
 [dependencies.windows-version]
 path = "../../../libs/version"
 default-features = false
@@ -46,7 +50,6 @@ path = "../../../libs/windows"
 default-features = false
 features = [
     "Foundation_Collections",
-    "Foundation_Numerics",
     "Win32_Graphics_Direct3D",
     "Win32_Networking_WinSock",
     "Win32_System_Com_StructuredStorage",

@@ -1,11 +1,25 @@
-use crate::Foundation::Numerics::Matrix3x2;
+use super::*;
 
 impl Matrix3x2 {
     pub const fn identity() -> Self {
-        Self { M11: 1.0, M12: 0.0, M21: 0.0, M22: 1.0, M31: 0.0, M32: 0.0 }
+        Self {
+            M11: 1.0,
+            M12: 0.0,
+            M21: 0.0,
+            M22: 1.0,
+            M31: 0.0,
+            M32: 0.0,
+        }
     }
     pub const fn translation(x: f32, y: f32) -> Self {
-        Self { M11: 1.0, M12: 0.0, M21: 0.0, M22: 1.0, M31: x, M32: y }
+        Self {
+            M11: 1.0,
+            M12: 0.0,
+            M21: 0.0,
+            M22: 1.0,
+            M31: x,
+            M32: y,
+        }
     }
     pub fn rotation(angle: f32, x: f32, y: f32) -> Self {
         #[repr(C)]
@@ -51,7 +65,14 @@ impl Matrix3x2 {
         }
     }
     fn impl_mul_f32(&self, rhs: f32) -> Self {
-        Self { M11: self.M11 * rhs, M12: self.M12 * rhs, M21: self.M21 * rhs, M22: self.M22 * rhs, M31: self.M31 * rhs, M32: self.M32 * rhs }
+        Self {
+            M11: self.M11 * rhs,
+            M12: self.M12 * rhs,
+            M21: self.M21 * rhs,
+            M22: self.M22 * rhs,
+            M31: self.M31 * rhs,
+            M32: self.M32 * rhs,
+        }
     }
 }
 

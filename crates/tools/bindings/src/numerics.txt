@@ -1,0 +1,11 @@
+--out crates/libs/numerics/src/bindings.rs
+--flat
+--no-comment
+--no-allow
+
+--filter
+    Matrix3x2
+    Matrix4x4
+    Vector2
+    Vector3
+    Vector4

@@ -1,23 +1,43 @@
-use crate::Foundation::Numerics::Vector3;
+use super::*;
 
 impl Vector3 {
     pub fn new(X: f32, Y: f32, Z: f32) -> Self {
         Self { X, Y, Z }
     }
     pub fn zero() -> Self {
-        Self { X: 0f32, Y: 0f32, Z: 0f32 }
+        Self {
+            X: 0f32,
+            Y: 0f32,
+            Z: 0f32,
+        }
     }
     pub fn one() -> Self {
-        Self { X: 1f32, Y: 1f32, Z: 1f32 }
+        Self {
+            X: 1f32,
+            Y: 1f32,
+            Z: 1f32,
+        }
     }
     pub fn unit_x() -> Self {
-        Self { X: 1.0, Y: 0.0, Z: 0.0 }
+        Self {
+            X: 1.0,
+            Y: 0.0,
+            Z: 0.0,
+        }
     }
     pub fn unit_y() -> Self {
-        Self { X: 0.0, Y: 1.0, Z: 0.0 }
+        Self {
+            X: 0.0,
+            Y: 1.0,
+            Z: 0.0,
+        }
     }
     pub fn unit_z() -> Self {
-        Self { X: 0.0, Y: 0.0, Z: 1.0 }
+        Self {
+            X: 0.0,
+            Y: 0.0,
+            Z: 1.0,
+        }
     }
     pub fn dot(&self, rhs: &Self) -> f32 {
         self.X * rhs.X + self.Y * rhs.Y + self.Z * rhs.Z
@@ -42,22 +62,46 @@ impl Vector3 {
     }
 
     fn impl_add(&self, rhs: &Self) -> Self {
-        Self { X: self.X + rhs.X, Y: self.Y + rhs.Y, Z: self.Z + rhs.Z }
+        Self {
+            X: self.X + rhs.X,
+            Y: self.Y + rhs.Y,
+            Z: self.Z + rhs.Z,
+        }
     }
     fn impl_sub(&self, rhs: &Self) -> Self {
-        Self { X: self.X - rhs.X, Y: self.Y - rhs.Y, Z: self.Z - rhs.Z }
+        Self {
+            X: self.X - rhs.X,
+            Y: self.Y - rhs.Y,
+            Z: self.Z - rhs.Z,
+        }
     }
     fn impl_div(&self, rhs: &Self) -> Self {
-        Self { X: self.X / rhs.X, Y: self.Y / rhs.Y, Z: self.Z / rhs.Z }
+        Self {
+            X: self.X / rhs.X,
+            Y: self.Y / rhs.Y,
+            Z: self.Z / rhs.Z,
+        }
     }
     fn impl_div_f32(&self, rhs: f32) -> Self {
-        Self { X: self.X / rhs, Y: self.Y / rhs, Z: self.Z / rhs }
+        Self {
+            X: self.X / rhs,
+            Y: self.Y / rhs,
+            Z: self.Z / rhs,
+        }
     }
     fn impl_mul(&self, rhs: &Self) -> Self {
-        Self { X: self.X * rhs.X, Y: self.Y * rhs.Y, Z: self.Z * rhs.Z }
+        Self {
+            X: self.X * rhs.X,
+            Y: self.Y * rhs.Y,
+            Z: self.Z * rhs.Z,
+        }
     }
     fn impl_mul_f32(&self, rhs: f32) -> Self {
-        Self { X: self.X * rhs, Y: self.Y * rhs, Z: self.Z * rhs }
+        Self {
+            X: self.X * rhs,
+            Y: self.Y * rhs,
+            Z: self.Z * rhs,
+        }
     }
 }
 

@@ -10,7 +10,6 @@ rand = "0.8.5"
 [dependencies.windows]
 workspace = true
 features = [
-    "Foundation_Numerics",
     "Win32_Graphics_Direct2D_Common",
     "Win32_Graphics_Direct3D",
     "Win32_Graphics_Direct3D11",
@@ -29,3 +28,6 @@ features = [
     "Win32_UI_WindowsAndMessaging",
     "Win32_UI_Shell",
 ]
+
+[dependencies.windows-numerics]
+workspace = true

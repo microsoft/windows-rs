@@ -7,7 +7,6 @@ publish = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Foundation_Numerics",
     "Win32_System_Com",
     "Win32_Graphics_Direct2D_Common",
     "Win32_Graphics_Direct3D",
@@ -20,3 +19,6 @@ features = [
     "Win32_UI_Animation",
     "Win32_UI_WindowsAndMessaging",
 ]
+
+[dependencies.windows-numerics]
+workspace = true

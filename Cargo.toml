@@ -28,6 +28,7 @@ windows-bindgen = { path = "crates/libs/bindgen" }
 windows-collections = { path = "crates/libs/collections" }
 windows-core = { path = "crates/libs/core" }
 windows-link = { path = "crates/libs/link" }
+windows-numerics = { path = "crates/libs/numerics" }
 windows-registry = { path = "crates/libs/registry" }
 windows-result = { path = "crates/libs/result" }
 windows-strings = { path = "crates/libs/strings" }

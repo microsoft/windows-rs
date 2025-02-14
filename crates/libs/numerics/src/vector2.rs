@@ -1,4 +1,4 @@
-use crate::Foundation::Numerics::Vector2;
+use super::*;
 
 impl Vector2 {
     pub fn new(X: f32, Y: f32) -> Self {
@@ -39,22 +39,40 @@ impl Vector2 {
     }
 
     fn impl_add(&self, rhs: &Self) -> Self {
-        Self { X: self.X + rhs.X, Y: self.Y + rhs.Y }
+        Self {
+            X: self.X + rhs.X,
+            Y: self.Y + rhs.Y,
+        }
     }
     fn impl_sub(&self, rhs: &Self) -> Self {
-        Self { X: self.X - rhs.X, Y: self.Y - rhs.Y }
+        Self {
+            X: self.X - rhs.X,
+            Y: self.Y - rhs.Y,
+        }
     }
     fn impl_div(&self, rhs: &Self) -> Self {
-        Self { X: self.X / rhs.X, Y: self.Y / rhs.Y }
+        Self {
+            X: self.X / rhs.X,
+            Y: self.Y / rhs.Y,
+        }
     }
     fn impl_div_f32(&self, rhs: f32) -> Self {
-        Self { X: self.X / rhs, Y: self.Y / rhs }
+        Self {
+            X: self.X / rhs,
+            Y: self.Y / rhs,
+        }
     }
     fn impl_mul(&self, rhs: &Self) -> Self {
-        Self { X: self.X * rhs.X, Y: self.Y * rhs.Y }
+        Self {
+            X: self.X * rhs.X,
+            Y: self.Y * rhs.Y,
+        }
     }
     fn impl_mul_f32(&self, rhs: f32) -> Self {
-        Self { X: self.X * rhs, Y: self.Y * rhs }
+        Self {
+            X: self.X * rhs,
+            Y: self.Y * rhs,
+        }
     }
 }
 
