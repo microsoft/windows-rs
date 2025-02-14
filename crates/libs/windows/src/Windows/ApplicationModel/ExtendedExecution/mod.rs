@@ -129,7 +129,7 @@ impl ExtendedExecutionSession {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRevoked)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RequestExtensionAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<ExtendedExecutionResult>> {
+    pub fn RequestExtensionAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ExtendedExecutionResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

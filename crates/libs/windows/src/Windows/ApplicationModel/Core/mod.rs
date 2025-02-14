@@ -10,7 +10,7 @@ impl AppListEntry {
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LaunchAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn LaunchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -25,7 +25,7 @@ impl AppListEntry {
         }
     }
     #[cfg(feature = "System")]
-    pub fn LaunchForUserAsync<P0>(&self, user: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
+    pub fn LaunchForUserAsync<P0>(&self, user: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -167,14 +167,14 @@ impl CoreApplication {
     pub fn EnablePrelaunch(value: bool) -> windows_core::Result<()> {
         Self::ICoreApplication2(|this| unsafe { (windows_core::Interface::vtable(this).EnablePrelaunch)(windows_core::Interface::as_raw(this), value).ok() })
     }
-    pub fn RequestRestartAsync(launcharguments: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<AppRestartFailureReason>> {
+    pub fn RequestRestartAsync(launcharguments: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<AppRestartFailureReason>> {
         Self::ICoreApplication3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestRestartAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(launcharguments), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn RequestRestartForUserAsync<P0>(user: P0, launcharguments: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<AppRestartFailureReason>>
+    pub fn RequestRestartForUserAsync<P0>(user: P0, launcharguments: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<AppRestartFailureReason>>
     where
         P0: windows_core::Param<super::super::System::User>,
     {

@@ -471,7 +471,7 @@ impl CodecQuery {
         static SHARED: windows_core::imp::FactoryCache<CodecQuery, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn FindAllAsync(&self, kind: CodecKind, category: CodecCategory, subtype: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<CodecInfo>>> {
+    pub fn FindAllAsync(&self, kind: CodecKind, category: CodecCategory, subtype: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<CodecInfo>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3513,7 +3513,7 @@ impl LowLightFusion {
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn FuseAsync<P0>(frameset: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<LowLightFusionResult, f64>>
+    pub fn FuseAsync<P0>(frameset: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<LowLightFusionResult, f64>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>>,
     {
@@ -3872,7 +3872,7 @@ impl MediaSource {
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn OpenAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IMediaSource4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4296,7 +4296,7 @@ impl MediaStreamSample {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStreamAsync<P0>(stream: P0, count: u32, timestamp: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_async::IAsyncOperation<MediaStreamSample>>
+    pub fn CreateFromStreamAsync<P0>(stream: P0, count: u32, timestamp: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<MediaStreamSample>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {

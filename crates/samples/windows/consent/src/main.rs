@@ -2,7 +2,7 @@ use windows::{
     core::*, Security::Credentials::UI::*, Win32::Foundation::*, Win32::System::WinRT::*,
 };
 
-use windows_async::*;
+use windows_future::*;
 
 fn main() -> Result<()> {
     unsafe {

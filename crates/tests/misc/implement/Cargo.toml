@@ -31,7 +31,7 @@ workspace = true
 [dependencies.windows-collections]
 workspace = true
 
-[dependencies.windows-async]
+[dependencies.windows-future]
 workspace = true
 
 [dependencies]

@@ -3,7 +3,7 @@
 
 use std::sync::mpsc::channel;
 use windows::core::*;
-use windows_async::*;
+use windows_future::*;
 
 #[test]
 fn action() -> Result<()> {

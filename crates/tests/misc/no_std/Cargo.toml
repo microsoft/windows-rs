@@ -41,8 +41,8 @@ default-features = false
 path = "../../../libs/numerics"
 default-features = false
 
-[dependencies.windows-async]
-path = "../../../libs/async"
+[dependencies.windows-future]
+path = "../../../libs/future"
 default-features = false
 
 [dependencies.windows-version]

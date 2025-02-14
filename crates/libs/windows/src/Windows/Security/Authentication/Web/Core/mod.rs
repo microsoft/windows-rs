@@ -590,7 +590,7 @@ impl windows_core::RuntimeType for WebAuthenticationAddAccountStatus {
 }
 pub struct WebAuthenticationCoreManager;
 impl WebAuthenticationCoreManager {
-    pub fn GetTokenSilentlyAsync<P0>(request: P0) -> windows_core::Result<windows_async::IAsyncOperation<WebTokenRequestResult>>
+    pub fn GetTokenSilentlyAsync<P0>(request: P0) -> windows_core::Result<windows_future::IAsyncOperation<WebTokenRequestResult>>
     where
         P0: windows_core::Param<WebTokenRequest>,
     {
@@ -600,7 +600,7 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn GetTokenSilentlyWithWebAccountAsync<P0, P1>(request: P0, webaccount: P1) -> windows_core::Result<windows_async::IAsyncOperation<WebTokenRequestResult>>
+    pub fn GetTokenSilentlyWithWebAccountAsync<P0, P1>(request: P0, webaccount: P1) -> windows_core::Result<windows_future::IAsyncOperation<WebTokenRequestResult>>
     where
         P0: windows_core::Param<WebTokenRequest>,
         P1: windows_core::Param<super::super::super::Credentials::WebAccount>,
@@ -610,7 +610,7 @@ impl WebAuthenticationCoreManager {
             (windows_core::Interface::vtable(this).GetTokenSilentlyWithWebAccountAsync)(windows_core::Interface::as_raw(this), request.param().abi(), webaccount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestTokenAsync<P0>(request: P0) -> windows_core::Result<windows_async::IAsyncOperation<WebTokenRequestResult>>
+    pub fn RequestTokenAsync<P0>(request: P0) -> windows_core::Result<windows_future::IAsyncOperation<WebTokenRequestResult>>
     where
         P0: windows_core::Param<WebTokenRequest>,
     {
@@ -620,7 +620,7 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn RequestTokenWithWebAccountAsync<P0, P1>(request: P0, webaccount: P1) -> windows_core::Result<windows_async::IAsyncOperation<WebTokenRequestResult>>
+    pub fn RequestTokenWithWebAccountAsync<P0, P1>(request: P0, webaccount: P1) -> windows_core::Result<windows_future::IAsyncOperation<WebTokenRequestResult>>
     where
         P0: windows_core::Param<WebTokenRequest>,
         P1: windows_core::Param<super::super::super::Credentials::WebAccount>,
@@ -631,7 +631,7 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindAccountAsync<P0>(provider: P0, webaccountid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    pub fn FindAccountAsync<P0>(provider: P0, webaccountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccount>>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -641,21 +641,21 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindAccountProviderAsync(webaccountproviderid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindAccountProviderAsync(webaccountproviderid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAccountProviderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindAccountProviderWithAuthorityAsync(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindAccountProviderWithAuthorityAsync(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAccountProviderWithAuthorityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), core::mem::transmute_copy(authority), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Security_Credentials", feature = "System"))]
-    pub fn FindAccountProviderWithAuthorityForUserAsync<P2>(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING, user: P2) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>
+    pub fn FindAccountProviderWithAuthorityForUserAsync<P2>(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING, user: P2) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>
     where
         P2: windows_core::Param<super::super::super::super::System::User>,
     {
@@ -675,7 +675,7 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindAllAccountsAsync<P0>(provider: P0) -> windows_core::Result<windows_async::IAsyncOperation<FindAllAccountsResult>>
+    pub fn FindAllAccountsAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<FindAllAccountsResult>>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -685,7 +685,7 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindAllAccountsWithClientIdAsync<P0>(provider: P0, clientid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<FindAllAccountsResult>>
+    pub fn FindAllAccountsWithClientIdAsync<P0>(provider: P0, clientid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<FindAllAccountsResult>>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -695,21 +695,21 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindSystemAccountProviderAsync(webaccountproviderid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindSystemAccountProviderAsync(webaccountproviderid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindSystemAccountProviderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindSystemAccountProviderWithAuthorityAsync(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindSystemAccountProviderWithAuthorityAsync(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), core::mem::transmute_copy(authority), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Security_Credentials", feature = "System"))]
-    pub fn FindSystemAccountProviderWithAuthorityForUserAsync<P2>(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING, user: P2) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>
+    pub fn FindSystemAccountProviderWithAuthorityForUserAsync<P2>(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING, user: P2) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>
     where
         P2: windows_core::Param<super::super::super::super::System::User>,
     {
@@ -718,7 +718,7 @@ impl WebAuthenticationCoreManager {
             (windows_core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), core::mem::transmute_copy(authority), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn AddAccountWithTransferTokenAsync<P0>(request: P0) -> windows_core::Result<windows_async::IAsyncOperation<WebAuthenticationAddAccountResult>>
+    pub fn AddAccountWithTransferTokenAsync<P0>(request: P0) -> windows_core::Result<windows_future::IAsyncOperation<WebAuthenticationAddAccountResult>>
     where
         P0: windows_core::Param<WebAuthenticationTransferTokenRequest>,
     {
@@ -1034,7 +1034,7 @@ impl WebTokenRequestResult {
             (windows_core::Interface::vtable(this).ResponseError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn InvalidateCacheAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn InvalidateCacheAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

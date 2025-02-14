@@ -1895,7 +1895,7 @@ impl VpnChannel {
             (windows_core::Interface::vtable(this).GetVpnReceivePacketBuffer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestCustomPromptAsync<P0>(&self, custompromptelement: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn RequestCustomPromptAsync<P0>(&self, custompromptelement: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<windows_collections::IVectorView<IVpnCustomPromptElement>>,
     {
@@ -1906,7 +1906,7 @@ impl VpnChannel {
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn RequestCredentialsWithCertificateAsync<P2>(&self, credtype: VpnCredentialType, credoptions: u32, certificate: P2) -> windows_core::Result<windows_async::IAsyncOperation<VpnCredential>>
+    pub fn RequestCredentialsWithCertificateAsync<P2>(&self, credtype: VpnCredentialType, credoptions: u32, certificate: P2) -> windows_core::Result<windows_future::IAsyncOperation<VpnCredential>>
     where
         P2: windows_core::Param<super::super::Security::Cryptography::Certificates::Certificate>,
     {
@@ -1916,14 +1916,14 @@ impl VpnChannel {
             (windows_core::Interface::vtable(this).RequestCredentialsWithCertificateAsync)(windows_core::Interface::as_raw(this), credtype, credoptions, certificate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestCredentialsWithOptionsAsync(&self, credtype: VpnCredentialType, credoptions: u32) -> windows_core::Result<windows_async::IAsyncOperation<VpnCredential>> {
+    pub fn RequestCredentialsWithOptionsAsync(&self, credtype: VpnCredentialType, credoptions: u32) -> windows_core::Result<windows_future::IAsyncOperation<VpnCredential>> {
         let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestCredentialsWithOptionsAsync)(windows_core::Interface::as_raw(this), credtype, credoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestCredentialsSimpleAsync(&self, credtype: VpnCredentialType) -> windows_core::Result<windows_async::IAsyncOperation<VpnCredential>> {
+    pub fn RequestCredentialsSimpleAsync(&self, credtype: VpnCredentialType) -> windows_core::Result<windows_future::IAsyncOperation<VpnCredential>> {
         let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3285,14 +3285,14 @@ impl VpnManagementAgent {
         static SHARED: windows_core::imp::FactoryCache<VpnManagementAgent, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn AddProfileFromXmlAsync(&self, xml: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<VpnManagementErrorStatus>> {
+    pub fn AddProfileFromXmlAsync(&self, xml: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<VpnManagementErrorStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AddProfileFromXmlAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xml), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AddProfileFromObjectAsync<P0>(&self, profile: P0) -> windows_core::Result<windows_async::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn AddProfileFromObjectAsync<P0>(&self, profile: P0) -> windows_core::Result<windows_future::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: windows_core::Param<IVpnProfile>,
     {
@@ -3302,14 +3302,14 @@ impl VpnManagementAgent {
             (windows_core::Interface::vtable(this).AddProfileFromObjectAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateProfileFromXmlAsync(&self, xml: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<VpnManagementErrorStatus>> {
+    pub fn UpdateProfileFromXmlAsync(&self, xml: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<VpnManagementErrorStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateProfileFromXmlAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xml), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateProfileFromObjectAsync<P0>(&self, profile: P0) -> windows_core::Result<windows_async::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn UpdateProfileFromObjectAsync<P0>(&self, profile: P0) -> windows_core::Result<windows_future::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: windows_core::Param<IVpnProfile>,
     {
@@ -3319,14 +3319,14 @@ impl VpnManagementAgent {
             (windows_core::Interface::vtable(this).UpdateProfileFromObjectAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetProfilesAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<IVpnProfile>>> {
+    pub fn GetProfilesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<IVpnProfile>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetProfilesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<windows_async::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn DeleteProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<windows_future::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: windows_core::Param<IVpnProfile>,
     {
@@ -3336,7 +3336,7 @@ impl VpnManagementAgent {
             (windows_core::Interface::vtable(this).DeleteProfileAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<windows_async::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn ConnectProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<windows_future::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: windows_core::Param<IVpnProfile>,
     {
@@ -3347,7 +3347,7 @@ impl VpnManagementAgent {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn ConnectProfileWithPasswordCredentialAsync<P0, P1>(&self, profile: P0, passwordcredential: P1) -> windows_core::Result<windows_async::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn ConnectProfileWithPasswordCredentialAsync<P0, P1>(&self, profile: P0, passwordcredential: P1) -> windows_core::Result<windows_future::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: windows_core::Param<IVpnProfile>,
         P1: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
@@ -3358,7 +3358,7 @@ impl VpnManagementAgent {
             (windows_core::Interface::vtable(this).ConnectProfileWithPasswordCredentialAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), passwordcredential.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisconnectProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<windows_async::IAsyncOperation<VpnManagementErrorStatus>>
+    pub fn DisconnectProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<windows_future::IAsyncOperation<VpnManagementErrorStatus>>
     where
         P0: windows_core::Param<IVpnProfile>,
     {

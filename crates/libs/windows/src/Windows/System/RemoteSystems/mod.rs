@@ -810,7 +810,7 @@ impl RemoteSystem {
             (windows_core::Interface::vtable(this).IsAvailableBySpatialProximity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetCapabilitySupportedAsync(&self, capabilityname: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn GetCapabilitySupportedAsync(&self, capabilityname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IRemoteSystem2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -853,7 +853,7 @@ impl RemoteSystem {
         }
     }
     #[cfg(feature = "Networking")]
-    pub fn FindByHostNameAsync<P0>(hostname: P0) -> windows_core::Result<windows_async::IAsyncOperation<RemoteSystem>>
+    pub fn FindByHostNameAsync<P0>(hostname: P0) -> windows_core::Result<windows_future::IAsyncOperation<RemoteSystem>>
     where
         P0: windows_core::Param<super::super::Networking::HostName>,
     {
@@ -877,7 +877,7 @@ impl RemoteSystem {
             (windows_core::Interface::vtable(this).CreateWatcherWithFilters)(windows_core::Interface::as_raw(this), filters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessAsync() -> windows_core::Result<windows_async::IAsyncOperation<RemoteSystemAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<RemoteSystemAccessStatus>> {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1059,7 +1059,7 @@ impl RemoteSystemAppRegistration {
             (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1532,7 +1532,7 @@ impl RemoteSystemSession {
             (windows_core::Interface::vtable(this).CreateParticipantWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendInvitationAsync<P0>(&self, invitee: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
+    pub fn SendInvitationAsync<P0>(&self, invitee: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<RemoteSystem>,
     {
@@ -1609,7 +1609,7 @@ impl RemoteSystemSessionController {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveJoinRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RemoveParticipantAsync<P0>(&self, pparticipant: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
+    pub fn RemoveParticipantAsync<P0>(&self, pparticipant: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<RemoteSystemSessionParticipant>,
     {
@@ -1619,7 +1619,7 @@ impl RemoteSystemSessionController {
             (windows_core::Interface::vtable(this).RemoveParticipantAsync)(windows_core::Interface::as_raw(this), pparticipant.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateSessionAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<RemoteSystemSessionCreationResult>> {
+    pub fn CreateSessionAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<RemoteSystemSessionCreationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1762,7 +1762,7 @@ impl RemoteSystemSessionInfo {
             (windows_core::Interface::vtable(this).ControllerDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn JoinAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<RemoteSystemSessionJoinResult>> {
+    pub fn JoinAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<RemoteSystemSessionJoinResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2000,7 +2000,7 @@ impl RemoteSystemSessionMessageChannel {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BroadcastValueSetAsync<P0>(&self, messagedata: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
+    pub fn BroadcastValueSetAsync<P0>(&self, messagedata: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {
@@ -2011,7 +2011,7 @@ impl RemoteSystemSessionMessageChannel {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SendValueSetAsync<P0, P1>(&self, messagedata: P0, participant: P1) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
+    pub fn SendValueSetAsync<P0, P1>(&self, messagedata: P0, participant: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
         P1: windows_core::Param<RemoteSystemSessionParticipant>,
@@ -2023,7 +2023,7 @@ impl RemoteSystemSessionMessageChannel {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SendValueSetToParticipantsAsync<P0, P1>(&self, messagedata: P0, participants: P1) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
+    pub fn SendValueSetToParticipantsAsync<P0, P1>(&self, messagedata: P0, participants: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
         P1: windows_core::Param<windows_collections::IIterable<RemoteSystemSessionParticipant>>,

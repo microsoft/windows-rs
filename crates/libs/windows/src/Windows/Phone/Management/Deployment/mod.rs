@@ -72,19 +72,19 @@ impl EnterpriseEnrollmentManager {
             (windows_core::Interface::vtable(this).CurrentEnterprise)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ValidateEnterprisesAsync() -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn ValidateEnterprisesAsync() -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ValidateEnterprisesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestEnrollmentAsync(enrollmenttoken: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<EnterpriseEnrollmentResult>> {
+    pub fn RequestEnrollmentAsync(enrollmenttoken: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<EnterpriseEnrollmentResult>> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestEnrollmentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(enrollmenttoken), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestUnenrollmentAsync<P0>(enterprise: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
+    pub fn RequestUnenrollmentAsync<P0>(enterprise: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<Enterprise>,
     {
@@ -260,7 +260,7 @@ pub struct IPackageInstallResult2_Vtbl {
 }
 pub struct InstallationManager;
 impl InstallationManager {
-    pub fn AddPackageAsync<P1>(title: &windows_core::HSTRING, sourcelocation: P1) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<PackageInstallResult, u32>>
+    pub fn AddPackageAsync<P1>(title: &windows_core::HSTRING, sourcelocation: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
         P1: windows_core::Param<super::super::super::Foundation::Uri>,
     {
@@ -269,7 +269,7 @@ impl InstallationManager {
             (windows_core::Interface::vtable(this).AddPackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), sourcelocation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn AddPackagePreloadedAsync<P1, P4>(title: &windows_core::HSTRING, sourcelocation: P1, instanceid: &windows_core::HSTRING, offerid: &windows_core::HSTRING, license: P4) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<PackageInstallResult, u32>>
+    pub fn AddPackagePreloadedAsync<P1, P4>(title: &windows_core::HSTRING, sourcelocation: P1, instanceid: &windows_core::HSTRING, offerid: &windows_core::HSTRING, license: P4) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
         P1: windows_core::Param<super::super::super::Foundation::Uri>,
         P4: windows_core::Param<super::super::super::Foundation::Uri>,
@@ -279,7 +279,7 @@ impl InstallationManager {
             (windows_core::Interface::vtable(this).AddPackagePreloadedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), sourcelocation.param().abi(), core::mem::transmute_copy(instanceid), core::mem::transmute_copy(offerid), license.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetPendingPackageInstalls() -> windows_core::Result<windows_collections::IIterable<windows_async::IAsyncOperationWithProgress<PackageInstallResult, u32>>> {
+    pub fn GetPendingPackageInstalls() -> windows_core::Result<windows_collections::IIterable<windows_future::IAsyncOperationWithProgress<PackageInstallResult, u32>>> {
         Self::IInstallationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPendingPackageInstalls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -300,14 +300,14 @@ impl InstallationManager {
         })
     }
     #[cfg(feature = "Management_Deployment")]
-    pub fn RemovePackageAsync(packagefullname: &windows_core::HSTRING, removaloptions: super::super::super::Management::Deployment::RemovalOptions) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<PackageInstallResult, u32>> {
+    pub fn RemovePackageAsync(packagefullname: &windows_core::HSTRING, removaloptions: super::super::super::Management::Deployment::RemovalOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PackageInstallResult, u32>> {
         Self::IInstallationManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemovePackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), removaloptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Management_Deployment")]
-    pub fn RegisterPackageAsync<P0, P1>(manifesturi: P0, dependencypackageuris: P1, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<PackageInstallResult, u32>>
+    pub fn RegisterPackageAsync<P0, P1>(manifesturi: P0, dependencypackageuris: P1, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::super::Foundation::Uri>>,

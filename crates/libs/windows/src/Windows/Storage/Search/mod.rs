@@ -44,7 +44,7 @@ impl windows_core::RuntimeType for CommonFolderQuery {
 pub struct ContentIndexer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContentIndexer, windows_core::IUnknown, windows_core::IInspectable);
 impl ContentIndexer {
-    pub fn AddAsync<P0>(&self, indexablecontent: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn AddAsync<P0>(&self, indexablecontent: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<IIndexableContent>,
     {
@@ -54,7 +54,7 @@ impl ContentIndexer {
             (windows_core::Interface::vtable(this).AddAsync)(windows_core::Interface::as_raw(this), indexablecontent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateAsync<P0>(&self, indexablecontent: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn UpdateAsync<P0>(&self, indexablecontent: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<IIndexableContent>,
     {
@@ -64,14 +64,14 @@ impl ContentIndexer {
             (windows_core::Interface::vtable(this).UpdateAsync)(windows_core::Interface::as_raw(this), indexablecontent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteAsync(&self, contentid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn DeleteAsync(&self, contentid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contentid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteMultipleAsync<P0>(&self, contentids: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn DeleteMultipleAsync<P0>(&self, contentids: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -81,14 +81,14 @@ impl ContentIndexer {
             (windows_core::Interface::vtable(this).DeleteMultipleAsync)(windows_core::Interface::as_raw(this), contentids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteAllAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn DeleteAllAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RetrievePropertiesAsync<P1>(&self, contentid: &windows_core::HSTRING, propertiestoretrieve: P1) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P1>(&self, contentid: &windows_core::HSTRING, propertiestoretrieve: P1) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -171,35 +171,35 @@ unsafe impl Sync for ContentIndexer {}
 pub struct ContentIndexerQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContentIndexerQuery, windows_core::IUnknown, windows_core::IInspectable);
 impl ContentIndexerQuery {
-    pub fn GetCountAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<u32>> {
+    pub fn GetCountAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCountAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPropertiesAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>> {
+    pub fn GetPropertiesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPropertiesRangeAsync(&self, startindex: u32, maxitems: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>> {
+    pub fn GetPropertiesRangeAsync(&self, startindex: u32, maxitems: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPropertiesRangeAsync)(windows_core::Interface::as_raw(this), startindex, maxitems, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<IIndexableContent>>> {
+    pub fn GetAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<IIndexableContent>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetRangeAsync(&self, startindex: u32, maxitems: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<IIndexableContent>>> {
+    pub fn GetRangeAsync(&self, startindex: u32, maxitems: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<IIndexableContent>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -559,7 +559,7 @@ impl windows_core::RuntimeType for IStorageFolderQueryOperations {
 }
 windows_core::imp::interface_hierarchy!(IStorageFolderQueryOperations, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageFolderQueryOperations {
-    pub fn GetIndexedStateAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<IndexedState>> {
+    pub fn GetIndexedStateAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<IndexedState>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -632,7 +632,7 @@ impl IStorageFolderQueryOperations {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFilesAsync(&self, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>> {
+    pub fn GetFilesAsync(&self, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -640,28 +640,28 @@ impl IStorageFolderQueryOperations {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>> {
+    pub fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFilesAsyncOverloadDefaultStartAndCount)(windows_core::Interface::as_raw(this), query, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetFoldersAsync(&self, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>> {
+    pub fn GetFoldersAsync(&self, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFoldersAsync)(windows_core::Interface::as_raw(this), query, startindex, maxitemstoretrieve, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>> {
+    pub fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFoldersAsyncOverloadDefaultStartAndCount)(windows_core::Interface::as_raw(this), query, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetItemsAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::IStorageItem>>> {
+    pub fn GetItemsAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::IStorageItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -699,7 +699,7 @@ impl windows_core::RuntimeName for IStorageFolderQueryOperations {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IStorageFolderQueryOperations_Impl: windows_core::IUnknownImpl {
-    fn GetIndexedStateAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<IndexedState>>;
+    fn GetIndexedStateAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<IndexedState>>;
     fn CreateFileQueryOverloadDefault(&self) -> windows_core::Result<StorageFileQueryResult>;
     fn CreateFileQuery(&self, query: CommonFileQuery) -> windows_core::Result<StorageFileQueryResult>;
     fn CreateFileQueryWithOptions(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<StorageFileQueryResult>;
@@ -708,11 +708,11 @@ pub trait IStorageFolderQueryOperations_Impl: windows_core::IUnknownImpl {
     fn CreateFolderQueryWithOptions(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<StorageFolderQueryResult>;
     fn CreateItemQuery(&self) -> windows_core::Result<StorageItemQueryResult>;
     fn CreateItemQueryWithOptions(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<StorageItemQueryResult>;
-    fn GetFilesAsync(&self, query: CommonFileQuery, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>>;
-    fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>>;
-    fn GetFoldersAsync(&self, query: CommonFolderQuery, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>>;
-    fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>>;
-    fn GetItemsAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::IStorageItem>>>;
+    fn GetFilesAsync(&self, query: CommonFileQuery, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>>;
+    fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>>;
+    fn GetFoldersAsync(&self, query: CommonFolderQuery, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>>;
+    fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>>;
+    fn GetItemsAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::IStorageItem>>>;
     fn AreQueryOptionsSupported(&self, queryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<bool>;
     fn IsCommonFolderQuerySupported(&self, query: CommonFolderQuery) -> windows_core::Result<bool>;
     fn IsCommonFileQuerySupported(&self, query: CommonFileQuery) -> windows_core::Result<bool>;
@@ -1036,7 +1036,7 @@ impl windows_core::RuntimeType for IStorageQueryResultBase {
 }
 windows_core::imp::interface_hierarchy!(IStorageQueryResultBase, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageQueryResultBase {
-    pub fn GetItemCountAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<u32>> {
+    pub fn GetItemCountAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1078,7 +1078,7 @@ impl IStorageQueryResultBase {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveOptionsChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_async::IAsyncOperation<u32>>
+    pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
@@ -1107,13 +1107,13 @@ impl windows_core::RuntimeName for IStorageQueryResultBase {
     const NAME: &'static str = "Windows.Storage.Search.IStorageQueryResultBase";
 }
 pub trait IStorageQueryResultBase_Impl: windows_core::IUnknownImpl {
-    fn GetItemCountAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<u32>>;
+    fn GetItemCountAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<u32>>;
     fn Folder(&self) -> windows_core::Result<super::StorageFolder>;
     fn ContentsChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveContentsChanged(&self, eventCookie: i64) -> windows_core::Result<()>;
     fn OptionsChanged(&self, changedHandler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveOptionsChanged(&self, eventCookie: i64) -> windows_core::Result<()>;
-    fn FindStartIndexAsync(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<windows_async::IAsyncOperation<u32>>;
+    fn FindStartIndexAsync(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<windows_future::IAsyncOperation<u32>>;
     fn GetCurrentQueryOptions(&self) -> windows_core::Result<QueryOptions>;
     fn ApplyNewQueryOptions(&self, newQueryOptions: windows_core::Ref<'_, QueryOptions>) -> windows_core::Result<()>;
 }
@@ -1633,7 +1633,7 @@ windows_core::imp::interface_hierarchy!(StorageFileQueryResult, windows_core::IU
 windows_core::imp::required_hierarchy!(StorageFileQueryResult, IStorageQueryResultBase);
 impl StorageFileQueryResult {
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFilesAsync(&self, startindex: u32, maxnumberofitems: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>> {
+    pub fn GetFilesAsync(&self, startindex: u32, maxnumberofitems: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1641,7 +1641,7 @@ impl StorageFileQueryResult {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFilesAsyncDefaultStartAndCount(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>> {
+    pub fn GetFilesAsyncDefaultStartAndCount(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1659,7 +1659,7 @@ impl StorageFileQueryResult {
             (windows_core::Interface::vtable(this).GetMatchingPropertiesWithRanges)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetItemCountAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<u32>> {
+    pub fn GetItemCountAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<u32>> {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1701,7 +1701,7 @@ impl StorageFileQueryResult {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveOptionsChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_async::IAsyncOperation<u32>>
+    pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
@@ -1742,21 +1742,21 @@ pub struct StorageFolderQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageFolderQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageFolderQueryResult, IStorageQueryResultBase);
 impl StorageFolderQueryResult {
-    pub fn GetFoldersAsync(&self, startindex: u32, maxnumberofitems: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>> {
+    pub fn GetFoldersAsync(&self, startindex: u32, maxnumberofitems: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFoldersAsync)(windows_core::Interface::as_raw(this), startindex, maxnumberofitems, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetFoldersAsyncDefaultStartAndCount(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>> {
+    pub fn GetFoldersAsyncDefaultStartAndCount(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::StorageFolder>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFoldersAsyncDefaultStartAndCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetItemCountAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<u32>> {
+    pub fn GetItemCountAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<u32>> {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1798,7 +1798,7 @@ impl StorageFolderQueryResult {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveOptionsChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_async::IAsyncOperation<u32>>
+    pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
@@ -1839,21 +1839,21 @@ pub struct StorageItemQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageItemQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageItemQueryResult, IStorageQueryResultBase);
 impl StorageItemQueryResult {
-    pub fn GetItemsAsync(&self, startindex: u32, maxnumberofitems: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::IStorageItem>>> {
+    pub fn GetItemsAsync(&self, startindex: u32, maxnumberofitems: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::IStorageItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetItemsAsync)(windows_core::Interface::as_raw(this), startindex, maxnumberofitems, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetItemsAsyncDefaultStartAndCount(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::IStorageItem>>> {
+    pub fn GetItemsAsyncDefaultStartAndCount(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::IStorageItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetItemsAsyncDefaultStartAndCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetItemCountAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<u32>> {
+    pub fn GetItemCountAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<u32>> {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1895,7 +1895,7 @@ impl StorageItemQueryResult {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveOptionsChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_async::IAsyncOperation<u32>>
+    pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {

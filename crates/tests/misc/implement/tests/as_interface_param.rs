@@ -1,5 +1,5 @@
 use windows::core::*;
-use windows_async::*;
+use windows_future::*;
 
 #[implement(IAsyncAction)]
 struct Async;

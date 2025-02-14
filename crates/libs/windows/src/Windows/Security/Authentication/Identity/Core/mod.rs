@@ -78,35 +78,35 @@ pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl {
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorAuthenticationManager, windows_core::IUnknown, windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorAuthenticationManager {
-    pub fn GetOneTimePassCodeAsync(&self, useraccountid: &windows_core::HSTRING, codelength: u32) -> windows_core::Result<windows_async::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>> {
+    pub fn GetOneTimePassCodeAsync(&self, useraccountid: &windows_core::HSTRING, codelength: u32) -> windows_core::Result<windows_future::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetOneTimePassCodeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(useraccountid), codelength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AddDeviceAsync(&self, useraccountid: &windows_core::HSTRING, authenticationtoken: &windows_core::HSTRING, wnschannelid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn AddDeviceAsync(&self, useraccountid: &windows_core::HSTRING, authenticationtoken: &windows_core::HSTRING, wnschannelid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AddDeviceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(useraccountid), core::mem::transmute_copy(authenticationtoken), core::mem::transmute_copy(wnschannelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemoveDeviceAsync(&self, useraccountid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn RemoveDeviceAsync(&self, useraccountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoveDeviceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(useraccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateWnsChannelAsync(&self, useraccountid: &windows_core::HSTRING, channeluri: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn UpdateWnsChannelAsync(&self, useraccountid: &windows_core::HSTRING, channeluri: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateWnsChannelAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(useraccountid), core::mem::transmute_copy(channeluri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSessionsAsync<P0>(&self, useraccountidlist: P0) -> windows_core::Result<windows_async::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>>
+    pub fn GetSessionsAsync<P0>(&self, useraccountidlist: P0) -> windows_core::Result<windows_future::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -116,7 +116,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (windows_core::Interface::vtable(this).GetSessionsAsync)(windows_core::Interface::as_raw(this), useraccountidlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSessionsAndUnregisteredAccountsAsync<P0>(&self, useraccountidlist: P0) -> windows_core::Result<windows_async::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>>
+    pub fn GetSessionsAndUnregisteredAccountsAsync<P0>(&self, useraccountidlist: P0) -> windows_core::Result<windows_future::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -126,7 +126,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (windows_core::Interface::vtable(this).GetSessionsAndUnregisteredAccountsAsync)(windows_core::Interface::as_raw(this), useraccountidlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ApproveSessionUsingAuthSessionInfoAsync<P1>(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: P1) -> windows_core::Result<windows_async::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    pub fn ApproveSessionUsingAuthSessionInfoAsync<P1>(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: P1) -> windows_core::Result<windows_future::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
     where
         P1: windows_core::Param<MicrosoftAccountMultiFactorSessionInfo>,
     {
@@ -136,14 +136,14 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (windows_core::Interface::vtable(this).ApproveSessionUsingAuthSessionInfoAsync)(windows_core::Interface::as_raw(this), sessionauthentictionstatus, authenticationsessioninfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ApproveSessionAsync(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: &windows_core::HSTRING, sessionid: &windows_core::HSTRING, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> windows_core::Result<windows_async::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn ApproveSessionAsync(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: &windows_core::HSTRING, sessionid: &windows_core::HSTRING, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> windows_core::Result<windows_future::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApproveSessionAsync)(windows_core::Interface::as_raw(this), sessionauthentictionstatus, core::mem::transmute_copy(useraccountid), core::mem::transmute_copy(sessionid), sessionauthenticationtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DenySessionUsingAuthSessionInfoAsync<P0>(&self, authenticationsessioninfo: P0) -> windows_core::Result<windows_async::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    pub fn DenySessionUsingAuthSessionInfoAsync<P0>(&self, authenticationsessioninfo: P0) -> windows_core::Result<windows_future::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
     where
         P0: windows_core::Param<MicrosoftAccountMultiFactorSessionInfo>,
     {
@@ -153,7 +153,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (windows_core::Interface::vtable(this).DenySessionUsingAuthSessionInfoAsync)(windows_core::Interface::as_raw(this), authenticationsessioninfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DenySessionAsync(&self, useraccountid: &windows_core::HSTRING, sessionid: &windows_core::HSTRING, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> windows_core::Result<windows_async::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn DenySessionAsync(&self, useraccountid: &windows_core::HSTRING, sessionid: &windows_core::HSTRING, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> windows_core::Result<windows_future::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

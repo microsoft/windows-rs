@@ -110,7 +110,7 @@ impl PwmController {
         }
     }
     #[cfg(feature = "Devices_Pwm_Provider")]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<PwmController>>>
+    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PwmController>>>
     where
         P0: windows_core::Param<Provider::IPwmProvider>,
     {
@@ -119,7 +119,7 @@ impl PwmController {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_async::IAsyncOperation<PwmController>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<PwmController>> {
         Self::IPwmControllerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -137,7 +137,7 @@ impl PwmController {
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<PwmController>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PwmController>> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

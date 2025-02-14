@@ -319,7 +319,7 @@ impl KeyCredential {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RequestSignAsync<P0>(&self, data: P0) -> windows_core::Result<windows_async::IAsyncOperation<KeyCredentialOperationResult>>
+    pub fn RequestSignAsync<P0>(&self, data: P0) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialOperationResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -329,7 +329,7 @@ impl KeyCredential {
             (windows_core::Interface::vtable(this).RequestSignAsync)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAttestationAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<KeyCredentialAttestationResult>> {
+    pub fn GetAttestationAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialAttestationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -420,31 +420,31 @@ impl windows_core::RuntimeType for KeyCredentialCreationOption {
 }
 pub struct KeyCredentialManager;
 impl KeyCredentialManager {
-    pub fn IsSupportedAsync() -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn IsSupportedAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupportedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RenewAttestationAsync() -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn RenewAttestationAsync() -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RenewAttestationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestCreateAsync(name: &windows_core::HSTRING, option: KeyCredentialCreationOption) -> windows_core::Result<windows_async::IAsyncOperation<KeyCredentialRetrievalResult>> {
+    pub fn RequestCreateAsync(name: &windows_core::HSTRING, option: KeyCredentialCreationOption) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialRetrievalResult>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestCreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn OpenAsync(name: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<KeyCredentialRetrievalResult>> {
+    pub fn OpenAsync(name: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialRetrievalResult>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn DeleteAsync(name: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn DeleteAsync(name: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -847,21 +847,21 @@ impl WebAccount {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetPictureAsync(&self, desizedsize: WebAccountPictureSize) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
+    pub fn GetPictureAsync(&self, desizedsize: WebAccountPictureSize) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = &windows_core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPictureAsync)(windows_core::Interface::as_raw(this), desizedsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SignOutAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SignOutAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SignOutAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SignOutWithClientIdAsync(&self, clientid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SignOutWithClientIdAsync(&self, clientid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

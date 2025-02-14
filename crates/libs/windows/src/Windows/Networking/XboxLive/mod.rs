@@ -340,7 +340,7 @@ impl XboxLiveEndpointPair {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DeleteAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn DeleteAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -618,7 +618,7 @@ impl XboxLiveEndpointPairTemplate {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveInboundEndpointPairCreated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CreateEndpointPairDefaultAsync<P0>(&self, deviceaddress: P0) -> windows_core::Result<windows_async::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
+    pub fn CreateEndpointPairDefaultAsync<P0>(&self, deviceaddress: P0) -> windows_core::Result<windows_future::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
         P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
@@ -628,7 +628,7 @@ impl XboxLiveEndpointPairTemplate {
             (windows_core::Interface::vtable(this).CreateEndpointPairDefaultAsync)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateEndpointPairWithBehaviorsAsync<P0>(&self, deviceaddress: P0, behaviors: XboxLiveEndpointPairCreationBehaviors) -> windows_core::Result<windows_async::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
+    pub fn CreateEndpointPairWithBehaviorsAsync<P0>(&self, deviceaddress: P0, behaviors: XboxLiveEndpointPairCreationBehaviors) -> windows_core::Result<windows_future::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
         P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
@@ -638,7 +638,7 @@ impl XboxLiveEndpointPairTemplate {
             (windows_core::Interface::vtable(this).CreateEndpointPairWithBehaviorsAsync)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), behaviors, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateEndpointPairForPortsDefaultAsync<P0>(&self, deviceaddress: P0, initiatorport: &windows_core::HSTRING, acceptorport: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
+    pub fn CreateEndpointPairForPortsDefaultAsync<P0>(&self, deviceaddress: P0, initiatorport: &windows_core::HSTRING, acceptorport: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
         P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
@@ -648,7 +648,7 @@ impl XboxLiveEndpointPairTemplate {
             (windows_core::Interface::vtable(this).CreateEndpointPairForPortsDefaultAsync)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), core::mem::transmute_copy(initiatorport), core::mem::transmute_copy(acceptorport), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateEndpointPairForPortsWithBehaviorsAsync<P0>(&self, deviceaddress: P0, initiatorport: &windows_core::HSTRING, acceptorport: &windows_core::HSTRING, behaviors: XboxLiveEndpointPairCreationBehaviors) -> windows_core::Result<windows_async::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
+    pub fn CreateEndpointPairForPortsWithBehaviorsAsync<P0>(&self, deviceaddress: P0, initiatorport: &windows_core::HSTRING, acceptorport: &windows_core::HSTRING, behaviors: XboxLiveEndpointPairCreationBehaviors) -> windows_core::Result<windows_future::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
         P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
@@ -787,7 +787,7 @@ impl XboxLiveQualityOfServiceMeasurement {
         static SHARED: windows_core::imp::FactoryCache<XboxLiveQualityOfServiceMeasurement, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MeasureAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn MeasureAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

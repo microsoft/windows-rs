@@ -16,7 +16,7 @@ features = [
     "Win32_Foundation",
 ]
 
-[dependencies.windows-async]
+[dependencies.windows-future]
 workspace = true
 
 [dev-dependencies]

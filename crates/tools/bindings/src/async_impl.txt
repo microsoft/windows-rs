@@ -1,4 +1,4 @@
---out crates/libs/async/src/bindings_impl.rs
+--out crates/libs/future/src/bindings_impl.rs
 --flat
 --no-comment
 --no-allow

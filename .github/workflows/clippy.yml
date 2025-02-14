@@ -303,14 +303,14 @@ jobs:
         run:  cargo clippy -p tool_yml
       - name: Clippy windows
         run:  cargo clippy -p windows
-      - name: Clippy windows-async
-        run:  cargo clippy -p windows-async
       - name: Clippy windows-bindgen
         run:  cargo clippy -p windows-bindgen
       - name: Clippy windows-collections
         run:  cargo clippy -p windows-collections
       - name: Clippy windows-core
         run:  cargo clippy -p windows-core
+      - name: Clippy windows-future
+        run:  cargo clippy -p windows-future
       - name: Clippy windows-implement
         run:  cargo clippy -p windows-implement
       - name: Clippy windows-interface

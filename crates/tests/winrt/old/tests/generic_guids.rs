@@ -1,5 +1,5 @@
 use windows::{core::*, Devices::Enumeration::*, Foundation::Collections::*, Foundation::*};
-use windows_async::*;
+use windows_future::*;
 use windows_collections::*;
 
 #[test]

@@ -3,7 +3,7 @@
 // The `GetResults` method may not be called in this state.
 
 use windows::{core::*, Win32::Foundation::*};
-use windows_async::*;
+use windows_future::*;
 
 #[test]
 fn action() -> Result<()> {

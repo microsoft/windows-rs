@@ -232,13 +232,13 @@ impl Lamp {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<Lamp>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_async::IAsyncOperation<Lamp>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -416,7 +416,7 @@ impl LampArray {
         unsafe { (windows_core::Interface::vtable(this).SetColorsForPurposes)(windows_core::Interface::as_raw(this), desiredcolor, purposes).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendMessageAsync<P1>(&self, messageid: i32, message: P1) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SendMessageAsync<P1>(&self, messageid: i32, message: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -427,7 +427,7 @@ impl LampArray {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RequestMessageAsync(&self, messageid: i32) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn RequestMessageAsync(&self, messageid: i32) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -461,7 +461,7 @@ impl LampArray {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<LampArray>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LampArray>> {
         Self::ILampArrayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

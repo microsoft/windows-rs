@@ -183,7 +183,7 @@ impl ResourceIndexer {
             (windows_core::Interface::vtable(this).IndexFilePath)(windows_core::Interface::as_raw(this), filepath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IndexFileContentsAsync<P0>(&self, file: P0) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<IndexedResourceCandidate>>>
+    pub fn IndexFileContentsAsync<P0>(&self, file: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<IndexedResourceCandidate>>>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {

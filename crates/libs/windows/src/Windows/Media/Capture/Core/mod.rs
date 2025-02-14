@@ -89,21 +89,21 @@ unsafe impl Sync for VariablePhotoCapturedEventArgs {}
 pub struct VariablePhotoSequenceCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VariablePhotoSequenceCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl VariablePhotoSequenceCapture {
-    pub fn StartAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn StopAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FinishAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn FinishAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -138,7 +138,7 @@ impl VariablePhotoSequenceCapture {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStopped)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn UpdateSettingsAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn UpdateSettingsAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IVariablePhotoSequenceCapture2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

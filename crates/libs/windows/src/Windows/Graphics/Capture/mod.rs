@@ -158,7 +158,7 @@ unsafe impl Sync for Direct3D11CaptureFramePool {}
 pub struct GraphicsCaptureAccess;
 impl GraphicsCaptureAccess {
     #[cfg(feature = "Security_Authorization_AppCapabilityAccess")]
-    pub fn RequestAccessAsync(request: GraphicsCaptureAccessKind) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>> {
+    pub fn RequestAccessAsync(request: GraphicsCaptureAccessKind) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>> {
         Self::IGraphicsCaptureAccessStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), request, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -287,7 +287,7 @@ impl GraphicsCapturePicker {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCapturePicker, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn PickSingleItemAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<GraphicsCaptureItem>> {
+    pub fn PickSingleItemAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GraphicsCaptureItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

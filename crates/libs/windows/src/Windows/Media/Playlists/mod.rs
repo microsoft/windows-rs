@@ -51,7 +51,7 @@ impl Playlist {
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -59,7 +59,7 @@ impl Playlist {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveAsAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveAsAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::StorageFile>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
@@ -70,7 +70,7 @@ impl Playlist {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveAsWithFormatAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveAsWithFormatAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::StorageFile>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
@@ -81,7 +81,7 @@ impl Playlist {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<windows_async::IAsyncOperation<Playlist>>
+    pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<Playlist>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {

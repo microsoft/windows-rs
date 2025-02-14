@@ -1,4 +1,4 @@
-use windows_async::*;
+use windows_future::*;
 
 fn send<T: Send>(_: Option<T>) {}
 fn sync<T: Sync>(_: Option<T>) {}

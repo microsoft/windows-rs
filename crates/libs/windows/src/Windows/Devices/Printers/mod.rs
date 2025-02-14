@@ -1404,7 +1404,7 @@ impl Print3DDevice {
             (windows_core::Interface::vtable(this).PrintSchema)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<Print3DDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Print3DDevice>> {
         Self::IPrint3DDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1439,7 +1439,7 @@ pub struct PrintSchema(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSchema, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSchema {
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetDefaultPrintTicketAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
+    pub fn GetDefaultPrintTicketAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1447,7 +1447,7 @@ impl PrintSchema {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetCapabilitiesAsync<P0>(&self, constrainticket: P0) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
+    pub fn GetCapabilitiesAsync<P0>(&self, constrainticket: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
     {
@@ -1458,7 +1458,7 @@ impl PrintSchema {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn MergeAndValidateWithDefaultPrintTicketAsync<P0>(&self, deltaticket: P0) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
+    pub fn MergeAndValidateWithDefaultPrintTicketAsync<P0>(&self, deltaticket: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
     {

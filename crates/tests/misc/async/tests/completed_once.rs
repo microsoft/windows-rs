@@ -2,7 +2,7 @@
 // Also tests that any error from the handler is ignored by the implementation.
 
 use windows::{core::*, Win32::Foundation::*};
-use windows_async::*;
+use windows_future::*;
 
 #[test]
 fn action_ready() -> Result<()> {

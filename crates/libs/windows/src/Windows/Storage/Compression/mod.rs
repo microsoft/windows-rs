@@ -29,7 +29,7 @@ impl Compressor {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn FinishAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn FinishAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -61,7 +61,7 @@ impl Compressor {
             (windows_core::Interface::vtable(this).CreateCompressorEx)(windows_core::Interface::as_raw(this), underlyingstream.param().abi(), algorithm, blocksize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::Streams::IBuffer>,
     {
@@ -71,7 +71,7 @@ impl Compressor {
             (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FlushAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -130,7 +130,7 @@ impl Decompressor {
             (windows_core::Interface::vtable(this).CreateDecompressor)(windows_core::Interface::as_raw(this), underlyingstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
     where
         P0: windows_core::Param<super::Streams::IBuffer>,
     {

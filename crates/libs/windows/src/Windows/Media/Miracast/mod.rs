@@ -305,7 +305,7 @@ impl MiracastReceiver {
             (windows_core::Interface::vtable(this).GetCurrentSettings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCurrentSettingsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<MiracastReceiverSettings>> {
+    pub fn GetCurrentSettingsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverSettings>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -322,7 +322,7 @@ impl MiracastReceiver {
             (windows_core::Interface::vtable(this).DisconnectAllAndApplySettings)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisconnectAllAndApplySettingsAsync<P0>(&self, settings: P0) -> windows_core::Result<windows_async::IAsyncOperation<MiracastReceiverApplySettingsResult>>
+    pub fn DisconnectAllAndApplySettingsAsync<P0>(&self, settings: P0) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverApplySettingsResult>>
     where
         P0: windows_core::Param<MiracastReceiverSettings>,
     {
@@ -339,7 +339,7 @@ impl MiracastReceiver {
             (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetStatusAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<MiracastReceiverStatus>> {
+    pub fn GetStatusAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -372,7 +372,7 @@ impl MiracastReceiver {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn CreateSessionAsync<P0>(&self, view: P0) -> windows_core::Result<windows_async::IAsyncOperation<MiracastReceiverSession>>
+    pub fn CreateSessionAsync<P0>(&self, view: P0) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverSession>>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Core::CoreApplicationView>,
     {
@@ -494,7 +494,7 @@ impl MiracastReceiverConnection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Pause)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn PauseAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn PauseAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -505,7 +505,7 @@ impl MiracastReceiverConnection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Resume)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ResumeAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn ResumeAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1070,7 +1070,7 @@ impl MiracastReceiverSession {
             (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<MiracastReceiverSessionStartResult>> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverSessionStartResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1275,7 +1275,7 @@ impl MiracastReceiverStreamControl {
             (windows_core::Interface::vtable(this).GetVideoStreamSettings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetVideoStreamSettingsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<MiracastReceiverVideoStreamSettings>> {
+    pub fn GetVideoStreamSettingsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverVideoStreamSettings>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1289,7 +1289,7 @@ impl MiracastReceiverStreamControl {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SuggestVideoStreamSettings)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
     }
-    pub fn SuggestVideoStreamSettingsAsync<P0>(&self, settings: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SuggestVideoStreamSettingsAsync<P0>(&self, settings: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<MiracastReceiverVideoStreamSettings>,
     {

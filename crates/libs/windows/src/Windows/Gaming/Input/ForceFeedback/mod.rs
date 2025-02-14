@@ -251,7 +251,7 @@ impl ForceFeedbackMotor {
             (windows_core::Interface::vtable(this).SupportedAxes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn LoadEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<windows_async::IAsyncOperation<ForceFeedbackLoadEffectResult>>
+    pub fn LoadEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<windows_future::IAsyncOperation<ForceFeedbackLoadEffectResult>>
     where
         P0: windows_core::Param<IForceFeedbackEffect>,
     {
@@ -273,28 +273,28 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopAllEffects)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn TryDisableAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn TryDisableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryDisableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryEnableAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn TryEnableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryEnableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryResetAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn TryResetAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryResetAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryUnloadEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
+    pub fn TryUnloadEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<IForceFeedbackEffect>,
     {

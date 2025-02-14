@@ -334,14 +334,14 @@ jobs:
         run:  cargo test -p tool_yml --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows
         run:  cargo test -p windows --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test windows-async
-        run:  cargo test -p windows-async --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-bindgen
         run:  cargo test -p windows-bindgen --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-collections
         run:  cargo test -p windows-collections --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-core
         run:  cargo test -p windows-core --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-future
+        run:  cargo test -p windows-future --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-implement
         run:  cargo test -p windows-implement --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-interface

@@ -161,14 +161,14 @@ impl SpatialSurfaceInfo {
             (windows_core::Interface::vtable(this).TryGetBounds)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> windows_core::Result<windows_async::IAsyncOperation<SpatialSurfaceMesh>> {
+    pub fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> windows_core::Result<windows_future::IAsyncOperation<SpatialSurfaceMesh>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryComputeLatestMeshAsync)(windows_core::Interface::as_raw(this), maxtrianglespercubicmeter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryComputeLatestMeshWithOptionsAsync<P1>(&self, maxtrianglespercubicmeter: f64, options: P1) -> windows_core::Result<windows_async::IAsyncOperation<SpatialSurfaceMesh>>
+    pub fn TryComputeLatestMeshWithOptionsAsync<P1>(&self, maxtrianglespercubicmeter: f64, options: P1) -> windows_core::Result<windows_future::IAsyncOperation<SpatialSurfaceMesh>>
     where
         P1: windows_core::Param<SpatialSurfaceMeshOptions>,
     {
@@ -446,7 +446,7 @@ impl SpatialSurfaceObserver {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveObservedSurfacesChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RequestAccessAsync() -> windows_core::Result<windows_async::IAsyncOperation<super::SpatialPerceptionAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<super::SpatialPerceptionAccessStatus>> {
         Self::ISpatialSurfaceObserverStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -3,7 +3,7 @@
 // as well.
 
 use windows::{core::*, Win32::Foundation::*};
-use windows_async::*;
+use windows_future::*;
 
 #[test]
 fn action_ready() -> Result<()> {

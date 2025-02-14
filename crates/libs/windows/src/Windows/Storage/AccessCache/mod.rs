@@ -200,7 +200,7 @@ impl IStorageItemAccessList {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddOrReplace)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), file.param().abi(), core::mem::transmute_copy(metadata)).ok() }
     }
-    pub fn GetItemAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::IStorageItem>> {
+    pub fn GetItemAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::IStorageItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -208,7 +208,7 @@ impl IStorageItemAccessList {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFileAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>> {
+    pub fn GetFileAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -216,14 +216,14 @@ impl IStorageItemAccessList {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn GetFolderAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFolder>> {
+    pub fn GetFolderAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFolder>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetItemWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::IStorageItem>> {
+    pub fn GetItemWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::IStorageItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -231,7 +231,7 @@ impl IStorageItemAccessList {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFileWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>> {
+    pub fn GetFileWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -239,7 +239,7 @@ impl IStorageItemAccessList {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn GetFolderWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFolder>> {
+    pub fn GetFolderWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFolder>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -296,12 +296,12 @@ pub trait IStorageItemAccessList_Impl: windows_core::IUnknownImpl {
     fn Add(&self, file: windows_core::Ref<'_, super::IStorageItem>, metadata: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
     fn AddOrReplaceOverloadDefaultMetadata(&self, token: &windows_core::HSTRING, file: windows_core::Ref<'_, super::IStorageItem>) -> windows_core::Result<()>;
     fn AddOrReplace(&self, token: &windows_core::HSTRING, file: windows_core::Ref<'_, super::IStorageItem>, metadata: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn GetItemAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::IStorageItem>>;
-    fn GetFileAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>>;
-    fn GetFolderAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFolder>>;
-    fn GetItemWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::IStorageItem>>;
-    fn GetFileWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>>;
-    fn GetFolderWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFolder>>;
+    fn GetItemAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::IStorageItem>>;
+    fn GetFileAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFile>>;
+    fn GetFolderAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFolder>>;
+    fn GetItemWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::IStorageItem>>;
+    fn GetFileWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFile>>;
+    fn GetFolderWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFolder>>;
     fn Remove(&self, token: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn ContainsItem(&self, token: &windows_core::HSTRING) -> windows_core::Result<bool>;
     fn Clear(&self) -> windows_core::Result<()>;
@@ -686,7 +686,7 @@ impl StorageItemAccessList {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddOrReplace)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), file.param().abi(), core::mem::transmute_copy(metadata)).ok() }
     }
-    pub fn GetItemAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::IStorageItem>> {
+    pub fn GetItemAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::IStorageItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -694,7 +694,7 @@ impl StorageItemAccessList {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFileAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>> {
+    pub fn GetFileAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -702,14 +702,14 @@ impl StorageItemAccessList {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn GetFolderAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFolder>> {
+    pub fn GetFolderAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFolder>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetItemWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::IStorageItem>> {
+    pub fn GetItemWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::IStorageItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -717,7 +717,7 @@ impl StorageItemAccessList {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFileWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>> {
+    pub fn GetFileWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -725,7 +725,7 @@ impl StorageItemAccessList {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn GetFolderWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFolder>> {
+    pub fn GetFolderWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFolder>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -822,7 +822,7 @@ impl StorageItemMostRecentlyUsedList {
         let this = &windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe { (windows_core::Interface::vtable(this).AddOrReplace)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), file.param().abi(), core::mem::transmute_copy(metadata)).ok() }
     }
-    pub fn GetItemAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::IStorageItem>> {
+    pub fn GetItemAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::IStorageItem>> {
         let this = &windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -830,7 +830,7 @@ impl StorageItemMostRecentlyUsedList {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFileAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>> {
+    pub fn GetFileAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFile>> {
         let this = &windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -838,14 +838,14 @@ impl StorageItemMostRecentlyUsedList {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn GetFolderAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFolder>> {
+    pub fn GetFolderAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFolder>> {
         let this = &windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetItemWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::IStorageItem>> {
+    pub fn GetItemWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::IStorageItem>> {
         let this = &windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -853,7 +853,7 @@ impl StorageItemMostRecentlyUsedList {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFileWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>> {
+    pub fn GetFileWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFile>> {
         let this = &windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -861,7 +861,7 @@ impl StorageItemMostRecentlyUsedList {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn GetFolderWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFolder>> {
+    pub fn GetFolderWithOptionsAsync(&self, token: &windows_core::HSTRING, options: AccessCacheOptions) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFolder>> {
         let this = &windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

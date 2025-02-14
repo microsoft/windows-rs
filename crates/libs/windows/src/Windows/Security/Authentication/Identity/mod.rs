@@ -58,7 +58,7 @@ unsafe impl Sync for EnterpriseKeyCredentialRegistrationInfo {}
 pub struct EnterpriseKeyCredentialRegistrationManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationManager, windows_core::IUnknown, windows_core::IInspectable);
 impl EnterpriseKeyCredentialRegistrationManager {
-    pub fn GetRegistrationsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
+    pub fn GetRegistrationsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

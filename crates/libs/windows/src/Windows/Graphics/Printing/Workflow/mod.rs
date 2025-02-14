@@ -680,7 +680,7 @@ pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(windows_core::IUnknown
 windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSetupRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowBackgroundSetupRequestedEventArgs {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetUserPrintTicketAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
+    pub fn GetUserPrintTicketAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -824,7 +824,7 @@ pub struct PrintWorkflowForegroundSetupRequestedEventArgs(windows_core::IUnknown
 windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSetupRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowForegroundSetupRequestedEventArgs {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetUserPrintTicketAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
+    pub fn GetUserPrintTicketAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1370,7 +1370,7 @@ pub struct PrintWorkflowPdlConverter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlConverter, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlConverter {
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
-    pub fn ConvertPdlAsync<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn ConvertPdlAsync<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
@@ -1383,7 +1383,7 @@ impl PrintWorkflowPdlConverter {
         }
     }
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
-    pub fn ConvertPdlAsync2<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2, hostbasedprocessingoperations: PdlConversionHostBasedProcessingOperations) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn ConvertPdlAsync2<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2, hostbasedprocessingoperations: PdlConversionHostBasedProcessingOperations) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
@@ -1588,7 +1588,7 @@ impl PrintWorkflowPdlSourceContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetContentFileAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Storage::StorageFile>> {
+    pub fn GetContentFileAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1778,7 +1778,7 @@ pub struct PrintWorkflowSourceContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowSourceContent, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowSourceContent {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetJobPrintTicketAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
+    pub fn GetJobPrintTicketAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2105,7 +2105,7 @@ impl PrintWorkflowUILauncher {
             (windows_core::Interface::vtable(this).IsUILaunchEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn LaunchAndCompleteUIAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<PrintWorkflowUICompletionStatus>> {
+    pub fn LaunchAndCompleteUIAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PrintWorkflowUICompletionStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2167,7 +2167,7 @@ impl PrintWorkflowVirtualPrinterDataAvailableEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetTargetFileAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Storage::StorageFile>> {
+    pub fn GetTargetFileAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

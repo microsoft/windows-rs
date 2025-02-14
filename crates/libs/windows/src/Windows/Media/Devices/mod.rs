@@ -150,7 +150,7 @@ impl AudioDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
@@ -212,7 +212,7 @@ impl AudioDeviceModule {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendCommandAsync<P0>(&self, command: P0) -> windows_core::Result<windows_async::IAsyncOperation<ModuleCommandResult>>
+    pub fn SendCommandAsync<P0>(&self, command: P0) -> windows_core::Result<windows_future::IAsyncOperation<ModuleCommandResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -1157,7 +1157,7 @@ impl ExposureCompensationControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, value: f32) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetValueAsync(&self, value: f32) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1194,7 +1194,7 @@ impl ExposureControl {
             (windows_core::Interface::vtable(this).Auto)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoAsync(&self, value: bool) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetAutoAsync(&self, value: bool) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1229,7 +1229,7 @@ impl ExposureControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, shutterduration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetValueAsync(&self, shutterduration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1408,14 +1408,14 @@ impl FocusControl {
             (windows_core::Interface::vtable(this).Preset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPresetAsync(&self, preset: FocusPreset) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetPresetAsync(&self, preset: FocusPreset) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetPresetAsync)(windows_core::Interface::as_raw(this), preset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1450,14 +1450,14 @@ impl FocusControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, focus: u32) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetValueAsync(&self, focus: u32) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetValueAsync)(windows_core::Interface::as_raw(this), focus, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FocusAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn FocusAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1513,14 +1513,14 @@ impl FocusControl {
             (windows_core::Interface::vtable(this).FocusState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UnlockAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn UnlockAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnlockAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LockAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn LockAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2465,7 +2465,7 @@ impl IMediaDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
@@ -2484,7 +2484,7 @@ impl windows_core::RuntimeName for IMediaDeviceController {
 pub trait IMediaDeviceController_Impl: windows_core::IUnknownImpl {
     fn GetAvailableMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
     fn GetMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> windows_core::Result<super::MediaProperties::IMediaEncodingProperties>;
-    fn SetMediaStreamPropertiesAsync(&self, mediaStreamType: super::Capture::MediaStreamType, mediaEncodingProperties: windows_core::Ref<'_, super::MediaProperties::IMediaEncodingProperties>) -> windows_core::Result<windows_async::IAsyncAction>;
+    fn SetMediaStreamPropertiesAsync(&self, mediaStreamType: super::Capture::MediaStreamType, mediaEncodingProperties: windows_core::Ref<'_, super::MediaProperties::IMediaEncodingProperties>) -> windows_core::Result<windows_future::IAsyncAction>;
 }
 #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
 impl IMediaDeviceController_Vtbl {
@@ -2932,7 +2932,7 @@ impl IsoSpeedControl {
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2967,7 +2967,7 @@ impl IsoSpeedControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, isospeed: u32) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetValueAsync(&self, isospeed: u32) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2981,7 +2981,7 @@ impl IsoSpeedControl {
             (windows_core::Interface::vtable(this).Auto)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetAutoAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3938,7 +3938,7 @@ impl RegionsOfInterestControl {
             (windows_core::Interface::vtable(this).MaxRegions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRegionsAsync<P0>(&self, regions: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SetRegionsAsync<P0>(&self, regions: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<windows_collections::IIterable<RegionOfInterest>>,
     {
@@ -3948,7 +3948,7 @@ impl RegionsOfInterestControl {
             (windows_core::Interface::vtable(this).SetRegionsAsync)(windows_core::Interface::as_raw(this), regions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetRegionsWithLockAsync<P0>(&self, regions: P0, lockvalues: bool) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SetRegionsWithLockAsync<P0>(&self, regions: P0, lockvalues: bool) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<windows_collections::IIterable<RegionOfInterest>>,
     {
@@ -3958,7 +3958,7 @@ impl RegionsOfInterestControl {
             (windows_core::Interface::vtable(this).SetRegionsWithLockAsync)(windows_core::Interface::as_raw(this), regions.param().abi(), lockvalues, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearRegionsAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn ClearRegionsAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4016,7 +4016,7 @@ impl SceneModeControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, scenemode: CaptureSceneMode) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetValueAsync(&self, scenemode: CaptureSceneMode) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4399,7 +4399,7 @@ impl VideoDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
@@ -4656,7 +4656,7 @@ impl WhiteBalanceControl {
             (windows_core::Interface::vtable(this).Preset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4691,7 +4691,7 @@ impl WhiteBalanceControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, temperature: u32) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetValueAsync(&self, temperature: u32) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

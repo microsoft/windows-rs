@@ -1,5 +1,5 @@
 use windows::Win32::Foundation::*;
-use windows_async::*;
+use windows_future::*;
 
 #[test]
 fn test() {

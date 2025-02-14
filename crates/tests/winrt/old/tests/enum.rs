@@ -1,5 +1,5 @@
 use windows::ApplicationModel::Appointments::AppointmentDaysOfWeek;
-use windows_async::*;
+use windows_future::*;
 
 #[test]
 fn signed_enum() {

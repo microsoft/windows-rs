@@ -644,7 +644,7 @@ pub struct IUserProfilePersonalizationSettingsStatics_Vtbl {
 }
 pub struct LockScreen;
 impl LockScreen {
-    pub fn RequestSetImageFeedAsync<P0>(syndicationfeeduri: P0) -> windows_core::Result<windows_async::IAsyncOperation<SetImageFeedResult>>
+    pub fn RequestSetImageFeedAsync<P0>(syndicationfeeduri: P0) -> windows_core::Result<windows_future::IAsyncOperation<SetImageFeedResult>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -673,7 +673,7 @@ impl LockScreen {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetImageFileAsync<P0>(value: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SetImageFileAsync<P0>(value: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -683,7 +683,7 @@ impl LockScreen {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetImageStreamAsync<P0>(value: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SetImageStreamAsync<P0>(value: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -759,7 +759,7 @@ impl UserInformation {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetAccountPictureAsync<P0>(image: P0) -> windows_core::Result<windows_async::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPictureAsync<P0>(image: P0) -> windows_core::Result<windows_future::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -769,7 +769,7 @@ impl UserInformation {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetAccountPicturesAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<windows_async::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPicturesAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<windows_future::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -781,7 +781,7 @@ impl UserInformation {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetAccountPictureFromStreamAsync<P0>(image: P0) -> windows_core::Result<windows_async::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPictureFromStreamAsync<P0>(image: P0) -> windows_core::Result<windows_future::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -791,7 +791,7 @@ impl UserInformation {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetAccountPicturesFromStreamsAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<windows_async::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPicturesFromStreamsAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<windows_future::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -814,37 +814,37 @@ impl UserInformation {
     pub fn RemoveAccountPictureChanged(token: i64) -> windows_core::Result<()> {
         Self::IUserInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveAccountPictureChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn GetDisplayNameAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetDisplayNameAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDisplayNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetFirstNameAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetFirstNameAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFirstNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetLastNameAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetLastNameAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetLastNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetPrincipalNameAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetPrincipalNameAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPrincipalNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetSessionInitiationProtocolUriAsync() -> windows_core::Result<windows_async::IAsyncOperation<super::super::Foundation::Uri>> {
+    pub fn GetSessionInitiationProtocolUriAsync() -> windows_core::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSessionInitiationProtocolUriAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDomainNameAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetDomainNameAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDomainNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -865,7 +865,7 @@ pub struct UserProfilePersonalizationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserProfilePersonalizationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl UserProfilePersonalizationSettings {
     #[cfg(feature = "Storage_Streams")]
-    pub fn TrySetLockScreenImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
+    pub fn TrySetLockScreenImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -876,7 +876,7 @@ impl UserProfilePersonalizationSettings {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TrySetWallpaperImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
+    pub fn TrySetWallpaperImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {

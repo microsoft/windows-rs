@@ -495,14 +495,14 @@ impl TextConversionGenerator {
             (windows_core::Interface::vtable(this).LanguageAvailableButNotInstalled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetCandidatesAsync(&self, input: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
+    pub fn GetCandidatesAsync(&self, input: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCandidatesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCandidatesWithMaxCountAsync(&self, input: &windows_core::HSTRING, maxcandidates: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
+    pub fn GetCandidatesWithMaxCountAsync(&self, input: &windows_core::HSTRING, maxcandidates: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -583,21 +583,21 @@ impl TextPredictionGenerator {
             (windows_core::Interface::vtable(this).LanguageAvailableButNotInstalled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetCandidatesAsync(&self, input: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
+    pub fn GetCandidatesAsync(&self, input: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCandidatesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCandidatesWithMaxCountAsync(&self, input: &windows_core::HSTRING, maxcandidates: u32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
+    pub fn GetCandidatesWithMaxCountAsync(&self, input: &windows_core::HSTRING, maxcandidates: u32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), maxcandidates, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCandidatesWithParametersAsync<P3>(&self, input: &windows_core::HSTRING, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: P3) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>>
+    pub fn GetCandidatesWithParametersAsync<P3>(&self, input: &windows_core::HSTRING, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: P3) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>>
     where
         P3: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -607,7 +607,7 @@ impl TextPredictionGenerator {
             (windows_core::Interface::vtable(this).GetCandidatesWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), maxcandidates, predictionoptions, previousstrings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetNextWordCandidatesAsync<P1>(&self, maxcandidates: u32, previousstrings: P1) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>>
+    pub fn GetNextWordCandidatesAsync<P1>(&self, maxcandidates: u32, previousstrings: P1) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -719,14 +719,14 @@ impl TextReverseConversionGenerator {
             (windows_core::Interface::vtable(this).LanguageAvailableButNotInstalled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ConvertBackAsync(&self, input: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn ConvertBackAsync(&self, input: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConvertBackAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPhonemesAsync(&self, input: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<TextPhoneme>>> {
+    pub fn GetPhonemesAsync(&self, input: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<TextPhoneme>>> {
         let this = &windows_core::Interface::cast::<ITextReverseConversionGenerator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

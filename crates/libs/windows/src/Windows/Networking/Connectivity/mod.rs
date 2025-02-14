@@ -341,28 +341,28 @@ impl ConnectionProfile {
             (windows_core::Interface::vtable(this).GetDomainConnectivityLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<NetworkUsage>>> {
+    pub fn GetNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<NetworkUsage>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNetworkUsageAsync)(windows_core::Interface::as_raw(this), starttime, endtime, granularity, states, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetConnectivityIntervalsAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<ConnectivityInterval>>> {
+    pub fn GetConnectivityIntervalsAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ConnectivityInterval>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetConnectivityIntervalsAsync)(windows_core::Interface::as_raw(this), starttime, endtime, states, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAttributedNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<AttributedNetworkUsage>>> {
+    pub fn GetAttributedNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AttributedNetworkUsage>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAttributedNetworkUsageAsync)(windows_core::Interface::as_raw(this), starttime, endtime, states, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetProviderNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<ProviderNetworkUsage>>> {
+    pub fn GetProviderNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ProviderNetworkUsage>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -376,7 +376,7 @@ impl ConnectionProfile {
             (windows_core::Interface::vtable(this).CanDelete)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TryDeleteAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<ConnectionProfileDeleteStatus>> {
+    pub fn TryDeleteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ConnectionProfileDeleteStatus>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -629,7 +629,7 @@ unsafe impl Send for ConnectivityInterval {}
 unsafe impl Sync for ConnectivityInterval {}
 pub struct ConnectivityManager;
 impl ConnectivityManager {
-    pub fn AcquireConnectionAsync<P0>(cellularapncontext: P0) -> windows_core::Result<windows_async::IAsyncOperation<ConnectionSession>>
+    pub fn AcquireConnectionAsync<P0>(cellularapncontext: P0) -> windows_core::Result<windows_future::IAsyncOperation<ConnectionSession>>
     where
         P0: windows_core::Param<CellularApnContext>,
     {
@@ -1430,7 +1430,7 @@ impl NetworkAdapter {
             (windows_core::Interface::vtable(this).NetworkAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetConnectedProfileAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<ConnectionProfile>> {
+    pub fn GetConnectedProfileAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ConnectionProfile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1555,7 +1555,7 @@ impl NetworkInformation {
             (windows_core::Interface::vtable(this).GetHostNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetProxyConfigurationAsync<P0>(uri: P0) -> windows_core::Result<windows_async::IAsyncOperation<ProxyConfiguration>>
+    pub fn GetProxyConfigurationAsync<P0>(uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<ProxyConfiguration>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1585,7 +1585,7 @@ impl NetworkInformation {
     pub fn RemoveNetworkStatusChanged(eventcookie: i64) -> windows_core::Result<()> {
         Self::INetworkInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveNetworkStatusChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() })
     }
-    pub fn FindConnectionProfilesAsync<P0>(pprofilefilter: P0) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<ConnectionProfile>>>
+    pub fn FindConnectionProfilesAsync<P0>(pprofilefilter: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ConnectionProfile>>>
     where
         P0: windows_core::Param<ConnectionProfileFilter>,
     {

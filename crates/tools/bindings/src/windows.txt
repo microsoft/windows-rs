@@ -6,7 +6,7 @@
 --reference
     windows_collections,flat,Windows.Foundation.Collections
     windows_numerics,flat,Windows.Foundation.Numerics
-    windows_async,flat,Windows.Foundation
+    windows_future,flat,Windows.Foundation
 
 --filter
     Windows

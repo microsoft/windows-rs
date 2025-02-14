@@ -1,4 +1,4 @@
-name: windows-async
+name: windows-future
 
 on:
   pull_request:
@@ -24,4 +24,4 @@ jobs:
       - name: Prepare
         run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
       - name: Check
-        run: cargo check -p windows-async --all-features
+        run: cargo check -p windows-future --all-features

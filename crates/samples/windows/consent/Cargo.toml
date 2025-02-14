@@ -11,5 +11,5 @@ features = [
     "Win32_System_WinRT",
 ]
 
-[dependencies.windows-async]
+[dependencies.windows-future]
 workspace = true

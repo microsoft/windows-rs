@@ -4,7 +4,7 @@
 use std::sync::mpsc::channel;
 use std::thread;
 use windows::core::*;
-use windows_async::*;
+use windows_future::*;
 
 #[test]
 fn action() -> Result<()> {

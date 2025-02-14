@@ -14,7 +14,7 @@ impl AnalyticsInfo {
             (windows_core::Interface::vtable(this).DeviceForm)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetSystemPropertiesAsync<P0>(attributenames: P0) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>>
+    pub fn GetSystemPropertiesAsync<P0>(attributenames: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {

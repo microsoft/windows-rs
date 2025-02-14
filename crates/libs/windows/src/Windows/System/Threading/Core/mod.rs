@@ -45,7 +45,7 @@ pub struct ISignalNotifierStatics_Vtbl {
 pub struct PreallocatedWorkItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PreallocatedWorkItem, windows_core::IUnknown, windows_core::IInspectable);
 impl PreallocatedWorkItem {
-    pub fn RunAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn RunAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

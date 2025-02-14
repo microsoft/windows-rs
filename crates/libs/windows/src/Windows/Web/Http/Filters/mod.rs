@@ -198,7 +198,7 @@ impl HttpBaseProtocolFilter {
             (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
+    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
     where
         P0: windows_core::Param<super::HttpRequestMessage>,
     {
@@ -496,7 +496,7 @@ impl windows_core::RuntimeType for IHttpFilter {
 windows_core::imp::interface_hierarchy!(IHttpFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IHttpFilter, super::super::super::Foundation::IClosable);
 impl IHttpFilter {
-    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
+    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
     where
         P0: windows_core::Param<super::HttpRequestMessage>,
     {
@@ -515,7 +515,7 @@ impl windows_core::RuntimeName for IHttpFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.IHttpFilter";
 }
 pub trait IHttpFilter_Impl: super::super::super::Foundation::IClosable_Impl {
-    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::HttpRequestMessage>) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
+    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::HttpRequestMessage>) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
 }
 impl IHttpFilter_Vtbl {
     pub const fn new<Identity: IHttpFilter_Impl, const OFFSET: isize>() -> Self {

@@ -236,7 +236,7 @@ impl AdaptiveMediaSource {
             (windows_core::Interface::vtable(this).IsContentTypeSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contenttype), &mut result__).map(|| result__)
         })
     }
-    pub fn CreateFromUriAsync<P0>(uri: P0) -> windows_core::Result<windows_async::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
+    pub fn CreateFromUriAsync<P0>(uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
@@ -246,7 +246,7 @@ impl AdaptiveMediaSource {
         })
     }
     #[cfg(feature = "Web_Http")]
-    pub fn CreateFromUriWithDownloaderAsync<P0, P1>(uri: P0, httpclient: P1) -> windows_core::Result<windows_async::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
+    pub fn CreateFromUriWithDownloaderAsync<P0, P1>(uri: P0, httpclient: P1) -> windows_core::Result<windows_future::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::super::Web::Http::HttpClient>,
@@ -257,7 +257,7 @@ impl AdaptiveMediaSource {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStreamAsync<P0, P1>(stream: P0, uri: P1, contenttype: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
+    pub fn CreateFromStreamAsync<P0, P1>(stream: P0, uri: P1, contenttype: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
         P1: windows_core::Param<super::super::super::Foundation::Uri>,
@@ -268,7 +268,7 @@ impl AdaptiveMediaSource {
         })
     }
     #[cfg(all(feature = "Storage_Streams", feature = "Web_Http"))]
-    pub fn CreateFromStreamWithDownloaderAsync<P0, P1, P3>(stream: P0, uri: P1, contenttype: &windows_core::HSTRING, httpclient: P3) -> windows_core::Result<windows_async::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
+    pub fn CreateFromStreamWithDownloaderAsync<P0, P1, P3>(stream: P0, uri: P1, contenttype: &windows_core::HSTRING, httpclient: P3) -> windows_core::Result<windows_future::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
         P1: windows_core::Param<super::super::super::Foundation::Uri>,

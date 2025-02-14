@@ -6,7 +6,7 @@ impl CommunicationBlockingAccessManager {
             (windows_core::Interface::vtable(this).IsBlockingActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IsBlockedNumberAsync(number: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn IsBlockedNumberAsync(number: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBlockedNumberAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -55,7 +55,7 @@ impl CommunicationBlockingAppManager {
     pub fn ShowCommunicationBlockingSettingsUI() -> windows_core::Result<()> {
         Self::ICommunicationBlockingAppManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowCommunicationBlockingSettingsUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn RequestSetAsActiveBlockingAppAsync() -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn RequestSetAsActiveBlockingAppAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAppManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestSetAsActiveBlockingAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -53,7 +53,7 @@ impl InstalledDesktopApp {
             (windows_core::Interface::vtable(this).DisplayVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetInventoryAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<InstalledDesktopApp>>> {
+    pub fn GetInventoryAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InstalledDesktopApp>>> {
         Self::IInstalledDesktopAppStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetInventoryAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

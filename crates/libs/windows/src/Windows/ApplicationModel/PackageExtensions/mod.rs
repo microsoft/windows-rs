@@ -151,7 +151,7 @@ impl PackageExtension {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetExtensionPropertiesAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Foundation::Collections::IPropertySet>> {
+    pub fn GetExtensionPropertiesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Foundation::Collections::IPropertySet>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -174,7 +174,7 @@ impl PackageExtension {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn GetPublicFolderAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::StorageFolder>> {
+    pub fn GetPublicFolderAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::StorageFolder>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -206,14 +206,14 @@ impl PackageExtensionCatalog {
             (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAllAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<PackageExtension>>> {
+    pub fn FindAllAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PackageExtension>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestRemovePackageAsync(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn RequestRemovePackageAsync(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

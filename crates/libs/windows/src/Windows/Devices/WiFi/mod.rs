@@ -197,7 +197,7 @@ impl WiFiAdapter {
             (windows_core::Interface::vtable(this).NetworkAdapter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ScanAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn ScanAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -225,7 +225,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAvailableNetworksChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn ConnectAsync<P0>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind) -> windows_core::Result<windows_async::IAsyncOperation<WiFiConnectionResult>>
+    pub fn ConnectAsync<P0>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind) -> windows_core::Result<windows_future::IAsyncOperation<WiFiConnectionResult>>
     where
         P0: windows_core::Param<WiFiAvailableNetwork>,
     {
@@ -236,7 +236,7 @@ impl WiFiAdapter {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn ConnectWithPasswordCredentialAsync<P0, P2>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P2) -> windows_core::Result<windows_async::IAsyncOperation<WiFiConnectionResult>>
+    pub fn ConnectWithPasswordCredentialAsync<P0, P2>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P2) -> windows_core::Result<windows_future::IAsyncOperation<WiFiConnectionResult>>
     where
         P0: windows_core::Param<WiFiAvailableNetwork>,
         P2: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
@@ -248,7 +248,7 @@ impl WiFiAdapter {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn ConnectWithPasswordCredentialAndSsidAsync<P0, P2>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P2, ssid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<WiFiConnectionResult>>
+    pub fn ConnectWithPasswordCredentialAndSsidAsync<P0, P2>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P2, ssid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WiFiConnectionResult>>
     where
         P0: windows_core::Param<WiFiAvailableNetwork>,
         P2: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
@@ -263,7 +263,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Disconnect)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetWpsConfigurationAsync<P0>(&self, availablenetwork: P0) -> windows_core::Result<windows_async::IAsyncOperation<WiFiWpsConfigurationResult>>
+    pub fn GetWpsConfigurationAsync<P0>(&self, availablenetwork: P0) -> windows_core::Result<windows_future::IAsyncOperation<WiFiWpsConfigurationResult>>
     where
         P0: windows_core::Param<WiFiAvailableNetwork>,
     {
@@ -274,7 +274,7 @@ impl WiFiAdapter {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync<P0, P2>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P2, ssid: &windows_core::HSTRING, connectionmethod: WiFiConnectionMethod) -> windows_core::Result<windows_async::IAsyncOperation<WiFiConnectionResult>>
+    pub fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync<P0, P2>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P2, ssid: &windows_core::HSTRING, connectionmethod: WiFiConnectionMethod) -> windows_core::Result<windows_future::IAsyncOperation<WiFiConnectionResult>>
     where
         P0: windows_core::Param<WiFiAvailableNetwork>,
         P2: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
@@ -285,7 +285,7 @@ impl WiFiAdapter {
             (windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync)(windows_core::Interface::as_raw(this), availablenetwork.param().abi(), reconnectionkind, passwordcredential.param().abi(), core::mem::transmute_copy(ssid), connectionmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAllAdaptersAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<WiFiAdapter>>> {
+    pub fn FindAllAdaptersAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<WiFiAdapter>>> {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAdaptersAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -297,13 +297,13 @@ impl WiFiAdapter {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<WiFiAdapter>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WiFiAdapter>> {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessAsync() -> windows_core::Result<windows_async::IAsyncOperation<WiFiAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<WiFiAccessStatus>> {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -601,7 +601,7 @@ impl WiFiOnDemandHotspotConnectTriggerDetails {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportError)(windows_core::Interface::as_raw(this), status).ok() }
     }
-    pub fn ConnectAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<WiFiOnDemandHotspotConnectionResult>> {
+    pub fn ConnectAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<WiFiOnDemandHotspotConnectionResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

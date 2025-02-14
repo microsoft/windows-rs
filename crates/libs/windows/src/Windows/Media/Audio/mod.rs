@@ -596,7 +596,7 @@ impl AudioFileOutputNode {
         }
     }
     #[cfg(feature = "Media_Transcoding")]
-    pub fn FinalizeAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::Transcoding::TranscodeFailureReason>> {
+    pub fn FinalizeAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::Transcoding::TranscodeFailureReason>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1013,7 +1013,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory) -> windows_core::Result<windows_async::IAsyncOperation<CreateAudioDeviceInputNodeResult>> {
+    pub fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioDeviceInputNodeResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1021,7 +1021,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn CreateDeviceInputNodeWithFormatAsync<P1>(&self, category: super::Capture::MediaCategory, encodingproperties: P1) -> windows_core::Result<windows_async::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
+    pub fn CreateDeviceInputNodeWithFormatAsync<P1>(&self, category: super::Capture::MediaCategory, encodingproperties: P1) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
     where
         P1: windows_core::Param<super::MediaProperties::AudioEncodingProperties>,
     {
@@ -1032,7 +1032,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn CreateDeviceInputNodeWithFormatOnDeviceAsync<P1, P2>(&self, category: super::Capture::MediaCategory, encodingproperties: P1, device: P2) -> windows_core::Result<windows_async::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
+    pub fn CreateDeviceInputNodeWithFormatOnDeviceAsync<P1, P2>(&self, category: super::Capture::MediaCategory, encodingproperties: P1, device: P2) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
     where
         P1: windows_core::Param<super::MediaProperties::AudioEncodingProperties>,
         P2: windows_core::Param<super::super::Devices::Enumeration::DeviceInformation>,
@@ -1061,7 +1061,7 @@ impl AudioGraph {
             (windows_core::Interface::vtable(this).CreateFrameOutputNodeWithFormat)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateDeviceOutputNodeAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<CreateAudioDeviceOutputNodeResult>> {
+    pub fn CreateDeviceOutputNodeAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioDeviceOutputNodeResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1069,7 +1069,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFileInputNodeAsync<P0>(&self, file: P0) -> windows_core::Result<windows_async::IAsyncOperation<CreateAudioFileInputNodeResult>>
+    pub fn CreateFileInputNodeAsync<P0>(&self, file: P0) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioFileInputNodeResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -1080,7 +1080,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFileOutputNodeAsync<P0>(&self, file: P0) -> windows_core::Result<windows_async::IAsyncOperation<CreateAudioFileOutputNodeResult>>
+    pub fn CreateFileOutputNodeAsync<P0>(&self, file: P0) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioFileOutputNodeResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -1091,7 +1091,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn CreateFileOutputNodeWithFileProfileAsync<P0, P1>(&self, file: P0, fileencodingprofile: P1) -> windows_core::Result<windows_async::IAsyncOperation<CreateAudioFileOutputNodeResult>>
+    pub fn CreateFileOutputNodeWithFileProfileAsync<P0, P1>(&self, file: P0, fileencodingprofile: P1) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioFileOutputNodeResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
@@ -1231,7 +1231,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync<P1, P2, P3>(&self, category: super::Capture::MediaCategory, encodingproperties: P1, device: P2, emitter: P3) -> windows_core::Result<windows_async::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
+    pub fn CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync<P1, P2, P3>(&self, category: super::Capture::MediaCategory, encodingproperties: P1, device: P2, emitter: P3) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
     where
         P1: windows_core::Param<super::MediaProperties::AudioEncodingProperties>,
         P2: windows_core::Param<super::super::Devices::Enumeration::DeviceInformation>,
@@ -1244,7 +1244,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFileInputNodeWithEmitterAsync<P0, P1>(&self, file: P0, emitter: P1) -> windows_core::Result<windows_async::IAsyncOperation<CreateAudioFileInputNodeResult>>
+    pub fn CreateFileInputNodeWithEmitterAsync<P0, P1>(&self, file: P0, emitter: P1) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioFileInputNodeResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<AudioNodeEmitter>,
@@ -1275,7 +1275,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_Playback"))]
-    pub fn CreateMediaSourceAudioInputNodeAsync<P0>(&self, mediasource: P0) -> windows_core::Result<windows_async::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>
+    pub fn CreateMediaSourceAudioInputNodeAsync<P0>(&self, mediasource: P0) -> windows_core::Result<windows_future::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>
     where
         P0: windows_core::Param<super::Core::MediaSource>,
     {
@@ -1286,7 +1286,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_Playback"))]
-    pub fn CreateMediaSourceAudioInputNodeWithEmitterAsync<P0, P1>(&self, mediasource: P0, emitter: P1) -> windows_core::Result<windows_async::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>
+    pub fn CreateMediaSourceAudioInputNodeWithEmitterAsync<P0, P1>(&self, mediasource: P0, emitter: P1) -> windows_core::Result<windows_future::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>
     where
         P0: windows_core::Param<super::Core::MediaSource>,
         P1: windows_core::Param<AudioNodeEmitter>,
@@ -1297,7 +1297,7 @@ impl AudioGraph {
             (windows_core::Interface::vtable(this).CreateMediaSourceAudioInputNodeWithEmitterAsync)(windows_core::Interface::as_raw(this), mediasource.param().abi(), emitter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateAsync<P0>(settings: P0) -> windows_core::Result<windows_async::IAsyncOperation<CreateAudioGraphResult>>
+    pub fn CreateAsync<P0>(settings: P0) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioGraphResult>>
     where
         P0: windows_core::Param<AudioGraphSettings>,
     {
@@ -2029,7 +2029,7 @@ impl AudioPlaybackConnection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn StartAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2057,7 +2057,7 @@ impl AudioPlaybackConnection {
             (windows_core::Interface::vtable(this).Open)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<AudioPlaybackConnectionOpenResult>> {
+    pub fn OpenAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<AudioPlaybackConnectionOpenResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5200,7 +5200,7 @@ impl SpatialAudioDeviceConfiguration {
             (windows_core::Interface::vtable(this).DefaultSpatialAudioFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDefaultSpatialAudioFormatAsync(&self, subtype: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<SetDefaultSpatialAudioFormatResult>> {
+    pub fn SetDefaultSpatialAudioFormatAsync(&self, subtype: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<SetDefaultSpatialAudioFormatResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5249,14 +5249,14 @@ unsafe impl Sync for SpatialAudioDeviceConfiguration {}
 pub struct SpatialAudioFormatConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAudioFormatConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAudioFormatConfiguration {
-    pub fn ReportLicenseChangedAsync(&self, subtype: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn ReportLicenseChangedAsync(&self, subtype: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportLicenseChangedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(subtype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportConfigurationChangedAsync(&self, subtype: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn ReportConfigurationChangedAsync(&self, subtype: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

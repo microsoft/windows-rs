@@ -693,14 +693,14 @@ impl MediaFrameReader {
             (windows_core::Interface::vtable(this).TryAcquireLatestFrame)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<MediaFrameReaderStartStatus>> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MediaFrameReaderStartStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn StopAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -880,7 +880,7 @@ impl MediaFrameSource {
             (windows_core::Interface::vtable(this).CurrentFormat)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetFormatAsync<P0>(&self, format: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SetFormatAsync<P0>(&self, format: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<MediaFrameFormat>,
     {
@@ -933,14 +933,14 @@ unsafe impl Sync for MediaFrameSource {}
 pub struct MediaFrameSourceController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaFrameSourceController, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaFrameSourceController {
-    pub fn GetPropertyAsync(&self, propertyid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<MediaFrameSourceGetPropertyResult>> {
+    pub fn GetPropertyAsync(&self, propertyid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MediaFrameSourceGetPropertyResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPropertyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPropertyAsync<P1>(&self, propertyid: &windows_core::HSTRING, propertyvalue: P1) -> windows_core::Result<windows_async::IAsyncOperation<MediaFrameSourceSetPropertyStatus>>
+    pub fn SetPropertyAsync<P1>(&self, propertyid: &windows_core::HSTRING, propertyvalue: P1) -> windows_core::Result<windows_future::IAsyncOperation<MediaFrameSourceSetPropertyStatus>>
     where
         P1: windows_core::Param<windows_core::IInspectable>,
     {
@@ -958,7 +958,7 @@ impl MediaFrameSourceController {
             (windows_core::Interface::vtable(this).VideoDeviceController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPropertyByExtendedIdAsync<P1>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P1) -> windows_core::Result<windows_async::IAsyncOperation<MediaFrameSourceGetPropertyResult>>
+    pub fn GetPropertyByExtendedIdAsync<P1>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P1) -> windows_core::Result<windows_future::IAsyncOperation<MediaFrameSourceGetPropertyResult>>
     where
         P1: windows_core::Param<super::super::super::Foundation::IReference<u32>>,
     {
@@ -968,7 +968,7 @@ impl MediaFrameSourceController {
             (windows_core::Interface::vtable(this).GetPropertyByExtendedIdAsync)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPropertyByExtendedIdAsync(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<MediaFrameSourceSetPropertyStatus>> {
+    pub fn SetPropertyByExtendedIdAsync(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<MediaFrameSourceSetPropertyStatus>> {
         let this = &windows_core::Interface::cast::<IMediaFrameSourceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1071,13 +1071,13 @@ impl MediaFrameSourceGroup {
             (windows_core::Interface::vtable(this).SourceInfos)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAllAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<MediaFrameSourceGroup>>> {
+    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<MediaFrameSourceGroup>>> {
         Self::IMediaFrameSourceGroupStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(id: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<MediaFrameSourceGroup>> {
+    pub fn FromIdAsync(id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MediaFrameSourceGroup>> {
         Self::IMediaFrameSourceGroupStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1290,14 +1290,14 @@ impl MultiSourceMediaFrameReader {
             (windows_core::Interface::vtable(this).TryAcquireLatestFrame)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<MultiSourceMediaFrameReaderStartStatus>> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MultiSourceMediaFrameReaderStartStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn StopAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

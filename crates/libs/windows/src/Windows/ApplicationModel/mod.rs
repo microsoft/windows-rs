@@ -651,37 +651,37 @@ unsafe impl Send for FullTrustProcessLaunchResult {}
 unsafe impl Sync for FullTrustProcessLaunchResult {}
 pub struct FullTrustProcessLauncher;
 impl FullTrustProcessLauncher {
-    pub fn LaunchFullTrustProcessForCurrentAppAsync() -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn LaunchFullTrustProcessForCurrentAppAsync() -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IFullTrustProcessLauncherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFullTrustProcessForCurrentAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchFullTrustProcessForCurrentAppWithParametersAsync(parametergroupid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn LaunchFullTrustProcessForCurrentAppWithParametersAsync(parametergroupid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IFullTrustProcessLauncherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFullTrustProcessForCurrentAppWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(parametergroupid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchFullTrustProcessForAppAsync(fulltrustpackagerelativeappid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn LaunchFullTrustProcessForAppAsync(fulltrustpackagerelativeappid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IFullTrustProcessLauncherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFullTrustProcessForAppAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(fulltrustpackagerelativeappid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchFullTrustProcessForAppWithParametersAsync(fulltrustpackagerelativeappid: &windows_core::HSTRING, parametergroupid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn LaunchFullTrustProcessForAppWithParametersAsync(fulltrustpackagerelativeappid: &windows_core::HSTRING, parametergroupid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IFullTrustProcessLauncherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFullTrustProcessForAppWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(fulltrustpackagerelativeappid), core::mem::transmute_copy(parametergroupid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchFullTrustProcessForCurrentAppWithArgumentsAsync(commandline: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<FullTrustProcessLaunchResult>> {
+    pub fn LaunchFullTrustProcessForCurrentAppWithArgumentsAsync(commandline: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<FullTrustProcessLaunchResult>> {
         Self::IFullTrustProcessLauncherStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFullTrustProcessForCurrentAppWithArgumentsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(commandline), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchFullTrustProcessForAppWithArgumentsAsync(fulltrustpackagerelativeappid: &windows_core::HSTRING, commandline: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<FullTrustProcessLaunchResult>> {
+    pub fn LaunchFullTrustProcessForAppWithArgumentsAsync(fulltrustpackagerelativeappid: &windows_core::HSTRING, commandline: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<FullTrustProcessLaunchResult>> {
         Self::IFullTrustProcessLauncherStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFullTrustProcessForAppWithArgumentsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(fulltrustpackagerelativeappid), core::mem::transmute_copy(commandline), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1870,7 +1870,7 @@ impl Package {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn GetAppListEntriesAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<Core::AppListEntry>>> {
+    pub fn GetAppListEntriesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Core::AppListEntry>>> {
         let this = &windows_core::Interface::cast::<IPackage3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1891,28 +1891,28 @@ impl Package {
             (windows_core::Interface::vtable(this).IsOptional)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VerifyContentIntegrityAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn VerifyContentIntegrityAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IPackage4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VerifyContentIntegrityAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetContentGroupsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVector<PackageContentGroup>>> {
+    pub fn GetContentGroupsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<PackageContentGroup>>> {
         let this = &windows_core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetContentGroupsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetContentGroupAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<PackageContentGroup>> {
+    pub fn GetContentGroupAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PackageContentGroup>> {
         let this = &windows_core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetContentGroupAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StageContentGroupsAsync<P0>(&self, names: P0) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVector<PackageContentGroup>>>
+    pub fn StageContentGroupsAsync<P0>(&self, names: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<PackageContentGroup>>>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1922,7 +1922,7 @@ impl Package {
             (windows_core::Interface::vtable(this).StageContentGroupsAsync)(windows_core::Interface::as_raw(this), names.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StageContentGroupsWithPriorityAsync<P0>(&self, names: P0, movetoheadofqueue: bool) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVector<PackageContentGroup>>>
+    pub fn StageContentGroupsWithPriorityAsync<P0>(&self, names: P0, movetoheadofqueue: bool) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<PackageContentGroup>>>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1932,7 +1932,7 @@ impl Package {
             (windows_core::Interface::vtable(this).StageContentGroupsWithPriorityAsync)(windows_core::Interface::as_raw(this), names.param().abi(), movetoheadofqueue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetInUseAsync(&self, inuse: bool) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn SetInUseAsync(&self, inuse: bool) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1946,7 +1946,7 @@ impl Package {
             (windows_core::Interface::vtable(this).GetAppInstallerInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CheckUpdateAvailabilityAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<PackageUpdateAvailabilityResult>> {
+    pub fn CheckUpdateAvailabilityAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PackageUpdateAvailabilityResult>> {
         let this = &windows_core::Interface::cast::<IPackage6>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2207,14 +2207,14 @@ impl PackageCatalog {
         let this = &windows_core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemovePackageContentGroupStaging)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AddOptionalPackageAsync(&self, optionalpackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<PackageCatalogAddOptionalPackageResult>> {
+    pub fn AddOptionalPackageAsync(&self, optionalpackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PackageCatalogAddOptionalPackageResult>> {
         let this = &windows_core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AddOptionalPackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(optionalpackagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemoveOptionalPackagesAsync<P0>(&self, optionalpackagefamilynames: P0) -> windows_core::Result<windows_async::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>
+    pub fn RemoveOptionalPackagesAsync<P0>(&self, optionalpackagefamilynames: P0) -> windows_core::Result<windows_future::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -2224,14 +2224,14 @@ impl PackageCatalog {
             (windows_core::Interface::vtable(this).RemoveOptionalPackagesAsync)(windows_core::Interface::as_raw(this), optionalpackagefamilynames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AddResourcePackageAsync(&self, resourcepackagefamilyname: &windows_core::HSTRING, resourceid: &windows_core::HSTRING, options: AddResourcePackageOptions) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>> {
+    pub fn AddResourcePackageAsync(&self, resourcepackagefamilyname: &windows_core::HSTRING, resourceid: &windows_core::HSTRING, options: AddResourcePackageOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>> {
         let this = &windows_core::Interface::cast::<IPackageCatalog4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AddResourcePackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resourcepackagefamilyname), core::mem::transmute_copy(resourceid), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemoveResourcePackagesAsync<P0>(&self, resourcepackages: P0) -> windows_core::Result<windows_async::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>
+    pub fn RemoveResourcePackagesAsync<P0>(&self, resourcepackages: P0) -> windows_core::Result<windows_future::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<Package>>,
     {
@@ -3100,7 +3100,7 @@ impl windows_core::RuntimeType for PackageVersion {
 pub struct StartupTask(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StartupTask, windows_core::IUnknown, windows_core::IInspectable);
 impl StartupTask {
-    pub fn RequestEnableAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<StartupTaskState>> {
+    pub fn RequestEnableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<StartupTaskState>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3125,13 +3125,13 @@ impl StartupTask {
             (windows_core::Interface::vtable(this).TaskId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetForCurrentPackageAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<StartupTask>>> {
+    pub fn GetForCurrentPackageAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<StartupTask>>> {
         Self::IStartupTaskStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentPackageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetAsync(taskid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<StartupTask>> {
+    pub fn GetAsync(taskid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<StartupTask>> {
         Self::IStartupTaskStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(taskid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -238,14 +238,14 @@ impl RatedContentRestrictions {
         static SHARED: windows_core::imp::FactoryCache<RatedContentRestrictions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn GetBrowsePolicyAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<ContentRestrictionsBrowsePolicy>> {
+    pub fn GetBrowsePolicyAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ContentRestrictionsBrowsePolicy>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBrowsePolicyAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetRestrictionLevelAsync<P0>(&self, ratedcontentdescription: P0) -> windows_core::Result<windows_async::IAsyncOperation<ContentAccessRestrictionLevel>>
+    pub fn GetRestrictionLevelAsync<P0>(&self, ratedcontentdescription: P0) -> windows_core::Result<windows_future::IAsyncOperation<ContentAccessRestrictionLevel>>
     where
         P0: windows_core::Param<RatedContentDescription>,
     {
@@ -255,7 +255,7 @@ impl RatedContentRestrictions {
             (windows_core::Interface::vtable(this).GetRestrictionLevelAsync)(windows_core::Interface::as_raw(this), ratedcontentdescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestContentAccessAsync<P0>(&self, ratedcontentdescription: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
+    pub fn RequestContentAccessAsync<P0>(&self, ratedcontentdescription: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<RatedContentDescription>,
     {

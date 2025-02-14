@@ -90,7 +90,7 @@ impl I2cController {
         }
     }
     #[cfg(feature = "Devices_I2c_Provider")]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<I2cController>>>
+    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<I2cController>>>
     where
         P0: windows_core::Param<Provider::II2cProvider>,
     {
@@ -99,7 +99,7 @@ impl I2cController {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_async::IAsyncOperation<I2cController>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<I2cController>> {
         Self::II2cControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -191,7 +191,7 @@ impl I2cDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync<P1>(deviceid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<windows_async::IAsyncOperation<I2cDevice>>
+    pub fn FromIdAsync<P1>(deviceid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<windows_future::IAsyncOperation<I2cDevice>>
     where
         P1: windows_core::Param<I2cConnectionSettings>,
     {
@@ -339,7 +339,7 @@ impl II2cDeviceStatics {
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FromIdAsync<P1>(&self, deviceid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<windows_async::IAsyncOperation<I2cDevice>>
+    pub fn FromIdAsync<P1>(&self, deviceid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<windows_future::IAsyncOperation<I2cDevice>>
     where
         P1: windows_core::Param<I2cConnectionSettings>,
     {
@@ -356,7 +356,7 @@ impl windows_core::RuntimeName for II2cDeviceStatics {
 pub trait II2cDeviceStatics_Impl: windows_core::IUnknownImpl {
     fn GetDeviceSelector(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyName: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
-    fn FromIdAsync(&self, deviceId: &windows_core::HSTRING, settings: windows_core::Ref<'_, I2cConnectionSettings>) -> windows_core::Result<windows_async::IAsyncOperation<I2cDevice>>;
+    fn FromIdAsync(&self, deviceId: &windows_core::HSTRING, settings: windows_core::Ref<'_, I2cConnectionSettings>) -> windows_core::Result<windows_future::IAsyncOperation<I2cDevice>>;
 }
 impl II2cDeviceStatics_Vtbl {
     pub const fn new<Identity: II2cDeviceStatics_Impl, const OFFSET: isize>() -> Self {

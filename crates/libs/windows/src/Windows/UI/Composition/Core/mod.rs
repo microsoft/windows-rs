@@ -26,7 +26,7 @@ impl CompositorController {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Commit)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn EnsurePreviousCommitCompletedAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn EnsurePreviousCommitCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

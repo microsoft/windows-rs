@@ -245,7 +245,7 @@ impl DeviceInformation {
         unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), updateinfo.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetThumbnailAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<DeviceThumbnail>> {
+    pub fn GetThumbnailAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<DeviceThumbnail>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -253,7 +253,7 @@ impl DeviceInformation {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetGlyphThumbnailAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<DeviceThumbnail>> {
+    pub fn GetGlyphThumbnailAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<DeviceThumbnail>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -274,13 +274,13 @@ impl DeviceInformation {
             (windows_core::Interface::vtable(this).Pairing)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateFromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformation>> {
+    pub fn CreateFromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformation>> {
         Self::IDeviceInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIdAsyncAdditionalProperties<P1>(deviceid: &windows_core::HSTRING, additionalproperties: P1) -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformation>>
+    pub fn CreateFromIdAsyncAdditionalProperties<P1>(deviceid: &windows_core::HSTRING, additionalproperties: P1) -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformation>>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -289,25 +289,25 @@ impl DeviceInformation {
             (windows_core::Interface::vtable(this).CreateFromIdAsyncAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), additionalproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllAsync() -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformationCollection>> {
+    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllAsyncDeviceClass(deviceclass: DeviceClass) -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformationCollection>> {
+    pub fn FindAllAsyncDeviceClass(deviceclass: DeviceClass) -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsyncDeviceClass)(windows_core::Interface::as_raw(this), deviceclass, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllAsyncAqsFilter(aqsfilter: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformationCollection>> {
+    pub fn FindAllAsyncAqsFilter(aqsfilter: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsyncAqsFilter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllAsyncAqsFilterAndAdditionalProperties<P1>(aqsfilter: &windows_core::HSTRING, additionalproperties: P1) -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformationCollection>>
+    pub fn FindAllAsyncAqsFilterAndAdditionalProperties<P1>(aqsfilter: &windows_core::HSTRING, additionalproperties: P1) -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformationCollection>>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -349,7 +349,7 @@ impl DeviceInformation {
             (windows_core::Interface::vtable(this).GetAqsFilterFromDeviceClass)(windows_core::Interface::as_raw(this), deviceclass, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn CreateFromIdAsyncWithKindAndAdditionalProperties<P1>(deviceid: &windows_core::HSTRING, additionalproperties: P1, kind: DeviceInformationKind) -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformation>>
+    pub fn CreateFromIdAsyncWithKindAndAdditionalProperties<P1>(deviceid: &windows_core::HSTRING, additionalproperties: P1, kind: DeviceInformationKind) -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformation>>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -358,7 +358,7 @@ impl DeviceInformation {
             (windows_core::Interface::vtable(this).CreateFromIdAsyncWithKindAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), additionalproperties.param().abi(), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties<P1>(aqsfilter: &windows_core::HSTRING, additionalproperties: P1, kind: DeviceInformationKind) -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformationCollection>>
+    pub fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties<P1>(aqsfilter: &windows_core::HSTRING, additionalproperties: P1, kind: DeviceInformationKind) -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformationCollection>>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -376,7 +376,7 @@ impl DeviceInformation {
             (windows_core::Interface::vtable(this).CreateWatcherWithKindAqsFilterAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), additionalproperties.param().abi(), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIdAsyncWithAdditionalPropertiesKindAndSettings<P1, P3>(deviceid: &windows_core::HSTRING, additionalproperties: P1, kind: DeviceInformationKind, settings: P3) -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformation>>
+    pub fn CreateFromIdAsyncWithAdditionalPropertiesKindAndSettings<P1, P3>(deviceid: &windows_core::HSTRING, additionalproperties: P1, kind: DeviceInformationKind, settings: P3) -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformation>>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
         P3: windows_core::Param<IDeviceEnumerationSettings>,
@@ -386,7 +386,7 @@ impl DeviceInformation {
             (windows_core::Interface::vtable(this).CreateFromIdAsyncWithAdditionalPropertiesKindAndSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), additionalproperties.param().abi(), kind, settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllAsyncWithAqsFilterAdditionalPropertiesKindAndSettings<P1, P3>(aqsfilter: &windows_core::HSTRING, additionalproperties: P1, kind: DeviceInformationKind, settings: P3) -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformationCollection>>
+    pub fn FindAllAsyncWithAqsFilterAdditionalPropertiesKindAndSettings<P1, P3>(aqsfilter: &windows_core::HSTRING, additionalproperties: P1, kind: DeviceInformationKind, settings: P3) -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformationCollection>>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
         P3: windows_core::Param<IDeviceEnumerationSettings>,
@@ -507,21 +507,21 @@ impl IntoIterator for &DeviceInformationCollection {
 pub struct DeviceInformationCustomPairing(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceInformationCustomPairing, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceInformationCustomPairing {
-    pub fn PairAsync(&self, pairingkindssupported: DevicePairingKinds) -> windows_core::Result<windows_async::IAsyncOperation<DevicePairingResult>> {
+    pub fn PairAsync(&self, pairingkindssupported: DevicePairingKinds) -> windows_core::Result<windows_future::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PairAsync)(windows_core::Interface::as_raw(this), pairingkindssupported, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PairWithProtectionLevelAsync(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> windows_core::Result<windows_async::IAsyncOperation<DevicePairingResult>> {
+    pub fn PairWithProtectionLevelAsync(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> windows_core::Result<windows_future::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PairWithProtectionLevelAsync)(windows_core::Interface::as_raw(this), pairingkindssupported, minprotectionlevel, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PairWithProtectionLevelAndSettingsAsync<P2>(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: P2) -> windows_core::Result<windows_async::IAsyncOperation<DevicePairingResult>>
+    pub fn PairWithProtectionLevelAndSettingsAsync<P2>(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: P2) -> windows_core::Result<windows_future::IAsyncOperation<DevicePairingResult>>
     where
         P2: windows_core::Param<IDevicePairingSettings>,
     {
@@ -619,14 +619,14 @@ impl DeviceInformationPairing {
             (windows_core::Interface::vtable(this).CanPair)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PairAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<DevicePairingResult>> {
+    pub fn PairAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PairAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PairWithProtectionLevelAsync(&self, minprotectionlevel: DevicePairingProtectionLevel) -> windows_core::Result<windows_async::IAsyncOperation<DevicePairingResult>> {
+    pub fn PairWithProtectionLevelAsync(&self, minprotectionlevel: DevicePairingProtectionLevel) -> windows_core::Result<windows_future::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -647,7 +647,7 @@ impl DeviceInformationPairing {
             (windows_core::Interface::vtable(this).Custom)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PairWithProtectionLevelAndSettingsAsync<P1>(&self, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: P1) -> windows_core::Result<windows_async::IAsyncOperation<DevicePairingResult>>
+    pub fn PairWithProtectionLevelAndSettingsAsync<P1>(&self, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: P1) -> windows_core::Result<windows_future::IAsyncOperation<DevicePairingResult>>
     where
         P1: windows_core::Param<IDevicePairingSettings>,
     {
@@ -657,7 +657,7 @@ impl DeviceInformationPairing {
             (windows_core::Interface::vtable(this).PairWithProtectionLevelAndSettingsAsync)(windows_core::Interface::as_raw(this), minprotectionlevel, devicepairingsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UnpairAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<DeviceUnpairingResult>> {
+    pub fn UnpairAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<DeviceUnpairingResult>> {
         let this = &windows_core::Interface::cast::<IDeviceInformationPairing2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1071,7 +1071,7 @@ impl DevicePicker {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ShowWithPlacement)(windows_core::Interface::as_raw(this), selection, placement).ok() }
     }
-    pub fn PickSingleDeviceAsync(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformation>> {
+    pub fn PickSingleDeviceAsync(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1079,7 +1079,7 @@ impl DevicePicker {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn PickSingleDeviceAsyncWithPlacement(&self, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> windows_core::Result<windows_async::IAsyncOperation<DeviceInformation>> {
+    pub fn PickSingleDeviceAsyncWithPlacement(&self, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> windows_core::Result<windows_future::IAsyncOperation<DeviceInformation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1343,7 +1343,7 @@ impl DeviceThumbnail {
             (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -1353,7 +1353,7 @@ impl DeviceThumbnail {
             (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -1363,7 +1363,7 @@ impl DeviceThumbnail {
             (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FlushAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

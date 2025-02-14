@@ -30,7 +30,7 @@ pub struct FaceDetector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FaceDetector, windows_core::IUnknown, windows_core::IInspectable);
 impl FaceDetector {
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn DetectFacesAsync<P0>(&self, image: P0) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
+    pub fn DetectFacesAsync<P0>(&self, image: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
     where
         P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {
@@ -41,7 +41,7 @@ impl FaceDetector {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn DetectFacesWithSearchAreaAsync<P0>(&self, image: P0, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
+    pub fn DetectFacesWithSearchAreaAsync<P0>(&self, image: P0, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
     where
         P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {
@@ -77,7 +77,7 @@ impl FaceDetector {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaxDetectableFaceSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateAsync() -> windows_core::Result<windows_async::IAsyncOperation<FaceDetector>> {
+    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<FaceDetector>> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -125,7 +125,7 @@ unsafe impl Sync for FaceDetector {}
 pub struct FaceTracker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FaceTracker, windows_core::IUnknown, windows_core::IInspectable);
 impl FaceTracker {
-    pub fn ProcessNextFrameAsync<P0>(&self, videoframe: P0) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
+    pub fn ProcessNextFrameAsync<P0>(&self, videoframe: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
     where
         P0: windows_core::Param<super::VideoFrame>,
     {
@@ -161,7 +161,7 @@ impl FaceTracker {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaxDetectableFaceSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateAsync() -> windows_core::Result<windows_async::IAsyncOperation<FaceTracker>> {
+    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<FaceTracker>> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -32,7 +32,7 @@ impl EyesPose {
         })
     }
     #[cfg(feature = "UI_Input")]
-    pub fn RequestAccessAsync() -> windows_core::Result<windows_async::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>> {
         Self::IEyesPoseStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -2,7 +2,7 @@
 // but the remaining methods are tested just to confirm stable behavior.
 
 use windows::core::*;
-use windows_async::*;
+use windows_future::*;
 
 #[test]
 fn test() -> Result<()> {

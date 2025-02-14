@@ -2,7 +2,7 @@
 // that they do not store the `Completed` handler for consistency.
 
 use windows::core::*;
-use windows_async::*;
+use windows_future::*;
 
 #[test]
 fn test() -> Result<()> {

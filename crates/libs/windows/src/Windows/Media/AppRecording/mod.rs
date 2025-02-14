@@ -11,7 +11,7 @@ impl AppRecordingManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn StartRecordingToFileAsync<P0>(&self, file: P0) -> windows_core::Result<windows_async::IAsyncOperation<AppRecordingResult>>
+    pub fn StartRecordingToFileAsync<P0>(&self, file: P0) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingResult>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -22,7 +22,7 @@ impl AppRecordingManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RecordTimeSpanToFileAsync<P2>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P2) -> windows_core::Result<windows_async::IAsyncOperation<AppRecordingResult>>
+    pub fn RecordTimeSpanToFileAsync<P2>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P2) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingResult>>
     where
         P2: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -40,7 +40,7 @@ impl AppRecordingManager {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn SaveScreenshotToFilesAsync<P0, P3>(&self, folder: P0, filenameprefix: &windows_core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P3) -> windows_core::Result<windows_async::IAsyncOperation<AppRecordingSaveScreenshotResult>>
+    pub fn SaveScreenshotToFilesAsync<P0, P3>(&self, folder: P0, filenameprefix: &windows_core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P3) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingSaveScreenshotResult>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFolder>,
         P3: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,

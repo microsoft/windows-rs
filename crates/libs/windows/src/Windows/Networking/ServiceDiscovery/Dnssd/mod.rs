@@ -139,7 +139,7 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(feature = "Networking_Sockets")]
-    pub fn RegisterStreamSocketListenerAsync<P0>(&self, socket: P0) -> windows_core::Result<windows_async::IAsyncOperation<DnssdRegistrationResult>>
+    pub fn RegisterStreamSocketListenerAsync<P0>(&self, socket: P0) -> windows_core::Result<windows_future::IAsyncOperation<DnssdRegistrationResult>>
     where
         P0: windows_core::Param<super::super::Sockets::StreamSocketListener>,
     {
@@ -150,7 +150,7 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
-    pub fn RegisterStreamSocketListenerAsync2<P0, P1>(&self, socket: P0, adapter: P1) -> windows_core::Result<windows_async::IAsyncOperation<DnssdRegistrationResult>>
+    pub fn RegisterStreamSocketListenerAsync2<P0, P1>(&self, socket: P0, adapter: P1) -> windows_core::Result<windows_future::IAsyncOperation<DnssdRegistrationResult>>
     where
         P0: windows_core::Param<super::super::Sockets::StreamSocketListener>,
         P1: windows_core::Param<super::super::Connectivity::NetworkAdapter>,
@@ -162,7 +162,7 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(feature = "Networking_Sockets")]
-    pub fn RegisterDatagramSocketAsync<P0>(&self, socket: P0) -> windows_core::Result<windows_async::IAsyncOperation<DnssdRegistrationResult>>
+    pub fn RegisterDatagramSocketAsync<P0>(&self, socket: P0) -> windows_core::Result<windows_future::IAsyncOperation<DnssdRegistrationResult>>
     where
         P0: windows_core::Param<super::super::Sockets::DatagramSocket>,
     {
@@ -173,7 +173,7 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
-    pub fn RegisterDatagramSocketAsync2<P0, P1>(&self, socket: P0, adapter: P1) -> windows_core::Result<windows_async::IAsyncOperation<DnssdRegistrationResult>>
+    pub fn RegisterDatagramSocketAsync2<P0, P1>(&self, socket: P0, adapter: P1) -> windows_core::Result<windows_future::IAsyncOperation<DnssdRegistrationResult>>
     where
         P0: windows_core::Param<super::super::Sockets::DatagramSocket>,
         P1: windows_core::Param<super::super::Connectivity::NetworkAdapter>,

@@ -232,28 +232,28 @@ impl HidDevice {
             (windows_core::Interface::vtable(this).UsageId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetInputReportAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<HidInputReport>> {
+    pub fn GetInputReportAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<HidInputReport>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetInputReportAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetInputReportByIdAsync(&self, reportid: u16) -> windows_core::Result<windows_async::IAsyncOperation<HidInputReport>> {
+    pub fn GetInputReportByIdAsync(&self, reportid: u16) -> windows_core::Result<windows_future::IAsyncOperation<HidInputReport>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetInputReportByIdAsync)(windows_core::Interface::as_raw(this), reportid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetFeatureReportAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<HidFeatureReport>> {
+    pub fn GetFeatureReportAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<HidFeatureReport>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFeatureReportAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetFeatureReportByIdAsync(&self, reportid: u16) -> windows_core::Result<windows_async::IAsyncOperation<HidFeatureReport>> {
+    pub fn GetFeatureReportByIdAsync(&self, reportid: u16) -> windows_core::Result<windows_future::IAsyncOperation<HidFeatureReport>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -288,7 +288,7 @@ impl HidDevice {
             (windows_core::Interface::vtable(this).CreateFeatureReportById)(windows_core::Interface::as_raw(this), reportid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendOutputReportAsync<P0>(&self, outputreport: P0) -> windows_core::Result<windows_async::IAsyncOperation<u32>>
+    pub fn SendOutputReportAsync<P0>(&self, outputreport: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
         P0: windows_core::Param<HidOutputReport>,
     {
@@ -298,7 +298,7 @@ impl HidDevice {
             (windows_core::Interface::vtable(this).SendOutputReportAsync)(windows_core::Interface::as_raw(this), outputreport.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendFeatureReportAsync<P0>(&self, featurereport: P0) -> windows_core::Result<windows_async::IAsyncOperation<u32>>
+    pub fn SendFeatureReportAsync<P0>(&self, featurereport: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
         P0: windows_core::Param<HidFeatureReport>,
     {
@@ -349,7 +349,7 @@ impl HidDevice {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING, accessmode: super::super::Storage::FileAccessMode) -> windows_core::Result<windows_async::IAsyncOperation<HidDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING, accessmode: super::super::Storage::FileAccessMode) -> windows_core::Result<windows_future::IAsyncOperation<HidDevice>> {
         Self::IHidDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), accessmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

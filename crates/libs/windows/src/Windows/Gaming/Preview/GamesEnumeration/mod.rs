@@ -1,12 +1,12 @@
 pub struct GameList;
 impl GameList {
-    pub fn FindAllAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<GameListEntry>>> {
+    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GameListEntry>>> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllAsyncPackageFamilyName(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<GameListEntry>>> {
+    pub fn FindAllAsyncPackageFamilyName(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GameListEntry>>> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsyncPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -48,7 +48,7 @@ impl GameList {
     pub fn RemoveGameUpdated(token: i64) -> windows_core::Result<()> {
         Self::IGameListStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveGameUpdated)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn MergeEntriesAsync<P0, P1>(left: P0, right: P1) -> windows_core::Result<windows_async::IAsyncOperation<GameListEntry>>
+    pub fn MergeEntriesAsync<P0, P1>(left: P0, right: P1) -> windows_core::Result<windows_future::IAsyncOperation<GameListEntry>>
     where
         P0: windows_core::Param<GameListEntry>,
         P1: windows_core::Param<GameListEntry>,
@@ -58,7 +58,7 @@ impl GameList {
             (windows_core::Interface::vtable(this).MergeEntriesAsync)(windows_core::Interface::as_raw(this), left.param().abi(), right.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn UnmergeEntryAsync<P0>(mergedentry: P0) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<GameListEntry>>>
+    pub fn UnmergeEntryAsync<P0>(mergedentry: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GameListEntry>>>
     where
         P0: windows_core::Param<GameListEntry>,
     {
@@ -174,7 +174,7 @@ impl GameListEntry {
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LaunchAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn LaunchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -195,7 +195,7 @@ impl GameListEntry {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -225,7 +225,7 @@ impl GameListEntry {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetLauncherExecutableFileAsync<P0>(&self, executablefile: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SetLauncherExecutableFileAsync<P0>(&self, executablefile: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
@@ -236,7 +236,7 @@ impl GameListEntry {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetLauncherExecutableFileWithParamsAsync<P0>(&self, executablefile: P0, launchparams: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn SetLauncherExecutableFileWithParamsAsync<P0>(&self, executablefile: P0, launchparams: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
@@ -253,7 +253,7 @@ impl GameListEntry {
             (windows_core::Interface::vtable(this).TitleId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTitleIdAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetTitleIdAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -478,7 +478,7 @@ impl GameModeConfiguration {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAffinitizeToExclusiveCpus)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -510,7 +510,7 @@ impl GameModeUserConfiguration {
             (windows_core::Interface::vtable(this).GamingRelatedProcessNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -554,7 +554,7 @@ impl IGameListEntry {
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LaunchAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
+    pub fn LaunchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -575,7 +575,7 @@ impl IGameListEntry {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -590,10 +590,10 @@ impl windows_core::RuntimeName for IGameListEntry {
 #[cfg(feature = "ApplicationModel")]
 pub trait IGameListEntry_Impl: windows_core::IUnknownImpl {
     fn DisplayInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppDisplayInfo>;
-    fn LaunchAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>>;
+    fn LaunchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>>;
     fn Category(&self) -> windows_core::Result<GameListCategory>;
     fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>;
-    fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<windows_async::IAsyncAction>;
+    fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<windows_future::IAsyncAction>;
 }
 #[cfg(feature = "ApplicationModel")]
 impl IGameListEntry_Vtbl {

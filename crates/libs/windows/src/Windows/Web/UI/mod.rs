@@ -118,7 +118,7 @@ impl IWebViewControl {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).NavigateWithHttpRequestMessage)(windows_core::Interface::as_raw(this), requestmessage.param().abi()).ok() }
     }
-    pub fn InvokeScriptAsync<P1>(&self, scriptname: &windows_core::HSTRING, arguments: P1) -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>>
+    pub fn InvokeScriptAsync<P1>(&self, scriptname: &windows_core::HSTRING, arguments: P1) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -129,7 +129,7 @@ impl IWebViewControl {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CapturePreviewToStreamAsync<P0>(&self, stream: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn CapturePreviewToStreamAsync<P0>(&self, stream: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -140,7 +140,7 @@ impl IWebViewControl {
         }
     }
     #[cfg(feature = "ApplicationModel_DataTransfer")]
-    pub fn CaptureSelectedContentToDataPackageAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>> {
+    pub fn CaptureSelectedContentToDataPackageAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -421,9 +421,9 @@ pub trait IWebViewControl_Impl: windows_core::IUnknownImpl {
     fn NavigateToString(&self, text: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn NavigateToLocalStreamUri(&self, source: windows_core::Ref<'_, super::super::Foundation::Uri>, streamResolver: windows_core::Ref<'_, super::IUriToStreamResolver>) -> windows_core::Result<()>;
     fn NavigateWithHttpRequestMessage(&self, requestMessage: windows_core::Ref<'_, super::Http::HttpRequestMessage>) -> windows_core::Result<()>;
-    fn InvokeScriptAsync(&self, scriptName: &windows_core::HSTRING, arguments: windows_core::Ref<'_, windows_collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>>;
-    fn CapturePreviewToStreamAsync(&self, stream: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<windows_async::IAsyncAction>;
-    fn CaptureSelectedContentToDataPackageAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>>;
+    fn InvokeScriptAsync(&self, scriptName: &windows_core::HSTRING, arguments: windows_core::Ref<'_, windows_collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>;
+    fn CapturePreviewToStreamAsync(&self, stream: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn CaptureSelectedContentToDataPackageAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>>;
     fn BuildLocalStreamUri(&self, contentIdentifier: &windows_core::HSTRING, relativePath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Uri>;
     fn GetDeferredPermissionRequestById(&self, id: u32, result: windows_core::OutRef<'_, WebViewControlDeferredPermissionRequest>) -> windows_core::Result<()>;
     fn NavigationStarting(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNavigationStartingEventArgs>>) -> windows_core::Result<i64>;

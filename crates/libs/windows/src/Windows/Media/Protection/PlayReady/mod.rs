@@ -792,28 +792,28 @@ impl windows_core::RuntimeType for INDMessenger {
 windows_core::imp::interface_hierarchy!(INDMessenger, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDMessenger {
-    pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>> {
+    pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendRegistrationRequestAsync)(windows_core::Interface::as_raw(this), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendProximityDetectionStartAsync)(windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendProximityDetectionResponseAsync)(windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), responsedatabytes.len().try_into().unwrap(), responsedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>> {
+    pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -827,10 +827,10 @@ impl windows_core::RuntimeName for INDMessenger {
 }
 #[cfg(feature = "deprecated")]
 pub trait INDMessenger_Impl: windows_core::IUnknownImpl {
-    fn SendRegistrationRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>>;
-    fn SendProximityDetectionStartAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>>;
-    fn SendProximityDetectionResponseAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], responseDataBytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>>;
-    fn SendLicenseFetchRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>>;
+    fn SendRegistrationRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
+    fn SendProximityDetectionStartAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
+    fn SendProximityDetectionResponseAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], responseDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
+    fn SendLicenseFetchRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
 }
 #[cfg(feature = "deprecated")]
 impl INDMessenger_Vtbl {
@@ -2307,7 +2307,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2699,7 +2699,7 @@ impl IPlayReadySecureStopServiceRequest {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2873,7 +2873,7 @@ impl IPlayReadyServiceRequest {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2925,7 +2925,7 @@ pub trait IPlayReadyServiceRequest_Impl: super::IMediaProtectionServiceRequest_I
     fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn BeginServiceRequest(&self) -> windows_core::Result<windows_async::IAsyncAction>;
+    fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction>;
     fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest>;
     fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage>;
     fn ProcessManualEnablingResponse(&self, responseBytes: &[u8]) -> windows_core::Result<windows_core::HRESULT>;
@@ -3277,7 +3277,7 @@ impl NDClient {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveClosedCaptionDataReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn StartAsync<P0, P2, P3>(&self, contenturl: P0, startasyncoptions: u32, registrationcustomdata: P2, licensefetchdescriptor: P3) -> windows_core::Result<windows_async::IAsyncOperation<INDStartResult>>
+    pub fn StartAsync<P0, P2, P3>(&self, contenturl: P0, startasyncoptions: u32, registrationcustomdata: P2, licensefetchdescriptor: P3) -> windows_core::Result<windows_future::IAsyncOperation<INDStartResult>>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
         P2: windows_core::Param<INDCustomData>,
@@ -3289,7 +3289,7 @@ impl NDClient {
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), contenturl.param().abi(), startasyncoptions, registrationcustomdata.param().abi(), licensefetchdescriptor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LicenseFetchAsync<P0>(&self, licensefetchdescriptor: P0) -> windows_core::Result<windows_async::IAsyncOperation<INDLicenseFetchResult>>
+    pub fn LicenseFetchAsync<P0>(&self, licensefetchdescriptor: P0) -> windows_core::Result<windows_future::IAsyncOperation<INDLicenseFetchResult>>
     where
         P0: windows_core::Param<INDLicenseFetchDescriptor>,
     {
@@ -3299,7 +3299,7 @@ impl NDClient {
             (windows_core::Interface::vtable(this).LicenseFetchAsync)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReRegistrationAsync<P0>(&self, registrationcustomdata: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn ReRegistrationAsync<P0>(&self, registrationcustomdata: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<INDCustomData>,
     {
@@ -3684,28 +3684,28 @@ pub struct NDTCPMessenger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NDTCPMessenger, windows_core::IUnknown, windows_core::IInspectable, INDMessenger);
 #[cfg(feature = "deprecated")]
 impl NDTCPMessenger {
-    pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>> {
+    pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendRegistrationRequestAsync)(windows_core::Interface::as_raw(this), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendProximityDetectionStartAsync)(windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendProximityDetectionResponseAsync)(windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), responsedatabytes.len().try_into().unwrap(), responsedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_async::IAsyncOperation<INDSendResult>> {
+    pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4146,7 +4146,7 @@ impl PlayReadyDomainJoinServiceRequest {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4266,7 +4266,7 @@ impl PlayReadyDomainLeaveServiceRequest {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4442,7 +4442,7 @@ impl PlayReadyIndividualizationServiceRequest {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4675,7 +4675,7 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4817,7 +4817,7 @@ impl windows_core::RuntimeName for PlayReadyLicenseIterator {
 }
 pub struct PlayReadyLicenseManagement;
 impl PlayReadyLicenseManagement {
-    pub fn DeleteLicenses<P0>(contentheader: P0) -> windows_core::Result<windows_async::IAsyncAction>
+    pub fn DeleteLicenses<P0>(contentheader: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
@@ -4959,7 +4959,7 @@ impl PlayReadyMeteringReportServiceRequest {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5057,7 +5057,7 @@ impl PlayReadyRevocationServiceRequest {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5286,7 +5286,7 @@ impl PlayReadySecureStopServiceRequest {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_async::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
