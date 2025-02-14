@@ -1164,7 +1164,7 @@ impl LearningModel {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStorageFileAsync<P0>(modelfile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStorageFileAsync<P0>(modelfile: P0) -> windows_core::Result<windows_async::IAsyncOperation<LearningModel>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -1174,7 +1174,7 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamAsync<P0>(modelstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStreamAsync<P0>(modelstream: P0) -> windows_core::Result<windows_async::IAsyncOperation<LearningModel>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -1200,7 +1200,7 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStorageFileWithOperatorProviderAsync<P0, P1>(modelfile: P0, operatorprovider: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStorageFileWithOperatorProviderAsync<P0, P1>(modelfile: P0, operatorprovider: P1) -> windows_core::Result<windows_async::IAsyncOperation<LearningModel>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<ILearningModelOperatorProvider>,
@@ -1211,7 +1211,7 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamWithOperatorProviderAsync<P0, P1>(modelstream: P0, operatorprovider: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStreamWithOperatorProviderAsync<P0, P1>(modelstream: P0, operatorprovider: P1) -> windows_core::Result<windows_async::IAsyncOperation<LearningModel>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
         P1: windows_core::Param<ILearningModelOperatorProvider>,
@@ -1537,7 +1537,7 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).EvaluationProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EvaluateAsync<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
+    pub fn EvaluateAsync<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<LearningModelEvaluationResult>>
     where
         P0: windows_core::Param<LearningModelBinding>,
     {
@@ -1547,7 +1547,7 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).EvaluateAsync)(windows_core::Interface::as_raw(this), bindings.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EvaluateFeaturesAsync<P0>(&self, features: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
+    pub fn EvaluateFeaturesAsync<P0>(&self, features: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<LearningModelEvaluationResult>>
     where
         P0: windows_core::Param<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>,
     {

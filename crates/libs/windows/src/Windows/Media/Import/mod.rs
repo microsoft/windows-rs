@@ -555,7 +555,7 @@ impl PhotoImportFindItemsResult {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SelectNone)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SelectNewAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SelectNewAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -657,7 +657,7 @@ impl PhotoImportFindItemsResult {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSelectionChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ImportItemsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
+    pub fn ImportItemsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -791,7 +791,7 @@ impl PhotoImportImportItemsResult {
             (windows_core::Interface::vtable(this).TotalSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeleteImportedItemsFromSourceAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
+    pub fn DeleteImportedItemsFromSourceAsync(&self) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -981,13 +981,13 @@ impl windows_core::RuntimeType for PhotoImportItemSelectionMode {
 }
 pub struct PhotoImportManager;
 impl PhotoImportManager {
-    pub fn IsSupportedAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsSupportedAsync() -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
         Self::IPhotoImportManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupportedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllSourcesAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<PhotoImportSource>>> {
+    pub fn FindAllSourcesAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<PhotoImportSource>>> {
         Self::IPhotoImportManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllSourcesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1026,21 +1026,21 @@ impl PhotoImportOperation {
             (windows_core::Interface::vtable(this).Session)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContinueFindingItemsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
+    pub fn ContinueFindingItemsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinueFindingItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContinueImportingItemsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
+    pub fn ContinueImportingItemsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinueImportingItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContinueDeletingImportedItemsFromSourceAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
+    pub fn ContinueDeletingImportedItemsFromSourceAsync(&self) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1187,7 +1187,7 @@ impl PhotoImportSession {
             (windows_core::Interface::vtable(this).DestinationFileNamePrefix)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FindItemsAsync(&self, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
+    pub fn FindItemsAsync(&self, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1393,14 +1393,14 @@ impl PhotoImportSource {
             (windows_core::Interface::vtable(this).CreateImportSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(sourceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>> {
+    pub fn FromIdAsync(sourceid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<PhotoImportSource>> {
         Self::IPhotoImportSourceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn FromFolderAsync<P0>(sourcerootfolder: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>
+    pub fn FromFolderAsync<P0>(sourcerootfolder: P0) -> windows_core::Result<windows_async::IAsyncOperation<PhotoImportSource>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {

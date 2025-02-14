@@ -249,7 +249,7 @@ unsafe impl Sync for LocalLocation {}
 pub struct LocalLocationFinder;
 impl LocalLocationFinder {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocalLocationsAsync<P1>(searchterm: &windows_core::HSTRING, searcharea: P1, localcategory: &windows_core::HSTRING, maxresults: u32) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
+    pub fn FindLocalLocationsAsync<P1>(searchterm: &windows_core::HSTRING, searcharea: P1, localcategory: &windows_core::HSTRING, maxresults: u32) -> windows_core::Result<windows_async::IAsyncOperation<LocalLocationFinderResult>>
     where
         P1: windows_core::Param<super::super::super::Devices::Geolocation::Geocircle>,
     {

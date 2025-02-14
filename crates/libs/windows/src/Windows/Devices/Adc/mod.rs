@@ -116,7 +116,7 @@ impl AdcController {
         }
     }
     #[cfg(feature = "Devices_Adc_Provider")]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<AdcController>>>
+    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<AdcController>>>
     where
         P0: windows_core::Param<Provider::IAdcProvider>,
     {
@@ -125,7 +125,7 @@ impl AdcController {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<AdcController>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_async::IAsyncOperation<AdcController>> {
         Self::IAdcControllerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

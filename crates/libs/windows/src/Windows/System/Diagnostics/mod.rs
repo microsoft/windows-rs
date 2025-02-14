@@ -61,7 +61,7 @@ pub struct DiagnosticInvoker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DiagnosticInvoker, windows_core::IUnknown, windows_core::IInspectable);
 impl DiagnosticInvoker {
     #[cfg(feature = "Data_Json")]
-    pub fn RunDiagnosticActionAsync<P0>(&self, context: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
+    pub fn RunDiagnosticActionAsync<P0>(&self, context: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
     where
         P0: windows_core::Param<super::super::Data::Json::JsonObject>,
     {
@@ -71,7 +71,7 @@ impl DiagnosticInvoker {
             (windows_core::Interface::vtable(this).RunDiagnosticActionAsync)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RunDiagnosticActionFromStringAsync(&self, context: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
+    pub fn RunDiagnosticActionFromStringAsync(&self, context: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
         let this = &windows_core::Interface::cast::<IDiagnosticInvoker2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

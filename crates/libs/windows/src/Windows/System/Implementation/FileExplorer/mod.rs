@@ -159,7 +159,7 @@ impl windows_core::RuntimeType for ISysStorageProviderHttpRequestProvider {
 windows_core::imp::interface_hierarchy!(ISysStorageProviderHttpRequestProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ISysStorageProviderHttpRequestProvider {
     #[cfg(feature = "Web_Http")]
-    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>
+    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>
     where
         P0: windows_core::Param<super::super::super::Web::Http::HttpRequestMessage>,
     {
@@ -176,7 +176,7 @@ impl windows_core::RuntimeName for ISysStorageProviderHttpRequestProvider {
 }
 #[cfg(feature = "Web_Http")]
 pub trait ISysStorageProviderHttpRequestProvider_Impl: windows_core::IUnknownImpl {
-    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::super::super::Web::Http::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
+    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::super::super::Web::Http::HttpRequestMessage>) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
 }
 #[cfg(feature = "Web_Http")]
 impl ISysStorageProviderHttpRequestProvider_Vtbl {

@@ -519,14 +519,14 @@ impl Geolocator {
             (windows_core::Interface::vtable(this).LocationStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetGeopositionAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Geoposition>> {
+    pub fn GetGeopositionAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<Geoposition>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetGeopositionAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetGeopositionAsyncWithAgeAndTimeout(&self, maximumage: super::super::Foundation::TimeSpan, timeout: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Geoposition>> {
+    pub fn GetGeopositionAsyncWithAgeAndTimeout(&self, maximumage: super::super::Foundation::TimeSpan, timeout: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_async::IAsyncOperation<Geoposition>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -565,19 +565,19 @@ impl Geolocator {
         let this = &windows_core::Interface::cast::<IGeolocator2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).AllowFallbackToConsentlessPositions)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn RequestAccessAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_core::Result<windows_async::IAsyncOperation<GeolocationAccessStatus>> {
         Self::IGeolocatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetGeopositionHistoryAsync(starttime: super::super::Foundation::DateTime) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<Geoposition>>> {
+    pub fn GetGeopositionHistoryAsync(starttime: super::super::Foundation::DateTime) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<Geoposition>>> {
         Self::IGeolocatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetGeopositionHistoryAsync)(windows_core::Interface::as_raw(this), starttime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetGeopositionHistoryWithDurationAsync(starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<Geoposition>>> {
+    pub fn GetGeopositionHistoryWithDurationAsync(starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<Geoposition>>> {
         Self::IGeolocatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetGeopositionHistoryWithDurationAsync)(windows_core::Interface::as_raw(this), starttime, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -917,7 +917,7 @@ impl GeovisitMonitor {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveVisitStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetLastReportAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<Geovisit>> {
+    pub fn GetLastReportAsync() -> windows_core::Result<windows_async::IAsyncOperation<Geovisit>> {
         Self::IGeovisitMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetLastReportAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

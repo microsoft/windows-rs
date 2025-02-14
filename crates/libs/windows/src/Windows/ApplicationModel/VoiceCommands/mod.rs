@@ -433,7 +433,7 @@ impl VoiceCommandDefinition {
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetPhraseListAsync<P1>(&self, phraselistname: &windows_core::HSTRING, phraselist: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetPhraseListAsync<P1>(&self, phraselistname: &windows_core::HSTRING, phraselist: P1) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -459,7 +459,7 @@ unsafe impl Sync for VoiceCommandDefinition {}
 pub struct VoiceCommandDefinitionManager;
 impl VoiceCommandDefinitionManager {
     #[cfg(feature = "Storage_Streams")]
-    pub fn InstallCommandDefinitionsFromStorageFileAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn InstallCommandDefinitionsFromStorageFileAsync<P0>(file: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -626,14 +626,14 @@ unsafe impl Sync for VoiceCommandResponse {}
 pub struct VoiceCommandServiceConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommandServiceConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceCommandServiceConnection {
-    pub fn GetVoiceCommandAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VoiceCommand>> {
+    pub fn GetVoiceCommandAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<VoiceCommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetVoiceCommandAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestConfirmationAsync<P0>(&self, response: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VoiceCommandConfirmationResult>>
+    pub fn RequestConfirmationAsync<P0>(&self, response: P0) -> windows_core::Result<windows_async::IAsyncOperation<VoiceCommandConfirmationResult>>
     where
         P0: windows_core::Param<VoiceCommandResponse>,
     {
@@ -643,7 +643,7 @@ impl VoiceCommandServiceConnection {
             (windows_core::Interface::vtable(this).RequestConfirmationAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestDisambiguationAsync<P0>(&self, response: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VoiceCommandDisambiguationResult>>
+    pub fn RequestDisambiguationAsync<P0>(&self, response: P0) -> windows_core::Result<windows_async::IAsyncOperation<VoiceCommandDisambiguationResult>>
     where
         P0: windows_core::Param<VoiceCommandResponse>,
     {
@@ -653,7 +653,7 @@ impl VoiceCommandServiceConnection {
             (windows_core::Interface::vtable(this).RequestDisambiguationAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportProgressAsync<P0>(&self, response: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ReportProgressAsync<P0>(&self, response: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<VoiceCommandResponse>,
     {
@@ -663,7 +663,7 @@ impl VoiceCommandServiceConnection {
             (windows_core::Interface::vtable(this).ReportProgressAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportSuccessAsync<P0>(&self, response: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ReportSuccessAsync<P0>(&self, response: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<VoiceCommandResponse>,
     {
@@ -673,7 +673,7 @@ impl VoiceCommandServiceConnection {
             (windows_core::Interface::vtable(this).ReportSuccessAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailureAsync<P0>(&self, response: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ReportFailureAsync<P0>(&self, response: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<VoiceCommandResponse>,
     {
@@ -683,7 +683,7 @@ impl VoiceCommandServiceConnection {
             (windows_core::Interface::vtable(this).ReportFailureAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestAppLaunchAsync<P0>(&self, response: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RequestAppLaunchAsync<P0>(&self, response: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<VoiceCommandResponse>,
     {

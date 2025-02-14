@@ -15,7 +15,7 @@ impl AtomPubClient {
         static SHARED: windows_core::imp::FactoryCache<AtomPubClient, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn RetrieveServiceDocumentAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>>
+    pub fn RetrieveServiceDocumentAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -26,7 +26,7 @@ impl AtomPubClient {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RetrieveMediaResourceAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>>
+    pub fn RetrieveMediaResourceAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -36,7 +36,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).RetrieveMediaResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RetrieveResourceAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>>
+    pub fn RetrieveResourceAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -46,7 +46,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).RetrieveResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateResourceAsync<P0, P2>(&self, uri: P0, description: &windows_core::HSTRING, item: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
+    pub fn CreateResourceAsync<P0, P2>(&self, uri: P0, description: &windows_core::HSTRING, item: P2) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P2: windows_core::Param<super::Syndication::SyndicationItem>,
@@ -58,7 +58,7 @@ impl AtomPubClient {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateMediaResourceAsync<P0, P3>(&self, uri: P0, mediatype: &windows_core::HSTRING, description: &windows_core::HSTRING, mediastream: P3) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
+    pub fn CreateMediaResourceAsync<P0, P3>(&self, uri: P0, mediatype: &windows_core::HSTRING, description: &windows_core::HSTRING, mediastream: P3) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P3: windows_core::Param<super::super::Storage::Streams::IInputStream>,
@@ -70,7 +70,7 @@ impl AtomPubClient {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn UpdateMediaResourceAsync<P0, P2>(&self, uri: P0, mediatype: &windows_core::HSTRING, mediastream: P2) -> windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn UpdateMediaResourceAsync<P0, P2>(&self, uri: P0, mediatype: &windows_core::HSTRING, mediastream: P2) -> windows_core::Result<windows_async::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P2: windows_core::Param<super::super::Storage::Streams::IInputStream>,
@@ -81,7 +81,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).UpdateMediaResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), core::mem::transmute_copy(mediatype), mediastream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateResourceAsync<P0, P1>(&self, uri: P0, item: P1) -> windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn UpdateResourceAsync<P0, P1>(&self, uri: P0, item: P1) -> windows_core::Result<windows_async::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<super::Syndication::SyndicationItem>,
@@ -92,7 +92,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).UpdateResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateResourceItemAsync<P0>(&self, item: P0) -> windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn UpdateResourceItemAsync<P0>(&self, item: P0) -> windows_core::Result<windows_async::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
     where
         P0: windows_core::Param<super::Syndication::SyndicationItem>,
     {
@@ -102,7 +102,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).UpdateResourceItemAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteResourceAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn DeleteResourceAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_async::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -112,7 +112,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).DeleteResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteResourceItemAsync<P0>(&self, item: P0) -> windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn DeleteResourceItemAsync<P0>(&self, item: P0) -> windows_core::Result<windows_async::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
     where
         P0: windows_core::Param<super::Syndication::SyndicationItem>,
     {
@@ -205,7 +205,7 @@ impl AtomPubClient {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn RetrieveFeedAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>>
+    pub fn RetrieveFeedAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {

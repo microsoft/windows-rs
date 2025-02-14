@@ -84,7 +84,7 @@ impl AppWindow {
             (windows_core::Interface::vtable(this).WindowingEnvironment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CloseAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn CloseAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -145,7 +145,7 @@ impl AppWindow {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RequestSize)(windows_core::Interface::as_raw(this), framesize).ok() }
     }
-    pub fn TryShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryShowAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -194,7 +194,7 @@ impl AppWindow {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCloseRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TryCreateAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppWindow>> {
+    pub fn TryCreateAsync() -> windows_core::Result<windows_async::IAsyncOperation<AppWindow>> {
         Self::IAppWindowStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

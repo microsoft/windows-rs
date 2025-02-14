@@ -215,7 +215,7 @@ impl windows_core::RuntimeType for II2cProvider {
 }
 windows_core::imp::interface_hierarchy!(II2cProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl II2cProvider {
-    pub fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>> {
+    pub fn GetControllersAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -227,7 +227,7 @@ impl windows_core::RuntimeName for II2cProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cProvider";
 }
 pub trait II2cProvider_Impl: windows_core::IUnknownImpl {
-    fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>>;
+    fn GetControllersAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>>;
 }
 impl II2cProvider_Vtbl {
     pub const fn new<Identity: II2cProvider_Impl, const OFFSET: isize>() -> Self {

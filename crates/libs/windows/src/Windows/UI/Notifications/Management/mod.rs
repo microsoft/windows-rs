@@ -28,7 +28,7 @@ pub struct IUserNotificationListenerStatics_Vtbl {
 pub struct UserNotificationListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserNotificationListener, windows_core::IUnknown, windows_core::IInspectable);
 impl UserNotificationListener {
-    pub fn RequestAccessAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>> {
+    pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<UserNotificationListenerAccessStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -56,7 +56,7 @@ impl UserNotificationListener {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveNotificationChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::UserNotification>>> {
+    pub fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::UserNotification>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

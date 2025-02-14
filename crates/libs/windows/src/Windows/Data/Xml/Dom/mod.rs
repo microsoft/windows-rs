@@ -3274,7 +3274,7 @@ impl XmlDocument {
         unsafe { (windows_core::Interface::vtable(this).LoadXmlWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xml), loadsettings.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveToFileAsync<P0>(&self, file: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn SaveToFileAsync<P0>(&self, file: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
@@ -3301,7 +3301,7 @@ impl XmlDocument {
         let this = &windows_core::Interface::cast::<IXmlDocumentIO2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).LoadXmlFromBufferWithSettings)(windows_core::Interface::as_raw(this), buffer.param().abi(), loadsettings.param().abi()).ok() }
     }
-    pub fn LoadFromUriAsync<P0>(uri: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
+    pub fn LoadFromUriAsync<P0>(uri: P0) -> windows_core::Result<windows_async::IAsyncOperation<XmlDocument>>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
@@ -3310,7 +3310,7 @@ impl XmlDocument {
             (windows_core::Interface::vtable(this).LoadFromUriAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LoadFromUriWithSettingsAsync<P0, P1>(uri: P0, loadsettings: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
+    pub fn LoadFromUriWithSettingsAsync<P0, P1>(uri: P0, loadsettings: P1) -> windows_core::Result<windows_async::IAsyncOperation<XmlDocument>>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
         P1: windows_core::Param<XmlLoadSettings>,
@@ -3321,7 +3321,7 @@ impl XmlDocument {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromFileAsync<P0>(file: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
+    pub fn LoadFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_async::IAsyncOperation<XmlDocument>>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
@@ -3331,7 +3331,7 @@ impl XmlDocument {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromFileWithSettingsAsync<P0, P1>(file: P0, loadsettings: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
+    pub fn LoadFromFileWithSettingsAsync<P0, P1>(file: P0, loadsettings: P1) -> windows_core::Result<windows_async::IAsyncOperation<XmlDocument>>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
         P1: windows_core::Param<XmlLoadSettings>,

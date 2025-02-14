@@ -302,7 +302,7 @@ impl PreviewBuildsManager {
             (windows_core::Interface::vtable(this).GetCurrentState)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SyncAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SyncAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1254,7 +1254,7 @@ impl WindowsUpdateManager {
             (windows_core::Interface::vtable(this).GetMostRecentCompletedUpdates)(windows_core::Interface::as_raw(this), count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetMostRecentCompletedUpdatesAsync(&self, count: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<WindowsUpdateItem>>> {
+    pub fn GetMostRecentCompletedUpdatesAsync(&self, count: i32) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<WindowsUpdateItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

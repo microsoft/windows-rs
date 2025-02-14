@@ -694,7 +694,7 @@ impl CoreDispatcher {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessEvents)(windows_core::Interface::as_raw(this), options).ok() }
     }
-    pub fn RunAsync<P1>(&self, priority: CoreDispatcherPriority, agilecallback: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RunAsync<P1>(&self, priority: CoreDispatcherPriority, agilecallback: P1) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P1: windows_core::Param<DispatchedHandler>,
     {
@@ -704,7 +704,7 @@ impl CoreDispatcher {
             (windows_core::Interface::vtable(this).RunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<IdleDispatchedHandler>,
     {
@@ -714,7 +714,7 @@ impl CoreDispatcher {
             (windows_core::Interface::vtable(this).RunIdleAsync)(windows_core::Interface::as_raw(this), agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryRunAsync<P1>(&self, priority: CoreDispatcherPriority, agilecallback: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryRunAsync<P1>(&self, priority: CoreDispatcherPriority, agilecallback: P1) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
     where
         P1: windows_core::Param<DispatchedHandler>,
     {
@@ -724,7 +724,7 @@ impl CoreDispatcher {
             (windows_core::Interface::vtable(this).TryRunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryRunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryRunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<IdleDispatchedHandler>,
     {
@@ -1942,7 +1942,7 @@ impl CoreWindowDialog {
         unsafe { (windows_core::Interface::vtable(this).SetBackButtonCommand)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
+    pub fn ShowAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::Popups::IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2101,7 +2101,7 @@ impl CoreWindowFlyout {
         unsafe { (windows_core::Interface::vtable(this).SetBackButtonCommand)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
+    pub fn ShowAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::Popups::IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

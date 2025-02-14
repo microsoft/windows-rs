@@ -20,7 +20,7 @@ impl CustomDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    pub fn SendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> windows_core::Result<windows_async::IAsyncOperation<u32>>
     where
         P0: windows_core::Param<IIOControlCode>,
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
@@ -33,7 +33,7 @@ impl CustomDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TrySendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TrySendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<IIOControlCode>,
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
@@ -51,7 +51,7 @@ impl CustomDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), classguid, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CustomDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> windows_core::Result<windows_async::IAsyncOperation<CustomDevice>> {
         Self::ICustomDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), desiredaccess, sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

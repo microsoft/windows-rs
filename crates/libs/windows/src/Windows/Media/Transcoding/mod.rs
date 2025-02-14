@@ -143,7 +143,7 @@ impl MediaTranscoder {
         unsafe { (windows_core::Interface::vtable(this).ClearEffects)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn PrepareFileTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
+    pub fn PrepareFileTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<windows_async::IAsyncOperation<PrepareTranscodeResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -156,7 +156,7 @@ impl MediaTranscoder {
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn PrepareStreamTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
+    pub fn PrepareStreamTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<windows_async::IAsyncOperation<PrepareTranscodeResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -169,7 +169,7 @@ impl MediaTranscoder {
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn PrepareMediaStreamSourceTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
+    pub fn PrepareMediaStreamSourceTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<windows_async::IAsyncOperation<PrepareTranscodeResult>>
     where
         P0: windows_core::Param<super::Core::IMediaSource>,
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -237,7 +237,7 @@ impl PrepareTranscodeResult {
             (windows_core::Interface::vtable(this).FailureReason)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TranscodeAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<f64>> {
+    pub fn TranscodeAsync(&self) -> windows_core::Result<windows_async::IAsyncActionWithProgress<f64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

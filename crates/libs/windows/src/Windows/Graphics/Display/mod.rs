@@ -212,7 +212,7 @@ impl BrightnessOverride {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SaveForSystemAsync<P0>(value: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn SaveForSystemAsync<P0>(value: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<BrightnessOverride>,
     {
@@ -702,7 +702,7 @@ impl DisplayInformation {
         unsafe { (windows_core::Interface::vtable(this).RemoveStereoEnabledChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetColorProfileAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
+    pub fn GetColorProfileAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -945,7 +945,7 @@ impl DisplayProperties {
         Self::IDisplayPropertiesStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveStereoEnabledChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetColorProfileAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
+    pub fn GetColorProfileAsync() -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetColorProfileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

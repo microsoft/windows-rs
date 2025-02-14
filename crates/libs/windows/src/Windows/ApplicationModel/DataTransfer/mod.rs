@@ -34,7 +34,7 @@ impl Clipboard {
     pub fn RemoveContentChanged(token: i64) -> windows_core::Result<()> {
         Self::IClipboardStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveContentChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn GetHistoryItemsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<ClipboardHistoryItemsResult>> {
+    pub fn GetHistoryItemsAsync() -> windows_core::Result<windows_async::IAsyncOperation<ClipboardHistoryItemsResult>> {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetHistoryItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -980,21 +980,21 @@ impl DataPackageView {
             (windows_core::Interface::vtable(this).Contains)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDataAsync(&self, formatid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::IInspectable>> {
+    pub fn GetDataAsync(&self, formatid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDataAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetTextAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetTextAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTextAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCustomTextAsync(&self, formatid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetCustomTextAsync(&self, formatid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1002,14 +1002,14 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn GetUriAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
+    pub fn GetUriAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetUriAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetHtmlFormatAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetHtmlFormatAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1017,14 +1017,14 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetResourceMapAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, super::super::Storage::Streams::RandomAccessStreamReference>>> {
+    pub fn GetResourceMapAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, super::super::Storage::Streams::RandomAccessStreamReference>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetResourceMapAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetRtfAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetRtfAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1032,7 +1032,7 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetBitmapAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
+    pub fn GetBitmapAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1040,21 +1040,21 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "Storage")]
-    pub fn GetStorageItemsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::super::Storage::IStorageItem>>> {
+    pub fn GetStorageItemsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::super::Storage::IStorageItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStorageItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetApplicationLinkAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
+    pub fn GetApplicationLinkAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Foundation::Uri>> {
         let this = &windows_core::Interface::cast::<IDataPackageView2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetApplicationLinkAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetWebLinkAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
+    pub fn GetWebLinkAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Foundation::Uri>> {
         let this = &windows_core::Interface::cast::<IDataPackageView2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1062,7 +1062,7 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "Security_EnterpriseData")]
-    pub fn RequestAccessAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>> {
+    pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>> {
         let this = &windows_core::Interface::cast::<IDataPackageView3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1070,7 +1070,7 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "Security_EnterpriseData")]
-    pub fn RequestAccessWithEnterpriseIdAsync(&self, enterpriseid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>> {
+    pub fn RequestAccessWithEnterpriseIdAsync(&self, enterpriseid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>> {
         let this = &windows_core::Interface::cast::<IDataPackageView3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2477,7 +2477,7 @@ impl SharedStorageAccessManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RedeemTokenForFileAsync(token: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
+    pub fn RedeemTokenForFileAsync(token: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::StorageFile>> {
         Self::ISharedStorageAccessManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RedeemTokenForFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

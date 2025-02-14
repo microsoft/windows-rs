@@ -13,15 +13,15 @@ impl windows_core::RuntimeType for CellularClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.CellularClass;i4)");
 }
 #[cfg(feature = "deprecated")]
-pub type DeleteSmsMessageOperation = super::super::Foundation::IAsyncAction;
+pub type DeleteSmsMessageOperation = windows_async::IAsyncAction;
 #[cfg(feature = "deprecated")]
-pub type DeleteSmsMessagesOperation = super::super::Foundation::IAsyncAction;
+pub type DeleteSmsMessagesOperation = windows_async::IAsyncAction;
 #[cfg(feature = "deprecated")]
-pub type GetSmsDeviceOperation = super::super::Foundation::IAsyncOperation<SmsDevice>;
+pub type GetSmsDeviceOperation = windows_async::IAsyncOperation<SmsDevice>;
 #[cfg(feature = "deprecated")]
-pub type GetSmsMessageOperation = super::super::Foundation::IAsyncOperation<ISmsMessage>;
+pub type GetSmsMessageOperation = windows_async::IAsyncOperation<ISmsMessage>;
 #[cfg(feature = "deprecated")]
-pub type GetSmsMessagesOperation = super::super::Foundation::IAsyncOperationWithProgress<windows_collections::IVectorView<ISmsMessage>, i32>;
+pub type GetSmsMessagesOperation = windows_async::IAsyncOperationWithProgress<windows_collections::IVectorView<ISmsMessage>, i32>;
 windows_core::imp::define_interface!(ISmsAppMessage, ISmsAppMessage_Vtbl, 0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
 impl windows_core::RuntimeType for ISmsAppMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1260,7 +1260,7 @@ pub struct ISmsWapMessage_Vtbl {
     pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
-pub type SendSmsMessageOperation = super::super::Foundation::IAsyncAction;
+pub type SendSmsMessageOperation = windows_async::IAsyncAction;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsAppMessage(windows_core::IUnknown);
@@ -1778,19 +1778,19 @@ impl SmsDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<SmsDevice>> {
         Self::ISmsDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_async::IAsyncOperation<SmsDevice>> {
         Self::ISmsDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromNetworkAccountIdAsync(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>> {
+    pub fn FromNetworkAccountIdAsync(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<SmsDevice>> {
         Self::ISmsDeviceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromNetworkAccountIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1879,7 +1879,7 @@ impl SmsDevice2 {
             (windows_core::Interface::vtable(this).CalculateLength)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn SendMessageAndGetResultAsync<P0>(&self, message: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmsSendMessageResult>>
+    pub fn SendMessageAndGetResultAsync<P0>(&self, message: P0) -> windows_core::Result<windows_async::IAsyncOperation<SmsSendMessageResult>>
     where
         P0: windows_core::Param<ISmsMessageBase>,
     {
@@ -1950,28 +1950,28 @@ pub struct SmsDeviceMessageStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsDeviceMessageStore, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl SmsDeviceMessageStore {
-    pub fn DeleteMessageAsync(&self, messageid: u32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteMessageAsync(&self, messageid: u32) -> windows_core::Result<windows_async::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteMessageAsync)(windows_core::Interface::as_raw(this), messageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteMessagesAsync(&self, messagefilter: SmsMessageFilter) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteMessagesAsync(&self, messagefilter: SmsMessageFilter) -> windows_core::Result<windows_async::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteMessagesAsync)(windows_core::Interface::as_raw(this), messagefilter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetMessageAsync(&self, messageid: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ISmsMessage>> {
+    pub fn GetMessageAsync(&self, messageid: u32) -> windows_core::Result<windows_async::IAsyncOperation<ISmsMessage>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessageAsync)(windows_core::Interface::as_raw(this), messageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetMessagesAsync(&self, messagefilter: SmsMessageFilter) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_collections::IVectorView<ISmsMessage>, i32>> {
+    pub fn GetMessagesAsync(&self, messagefilter: SmsMessageFilter) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<windows_collections::IVectorView<ISmsMessage>, i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

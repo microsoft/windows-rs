@@ -167,7 +167,7 @@ impl FileOpenPicker {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn PickSingleFileAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
+    pub fn PickSingleFileAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -175,7 +175,7 @@ impl FileOpenPicker {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn PickMultipleFilesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>> {
+    pub fn PickMultipleFilesAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -209,7 +209,7 @@ impl FileOpenPicker {
         }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn ResumePickSingleFileAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
+    pub fn ResumePickSingleFileAsync() -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>> {
         Self::IFileOpenPickerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResumePickSingleFileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -226,7 +226,7 @@ impl FileOpenPicker {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn PickSingleFileAsync2(&self, pickeroperationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
+    pub fn PickSingleFileAsync2(&self, pickeroperationid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>> {
         let this = &windows_core::Interface::cast::<IFileOpenPickerWithOperationId>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -513,7 +513,7 @@ impl FileSavePicker {
         unsafe { (windows_core::Interface::vtable(this).SetSuggestedFileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn PickSaveFileAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
+    pub fn PickSaveFileAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -643,7 +643,7 @@ impl FolderPicker {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn PickSingleFolderAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
+    pub fn PickSingleFolderAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::StorageFolder>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

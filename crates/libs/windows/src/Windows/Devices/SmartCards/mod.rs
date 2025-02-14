@@ -851,7 +851,7 @@ impl SmartCard {
             (windows_core::Interface::vtable(this).Reader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetStatusAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardStatus>> {
+    pub fn GetStatusAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -859,14 +859,14 @@ impl SmartCard {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetAnswerToResetAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn GetAnswerToResetAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAnswerToResetAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardConnection>> {
+    pub fn ConnectAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardConnection>> {
         let this = &windows_core::Interface::cast::<ISmartCardConnect>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1079,7 +1079,7 @@ impl SmartCardAppletIdGroupRegistration {
             (windows_core::Interface::vtable(this).AppletIdGroup)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestActivationPolicyChangeAsync(&self, policy: SmartCardAppletIdGroupActivationPolicy) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>> {
+    pub fn RequestActivationPolicyChangeAsync(&self, policy: SmartCardAppletIdGroupActivationPolicy) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardActivationPolicyChangeResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1093,7 +1093,7 @@ impl SmartCardAppletIdGroupRegistration {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutomaticResponseApdusAsync<P0>(&self, apdus: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetAutomaticResponseApdusAsync<P0>(&self, apdus: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<windows_collections::IIterable<SmartCardAutomaticResponseApdu>>,
     {
@@ -1111,7 +1111,7 @@ impl SmartCardAppletIdGroupRegistration {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetPropertiesAsync<P0>(&self, props: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetPropertiesAsync<P0>(&self, props: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {
@@ -1314,7 +1314,7 @@ impl SmartCardChallengeContext {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn VerifyResponseAsync<P0>(&self, response: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn VerifyResponseAsync<P0>(&self, response: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -1325,7 +1325,7 @@ impl SmartCardChallengeContext {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ProvisionAsync<P0>(&self, response: P0, formatcard: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ProvisionAsync<P0>(&self, response: P0, formatcard: bool) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -1336,7 +1336,7 @@ impl SmartCardChallengeContext {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ProvisionAsyncWithNewCardId<P0>(&self, response: P0, formatcard: bool, newcardid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ProvisionAsyncWithNewCardId<P0>(&self, response: P0, formatcard: bool, newcardid: windows_core::GUID) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -1347,7 +1347,7 @@ impl SmartCardChallengeContext {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ChangeAdministrativeKeyAsync<P0, P1>(&self, response: P0, newadministrativekey: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ChangeAdministrativeKeyAsync<P0, P1>(&self, response: P0, newadministrativekey: P1) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
@@ -1382,7 +1382,7 @@ impl SmartCardConnection {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TransmitAsync<P0>(&self, command: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    pub fn TransmitAsync<P0>(&self, command: P0) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -1465,14 +1465,14 @@ impl SmartCardCryptogramGenerator {
             (windows_core::Interface::vtable(this).SupportedSmartCardCryptogramStorageKeyCapabilities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteCryptogramMaterialStorageKeyAsync(&self, storagekeyname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn DeleteCryptogramMaterialStorageKeyAsync(&self, storagekeyname: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteCryptogramMaterialStorageKeyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(storagekeyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateCryptogramMaterialStorageKeyAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: &windows_core::HSTRING, algorithm: SmartCardCryptogramStorageKeyAlgorithm, capabilities: SmartCardCryptogramStorageKeyCapabilities) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn CreateCryptogramMaterialStorageKeyAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: &windows_core::HSTRING, algorithm: SmartCardCryptogramStorageKeyAlgorithm, capabilities: SmartCardCryptogramStorageKeyCapabilities) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1480,7 +1480,7 @@ impl SmartCardCryptogramGenerator {
         }
     }
     #[cfg(feature = "Security_Cryptography_Core")]
-    pub fn RequestCryptogramMaterialStorageKeyInfoAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: &windows_core::HSTRING, format: super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>> {
+    pub fn RequestCryptogramMaterialStorageKeyInfoAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: &windows_core::HSTRING, format: super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1488,7 +1488,7 @@ impl SmartCardCryptogramGenerator {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportCryptogramMaterialPackageAsync<P3>(&self, format: SmartCardCryptogramMaterialPackageFormat, storagekeyname: &windows_core::HSTRING, materialpackagename: &windows_core::HSTRING, cryptogrammaterialpackage: P3) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
+    pub fn ImportCryptogramMaterialPackageAsync<P3>(&self, format: SmartCardCryptogramMaterialPackageFormat, storagekeyname: &windows_core::HSTRING, materialpackagename: &windows_core::HSTRING, cryptogrammaterialpackage: P3) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
         P3: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -1499,7 +1499,7 @@ impl SmartCardCryptogramGenerator {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryProvePossessionOfCryptogramMaterialPackageAsync<P4>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, responseformat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialpackagename: &windows_core::HSTRING, materialname: &windows_core::HSTRING, challenge: P4) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>
+    pub fn TryProvePossessionOfCryptogramMaterialPackageAsync<P4>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, responseformat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialpackagename: &windows_core::HSTRING, materialname: &windows_core::HSTRING, challenge: P4) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>
     where
         P4: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -1509,14 +1509,14 @@ impl SmartCardCryptogramGenerator {
             (windows_core::Interface::vtable(this).TryProvePossessionOfCryptogramMaterialPackageAsync)(windows_core::Interface::as_raw(this), promptingbehavior, responseformat, core::mem::transmute_copy(materialpackagename), core::mem::transmute_copy(materialname), challenge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestUnlockCryptogramMaterialForUseAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn RequestUnlockCryptogramMaterialForUseAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestUnlockCryptogramMaterialForUseAsync)(windows_core::Interface::as_raw(this), promptingbehavior, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteCryptogramMaterialPackageAsync(&self, materialpackagename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn DeleteCryptogramMaterialPackageAsync(&self, materialpackagename: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1524,7 +1524,7 @@ impl SmartCardCryptogramGenerator {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ValidateRequestApduAsync<P1, P2>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: P1, cryptogramplacementsteps: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
+    pub fn ValidateRequestApduAsync<P1, P2>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: P1, cryptogramplacementsteps: P2) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P2: windows_core::Param<windows_collections::IIterable<SmartCardCryptogramPlacementStep>>,
@@ -1535,35 +1535,35 @@ impl SmartCardCryptogramGenerator {
             (windows_core::Interface::vtable(this).ValidateRequestApduAsync)(windows_core::Interface::as_raw(this), promptingbehavior, apdutovalidate.param().abi(), cryptogramplacementsteps.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAllCryptogramStorageKeyCharacteristicsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>> {
+    pub fn GetAllCryptogramStorageKeyCharacteristicsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllCryptogramStorageKeyCharacteristicsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAllCryptogramMaterialPackageCharacteristicsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>> {
+    pub fn GetAllCryptogramMaterialPackageCharacteristicsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllCryptogramMaterialPackageCharacteristicsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync(&self, storagekeyname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>> {
+    pub fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync(&self, storagekeyname: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(storagekeyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAllCryptogramMaterialCharacteristicsAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>> {
+    pub fn GetAllCryptogramMaterialCharacteristicsAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllCryptogramMaterialCharacteristicsAsync)(windows_core::Interface::as_raw(this), promptingbehavior, core::mem::transmute_copy(materialpackagename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSmartCardCryptogramGeneratorAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGenerator>> {
+    pub fn GetSmartCardCryptogramGeneratorAsync() -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGenerator>> {
         Self::ISmartCardCryptogramGeneratorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSmartCardCryptogramGeneratorAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2427,19 +2427,19 @@ impl SmartCardEmulator {
             (windows_core::Interface::vtable(this).IsHostCardEmulationSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardEmulator>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_async::IAsyncOperation<SmartCardEmulator>> {
         Self::ISmartCardEmulatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetAppletIdGroupRegistrationsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<SmartCardAppletIdGroupRegistration>>> {
+    pub fn GetAppletIdGroupRegistrationsAsync() -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<SmartCardAppletIdGroupRegistration>>> {
         Self::ISmartCardEmulatorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAppletIdGroupRegistrationsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RegisterAppletIdGroupAsync<P0>(appletidgroup: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>
+    pub fn RegisterAppletIdGroupAsync<P0>(appletidgroup: P0) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardAppletIdGroupRegistration>>
     where
         P0: windows_core::Param<SmartCardAppletIdGroup>,
     {
@@ -2448,7 +2448,7 @@ impl SmartCardEmulator {
             (windows_core::Interface::vtable(this).RegisterAppletIdGroupAsync)(windows_core::Interface::as_raw(this), appletidgroup.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn UnregisterAppletIdGroupAsync<P0>(registration: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn UnregisterAppletIdGroupAsync<P0>(registration: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<SmartCardAppletIdGroupRegistration>,
     {
@@ -2515,7 +2515,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryRespondAsync<P0>(&self, responseapdu: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryRespondAsync<P0>(&self, responseapdu: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2540,7 +2540,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryRespondWithStateAsync<P0, P1>(&self, responseapdu: P0, nextstate: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryRespondWithStateAsync<P0, P1>(&self, responseapdu: P0, nextstate: P1) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<super::super::Foundation::IReference<u32>>,
@@ -2552,7 +2552,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryRespondWithCryptogramsAsync<P0, P1>(&self, responsetemplate: P0, cryptogramplacementsteps: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
+    pub fn TryRespondWithCryptogramsAsync<P0, P1>(&self, responsetemplate: P0, cryptogramplacementsteps: P1) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<windows_collections::IIterable<SmartCardCryptogramPlacementStep>>,
@@ -2564,7 +2564,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryRespondWithCryptogramsAndStateAsync<P0, P1, P2>(&self, responsetemplate: P0, cryptogramplacementsteps: P1, nextstate: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
+    pub fn TryRespondWithCryptogramsAndStateAsync<P0, P1, P2>(&self, responsetemplate: P0, cryptogramplacementsteps: P1, nextstate: P2) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<windows_collections::IIterable<SmartCardCryptogramPlacementStep>>,
@@ -2963,35 +2963,35 @@ impl SmartCardProvisioning {
             (windows_core::Interface::vtable(this).SmartCard)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIdAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::GUID>> {
+    pub fn GetIdAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_core::GUID>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIdAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetNameAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetNameAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetChallengeContextAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardChallengeContext>> {
+    pub fn GetChallengeContextAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardChallengeContext>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetChallengeContextAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestPinChangeAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestPinChangeAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestPinChangeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestPinResetAsync<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestPinResetAsync<P0>(&self, handler: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<SmartCardPinResetHandler>,
     {
@@ -3001,14 +3001,14 @@ impl SmartCardProvisioning {
             (windows_core::Interface::vtable(this).RequestPinResetAsync)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAuthorityKeyContainerNameAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetAuthorityKeyContainerNameAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISmartCardProvisioning2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAuthorityKeyContainerNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromSmartCardAsync<P0>(card: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
+    pub fn FromSmartCardAsync<P0>(card: P0) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardProvisioning>>
     where
         P0: windows_core::Param<SmartCard>,
     {
@@ -3018,7 +3018,7 @@ impl SmartCardProvisioning {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RequestVirtualSmartCardCreationAsync<P1, P2>(friendlyname: &windows_core::HSTRING, administrativekey: P1, pinpolicy: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
+    pub fn RequestVirtualSmartCardCreationAsync<P1, P2>(friendlyname: &windows_core::HSTRING, administrativekey: P1, pinpolicy: P2) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardProvisioning>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P2: windows_core::Param<SmartCardPinPolicy>,
@@ -3029,7 +3029,7 @@ impl SmartCardProvisioning {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RequestVirtualSmartCardCreationAsyncWithCardId<P1, P2>(friendlyname: &windows_core::HSTRING, administrativekey: P1, pinpolicy: P2, cardid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
+    pub fn RequestVirtualSmartCardCreationAsyncWithCardId<P1, P2>(friendlyname: &windows_core::HSTRING, administrativekey: P1, pinpolicy: P2, cardid: windows_core::GUID) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardProvisioning>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P2: windows_core::Param<SmartCardPinPolicy>,
@@ -3039,7 +3039,7 @@ impl SmartCardProvisioning {
             (windows_core::Interface::vtable(this).RequestVirtualSmartCardCreationAsyncWithCardId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), administrativekey.param().abi(), pinpolicy.param().abi(), cardid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestVirtualSmartCardDeletionAsync<P0>(card: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestVirtualSmartCardDeletionAsync<P0>(card: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<SmartCard>,
     {
@@ -3049,7 +3049,7 @@ impl SmartCardProvisioning {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RequestAttestedVirtualSmartCardCreationAsync<P1, P2>(friendlyname: &windows_core::HSTRING, administrativekey: P1, pinpolicy: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
+    pub fn RequestAttestedVirtualSmartCardCreationAsync<P1, P2>(friendlyname: &windows_core::HSTRING, administrativekey: P1, pinpolicy: P2) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardProvisioning>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P2: windows_core::Param<SmartCardPinPolicy>,
@@ -3060,7 +3060,7 @@ impl SmartCardProvisioning {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId<P1, P2>(friendlyname: &windows_core::HSTRING, administrativekey: P1, pinpolicy: P2, cardid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
+    pub fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId<P1, P2>(friendlyname: &windows_core::HSTRING, administrativekey: P1, pinpolicy: P2, cardid: windows_core::GUID) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardProvisioning>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P2: windows_core::Param<SmartCardPinPolicy>,
@@ -3117,14 +3117,14 @@ impl SmartCardReader {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetStatusAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardReaderStatus>> {
+    pub fn GetStatusAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardReaderStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStatusAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAllCardsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<SmartCard>>> {
+    pub fn FindAllCardsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IVectorView<SmartCard>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3171,7 +3171,7 @@ impl SmartCardReader {
             (windows_core::Interface::vtable(this).GetDeviceSelectorWithKind)(windows_core::Interface::as_raw(this), kind, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardReader>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<SmartCardReader>> {
         Self::ISmartCardReaderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3276,14 +3276,14 @@ impl SmartCardTriggerDetails {
             (windows_core::Interface::vtable(this).Emulator)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryLaunchCurrentAppAsync(&self, arguments: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryLaunchCurrentAppAsync(&self, arguments: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<ISmartCardTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryLaunchCurrentAppAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(arguments), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryLaunchCurrentAppWithBehaviorAsync(&self, arguments: &windows_core::HSTRING, behavior: SmartCardLaunchBehavior) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryLaunchCurrentAppWithBehaviorAsync(&self, arguments: &windows_core::HSTRING, behavior: SmartCardLaunchBehavior) -> windows_core::Result<windows_async::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<ISmartCardTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

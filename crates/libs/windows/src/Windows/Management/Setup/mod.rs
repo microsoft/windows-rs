@@ -734,7 +734,7 @@ impl MachineProvisioningProgressReporter {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportProgress)(windows_core::Interface::as_raw(this), updatereport.param().abi()).ok() }
     }
-    pub fn GetDevicePreparationExecutionContextAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DevicePreparationExecutionContext>> {
+    pub fn GetDevicePreparationExecutionContextAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<DevicePreparationExecutionContext>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

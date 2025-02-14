@@ -806,7 +806,7 @@ impl windows_core::RuntimeType for MapLocationDesiredAccuracy {
 pub struct MapLocationFinder;
 impl MapLocationFinder {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsAtAsync<P0>(querypoint: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsAtAsync<P0>(querypoint: P0) -> windows_core::Result<windows_async::IAsyncOperation<MapLocationFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -816,7 +816,7 @@ impl MapLocationFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1) -> windows_core::Result<windows_async::IAsyncOperation<MapLocationFinderResult>>
     where
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -826,7 +826,7 @@ impl MapLocationFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsWithMaxCountAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1, maxcount: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsWithMaxCountAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1, maxcount: u32) -> windows_core::Result<windows_async::IAsyncOperation<MapLocationFinderResult>>
     where
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -836,7 +836,7 @@ impl MapLocationFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsAtWithAccuracyAsync<P0>(querypoint: P0, accuracy: MapLocationDesiredAccuracy) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsAtWithAccuracyAsync<P0>(querypoint: P0, accuracy: MapLocationDesiredAccuracy) -> windows_core::Result<windows_async::IAsyncOperation<MapLocationFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -1156,7 +1156,7 @@ unsafe impl Sync for MapRouteDrivingOptions {}
 pub struct MapRouteFinder;
 impl MapRouteFinder {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteAsync<P0, P1>(startpoint: P0, endpoint: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteAsync<P0, P1>(startpoint: P0, endpoint: P1) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1167,7 +1167,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteWithOptimizationAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteWithOptimizationAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1178,7 +1178,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteWithOptimizationAndRestrictionsAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteWithOptimizationAndRestrictionsAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1189,7 +1189,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1200,7 +1200,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteFromWaypointsAsync<P0>(waypoints: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromWaypointsAsync<P0>(waypoints: P0) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Devices::Geolocation::Geopoint>>,
     {
@@ -1210,7 +1210,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteFromWaypointsAndOptimizationAsync<P0>(waypoints: P0, optimization: MapRouteOptimization) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromWaypointsAndOptimizationAsync<P0>(waypoints: P0, optimization: MapRouteOptimization) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Devices::Geolocation::Geopoint>>,
     {
@@ -1220,7 +1220,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync<P0>(waypoints: P0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync<P0>(waypoints: P0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Devices::Geolocation::Geopoint>>,
     {
@@ -1230,7 +1230,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync<P0>(waypoints: P0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync<P0>(waypoints: P0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Devices::Geolocation::Geopoint>>,
     {
@@ -1240,7 +1240,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetWalkingRouteAsync<P0, P1>(startpoint: P0, endpoint: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetWalkingRouteAsync<P0, P1>(startpoint: P0, endpoint: P1) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1251,7 +1251,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetWalkingRouteFromWaypointsAsync<P0>(waypoints: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetWalkingRouteFromWaypointsAsync<P0>(waypoints: P0) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Devices::Geolocation::Geopoint>>,
     {
@@ -1261,7 +1261,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteWithOptionsAsync<P0, P1, P2>(startpoint: P0, endpoint: P1, options: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteWithOptionsAsync<P0, P1, P2>(startpoint: P0, endpoint: P1, options: P2) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1272,7 +1272,7 @@ impl MapRouteFinder {
             (windows_core::Interface::vtable(this).GetDrivingRouteWithOptionsAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDrivingRouteFromEnhancedWaypointsAsync<P0>(waypoints: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromEnhancedWaypointsAsync<P0>(waypoints: P0) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<EnhancedWaypoint>>,
     {
@@ -1281,7 +1281,7 @@ impl MapRouteFinder {
             (windows_core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync<P0, P1>(waypoints: P0, options: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync<P0, P1>(waypoints: P0, options: P1) -> windows_core::Result<windows_async::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<EnhancedWaypoint>>,
         P1: windows_core::Param<MapRouteDrivingOptions>,

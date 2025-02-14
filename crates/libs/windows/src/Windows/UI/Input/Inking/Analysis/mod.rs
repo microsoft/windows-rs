@@ -1198,7 +1198,7 @@ impl InkAnalyzer {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStrokeDataKind)(windows_core::Interface::as_raw(this), strokeid, strokekind).ok() }
     }
-    pub fn AnalyzeAsync(&self) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<InkAnalysisResult>> {
+    pub fn AnalyzeAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<InkAnalysisResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

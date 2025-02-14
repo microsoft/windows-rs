@@ -3,7 +3,7 @@ impl AsyncCausalityTracer {
     pub fn TraceOperationCreation(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: windows_core::GUID, operationid: u64, operationname: &windows_core::HSTRING, relatedcontext: u64) -> windows_core::Result<()> {
         Self::IAsyncCausalityTracerStatics(|this| unsafe { (windows_core::Interface::vtable(this).TraceOperationCreation)(windows_core::Interface::as_raw(this), tracelevel, source, platformid, operationid, core::mem::transmute_copy(operationname), relatedcontext).ok() })
     }
-    pub fn TraceOperationCompletion(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: windows_core::GUID, operationid: u64, status: super::AsyncStatus) -> windows_core::Result<()> {
+    pub fn TraceOperationCompletion(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: windows_core::GUID, operationid: u64, status: windows_async::AsyncStatus) -> windows_core::Result<()> {
         Self::IAsyncCausalityTracerStatics(|this| unsafe { (windows_core::Interface::vtable(this).TraceOperationCompletion)(windows_core::Interface::as_raw(this), tracelevel, source, platformid, operationid, status).ok() })
     }
     pub fn TraceOperationRelation(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: windows_core::GUID, operationid: u64, relation: CausalityRelation) -> windows_core::Result<()> {
@@ -119,7 +119,7 @@ impl ErrorDetails {
             (windows_core::Interface::vtable(this).HelpUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateFromHResultAsync(errorcode: i32) -> windows_core::Result<super::IAsyncOperation<ErrorDetails>> {
+    pub fn CreateFromHResultAsync(errorcode: i32) -> windows_core::Result<windows_async::IAsyncOperation<ErrorDetails>> {
         Self::IErrorDetailsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromHResultAsync)(windows_core::Interface::as_raw(this), errorcode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -230,7 +230,7 @@ impl FileLoggingSession {
         unsafe { (windows_core::Interface::vtable(this).RemoveLoggingChannel)(windows_core::Interface::as_raw(this), loggingchannel.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CloseAndSaveToFileAsync(&self) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
+    pub fn CloseAndSaveToFileAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -282,7 +282,7 @@ impl windows_core::RuntimeType for IAsyncCausalityTracerStatics {
 pub struct IAsyncCausalityTracerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TraceOperationCreation: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, windows_core::GUID, u64, *mut core::ffi::c_void, u64) -> windows_core::HRESULT,
-    pub TraceOperationCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, windows_core::GUID, u64, super::AsyncStatus) -> windows_core::HRESULT,
+    pub TraceOperationCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, windows_core::GUID, u64, windows_async::AsyncStatus) -> windows_core::HRESULT,
     pub TraceOperationRelation: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, windows_core::GUID, u64, CausalityRelation) -> windows_core::HRESULT,
     pub TraceSynchronousWorkStart: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, windows_core::GUID, u64, CausalitySynchronousWork) -> windows_core::HRESULT,
     pub TraceSynchronousWorkCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, CausalitySynchronousWork) -> windows_core::HRESULT,
@@ -406,7 +406,7 @@ impl IFileLoggingSession {
         unsafe { (windows_core::Interface::vtable(this).RemoveLoggingChannel)(windows_core::Interface::as_raw(this), loggingchannel.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CloseAndSaveToFileAsync(&self) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
+    pub fn CloseAndSaveToFileAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -442,7 +442,7 @@ pub trait IFileLoggingSession_Impl: super::IClosable_Impl {
     fn AddLoggingChannel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>) -> windows_core::Result<()>;
     fn AddLoggingChannelWithLevel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>, maxLevel: LoggingLevel) -> windows_core::Result<()>;
     fn RemoveLoggingChannel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>) -> windows_core::Result<()>;
-    fn CloseAndSaveToFileAsync(&self) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>;
+    fn CloseAndSaveToFileAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::StorageFile>>;
     fn LogFileGenerated(&self, handler: windows_core::Ref<'_, super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveLogFileGenerated(&self, token: i64) -> windows_core::Result<()>;
 }
@@ -998,7 +998,7 @@ impl ILoggingSession {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveToFileAsync<P0>(&self, folder: P0, filename: &windows_core::HSTRING) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveToFileAsync<P0>(&self, folder: P0, filename: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::StorageFile>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
@@ -1041,7 +1041,7 @@ impl windows_core::RuntimeName for ILoggingSession {
 #[cfg(feature = "Storage_Streams")]
 pub trait ILoggingSession_Impl: super::IClosable_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SaveToFileAsync(&self, folder: windows_core::Ref<'_, super::super::Storage::IStorageFolder>, fileName: &windows_core::HSTRING) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>;
+    fn SaveToFileAsync(&self, folder: windows_core::Ref<'_, super::super::Storage::IStorageFolder>, fileName: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::StorageFile>>;
     fn AddLoggingChannel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>) -> windows_core::Result<()>;
     fn AddLoggingChannelWithLevel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>, maxLevel: LoggingLevel) -> windows_core::Result<()>;
     fn RemoveLoggingChannel(&self, loggingChannel: windows_core::Ref<'_, ILoggingChannel>) -> windows_core::Result<()>;
@@ -2502,7 +2502,7 @@ impl LoggingSession {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveToFileAsync<P0>(&self, folder: P0, filename: &windows_core::HSTRING) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveToFileAsync<P0>(&self, folder: P0, filename: &windows_core::HSTRING) -> windows_core::Result<windows_async::IAsyncOperation<super::super::Storage::StorageFile>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {

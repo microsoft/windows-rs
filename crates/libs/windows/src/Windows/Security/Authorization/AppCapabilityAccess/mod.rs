@@ -18,7 +18,7 @@ impl AppCapability {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestAccessAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<AppCapabilityAccessStatus>> {
+    pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<AppCapabilityAccessStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -57,7 +57,7 @@ impl AppCapability {
         let this = &windows_core::Interface::cast::<IAppCapability2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn RequestAccessForCapabilitiesAsync<P0>(capabilitynames: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
+    pub fn RequestAccessForCapabilitiesAsync<P0>(capabilitynames: P0) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -67,7 +67,7 @@ impl AppCapability {
         })
     }
     #[cfg(feature = "System")]
-    pub fn RequestAccessForCapabilitiesForUserAsync<P0, P1>(user: P0, capabilitynames: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
+    pub fn RequestAccessForCapabilitiesForUserAsync<P0, P1>(user: P0, capabilitynames: P1) -> windows_core::Result<windows_async::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
     where
         P0: windows_core::Param<super::super::super::System::User>,
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,

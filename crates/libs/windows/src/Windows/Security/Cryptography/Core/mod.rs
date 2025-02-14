@@ -362,7 +362,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn DecryptAsync<P0, P1, P2>(key: P0, data: P1, iv: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn DecryptAsync<P0, P1, P2>(key: P0, data: P1, iv: P2) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -374,7 +374,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SignAsync<P0, P1>(key: P0, data: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn SignAsync<P0, P1>(key: P0, data: P1) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -385,7 +385,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SignHashedDataAsync<P0, P1>(key: P0, data: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn SignHashedDataAsync<P0, P1>(key: P0, data: P1) -> windows_core::Result<windows_async::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -1882,7 +1882,7 @@ unsafe impl Sync for MacAlgorithmProvider {}
 pub struct PersistedKeyProvider;
 impl PersistedKeyProvider {
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn OpenKeyPairFromCertificateAsync<P0>(certificate: P0, hashalgorithmname: &windows_core::HSTRING, padding: CryptographicPadding) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>
+    pub fn OpenKeyPairFromCertificateAsync<P0>(certificate: P0, hashalgorithmname: &windows_core::HSTRING, padding: CryptographicPadding) -> windows_core::Result<windows_async::IAsyncOperation<CryptographicKey>>
     where
         P0: windows_core::Param<super::Certificates::Certificate>,
     {

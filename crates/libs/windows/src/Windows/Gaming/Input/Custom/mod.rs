@@ -169,7 +169,7 @@ impl GipGameControllerProvider {
         unsafe { (windows_core::Interface::vtable(this).SendReceiveMessage)(windows_core::Interface::as_raw(this), messageclass, messageid, requestmessagebuffer.len().try_into().unwrap(), requestmessagebuffer.as_ptr(), responsemessagebuffer.len().try_into().unwrap(), responsemessagebuffer.as_mut_ptr()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn UpdateFirmwareAsync<P0>(&self, firmwareimage: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>
+    pub fn UpdateFirmwareAsync<P0>(&self, firmwareimage: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {

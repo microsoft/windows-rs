@@ -557,35 +557,35 @@ impl SpeechContinuousRecognitionSession {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAutoStopSilenceTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn StartAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartWithModeAsync(&self, mode: SpeechContinuousRecognitionMode) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StartWithModeAsync(&self, mode: SpeechContinuousRecognitionMode) -> windows_core::Result<windows_async::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartWithModeAsync)(windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StopAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CancelAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn CancelAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CancelAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PauseAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn PauseAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1321,21 +1321,21 @@ impl SpeechRecognizer {
             (windows_core::Interface::vtable(this).UIOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CompileConstraintsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionCompilationResult>> {
+    pub fn CompileConstraintsAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<SpeechRecognitionCompilationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CompileConstraintsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RecognizeAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionResult>> {
+    pub fn RecognizeAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<SpeechRecognitionResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecognizeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RecognizeWithUIAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionResult>> {
+    pub fn RecognizeWithUIAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<SpeechRecognitionResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1384,7 +1384,7 @@ impl SpeechRecognizer {
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StopRecognitionAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StopRecognitionAsync(&self) -> windows_core::Result<windows_async::IAsyncAction> {
         let this = &windows_core::Interface::cast::<ISpeechRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1437,7 +1437,7 @@ impl SpeechRecognizer {
         })
     }
     #[cfg(feature = "Globalization")]
-    pub fn TrySetSystemSpeechLanguageAsync<P0>(speechlanguage: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TrySetSystemSpeechLanguageAsync<P0>(speechlanguage: P0) -> windows_core::Result<windows_async::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Globalization::Language>,
     {
@@ -1630,7 +1630,7 @@ unsafe impl Sync for SpeechRecognizerUIOptions {}
 pub struct VoiceCommandManager;
 impl VoiceCommandManager {
     #[cfg(feature = "Storage_Streams")]
-    pub fn InstallCommandSetsFromStorageFileAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn InstallCommandSetsFromStorageFileAsync<P0>(file: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -1672,7 +1672,7 @@ impl VoiceCommandSet {
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetPhraseListAsync<P1>(&self, phraselistname: &windows_core::HSTRING, phraselist: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetPhraseListAsync<P1>(&self, phraselistname: &windows_core::HSTRING, phraselist: P1) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {

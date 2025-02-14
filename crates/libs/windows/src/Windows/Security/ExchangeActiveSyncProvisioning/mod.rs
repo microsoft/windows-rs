@@ -184,7 +184,7 @@ impl EasClientSecurityPolicy {
             (windows_core::Interface::vtable(this).CheckCompliance)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ApplyAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<EasComplianceResults>> {
+    pub fn ApplyAsync(&self) -> windows_core::Result<windows_async::IAsyncOperation<EasComplianceResults>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

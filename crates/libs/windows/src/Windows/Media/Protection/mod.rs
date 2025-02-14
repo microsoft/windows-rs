@@ -103,7 +103,7 @@ impl<F: FnMut(windows_core::Ref<'_, MediaProtectionManager>, windows_core::Ref<'
 }
 pub struct ComponentRenewal;
 impl ComponentRenewal {
-    pub fn RenewSystemComponentsAsync<P0>(information: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>
+    pub fn RenewSystemComponentsAsync<P0>(information: P0) -> windows_core::Result<windows_async::IAsyncOperationWithProgress<RenewalStatus, u32>>
     where
         P0: windows_core::Param<RevocationAndRenewalInformation>,
     {
@@ -182,7 +182,7 @@ impl HdcpSession {
             (windows_core::Interface::vtable(this).GetEffectiveProtection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>> {
+    pub fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> windows_core::Result<windows_async::IAsyncOperation<HdcpSetProtectionResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

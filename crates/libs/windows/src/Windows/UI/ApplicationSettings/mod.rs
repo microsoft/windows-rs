@@ -26,20 +26,20 @@ impl AccountsSettingsPane {
     pub fn Show() -> windows_core::Result<()> {
         Self::IAccountsSettingsPaneStatics(|this| unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn ShowManageAccountsAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowManageAccountsAsync() -> windows_core::Result<windows_async::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowManageAccountsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowAddAccountAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowAddAccountAsync() -> windows_core::Result<windows_async::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAddAccountAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn ShowManageAccountsForUserAsync<P0>(user: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ShowManageAccountsForUserAsync<P0>(user: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -49,7 +49,7 @@ impl AccountsSettingsPane {
         })
     }
     #[cfg(feature = "System")]
-    pub fn ShowAddAccountForUserAsync<P0>(user: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ShowAddAccountForUserAsync<P0>(user: P0) -> windows_core::Result<windows_async::IAsyncAction>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
