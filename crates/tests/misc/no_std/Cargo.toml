@@ -41,6 +41,10 @@ default-features = false
 path = "../../../libs/numerics"
 default-features = false
 
+[dependencies.windows-async]
+path = "../../../libs/async"
+default-features = false
+
 [dependencies.windows-version]
 path = "../../../libs/version"
 default-features = false
