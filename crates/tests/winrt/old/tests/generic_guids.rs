@@ -1,6 +1,6 @@
 use windows::{core::*, Devices::Enumeration::*, Foundation::Collections::*, Foundation::*};
-use windows_future::*;
 use windows_collections::*;
+use windows_future::*;
 
 #[test]
 fn signatures() {
