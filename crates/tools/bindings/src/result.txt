@@ -1,6 +1,6 @@
 --in default
 --out crates/libs/result/src/bindings.rs
---flat --sys --no-core --no-comment
+--flat --sys --no-deps --no-comment
 
 --filter
     E_UNEXPECTED
