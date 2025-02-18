@@ -181,12 +181,12 @@ where
     }
 
     let reader = Reader::new(expand_input(&input));
-    let filter = Filter::new(reader, &include, &exclude);
-    let references = References::new(reader, references);
-    let types = TypeMap::filter(reader, &filter, &references);
-    let derive = Derive::new(reader, &types, &derive);
+    let filter = Filter::new(&reader, &include, &exclude);
+    let references = References::new(&reader, references);
+    let types = TypeMap::filter(&reader, &filter, &references);
+    let derive = Derive::new(&reader, &types, &derive);
 
-    let config = Box::leak(Box::new(Config {
+    let config = Config {
         types,
         flat,
         references,
@@ -201,12 +201,12 @@ where
         sys,
         implement,
         link,
-    }));
+    };
 
     let tree = TypeTree::new(&config.types);
 
     let writer = Writer {
-        config,
+        config: &config,
         namespace: "",
     };
 

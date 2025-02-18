@@ -1,6 +1,6 @@
 use super::*;
 
-impl Writer {
+impl Writer<'_> {
     pub fn write_cpp_const_guid(&self, name: TokenStream, value: &GUID) -> TokenStream {
         let crate_name = self.write_core();
         let value = self.write_guid_u128(value);

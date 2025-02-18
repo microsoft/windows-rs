@@ -9,12 +9,12 @@ pub use cfg::*;
 use rayon::prelude::*;
 
 #[derive(Clone)]
-pub struct Writer {
-    pub config: &'static Config,
+pub struct Writer<'a> {
+    pub config: &'a Config,
     pub namespace: &'static str,
 }
 
-impl Writer {
+impl Writer<'_> {
     fn with_namespace(&self, namespace: &'static str) -> Self {
         let mut clone = self.clone();
         clone.namespace = namespace;

@@ -1,7 +1,7 @@
 use super::*;
 use std::io::Write;
 
-impl Writer {
+impl Writer<'_> {
     pub fn format(&self, tokens: &str) -> String {
         let preamble = if self.config.no_comment {
             String::new()

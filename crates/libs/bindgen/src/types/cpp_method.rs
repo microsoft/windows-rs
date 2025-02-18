@@ -206,7 +206,7 @@ impl CppMethod {
         }
     }
 
-    pub fn write_cfg(&self, writer: &Writer, parent: &Cfg, not: bool) -> TokenStream {
+    pub fn write_cfg(&self, writer: &Writer<'_>, parent: &Cfg, not: bool) -> TokenStream {
         if !writer.config.package {
             return quote! {};
         }
@@ -229,7 +229,7 @@ impl CppMethod {
         tokens
     }
 
-    pub fn write_where(&self, writer: &Writer, query: bool) -> TokenStream {
+    pub fn write_where(&self, writer: &Writer<'_>, query: bool) -> TokenStream {
         let mut tokens = quote! {};
 
         for (position, param) in self.signature.params.iter().enumerate() {
@@ -253,7 +253,7 @@ impl CppMethod {
 
     pub fn write(
         &self,
-        writer: &Writer,
+        writer: &Writer<'_>,
         method_names: &mut MethodNames,
         virtual_names: &mut MethodNames,
     ) -> TokenStream {
@@ -419,7 +419,7 @@ impl CppMethod {
         }
     }
 
-    pub fn write_impl_signature(&self, writer: &Writer, _named_params: bool) -> TokenStream {
+    pub fn write_impl_signature(&self, writer: &Writer<'_>, _named_params: bool) -> TokenStream {
         let mut params = quote! {};
 
         if self.return_hint == ReturnHint::ResultValue {
@@ -448,7 +448,7 @@ impl CppMethod {
         quote! { (&self, #params) #return_type }
     }
 
-    pub fn write_abi(&self, writer: &Writer, named_params: bool) -> TokenStream {
+    pub fn write_abi(&self, writer: &Writer<'_>, named_params: bool) -> TokenStream {
         let mut params: Vec<_> = self
             .signature
             .params
@@ -491,7 +491,7 @@ impl CppMethod {
         quote! { (#this, #(#params),*) #return_sig }
     }
 
-    pub fn write_params(&self, writer: &Writer) -> TokenStream {
+    pub fn write_params(&self, writer: &Writer<'_>) -> TokenStream {
         let mut tokens = quote! {};
 
         for (position, param) in self.signature.params.iter().enumerate() {
@@ -666,7 +666,7 @@ impl CppMethod {
         tokens
     }
 
-    pub fn write_return(&self, writer: &Writer) -> TokenStream {
+    pub fn write_return(&self, writer: &Writer<'_>) -> TokenStream {
         match &self.signature.return_type {
             Type::Void if self.def.has_attribute("DoesNotReturnAttribute") => quote! {  -> ! },
             Type::Void => quote! {},
@@ -700,7 +700,7 @@ impl CppMethod {
     }
 }
 
-fn write_produce_type(writer: &Writer, param: &Param) -> TokenStream {
+fn write_produce_type(writer: &Writer<'_>, param: &Param) -> TokenStream {
     let name = param.write_ident();
     let kind = param.write_default(writer);
 
