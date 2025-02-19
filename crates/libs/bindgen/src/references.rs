@@ -68,7 +68,7 @@ pub struct Reference {
 pub struct References(Vec<Reference>);
 
 impl References {
-    pub fn new(reader: &'static Reader, stage: Vec<ReferenceStage>) -> Self {
+    pub fn new(reader: &Reader, stage: Vec<ReferenceStage>) -> Self {
         Self(
             stage
                 .into_iter()

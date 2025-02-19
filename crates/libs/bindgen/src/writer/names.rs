@@ -1,6 +1,6 @@
 use super::*;
 
-impl Writer {
+impl Writer<'_> {
     pub fn write_core(&self) -> TokenStream {
         if self.config.sys {
             if self.config.package || !self.config.no_deps {

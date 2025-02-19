@@ -1,6 +1,6 @@
 use super::*;
 
-impl Writer {
+impl Writer<'_> {
     pub fn write_cpp_handle(&self, def: TypeDef) -> TokenStream {
         let tn = def.type_name();
         let name = to_ident(def.name());

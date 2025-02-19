@@ -77,7 +77,7 @@ impl TypeName {
         self.1
     }
 
-    pub fn write(&self, writer: &Writer, generics: &[Type]) -> TokenStream {
+    pub fn write(&self, writer: &Writer<'_>, generics: &[Type]) -> TokenStream {
         let name = to_ident(self.name());
         let namespace = writer.write_namespace(*self);
 

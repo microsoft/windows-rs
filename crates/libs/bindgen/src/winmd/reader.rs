@@ -4,7 +4,10 @@ fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: 
     types.entry(name).or_default().push(ty);
 }
 
-pub struct Reader(HashMap<&'static str, HashMap<&'static str, Vec<Type>>>);
+pub struct Reader(
+    HashMap<&'static str, HashMap<&'static str, Vec<Type>>>,
+    Vec<*mut File>,
+);
 
 impl std::ops::Deref for Reader {
     type Target = HashMap<&'static str, HashMap<&'static str, Vec<Type>>>;
@@ -14,13 +17,30 @@ impl std::ops::Deref for Reader {
     }
 }
 
-impl Reader {
-    pub fn new(files: Vec<File>) -> &'static Self {
-        let reader = Box::leak(Box::new(Self(HashMap::new())));
+impl Drop for Reader {
+    fn drop(&mut self) {
+        for file in &self.1 {
+            unsafe {
+                _ = Box::from_raw(*file);
+            }
+        }
+    }
+}
 
-        for mut file in files {
-            file.reader = reader;
-            let file = Box::leak(Box::new(file));
+impl Reader {
+    pub fn new(files: Vec<File>) -> Box<Self> {
+        let mut reader = Box::new(Self(HashMap::new(), vec![]));
+
+        reader.1 = files
+            .into_iter()
+            .map(|mut file| unsafe {
+                file.reader = std::mem::transmute_copy(&reader);
+                std::mem::transmute(Box::new(file))
+            })
+            .collect();
+
+        for file in &reader.1 {
+            let file: &'static File = unsafe { &**file };
             let mut nested = HashMap::<TypeDef, Vec<TypeDef>>::new();
 
             for key in file.table::<NestedClass>() {

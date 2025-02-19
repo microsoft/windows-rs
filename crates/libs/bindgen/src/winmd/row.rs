@@ -2,9 +2,12 @@ use super::*;
 
 #[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Row {
-    file: &'static File,
+    file: *const File,
     index: usize,
 }
+
+unsafe impl Send for Row {}
+unsafe impl Sync for Row {}
 
 impl Row {
     pub(crate) fn new(file: &'static File, index: usize) -> Self {
@@ -18,7 +21,7 @@ pub trait AsRow: Copy {
     fn from_row(row: Row) -> Self;
 
     fn file(&self) -> &'static File {
-        self.to_row().file
+        unsafe { &*self.to_row().file }
     }
 
     fn reader(&self) -> &'static Reader {
