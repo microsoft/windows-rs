@@ -28,9 +28,13 @@ fn main() {
         "src/bindings.rs",
         "--filter",
         "Test",
+        "Vector2",
+        "IVector",
+        "IAsyncAction",
         "--implement",
         "--flat",
+        "--no-deps",
         "--reference",
-        "windows,skip-root,Windows.Foundation",
+        "windows,skip-root,Windows.Foundation.IStringable",
     ]);
 }
