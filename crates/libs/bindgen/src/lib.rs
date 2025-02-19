@@ -22,6 +22,7 @@ mod type_name;
 mod type_tree;
 mod types;
 mod value;
+mod warnings;
 mod winmd;
 mod writer;
 
@@ -44,6 +45,7 @@ use type_name::*;
 use type_tree::*;
 use types::*;
 use value::*;
+pub use warnings::Warnings;
 use winmd::*;
 use writer::*;
 mod method_names;
@@ -68,7 +70,7 @@ struct Config {
 
 /// The Windows code generator.
 #[track_caller]
-pub fn bindgen<I, S>(args: I)
+pub fn bindgen<I, S>(args: I) -> Warnings
 where
     I: IntoIterator<Item = S>,
     S: AsRef<str>,
@@ -210,7 +212,8 @@ where
         namespace: "",
     };
 
-    writer.write(tree)
+    writer.write(tree);
+    warnings::get()
 }
 
 enum ArgKind {

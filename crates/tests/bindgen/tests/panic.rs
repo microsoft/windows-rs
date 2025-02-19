@@ -1,6 +1,6 @@
 #[track_caller]
-fn bindgen(args: &str) {
-    windows_bindgen::bindgen(args.split_whitespace());
+fn bindgen(args: &str) -> windows_bindgen::Warnings {
+    windows_bindgen::bindgen(args.split_whitespace())
 }
 
 #[test]
@@ -150,4 +150,20 @@ fn failed_to_write_file() {
     std::fs::create_dir_all(&test_path).unwrap();
 
     bindgen(&format!("--out {test_path} --in default --filter POINT",));
+}
+
+#[test]
+#[should_panic(
+    expected = "skipping `Windows.Win32.System.Com.IPersistFile.Load` due to missing dependencies:\n  Windows.Win32.System.Com.STGM"
+)]
+fn skip_method() {
+    bindgen("--out out.txt --filter IPersistFile").unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = "skipping `Windows.Foundation.IMemoryBuffer.CreateReference` due to missing dependencies:\n  Windows.Foundation.IMemoryBufferReference"
+)]
+fn skip_cpp_method() {
+    bindgen("--out out.txt --filter IMemoryBuffer").unwrap();
 }

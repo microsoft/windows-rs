@@ -61,6 +61,7 @@ impl Interface {
                 if method.dependencies.included(writer.config) {
                     MethodOrName::Method(method)
                 } else {
+                    warnings::skip_method(method.def, &method.dependencies, writer.config);
                     MethodOrName::Name(method.def)
                 }
             })
