@@ -241,10 +241,16 @@ jobs:
         run:  cargo clippy -p test_reference
       - name: Clippy test_reference_client
         run:  cargo clippy -p test_reference_client
-      - name: Clippy test_reference_default
-        run:  cargo clippy -p test_reference_default
+      - name: Clippy test_reference_custom
+        run:  cargo clippy -p test_reference_custom
       - name: Clippy test_reference_float
         run:  cargo clippy -p test_reference_float
+      - name: Clippy test_reference_no_deps
+        run:  cargo clippy -p test_reference_no_deps
+      - name: Clippy test_reference_no_windows
+        run:  cargo clippy -p test_reference_no_windows
+      - name: Clippy test_reference_windows
+        run:  cargo clippy -p test_reference_windows
       - name: Clippy test_registry
         run:  cargo clippy -p test_registry
       - name: Clippy test_registry_default

@@ -272,10 +272,16 @@ jobs:
         run:  cargo test -p test_reference --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reference_client
         run:  cargo test -p test_reference_client --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_reference_default
-        run:  cargo test -p test_reference_default --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_reference_custom
+        run:  cargo test -p test_reference_custom --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reference_float
         run:  cargo test -p test_reference_float --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_reference_no_deps
+        run:  cargo test -p test_reference_no_deps --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_reference_no_windows
+        run:  cargo test -p test_reference_no_windows --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_reference_windows
+        run:  cargo test -p test_reference_windows --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_registry
         run:  cargo test -p test_registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_registry_default
@@ -358,14 +364,14 @@ jobs:
         run:  cargo test -p windows-result --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-strings
         run:  cargo test -p windows-strings --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test windows-sys
         run:  cargo test -p windows-sys --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-targets
         run:  cargo test -p windows-targets --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-version
         run:  cargo test -p windows-version --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test windows_aarch64_gnullvm
         run:  cargo test -p windows_aarch64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows_aarch64_msvc

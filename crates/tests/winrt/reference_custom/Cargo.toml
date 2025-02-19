@@ -1,5 +1,5 @@
 [package]
-name = "test_reference_default"
+name = "test_reference_custom"
 version = "0.0.0"
 edition = "2021"
 publish = false
@@ -9,15 +9,6 @@ doc = false
 doctest = false
 
 [dependencies.windows-core]
-workspace = true
-
-[dependencies.windows-numerics]
-workspace = true
-
-[dependencies.windows-collections]
-workspace = true
-
-[dependencies.windows-future]
 workspace = true
 
 [dependencies.windows]

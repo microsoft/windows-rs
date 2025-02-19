@@ -1,5 +1,7 @@
 fn main() {
+    println!("cargo:rerun-if-changed=src/test.idl");
     let mut command = std::process::Command::new("midlrt.exe");
+
     command.args([
         "/winrt",
         "/nomidl",
@@ -10,8 +12,8 @@ fn main() {
         "/reference",
         "../../../libs/bindgen/default/Windows.winmd",
         "/winmd",
-        "metadata.winmd",
-        "src/metadata.idl",
+        "test.winmd",
+        "src/test.idl",
     ]);
 
     if !command.status().unwrap().success() {
@@ -20,16 +22,18 @@ fn main() {
 
     windows_bindgen::bindgen([
         "--in",
-        "metadata.winmd",
-        "../../../libs/bindgen/default",
+        "default",
+        "test.winmd",
         "--out",
         "src/bindings.rs",
         "--filter",
-        "test_reference",
+        "Test",
+        "IStringable",
+        "Vector2",
+        "IVector",
+        "IAsyncAction",
         "--implement",
-        "--no-comment",
         "--flat",
-        "--reference",
-        "windows",
+        "--no-deps",
     ]);
 }

@@ -23,7 +23,11 @@ impl Default for ReferenceStage {
 
 impl ReferenceStage {
     #[track_caller]
-    pub fn parse(arg: &str) -> Self {
+    pub fn parse(mut arg: &str) -> Self {
+        if arg == "windows" {
+            arg = "windows,skip-root,Windows"
+        }
+
         let arg: Vec<_> = arg.split(',').collect();
 
         if arg.len() != 3 {
@@ -60,7 +64,7 @@ impl ReferenceStyle {
 #[derive(Debug)]
 pub struct Reference {
     pub name: String,          // crate name like "windows"
-    pub types: TypeMap,        // what this reference provides
+    pub filter: Filter,        // what this reference provides
     pub style: ReferenceStyle, // how to generate the type path
 }
 
@@ -74,12 +78,11 @@ impl References {
                 .into_iter()
                 .map(|stage| {
                     let filter = Filter::new(reader, &[&stage.path], &[]);
-                    let types = TypeMap::filter(reader, &filter, &References::default());
 
                     Reference {
                         name: stage.name,
                         style: stage.style,
-                        types,
+                        filter,
                     }
                 })
                 .collect(),
@@ -89,6 +92,6 @@ impl References {
     pub fn contains(&self, name: TypeName) -> Option<&Reference> {
         self.0
             .iter()
-            .find(|reference| reference.types.contains_key(&name))
+            .find(|reference| reference.filter.includes_type_name(name))
     }
 }
