@@ -2,7 +2,8 @@
 // so the caller can drop its reference if necessary.
 
 use std::sync::mpsc::channel;
-use windows::{core::*, Foundation::*};
+use windows::core::*;
+use windows_future::*;
 
 #[test]
 fn action() -> Result<()> {

@@ -215,7 +215,7 @@ impl DatagramSocket {
             (windows_core::Interface::vtable(this).OutputStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectAsync<P0>(&self, remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ConnectAsync<P0>(&self, remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -225,7 +225,7 @@ impl DatagramSocket {
             (windows_core::Interface::vtable(this).ConnectAsync)(windows_core::Interface::as_raw(this), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectWithEndpointPairAsync<P0>(&self, endpointpair: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ConnectWithEndpointPairAsync<P0>(&self, endpointpair: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::EndpointPair>,
     {
@@ -235,14 +235,14 @@ impl DatagramSocket {
             (windows_core::Interface::vtable(this).ConnectWithEndpointPairAsync)(windows_core::Interface::as_raw(this), endpointpair.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BindServiceNameAsync(&self, localservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn BindServiceNameAsync(&self, localservicename: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BindServiceNameAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BindEndpointAsync<P0>(&self, localhostname: P0, localservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn BindEndpointAsync<P0>(&self, localhostname: P0, localservicename: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -260,7 +260,7 @@ impl DatagramSocket {
         unsafe { (windows_core::Interface::vtable(this).JoinMulticastGroup)(windows_core::Interface::as_raw(this), host.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetOutputStreamAsync<P0>(&self, remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
+    pub fn GetOutputStreamAsync<P0>(&self, remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -271,7 +271,7 @@ impl DatagramSocket {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetOutputStreamWithEndpointPairAsync<P0>(&self, endpointpair: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
+    pub fn GetOutputStreamWithEndpointPairAsync<P0>(&self, endpointpair: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
     where
         P0: windows_core::Param<super::EndpointPair>,
     {
@@ -296,7 +296,7 @@ impl DatagramSocket {
         unsafe { (windows_core::Interface::vtable(this).RemoveMessageReceived)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[cfg(feature = "Networking_Connectivity")]
-    pub fn BindServiceNameAndAdapterAsync<P1>(&self, localservicename: &windows_core::HSTRING, adapter: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn BindServiceNameAndAdapterAsync<P1>(&self, localservicename: &windows_core::HSTRING, adapter: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<super::Connectivity::NetworkAdapter>,
     {
@@ -306,7 +306,7 @@ impl DatagramSocket {
             (windows_core::Interface::vtable(this).BindServiceNameAndAdapterAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localservicename), adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CancelIOAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn CancelIOAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IDatagramSocket3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -339,7 +339,7 @@ impl DatagramSocket {
         let this = &windows_core::Interface::cast::<IDatagramSocket3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(socketid), data.param().abi(), keepalivetime).ok() }
     }
-    pub fn GetEndpointPairsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
+    pub fn GetEndpointPairsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -348,7 +348,7 @@ impl DatagramSocket {
             (windows_core::Interface::vtable(this).GetEndpointPairsAsync)(windows_core::Interface::as_raw(this), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetEndpointPairsWithSortOptionsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING, sortoptions: super::HostNameSortOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
+    pub fn GetEndpointPairsWithSortOptionsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING, sortoptions: super::HostNameSortOptions) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -1409,7 +1409,7 @@ impl IWebSocket {
             (windows_core::Interface::vtable(this).OutputStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ConnectAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1453,7 +1453,7 @@ impl windows_core::RuntimeName for IWebSocket {
 #[cfg(feature = "Storage_Streams")]
 pub trait IWebSocket_Impl: super::super::Foundation::IClosable_Impl {
     fn OutputStream(&self) -> windows_core::Result<super::super::Storage::Streams::IOutputStream>;
-    fn ConnectAsync(&self, uri: windows_core::Ref<'_, super::super::Foundation::Uri>) -> windows_core::Result<super::super::Foundation::IAsyncAction>;
+    fn ConnectAsync(&self, uri: windows_core::Ref<'_, super::super::Foundation::Uri>) -> windows_core::Result<windows_future::IAsyncAction>;
     fn SetRequestHeader(&self, headerName: &windows_core::HSTRING, headerValue: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Closed(&self, eventHandler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveClosed(&self, eventCookie: i64) -> windows_core::Result<()>;
@@ -2186,7 +2186,7 @@ impl MessageWebSocket {
         unsafe { (windows_core::Interface::vtable(this).RemoveServerCustomValidationRequested)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendNonfinalFrameAsync<P0>(&self, data: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SendNonfinalFrameAsync<P0>(&self, data: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2197,7 +2197,7 @@ impl MessageWebSocket {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendFinalFrameAsync<P0>(&self, data: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SendFinalFrameAsync<P0>(&self, data: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2215,7 +2215,7 @@ impl MessageWebSocket {
             (windows_core::Interface::vtable(this).OutputStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ConnectAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -3158,7 +3158,7 @@ impl StreamSocket {
             (windows_core::Interface::vtable(this).OutputStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectWithEndpointPairAsync<P0>(&self, endpointpair: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ConnectWithEndpointPairAsync<P0>(&self, endpointpair: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::EndpointPair>,
     {
@@ -3168,7 +3168,7 @@ impl StreamSocket {
             (windows_core::Interface::vtable(this).ConnectWithEndpointPairAsync)(windows_core::Interface::as_raw(this), endpointpair.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectAsync<P0>(&self, remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ConnectAsync<P0>(&self, remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -3178,7 +3178,7 @@ impl StreamSocket {
             (windows_core::Interface::vtable(this).ConnectAsync)(windows_core::Interface::as_raw(this), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectWithEndpointPairAndProtectionLevelAsync<P0>(&self, endpointpair: P0, protectionlevel: SocketProtectionLevel) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ConnectWithEndpointPairAndProtectionLevelAsync<P0>(&self, endpointpair: P0, protectionlevel: SocketProtectionLevel) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::EndpointPair>,
     {
@@ -3188,7 +3188,7 @@ impl StreamSocket {
             (windows_core::Interface::vtable(this).ConnectWithEndpointPairAndProtectionLevelAsync)(windows_core::Interface::as_raw(this), endpointpair.param().abi(), protectionlevel, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectWithProtectionLevelAsync<P0>(&self, remotehostname: P0, remoteservicename: &windows_core::HSTRING, protectionlevel: SocketProtectionLevel) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ConnectWithProtectionLevelAsync<P0>(&self, remotehostname: P0, remoteservicename: &windows_core::HSTRING, protectionlevel: SocketProtectionLevel) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -3198,7 +3198,7 @@ impl StreamSocket {
             (windows_core::Interface::vtable(this).ConnectWithProtectionLevelAsync)(windows_core::Interface::as_raw(this), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), protectionlevel, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpgradeToSslAsync<P1>(&self, protectionlevel: SocketProtectionLevel, validationhostname: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn UpgradeToSslAsync<P1>(&self, protectionlevel: SocketProtectionLevel, validationhostname: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<super::HostName>,
     {
@@ -3209,7 +3209,7 @@ impl StreamSocket {
         }
     }
     #[cfg(feature = "Networking_Connectivity")]
-    pub fn ConnectWithProtectionLevelAndAdapterAsync<P0, P3>(&self, remotehostname: P0, remoteservicename: &windows_core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: P3) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ConnectWithProtectionLevelAndAdapterAsync<P0, P3>(&self, remotehostname: P0, remoteservicename: &windows_core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: P3) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::HostName>,
         P3: windows_core::Param<super::Connectivity::NetworkAdapter>,
@@ -3220,7 +3220,7 @@ impl StreamSocket {
             (windows_core::Interface::vtable(this).ConnectWithProtectionLevelAndAdapterAsync)(windows_core::Interface::as_raw(this), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), protectionlevel, adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CancelIOAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn CancelIOAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IStreamSocket3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3253,7 +3253,7 @@ impl StreamSocket {
         let this = &windows_core::Interface::cast::<IStreamSocket3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(socketid), data.param().abi(), keepalivetime).ok() }
     }
-    pub fn GetEndpointPairsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
+    pub fn GetEndpointPairsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -3262,7 +3262,7 @@ impl StreamSocket {
             (windows_core::Interface::vtable(this).GetEndpointPairsAsync)(windows_core::Interface::as_raw(this), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetEndpointPairsWithSortOptionsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING, sortoptions: super::HostNameSortOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
+    pub fn GetEndpointPairsWithSortOptionsAsync<P0>(remotehostname: P0, remoteservicename: &windows_core::HSTRING, sortoptions: super::HostNameSortOptions) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::EndpointPair>>>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -3558,14 +3558,14 @@ impl StreamSocketListener {
             (windows_core::Interface::vtable(this).Information)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BindServiceNameAsync(&self, localservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn BindServiceNameAsync(&self, localservicename: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BindServiceNameAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BindEndpointAsync<P0>(&self, localhostname: P0, localservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn BindEndpointAsync<P0>(&self, localhostname: P0, localservicename: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -3589,7 +3589,7 @@ impl StreamSocketListener {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveConnectionReceived)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn BindServiceNameWithProtectionLevelAsync(&self, localservicename: &windows_core::HSTRING, protectionlevel: SocketProtectionLevel) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn BindServiceNameWithProtectionLevelAsync(&self, localservicename: &windows_core::HSTRING, protectionlevel: SocketProtectionLevel) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IStreamSocketListener2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3597,7 +3597,7 @@ impl StreamSocketListener {
         }
     }
     #[cfg(feature = "Networking_Connectivity")]
-    pub fn BindServiceNameWithProtectionLevelAndAdapterAsync<P2>(&self, localservicename: &windows_core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: P2) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn BindServiceNameWithProtectionLevelAndAdapterAsync<P2>(&self, localservicename: &windows_core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: P2) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P2: windows_core::Param<super::Connectivity::NetworkAdapter>,
     {
@@ -3607,7 +3607,7 @@ impl StreamSocketListener {
             (windows_core::Interface::vtable(this).BindServiceNameWithProtectionLevelAndAdapterAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localservicename), protectionlevel, adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CancelIOAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn CancelIOAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IStreamSocketListener3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3830,7 +3830,7 @@ impl StreamWebSocket {
             (windows_core::Interface::vtable(this).OutputStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ConnectAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {

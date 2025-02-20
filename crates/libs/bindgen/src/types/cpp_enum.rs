@@ -22,11 +22,11 @@ impl CppEnum {
         self.def.type_name()
     }
 
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
         self.type_name().write(writer, &[])
     }
 
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
         let tn = self.def.type_name();
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 

@@ -22,7 +22,7 @@ impl CppDelegate {
         self.def.type_name()
     }
 
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
         self.type_name().write(writer, &[])
     }
 
@@ -33,7 +33,7 @@ impl CppDelegate {
             .unwrap()
     }
 
-    pub fn write_cfg(&self, writer: &Writer) -> TokenStream {
+    pub fn write_cfg(&self, writer: &Writer<'_>) -> TokenStream {
         if !writer.config.package {
             return quote! {};
         }
@@ -41,7 +41,7 @@ impl CppDelegate {
         Cfg::new(self.def, &self.dependencies(), writer).write(writer, false)
     }
 
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
         let method = self.method();
@@ -73,7 +73,7 @@ impl Dependencies for CppDelegate {
     }
 }
 
-fn write_param(writer: &Writer, param: &Param) -> TokenStream {
+fn write_param(writer: &Writer<'_>, param: &Param) -> TokenStream {
     let name = param.write_ident();
     let type_name = param.write_name(writer);
 

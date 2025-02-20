@@ -53,7 +53,7 @@ impl Interface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, writer: &Writer) -> Vec<MethodOrName> {
+    pub fn get_methods(&self, writer: &Writer<'_>) -> Vec<MethodOrName> {
         self.def
             .methods()
             .map(|def| {
@@ -61,13 +61,18 @@ impl Interface {
                 if method.dependencies.included(writer.config) {
                     MethodOrName::Method(method)
                 } else {
+                    writer.config.warnings.skip_method(
+                        method.def,
+                        &method.dependencies,
+                        writer.config,
+                    );
                     MethodOrName::Name(method.def)
                 }
             })
             .collect()
     }
 
-    fn write_cfg(&self, writer: &Writer) -> (Cfg, TokenStream) {
+    fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
         if !writer.config.package {
             return (Cfg::default(), quote! {});
         }
@@ -77,13 +82,11 @@ impl Interface {
         (cfg, tokens)
     }
 
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
         let type_name = self.def.type_name();
         let methods = self.get_methods(writer);
 
-        let mut required_interfaces = self.required_interfaces();
-        required_interfaces.sort();
-
+        let required_interfaces = self.required_interfaces();
         let name = self.write_name(writer);
 
         let vtbl_name = self.write_vtbl_name(writer);
@@ -337,7 +340,11 @@ impl Interface {
                 let runtime_name = format!("{type_name}");
 
                 let cfg = if writer.config.package {
-                    fn combine(interface: &Interface, dependencies: &mut TypeMap, writer: &Writer) {
+                    fn combine(
+                        interface: &Interface,
+                        dependencies: &mut TypeMap,
+                        writer: &Writer<'_>,
+                    ) {
                         for method in interface.get_methods(writer).iter() {
                             if let MethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);
@@ -501,11 +508,11 @@ impl Interface {
         }
     }
 
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
         self.type_name().write(writer, &self.generics)
     }
 
-    fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
+    fn write_vtbl_name(&self, writer: &Writer<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
 
         if self.generics.is_empty() {
@@ -516,7 +523,7 @@ impl Interface {
         }
     }
 
-    pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_impl_name(&self, writer: &Writer<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
         let namespace = writer.write_namespace(self.def.type_name());
 
@@ -555,6 +562,9 @@ impl Interface {
         }
         let mut set = vec![];
         walk(self, &mut set);
+
+        set.sort();
+        set.dedup();
         set
     }
 }

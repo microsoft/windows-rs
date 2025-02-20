@@ -69,14 +69,14 @@ impl HdmiDisplayInformation {
             (windows_core::Interface::vtable(this).GetCurrentDisplayMode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDefaultDisplayModeAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetDefaultDisplayModeAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetDefaultDisplayModeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestSetCurrentDisplayModeAsync<P0>(&self, mode: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestSetCurrentDisplayModeAsync<P0>(&self, mode: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<HdmiDisplayMode>,
     {
@@ -86,7 +86,7 @@ impl HdmiDisplayInformation {
             (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeAsync)(windows_core::Interface::as_raw(this), mode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestSetCurrentDisplayModeWithHdrAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestSetCurrentDisplayModeWithHdrAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<HdmiDisplayMode>,
     {
@@ -96,7 +96,7 @@ impl HdmiDisplayInformation {
             (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAsync)(windows_core::Interface::as_raw(this), mode.param().abi(), hdroption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption, hdrmetadata: HdmiDisplayHdr2086Metadata) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption, hdrmetadata: HdmiDisplayHdr2086Metadata) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<HdmiDisplayMode>,
     {

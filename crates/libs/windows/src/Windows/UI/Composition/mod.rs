@@ -769,13 +769,11 @@ impl BooleanKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -795,18 +793,15 @@ impl BooleanKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -1239,13 +1234,11 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -1265,18 +1258,15 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -1540,13 +1530,11 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -1566,18 +1554,15 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -1738,48 +1723,42 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
+    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FinalValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
     {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
+    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
     {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialVelocity(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn InitialVelocity(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialVelocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetInitialVelocity(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1847,13 +1826,11 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -1873,18 +1850,15 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -2045,48 +2019,42 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
+    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FinalValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
     {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
+    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
     {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialVelocity(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn InitialVelocity(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialVelocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetInitialVelocity(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2286,13 +2254,11 @@ impl ColorKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -2312,18 +2278,15 @@ impl ColorKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -2588,13 +2551,11 @@ impl CompositionAnimation {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -2614,18 +2575,15 @@ impl CompositionAnimation {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -3483,42 +3441,36 @@ impl CompositionClip {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -3544,29 +3496,25 @@ impl CompositionClip {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -4379,29 +4327,25 @@ impl CompositionContainerShape {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -4427,29 +4371,25 @@ impl CompositionContainerShape {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -4677,8 +4617,7 @@ impl CompositionEasingFunction {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CreateCubicBezierEasingFunction<P0>(owner: P0, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<CubicBezierEasingFunction>
+    pub fn CreateCubicBezierEasingFunction<P0>(owner: P0, controlpoint1: windows_numerics::Vector2, controlpoint2: windows_numerics::Vector2) -> windows_core::Result<CubicBezierEasingFunction>
     where
         P0: windows_core::Param<Compositor>,
     {
@@ -5265,29 +5204,25 @@ impl CompositionEllipseGeometry {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Center(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Center(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Center)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenter(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenter(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCenter)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Radius(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Radius(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Radius)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetRadius(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -5449,42 +5384,36 @@ impl CompositionGeometricClip {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -5510,29 +5439,25 @@ impl CompositionGeometricClip {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -5861,29 +5786,25 @@ impl CompositionGradientBrush {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -5916,16 +5837,14 @@ impl CompositionGradientBrush {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInterpolationSpace)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -5951,29 +5870,25 @@ impl CompositionGradientBrush {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -6178,7 +6093,7 @@ impl CompositionGraphicsDevice {
         unsafe { (windows_core::Interface::vtable(this).Trim)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn CaptureAsync<P0>(&self, capturevisual: P0, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ICompositionSurface>>
+    pub fn CaptureAsync<P0>(&self, capturevisual: P0, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32) -> windows_core::Result<windows_future::IAsyncOperation<ICompositionSurface>>
     where
         P0: windows_core::Param<Visual>,
     {
@@ -6496,29 +6411,25 @@ impl CompositionLineGeometry {
         let this = &windows_core::Interface::cast::<ICompositionGeometry>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTrimStart)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Start(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Start(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetStart(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetStart(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStart)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn End(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn End(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).End)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetEnd(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetEnd(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEnd)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -6647,29 +6558,25 @@ impl CompositionLinearGradientBrush {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -6702,16 +6609,14 @@ impl CompositionLinearGradientBrush {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInterpolationSpace)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -6737,29 +6642,25 @@ impl CompositionLinearGradientBrush {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -6774,29 +6675,25 @@ impl CompositionLinearGradientBrush {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMappingMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn EndPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn EndPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EndPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetEndPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetEndPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEndPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn StartPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn StartPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetStartPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetStartPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStartPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -8818,13 +8715,11 @@ impl CompositionPropertySet {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InsertColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InsertMatrix3x2(&self, propertyname: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn InsertMatrix3x2(&self, propertyname: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InsertMatrix3x2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InsertMatrix4x4(&self, propertyname: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn InsertMatrix4x4(&self, propertyname: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InsertMatrix4x4)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value).ok() }
     }
@@ -8837,18 +8732,15 @@ impl CompositionPropertySet {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InsertScalar)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InsertVector2(&self, propertyname: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn InsertVector2(&self, propertyname: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InsertVector2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InsertVector3(&self, propertyname: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn InsertVector3(&self, propertyname: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InsertVector3)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InsertVector4(&self, propertyname: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn InsertVector4(&self, propertyname: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InsertVector4)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value).ok() }
     }
@@ -8859,16 +8751,14 @@ impl CompositionPropertySet {
             (windows_core::Interface::vtable(this).TryGetColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryGetMatrix3x2(&self, propertyname: &windows_core::HSTRING, value: &mut super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<CompositionGetValueStatus> {
+    pub fn TryGetMatrix3x2(&self, propertyname: &windows_core::HSTRING, value: &mut windows_numerics::Matrix3x2) -> windows_core::Result<CompositionGetValueStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetMatrix3x2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryGetMatrix4x4(&self, propertyname: &windows_core::HSTRING, value: &mut super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<CompositionGetValueStatus> {
+    pub fn TryGetMatrix4x4(&self, propertyname: &windows_core::HSTRING, value: &mut windows_numerics::Matrix4x4) -> windows_core::Result<CompositionGetValueStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8890,24 +8780,21 @@ impl CompositionPropertySet {
             (windows_core::Interface::vtable(this).TryGetScalar)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryGetVector2(&self, propertyname: &windows_core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector2) -> windows_core::Result<CompositionGetValueStatus> {
+    pub fn TryGetVector2(&self, propertyname: &windows_core::HSTRING, value: &mut windows_numerics::Vector2) -> windows_core::Result<CompositionGetValueStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetVector2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryGetVector3(&self, propertyname: &windows_core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector3) -> windows_core::Result<CompositionGetValueStatus> {
+    pub fn TryGetVector3(&self, propertyname: &windows_core::HSTRING, value: &mut windows_numerics::Vector3) -> windows_core::Result<CompositionGetValueStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetVector3)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), value, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryGetVector4(&self, propertyname: &windows_core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector4) -> windows_core::Result<CompositionGetValueStatus> {
+    pub fn TryGetVector4(&self, propertyname: &windows_core::HSTRING, value: &mut windows_numerics::Vector4) -> windows_core::Result<CompositionGetValueStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8955,29 +8842,25 @@ impl CompositionRadialGradientBrush {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -9010,16 +8893,14 @@ impl CompositionRadialGradientBrush {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInterpolationSpace)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -9045,29 +8926,25 @@ impl CompositionRadialGradientBrush {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -9177,42 +9054,36 @@ impl CompositionRadialGradientBrush {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn EllipseCenter(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn EllipseCenter(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EllipseCenter)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetEllipseCenter(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetEllipseCenter(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEllipseCenter)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn EllipseRadius(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn EllipseRadius(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EllipseRadius)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetEllipseRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetEllipseRadius(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEllipseRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn GradientOriginOffset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn GradientOriginOffset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GradientOriginOffset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetGradientOriginOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetGradientOriginOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetGradientOriginOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -9374,29 +9245,25 @@ impl CompositionRectangleGeometry {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Size(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -9558,42 +9425,36 @@ impl CompositionRoundedRectangleGeometry {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CornerRadius(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CornerRadius(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CornerRadius)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCornerRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCornerRadius(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCornerRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Size(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -10012,29 +9873,25 @@ impl CompositionShape {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -10060,29 +9917,25 @@ impl CompositionShape {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -10432,29 +10285,25 @@ impl CompositionSpriteShape {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -10480,29 +10329,25 @@ impl CompositionSpriteShape {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -11080,42 +10925,36 @@ impl CompositionSurfaceBrush {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVerticalAlignmentRatio)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -11141,29 +10980,25 @@ impl CompositionSurfaceBrush {
         let this = &windows_core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -11742,29 +11577,25 @@ impl CompositionViewBox {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHorizontalAlignmentRatio)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Size(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -12115,29 +11946,25 @@ impl CompositionVisualSurface {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSourceVisual)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SourceOffset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn SourceOffset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceOffset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSourceOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSourceOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSourceOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SourceSize(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn SourceSize(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSourceSize(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSourceSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSourceSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -12199,8 +12026,7 @@ impl Compositor {
             (windows_core::Interface::vtable(this).CreateContainerVisual)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CreateCubicBezierEasingFunction(&self, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<CubicBezierEasingFunction> {
+    pub fn CreateCubicBezierEasingFunction(&self, controlpoint1: windows_numerics::Vector2, controlpoint2: windows_numerics::Vector2) -> windows_core::Result<CubicBezierEasingFunction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12626,7 +12452,7 @@ impl Compositor {
             (windows_core::Interface::vtable(this).CreateViewBox)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestCommitAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RequestCommitAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12703,8 +12529,7 @@ impl Compositor {
             (windows_core::Interface::vtable(this).CreateRectangleClipWithSides)(windows_core::Interface::as_raw(this), left, top, right, bottom, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CreateRectangleClipWithSidesAndRadius(&self, left: f32, top: f32, right: f32, bottom: f32, topleftradius: super::super::Foundation::Numerics::Vector2, toprightradius: super::super::Foundation::Numerics::Vector2, bottomrightradius: super::super::Foundation::Numerics::Vector2, bottomleftradius: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<RectangleClip> {
+    pub fn CreateRectangleClipWithSidesAndRadius(&self, left: f32, top: f32, right: f32, bottom: f32, topleftradius: windows_numerics::Vector2, toprightradius: windows_numerics::Vector2, bottomrightradius: windows_numerics::Vector2, bottomleftradius: windows_numerics::Vector2) -> windows_core::Result<RectangleClip> {
         let this = &windows_core::Interface::cast::<ICompositor7>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12908,16 +12733,14 @@ impl ContainerVisual {
             (windows_core::Interface::vtable(this).Children)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -12943,16 +12766,14 @@ impl ContainerVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBorderMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -12992,16 +12813,14 @@ impl ContainerVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsVisible)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -13058,55 +12877,47 @@ impl ContainerVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RotationAxis(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RotationAxis(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotationAxis)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRotationAxis(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAxis)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Size(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix4x4> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -13124,29 +12935,25 @@ impl ContainerVisual {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParentForTransform)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRelativeOffsetAdjustment(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeSizeAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetRelativeSizeAdjustment(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeSizeAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -13297,16 +13104,14 @@ impl CubicBezierEasingFunction {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn ControlPoint1(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn ControlPoint1(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ControlPoint1)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn ControlPoint2(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn ControlPoint2(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -13479,16 +13284,14 @@ impl DelegatedInkTrailVisual {
             (windows_core::Interface::vtable(this).CreateForSwapChain)(windows_core::Interface::as_raw(this), compositor.param().abi(), swapchain.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -13514,16 +13317,14 @@ impl DelegatedInkTrailVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBorderMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -13563,16 +13364,14 @@ impl DelegatedInkTrailVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsVisible)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -13629,55 +13428,47 @@ impl DelegatedInkTrailVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RotationAxis(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RotationAxis(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotationAxis)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRotationAxis(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAxis)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Size(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix4x4> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -13695,29 +13486,25 @@ impl DelegatedInkTrailVisual {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParentForTransform)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRelativeOffsetAdjustment(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeSizeAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetRelativeSizeAdjustment(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeSizeAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -13922,16 +13709,14 @@ impl DistantLight {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCoordinateSpace)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Direction(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Direction(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Direction)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetDirection(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetDirection(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDirection)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -14107,16 +13892,14 @@ impl DropShadow {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMask)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -14469,13 +14252,11 @@ impl ExpressionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -14495,18 +14276,15 @@ impl ExpressionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -14863,32 +14641,17 @@ pub struct ICompositionAnimation_Vtbl {
     pub ClearAllParameters: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearParameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetColorParameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetMatrix3x2Parameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetMatrix3x2Parameter: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetMatrix4x4Parameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetMatrix4x4Parameter: usize,
+    pub SetMatrix3x2Parameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Matrix3x2) -> windows_core::HRESULT,
+    pub SetMatrix4x4Parameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Matrix4x4) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub SetQuaternionParameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetQuaternionParameter: usize,
     pub SetReferenceParameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetScalarParameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetVector2Parameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetVector2Parameter: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetVector3Parameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetVector3Parameter: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetVector4Parameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Vector4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetVector4Parameter: usize,
+    pub SetVector2Parameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetVector3Parameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetVector4Parameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector4) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionAnimation2, ICompositionAnimation2_Vtbl, 0x369b603e_a80f_4948_93e3_ed23fb38c6cb);
 impl windows_core::RuntimeType for ICompositionAnimation2 {
@@ -15028,50 +14791,20 @@ impl windows_core::RuntimeType for ICompositionClip2 {
 #[repr(C)]
 pub struct ICompositionClip2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    AnchorPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetAnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetAnchorPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub CenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    CenterPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetCenterPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Offset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOffset: usize,
+    pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetAnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub CenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
     pub RotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetRotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub RotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetRotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Scale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetScale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TransformMatrix: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTransformMatrix: usize,
+    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub TransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix3x2) -> windows_core::HRESULT,
+    pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Matrix3x2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionClipFactory, ICompositionClipFactory_Vtbl, 0xb9484caf_20c7_4aed_ac4a_9c78ba1302cf);
 impl windows_core::RuntimeType for ICompositionClipFactory {
@@ -15212,10 +14945,7 @@ impl windows_core::RuntimeType for ICompositionEasingFunctionStatics {
 #[repr(C)]
 pub struct ICompositionEasingFunctionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2, super::super::Foundation::Numerics::Vector2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    CreateCubicBezierEasingFunction: usize,
+    pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector2, windows_numerics::Vector2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateLinearEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateStepEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateStepEasingFunctionWithStepCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15276,22 +15006,10 @@ impl windows_core::RuntimeType for ICompositionEllipseGeometry {
 #[repr(C)]
 pub struct ICompositionEllipseGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Center: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Center: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetCenter: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetCenter: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Radius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Radius: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetRadius: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetRadius: usize,
+    pub Center: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetCenter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub Radius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetRadius: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionGeometricClip, ICompositionGeometricClip_Vtbl, 0xc840b581_81c9_4444_a2c1_ccaece3a50e5);
 impl windows_core::RuntimeType for ICompositionGeometricClip {
@@ -15334,55 +15052,25 @@ impl windows_core::RuntimeType for ICompositionGradientBrush {
 #[repr(C)]
 pub struct ICompositionGradientBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    AnchorPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetAnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetAnchorPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub CenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    CenterPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetCenterPoint: usize,
+    pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetAnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub CenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
     pub ColorStops: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExtendMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionGradientExtendMode) -> windows_core::HRESULT,
     pub SetExtendMode: unsafe extern "system" fn(*mut core::ffi::c_void, CompositionGradientExtendMode) -> windows_core::HRESULT,
     pub InterpolationSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionColorSpace) -> windows_core::HRESULT,
     pub SetInterpolationSpace: unsafe extern "system" fn(*mut core::ffi::c_void, CompositionColorSpace) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Offset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOffset: usize,
+    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
     pub RotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetRotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub RotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetRotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Scale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetScale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TransformMatrix: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTransformMatrix: usize,
+    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub TransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix3x2) -> windows_core::HRESULT,
+    pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Matrix3x2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionGradientBrush2, ICompositionGradientBrush2_Vtbl, 0x899dd5a1_b4c7_4b33_a1b6_264addc26d10);
 impl windows_core::RuntimeType for ICompositionGradientBrush2 {
@@ -15500,22 +15188,10 @@ impl windows_core::RuntimeType for ICompositionLineGeometry {
 #[repr(C)]
 pub struct ICompositionLineGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Start: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetStart: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetStart: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub End: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    End: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetEnd: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetEnd: usize,
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetStart: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub End: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetEnd: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionLinearGradientBrush, ICompositionLinearGradientBrush_Vtbl, 0x983bc519_a9db_413c_a2d8_2a9056fc525e);
 impl windows_core::RuntimeType for ICompositionLinearGradientBrush {
@@ -15524,22 +15200,10 @@ impl windows_core::RuntimeType for ICompositionLinearGradientBrush {
 #[repr(C)]
 pub struct ICompositionLinearGradientBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub EndPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    EndPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetEndPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetEndPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub StartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    StartPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetStartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetStartPoint: usize,
+    pub EndPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetEndPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub StartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetStartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionMaskBrush, ICompositionMaskBrush_Vtbl, 0x522cf09e_be6b_4f41_be49_f9226d471b4a);
 impl windows_core::RuntimeType for ICompositionMaskBrush {
@@ -15805,57 +15469,27 @@ impl windows_core::RuntimeType for ICompositionPropertySet {
 pub struct ICompositionPropertySet_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InsertColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InsertMatrix3x2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InsertMatrix3x2: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InsertMatrix4x4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InsertMatrix4x4: usize,
+    pub InsertMatrix3x2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Matrix3x2) -> windows_core::HRESULT,
+    pub InsertMatrix4x4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Matrix4x4) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub InsertQuaternion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertQuaternion: usize,
     pub InsertScalar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InsertVector2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InsertVector2: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InsertVector3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InsertVector3: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InsertVector4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Vector4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InsertVector4: usize,
+    pub InsertVector2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub InsertVector3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub InsertVector4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector4) -> windows_core::HRESULT,
     pub TryGetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::Color, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetMatrix3x2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Matrix3x2, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryGetMatrix3x2: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetMatrix4x4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Matrix4x4, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryGetMatrix4x4: usize,
+    pub TryGetMatrix3x2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_numerics::Matrix3x2, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
+    pub TryGetMatrix4x4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_numerics::Matrix4x4, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub TryGetQuaternion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Quaternion, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryGetQuaternion: usize,
     pub TryGetScalar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut f32, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetVector2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryGetVector2: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetVector3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryGetVector3: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetVector4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector4, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryGetVector4: usize,
+    pub TryGetVector2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_numerics::Vector2, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
+    pub TryGetVector3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_numerics::Vector3, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
+    pub TryGetVector4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_numerics::Vector4, *mut CompositionGetValueStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionPropertySet2, ICompositionPropertySet2_Vtbl, 0xde80731e_a211_4455_8880_7d0f3f6a44fd);
 impl windows_core::RuntimeType for ICompositionPropertySet2 {
@@ -15874,30 +15508,12 @@ impl windows_core::RuntimeType for ICompositionRadialGradientBrush {
 #[repr(C)]
 pub struct ICompositionRadialGradientBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub EllipseCenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    EllipseCenter: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetEllipseCenter: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetEllipseCenter: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub EllipseRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    EllipseRadius: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetEllipseRadius: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetEllipseRadius: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub GradientOriginOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    GradientOriginOffset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetGradientOriginOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetGradientOriginOffset: usize,
+    pub EllipseCenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetEllipseCenter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub EllipseRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetEllipseRadius: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub GradientOriginOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetGradientOriginOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionRectangleGeometry, ICompositionRectangleGeometry_Vtbl, 0x0cd51428_5356_4246_aecf_7a0b76975400);
 impl windows_core::RuntimeType for ICompositionRectangleGeometry {
@@ -15906,22 +15522,10 @@ impl windows_core::RuntimeType for ICompositionRectangleGeometry {
 #[repr(C)]
 pub struct ICompositionRectangleGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Offset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOffset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Size: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetSize: usize,
+    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionRoundedRectangleGeometry, ICompositionRoundedRectangleGeometry_Vtbl, 0x8770c822_1d50_4b8b_b013_7c9a0e46935f);
 impl windows_core::RuntimeType for ICompositionRoundedRectangleGeometry {
@@ -15930,30 +15534,12 @@ impl windows_core::RuntimeType for ICompositionRoundedRectangleGeometry {
 #[repr(C)]
 pub struct ICompositionRoundedRectangleGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub CornerRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    CornerRadius: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetCornerRadius: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetCornerRadius: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Offset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOffset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Size: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetSize: usize,
+    pub CornerRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetCornerRadius: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionScopedBatch, ICompositionScopedBatch_Vtbl, 0x0d00dad0_fb07_46fd_8c72_6280d1a3d1dd);
 impl windows_core::RuntimeType for ICompositionScopedBatch {
@@ -15993,42 +15579,18 @@ impl windows_core::RuntimeType for ICompositionShape {
 #[repr(C)]
 pub struct ICompositionShape_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub CenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    CenterPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetCenterPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Offset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOffset: usize,
+    pub CenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
     pub RotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetRotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub RotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetRotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Scale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetScale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TransformMatrix: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTransformMatrix: usize,
+    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub TransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix3x2) -> windows_core::HRESULT,
+    pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Matrix3x2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionShapeFactory, ICompositionShapeFactory_Vtbl, 0x1dfc36d0_b05a_44ef_82b0_12118bcd4cd0);
 impl windows_core::RuntimeType for ICompositionShapeFactory {
@@ -16180,50 +15742,20 @@ impl windows_core::RuntimeType for ICompositionSurfaceBrush2 {
 #[repr(C)]
 pub struct ICompositionSurfaceBrush2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    AnchorPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetAnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetAnchorPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub CenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    CenterPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetCenterPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Offset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOffset: usize,
+    pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetAnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub CenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
     pub RotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetRotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub RotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetRotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Scale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetScale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TransformMatrix: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTransformMatrix: usize,
+    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub TransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix3x2) -> windows_core::HRESULT,
+    pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Matrix3x2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionSurfaceBrush3, ICompositionSurfaceBrush3_Vtbl, 0x550bb289_1fe0_42e5_8195_1eefa87ff08e);
 impl windows_core::RuntimeType for ICompositionSurfaceBrush3 {
@@ -16367,22 +15899,10 @@ pub struct ICompositionViewBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HorizontalAlignmentRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetHorizontalAlignmentRatio: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Offset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOffset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Size: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetSize: usize,
+    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
     pub Stretch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionStretch) -> windows_core::HRESULT,
     pub SetStretch: unsafe extern "system" fn(*mut core::ffi::c_void, CompositionStretch) -> windows_core::HRESULT,
     pub VerticalAlignmentRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16417,22 +15937,10 @@ pub struct ICompositionVisualSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SourceVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSourceVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SourceOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SourceOffset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetSourceOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetSourceOffset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SourceSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SourceSize: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetSourceSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetSourceSize: usize,
+    pub SourceOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetSourceOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SourceSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetSourceSize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositor, ICompositor_Vtbl, 0xb403ca50_7f8c_4e83_985f_cc45060036d8);
 impl windows_core::RuntimeType for ICompositor {
@@ -16445,10 +15953,7 @@ pub struct ICompositor_Vtbl {
     pub CreateColorBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateColorBrushWithColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::Color, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateContainerVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2, super::super::Foundation::Numerics::Vector2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    CreateCubicBezierEasingFunction: usize,
+    pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2, windows_numerics::Vector2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Graphics_Effects")]
     pub CreateEffectFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Effects"))]
@@ -16577,10 +16082,7 @@ pub struct ICompositor7_Vtbl {
     pub CreateAnimationPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateRectangleClip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateRectangleClipWithSides: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub CreateRectangleClipWithSidesAndRadius: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, super::super::Foundation::Numerics::Vector2, super::super::Foundation::Numerics::Vector2, super::super::Foundation::Numerics::Vector2, super::super::Foundation::Numerics::Vector2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    CreateRectangleClipWithSidesAndRadius: usize,
+    pub CreateRectangleClipWithSidesAndRadius: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, windows_numerics::Vector2, windows_numerics::Vector2, windows_numerics::Vector2, windows_numerics::Vector2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositor8, ICompositor8_Vtbl, 0x9a0bdee2_fe7b_5f62_a366_9cf8effe2112);
 impl windows_core::RuntimeType for ICompositor8 {
@@ -16663,14 +16165,8 @@ impl windows_core::RuntimeType for ICubicBezierEasingFunction {
 #[repr(C)]
 pub struct ICubicBezierEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub ControlPoint1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    ControlPoint1: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub ControlPoint2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    ControlPoint2: usize,
+    pub ControlPoint1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub ControlPoint2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDelegatedInkTrailVisual, IDelegatedInkTrailVisual_Vtbl, 0x856e60b1_e1ab_5b23_8e3d_d513f221c998);
 impl windows_core::RuntimeType for IDelegatedInkTrailVisual {
@@ -16705,14 +16201,8 @@ pub struct IDistantLight_Vtbl {
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
     pub CoordinateSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCoordinateSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Direction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Direction: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetDirection: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetDirection: usize,
+    pub Direction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetDirection: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDistantLight2, IDistantLight2_Vtbl, 0xdbcdaa1c_294b_48d7_b60e_76df64aa392b);
 impl windows_core::RuntimeType for IDistantLight2 {
@@ -16737,14 +16227,8 @@ pub struct IDropShadow_Vtbl {
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
     pub Mask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Offset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOffset: usize,
+    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
     pub Opacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
@@ -16943,14 +16427,8 @@ pub struct IPointLight_Vtbl {
     pub SetCoordinateSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LinearAttenuation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetLinearAttenuation: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Offset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOffset: usize,
+    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
     pub QuadraticAttenuation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetQuadraticAttenuation: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
@@ -17011,44 +16489,20 @@ pub struct IRectangleClip_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Bottom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetBottom: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub BottomLeftRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    BottomLeftRadius: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetBottomLeftRadius: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetBottomLeftRadius: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub BottomRightRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    BottomRightRadius: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetBottomRightRadius: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetBottomRightRadius: usize,
+    pub BottomLeftRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetBottomLeftRadius: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub BottomRightRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetBottomRightRadius: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
     pub Left: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetLeft: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub Right: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetRight: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub Top: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetTop: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TopLeftRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TopLeftRadius: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetTopLeftRadius: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTopLeftRadius: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TopRightRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TopRightRadius: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetTopRightRadius: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTopRightRadius: usize,
+    pub TopLeftRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetTopLeftRadius: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub TopRightRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetTopRightRadius: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRedirectVisual, IRedirectVisual_Vtbl, 0x8cc6e340_8b75_5422_b06f_09ffe9f8617e);
 impl windows_core::RuntimeType for IRedirectVisual {
@@ -17132,14 +16586,8 @@ pub struct ISpotLight_Vtbl {
     pub SetConstantAttenuation: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub CoordinateSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCoordinateSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Direction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Direction: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetDirection: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetDirection: usize,
+    pub Direction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetDirection: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
     pub InnerConeAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetInnerConeAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub InnerConeAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -17148,14 +16596,8 @@ pub struct ISpotLight_Vtbl {
     pub SetInnerConeColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
     pub LinearAttenuation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetLinearAttenuation: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Offset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOffset: usize,
+    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
     pub OuterConeAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetOuterConeAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub OuterConeAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -17270,14 +16712,8 @@ impl windows_core::RuntimeType for IVector2KeyFrameAnimation {
 #[repr(C)]
 pub struct IVector2KeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InsertKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, f32, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InsertKeyFrame: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, f32, super::super::Foundation::Numerics::Vector2, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InsertKeyFrameWithEasingFunction: usize,
+    pub InsertKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_numerics::Vector2, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVector2NaturalMotionAnimation, IVector2NaturalMotionAnimation_Vtbl, 0x0f3e0b7d_e512_479d_a00c_77c93a30a395);
 impl windows_core::RuntimeType for IVector2NaturalMotionAnimation {
@@ -17286,30 +16722,12 @@ impl windows_core::RuntimeType for IVector2NaturalMotionAnimation {
 #[repr(C)]
 pub struct IVector2NaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
     pub FinalValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    FinalValue: usize,
-    #[cfg(feature = "Foundation_Numerics")]
     pub SetFinalValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetFinalValue: usize,
-    #[cfg(feature = "Foundation_Numerics")]
     pub InitialValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InitialValue: usize,
-    #[cfg(feature = "Foundation_Numerics")]
     pub SetInitialValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetInitialValue: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InitialVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InitialVelocity: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetInitialVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetInitialVelocity: usize,
+    pub InitialVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetInitialVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVector2NaturalMotionAnimationFactory, IVector2NaturalMotionAnimationFactory_Vtbl, 0x8c74ff61_0761_48a2_bddb_6afcc52b89d8);
 impl windows_core::RuntimeType for IVector2NaturalMotionAnimationFactory {
@@ -17326,14 +16744,8 @@ impl windows_core::RuntimeType for IVector3KeyFrameAnimation {
 #[repr(C)]
 pub struct IVector3KeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InsertKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, f32, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InsertKeyFrame: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, f32, super::super::Foundation::Numerics::Vector3, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InsertKeyFrameWithEasingFunction: usize,
+    pub InsertKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_numerics::Vector3, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVector3NaturalMotionAnimation, IVector3NaturalMotionAnimation_Vtbl, 0x9c17042c_e2ca_45ad_969e_4e78b7b9ad41);
 impl windows_core::RuntimeType for IVector3NaturalMotionAnimation {
@@ -17342,30 +16754,12 @@ impl windows_core::RuntimeType for IVector3NaturalMotionAnimation {
 #[repr(C)]
 pub struct IVector3NaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
     pub FinalValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    FinalValue: usize,
-    #[cfg(feature = "Foundation_Numerics")]
     pub SetFinalValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetFinalValue: usize,
-    #[cfg(feature = "Foundation_Numerics")]
     pub InitialValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InitialValue: usize,
-    #[cfg(feature = "Foundation_Numerics")]
     pub SetInitialValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetInitialValue: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InitialVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InitialVelocity: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetInitialVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetInitialVelocity: usize,
+    pub InitialVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetInitialVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVector3NaturalMotionAnimationFactory, IVector3NaturalMotionAnimationFactory_Vtbl, 0x21a81d2f_0880_457b_ac87_b609018c876d);
 impl windows_core::RuntimeType for IVector3NaturalMotionAnimationFactory {
@@ -17382,14 +16776,8 @@ impl windows_core::RuntimeType for IVector4KeyFrameAnimation {
 #[repr(C)]
 pub struct IVector4KeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InsertKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, f32, super::super::Foundation::Numerics::Vector4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InsertKeyFrame: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, f32, super::super::Foundation::Numerics::Vector4, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    InsertKeyFrameWithEasingFunction: usize,
+    pub InsertKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_numerics::Vector4) -> windows_core::HRESULT,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_numerics::Vector4, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVisual, IVisual_Vtbl, 0x117e202d_a859_4c89_873b_c2aa566788e3);
 impl windows_core::RuntimeType for IVisual {
@@ -17398,40 +16786,22 @@ impl windows_core::RuntimeType for IVisual {
 #[repr(C)]
 pub struct IVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    AnchorPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetAnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetAnchorPoint: usize,
+    pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetAnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
     pub BackfaceVisibility: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionBackfaceVisibility) -> windows_core::HRESULT,
     pub SetBackfaceVisibility: unsafe extern "system" fn(*mut core::ffi::c_void, CompositionBackfaceVisibility) -> windows_core::HRESULT,
     pub BorderMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionBorderMode) -> windows_core::HRESULT,
     pub SetBorderMode: unsafe extern "system" fn(*mut core::ffi::c_void, CompositionBorderMode) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub CenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    CenterPoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetCenterPoint: usize,
+    pub CenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
     pub Clip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetClip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CompositeMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionCompositeMode) -> windows_core::HRESULT,
     pub SetCompositeMode: unsafe extern "system" fn(*mut core::ffi::c_void, CompositionCompositeMode) -> windows_core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsVisible: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Offset: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOffset: usize,
+    pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
     pub Opacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -17447,38 +16817,14 @@ pub struct IVisual_Vtbl {
     pub SetRotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub RotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetRotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub RotationAxis: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    RotationAxis: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetRotationAxis: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetRotationAxis: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Scale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetScale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Size: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetSize: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TransformMatrix: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTransformMatrix: usize,
+    pub RotationAxis: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetRotationAxis: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub TransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT,
+    pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Matrix4x4) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVisual2, IVisual2_Vtbl, 0x3052b611_56c3_4c3e_8bf3_f6e1ad473f06);
 impl windows_core::RuntimeType for IVisual2 {
@@ -17489,22 +16835,10 @@ pub struct IVisual2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParentForTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetParentForTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub RelativeOffsetAdjustment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    RelativeOffsetAdjustment: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetRelativeOffsetAdjustment: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetRelativeOffsetAdjustment: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub RelativeSizeAdjustment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    RelativeSizeAdjustment: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetRelativeSizeAdjustment: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetRelativeSizeAdjustment: usize,
+    pub RelativeOffsetAdjustment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetRelativeOffsetAdjustment: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub RelativeSizeAdjustment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetRelativeSizeAdjustment: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVisual3, IVisual3_Vtbl, 0x30be580d_f4b6_4ab7_80dd_3738cbac9f2c);
 impl windows_core::RuntimeType for IVisual3 {
@@ -18038,42 +17372,36 @@ impl InsetClip {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -18099,29 +17427,25 @@ impl InsetClip {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -18306,13 +17630,11 @@ impl KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -18332,18 +17654,15 @@ impl KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -18726,16 +18045,14 @@ impl LayerVisual {
         let this = &windows_core::Interface::cast::<ILayerVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetShadow)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -18761,16 +18078,14 @@ impl LayerVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBorderMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -18810,16 +18125,14 @@ impl LayerVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsVisible)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -18876,55 +18189,47 @@ impl LayerVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RotationAxis(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RotationAxis(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotationAxis)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRotationAxis(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAxis)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Size(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix4x4> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -18942,29 +18247,25 @@ impl LayerVisual {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParentForTransform)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRelativeOffsetAdjustment(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeSizeAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetRelativeSizeAdjustment(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeSizeAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -19157,13 +18458,11 @@ impl NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -19183,18 +18482,15 @@ impl NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -19397,13 +18693,11 @@ impl PathKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -19423,18 +18717,15 @@ impl PathKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -19871,16 +19162,14 @@ impl PointLight {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLinearAttenuation)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -20109,13 +19398,11 @@ impl QuaternionKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -20135,18 +19422,15 @@ impl QuaternionKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -20412,42 +19696,36 @@ impl RectangleClip {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -20473,29 +19751,25 @@ impl RectangleClip {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -20605,29 +19879,25 @@ impl RectangleClip {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBottom)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn BottomLeftRadius(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn BottomLeftRadius(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BottomLeftRadius)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetBottomLeftRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetBottomLeftRadius(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBottomLeftRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn BottomRightRadius(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn BottomRightRadius(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BottomRightRadius)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetBottomRightRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetBottomRightRadius(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBottomRightRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -20664,29 +19934,25 @@ impl RectangleClip {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTop)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TopLeftRadius(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn TopLeftRadius(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TopLeftRadius)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTopLeftRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetTopLeftRadius(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTopLeftRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TopRightRadius(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn TopRightRadius(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TopRightRadius)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTopRightRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetTopRightRadius(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTopRightRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -20836,16 +20102,14 @@ impl RedirectVisual {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -20871,16 +20135,14 @@ impl RedirectVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBorderMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -20920,16 +20182,14 @@ impl RedirectVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsVisible)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -20986,55 +20246,47 @@ impl RedirectVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RotationAxis(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RotationAxis(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotationAxis)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRotationAxis(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAxis)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Size(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix4x4> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -21052,29 +20304,25 @@ impl RedirectVisual {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParentForTransform)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRelativeOffsetAdjustment(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeSizeAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetRelativeSizeAdjustment(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeSizeAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -21274,13 +20522,11 @@ impl ScalarKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -21300,18 +20546,15 @@ impl ScalarKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -21587,13 +20830,11 @@ impl ScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -21613,18 +20854,15 @@ impl ScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -21977,16 +21215,14 @@ impl ShapeVisual {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetViewBox)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -22012,16 +21248,14 @@ impl ShapeVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBorderMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -22061,16 +21295,14 @@ impl ShapeVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsVisible)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -22127,55 +21359,47 @@ impl ShapeVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RotationAxis(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RotationAxis(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotationAxis)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRotationAxis(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAxis)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Size(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix4x4> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -22193,29 +21417,25 @@ impl ShapeVisual {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParentForTransform)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRelativeOffsetAdjustment(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeSizeAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetRelativeSizeAdjustment(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeSizeAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -22548,16 +21768,14 @@ impl SpotLight {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCoordinateSpace)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Direction(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Direction(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Direction)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetDirection(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetDirection(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDirection)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -22605,16 +21823,14 @@ impl SpotLight {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLinearAttenuation)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -22748,13 +21964,11 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -22774,18 +21988,15 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -23049,13 +22260,11 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -23075,18 +22284,15 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -23269,48 +22475,42 @@ impl SpringVector2NaturalMotionAnimation {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPeriod)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
+    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FinalValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
     {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
+    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
     {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialVelocity(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn InitialVelocity(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialVelocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetInitialVelocity(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -23356,13 +22556,11 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -23382,18 +22580,15 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -23576,48 +22771,42 @@ impl SpringVector3NaturalMotionAnimation {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPeriod)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
+    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FinalValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
     {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
+    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
     {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialVelocity(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn InitialVelocity(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialVelocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetInitialVelocity(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -23781,16 +22970,14 @@ impl SpriteVisual {
         let this = &windows_core::Interface::cast::<ISpriteVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetShadow)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -23816,16 +23003,14 @@ impl SpriteVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBorderMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -23865,16 +23050,14 @@ impl SpriteVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsVisible)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -23931,55 +23114,47 @@ impl SpriteVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RotationAxis(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RotationAxis(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotationAxis)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRotationAxis(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAxis)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Size(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix4x4> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -23997,29 +23172,25 @@ impl SpriteVisual {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParentForTransform)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRelativeOffsetAdjustment(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeSizeAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetRelativeSizeAdjustment(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeSizeAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -24267,13 +23438,11 @@ impl Vector2KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -24293,18 +23462,15 @@ impl Vector2KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -24527,13 +23693,11 @@ impl Vector2KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InsertKeyFrame)(windows_core::Interface::as_raw(this), normalizedprogresskey, value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InsertKeyFrameWithEasingFunction<P2>(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector2, easingfunction: P2) -> windows_core::Result<()>
+    pub fn InsertKeyFrameWithEasingFunction<P2>(&self, normalizedprogresskey: f32, value: windows_numerics::Vector2, easingfunction: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<CompositionEasingFunction>,
     {
@@ -24582,13 +23746,11 @@ impl Vector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -24608,18 +23770,15 @@ impl Vector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -24780,48 +23939,42 @@ impl Vector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
+    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FinalValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
+    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialVelocity(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn InitialVelocity(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialVelocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetInitialVelocity(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -24867,13 +24020,11 @@ impl Vector3KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -24893,18 +24044,15 @@ impl Vector3KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -25127,13 +24275,11 @@ impl Vector3KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InsertKeyFrame)(windows_core::Interface::as_raw(this), normalizedprogresskey, value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InsertKeyFrameWithEasingFunction<P2>(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector3, easingfunction: P2) -> windows_core::Result<()>
+    pub fn InsertKeyFrameWithEasingFunction<P2>(&self, normalizedprogresskey: f32, value: windows_numerics::Vector3, easingfunction: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<CompositionEasingFunction>,
     {
@@ -25182,13 +24328,11 @@ impl Vector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -25208,18 +24352,15 @@ impl Vector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -25380,48 +24521,42 @@ impl Vector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
+    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FinalValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
+    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InitialVelocity(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn InitialVelocity(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialVelocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetInitialVelocity(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -25467,13 +24602,11 @@ impl Vector4KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetColorParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<()> {
+    pub fn SetMatrix3x2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix3x2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix3x2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix4x4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix4x4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -25493,18 +24626,15 @@ impl Vector4KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetScalarParameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetVector2Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector2Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetVector3Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector3Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn SetVector4Parameter(&self, key: &windows_core::HSTRING, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVector4Parameter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value).ok() }
     }
@@ -25727,13 +24857,11 @@ impl Vector4KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector4) -> windows_core::Result<()> {
+    pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: windows_numerics::Vector4) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InsertKeyFrame)(windows_core::Interface::as_raw(this), normalizedprogresskey, value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn InsertKeyFrameWithEasingFunction<P2>(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector4, easingfunction: P2) -> windows_core::Result<()>
+    pub fn InsertKeyFrameWithEasingFunction<P2>(&self, normalizedprogresskey: f32, value: windows_numerics::Vector4, easingfunction: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<CompositionEasingFunction>,
     {
@@ -25865,16 +24993,14 @@ impl Visual {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn AnchorPoint(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnchorPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetAnchorPoint(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAnchorPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -25900,16 +25026,14 @@ impl Visual {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBorderMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn CenterPoint(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CenterPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetCenterPoint(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCenterPoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -25949,16 +25073,14 @@ impl Visual {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsVisible)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Offset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -26015,55 +25137,47 @@ impl Visual {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAngleInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RotationAxis(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RotationAxis(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotationAxis)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRotationAxis(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRotationAxis)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Scale(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn Size(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
+    pub fn TransformMatrix(&self) -> windows_core::Result<windows_numerics::Matrix4x4> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransformMatrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -26081,29 +25195,25 @@ impl Visual {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParentForTransform)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn RelativeOffsetAdjustment(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRelativeOffsetAdjustment(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeOffsetAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
+    pub fn RelativeSizeAdjustment(&self) -> windows_core::Result<windows_numerics::Vector2> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativeSizeAdjustment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn SetRelativeSizeAdjustment(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeSizeAdjustment)(windows_core::Interface::as_raw(this), value).ok() }
     }

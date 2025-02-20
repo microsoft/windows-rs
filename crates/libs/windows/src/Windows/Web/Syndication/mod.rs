@@ -120,7 +120,7 @@ impl ISyndicationClient {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn RetrieveFeedAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>
+    pub fn RetrieveFeedAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -148,7 +148,7 @@ pub trait ISyndicationClient_Impl: windows_core::IUnknownImpl {
     fn BypassCacheOnRetrieve(&self) -> windows_core::Result<bool>;
     fn SetBypassCacheOnRetrieve(&self, value: bool) -> windows_core::Result<()>;
     fn SetRequestHeader(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn RetrieveFeedAsync(&self, uri: windows_core::Ref<'_, super::super::Foundation::Uri>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
+    fn RetrieveFeedAsync(&self, uri: windows_core::Ref<'_, super::super::Foundation::Uri>) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
 }
 #[cfg(feature = "Security_Credentials")]
 impl ISyndicationClient_Vtbl {
@@ -1375,7 +1375,7 @@ impl SyndicationClient {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn RetrieveFeedAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>
+    pub fn RetrieveFeedAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {

@@ -60,7 +60,7 @@ impl CastingConnection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveErrorOccurred)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RequestStartCastingAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>>
+    pub fn RequestStartCastingAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<CastingConnectionErrorStatus>>
     where
         P0: windows_core::Param<CastingSource>,
     {
@@ -70,7 +70,7 @@ impl CastingConnection {
             (windows_core::Interface::vtable(this).RequestStartCastingAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisconnectAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>> {
+    pub fn DisconnectAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<CastingConnectionErrorStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -187,7 +187,7 @@ impl CastingDevice {
             (windows_core::Interface::vtable(this).Icon)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSupportedCastingPlaybackTypesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CastingPlaybackTypes>> {
+    pub fn GetSupportedCastingPlaybackTypesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<CastingPlaybackTypes>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -207,7 +207,7 @@ impl CastingDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDeviceSelectorFromCastingSourceAsync<P0>(castingsource: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
+    pub fn GetDeviceSelectorFromCastingSourceAsync<P0>(castingsource: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
     where
         P0: windows_core::Param<CastingSource>,
     {
@@ -216,14 +216,14 @@ impl CastingDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromCastingSourceAsync)(windows_core::Interface::as_raw(this), castingsource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(value: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CastingDevice>> {
+    pub fn FromIdAsync(value: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<CastingDevice>> {
         Self::ICastingDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn DeviceInfoSupportsCastingAsync<P0>(device: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn DeviceInfoSupportsCastingAsync<P0>(device: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Devices::Enumeration::DeviceInformation>,
     {

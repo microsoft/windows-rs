@@ -251,14 +251,8 @@ pub struct IPrinting3DComponentWithMatrix_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Component: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Matrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Matrix: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetMatrix: usize,
+    pub Matrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT,
+    pub SetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Matrix4x4) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrinting3DCompositeMaterial, IPrinting3DCompositeMaterial_Vtbl, 0x462238dd_562e_4f6c_882d_f4d841fd63c7);
 impl windows_core::RuntimeType for IPrinting3DCompositeMaterial {
@@ -552,7 +546,7 @@ impl Print3DManager {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowPrintUIAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ShowPrintUIAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IPrint3DManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowPrintUIAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -892,7 +886,7 @@ impl Printing3D3MFPackage {
         SHARED.call(callback)
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -953,7 +947,7 @@ impl Printing3D3MFPackage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadModelFromPackageAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Printing3DModel>>
+    pub fn LoadModelFromPackageAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<Printing3DModel>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -963,7 +957,7 @@ impl Printing3D3MFPackage {
             (windows_core::Interface::vtable(this).LoadModelFromPackageAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveModelToPackageAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SaveModelToPackageAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<Printing3DModel>,
     {
@@ -985,7 +979,7 @@ impl Printing3D3MFPackage {
         unsafe { (windows_core::Interface::vtable(this).SetCompression)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadAsync<P0>(value: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Printing3D3MFPackage>>
+    pub fn LoadAsync<P0>(value: P0) -> windows_core::Result<windows_future::IAsyncOperation<Printing3D3MFPackage>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -1359,16 +1353,14 @@ impl Printing3DComponentWithMatrix {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetComponent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Matrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
+    pub fn Matrix(&self) -> windows_core::Result<windows_numerics::Matrix4x4> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Matrix)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub fn SetMatrix(&self, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1740,7 +1732,7 @@ impl Printing3DMesh {
             (windows_core::Interface::vtable(this).BufferSet)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn VerifyAsync(&self, value: Printing3DMeshVerificationMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Printing3DMeshVerificationResult>> {
+    pub fn VerifyAsync(&self, value: Printing3DMeshVerificationMode) -> windows_core::Result<windows_future::IAsyncOperation<Printing3DMeshVerificationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1909,7 +1901,7 @@ impl Printing3DModel {
             (windows_core::Interface::vtable(this).Metadata)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RepairAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RepairAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1923,28 +1915,28 @@ impl Printing3DModel {
             (windows_core::Interface::vtable(this).Clone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryPartialRepairAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryPartialRepairAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryPartialRepairAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryPartialRepairWithTimeAsync(&self, maxwaittime: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryPartialRepairWithTimeAsync(&self, maxwaittime: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryPartialRepairWithTimeAsync)(windows_core::Interface::as_raw(this), maxwaittime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryReduceFacesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>> {
+    pub fn TryReduceFacesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<bool, f64>> {
         let this = &windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryReduceFacesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryReduceFacesWithOptionsAsync<P0>(&self, printing3dfacereductionoptions: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>
+    pub fn TryReduceFacesWithOptionsAsync<P0>(&self, printing3dfacereductionoptions: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<bool, f64>>
     where
         P0: windows_core::Param<Printing3DFaceReductionOptions>,
     {
@@ -1954,7 +1946,7 @@ impl Printing3DModel {
             (windows_core::Interface::vtable(this).TryReduceFacesWithOptionsAsync)(windows_core::Interface::as_raw(this), printing3dfacereductionoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryReduceFacesWithOptionsAndTimeAsync<P0>(&self, printing3dfacereductionoptions: P0, maxwait: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>
+    pub fn TryReduceFacesWithOptionsAndTimeAsync<P0>(&self, printing3dfacereductionoptions: P0, maxwait: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<bool, f64>>
     where
         P0: windows_core::Param<Printing3DFaceReductionOptions>,
     {
@@ -1964,7 +1956,7 @@ impl Printing3DModel {
             (windows_core::Interface::vtable(this).TryReduceFacesWithOptionsAndTimeAsync)(windows_core::Interface::as_raw(this), printing3dfacereductionoptions.param().abi(), maxwait, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RepairWithProgressAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>> {
+    pub fn RepairWithProgressAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<bool, f64>> {
         let this = &windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

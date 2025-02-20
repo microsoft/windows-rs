@@ -42,7 +42,7 @@ impl HttpBufferContent {
             (windows_core::Interface::vtable(this).Headers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BufferAllAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
+    pub fn BufferAllAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -50,7 +50,7 @@ impl HttpBufferContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
+    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -58,14 +58,14 @@ impl HttpBufferContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
+    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadAsInputStreamAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadAsStringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
+    pub fn ReadAsStringAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -80,7 +80,7 @@ impl HttpBufferContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
@@ -131,7 +131,7 @@ impl HttpClient {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn DeleteAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
+    pub fn DeleteAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -141,7 +141,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
+    pub fn GetAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -151,7 +151,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).GetAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetWithOptionAsync<P0>(&self, uri: P0, completionoption: HttpCompletionOption) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
+    pub fn GetWithOptionAsync<P0>(&self, uri: P0, completionoption: HttpCompletionOption) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -162,7 +162,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetBufferAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, HttpProgress>>
+    pub fn GetBufferAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -173,7 +173,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetInputStreamAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, HttpProgress>>
+    pub fn GetInputStreamAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -183,7 +183,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).GetInputStreamAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetStringAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, HttpProgress>>
+    pub fn GetStringAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<windows_core::HSTRING, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -193,7 +193,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).GetStringAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PostAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
+    pub fn PostAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<IHttpContent>,
@@ -204,7 +204,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).PostAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PutAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
+    pub fn PutAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<IHttpContent>,
@@ -215,7 +215,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).PutAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
+    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
         P0: windows_core::Param<HttpRequestMessage>,
     {
@@ -225,7 +225,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendRequestWithOptionAsync<P0>(&self, request: P0, completionoption: HttpCompletionOption) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
+    pub fn SendRequestWithOptionAsync<P0>(&self, request: P0, completionoption: HttpCompletionOption) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
         P0: windows_core::Param<HttpRequestMessage>,
     {
@@ -243,7 +243,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).DefaultRequestHeaders)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryDeleteAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
+    pub fn TryDeleteAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -253,7 +253,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).TryDeleteAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
+    pub fn TryGetAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -263,7 +263,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).TryGetAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetAsync2<P0>(&self, uri: P0, completionoption: HttpCompletionOption) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
+    pub fn TryGetAsync2<P0>(&self, uri: P0, completionoption: HttpCompletionOption) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -273,7 +273,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).TryGetAsync2)(windows_core::Interface::as_raw(this), uri.param().abi(), completionoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetBufferAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpGetBufferResult, HttpProgress>>
+    pub fn TryGetBufferAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpGetBufferResult, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -283,7 +283,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).TryGetBufferAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetInputStreamAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpGetInputStreamResult, HttpProgress>>
+    pub fn TryGetInputStreamAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpGetInputStreamResult, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -293,7 +293,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).TryGetInputStreamAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetStringAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpGetStringResult, HttpProgress>>
+    pub fn TryGetStringAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpGetStringResult, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -303,7 +303,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).TryGetStringAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryPostAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
+    pub fn TryPostAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<IHttpContent>,
@@ -314,7 +314,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).TryPostAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryPutAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
+    pub fn TryPutAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<IHttpContent>,
@@ -325,7 +325,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).TryPutAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TrySendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
+    pub fn TrySendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
         P0: windows_core::Param<HttpRequestMessage>,
     {
@@ -335,7 +335,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).TrySendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TrySendRequestAsync2<P0>(&self, request: P0, completionoption: HttpCompletionOption) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
+    pub fn TrySendRequestAsync2<P0>(&self, request: P0, completionoption: HttpCompletionOption) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
         P0: windows_core::Param<HttpRequestMessage>,
     {
@@ -651,7 +651,7 @@ impl HttpFormUrlEncodedContent {
             (windows_core::Interface::vtable(this).Headers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BufferAllAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
+    pub fn BufferAllAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -659,7 +659,7 @@ impl HttpFormUrlEncodedContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
+    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -667,14 +667,14 @@ impl HttpFormUrlEncodedContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
+    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadAsInputStreamAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadAsStringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
+    pub fn ReadAsStringAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -689,7 +689,7 @@ impl HttpFormUrlEncodedContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
@@ -1043,7 +1043,7 @@ impl HttpMultipartContent {
             (windows_core::Interface::vtable(this).Headers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BufferAllAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
+    pub fn BufferAllAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1051,7 +1051,7 @@ impl HttpMultipartContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
+    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1059,14 +1059,14 @@ impl HttpMultipartContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
+    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadAsInputStreamAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadAsStringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
+    pub fn ReadAsStringAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1081,7 +1081,7 @@ impl HttpMultipartContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
@@ -1180,7 +1180,7 @@ impl HttpMultipartFormDataContent {
             (windows_core::Interface::vtable(this).Headers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BufferAllAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
+    pub fn BufferAllAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1188,7 +1188,7 @@ impl HttpMultipartFormDataContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
+    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1196,14 +1196,14 @@ impl HttpMultipartFormDataContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
+    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadAsInputStreamAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadAsStringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
+    pub fn ReadAsStringAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1218,7 +1218,7 @@ impl HttpMultipartFormDataContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
@@ -1763,7 +1763,7 @@ impl HttpStreamContent {
             (windows_core::Interface::vtable(this).Headers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BufferAllAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
+    pub fn BufferAllAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1771,7 +1771,7 @@ impl HttpStreamContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
+    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1779,14 +1779,14 @@ impl HttpStreamContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
+    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadAsInputStreamAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadAsStringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
+    pub fn ReadAsStringAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1801,7 +1801,7 @@ impl HttpStreamContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
@@ -1863,7 +1863,7 @@ impl HttpStringContent {
             (windows_core::Interface::vtable(this).Headers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BufferAllAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
+    pub fn BufferAllAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1871,7 +1871,7 @@ impl HttpStringContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
+    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1879,14 +1879,14 @@ impl HttpStringContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
+    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadAsInputStreamAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadAsStringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
+    pub fn ReadAsStringAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1901,7 +1901,7 @@ impl HttpStringContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
@@ -2127,7 +2127,7 @@ impl IHttpContent {
             (windows_core::Interface::vtable(this).Headers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BufferAllAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
+    pub fn BufferAllAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2135,7 +2135,7 @@ impl IHttpContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
+    pub fn ReadAsBufferAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2143,14 +2143,14 @@ impl IHttpContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
+    pub fn ReadAsInputStreamAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadAsInputStreamAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadAsStringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
+    pub fn ReadAsStringAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<windows_core::HSTRING, u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2165,7 +2165,7 @@ impl IHttpContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
@@ -2187,12 +2187,12 @@ impl windows_core::RuntimeName for IHttpContent {
 #[cfg(all(feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 pub trait IHttpContent_Impl: super::super::Foundation::IClosable_Impl {
     fn Headers(&self) -> windows_core::Result<Headers::HttpContentHeaderCollection>;
-    fn BufferAllAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
-    fn ReadAsBufferAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>;
-    fn ReadAsInputStreamAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>;
-    fn ReadAsStringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, u64>>;
+    fn BufferAllAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>>;
+    fn ReadAsBufferAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>;
+    fn ReadAsInputStreamAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>;
+    fn ReadAsStringAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<windows_core::HSTRING, u64>>;
     fn TryComputeLength(&self, length: &mut u64) -> windows_core::Result<bool>;
-    fn WriteToStreamAsync(&self, outputStream: windows_core::Ref<'_, super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
+    fn WriteToStreamAsync(&self, outputStream: windows_core::Ref<'_, super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 impl IHttpContent_Vtbl {

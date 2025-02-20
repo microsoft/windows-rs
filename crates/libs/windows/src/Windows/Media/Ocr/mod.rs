@@ -73,7 +73,7 @@ pub struct OcrEngine(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrEngine, windows_core::IUnknown, windows_core::IInspectable);
 impl OcrEngine {
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn RecognizeAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<OcrResult>>
+    pub fn RecognizeAsync<P0>(&self, bitmap: P0) -> windows_core::Result<windows_future::IAsyncOperation<OcrResult>>
     where
         P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {

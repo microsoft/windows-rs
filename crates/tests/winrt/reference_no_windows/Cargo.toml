@@ -1,0 +1,24 @@
+[package]
+name = "test_reference_no_windows"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows-core]
+workspace = true
+
+[dependencies.windows-numerics]
+workspace = true
+
+[dependencies.windows-collections]
+workspace = true
+
+[dependencies.windows-future]
+workspace = true
+
+[build-dependencies.windows-bindgen]
+workspace = true

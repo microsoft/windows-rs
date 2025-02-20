@@ -826,7 +826,7 @@ impl UISettingsController {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTextScaleFactor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RequestDefaultAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UISettingsController>> {
+    pub fn RequestDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<UISettingsController>> {
         Self::IUISettingsControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

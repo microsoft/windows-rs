@@ -122,7 +122,7 @@ impl Accelerometer {
             (windows_core::Interface::vtable(this).GetDefaultWithAccelerometerReadingType)(windows_core::Interface::as_raw(this), readingtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Accelerometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Accelerometer>> {
         Self::IAccelerometerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -339,7 +339,7 @@ unsafe impl Sync for AccelerometerShakenEventArgs {}
 pub struct ActivitySensor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivitySensor, windows_core::IUnknown, windows_core::IInspectable);
 impl ActivitySensor {
-    pub fn GetCurrentReadingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ActivitySensorReading>> {
+    pub fn GetCurrentReadingAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ActivitySensorReading>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -395,7 +395,7 @@ impl ActivitySensor {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReadingChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<ActivitySensor>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -407,19 +407,19 @@ impl ActivitySensor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ActivitySensor>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ActivitySensorReading>>> {
+    pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ActivitySensorReading>>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSystemHistoryAsync)(windows_core::Interface::as_raw(this), fromtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ActivitySensorReading>>> {
+    pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ActivitySensorReading>>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSystemHistoryWithDurationAsync)(windows_core::Interface::as_raw(this), fromtime, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -862,7 +862,7 @@ impl Barometer {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Barometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Barometer>> {
         Self::IBarometerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1096,7 +1096,7 @@ impl Compass {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Compass>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Compass>> {
         Self::ICompassStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1391,7 +1391,7 @@ impl Gyrometer {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Gyrometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Gyrometer>> {
         Self::IGyrometerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1669,7 +1669,7 @@ unsafe impl Sync for HingeAngleReading {}
 pub struct HingeAngleSensor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HingeAngleSensor, windows_core::IUnknown, windows_core::IInspectable);
 impl HingeAngleSensor {
-    pub fn GetCurrentReadingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HingeAngleReading>> {
+    pub fn GetCurrentReadingAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<HingeAngleReading>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1721,19 +1721,19 @@ impl HingeAngleSensor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetRelatedToAdjacentPanelsAsync(firstpanelid: &windows_core::HSTRING, secondpanelid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
+    pub fn GetRelatedToAdjacentPanelsAsync(firstpanelid: &windows_core::HSTRING, secondpanelid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetRelatedToAdjacentPanelsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(firstpanelid), core::mem::transmute_copy(secondpanelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1972,13 +1972,13 @@ impl HumanPresenceSensor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HumanPresenceSensor>> {
+    pub fn FromIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<HumanPresenceSensor>> {
         Self::IHumanPresenceSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sensorid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<HumanPresenceSensor>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<HumanPresenceSensor>> {
         Self::IHumanPresenceSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2312,7 +2312,7 @@ impl HumanPresenceSettings {
             (windows_core::Interface::vtable(this).LockOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCurrentSettingsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<HumanPresenceSettings>> {
+    pub fn GetCurrentSettingsAsync() -> windows_core::Result<windows_future::IAsyncOperation<HumanPresenceSettings>> {
         Self::IHumanPresenceSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentSettingsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2324,7 +2324,7 @@ impl HumanPresenceSettings {
             (windows_core::Interface::vtable(this).GetCurrentSettings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn UpdateSettingsAsync<P0>(settings: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn UpdateSettingsAsync<P0>(settings: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<HumanPresenceSettings>,
     {
@@ -2339,7 +2339,7 @@ impl HumanPresenceSettings {
     {
         Self::IHumanPresenceSettingsStatics(|this| unsafe { (windows_core::Interface::vtable(this).UpdateSettings)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() })
     }
-    pub fn GetSupportedFeaturesForSensorIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HumanPresenceFeatures>> {
+    pub fn GetSupportedFeaturesForSensorIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<HumanPresenceFeatures>> {
         Self::IHumanPresenceSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedFeaturesForSensorIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sensorid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4346,7 +4346,7 @@ impl Inclinometer {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), readingtype, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Inclinometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Inclinometer>> {
         Self::IInclinometerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4612,7 +4612,7 @@ impl LightSensor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LightSensor>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LightSensor>> {
         Self::ILightSensorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4880,7 +4880,7 @@ impl Magnetometer {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Magnetometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Magnetometer>> {
         Self::IMagnetometerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5190,7 +5190,7 @@ impl OrientationSensor {
             (windows_core::Interface::vtable(this).GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal)(windows_core::Interface::as_raw(this), readingtype, optimizationgoal, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<OrientationSensor>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<OrientationSensor>> {
         Self::IOrientationSensorStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5368,13 +5368,13 @@ impl Pedometer {
             (windows_core::Interface::vtable(this).GetCurrentReadings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Pedometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Pedometer>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<Pedometer>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Pedometer>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5386,13 +5386,13 @@ impl Pedometer {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<PedometerReading>>> {
+    pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PedometerReading>>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSystemHistoryAsync)(windows_core::Interface::as_raw(this), fromtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<PedometerReading>>> {
+    pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PedometerReading>>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSystemHistoryWithDurationAsync)(windows_core::Interface::as_raw(this), fromtime, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6042,7 +6042,7 @@ impl SimpleOrientationSensor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<SimpleOrientationSensor>> {
         Self::ISimpleOrientationSensorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

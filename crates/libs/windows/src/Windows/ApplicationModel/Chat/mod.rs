@@ -53,25 +53,25 @@ unsafe impl Send for ChatCapabilities {}
 unsafe impl Sync for ChatCapabilities {}
 pub struct ChatCapabilitiesManager;
 impl ChatCapabilitiesManager {
-    pub fn GetCachedCapabilitiesAsync(address: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
+    pub fn GetCachedCapabilitiesAsync(address: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ChatCapabilities>> {
         Self::IChatCapabilitiesManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCachedCapabilitiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(address), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetCapabilitiesFromNetworkAsync(address: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
+    pub fn GetCapabilitiesFromNetworkAsync(address: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ChatCapabilities>> {
         Self::IChatCapabilitiesManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCapabilitiesFromNetworkAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(address), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetCachedCapabilitiesForTransportAsync(address: &windows_core::HSTRING, transportid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
+    pub fn GetCachedCapabilitiesForTransportAsync(address: &windows_core::HSTRING, transportid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ChatCapabilities>> {
         Self::IChatCapabilitiesManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCachedCapabilitiesForTransportAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(address), core::mem::transmute_copy(transportid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetCapabilitiesFromNetworkForTransportAsync(address: &windows_core::HSTRING, transportid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
+    pub fn GetCapabilitiesFromNetworkForTransportAsync(address: &windows_core::HSTRING, transportid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ChatCapabilities>> {
         Self::IChatCapabilitiesManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCapabilitiesFromNetworkForTransportAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(address), core::mem::transmute_copy(transportid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -152,7 +152,7 @@ impl ChatConversation {
             (windows_core::Interface::vtable(this).ThreadingInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -166,21 +166,21 @@ impl ChatConversation {
             (windows_core::Interface::vtable(this).GetMessageReader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MarkAllMessagesAsReadAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkAllMessagesAsReadAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MarkAllMessagesAsReadAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MarkMessagesAsReadAsync(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkMessagesAsReadAsync(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MarkMessagesAsReadAsync)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -245,14 +245,14 @@ unsafe impl Sync for ChatConversation {}
 pub struct ChatConversationReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatConversationReader, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatConversationReader {
-    pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ChatConversation>>> {
+    pub fn ReadBatchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ChatConversation>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadBatchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadBatchWithCountAsync(&self, count: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ChatConversation>>> {
+    pub fn ReadBatchWithCountAsync(&self, count: i32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ChatConversation>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -809,7 +809,7 @@ unsafe impl Send for ChatMessageAttachment {}
 unsafe impl Sync for ChatMessageAttachment {}
 pub struct ChatMessageBlocking;
 impl ChatMessageBlocking {
-    pub fn MarkMessageAsBlockedAsync(localchatmessageid: &windows_core::HSTRING, blocked: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkMessageAsBlockedAsync(localchatmessageid: &windows_core::HSTRING, blocked: bool) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IChatMessageBlockingStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MarkMessageAsBlockedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localchatmessageid), blocked, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -871,7 +871,7 @@ impl ChatMessageChangeReader {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AcceptChangesThrough)(windows_core::Interface::as_raw(this), lastchangetoacknowledge.param().abi()).ok() }
     }
-    pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ChatMessageChange>>> {
+    pub fn ReadBatchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ChatMessageChange>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1006,31 +1006,31 @@ impl windows_core::RuntimeType for ChatMessageKind {
 }
 pub struct ChatMessageManager;
 impl ChatMessageManager {
-    pub fn RegisterTransportAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn RegisterTransportAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IChatMessageManager2Statics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RegisterTransportAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetTransportAsync(transportid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatMessageTransport>> {
+    pub fn GetTransportAsync(transportid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ChatMessageTransport>> {
         Self::IChatMessageManager2Statics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTransportAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(transportid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetTransportsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ChatMessageTransport>>> {
+    pub fn GetTransportsAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ChatMessageTransport>>> {
         Self::IChatMessageManagerStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTransportsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestStoreAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatMessageStore>> {
+    pub fn RequestStoreAsync() -> windows_core::Result<windows_future::IAsyncOperation<ChatMessageStore>> {
         Self::IChatMessageManagerStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowComposeSmsMessageAsync<P0>(message: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ShowComposeSmsMessageAsync<P0>(message: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<ChatMessage>,
     {
@@ -1042,7 +1042,7 @@ impl ChatMessageManager {
     pub fn ShowSmsSettings() -> windows_core::Result<()> {
         Self::IChatMessageManagerStatic(|this| unsafe { (windows_core::Interface::vtable(this).ShowSmsSettings)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn RequestSyncManagerAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatSyncManager>> {
+    pub fn RequestSyncManagerAsync() -> windows_core::Result<windows_future::IAsyncOperation<ChatSyncManager>> {
         Self::IChatMessageManagerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestSyncManagerAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1137,14 +1137,14 @@ impl windows_core::RuntimeType for ChatMessageOperatorKind {
 pub struct ChatMessageReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageReader, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageReader {
-    pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ChatMessage>>> {
+    pub fn ReadBatchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ChatMessage>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadBatchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadBatchWithCountAsync(&self, count: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<ChatMessage>>> {
+    pub fn ReadBatchWithCountAsync(&self, count: i32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ChatMessage>>> {
         let this = &windows_core::Interface::cast::<IChatMessageReader2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1201,21 +1201,21 @@ impl ChatMessageStore {
             (windows_core::Interface::vtable(this).ChangeTracker)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteMessageAsync(&self, localmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteMessageAsync(&self, localmessageid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localmessageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DownloadMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DownloadMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DownloadMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localchatmessageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
+    pub fn GetMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ChatMessage>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1236,21 +1236,21 @@ impl ChatMessageStore {
             (windows_core::Interface::vtable(this).GetMessageReader2)(windows_core::Interface::as_raw(this), recenttimelimit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MarkMessageReadAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkMessageReadAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MarkMessageReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localchatmessageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RetrySendMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RetrySendMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RetrySendMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localchatmessageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendMessageAsync<P0>(&self, chatmessage: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SendMessageAsync<P0>(&self, chatmessage: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<ChatMessage>,
     {
@@ -1284,7 +1284,7 @@ impl ChatMessageStore {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMessageChanged)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ForwardMessageAsync<P1>(&self, localchatmessageid: &windows_core::HSTRING, addresses: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>>
+    pub fn ForwardMessageAsync<P1>(&self, localchatmessageid: &windows_core::HSTRING, addresses: P1) -> windows_core::Result<windows_future::IAsyncOperation<ChatMessage>>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1294,14 +1294,14 @@ impl ChatMessageStore {
             (windows_core::Interface::vtable(this).ForwardMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localchatmessageid), addresses.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetConversationAsync(&self, conversationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>> {
+    pub fn GetConversationAsync(&self, conversationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ChatConversation>> {
         let this = &windows_core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetConversationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(conversationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetConversationForTransportsAsync<P1>(&self, conversationid: &windows_core::HSTRING, transportids: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>>
+    pub fn GetConversationForTransportsAsync<P1>(&self, conversationid: &windows_core::HSTRING, transportids: P1) -> windows_core::Result<windows_future::IAsyncOperation<ChatConversation>>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1311,7 +1311,7 @@ impl ChatMessageStore {
             (windows_core::Interface::vtable(this).GetConversationForTransportsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(conversationid), transportids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetConversationFromThreadingInfoAsync<P0>(&self, threadinginfo: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>>
+    pub fn GetConversationFromThreadingInfoAsync<P0>(&self, threadinginfo: P0) -> windows_core::Result<windows_future::IAsyncOperation<ChatConversation>>
     where
         P0: windows_core::Param<ChatConversationThreadingInfo>,
     {
@@ -1338,21 +1338,21 @@ impl ChatMessageStore {
             (windows_core::Interface::vtable(this).GetConversationForTransportsReader)(windows_core::Interface::as_raw(this), transportids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetMessageByRemoteIdAsync(&self, transportid: &windows_core::HSTRING, remoteid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
+    pub fn GetMessageByRemoteIdAsync(&self, transportid: &windows_core::HSTRING, remoteid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ChatMessage>> {
         let this = &windows_core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessageByRemoteIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(transportid), core::mem::transmute_copy(remoteid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetUnseenCountAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<i32>> {
+    pub fn GetUnseenCountAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<i32>> {
         let this = &windows_core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetUnseenCountAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetUnseenCountForTransportsReaderAsync<P0>(&self, transportids: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<i32>>
+    pub fn GetUnseenCountForTransportsReaderAsync<P0>(&self, transportids: P0) -> windows_core::Result<windows_future::IAsyncOperation<i32>>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1362,14 +1362,14 @@ impl ChatMessageStore {
             (windows_core::Interface::vtable(this).GetUnseenCountForTransportsReaderAsync)(windows_core::Interface::as_raw(this), transportids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MarkAsSeenAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkAsSeenAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MarkAsSeenAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MarkAsSeenForTransportsAsync<P0>(&self, transportids: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn MarkAsSeenForTransportsAsync<P0>(&self, transportids: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1389,7 +1389,7 @@ impl ChatMessageStore {
             (windows_core::Interface::vtable(this).GetSearchReader)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveMessageAsync<P0>(&self, chatmessage: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SaveMessageAsync<P0>(&self, chatmessage: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<ChatMessage>,
     {
@@ -1399,14 +1399,14 @@ impl ChatMessageStore {
             (windows_core::Interface::vtable(this).SaveMessageAsync)(windows_core::Interface::as_raw(this), chatmessage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryCancelDownloadMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryCancelDownloadMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCancelDownloadMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localchatmessageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryCancelSendMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryCancelSendMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1427,7 +1427,7 @@ impl ChatMessageStore {
         let this = &windows_core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveStoreChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetMessageBySyncIdAsync(&self, syncid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
+    pub fn GetMessageBySyncIdAsync(&self, syncid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ChatMessage>> {
         let this = &windows_core::Interface::cast::<IChatMessageStore3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1512,7 +1512,7 @@ impl ChatMessageTransport {
             (windows_core::Interface::vtable(this).TransportId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn RequestSetAsNotificationProviderAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RequestSetAsNotificationProviderAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1840,14 +1840,14 @@ impl windows_core::RuntimeType for ChatRestoreHistorySpan {
 pub struct ChatSearchReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatSearchReader, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatSearchReader {
-    pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<IChatItem>>> {
+    pub fn ReadBatchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<IChatItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadBatchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadBatchWithCountAsync(&self, count: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<IChatItem>>> {
+    pub fn ReadBatchWithCountAsync(&self, count: i32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<IChatItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1939,7 +1939,7 @@ impl ChatSyncManager {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn AssociateAccountAsync<P0>(&self, webaccount: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn AssociateAccountAsync<P0>(&self, webaccount: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Security::Credentials::WebAccount>,
     {
@@ -1949,7 +1949,7 @@ impl ChatSyncManager {
             (windows_core::Interface::vtable(this).AssociateAccountAsync)(windows_core::Interface::as_raw(this), webaccount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UnassociateAccountAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UnassociateAccountAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1971,7 +1971,7 @@ impl ChatSyncManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartSync)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SetConfigurationAsync<P0>(&self, configuration: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetConfigurationAsync<P0>(&self, configuration: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<ChatSyncConfiguration>,
     {
@@ -2783,7 +2783,7 @@ impl RcsEndUserMessage {
             (windows_core::Interface::vtable(this).Actions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendResponseAsync<P0>(&self, action: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SendResponseAsync<P0>(&self, action: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<RcsEndUserMessageAction>,
     {
@@ -2793,7 +2793,7 @@ impl RcsEndUserMessage {
             (windows_core::Interface::vtable(this).SendResponseAsync)(windows_core::Interface::as_raw(this), action.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendResponseWithPinAsync<P0>(&self, action: P0, pin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SendResponseWithPinAsync<P0>(&self, action: P0, pin: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<RcsEndUserMessageAction>,
     {
@@ -2945,19 +2945,19 @@ impl RcsManager {
             (windows_core::Interface::vtable(this).GetEndUserMessageManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetTransportsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<RcsTransport>>> {
+    pub fn GetTransportsAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<RcsTransport>>> {
         Self::IRcsManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTransportsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetTransportAsync(transportid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<RcsTransport>> {
+    pub fn GetTransportAsync(transportid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<RcsTransport>> {
         Self::IRcsManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTransportAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(transportid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LeaveConversationAsync<P0>(conversation: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn LeaveConversationAsync<P0>(conversation: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<ChatConversation>,
     {

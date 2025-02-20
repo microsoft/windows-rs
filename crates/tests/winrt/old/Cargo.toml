@@ -11,6 +11,12 @@ doctest = false
 [dependencies.windows-collections]
 workspace = true
 
+[dependencies.windows-numerics]
+workspace = true
+
+[dependencies.windows-future]
+workspace = true
+
 [dependencies.windows]
 workspace = true
 features = [
@@ -22,7 +28,6 @@ features = [
     "Devices_Enumeration",
     "Devices_WiFiDirect",
     "Foundation_Collections",
-    "Foundation_Numerics",
     "Storage_Streams",
     "System",
     "UI_Composition",

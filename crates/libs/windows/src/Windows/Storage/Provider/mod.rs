@@ -764,7 +764,7 @@ impl windows_core::RuntimeType for IStorageProviderShareLinkSource {
 }
 windows_core::imp::interface_hierarchy!(IStorageProviderShareLinkSource, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderShareLinkSource {
-    pub fn CreateLinkAsync<P0>(&self, storageitemlist: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>
+    pub fn CreateLinkAsync<P0>(&self, storageitemlist: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>>
     where
         P0: windows_core::Param<windows_collections::IVectorView<super::IStorageItem>>,
     {
@@ -774,7 +774,7 @@ impl IStorageProviderShareLinkSource {
             (windows_core::Interface::vtable(this).CreateLinkAsync)(windows_core::Interface::as_raw(this), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefaultAccessControlStringAsync<P0>(&self, storageitemlist: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
+    pub fn GetDefaultAccessControlStringAsync<P0>(&self, storageitemlist: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
     where
         P0: windows_core::Param<windows_collections::IVectorView<super::IStorageItem>>,
     {
@@ -784,7 +784,7 @@ impl IStorageProviderShareLinkSource {
             (windows_core::Interface::vtable(this).GetDefaultAccessControlStringAsync)(windows_core::Interface::as_raw(this), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetState<P0>(&self, storageitemlist: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorageProviderShareLinkState>>
+    pub fn GetState<P0>(&self, storageitemlist: P0) -> windows_core::Result<windows_future::IAsyncOperation<StorageProviderShareLinkState>>
     where
         P0: windows_core::Param<windows_collections::IVectorView<super::IStorageItem>>,
     {
@@ -799,9 +799,9 @@ impl windows_core::RuntimeName for IStorageProviderShareLinkSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderShareLinkSource";
 }
 pub trait IStorageProviderShareLinkSource_Impl: windows_core::IUnknownImpl {
-    fn CreateLinkAsync(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>;
-    fn GetDefaultAccessControlStringAsync(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>;
-    fn GetState(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorageProviderShareLinkState>>;
+    fn CreateLinkAsync(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>>;
+    fn GetDefaultAccessControlStringAsync(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>;
+    fn GetState(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<windows_future::IAsyncOperation<StorageProviderShareLinkState>>;
 }
 impl IStorageProviderShareLinkSource_Vtbl {
     pub const fn new<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>() -> Self {
@@ -1624,7 +1624,7 @@ impl core::ops::Not for StorageProviderInSyncPolicy {
 }
 pub struct StorageProviderItemProperties;
 impl StorageProviderItemProperties {
-    pub fn SetAsync<P0, P1>(item: P0, itemproperties: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetAsync<P0, P1>(item: P0, itemproperties: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::IStorageItem>,
         P1: windows_core::Param<windows_collections::IIterable<StorageProviderItemProperty>>,

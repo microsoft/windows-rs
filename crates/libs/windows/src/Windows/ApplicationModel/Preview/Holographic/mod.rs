@@ -32,16 +32,16 @@ pub struct HolographicKeyboardPlacementOverridePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicKeyboardPlacementOverridePreview, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl HolographicKeyboardPlacementOverridePreview {
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetPlacementOverride<P0>(&self, coordinatesystem: P0, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()>
+    #[cfg(feature = "Perception_Spatial")]
+    pub fn SetPlacementOverride<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, normal: windows_numerics::Vector3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, normal).ok() }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3, maxsize: super::super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()>
+    #[cfg(feature = "Perception_Spatial")]
+    pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, normal: windows_numerics::Vector3, maxsize: windows_numerics::Vector2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
@@ -103,13 +103,13 @@ impl windows_core::RuntimeType for IHolographicKeyboardPlacementOverridePreview 
 #[repr(C)]
 pub struct IHolographicKeyboardPlacementOverridePreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub SetPlacementOverride: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(feature = "Perception_Spatial")]
+    pub SetPlacementOverride: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector3, windows_numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Perception_Spatial"))]
     SetPlacementOverride: usize,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub SetPlacementOverrideWithMaxSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, super::super::super::Foundation::Numerics::Vector3, super::super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(feature = "Perception_Spatial")]
+    pub SetPlacementOverrideWithMaxSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector3, windows_numerics::Vector3, windows_numerics::Vector2) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Perception_Spatial"))]
     SetPlacementOverrideWithMaxSize: usize,
     pub ResetPlacementOverride: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }

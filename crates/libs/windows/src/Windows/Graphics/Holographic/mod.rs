@@ -165,7 +165,7 @@ impl HolographicCameraPose {
             (windows_core::Interface::vtable(this).Viewport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetViewTransform<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::Foundation::IReference<HolographicStereoTransform>>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
@@ -176,7 +176,6 @@ impl HolographicCameraPose {
             (windows_core::Interface::vtable(this).TryGetViewTransform)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn ProjectionTransform(&self) -> windows_core::Result<HolographicStereoTransform> {
         let this = self;
         unsafe {
@@ -220,7 +219,7 @@ impl HolographicCameraPose {
             (windows_core::Interface::vtable(this).FarPlaneDistance)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub fn OverrideViewTransform<P0>(&self, coordinatesystem: P0, coordinatesystemtoviewtransform: HolographicStereoTransform) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
@@ -228,7 +227,6 @@ impl HolographicCameraPose {
         let this = &windows_core::Interface::cast::<IHolographicCameraPose2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).OverrideViewTransform)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), coordinatesystemtoviewtransform).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn OverrideProjectionTransform(&self, projectiontransform: HolographicStereoTransform) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IHolographicCameraPose2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).OverrideProjectionTransform)(windows_core::Interface::as_raw(this), projectiontransform).ok() }
@@ -255,24 +253,24 @@ unsafe impl Sync for HolographicCameraPose {}
 pub struct HolographicCameraRenderingParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicCameraRenderingParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicCameraRenderingParameters {
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetFocusPoint<P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()>
+    #[cfg(feature = "Perception_Spatial")]
+    pub fn SetFocusPoint<P0>(&self, coordinatesystem: P0, position: windows_numerics::Vector3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFocusPoint)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position).ok() }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetFocusPointWithNormal<P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()>
+    #[cfg(feature = "Perception_Spatial")]
+    pub fn SetFocusPointWithNormal<P0>(&self, coordinatesystem: P0, position: windows_numerics::Vector3, normal: windows_numerics::Vector3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFocusPointWithNormal)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position, normal).ok() }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetFocusPointWithNormalLinearVelocity<P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3, linearvelocity: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()>
+    #[cfg(feature = "Perception_Spatial")]
+    pub fn SetFocusPointWithNormalLinearVelocity<P0>(&self, coordinatesystem: P0, position: windows_numerics::Vector3, normal: windows_numerics::Vector3, linearvelocity: windows_numerics::Vector3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
@@ -354,20 +352,18 @@ unsafe impl Sync for HolographicCameraRenderingParameters {}
 pub struct HolographicCameraViewportParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicCameraViewportParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicCameraViewportParameters {
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn HiddenAreaMesh(&self) -> windows_core::Result<windows_core::Array<super::super::Foundation::Numerics::Vector2>> {
+    pub fn HiddenAreaMesh(&self) -> windows_core::Result<windows_core::Array<windows_numerics::Vector2>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).HiddenAreaMesh)(windows_core::Interface::as_raw(this), windows_core::Array::<super::super::Foundation::Numerics::Vector2>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(this).HiddenAreaMesh)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_numerics::Vector2>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn VisibleAreaMesh(&self) -> windows_core::Result<windows_core::Array<super::super::Foundation::Numerics::Vector2>> {
+    pub fn VisibleAreaMesh(&self) -> windows_core::Result<windows_core::Array<windows_numerics::Vector2>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).VisibleAreaMesh)(windows_core::Interface::as_raw(this), windows_core::Array::<super::super::Foundation::Numerics::Vector2>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(this).VisibleAreaMesh)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_numerics::Vector2>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
 }
@@ -958,13 +954,12 @@ impl HolographicQuadLayerUpdateParameters {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).UpdateContentProtectionEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn UpdateExtents(&self, value: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()> {
+    pub fn UpdateExtents(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).UpdateExtents)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn UpdateLocationWithStationaryMode<P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()>
+    pub fn UpdateLocationWithStationaryMode<P0>(&self, coordinatesystem: P0, position: windows_numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
@@ -972,7 +967,7 @@ impl HolographicQuadLayerUpdateParameters {
         unsafe { (windows_core::Interface::vtable(this).UpdateLocationWithStationaryMode)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position, orientation).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn UpdateLocationWithDisplayRelativeMode(&self, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()> {
+    pub fn UpdateLocationWithDisplayRelativeMode(&self, position: windows_numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).UpdateLocationWithDisplayRelativeMode)(windows_core::Interface::as_raw(this), position, orientation).ok() }
     }
@@ -1256,8 +1251,8 @@ impl windows_core::RuntimeType for HolographicSpaceUserPresence {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HolographicStereoTransform {
-    pub Left: super::super::Foundation::Numerics::Matrix4x4,
-    pub Right: super::super::Foundation::Numerics::Matrix4x4,
+    pub Left: windows_numerics::Matrix4x4,
+    pub Right: windows_numerics::Matrix4x4,
 }
 impl windows_core::TypeKind for HolographicStereoTransform {
     type TypeKind = windows_core::CopyType;
@@ -1460,14 +1455,11 @@ pub struct IHolographicCameraPose_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HolographicCamera: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Viewport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub TryGetViewTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(feature = "Perception_Spatial"))]
     TryGetViewTransform: usize,
-    #[cfg(feature = "Foundation_Numerics")]
     pub ProjectionTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HolographicStereoTransform) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    ProjectionTransform: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub TryGetCullingFrustum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
@@ -1486,14 +1478,11 @@ impl windows_core::RuntimeType for IHolographicCameraPose2 {
 #[repr(C)]
 pub struct IHolographicCameraPose2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub OverrideViewTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, HolographicStereoTransform) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(feature = "Perception_Spatial"))]
     OverrideViewTransform: usize,
-    #[cfg(feature = "Foundation_Numerics")]
     pub OverrideProjectionTransform: unsafe extern "system" fn(*mut core::ffi::c_void, HolographicStereoTransform) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    OverrideProjectionTransform: usize,
     pub OverrideViewport: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHolographicCameraRenderingParameters, IHolographicCameraRenderingParameters_Vtbl, 0x8eac2ed1_5bf4_4e16_8236_ae0800c11d0d);
@@ -1503,17 +1492,17 @@ impl windows_core::RuntimeType for IHolographicCameraRenderingParameters {
 #[repr(C)]
 pub struct IHolographicCameraRenderingParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub SetFocusPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(feature = "Perception_Spatial")]
+    pub SetFocusPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Perception_Spatial"))]
     SetFocusPoint: usize,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub SetFocusPointWithNormal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(feature = "Perception_Spatial")]
+    pub SetFocusPointWithNormal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector3, windows_numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Perception_Spatial"))]
     SetFocusPointWithNormal: usize,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub SetFocusPointWithNormalLinearVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3, super::super::Foundation::Numerics::Vector3, super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(feature = "Perception_Spatial")]
+    pub SetFocusPointWithNormalLinearVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector3, windows_numerics::Vector3, windows_numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Perception_Spatial"))]
     SetFocusPointWithNormalLinearVelocity: usize,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub Direct3D11Device: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1565,14 +1554,8 @@ impl windows_core::RuntimeType for IHolographicCameraViewportParameters {
 #[repr(C)]
 pub struct IHolographicCameraViewportParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub HiddenAreaMesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    HiddenAreaMesh: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub VisibleAreaMesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    VisibleAreaMesh: usize,
+    pub HiddenAreaMesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub VisibleAreaMesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_numerics::Vector2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHolographicDisplay, IHolographicDisplay_Vtbl, 0x9acea414_1d9f_4090_a388_90c06f6eae9c);
 impl windows_core::RuntimeType for IHolographicDisplay {
@@ -1768,16 +1751,13 @@ pub struct IHolographicQuadLayerUpdateParameters_Vtbl {
     AcquireBufferToUpdateContent: usize,
     pub UpdateViewport: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect) -> windows_core::HRESULT,
     pub UpdateContentProtectionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub UpdateExtents: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    UpdateExtents: usize,
+    pub UpdateExtents: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2) -> windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub UpdateLocationWithStationaryMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3, super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
+    pub UpdateLocationWithStationaryMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector3, super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     UpdateLocationWithStationaryMode: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub UpdateLocationWithDisplayRelativeMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Numerics::Vector3, super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
+    pub UpdateLocationWithDisplayRelativeMode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     UpdateLocationWithDisplayRelativeMode: usize,
 }

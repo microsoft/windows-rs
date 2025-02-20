@@ -27,7 +27,7 @@ impl TypeMap {
     }
 
     #[track_caller]
-    pub fn filter(reader: &'static Reader, filter: &Filter, references: &References) -> Self {
+    pub fn filter(reader: &Reader, filter: &Filter, references: &References) -> Self {
         let mut dependencies = Self::new();
 
         for namespace in reader.keys() {

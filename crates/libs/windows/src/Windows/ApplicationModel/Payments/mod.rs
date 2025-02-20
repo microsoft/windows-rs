@@ -916,14 +916,14 @@ impl PaymentMediator {
         static SHARED: windows_core::imp::FactoryCache<PaymentMediator, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn GetSupportedMethodIdsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
+    pub fn GetSupportedMethodIdsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedMethodIdsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SubmitPaymentRequestAsync<P0>(&self, paymentrequest: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>
+    pub fn SubmitPaymentRequestAsync<P0>(&self, paymentrequest: P0) -> windows_core::Result<windows_future::IAsyncOperation<PaymentRequestSubmitResult>>
     where
         P0: windows_core::Param<PaymentRequest>,
     {
@@ -933,7 +933,7 @@ impl PaymentMediator {
             (windows_core::Interface::vtable(this).SubmitPaymentRequestAsync)(windows_core::Interface::as_raw(this), paymentrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SubmitPaymentRequestWithChangeHandlerAsync<P0, P1>(&self, paymentrequest: P0, changehandler: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>
+    pub fn SubmitPaymentRequestWithChangeHandlerAsync<P0, P1>(&self, paymentrequest: P0, changehandler: P1) -> windows_core::Result<windows_future::IAsyncOperation<PaymentRequestSubmitResult>>
     where
         P0: windows_core::Param<PaymentRequest>,
         P1: windows_core::Param<PaymentRequestChangedHandler>,
@@ -944,7 +944,7 @@ impl PaymentMediator {
             (windows_core::Interface::vtable(this).SubmitPaymentRequestWithChangeHandlerAsync)(windows_core::Interface::as_raw(this), paymentrequest.param().abi(), changehandler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CanMakePaymentAsync<P0>(&self, paymentrequest: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>>
+    pub fn CanMakePaymentAsync<P0>(&self, paymentrequest: P0) -> windows_core::Result<windows_future::IAsyncOperation<PaymentCanMakePaymentResult>>
     where
         P0: windows_core::Param<PaymentRequest>,
     {
@@ -1581,7 +1581,7 @@ impl PaymentResponse {
             (windows_core::Interface::vtable(this).PayerPhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CompleteAsync(&self, status: PaymentRequestCompletionStatus) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn CompleteAsync(&self, status: PaymentRequestCompletionStatus) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

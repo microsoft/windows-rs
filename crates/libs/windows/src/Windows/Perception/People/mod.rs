@@ -10,7 +10,7 @@ impl EyesPose {
             (windows_core::Interface::vtable(this).IsCalibrationValid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub fn Gaze(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Spatial::SpatialRay>> {
         let this = self;
         unsafe {
@@ -32,7 +32,7 @@ impl EyesPose {
         })
     }
     #[cfg(feature = "UI_Input")]
-    pub fn RequestAccessAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>> {
         Self::IEyesPoseStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -170,8 +170,8 @@ unsafe impl Sync for HandMeshObserver {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HandMeshVertex {
-    pub Position: super::super::Foundation::Numerics::Vector3,
-    pub Normal: super::super::Foundation::Numerics::Vector3,
+    pub Position: windows_numerics::Vector3,
+    pub Normal: windows_numerics::Vector3,
 }
 impl windows_core::TypeKind for HandMeshVertex {
     type TypeKind = windows_core::CopyType;
@@ -192,7 +192,6 @@ impl HandMeshVertexState {
             (windows_core::Interface::vtable(this).CoordinateSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn GetVertices(&self, vertices: &mut [HandMeshVertex]) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).GetVertices)(windows_core::Interface::as_raw(this), vertices.len().try_into().unwrap(), vertices.as_mut_ptr()).ok() }
@@ -275,24 +274,21 @@ unsafe impl Sync for HandPose {}
 pub struct HeadPose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HeadPose, windows_core::IUnknown, windows_core::IInspectable);
 impl HeadPose {
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Position(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn ForwardDirection(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn ForwardDirection(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForwardDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn UpDirection(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn UpDirection(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -320,9 +316,9 @@ impl windows_core::RuntimeType for IEyesPose {
 pub struct IEyesPose_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCalibrationValid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub Gaze: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(feature = "Perception_Spatial"))]
     Gaze: usize,
     pub UpdateTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -369,10 +365,7 @@ pub struct IHandMeshVertexState_Vtbl {
     pub CoordinateSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Perception_Spatial"))]
     CoordinateSystem: usize,
-    #[cfg(feature = "Foundation_Numerics")]
     pub GetVertices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut HandMeshVertex) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    GetVertices: usize,
     pub UpdateTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHandPose, IHandPose_Vtbl, 0x4d98e79a_bb08_5d09_91de_df0dd3fae46c);
@@ -406,24 +399,15 @@ impl windows_core::RuntimeType for IHeadPose {
 #[repr(C)]
 pub struct IHeadPose_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Position: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub ForwardDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    ForwardDirection: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub UpDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    UpDirection: usize,
+    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub ForwardDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub UpDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JointPose {
     pub Orientation: super::super::Foundation::Numerics::Quaternion,
-    pub Position: super::super::Foundation::Numerics::Vector3,
+    pub Position: windows_numerics::Vector3,
     pub Radius: f32,
     pub Accuracy: JointPoseAccuracy,
 }

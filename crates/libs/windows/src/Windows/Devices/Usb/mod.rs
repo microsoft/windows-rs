@@ -438,7 +438,7 @@ impl UsbBulkInPipe {
             (windows_core::Interface::vtable(this).EndpointDescriptor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearStallAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ClearStallAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -532,7 +532,7 @@ impl UsbBulkOutPipe {
             (windows_core::Interface::vtable(this).EndpointDescriptor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearStallAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ClearStallAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -828,7 +828,7 @@ impl UsbDevice {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendControlOutTransferAsync<P0, P1>(&self, setuppacket: P0, buffer: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    pub fn SendControlOutTransferAsync<P0, P1>(&self, setuppacket: P0, buffer: P1) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
         P0: windows_core::Param<UsbSetupPacket>,
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
@@ -839,7 +839,7 @@ impl UsbDevice {
             (windows_core::Interface::vtable(this).SendControlOutTransferAsync)(windows_core::Interface::as_raw(this), setuppacket.param().abi(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendControlOutTransferAsyncNoBuffer<P0>(&self, setuppacket: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    pub fn SendControlOutTransferAsyncNoBuffer<P0>(&self, setuppacket: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
         P0: windows_core::Param<UsbSetupPacket>,
     {
@@ -850,7 +850,7 @@ impl UsbDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendControlInTransferAsync<P0, P1>(&self, setuppacket: P0, buffer: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    pub fn SendControlInTransferAsync<P0, P1>(&self, setuppacket: P0, buffer: P1) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<UsbSetupPacket>,
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
@@ -862,7 +862,7 @@ impl UsbDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendControlInTransferAsyncNoBuffer<P0>(&self, setuppacket: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    pub fn SendControlInTransferAsyncNoBuffer<P0>(&self, setuppacket: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<UsbSetupPacket>,
     {
@@ -920,7 +920,7 @@ impl UsbDevice {
             (windows_core::Interface::vtable(this).GetDeviceClassSelector)(windows_core::Interface::as_raw(this), usbclass.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UsbDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UsbDevice>> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1429,7 +1429,7 @@ impl UsbInterfaceSetting {
             (windows_core::Interface::vtable(this).Selected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectSettingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SelectSettingAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1547,7 +1547,7 @@ impl UsbInterruptInPipe {
             (windows_core::Interface::vtable(this).EndpointDescriptor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearStallAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ClearStallAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1639,7 +1639,7 @@ impl UsbInterruptOutPipe {
             (windows_core::Interface::vtable(this).EndpointDescriptor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearStallAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ClearStallAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

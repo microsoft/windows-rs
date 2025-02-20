@@ -81,6 +81,22 @@ fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, i
             rules.push((filter.to_string(), include));
             return;
         }
+
+        if let Some(starts_with) = name.strip_suffix('*') {
+            if let Some(types) = reader.get(namespace) {
+                let prev_len = rules.len();
+
+                for name in types.keys() {
+                    if name.starts_with(starts_with) {
+                        rules.push((format!("{namespace}.{name}"), include));
+                    }
+                }
+
+                if prev_len != rules.len() {
+                    return;
+                }
+            }
+        }
     }
 
     let mut pushed = false;

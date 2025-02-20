@@ -10,7 +10,7 @@ impl Class {
         self.def.type_name()
     }
 
-    fn write_cfg(&self, writer: &Writer) -> (Cfg, TokenStream) {
+    fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
         if !writer.config.package {
             return (Cfg::default(), quote! {});
         }
@@ -20,9 +20,8 @@ impl Class {
         (cfg, tokens)
     }
 
-    pub fn write(&self, writer: &Writer) -> TokenStream {
-        let mut required_interfaces = self.required_interfaces();
-        required_interfaces.sort();
+    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
+        let required_interfaces = self.required_interfaces();
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
         let (class_cfg, cfg) = self.write_cfg(writer);
@@ -228,7 +227,7 @@ impl Class {
         }
     }
 
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
         self.type_name().write(writer, &[])
     }
 
@@ -330,6 +329,8 @@ impl Class {
             }
         }
 
+        set.sort();
+        set.dedup();
         set
     }
 

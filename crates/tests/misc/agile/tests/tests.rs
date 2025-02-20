@@ -10,16 +10,4 @@ fn test() {
 
     send(Option::<IRestrictedErrorInfo>::None);
     sync(Option::<IRestrictedErrorInfo>::None);
-
-    send(Option::<IAsyncAction>::None);
-    sync(Option::<IAsyncAction>::None);
-
-    send(Option::<IAsyncActionWithProgress<i32>>::None);
-    sync(Option::<IAsyncActionWithProgress<i32>>::None);
-
-    send(Option::<IAsyncOperation<i32>>::None);
-    sync(Option::<IAsyncOperation<i32>>::None);
-
-    send(Option::<IAsyncOperationWithProgress<i32, i32>>::None);
-    sync(Option::<IAsyncOperationWithProgress<i32, i32>>::None);
 }

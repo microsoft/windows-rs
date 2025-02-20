@@ -38,7 +38,7 @@ impl CppStruct {
         TypeName(self.def.namespace(), self.name)
     }
 
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
         self.type_name().write(writer, &[])
     }
 
@@ -46,7 +46,7 @@ impl CppStruct {
         self.def.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn write_cfg(&self, writer: &Writer) -> TokenStream {
+    pub fn write_cfg(&self, writer: &Writer<'_>) -> TokenStream {
         if !writer.config.package {
             return quote! {};
         }
@@ -54,7 +54,7 @@ impl CppStruct {
         Cfg::new(self.def, &self.dependencies(), writer).write(writer, false)
     }
 
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
         if self.is_handle() {
             return writer.write_cpp_handle(self.def);
         }
@@ -70,7 +70,7 @@ impl CppStruct {
         self.write_with_cfg(writer, &quote! { #arches #cfg })
     }
 
-    fn write_with_cfg(&self, writer: &Writer, cfg: &TokenStream) -> TokenStream {
+    fn write_with_cfg(&self, writer: &Writer<'_>, cfg: &TokenStream) -> TokenStream {
         let name = to_ident(self.name);
         let flags = self.def.flags();
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);

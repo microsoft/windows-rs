@@ -241,8 +241,16 @@ jobs:
         run:  cargo clippy -p test_reference
       - name: Clippy test_reference_client
         run:  cargo clippy -p test_reference_client
+      - name: Clippy test_reference_custom
+        run:  cargo clippy -p test_reference_custom
       - name: Clippy test_reference_float
         run:  cargo clippy -p test_reference_float
+      - name: Clippy test_reference_no_deps
+        run:  cargo clippy -p test_reference_no_deps
+      - name: Clippy test_reference_no_windows
+        run:  cargo clippy -p test_reference_no_windows
+      - name: Clippy test_reference_windows
+        run:  cargo clippy -p test_reference_windows
       - name: Clippy test_registry
         run:  cargo clippy -p test_registry
       - name: Clippy test_registry_default
@@ -309,12 +317,16 @@ jobs:
         run:  cargo clippy -p windows-collections
       - name: Clippy windows-core
         run:  cargo clippy -p windows-core
+      - name: Clippy windows-future
+        run:  cargo clippy -p windows-future
       - name: Clippy windows-implement
         run:  cargo clippy -p windows-implement
       - name: Clippy windows-interface
         run:  cargo clippy -p windows-interface
       - name: Clippy windows-link
         run:  cargo clippy -p windows-link
+      - name: Clippy windows-numerics
+        run:  cargo clippy -p windows-numerics
       - name: Clippy windows-registry
         run:  cargo clippy -p windows-registry
       - name: Clippy windows-result

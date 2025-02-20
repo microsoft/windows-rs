@@ -3,7 +3,7 @@ use super::*;
 pub struct DeriveWriter(BTreeSet<String>);
 
 impl DeriveWriter {
-    pub fn new(writer: &Writer, type_name: TypeName) -> Self {
+    pub fn new(writer: &Writer<'_>, type_name: TypeName) -> Self {
         let mut derive = BTreeSet::new();
         derive.extend(writer.config.derive.get(type_name));
         Self(derive)

@@ -195,7 +195,7 @@ impl NotesWindowManagerPreview {
         unsafe { (windows_core::Interface::vtable(this).SetFocusToNextView)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetNotesThumbnailAsync<P0>(&self, thumbnail: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn SetNotesThumbnailAsync<P0>(&self, thumbnail: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -268,7 +268,7 @@ impl NotesWindowManagerPreview {
         unsafe { (windows_core::Interface::vtable(this).SetFocusToPreviousView)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetThumbnailImageForTaskSwitcherAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn SetThumbnailImageForTaskSwitcherAsync<P0>(&self, bitmap: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {

@@ -2442,7 +2442,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CopyFromFileAsync<P1>(&self, r#type: MediaPlaybackType, source: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn CopyFromFileAsync<P1>(&self, r#type: MediaPlaybackType, source: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P1: windows_core::Param<super::Storage::StorageFile>,
     {
@@ -2746,7 +2746,7 @@ impl VideoFrame {
             (windows_core::Interface::vtable(this).SoftwareBitmap)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CopyToAsync<P0>(&self, frame: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
+    pub fn CopyToAsync<P0>(&self, frame: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<VideoFrame>,
     {
@@ -2765,7 +2765,7 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn CopyToWithBoundsAsync<P0, P1, P2>(&self, frame: P0, sourcebounds: P1, destinationbounds: P2) -> windows_core::Result<super::Foundation::IAsyncAction>
+    pub fn CopyToWithBoundsAsync<P0, P1, P2>(&self, frame: P0, sourcebounds: P1, destinationbounds: P2) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<VideoFrame>,
         P1: windows_core::Param<super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>,

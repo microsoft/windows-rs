@@ -4524,16 +4524,13 @@ impl IDirect3DDevice9 {
     pub unsafe fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: u32, z: f32, stencil: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self), count, prects, flags, color, z, stencil).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub unsafe fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub unsafe fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), state, pmatrix).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub unsafe fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub unsafe fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), state, pmatrix as _).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub unsafe fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()> {
+    pub unsafe fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).MultiplyTransform)(windows_core::Interface::as_raw(self), param0, param1).ok() }
     }
     pub unsafe fn SetViewport(&self, pviewport: *const D3DVIEWPORT9) -> windows_core::Result<()> {
@@ -4859,18 +4856,9 @@ pub struct IDirect3DDevice9_Vtbl {
     pub BeginScene: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndScene: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3DRECT, u32, u32, f32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *const super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTransform: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub GetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *mut super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    GetTransform: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub MultiplyTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *const super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    MultiplyTransform: usize,
+    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
+    pub GetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT,
+    pub MultiplyTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
     pub SetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3DVIEWPORT9) -> windows_core::HRESULT,
     pub GetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DVIEWPORT9) -> windows_core::HRESULT,
     pub SetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3DMATERIAL9) -> windows_core::HRESULT,
@@ -4956,7 +4944,7 @@ pub struct IDirect3DDevice9_Vtbl {
     pub DeletePatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub CreateQuery: unsafe extern "system" fn(*mut core::ffi::c_void, D3DQUERYTYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn TestCooperativeLevel(&self) -> windows_core::Result<()>;
     fn GetAvailableTextureMem(&self) -> u32;
@@ -4999,9 +4987,9 @@ pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn BeginScene(&self) -> windows_core::Result<()>;
     fn EndScene(&self) -> windows_core::Result<()>;
     fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: u32, z: f32, stencil: u32) -> windows_core::Result<()>;
-    fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()>;
-    fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()>;
-    fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::Result<()>;
+    fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
+    fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::Result<()>;
+    fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
     fn SetViewport(&self, pviewport: *const D3DVIEWPORT9) -> windows_core::Result<()>;
     fn GetViewport(&self, pviewport: *mut D3DVIEWPORT9) -> windows_core::Result<()>;
     fn SetMaterial(&self, pmaterial: *const D3DMATERIAL9) -> windows_core::Result<()>;
@@ -5075,7 +5063,7 @@ pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn DeletePatch(&self, handle: u32) -> windows_core::Result<()>;
     fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> windows_core::Result<IDirect3DQuery9>;
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 impl IDirect3DDevice9_Vtbl {
     pub const fn new<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TestCooperativeLevel<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5354,19 +5342,19 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::Clear(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&prects), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&color), core::mem::transmute_copy(&z), core::mem::transmute_copy(&stencil)).into()
             }
         }
-        unsafe extern "system" fn SetTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DTRANSFORMSTATETYPE, pmatrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::SetTransform(this, core::mem::transmute_copy(&state), core::mem::transmute_copy(&pmatrix)).into()
             }
         }
-        unsafe extern "system" fn GetTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::GetTransform(this, core::mem::transmute_copy(&state), core::mem::transmute_copy(&pmatrix)).into()
             }
         }
-        unsafe extern "system" fn MultiplyTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: D3DTRANSFORMSTATETYPE, param1: *const super::super::super::Foundation::Numerics::Matrix4x4) -> windows_core::HRESULT {
+        unsafe extern "system" fn MultiplyTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::MultiplyTransform(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
@@ -5994,7 +5982,7 @@ impl IDirect3DDevice9_Vtbl {
         iid == &<IDirect3DDevice9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDirect3DDevice9 {}
 windows_core::imp::define_interface!(IDirect3DDevice9Ex, IDirect3DDevice9Ex_Vtbl, 0xb18b10ce_2649_405a_870f_95f777d4313a);
 impl core::ops::Deref for IDirect3DDevice9Ex {
@@ -6080,7 +6068,7 @@ pub struct IDirect3DDevice9Ex_Vtbl {
     pub ResetEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DPRESENT_PARAMETERS, *mut D3DDISPLAYMODEEX) -> windows_core::HRESULT,
     pub GetDisplayModeEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DDISPLAYMODEEX, *mut D3DDISPLAYROTATION) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3DDevice9Ex_Impl: IDirect3DDevice9_Impl {
     fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> windows_core::Result<()>;
     fn ComposeRects(&self, psrc: windows_core::Ref<'_, IDirect3DSurface9>, pdst: windows_core::Ref<'_, IDirect3DSurface9>, psrcrectdescs: windows_core::Ref<'_, IDirect3DVertexBuffer9>, numrects: u32, pdstrectdescs: windows_core::Ref<'_, IDirect3DVertexBuffer9>, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> windows_core::Result<()>;
@@ -6098,7 +6086,7 @@ pub trait IDirect3DDevice9Ex_Impl: IDirect3DDevice9_Impl {
     fn ResetEx(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> windows_core::Result<()>;
     fn GetDisplayModeEx(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 impl IDirect3DDevice9Ex_Vtbl {
     pub const fn new<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetConvolutionMonoKernel<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> windows_core::HRESULT {
@@ -6214,7 +6202,7 @@ impl IDirect3DDevice9Ex_Vtbl {
         iid == &<IDirect3DDevice9Ex as windows_core::Interface>::IID || iid == &<IDirect3DDevice9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDirect3DDevice9Ex {}
 windows_core::imp::define_interface!(IDirect3DIndexBuffer9, IDirect3DIndexBuffer9_Vtbl, 0x7c9dd65e_d3f7_4529_acee_785830acde35);
 impl core::ops::Deref for IDirect3DIndexBuffer9 {

@@ -717,7 +717,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).IsPinningAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsCurrentAppPinnedAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsCurrentAppPinnedAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -725,7 +725,7 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn IsAppListEntryPinnedAsync<P0>(&self, applistentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn IsAppListEntryPinnedAsync<P0>(&self, applistentry: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
@@ -735,7 +735,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).IsAppListEntryPinnedAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestPinCurrentAppAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestPinCurrentAppAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -743,7 +743,7 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn RequestPinAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestPinAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
@@ -753,7 +753,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).RequestPinAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsSecondaryTilePinnedAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsSecondaryTilePinnedAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -761,7 +761,7 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "UI_StartScreen")]
-    pub fn RequestPinSecondaryTileAsync<P0>(&self, secondarytile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestPinSecondaryTileAsync<P0>(&self, secondarytile: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::StartScreen::SecondaryTile>,
     {
@@ -771,7 +771,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).RequestPinSecondaryTileAsync)(windows_core::Interface::as_raw(this), secondarytile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryUnpinSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUnpinSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

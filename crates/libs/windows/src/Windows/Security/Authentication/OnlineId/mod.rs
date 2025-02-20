@@ -318,7 +318,7 @@ impl windows_core::RuntimeName for OnlineIdSystemAuthenticator {
 pub struct OnlineIdSystemAuthenticatorForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OnlineIdSystemAuthenticatorForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl OnlineIdSystemAuthenticatorForUser {
-    pub fn GetTicketAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>
+    pub fn GetTicketAsync<P0>(&self, request: P0) -> windows_core::Result<windows_future::IAsyncOperation<OnlineIdSystemTicketResult>>
     where
         P0: windows_core::Param<OnlineIdServiceTicketRequest>,
     {
@@ -445,8 +445,8 @@ impl windows_core::TypeKind for OnlineIdSystemTicketStatus {
 impl windows_core::RuntimeType for OnlineIdSystemTicketStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
 }
-pub type SignOutUserOperation = super::super::super::Foundation::IAsyncAction;
-pub type UserAuthenticationOperation = super::super::super::Foundation::IAsyncOperation<UserIdentity>;
+pub type SignOutUserOperation = windows_future::IAsyncAction;
+pub type UserAuthenticationOperation = windows_future::IAsyncOperation<UserIdentity>;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserIdentity(windows_core::IUnknown);

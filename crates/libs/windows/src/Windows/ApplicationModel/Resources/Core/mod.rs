@@ -283,7 +283,7 @@ impl ResourceCandidate {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetValueAsFileAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>> {
+    pub fn GetValueAsFileAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -298,7 +298,7 @@ impl ResourceCandidate {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetValueAsStreamAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStream>> {
+    pub fn GetValueAsStreamAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStream>> {
         let this = &windows_core::Interface::cast::<IResourceCandidate2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -202,7 +202,7 @@ pub struct ITargetedContentValue_Vtbl {
 pub struct TargetedContentAction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentAction, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentAction {
-    pub fn InvokeAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn InvokeAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -408,7 +408,7 @@ impl TargetedContentContainer {
             (windows_core::Interface::vtable(this).SelectSingleObject)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsync(contentid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>> {
+    pub fn GetAsync(contentid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<TargetedContentContainer>> {
         Self::ITargetedContentContainerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contentid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -439,7 +439,7 @@ pub struct TargetedContentFile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentFile, windows_core::IUnknown, windows_core::IInspectable, super::super::Storage::Streams::IRandomAccessStreamReference);
 #[cfg(feature = "Storage_Streams")]
 impl TargetedContentFile {
-    pub fn OpenReadAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
+    pub fn OpenReadAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -474,7 +474,7 @@ windows_core::imp::interface_hierarchy!(TargetedContentImage, windows_core::IUnk
 windows_core::imp::required_hierarchy!(TargetedContentImage, super::super::Storage::Streams::IRandomAccessStreamReference);
 #[cfg(feature = "Storage_Streams")]
 impl TargetedContentImage {
-    pub fn OpenReadAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
+    pub fn OpenReadAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStreamReference>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -720,7 +720,7 @@ impl TargetedContentSubscription {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetContentContainerAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>> {
+    pub fn GetContentContainerAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<TargetedContentContainer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -769,7 +769,7 @@ impl TargetedContentSubscription {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStateChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn GetAsync(subscriptionid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>> {
+    pub fn GetAsync(subscriptionid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<TargetedContentSubscription>> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(subscriptionid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

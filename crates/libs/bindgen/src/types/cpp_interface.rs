@@ -28,7 +28,7 @@ impl CppInterface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, writer: &Writer) -> Vec<CppMethodOrName> {
+    pub fn get_methods(&self, writer: &Writer<'_>) -> Vec<CppMethodOrName> {
         let namespace = self.def.namespace();
 
         self.def
@@ -38,13 +38,18 @@ impl CppInterface {
                 if method.dependencies.included(writer.config) {
                     CppMethodOrName::Method(method)
                 } else {
+                    writer.config.warnings.skip_method(
+                        method.def,
+                        &method.dependencies,
+                        writer.config,
+                    );
                     CppMethodOrName::Name(method.def)
                 }
             })
             .collect()
     }
 
-    fn write_cfg(&self, writer: &Writer) -> (Cfg, TokenStream) {
+    fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
         if !writer.config.package {
             return (Cfg::default(), quote! {});
         }
@@ -54,7 +59,7 @@ impl CppInterface {
         (cfg, tokens)
     }
 
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
         let methods = self.get_methods(writer);
 
         let base_interfaces = self.base_interfaces();
@@ -221,7 +226,11 @@ impl CppInterface {
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
             let cfg = if writer.config.package {
-                fn combine(interface: &CppInterface, dependencies: &mut TypeMap, writer: &Writer) {
+                fn combine(
+                    interface: &CppInterface,
+                    dependencies: &mut TypeMap,
+                    writer: &Writer<'_>,
+                ) {
                     for method in interface.get_methods(writer).iter() {
                         if let CppMethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);
@@ -398,17 +407,17 @@ impl CppInterface {
         }
     }
 
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
         self.type_name().write(writer, &[])
     }
 
-    fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
+    fn write_vtbl_name(&self, writer: &Writer<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
         let namespace = writer.write_namespace(self.def.type_name());
         quote! { #namespace #name }
     }
 
-    pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_impl_name(&self, writer: &Writer<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
         let namespace = writer.write_namespace(self.def.type_name());
         quote! { #namespace #name }

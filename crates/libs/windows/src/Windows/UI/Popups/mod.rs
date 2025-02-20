@@ -247,7 +247,7 @@ impl MessageDialog {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -373,21 +373,21 @@ impl PopupMenu {
             (windows_core::Interface::vtable(this).Commands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsync(&self, invocationpoint: super::super::Foundation::Point) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsync(&self, invocationpoint: super::super::Foundation::Point) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), invocationpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsyncWithRect)(windows_core::Interface::as_raw(this), selection, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: Placement) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: Placement) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -10,3 +10,6 @@ features = [
     "Security_Credentials_UI",
     "Win32_System_WinRT",
 ]
+
+[dependencies.windows-future]
+workspace = true

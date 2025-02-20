@@ -607,14 +607,14 @@ impl PeerFinder {
     pub fn RemoveConnectionRequested(cookie: i64) -> windows_core::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveConnectionRequested)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    pub fn FindAllPeersAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_collections::IVectorView<PeerInformation>>> {
+    pub fn FindAllPeersAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PeerInformation>>> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllPeersAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Networking_Sockets")]
-    pub fn ConnectAsync<P0>(peerinformation: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>>
+    pub fn ConnectAsync<P0>(peerinformation: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::Sockets::StreamSocket>>
     where
         P0: windows_core::Param<PeerInformation>,
     {

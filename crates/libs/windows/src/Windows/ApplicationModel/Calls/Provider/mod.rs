@@ -197,7 +197,7 @@ impl PhoneCallOriginManager {
     {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetCallOrigin)(windows_core::Interface::as_raw(this), requestid, callorigin.param().abi()).ok() })
     }
-    pub fn RequestSetAsActiveCallOriginAppAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestSetAsActiveCallOriginAppAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IPhoneCallOriginManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestSetAsActiveCallOriginAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

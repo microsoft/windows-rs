@@ -412,48 +412,21 @@ pub struct IInteractionTracker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InteractionSources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsPositionRoundingSuggested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub MaxPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    MaxPosition: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetMaxPosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetMaxPosition: usize,
+    pub MaxPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetMaxPosition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
     pub MaxScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetMaxScale: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub MinPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    MinPosition: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetMinPosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetMinPosition: usize,
+    pub MinPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub SetMinPosition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3) -> windows_core::HRESULT,
     pub MinScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetMinScale: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub NaturalRestingPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    NaturalRestingPosition: usize,
+    pub NaturalRestingPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub NaturalRestingScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub Owner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Position: usize,
-    #[cfg(feature = "Foundation_Numerics")]
+    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub PositionInertiaDecayRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    PositionInertiaDecayRate: usize,
-    #[cfg(feature = "Foundation_Numerics")]
     pub SetPositionInertiaDecayRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetPositionInertiaDecayRate: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub PositionVelocityInPixelsPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    PositionVelocityInPixelsPerSecond: usize,
+    pub PositionVelocityInPixelsPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub ScaleInertiaDecayRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetScaleInertiaDecayRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -463,31 +436,13 @@ pub struct IInteractionTracker_Vtbl {
     pub ConfigurePositionXInertiaModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ConfigurePositionYInertiaModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ConfigureScaleInertiaModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryUpdatePosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryUpdatePosition: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryUpdatePositionBy: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryUpdatePositionBy: usize,
+    pub TryUpdatePosition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, *mut i32) -> windows_core::HRESULT,
+    pub TryUpdatePositionBy: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, *mut i32) -> windows_core::HRESULT,
     pub TryUpdatePositionWithAnimation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryUpdatePositionWithAdditionalVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryUpdatePositionWithAdditionalVelocity: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryUpdateScale: unsafe extern "system" fn(*mut core::ffi::c_void, f32, super::super::super::Foundation::Numerics::Vector3, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryUpdateScale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryUpdateScaleWithAnimation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryUpdateScaleWithAnimation: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryUpdateScaleWithAdditionalVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, f32, super::super::super::Foundation::Numerics::Vector3, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryUpdateScaleWithAdditionalVelocity: usize,
+    pub TryUpdatePositionWithAdditionalVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, *mut i32) -> windows_core::HRESULT,
+    pub TryUpdateScale: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_numerics::Vector3, *mut i32) -> windows_core::HRESULT,
+    pub TryUpdateScaleWithAnimation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector3, *mut i32) -> windows_core::HRESULT,
+    pub TryUpdateScaleWithAdditionalVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_numerics::Vector3, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInteractionTracker2, IInteractionTracker2_Vtbl, 0x25769a3e_ce6d_448c_8386_92620d240756);
 impl windows_core::RuntimeType for IInteractionTracker2 {
@@ -515,14 +470,8 @@ impl windows_core::RuntimeType for IInteractionTracker4 {
 #[repr(C)]
 pub struct IInteractionTracker4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryUpdatePositionWithOption: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, InteractionTrackerClampingOption, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryUpdatePositionWithOption: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryUpdatePositionByWithOption: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, InteractionTrackerClampingOption, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryUpdatePositionByWithOption: usize,
+    pub TryUpdatePositionWithOption: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, InteractionTrackerClampingOption, *mut i32) -> windows_core::HRESULT,
+    pub TryUpdatePositionByWithOption: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, InteractionTrackerClampingOption, *mut i32) -> windows_core::HRESULT,
     pub IsInertiaFromImpulse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInteractionTracker5, IInteractionTracker5_Vtbl, 0xd3ef5da2_a254_40e4_88d5_44e4e16b5809);
@@ -532,10 +481,7 @@ impl windows_core::RuntimeType for IInteractionTracker5 {
 #[repr(C)]
 pub struct IInteractionTracker5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub TryUpdatePositionWithOption: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, InteractionTrackerClampingOption, InteractionTrackerPositionUpdateOption, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    TryUpdatePositionWithOption: usize,
+    pub TryUpdatePositionWithOption: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, InteractionTrackerClampingOption, InteractionTrackerPositionUpdateOption, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInteractionTrackerCustomAnimationStateEnteredArgs, IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl, 0x8d1c8cf1_d7b0_434c_a5d2_2d7611864834);
 impl windows_core::RuntimeType for IInteractionTrackerCustomAnimationStateEnteredArgs {
@@ -659,20 +605,11 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaStateEnteredArgs {
 #[repr(C)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
     pub ModifiedRestingPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    ModifiedRestingPosition: usize,
     pub ModifiedRestingScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub NaturalRestingPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    NaturalRestingPosition: usize,
+    pub NaturalRestingPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub NaturalRestingScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub PositionVelocityInPixelsPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    PositionVelocityInPixelsPerSecond: usize,
+    pub PositionVelocityInPixelsPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ScaleVelocityInPercentPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
@@ -876,10 +813,7 @@ impl windows_core::RuntimeType for IInteractionTrackerValuesChangedArgs {
 #[repr(C)]
 pub struct IInteractionTrackerValuesChangedArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Position: usize,
+    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
@@ -958,19 +892,10 @@ impl windows_core::RuntimeType for IVisualInteractionSource2 {
 #[repr(C)]
 pub struct IVisualInteractionSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub DeltaPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    DeltaPosition: usize,
+    pub DeltaPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub DeltaScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Position: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub PositionVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    PositionVelocity: usize,
+    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub PositionVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub ScaleVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub ConfigureCenterPointXModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1387,16 +1312,14 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(this).IsPositionRoundingSuggested)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn MaxPosition(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn MaxPosition(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMaxPosition(&self, value: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetMaxPosition(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaxPosition)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1411,16 +1334,14 @@ impl InteractionTracker {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaxScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn MinPosition(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn MinPosition(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMinPosition(&self, value: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetMinPosition(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMinPosition)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1435,8 +1356,7 @@ impl InteractionTracker {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMinScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn NaturalRestingPosition(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn NaturalRestingPosition(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1457,32 +1377,28 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(this).Owner)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn Position(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn PositionInertiaDecayRate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
+    pub fn PositionInertiaDecayRate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PositionInertiaDecayRate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPositionInertiaDecayRate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<windows_numerics::Vector3>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPositionInertiaDecayRate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn PositionVelocityInPixelsPerSecond(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn PositionVelocityInPixelsPerSecond(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1546,16 +1462,14 @@ impl InteractionTracker {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ConfigureScaleInertiaModifiers)(windows_core::Interface::as_raw(this), modifiers.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePosition(&self, value: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<i32> {
+    pub fn TryUpdatePosition(&self, value: windows_numerics::Vector3) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryUpdatePosition)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionBy(&self, amount: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<i32> {
+    pub fn TryUpdatePositionBy(&self, amount: windows_numerics::Vector3) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1572,24 +1486,21 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(this).TryUpdatePositionWithAnimation)(windows_core::Interface::as_raw(this), animation.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionWithAdditionalVelocity(&self, velocityinpixelspersecond: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<i32> {
+    pub fn TryUpdatePositionWithAdditionalVelocity(&self, velocityinpixelspersecond: windows_numerics::Vector3) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryUpdatePositionWithAdditionalVelocity)(windows_core::Interface::as_raw(this), velocityinpixelspersecond, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdateScale(&self, value: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<i32> {
+    pub fn TryUpdateScale(&self, value: f32, centerpoint: windows_numerics::Vector3) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryUpdateScale)(windows_core::Interface::as_raw(this), value, centerpoint, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdateScaleWithAnimation<P0>(&self, animation: P0, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<i32>
+    pub fn TryUpdateScaleWithAnimation<P0>(&self, animation: P0, centerpoint: windows_numerics::Vector3) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<super::CompositionAnimation>,
     {
@@ -1599,8 +1510,7 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(this).TryUpdateScaleWithAnimation)(windows_core::Interface::as_raw(this), animation.param().abi(), centerpoint, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdateScaleWithAdditionalVelocity(&self, velocityinpercentpersecond: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<i32> {
+    pub fn TryUpdateScaleWithAdditionalVelocity(&self, velocityinpercentpersecond: f32, centerpoint: windows_numerics::Vector3) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1628,16 +1538,14 @@ impl InteractionTracker {
         let this = &windows_core::Interface::cast::<IInteractionTracker3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ConfigureVector2PositionInertiaModifiers)(windows_core::Interface::as_raw(this), modifiers.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionWithOption(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> windows_core::Result<i32> {
+    pub fn TryUpdatePositionWithOption(&self, value: windows_numerics::Vector3, option: InteractionTrackerClampingOption) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IInteractionTracker4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryUpdatePositionWithOption)(windows_core::Interface::as_raw(this), value, option, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionByWithOption(&self, amount: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> windows_core::Result<i32> {
+    pub fn TryUpdatePositionByWithOption(&self, amount: windows_numerics::Vector3, option: InteractionTrackerClampingOption) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IInteractionTracker4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1651,8 +1559,7 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(this).IsInertiaFromImpulse)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionWithOption2(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption) -> windows_core::Result<i32> {
+    pub fn TryUpdatePositionWithOption2(&self, value: windows_numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IInteractionTracker5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2421,8 +2328,7 @@ unsafe impl Sync for InteractionTrackerInertiaRestingValue {}
 pub struct InteractionTrackerInertiaStateEnteredArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaStateEnteredArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InteractionTrackerInertiaStateEnteredArgs {
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn ModifiedRestingPosition(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
+    pub fn ModifiedRestingPosition(&self) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2436,8 +2342,7 @@ impl InteractionTrackerInertiaStateEnteredArgs {
             (windows_core::Interface::vtable(this).ModifiedRestingScale)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn NaturalRestingPosition(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn NaturalRestingPosition(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2451,8 +2356,7 @@ impl InteractionTrackerInertiaStateEnteredArgs {
             (windows_core::Interface::vtable(this).NaturalRestingScale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn PositionVelocityInPixelsPerSecond(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn PositionVelocityInPixelsPerSecond(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2575,8 +2479,7 @@ unsafe impl Sync for InteractionTrackerRequestIgnoredArgs {}
 pub struct InteractionTrackerValuesChangedArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerValuesChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InteractionTrackerValuesChangedArgs {
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn Position(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3127,8 +3030,7 @@ impl VisualInteractionSource {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).TryRedirectForManipulation)(windows_core::Interface::as_raw(this), pointerpoint.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn DeltaPosition(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn DeltaPosition(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3142,16 +3044,14 @@ impl VisualInteractionSource {
             (windows_core::Interface::vtable(this).DeltaScale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn Position(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn PositionVelocity(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn PositionVelocity(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

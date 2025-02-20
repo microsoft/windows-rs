@@ -1463,7 +1463,7 @@ impl MediaEncodingProfile {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
+    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<MediaEncodingProfile>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -1473,7 +1473,7 @@ impl MediaEncodingProfile {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStreamAsync<P0>(stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
+    pub fn CreateFromStreamAsync<P0>(stream: P0) -> windows_core::Result<windows_future::IAsyncOperation<MediaEncodingProfile>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {

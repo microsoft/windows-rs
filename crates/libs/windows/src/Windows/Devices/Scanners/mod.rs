@@ -889,7 +889,7 @@ impl ImageScanner {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ScanPreviewToStreamAsync<P1>(&self, scansource: ImageScannerScanSource, targetstream: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>
+    pub fn ScanPreviewToStreamAsync<P1>(&self, scansource: ImageScannerScanSource, targetstream: P1) -> windows_core::Result<windows_future::IAsyncOperation<ImageScannerPreviewResult>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -900,7 +900,7 @@ impl ImageScanner {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn ScanFilesToFolderAsync<P1>(&self, scansource: ImageScannerScanSource, storagefolder: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>
+    pub fn ScanFilesToFolderAsync<P1>(&self, scansource: ImageScannerScanSource, storagefolder: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>
     where
         P1: windows_core::Param<super::super::Storage::StorageFolder>,
     {
@@ -910,7 +910,7 @@ impl ImageScanner {
             (windows_core::Interface::vtable(this).ScanFilesToFolderAsync)(windows_core::Interface::as_raw(this), scansource, storagefolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageScanner>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ImageScanner>> {
         Self::IImageScannerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
