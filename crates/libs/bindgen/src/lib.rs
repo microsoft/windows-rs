@@ -22,6 +22,7 @@ mod type_name;
 mod type_tree;
 mod types;
 mod value;
+mod warnings;
 mod winmd;
 mod writer;
 
@@ -44,6 +45,7 @@ use type_name::*;
 use type_tree::*;
 use types::*;
 use value::*;
+pub use warnings::*;
 use winmd::*;
 use writer::*;
 mod method_names;
@@ -64,11 +66,12 @@ struct Config {
     pub implement: bool,
     pub derive: Derive,
     pub link: String,
+    pub warnings: WarningBuilder,
 }
 
 /// The Windows code generator.
 #[track_caller]
-pub fn bindgen<I, S>(args: I)
+pub fn bindgen<I, S>(args: I) -> Warnings
 where
     I: IntoIterator<Item = S>,
     S: AsRef<str>,
@@ -201,6 +204,7 @@ where
         sys,
         implement,
         link,
+        warnings: WarningBuilder::default(),
     };
 
     let tree = TypeTree::new(&config.types);
@@ -210,7 +214,8 @@ where
         namespace: "",
     };
 
-    writer.write(tree)
+    writer.write(tree);
+    config.warnings.build()
 }
 
 enum ArgKind {

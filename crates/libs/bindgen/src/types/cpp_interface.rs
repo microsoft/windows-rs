@@ -38,6 +38,11 @@ impl CppInterface {
                 if method.dependencies.included(writer.config) {
                     CppMethodOrName::Method(method)
                 } else {
+                    writer.config.warnings.skip_method(
+                        method.def,
+                        &method.dependencies,
+                        writer.config,
+                    );
                     CppMethodOrName::Name(method.def)
                 }
             })
