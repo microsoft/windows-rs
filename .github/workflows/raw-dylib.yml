@@ -236,6 +236,8 @@ jobs:
         run:  cargo test -p test_interop --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_lib
         run:  cargo test -p test_lib --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_link
+        run:  cargo test -p test_link --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_linux
         run:  cargo test -p test_linux --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_literals
@@ -260,10 +262,10 @@ jobs:
         run:  cargo test -p test_overloads --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_overloads_client
         run:  cargo test -p test_overloads_client --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_query_signature
-        run:  cargo test -p test_query_signature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_query_signature
+        run:  cargo test -p test_query_signature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_readme
         run:  cargo test -p test_readme --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_ref_params
@@ -362,10 +364,10 @@ jobs:
         run:  cargo test -p windows-registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-result
         run:  cargo test -p windows-result --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test windows-strings
-        run:  cargo test -p windows-strings --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test windows-strings
+        run:  cargo test -p windows-strings --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-sys
         run:  cargo test -p windows-sys --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-targets

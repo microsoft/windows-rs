@@ -207,6 +207,8 @@ jobs:
         run:  cargo clippy -p test_interop
       - name: Clippy test_lib
         run:  cargo clippy -p test_lib
+      - name: Clippy test_link
+        run:  cargo clippy -p test_link
       - name: Clippy test_linux
         run:  cargo clippy -p test_linux
       - name: Clippy test_literals

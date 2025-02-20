@@ -17,7 +17,7 @@ features = [
 [dependencies.windows-result]
 workspace = true
 
-[dependencies.windows-targets]
+[dependencies.windows-link]
 workspace = true
 
 [dependencies]
