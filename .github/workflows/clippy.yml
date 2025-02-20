@@ -135,8 +135,6 @@ jobs:
         run:  cargo clippy -p test_arch_feature
       - name: Clippy test_array
         run:  cargo clippy -p test_array
-      - name: Clippy test_async
-        run:  cargo clippy -p test_async
       - name: Clippy test_bcrypt
         run:  cargo clippy -p test_bcrypt
       - name: Clippy test_bindgen
@@ -193,6 +191,8 @@ jobs:
         run:  cargo clippy -p test_events_client
       - name: Clippy test_extensions
         run:  cargo clippy -p test_extensions
+      - name: Clippy test_future
+        run:  cargo clippy -p test_future
       - name: Clippy test_handles
         run:  cargo clippy -p test_handles
       - name: Clippy test_implement

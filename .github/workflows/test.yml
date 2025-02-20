@@ -161,8 +161,6 @@ jobs:
         run:  cargo clean
       - name: Test test_array
         run:  cargo test -p test_array --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_async
-        run:  cargo test -p test_async --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_bcrypt
         run:  cargo test -p test_bcrypt --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_bindgen
@@ -219,6 +217,8 @@ jobs:
         run:  cargo test -p test_events_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_extensions
         run:  cargo test -p test_extensions --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_future
+        run:  cargo test -p test_future --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_handles
         run:  cargo test -p test_handles --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_implement
