@@ -145,7 +145,7 @@ jobs:
 
     // This unrolling is required since "cargo clippy --all" consumes too much memory for the GitHub hosted runners.
 
-    for (name, _) in helpers::crates("crates") {
+    for (name, _) in helpers::crates("crates/libs") {
         write!(
             &mut yml,
             r"
