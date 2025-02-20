@@ -3,10 +3,9 @@
 pub struct CoreIncrementalInkStroke(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreIncrementalInkStroke, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreIncrementalInkStroke {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn AppendInkPoints<P0>(&self, inkpoints: P0) -> windows_core::Result<super::super::super::super::Foundation::Rect>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::Collections::IIterable<super::InkPoint>>,
+        P0: windows_core::Param<windows_collections::IIterable<super::InkPoint>>,
     {
         let this = self;
         unsafe {
@@ -28,8 +27,7 @@ impl CoreIncrementalInkStroke {
             (windows_core::Interface::vtable(this).DrawingAttributes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn PointTransform(&self) -> windows_core::Result<super::super::super::super::Foundation::Numerics::Matrix3x2> {
+    pub fn PointTransform(&self) -> windows_core::Result<windows_numerics::Matrix3x2> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -43,8 +41,7 @@ impl CoreIncrementalInkStroke {
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Create<P0>(drawingattributes: P0, pointtransform: super::super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::Result<CoreIncrementalInkStroke>
+    pub fn Create<P0>(drawingattributes: P0, pointtransform: windows_numerics::Matrix3x2) -> windows_core::Result<CoreIncrementalInkStroke>
     where
         P0: windows_core::Param<super::InkDrawingAttributes>,
     {
@@ -296,8 +293,7 @@ impl windows_core::RuntimeType for CoreWetStrokeDisposition {
 pub struct CoreWetStrokeUpdateEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreWetStrokeUpdateEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreWetStrokeUpdateEventArgs {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn NewInkPoints(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVector<super::InkPoint>> {
+    pub fn NewInkPoints(&self) -> windows_core::Result<windows_collections::IVector<super::InkPoint>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -450,16 +446,10 @@ impl windows_core::RuntimeType for ICoreIncrementalInkStroke {
 #[repr(C)]
 pub struct ICoreIncrementalInkStroke_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AppendInkPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::super::Foundation::Rect) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AppendInkPoints: usize,
     pub CreateInkStroke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub PointTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    PointTransform: usize,
+    pub PointTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix3x2) -> windows_core::HRESULT,
     pub BoundingRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreIncrementalInkStrokeFactory, ICoreIncrementalInkStrokeFactory_Vtbl, 0xd7c59f46_8da8_4f70_9751_e53bb6df4596);
@@ -469,10 +459,7 @@ impl windows_core::RuntimeType for ICoreIncrementalInkStrokeFactory {
 #[repr(C)]
 pub struct ICoreIncrementalInkStrokeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::super::Foundation::Numerics::Matrix3x2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Create: usize,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Matrix3x2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInkIndependentInputSource, ICoreInkIndependentInputSource_Vtbl, 0x39b38da9_7639_4499_a5b5_191d00e35b16);
 impl windows_core::RuntimeType for ICoreInkIndependentInputSource {
@@ -567,10 +554,7 @@ impl windows_core::RuntimeType for ICoreWetStrokeUpdateEventArgs {
 #[repr(C)]
 pub struct ICoreWetStrokeUpdateEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub NewInkPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    NewInkPoints: usize,
     pub PointerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Disposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CoreWetStrokeDisposition) -> windows_core::HRESULT,
     pub SetDisposition: unsafe extern "system" fn(*mut core::ffi::c_void, CoreWetStrokeDisposition) -> windows_core::HRESULT,

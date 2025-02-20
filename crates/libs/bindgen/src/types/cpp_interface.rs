@@ -3,7 +3,7 @@ use super::*;
 #[derive(Clone, Debug)]
 pub enum CppMethodOrName {
     Method(CppMethod),
-    Name(&'static str),
+    Name(MethodDef),
 }
 
 #[derive(Clone, Debug, Hash, PartialEq, Eq)]
@@ -28,7 +28,7 @@ impl CppInterface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, writer: &Writer) -> Vec<CppMethodOrName> {
+    pub fn get_methods(&self, writer: &Writer<'_>) -> Vec<CppMethodOrName> {
         let namespace = self.def.namespace();
 
         self.def
@@ -38,23 +38,28 @@ impl CppInterface {
                 if method.dependencies.included(writer.config) {
                     CppMethodOrName::Method(method)
                 } else {
-                    CppMethodOrName::Name(method.def.name())
+                    writer.config.warnings.skip_method(
+                        method.def,
+                        &method.dependencies,
+                        writer.config,
+                    );
+                    CppMethodOrName::Name(method.def)
                 }
             })
             .collect()
     }
 
-    fn write_cfg(&self, writer: &Writer) -> (Cfg, TokenStream) {
+    fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
         if !writer.config.package {
             return (Cfg::default(), quote! {});
         }
 
-        let cfg = Cfg::new(self.def, &self.dependencies());
+        let cfg = Cfg::new(self.def, &self.dependencies(), writer);
         let tokens = cfg.write(writer, false);
         (cfg, tokens)
     }
 
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
         let methods = self.get_methods(writer);
 
         let base_interfaces = self.base_interfaces();
@@ -83,7 +88,7 @@ impl CppInterface {
 
             let methods = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
-                    let method_cfg = class_cfg.difference(method.def, &method.dependencies);
+                    let method_cfg = class_cfg.difference(method.def, &method.dependencies, writer);
                     let yes = method_cfg.write(writer, false);
 
                     let name = names.add(method.def);
@@ -104,8 +109,8 @@ impl CppInterface {
                         }
                     }
                 }
-                CppMethodOrName::Name(name) => {
-                    let name = to_ident(name);
+                CppMethodOrName::Name(method) => {
+                    let name = names.add(*method);
                     quote! { #name: usize, }
                 }
             });
@@ -221,7 +226,11 @@ impl CppInterface {
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
             let cfg = if writer.config.package {
-                fn combine(interface: &CppInterface, dependencies: &mut TypeMap, writer: &Writer) {
+                fn combine(
+                    interface: &CppInterface,
+                    dependencies: &mut TypeMap,
+                    writer: &Writer<'_>,
+                ) {
                     for method in interface.get_methods(writer).iter() {
                         if let CppMethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);
@@ -238,7 +247,7 @@ impl CppInterface {
                     }
                 });
 
-                Cfg::new(self.def, &dependencies).write(writer, false)
+                Cfg::new(self.def, &dependencies, writer).write(writer, false)
             } else {
                 quote! {}
             };
@@ -256,8 +265,8 @@ impl CppInterface {
                             quote! { #name: #name::<Identity>, }
                         }
                     }
-                    CppMethodOrName::Name(name) => {
-                        let name = to_ident(name);
+                    CppMethodOrName::Name(method) => {
+                        let name = names.add(*method);
                         quote! { #name: 0, }
                     }
                 })
@@ -398,17 +407,17 @@ impl CppInterface {
         }
     }
 
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
         self.type_name().write(writer, &[])
     }
 
-    fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
+    fn write_vtbl_name(&self, writer: &Writer<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
         let namespace = writer.write_namespace(self.def.type_name());
         quote! { #namespace #name }
     }
 
-    pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_impl_name(&self, writer: &Writer<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
         let namespace = writer.write_namespace(self.def.type_name());
         quote! { #namespace #name }

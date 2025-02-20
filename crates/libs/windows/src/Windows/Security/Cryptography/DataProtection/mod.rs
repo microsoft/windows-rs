@@ -11,7 +11,7 @@ impl DataProtectionProvider {
         SHARED.call(callback)
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ProtectAsync<P0>(&self, data: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn ProtectAsync<P0>(&self, data: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -22,7 +22,7 @@ impl DataProtectionProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn UnprotectAsync<P0>(&self, data: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn UnprotectAsync<P0>(&self, data: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -33,7 +33,7 @@ impl DataProtectionProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ProtectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ProtectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,
@@ -45,7 +45,7 @@ impl DataProtectionProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn UnprotectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn UnprotectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,

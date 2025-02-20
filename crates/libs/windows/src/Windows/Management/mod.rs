@@ -38,20 +38,14 @@ impl windows_core::RuntimeType for IMdmSession {
 #[repr(C)]
 pub struct IMdmSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Alerts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Alerts: usize,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MdmSessionState) -> windows_core::HRESULT,
     pub AttachAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub StartWithAlertsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StartWithAlertsAsync: usize,
 }
 windows_core::imp::define_interface!(IMdmSessionManagerStatics, IMdmSessionManagerStatics_Vtbl, 0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
 impl windows_core::RuntimeType for IMdmSessionManagerStatics {
@@ -60,10 +54,7 @@ impl windows_core::RuntimeType for IMdmSessionManagerStatics {
 #[repr(C)]
 pub struct IMdmSessionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SessionIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SessionIds: usize,
     pub TryCreateSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteSessionById: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSessionById: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -200,8 +191,7 @@ impl windows_core::RuntimeType for MdmAlertMark {
 pub struct MdmSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MdmSession, windows_core::IUnknown, windows_core::IInspectable);
 impl MdmSession {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Alerts(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<MdmAlert>> {
+    pub fn Alerts(&self) -> windows_core::Result<windows_collections::IVectorView<MdmAlert>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -229,7 +219,7 @@ impl MdmSession {
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AttachAsync(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
+    pub fn AttachAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -240,17 +230,16 @@ impl MdmSession {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Delete)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn StartAsync(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn StartWithAlertsAsync<P0>(&self, alerts: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
+    pub fn StartWithAlertsAsync<P0>(&self, alerts: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::Foundation::Collections::IIterable<MdmAlert>>,
+        P0: windows_core::Param<windows_collections::IIterable<MdmAlert>>,
     {
         let this = self;
         unsafe {
@@ -271,8 +260,7 @@ impl windows_core::RuntimeName for MdmSession {
 }
 pub struct MdmSessionManager;
 impl MdmSessionManager {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SessionIds() -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn SessionIds() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SessionIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -10,10 +10,7 @@ pub struct ISpiBusInfo_Vtbl {
     pub ChipSelectLineCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub MinClockFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub MaxClockFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedDataBitLengths: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedDataBitLengths: usize,
 }
 windows_core::imp::define_interface!(ISpiConnectionSettings, ISpiConnectionSettings_Vtbl, 0x5283a37f_f935_4b9f_a7a7_3a7890afa5ce);
 impl windows_core::RuntimeType for ISpiConnectionSettings {
@@ -59,9 +56,9 @@ impl windows_core::RuntimeType for ISpiControllerStatics {
 pub struct ISpiControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Spi_Provider")]
     pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Spi_Provider"))]
     GetControllersAsync: usize,
 }
 windows_core::imp::define_interface!(ISpiDevice, ISpiDevice_Vtbl, 0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce);
@@ -105,7 +102,7 @@ impl ISpiDeviceStatics {
             (windows_core::Interface::vtable(this).GetBusInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(busid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync<P1>(&self, busid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
+    pub fn FromIdAsync<P1>(&self, busid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<windows_future::IAsyncOperation<SpiDevice>>
     where
         P1: windows_core::Param<SpiConnectionSettings>,
     {
@@ -123,7 +120,7 @@ pub trait ISpiDeviceStatics_Impl: windows_core::IUnknownImpl {
     fn GetDeviceSelector(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyName: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
     fn GetBusInfo(&self, busId: &windows_core::HSTRING) -> windows_core::Result<SpiBusInfo>;
-    fn FromIdAsync(&self, busId: &windows_core::HSTRING, settings: windows_core::Ref<'_, SpiConnectionSettings>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>;
+    fn FromIdAsync(&self, busId: &windows_core::HSTRING, settings: windows_core::Ref<'_, SpiConnectionSettings>) -> windows_core::Result<windows_future::IAsyncOperation<SpiDevice>>;
 }
 impl ISpiDeviceStatics_Vtbl {
     pub const fn new<Identity: ISpiDeviceStatics_Impl, const OFFSET: isize>() -> Self {
@@ -225,8 +222,7 @@ impl SpiBusInfo {
             (windows_core::Interface::vtable(this).MaxClockFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedDataBitLengths(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
+    pub fn SupportedDataBitLengths(&self) -> windows_core::Result<windows_collections::IVectorView<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -344,14 +340,14 @@ impl SpiController {
             (windows_core::Interface::vtable(this).GetDevice)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpiController>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<SpiController>> {
         Self::ISpiControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>>
+    #[cfg(feature = "Devices_Spi_Provider")]
+    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<SpiController>>>
     where
         P0: windows_core::Param<Provider::ISpiProvider>,
     {
@@ -435,7 +431,7 @@ impl SpiDevice {
             (windows_core::Interface::vtable(this).GetBusInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(busid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync<P1>(busid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
+    pub fn FromIdAsync<P1>(busid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<windows_future::IAsyncOperation<SpiDevice>>
     where
         P1: windows_core::Param<SpiConnectionSettings>,
     {

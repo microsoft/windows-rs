@@ -10,8 +10,7 @@ impl ConditionForceEffect {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParameters(&self, direction: super::super::super::Foundation::Numerics::Vector3, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> windows_core::Result<()> {
+    pub fn SetParameters(&self, direction: windows_numerics::Vector3, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IConditionForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParameters)(windows_core::Interface::as_raw(this), direction, positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
     }
@@ -91,13 +90,11 @@ impl ConstantForceEffect {
         static SHARED: windows_core::imp::FactoryCache<ConstantForceEffect, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetParameters(&self, vector: windows_numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IConstantForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParameters)(windows_core::Interface::as_raw(this), vector, duration).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
+    pub fn SetParametersWithEnvelope(&self, vector: windows_numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IConstantForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParametersWithEnvelope)(windows_core::Interface::as_raw(this), vector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
@@ -254,7 +251,7 @@ impl ForceFeedbackMotor {
             (windows_core::Interface::vtable(this).SupportedAxes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn LoadEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>
+    pub fn LoadEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<windows_future::IAsyncOperation<ForceFeedbackLoadEffectResult>>
     where
         P0: windows_core::Param<IForceFeedbackEffect>,
     {
@@ -276,28 +273,28 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopAllEffects)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn TryDisableAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryDisableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryEnableAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryEnableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryEnableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryResetAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryResetAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryResetAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryUnloadEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryUnloadEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<IForceFeedbackEffect>,
     {
@@ -328,10 +325,7 @@ impl windows_core::RuntimeType for IConditionForceEffect {
 pub struct IConditionForceEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ConditionForceEffectKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, f32, f32, f32, f32, f32, f32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetParameters: usize,
+    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, f32, f32, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConditionForceEffectFactory, IConditionForceEffectFactory_Vtbl, 0x91a99264_1810_4eb6_a773_bfd3b8cddbab);
 impl windows_core::RuntimeType for IConditionForceEffectFactory {
@@ -349,14 +343,8 @@ impl windows_core::RuntimeType for IConstantForceEffect {
 #[repr(C)]
 pub struct IConstantForceEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetParameters: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, f32, f32, f32, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetParametersWithEnvelope: usize,
+    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IForceFeedbackEffect, IForceFeedbackEffect_Vtbl, 0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 impl windows_core::RuntimeType for IForceFeedbackEffect {
@@ -496,14 +484,8 @@ impl windows_core::RuntimeType for IPeriodicForceEffect {
 pub struct IPeriodicForceEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PeriodicForceEffectKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, f32, f32, f32, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetParameters: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, f32, f32, f32, f32, f32, f32, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetParametersWithEnvelope: usize,
+    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, f32, f32, f32, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPeriodicForceEffectFactory, IPeriodicForceEffectFactory_Vtbl, 0x6f62eb1a_9851_477b_b318_35ecaa15070f);
 impl windows_core::RuntimeType for IPeriodicForceEffectFactory {
@@ -521,14 +503,8 @@ impl windows_core::RuntimeType for IRampForceEffect {
 #[repr(C)]
 pub struct IRampForceEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, super::super::super::Foundation::Numerics::Vector3, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetParameters: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3, super::super::super::Foundation::Numerics::Vector3, f32, f32, f32, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetParametersWithEnvelope: usize,
+    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, windows_numerics::Vector3, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, windows_numerics::Vector3, f32, f32, f32, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, u32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -568,13 +544,11 @@ impl PeriodicForceEffect {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetParameters(&self, vector: windows_numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPeriodicForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParameters)(windows_core::Interface::as_raw(this), vector, frequency, phase, bias, duration).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
+    pub fn SetParametersWithEnvelope(&self, vector: windows_numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPeriodicForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParametersWithEnvelope)(windows_core::Interface::as_raw(this), vector, frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
@@ -655,13 +629,11 @@ impl RampForceEffect {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParameters(&self, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetParameters(&self, startvector: windows_numerics::Vector3, endvector: windows_numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IRampForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParameters)(windows_core::Interface::as_raw(this), startvector, endvector, duration).ok() }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParametersWithEnvelope(&self, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
+    pub fn SetParametersWithEnvelope(&self, startvector: windows_numerics::Vector3, endvector: windows_numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IRampForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParametersWithEnvelope)(windows_core::Interface::as_raw(this), startvector, endvector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }

@@ -8,5 +8,4 @@ publish = false
 workspace = true
 features = [
     "Devices_Enumeration",
-    "Foundation_Collections",
 ]

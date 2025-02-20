@@ -61,7 +61,7 @@ impl BluetoothAdapter {
         }
     }
     #[cfg(feature = "Devices_Radios")]
-    pub fn GetRadioAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Radios::Radio>> {
+    pub fn GetRadioAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::Radios::Radio>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -102,13 +102,13 @@ impl BluetoothAdapter {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothAdapter>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<BluetoothAdapter>> {
         Self::IBluetoothAdapterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothAdapter>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<BluetoothAdapter>> {
         Self::IBluetoothAdapterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -268,16 +268,16 @@ impl BluetoothDevice {
             (windows_core::Interface::vtable(this).ClassOfDevice)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn SdpRecords(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::Streams::IBuffer>> {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn SdpRecords(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SdpRecords)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn RfcommServices(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<Rfcomm::RfcommDeviceService>> {
+    #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "deprecated"))]
+    pub fn RfcommServices(&self) -> windows_core::Result<windows_collections::IVectorView<Rfcomm::RfcommDeviceService>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -357,7 +357,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn RequestAccessAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>> {
+    pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::Enumeration::DeviceAccessStatus>> {
         let this = &windows_core::Interface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -365,7 +365,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn GetRfcommServicesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
+    pub fn GetRfcommServicesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -373,7 +373,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn GetRfcommServicesWithCacheModeAsync(&self, cachemode: BluetoothCacheMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
+    pub fn GetRfcommServicesWithCacheModeAsync(&self, cachemode: BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -381,7 +381,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn GetRfcommServicesForIdAsync<P0>(&self, serviceid: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>
+    pub fn GetRfcommServicesForIdAsync<P0>(&self, serviceid: P0) -> windows_core::Result<windows_future::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>
     where
         P0: windows_core::Param<Rfcomm::RfcommServiceId>,
     {
@@ -392,7 +392,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn GetRfcommServicesForIdWithCacheModeAsync<P0>(&self, serviceid: P0, cachemode: BluetoothCacheMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>
+    pub fn GetRfcommServicesForIdWithCacheModeAsync<P0>(&self, serviceid: P0, cachemode: BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>
     where
         P0: windows_core::Param<Rfcomm::RfcommServiceId>,
     {
@@ -416,14 +416,14 @@ impl BluetoothDevice {
             (windows_core::Interface::vtable(this).WasSecureConnectionUsedForPairing)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<BluetoothDevice>> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Networking")]
-    pub fn FromHostNameAsync<P0>(hostname: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>>
+    pub fn FromHostNameAsync<P0>(hostname: P0) -> windows_core::Result<windows_future::IAsyncOperation<BluetoothDevice>>
     where
         P0: windows_core::Param<super::super::Networking::HostName>,
     {
@@ -432,7 +432,7 @@ impl BluetoothDevice {
             (windows_core::Interface::vtable(this).FromHostNameAsync)(windows_core::Interface::as_raw(this), hostname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromBluetoothAddressAsync(address: u64) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>> {
+    pub fn FromBluetoothAddressAsync(address: u64) -> windows_core::Result<windows_future::IAsyncOperation<BluetoothDevice>> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromBluetoothAddressAsync)(windows_core::Interface::as_raw(this), address, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1077,8 +1077,8 @@ impl BluetoothLEDevice {
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GattServices(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<GenericAttributeProfile::GattDeviceService>> {
+    #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "deprecated"))]
+    pub fn GattServices(&self) -> windows_core::Result<windows_collections::IVectorView<GenericAttributeProfile::GattDeviceService>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1180,7 +1180,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn RequestAccessAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>> {
+    pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::Enumeration::DeviceAccessStatus>> {
         let this = &windows_core::Interface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1188,7 +1188,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-    pub fn GetGattServicesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
+    pub fn GetGattServicesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1196,7 +1196,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-    pub fn GetGattServicesWithCacheModeAsync(&self, cachemode: BluetoothCacheMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
+    pub fn GetGattServicesWithCacheModeAsync(&self, cachemode: BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1204,7 +1204,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-    pub fn GetGattServicesForUuidAsync(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
+    pub fn GetGattServicesForUuidAsync(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1212,7 +1212,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-    pub fn GetGattServicesForUuidWithCacheModeAsync(&self, serviceuuid: windows_core::GUID, cachemode: BluetoothCacheMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
+    pub fn GetGattServicesForUuidWithCacheModeAsync(&self, serviceuuid: windows_core::GUID, cachemode: BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1285,13 +1285,13 @@ impl BluetoothLEDevice {
         let this = &windows_core::Interface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveConnectionPhyChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromBluetoothAddressAsync(bluetoothaddress: u64) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
+    pub fn FromBluetoothAddressAsync(bluetoothaddress: u64) -> windows_core::Result<windows_future::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromBluetoothAddressAsync)(windows_core::Interface::as_raw(this), bluetoothaddress, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1342,7 +1342,7 @@ impl BluetoothLEDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromAppearance)(windows_core::Interface::as_raw(this), appearance.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromBluetoothAddressWithBluetoothAddressTypeAsync(bluetoothaddress: u64, bluetoothaddresstype: BluetoothAddressType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
+    pub fn FromBluetoothAddressWithBluetoothAddressTypeAsync(bluetoothaddress: u64, bluetoothaddresstype: BluetoothAddressType) -> windows_core::Result<windows_future::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromBluetoothAddressWithBluetoothAddressTypeAsync)(windows_core::Interface::as_raw(this), bluetoothaddress, bluetoothaddresstype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1832,13 +1832,13 @@ pub struct IBluetoothDevice_Vtbl {
     HostName: usize,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClassOfDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub SdpRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     SdpRecords: usize,
-    #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "deprecated"))]
     pub RfcommServices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Devices_Bluetooth_Rfcomm", feature = "deprecated")))]
     RfcommServices: usize,
     pub ConnectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BluetoothConnectionStatus) -> windows_core::HRESULT,
     pub BluetoothAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -2087,9 +2087,9 @@ pub struct IBluetoothLEDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "deprecated"))]
     pub GattServices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "deprecated")))]
     GattServices: usize,
     pub ConnectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BluetoothConnectionStatus) -> windows_core::HRESULT,
     pub BluetoothAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,

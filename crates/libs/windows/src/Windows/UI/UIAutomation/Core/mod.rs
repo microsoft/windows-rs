@@ -454,7 +454,7 @@ impl RemoteAutomationClientSession {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn CreateWindowAsync<P2>(&self, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<RemoteAutomationWindow>>
+    pub fn CreateWindowAsync<P2>(&self, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: P2) -> windows_core::Result<windows_future::IAsyncOperation<RemoteAutomationWindow>>
     where
         P2: windows_core::Param<windows_core::IInspectable>,
     {
@@ -610,7 +610,7 @@ impl RemoteAutomationWindow {
             (windows_core::Interface::vtable(this).AutomationProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UnregisterAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn UnregisterAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

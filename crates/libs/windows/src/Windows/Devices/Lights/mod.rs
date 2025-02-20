@@ -38,10 +38,7 @@ pub struct ILampArray_Vtbl {
     pub LampArrayKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LampArrayKind) -> windows_core::HRESULT,
     pub LampCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub MinUpdateInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub BoundingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    BoundingBox: usize,
+    pub BoundingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub BrightnessLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -130,10 +127,7 @@ pub struct ILampInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Purposes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LampPurposes) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Position: usize,
+    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub RedLevelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GreenLevelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub BlueLevelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -238,13 +232,13 @@ impl Lamp {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -321,8 +315,7 @@ impl LampArray {
             (windows_core::Interface::vtable(this).MinUpdateInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn BoundingBox(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn BoundingBox(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -423,7 +416,7 @@ impl LampArray {
         unsafe { (windows_core::Interface::vtable(this).SetColorsForPurposes)(windows_core::Interface::as_raw(this), desiredcolor, purposes).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendMessageAsync<P1>(&self, messageid: i32, message: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SendMessageAsync<P1>(&self, messageid: i32, message: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -434,7 +427,7 @@ impl LampArray {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RequestMessageAsync(&self, messageid: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn RequestMessageAsync(&self, messageid: i32) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -468,7 +461,7 @@ impl LampArray {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LampArray>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LampArray>> {
         Self::ILampArrayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -560,8 +553,7 @@ impl LampInfo {
             (windows_core::Interface::vtable(this).Purposes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector3> {
+    pub fn Position(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

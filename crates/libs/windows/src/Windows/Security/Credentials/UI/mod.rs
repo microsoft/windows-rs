@@ -18,7 +18,7 @@ impl windows_core::RuntimeType for AuthenticationProtocol {
 }
 pub struct CredentialPicker;
 impl CredentialPicker {
-    pub fn PickWithOptionsAsync<P0>(options: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>
+    pub fn PickWithOptionsAsync<P0>(options: P0) -> windows_core::Result<windows_future::IAsyncOperation<CredentialPickerResults>>
     where
         P0: windows_core::Param<CredentialPickerOptions>,
     {
@@ -27,13 +27,13 @@ impl CredentialPicker {
             (windows_core::Interface::vtable(this).PickWithOptionsAsync)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn PickWithMessageAsync(targetname: &windows_core::HSTRING, message: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
+    pub fn PickWithMessageAsync(targetname: &windows_core::HSTRING, message: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PickWithMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(targetname), core::mem::transmute_copy(message), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn PickWithCaptionAsync(targetname: &windows_core::HSTRING, message: &windows_core::HSTRING, caption: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
+    pub fn PickWithCaptionAsync(targetname: &windows_core::HSTRING, message: &windows_core::HSTRING, caption: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PickWithCaptionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(targetname), core::mem::transmute_copy(message), core::mem::transmute_copy(caption), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -358,13 +358,13 @@ impl windows_core::RuntimeType for UserConsentVerificationResult {
 }
 pub struct UserConsentVerifier;
 impl UserConsentVerifier {
-    pub fn CheckAvailabilityAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>> {
+    pub fn CheckAvailabilityAsync() -> windows_core::Result<windows_future::IAsyncOperation<UserConsentVerifierAvailability>> {
         Self::IUserConsentVerifierStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckAvailabilityAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestVerificationAsync(message: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>> {
+    pub fn RequestVerificationAsync(message: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserConsentVerificationResult>> {
         Self::IUserConsentVerifierStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestVerificationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

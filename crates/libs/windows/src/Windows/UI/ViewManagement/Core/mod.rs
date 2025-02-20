@@ -68,8 +68,7 @@ unsafe impl Sync for CoreFrameworkInputView {}
 pub struct CoreFrameworkInputViewAnimationStartingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreFrameworkInputViewAnimationStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreFrameworkInputViewAnimationStartingEventArgs {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Occlusions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
+    pub fn Occlusions(&self) -> windows_core::Result<windows_collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -108,8 +107,7 @@ unsafe impl Sync for CoreFrameworkInputViewAnimationStartingEventArgs {}
 pub struct CoreFrameworkInputViewOcclusionsChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreFrameworkInputViewOcclusionsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Occlusions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
+    pub fn Occlusions(&self) -> windows_core::Result<windows_collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -155,8 +153,7 @@ impl CoreInputView {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveOcclusionsChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCoreInputViewOcclusions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
+    pub fn GetCoreInputViewOcclusions(&self) -> windows_core::Result<windows_collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -337,8 +334,7 @@ unsafe impl Sync for CoreInputView {}
 pub struct CoreInputViewAnimationStartingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInputViewAnimationStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreInputViewAnimationStartingEventArgs {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Occlusions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
+    pub fn Occlusions(&self) -> windows_core::Result<windows_collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -470,8 +466,7 @@ impl windows_core::RuntimeType for CoreInputViewOcclusionKind {
 pub struct CoreInputViewOcclusionsChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInputViewOcclusionsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreInputViewOcclusionsChangedEventArgs {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Occlusions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
+    pub fn Occlusions(&self) -> windows_core::Result<windows_collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -615,10 +610,7 @@ impl windows_core::RuntimeType for ICoreFrameworkInputViewAnimationStartingEvent
 #[repr(C)]
 pub struct ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Occlusions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Occlusions: usize,
     pub FrameworkAnimationRecommended: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub AnimationDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
@@ -629,10 +621,7 @@ impl windows_core::RuntimeType for ICoreFrameworkInputViewOcclusionsChangedEvent
 #[repr(C)]
 pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Occlusions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Occlusions: usize,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreFrameworkInputViewStatics, ICoreFrameworkInputViewStatics_Vtbl, 0x6eebd9b6_eac2_5f8b_975f_772ee3e42eeb);
@@ -654,10 +643,7 @@ pub struct ICoreInputView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OcclusionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveOcclusionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetCoreInputViewOcclusions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCoreInputViewOcclusions: usize,
     pub TryShowPrimaryView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub TryHidePrimaryView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
@@ -717,10 +703,7 @@ impl windows_core::RuntimeType for ICoreInputViewAnimationStartingEventArgs {
 #[repr(C)]
 pub struct ICoreInputViewAnimationStartingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Occlusions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Occlusions: usize,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub AnimationDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -751,10 +734,7 @@ impl windows_core::RuntimeType for ICoreInputViewOcclusionsChangedEventArgs {
 #[repr(C)]
 pub struct ICoreInputViewOcclusionsChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Occlusions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Occlusions: usize,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
@@ -846,7 +826,7 @@ impl UISettingsController {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTextScaleFactor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RequestDefaultAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UISettingsController>> {
+    pub fn RequestDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<UISettingsController>> {
         Self::IUISettingsControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

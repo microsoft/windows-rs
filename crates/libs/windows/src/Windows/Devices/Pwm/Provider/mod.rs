@@ -205,8 +205,7 @@ impl windows_core::RuntimeType for IPwmProvider {
 }
 windows_core::imp::interface_hierarchy!(IPwmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IPwmProvider {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>> {
+    pub fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IPwmControllerProvider>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -214,15 +213,12 @@ impl IPwmProvider {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IPwmProvider {
     const NAME: &'static str = "Windows.Devices.Pwm.Provider.IPwmProvider";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait IPwmProvider_Impl: windows_core::IUnknownImpl {
-    fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>;
+    fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IPwmControllerProvider>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IPwmProvider_Vtbl {
     pub const fn new<Identity: IPwmProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetControllers<Identity: IPwmProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -247,8 +243,5 @@ impl IPwmProvider_Vtbl {
 #[repr(C)]
 pub struct IPwmProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetControllers: usize,
 }

@@ -428,10 +428,7 @@ impl windows_core::RuntimeType for IWindowTabManager {
 #[repr(C)]
 pub struct IWindowTabManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Tabs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Tabs: usize,
     pub SetActiveTab: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TabSwitchRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveTabSwitchRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -720,7 +717,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).IsPinningAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsCurrentAppPinnedAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsCurrentAppPinnedAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -728,7 +725,7 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn IsAppListEntryPinnedAsync<P0>(&self, applistentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn IsAppListEntryPinnedAsync<P0>(&self, applistentry: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
@@ -738,7 +735,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).IsAppListEntryPinnedAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestPinCurrentAppAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestPinCurrentAppAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -746,7 +743,7 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn RequestPinAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestPinAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
@@ -756,7 +753,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).RequestPinAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsSecondaryTilePinnedAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsSecondaryTilePinnedAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -764,7 +761,7 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "UI_StartScreen")]
-    pub fn RequestPinSecondaryTileAsync<P0>(&self, secondarytile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestPinSecondaryTileAsync<P0>(&self, secondarytile: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::StartScreen::SecondaryTile>,
     {
@@ -774,7 +771,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).RequestPinSecondaryTileAsync)(windows_core::Interface::as_raw(this), secondarytile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryUnpinSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUnpinSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -922,39 +919,35 @@ impl windows_core::RuntimeName for WindowTabCloseRequestedEventArgs {
 }
 unsafe impl Send for WindowTabCloseRequestedEventArgs {}
 unsafe impl Sync for WindowTabCloseRequestedEventArgs {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WindowTabCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(WindowTabCollection, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(WindowTabCollection, super::super::Foundation::Collections::IIterable<WindowTab>, super::super::Foundation::Collections::IVector<WindowTab>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(WindowTabCollection, windows_collections::IIterable<WindowTab>, windows_collections::IVector<WindowTab>);
 impl WindowTabCollection {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<WindowTab>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<WindowTab>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<WindowTab>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<WindowTab> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowTab>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<WindowTab>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -964,7 +957,7 @@ impl WindowTabCollection {
     where
         P0: windows_core::Param<WindowTab>,
     {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
@@ -974,44 +967,44 @@ impl WindowTabCollection {
     where
         P1: windows_core::Param<WindowTab>,
     {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<WindowTab>,
     {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<WindowTab>,
     {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<WindowTab>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
     pub fn ReplaceAll(&self, items: &[Option<WindowTab>]) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
     pub fn MoveTab<P0>(&self, tab: P0, index: u32) -> windows_core::Result<()>
@@ -1022,35 +1015,28 @@ impl WindowTabCollection {
         unsafe { (windows_core::Interface::vtable(this).MoveTab)(windows_core::Interface::as_raw(this), tab.param().abi(), index).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for WindowTabCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabCollection>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for WindowTabCollection {
     type Vtable = <IWindowTabCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowTabCollection as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for WindowTabCollection {
     const NAME: &'static str = "Windows.UI.Shell.WindowTabCollection";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for WindowTabCollection {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for WindowTabCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for WindowTabCollection {
     type Item = WindowTab;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &WindowTabCollection {
     type Item = WindowTab;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -1157,7 +1143,6 @@ unsafe impl Sync for WindowTabIcon {}
 pub struct WindowTabManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabManager, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabManager {
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Tabs(&self) -> windows_core::Result<WindowTabCollection> {
         let this = self;
         unsafe {

@@ -295,10 +295,7 @@ pub struct ISourceChangeRequestedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Thumbnail: usize,
     pub Rating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IVolumeChangeRequestedEventArgs, IVolumeChangeRequestedEventArgs_Vtbl, 0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
 impl windows_core::RuntimeType for IVolumeChangeRequestedEventArgs {
@@ -873,14 +870,14 @@ impl PlayToReceiver {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StopAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1232,8 +1229,7 @@ impl SourceChangeRequestedEventArgs {
             (windows_core::Interface::vtable(this).Rating)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

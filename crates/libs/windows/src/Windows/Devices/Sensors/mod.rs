@@ -122,7 +122,7 @@ impl Accelerometer {
             (windows_core::Interface::vtable(this).GetDefaultWithAccelerometerReadingType)(windows_core::Interface::as_raw(this), readingtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Accelerometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Accelerometer>> {
         Self::IAccelerometerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -250,8 +250,7 @@ impl AccelerometerReading {
             (windows_core::Interface::vtable(this).PerformanceCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<IAccelerometerReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -340,15 +339,14 @@ unsafe impl Sync for AccelerometerShakenEventArgs {}
 pub struct ActivitySensor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivitySensor, windows_core::IUnknown, windows_core::IInspectable);
 impl ActivitySensor {
-    pub fn GetCurrentReadingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ActivitySensorReading>> {
+    pub fn GetCurrentReadingAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ActivitySensorReading>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentReadingAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SubscribedActivities(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ActivityType>> {
+    pub fn SubscribedActivities(&self) -> windows_core::Result<windows_collections::IVector<ActivityType>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -369,8 +367,7 @@ impl ActivitySensor {
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedActivities(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ActivityType>> {
+    pub fn SupportedActivities(&self) -> windows_core::Result<windows_collections::IVectorView<ActivityType>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -398,7 +395,7 @@ impl ActivitySensor {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReadingChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<ActivitySensor>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -410,21 +407,19 @@ impl ActivitySensor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ActivitySensor>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
+    pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ActivitySensorReading>>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSystemHistoryAsync)(windows_core::Interface::as_raw(this), fromtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
+    pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ActivitySensorReading>>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSystemHistoryWithDurationAsync)(windows_core::Interface::as_raw(this), fromtime, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -554,8 +549,7 @@ impl windows_core::RuntimeType for ActivitySensorReadingConfidence {
 pub struct ActivitySensorTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivitySensorTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl ActivitySensorTriggerDetails {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ReadReports(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>> {
+    pub fn ReadReports(&self) -> windows_core::Result<windows_collections::IVectorView<ActivitySensorReadingChangeReport>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -741,8 +735,7 @@ impl AltimeterReading {
             (windows_core::Interface::vtable(this).PerformanceCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<IAltimeterReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -869,7 +862,7 @@ impl Barometer {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Barometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Barometer>> {
         Self::IBarometerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -957,8 +950,7 @@ impl BarometerReading {
             (windows_core::Interface::vtable(this).PerformanceCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<IBarometerReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1104,7 +1096,7 @@ impl Compass {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Compass>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Compass>> {
         Self::ICompassStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1193,8 +1185,7 @@ impl CompassReading {
             (windows_core::Interface::vtable(this).PerformanceCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<ICompassReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1400,7 +1391,7 @@ impl Gyrometer {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Gyrometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Gyrometer>> {
         Self::IGyrometerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1518,8 +1509,7 @@ impl GyrometerReading {
             (windows_core::Interface::vtable(this).PerformanceCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<IGyrometerReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1654,8 +1644,7 @@ impl HingeAngleReading {
             (windows_core::Interface::vtable(this).AngleInDegrees)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1680,7 +1669,7 @@ unsafe impl Sync for HingeAngleReading {}
 pub struct HingeAngleSensor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HingeAngleSensor, windows_core::IUnknown, windows_core::IInspectable);
 impl HingeAngleSensor {
-    pub fn GetCurrentReadingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HingeAngleReading>> {
+    pub fn GetCurrentReadingAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<HingeAngleReading>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1732,19 +1721,19 @@ impl HingeAngleSensor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetRelatedToAdjacentPanelsAsync(firstpanelid: &windows_core::HSTRING, secondpanelid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
+    pub fn GetRelatedToAdjacentPanelsAsync(firstpanelid: &windows_core::HSTRING, secondpanelid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetRelatedToAdjacentPanelsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(firstpanelid), core::mem::transmute_copy(secondpanelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1832,8 +1821,7 @@ impl HumanPresenceFeatures {
             (windows_core::Interface::vtable(this).SensorId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedWakeOrLockDistancesInMillimeters(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn SupportedWakeOrLockDistancesInMillimeters(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1984,13 +1972,13 @@ impl HumanPresenceSensor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HumanPresenceSensor>> {
+    pub fn FromIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<HumanPresenceSensor>> {
         Self::IHumanPresenceSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sensorid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<HumanPresenceSensor>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<HumanPresenceSensor>> {
         Self::IHumanPresenceSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2062,8 +2050,7 @@ impl HumanPresenceSensorReading {
             (windows_core::Interface::vtable(this).DistanceInMillimeters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<IHumanPresenceSensorReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2077,8 +2064,7 @@ impl HumanPresenceSensorReading {
             (windows_core::Interface::vtable(this).OnlookerPresence)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DetectedPersons(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<DetectedPerson>> {
+    pub fn DetectedPersons(&self) -> windows_core::Result<windows_collections::IVectorView<DetectedPerson>> {
         let this = &windows_core::Interface::cast::<IHumanPresenceSensorReading3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2326,7 +2312,7 @@ impl HumanPresenceSettings {
             (windows_core::Interface::vtable(this).LockOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCurrentSettingsAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<HumanPresenceSettings>> {
+    pub fn GetCurrentSettingsAsync() -> windows_core::Result<windows_future::IAsyncOperation<HumanPresenceSettings>> {
         Self::IHumanPresenceSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentSettingsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2338,7 +2324,7 @@ impl HumanPresenceSettings {
             (windows_core::Interface::vtable(this).GetCurrentSettings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn UpdateSettingsAsync<P0>(settings: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn UpdateSettingsAsync<P0>(settings: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<HumanPresenceSettings>,
     {
@@ -2353,7 +2339,7 @@ impl HumanPresenceSettings {
     {
         Self::IHumanPresenceSettingsStatics(|this| unsafe { (windows_core::Interface::vtable(this).UpdateSettings)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() })
     }
-    pub fn GetSupportedFeaturesForSensorIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HumanPresenceFeatures>> {
+    pub fn GetSupportedFeaturesForSensorIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<HumanPresenceFeatures>> {
         Self::IHumanPresenceSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedFeaturesForSensorIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sensorid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2365,8 +2351,7 @@ impl HumanPresenceSettings {
             (windows_core::Interface::vtable(this).GetSupportedFeaturesForSensorId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sensorid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSupportedLockOnLeaveTimeouts() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::TimeSpan>> {
+    pub fn GetSupportedLockOnLeaveTimeouts() -> windows_core::Result<windows_collections::IVectorView<super::super::Foundation::TimeSpan>> {
         Self::IHumanPresenceSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedLockOnLeaveTimeouts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2505,10 +2490,7 @@ impl windows_core::RuntimeType for IAccelerometerReading2 {
 pub struct IAccelerometerReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IAccelerometerReadingChangedEventArgs, IAccelerometerReadingChangedEventArgs_Vtbl, 0x0095c65b_b6ac_475a_9f44_8b32d35a3f25);
 impl windows_core::RuntimeType for IAccelerometerReadingChangedEventArgs {
@@ -2564,16 +2546,10 @@ impl windows_core::RuntimeType for IActivitySensor {
 pub struct IActivitySensor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentReadingAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SubscribedActivities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SubscribedActivities: usize,
     pub PowerInMilliwatts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedActivities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedActivities: usize,
     pub MinimumReportInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -2617,14 +2593,8 @@ pub struct IActivitySensorStatics_Vtbl {
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSystemHistoryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSystemHistoryAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSystemHistoryWithDurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSystemHistoryWithDurationAsync: usize,
 }
 windows_core::imp::define_interface!(IActivitySensorTriggerDetails, IActivitySensorTriggerDetails_Vtbl, 0x2c9e6612_b9ca_4677_b263_243297f79d3a);
 impl windows_core::RuntimeType for IActivitySensorTriggerDetails {
@@ -2633,10 +2603,7 @@ impl windows_core::RuntimeType for IActivitySensorTriggerDetails {
 #[repr(C)]
 pub struct IActivitySensorTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ReadReports: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ReadReports: usize,
 }
 windows_core::imp::define_interface!(IAdaptiveDimmingOptions, IAdaptiveDimmingOptions_Vtbl, 0xd3213cf7_89b5_5732_b2a0_aefe324f54e6);
 impl windows_core::RuntimeType for IAdaptiveDimmingOptions {
@@ -2692,10 +2659,7 @@ impl windows_core::RuntimeType for IAltimeterReading2 {
 pub struct IAltimeterReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IAltimeterReadingChangedEventArgs, IAltimeterReadingChangedEventArgs_Vtbl, 0x7069d077_446d_47f7_998c_ebc23b45e4a2);
 impl windows_core::RuntimeType for IAltimeterReadingChangedEventArgs {
@@ -2778,10 +2742,7 @@ impl windows_core::RuntimeType for IBarometerReading2 {
 pub struct IBarometerReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IBarometerReadingChangedEventArgs, IBarometerReadingChangedEventArgs_Vtbl, 0x3d84945f_037b_404f_9bbb_6232d69543c3);
 impl windows_core::RuntimeType for IBarometerReadingChangedEventArgs {
@@ -2899,10 +2860,7 @@ impl windows_core::RuntimeType for ICompassReading2 {
 pub struct ICompassReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(ICompassReadingChangedEventArgs, ICompassReadingChangedEventArgs_Vtbl, 0x8f1549b0_e8bc_4c7e_b009_4e41df137072);
 impl windows_core::RuntimeType for ICompassReadingChangedEventArgs {
@@ -3047,10 +3005,7 @@ impl windows_core::RuntimeType for IGyrometerReading2 {
 pub struct IGyrometerReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IGyrometerReadingChangedEventArgs, IGyrometerReadingChangedEventArgs_Vtbl, 0x0fdf1895_6f9e_42ce_8d58_388c0ab8356d);
 impl windows_core::RuntimeType for IGyrometerReadingChangedEventArgs {
@@ -3110,10 +3065,7 @@ pub struct IHingeAngleReading_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub AngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IHingeAngleSensor, IHingeAngleSensor_Vtbl, 0xe9d3be02_bfdf_437f_8c29_88c77393d309);
 impl windows_core::RuntimeType for IHingeAngleSensor {
@@ -3159,10 +3111,7 @@ impl windows_core::RuntimeType for IHumanPresenceFeatures {
 pub struct IHumanPresenceFeatures_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SensorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedWakeOrLockDistancesInMillimeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedWakeOrLockDistancesInMillimeters: usize,
     pub IsWakeOnApproachSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsLockOnLeaveSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     #[cfg(feature = "deprecated")]
@@ -3368,10 +3317,7 @@ impl windows_core::RuntimeType for IHumanPresenceSensorReading2 {
 #[repr(C)]
 pub struct IHumanPresenceSensorReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IHumanPresenceSensorReading3, IHumanPresenceSensorReading3_Vtbl, 0xb876d918_f069_586f_90e3_7c6fa5c5d33a);
 impl windows_core::RuntimeType for IHumanPresenceSensorReading3 {
@@ -3381,10 +3327,7 @@ impl windows_core::RuntimeType for IHumanPresenceSensorReading3 {
 pub struct IHumanPresenceSensorReading3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OnlookerPresence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HumanPresence) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub DetectedPersons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DetectedPersons: usize,
 }
 windows_core::imp::define_interface!(IHumanPresenceSensorReadingChangedEventArgs, IHumanPresenceSensorReadingChangedEventArgs_Vtbl, 0xa9dc4583_fd69_5c5e_ab1f_942204eae2db);
 impl windows_core::RuntimeType for IHumanPresenceSensorReadingChangedEventArgs {
@@ -3486,10 +3429,7 @@ pub struct IHumanPresenceSettingsStatics_Vtbl {
     pub UpdateSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSupportedFeaturesForSensorIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSupportedFeaturesForSensorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSupportedLockOnLeaveTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedLockOnLeaveTimeouts: usize,
     pub SettingsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveSettingsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
@@ -3587,10 +3527,7 @@ impl windows_core::RuntimeType for IInclinometerReading2 {
 pub struct IInclinometerReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IInclinometerReadingChangedEventArgs, IInclinometerReadingChangedEventArgs_Vtbl, 0x4ae91dc1_e7eb_4938_8511_ae0d6b440438);
 impl windows_core::RuntimeType for IInclinometerReadingChangedEventArgs {
@@ -3720,10 +3657,7 @@ impl windows_core::RuntimeType for ILightSensorReading2 {
 pub struct ILightSensorReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(ILightSensorReadingChangedEventArgs, ILightSensorReadingChangedEventArgs_Vtbl, 0xa3a2f4cf_258b_420c_b8ab_8edd601ecf50);
 impl windows_core::RuntimeType for ILightSensorReadingChangedEventArgs {
@@ -3857,10 +3791,7 @@ impl windows_core::RuntimeType for IMagnetometerReading2 {
 pub struct IMagnetometerReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IMagnetometerReadingChangedEventArgs, IMagnetometerReadingChangedEventArgs_Vtbl, 0x17eae872_2eb9_4ee7_8ad0_3127537d949b);
 impl windows_core::RuntimeType for IMagnetometerReadingChangedEventArgs {
@@ -3960,10 +3891,7 @@ impl windows_core::RuntimeType for IOrientationSensorReading2 {
 pub struct IOrientationSensorReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IOrientationSensorReadingChangedEventArgs, IOrientationSensorReadingChangedEventArgs_Vtbl, 0x012c1186_c3ba_46bc_ae65_7a98996cbfb8);
 impl windows_core::RuntimeType for IOrientationSensorReadingChangedEventArgs {
@@ -4044,10 +3972,7 @@ impl windows_core::RuntimeType for IPedometer2 {
 #[repr(C)]
 pub struct IPedometer2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentReadings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCurrentReadings: usize,
 }
 windows_core::imp::define_interface!(IPedometerDataThresholdFactory, IPedometerDataThresholdFactory_Vtbl, 0xcbad8f50_7a54_466b_9010_77a162fca5d7);
 impl windows_core::RuntimeType for IPedometerDataThresholdFactory {
@@ -4089,14 +4014,8 @@ pub struct IPedometerStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSystemHistoryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSystemHistoryAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSystemHistoryWithDurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSystemHistoryWithDurationAsync: usize,
 }
 windows_core::imp::define_interface!(IPedometerStatics2, IPedometerStatics2_Vtbl, 0x79f5c6bb_ce0e_4133_b47e_8627ea72f677);
 impl windows_core::RuntimeType for IPedometerStatics2 {
@@ -4105,10 +4024,7 @@ impl windows_core::RuntimeType for IPedometerStatics2 {
 #[repr(C)]
 pub struct IPedometerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetReadingsFromTriggerDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetReadingsFromTriggerDetails: usize,
 }
 windows_core::imp::define_interface!(IProximitySensor, IProximitySensor_Vtbl, 0x54c076b8_ecfb_4944_b928_74fc504d47ee);
 impl windows_core::RuntimeType for IProximitySensor {
@@ -4171,10 +4087,7 @@ impl windows_core::RuntimeType for IProximitySensorStatics2 {
 #[repr(C)]
 pub struct IProximitySensorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetReadingsFromTriggerDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetReadingsFromTriggerDetails: usize,
 }
 windows_core::imp::define_interface!(ISensorDataThreshold, ISensorDataThreshold_Vtbl, 0x54daec61_fe4b_4e07_b260_3a4cdfbe396e);
 impl windows_core::RuntimeType for ISensorDataThreshold {
@@ -4433,7 +4346,7 @@ impl Inclinometer {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), readingtype, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Inclinometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Inclinometer>> {
         Self::IInclinometerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4559,8 +4472,7 @@ impl InclinometerReading {
             (windows_core::Interface::vtable(this).PerformanceCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<IInclinometerReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4700,7 +4612,7 @@ impl LightSensor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LightSensor>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LightSensor>> {
         Self::ILightSensorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4793,8 +4705,7 @@ impl LightSensorReading {
             (windows_core::Interface::vtable(this).PerformanceCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<ILightSensorReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4969,7 +4880,7 @@ impl Magnetometer {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Magnetometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Magnetometer>> {
         Self::IMagnetometerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5109,8 +5020,7 @@ impl MagnetometerReading {
             (windows_core::Interface::vtable(this).PerformanceCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<IMagnetometerReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5280,7 +5190,7 @@ impl OrientationSensor {
             (windows_core::Interface::vtable(this).GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal)(windows_core::Interface::as_raw(this), readingtype, optimizationgoal, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<OrientationSensor>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<OrientationSensor>> {
         Self::IOrientationSensorStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5348,8 +5258,7 @@ impl OrientationSensorReading {
             (windows_core::Interface::vtable(this).PerformanceCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<IOrientationSensorReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5452,21 +5361,20 @@ impl Pedometer {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReadingChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCurrentReadings(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<PedometerStepKind, PedometerReading>> {
+    pub fn GetCurrentReadings(&self) -> windows_core::Result<windows_collections::IMapView<PedometerStepKind, PedometerReading>> {
         let this = &windows_core::Interface::cast::<IPedometer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentReadings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Pedometer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Pedometer>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<Pedometer>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Pedometer>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5478,22 +5386,19 @@ impl Pedometer {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>> {
+    pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PedometerReading>>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSystemHistoryAsync)(windows_core::Interface::as_raw(this), fromtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>> {
+    pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PedometerReading>>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSystemHistoryWithDurationAsync)(windows_core::Interface::as_raw(this), fromtime, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetReadingsFromTriggerDetails<P0>(triggerdetails: P0) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PedometerReading>>
+    pub fn GetReadingsFromTriggerDetails<P0>(triggerdetails: P0) -> windows_core::Result<windows_collections::IVectorView<PedometerReading>>
     where
         P0: windows_core::Param<SensorDataThresholdTriggerDetails>,
     {
@@ -5705,8 +5610,7 @@ impl ProximitySensor {
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sensorid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetReadingsFromTriggerDetails<P0>(triggerdetails: P0) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ProximitySensorReading>>
+    pub fn GetReadingsFromTriggerDetails<P0>(triggerdetails: P0) -> windows_core::Result<windows_collections::IVectorView<ProximitySensorReading>>
     where
         P0: windows_core::Param<SensorDataThresholdTriggerDetails>,
     {
@@ -6138,7 +6042,7 @@ impl SimpleOrientationSensor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<SimpleOrientationSensor>> {
         Self::ISimpleOrientationSensorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

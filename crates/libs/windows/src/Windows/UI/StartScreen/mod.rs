@@ -18,10 +18,7 @@ impl windows_core::RuntimeType for IJumpList {
 #[repr(C)]
 pub struct IJumpList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Items: usize,
     pub SystemGroupKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut JumpListSystemGroupKind) -> windows_core::HRESULT,
     pub SetSystemGroupKind: unsafe extern "system" fn(*mut core::ffi::c_void, JumpListSystemGroupKind) -> windows_core::HRESULT,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -203,18 +200,9 @@ impl windows_core::RuntimeType for ISecondaryTileStatics {
 pub struct ISecondaryTileStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Exists: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllForApplicationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllForApplicationAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllForPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllForPackageAsync: usize,
 }
 windows_core::imp::define_interface!(ISecondaryTileVisualElements, ISecondaryTileVisualElements_Vtbl, 0x1d8df333_815e_413f_9f50_a81da70a96b2);
 impl windows_core::RuntimeType for ISecondaryTileVisualElements {
@@ -341,13 +329,13 @@ pub struct ITileMixedRealityModel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub SetBoundingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(feature = "Perception_Spatial"))]
     SetBoundingBox: usize,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub BoundingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(feature = "Perception_Spatial"))]
     BoundingBox: usize,
 }
 windows_core::imp::define_interface!(ITileMixedRealityModel2, ITileMixedRealityModel2_Vtbl, 0x439470b2_d7c5_410b_8319_9486a27b6c67);
@@ -368,10 +356,7 @@ impl windows_core::RuntimeType for IVisualElementsRequest {
 pub struct IVisualElementsRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VisualElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub AlternateVisualElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AlternateVisualElements: usize,
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -398,8 +383,7 @@ pub struct IVisualElementsRequestedEventArgs_Vtbl {
 pub struct JumpList(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JumpList, windows_core::IUnknown, windows_core::IInspectable);
 impl JumpList {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Items(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<JumpListItem>> {
+    pub fn Items(&self) -> windows_core::Result<windows_collections::IVector<JumpListItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -417,14 +401,14 @@ impl JumpList {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSystemGroupKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LoadCurrentAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<JumpList>> {
+    pub fn LoadCurrentAsync() -> windows_core::Result<windows_future::IAsyncOperation<JumpList>> {
         Self::IJumpListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LoadCurrentAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -752,21 +736,21 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RequestCreateAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestCreateAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestCreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestCreateAsyncWithPoint(&self, invocationpoint: super::super::Foundation::Point) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestCreateAsyncWithPoint(&self, invocationpoint: super::super::Foundation::Point) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestCreateAsyncWithPoint)(windows_core::Interface::as_raw(this), invocationpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestCreateAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestCreateAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -774,28 +758,28 @@ impl SecondaryTile {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn RequestCreateAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestCreateAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestCreateAsyncWithRectAndPlacement)(windows_core::Interface::as_raw(this), selection, preferredplacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestDeleteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestDeleteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestDeleteAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestDeleteAsyncWithPoint(&self, invocationpoint: super::super::Foundation::Point) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestDeleteAsyncWithPoint(&self, invocationpoint: super::super::Foundation::Point) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestDeleteAsyncWithPoint)(windows_core::Interface::as_raw(this), invocationpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestDeleteAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestDeleteAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -803,14 +787,14 @@ impl SecondaryTile {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn RequestDeleteAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestDeleteAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestDeleteAsyncWithRectAndPlacement)(windows_core::Interface::as_raw(this), selection, preferredplacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn UpdateAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -902,22 +886,19 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).Exists)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>> {
+    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<SecondaryTile>>> {
         Self::ISecondaryTileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllForApplicationAsync(applicationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>> {
+    pub fn FindAllForApplicationAsync(applicationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<SecondaryTile>>> {
         Self::ISecondaryTileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllForApplicationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllForPackageAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>> {
+    pub fn FindAllForPackageAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<SecondaryTile>>> {
         Self::ISecondaryTileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllForPackageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1155,7 +1136,7 @@ impl StartScreenManager {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn ContainsAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn ContainsAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
@@ -1166,7 +1147,7 @@ impl StartScreenManager {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn RequestAddAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestAddAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
@@ -1176,14 +1157,14 @@ impl StartScreenManager {
             (windows_core::Interface::vtable(this).RequestAddAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContainsSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ContainsSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IStartScreenManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContainsSecondaryTileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryRemoveSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryRemoveSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IStartScreenManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1242,7 +1223,7 @@ impl TileMixedRealityModel {
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub fn SetBoundingBox<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>,
@@ -1250,7 +1231,7 @@ impl TileMixedRealityModel {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBoundingBox)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub fn BoundingBox(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>> {
         let this = self;
         unsafe {
@@ -1374,8 +1355,7 @@ impl VisualElementsRequest {
             (windows_core::Interface::vtable(this).VisualElements)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AlternateVisualElements(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SecondaryTileVisualElements>> {
+    pub fn AlternateVisualElements(&self) -> windows_core::Result<windows_collections::IVectorView<SecondaryTileVisualElements>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

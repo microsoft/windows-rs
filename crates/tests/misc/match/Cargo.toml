@@ -14,3 +14,6 @@ features = [
     "Foundation",
     "Win32_Foundation",
 ]
+
+[dependencies.windows-future]
+workspace = true

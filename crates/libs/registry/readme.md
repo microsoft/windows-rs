@@ -41,9 +41,9 @@ fn main() -> Result<()> {
 
     let key = CURRENT_USER
         .options()
-        .read(true)
-        .write(true)
-        .create(true)
+        .read()
+        .write()
+        .create()
         .transaction(&tx)
         .open("software\\windows-rs")?;
 

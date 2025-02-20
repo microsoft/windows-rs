@@ -241,8 +241,7 @@ impl ConnectionProfile {
             (windows_core::Interface::vtable(this).GetNetworkConnectivityLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNetworkNames(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn GetNetworkNames(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -342,32 +341,28 @@ impl ConnectionProfile {
             (windows_core::Interface::vtable(this).GetDomainConnectivityLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>> {
+    pub fn GetNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<NetworkUsage>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNetworkUsageAsync)(windows_core::Interface::as_raw(this), starttime, endtime, granularity, states, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetConnectivityIntervalsAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>> {
+    pub fn GetConnectivityIntervalsAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ConnectivityInterval>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetConnectivityIntervalsAsync)(windows_core::Interface::as_raw(this), starttime, endtime, states, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAttributedNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>> {
+    pub fn GetAttributedNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AttributedNetworkUsage>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAttributedNetworkUsageAsync)(windows_core::Interface::as_raw(this), starttime, endtime, states, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetProviderNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>> {
+    pub fn GetProviderNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ProviderNetworkUsage>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -381,7 +376,7 @@ impl ConnectionProfile {
             (windows_core::Interface::vtable(this).CanDelete)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TryDeleteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ConnectionProfileDeleteStatus>> {
+    pub fn TryDeleteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ConnectionProfileDeleteStatus>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -634,7 +629,7 @@ unsafe impl Send for ConnectivityInterval {}
 unsafe impl Sync for ConnectivityInterval {}
 pub struct ConnectivityManager;
 impl ConnectivityManager {
-    pub fn AcquireConnectionAsync<P0>(cellularapncontext: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>>
+    pub fn AcquireConnectionAsync<P0>(cellularapncontext: P0) -> windows_core::Result<windows_future::IAsyncOperation<ConnectionSession>>
     where
         P0: windows_core::Param<CellularApnContext>,
     {
@@ -914,10 +909,7 @@ pub struct IConnectionProfile_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProfileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNetworkConnectivityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NetworkConnectivityLevel) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetNetworkNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNetworkNames: usize,
     pub GetConnectionCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDataPlanStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NetworkAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -945,14 +937,8 @@ pub struct IConnectionProfile2_Vtbl {
     pub ServiceProviderGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSignalBars: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDomainConnectivityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DomainConnectivityLevel) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetNetworkUsageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, DataUsageGranularity, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNetworkUsageAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetConnectivityIntervalsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetConnectivityIntervalsAsync: usize,
 }
 windows_core::imp::define_interface!(IConnectionProfile3, IConnectionProfile3_Vtbl, 0x578c2528_4cd9_4161_8045_201cfd5b115c);
 impl windows_core::RuntimeType for IConnectionProfile3 {
@@ -961,10 +947,7 @@ impl windows_core::RuntimeType for IConnectionProfile3 {
 #[repr(C)]
 pub struct IConnectionProfile3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAttributedNetworkUsageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAttributedNetworkUsageAsync: usize,
 }
 windows_core::imp::define_interface!(IConnectionProfile4, IConnectionProfile4_Vtbl, 0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714);
 impl windows_core::RuntimeType for IConnectionProfile4 {
@@ -973,10 +956,7 @@ impl windows_core::RuntimeType for IConnectionProfile4 {
 #[repr(C)]
 pub struct IConnectionProfile4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetProviderNetworkUsageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetProviderNetworkUsageAsync: usize,
 }
 windows_core::imp::define_interface!(IConnectionProfile5, IConnectionProfile5_Vtbl, 0x85361ec7_9c73_4be0_8f14_578eec71ee0e);
 impl windows_core::RuntimeType for IConnectionProfile5 {
@@ -1139,10 +1119,7 @@ impl windows_core::RuntimeType for ILanIdentifierData {
 pub struct ILanIdentifierData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Value: usize,
 }
 windows_core::imp::define_interface!(INetworkAdapter, INetworkAdapter_Vtbl, 0x3b542e03_5388_496c_a8a3_affd39aec2e6);
 impl windows_core::RuntimeType for INetworkAdapter {
@@ -1165,24 +1142,12 @@ impl windows_core::RuntimeType for INetworkInformationStatics {
 #[repr(C)]
 pub struct INetworkInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetConnectionProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetConnectionProfiles: usize,
     pub GetInternetConnectionProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetLanIdentifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetLanIdentifiers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetHostNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetHostNames: usize,
     pub GetProxyConfigurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSortedEndpointPairs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::HostNameSortOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSortedEndpointPairs: usize,
     pub NetworkStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveNetworkStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
@@ -1193,10 +1158,7 @@ impl windows_core::RuntimeType for INetworkInformationStatics2 {
 #[repr(C)]
 pub struct INetworkInformationStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindConnectionProfilesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindConnectionProfilesAsync: usize,
 }
 windows_core::imp::define_interface!(INetworkItem, INetworkItem_Vtbl, 0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
 impl windows_core::RuntimeType for INetworkItem {
@@ -1303,10 +1265,7 @@ impl windows_core::RuntimeType for IProxyConfiguration {
 #[repr(C)]
 pub struct IProxyConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ProxyUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ProxyUris: usize,
     pub CanConnectDirectly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRoutePolicy, IRoutePolicy_Vtbl, 0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
@@ -1358,10 +1317,7 @@ impl windows_core::RuntimeType for IWwanConnectionProfileDetails2 {
 pub struct IWwanConnectionProfileDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IPKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WwanNetworkIPKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PurposeGuids: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PurposeGuids: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1414,8 +1370,7 @@ impl LanIdentifierData {
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Value(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
+    pub fn Value(&self) -> windows_core::Result<windows_collections::IVectorView<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1475,7 +1430,7 @@ impl NetworkAdapter {
             (windows_core::Interface::vtable(this).NetworkAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetConnectedProfileAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ConnectionProfile>> {
+    pub fn GetConnectedProfileAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ConnectionProfile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1576,8 +1531,7 @@ impl windows_core::RuntimeType for NetworkEncryptionType {
 }
 pub struct NetworkInformation;
 impl NetworkInformation {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetConnectionProfiles() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ConnectionProfile>> {
+    pub fn GetConnectionProfiles() -> windows_core::Result<windows_collections::IVectorView<ConnectionProfile>> {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetConnectionProfiles)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1589,21 +1543,19 @@ impl NetworkInformation {
             (windows_core::Interface::vtable(this).GetInternetConnectionProfile)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetLanIdentifiers() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<LanIdentifier>> {
+    pub fn GetLanIdentifiers() -> windows_core::Result<windows_collections::IVectorView<LanIdentifier>> {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetLanIdentifiers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetHostNames() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
+    pub fn GetHostNames() -> windows_core::Result<windows_collections::IVectorView<super::HostName>> {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetHostNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetProxyConfigurationAsync<P0>(uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>
+    pub fn GetProxyConfigurationAsync<P0>(uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<ProxyConfiguration>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1612,10 +1564,9 @@ impl NetworkInformation {
             (windows_core::Interface::vtable(this).GetProxyConfigurationAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSortedEndpointPairs<P0>(destinationlist: P0, sortoptions: super::HostNameSortOptions) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>
+    pub fn GetSortedEndpointPairs<P0>(destinationlist: P0, sortoptions: super::HostNameSortOptions) -> windows_core::Result<windows_collections::IVectorView<super::EndpointPair>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::EndpointPair>>,
+        P0: windows_core::Param<windows_collections::IIterable<super::EndpointPair>>,
     {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1634,8 +1585,7 @@ impl NetworkInformation {
     pub fn RemoveNetworkStatusChanged(eventcookie: i64) -> windows_core::Result<()> {
         Self::INetworkInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveNetworkStatusChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindConnectionProfilesAsync<P0>(pprofilefilter: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>
+    pub fn FindConnectionProfilesAsync<P0>(pprofilefilter: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ConnectionProfile>>>
     where
         P0: windows_core::Param<ConnectionProfileFilter>,
     {
@@ -2004,8 +1954,7 @@ unsafe impl Sync for ProviderNetworkUsage {}
 pub struct ProxyConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProxyConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl ProxyConfiguration {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ProxyUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
+    pub fn ProxyUris(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2211,8 +2160,7 @@ impl WwanConnectionProfileDetails {
             (windows_core::Interface::vtable(this).IPKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PurposeGuids(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::GUID>> {
+    pub fn PurposeGuids(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::GUID>> {
         let this = &windows_core::Interface::cast::<IWwanConnectionProfileDetails2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

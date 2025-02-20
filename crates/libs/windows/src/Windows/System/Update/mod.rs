@@ -45,17 +45,11 @@ pub struct ISystemUpdateManagerStatics_Vtbl {
     pub LastUpdateCheckTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub LastUpdateInstallTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub LastErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAutomaticRebootBlockIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAutomaticRebootBlockIds: usize,
     pub BlockAutomaticRebootAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnblockAutomaticRebootAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetUpdateItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetUpdateItems: usize,
     pub AttentionRequiredReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemUpdateAttentionRequiredReason) -> windows_core::HRESULT,
     pub SetFlightRing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetFlightRing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -292,20 +286,19 @@ impl SystemUpdateManager {
             (windows_core::Interface::vtable(this).LastErrorInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAutomaticRebootBlockIds() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn GetAutomaticRebootBlockIds() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAutomaticRebootBlockIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn BlockAutomaticRebootAsync(lockid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn BlockAutomaticRebootAsync(lockid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BlockAutomaticRebootAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(lockid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn UnblockAutomaticRebootAsync(lockid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn UnblockAutomaticRebootAsync(lockid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnblockAutomaticRebootAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(lockid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -317,8 +310,7 @@ impl SystemUpdateManager {
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetUpdateItems() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SystemUpdateItem>> {
+    pub fn GetUpdateItems() -> windows_core::Result<windows_collections::IVectorView<SystemUpdateItem>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetUpdateItems)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

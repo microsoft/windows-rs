@@ -41,8 +41,7 @@ impl GuidanceAudioNotificationRequestedEventArgs {
             (windows_core::Interface::vtable(this).AudioNotification)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AudioFilePaths(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn AudioFilePaths(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -824,8 +823,7 @@ impl GuidanceRoadSignpost {
             (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ExitDirections(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn ExitDirections(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -864,8 +862,7 @@ impl GuidanceRoute {
             (windows_core::Interface::vtable(this).Distance)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Maneuvers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceManeuver>> {
+    pub fn Maneuvers(&self) -> windows_core::Result<windows_collections::IVectorView<GuidanceManeuver>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -888,8 +885,7 @@ impl GuidanceRoute {
             (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RoadSegments(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceRoadSegment>> {
+    pub fn RoadSegments(&self) -> windows_core::Result<windows_collections::IVectorView<GuidanceRoadSegment>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1099,8 +1095,7 @@ impl GuidanceUpdatedEventArgs {
             (windows_core::Interface::vtable(this).IsNewManeuver)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn LaneInfo(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceLaneInfo>> {
+    pub fn LaneInfo(&self) -> windows_core::Result<windows_collections::IVectorView<GuidanceLaneInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1128,10 +1123,7 @@ impl windows_core::RuntimeType for IGuidanceAudioNotificationRequestedEventArgs 
 pub struct IGuidanceAudioNotificationRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AudioNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GuidanceAudioNotificationKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub AudioFilePaths: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AudioFilePaths: usize,
     pub AudioText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGuidanceLaneInfo, IGuidanceLaneInfo_Vtbl, 0x8404d114_6581_43b7_ac15_c9079bf90df1);
@@ -1310,10 +1302,7 @@ pub struct IGuidanceRoadSignpost_Vtbl {
     pub ForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::UI::Color) -> windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     ForegroundColor: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ExitDirections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExitDirections: usize,
 }
 windows_core::imp::define_interface!(IGuidanceRoute, IGuidanceRoute_Vtbl, 0x3a14545d_801a_40bd_a286_afb2010cce6c);
 impl windows_core::RuntimeType for IGuidanceRoute {
@@ -1324,10 +1313,7 @@ pub struct IGuidanceRoute_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub Distance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Maneuvers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Maneuvers: usize,
     #[cfg(feature = "Devices_Geolocation")]
     pub BoundingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -1336,10 +1322,7 @@ pub struct IGuidanceRoute_Vtbl {
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     Path: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RoadSegments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RoadSegments: usize,
     pub ConvertToMapRoute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGuidanceRouteStatics, IGuidanceRouteStatics_Vtbl, 0xf56d926a_55ed_49c1_b09c_4b8223b50db3);
@@ -1396,8 +1379,5 @@ pub struct IGuidanceUpdatedEventArgs_Vtbl {
     pub Route: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsNewManeuver: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub LaneInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    LaneInfo: usize,
 }

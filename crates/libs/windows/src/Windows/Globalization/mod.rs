@@ -19,22 +19,20 @@ impl ApplicationLanguages {
     pub fn SetPrimaryLanguageOverride(value: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::IApplicationLanguagesStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetPrimaryLanguageOverride)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Languages() -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IApplicationLanguagesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Languages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ManifestLanguages() -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn ManifestLanguages() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IApplicationLanguagesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ManifestLanguages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub fn GetLanguagesForUser<P0>(user: P0) -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>>
+    #[cfg(feature = "System")]
+    pub fn GetLanguagesForUser<P0>(user: P0) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>>
     where
         P0: windows_core::Param<super::System::User>,
     {
@@ -82,8 +80,7 @@ impl Calendar {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetToMax)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Languages(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -679,30 +676,27 @@ impl Calendar {
             (windows_core::Interface::vtable(this).IsDaylightSavingTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCalendarDefaultCalendarAndClock<P0>(languages: P0) -> windows_core::Result<Calendar>
     where
-        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(windows_core::Interface::as_raw(this), languages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCalendar<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<Calendar>
     where
-        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCalendar)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCalendarWithTimeZone<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING, timezoneid: &windows_core::HSTRING) -> windows_core::Result<Calendar>
     where
-        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICalendarFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1989,8 +1983,7 @@ impl GeographicRegion {
             (windows_core::Interface::vtable(this).NativeName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CurrenciesInUse(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn CurrenciesInUse(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2039,14 +2032,8 @@ pub struct IApplicationLanguagesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PrimaryLanguageOverride: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPrimaryLanguageOverride: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Languages: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ManifestLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ManifestLanguages: usize,
 }
 windows_core::imp::define_interface!(IApplicationLanguagesStatics2, IApplicationLanguagesStatics2_Vtbl, 0x1df0de4f_072b_4d7b_8f06_cb2db40f2bb5);
 impl windows_core::RuntimeType for IApplicationLanguagesStatics2 {
@@ -2055,9 +2042,9 @@ impl windows_core::RuntimeType for IApplicationLanguagesStatics2 {
 #[repr(C)]
 pub struct IApplicationLanguagesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
+    #[cfg(feature = "System")]
     pub GetLanguagesForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "System")))]
+    #[cfg(not(feature = "System"))]
     GetLanguagesForUser: usize,
 }
 windows_core::imp::define_interface!(ICalendar, ICalendar_Vtbl, 0xca30221d_86d9_40fb_a26b_d44eb7cf08ea);
@@ -2070,10 +2057,7 @@ pub struct ICalendar_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetToMin: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetToMax: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Languages: usize,
     pub NumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetNumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCalendarSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2176,14 +2160,8 @@ impl windows_core::RuntimeType for ICalendarFactory {
 #[repr(C)]
 pub struct ICalendarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateCalendarDefaultCalendarAndClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateCalendarDefaultCalendarAndClock: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateCalendar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateCalendar: usize,
 }
 windows_core::imp::define_interface!(ICalendarFactory2, ICalendarFactory2_Vtbl, 0xb44b378c_ca7e_4590_9e72_ea2bec1a5115);
 impl windows_core::RuntimeType for ICalendarFactory2 {
@@ -2192,10 +2170,7 @@ impl windows_core::RuntimeType for ICalendarFactory2 {
 #[repr(C)]
 pub struct ICalendarFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateCalendarWithTimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateCalendarWithTimeZone: usize,
 }
 windows_core::imp::define_interface!(ICalendarIdentifiersStatics, ICalendarIdentifiersStatics_Vtbl, 0x80653f68_2cb2_4c1f_b590_f0f52bf4fd1a);
 impl windows_core::RuntimeType for ICalendarIdentifiersStatics {
@@ -2464,10 +2439,7 @@ pub struct IGeographicRegion_Vtbl {
     pub CodeThreeDigit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NativeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CurrenciesInUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CurrenciesInUse: usize,
 }
 windows_core::imp::define_interface!(IGeographicRegionFactory, IGeographicRegionFactory_Vtbl, 0x53425270_77b4_426b_859f_81e19d512546);
 impl windows_core::RuntimeType for IGeographicRegionFactory {
@@ -2505,14 +2477,8 @@ impl windows_core::RuntimeType for IJapanesePhoneticAnalyzerStatics {
 #[repr(C)]
 pub struct IJapanesePhoneticAnalyzerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetWords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetWords: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetWordsWithMonoRubyOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetWordsWithMonoRubyOption: usize,
 }
 windows_core::imp::define_interface!(ILanguage, ILanguage_Vtbl, 0xea79a752_f7c2_4265_b1bd_c4dec4e4f080);
 impl windows_core::RuntimeType for ILanguage {
@@ -2551,10 +2517,7 @@ impl windows_core::RuntimeType for ILanguageExtensionSubtags {
 #[repr(C)]
 pub struct ILanguageExtensionSubtags_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetExtensionSubtags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetExtensionSubtags: usize,
 }
 windows_core::imp::define_interface!(ILanguageFactory, ILanguageFactory_Vtbl, 0x9b0252ac_0c27_44f8_b792_9793fb66c63e);
 impl windows_core::RuntimeType for ILanguageFactory {
@@ -2591,10 +2554,7 @@ impl windows_core::RuntimeType for ILanguageStatics3 {
 #[repr(C)]
 pub struct ILanguageStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetMuiCompatibleLanguageListFromLanguageTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetMuiCompatibleLanguageListFromLanguageTags: usize,
 }
 windows_core::imp::define_interface!(INumeralSystemIdentifiersStatics, INumeralSystemIdentifiersStatics_Vtbl, 0xa5c662c3_68c9_4d3d_b765_972029e21dec);
 impl windows_core::RuntimeType for INumeralSystemIdentifiersStatics {
@@ -2711,15 +2671,13 @@ impl windows_core::RuntimeName for JapanesePhoneme {
 }
 pub struct JapanesePhoneticAnalyzer;
 impl JapanesePhoneticAnalyzer {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetWords(input: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
+    pub fn GetWords(input: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<JapanesePhoneme>> {
         Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetWords)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetWordsWithMonoRubyOption(input: &windows_core::HSTRING, monoruby: bool) -> windows_core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
+    pub fn GetWordsWithMonoRubyOption(input: &windows_core::HSTRING, monoruby: bool) -> windows_core::Result<windows_collections::IVectorView<JapanesePhoneme>> {
         Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetWordsWithMonoRubyOption)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), monoruby, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2780,8 +2738,7 @@ impl Language {
             (windows_core::Interface::vtable(this).AbbreviatedName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetExtensionSubtags(&self, singleton: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn GetExtensionSubtags(&self, singleton: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ILanguageExtensionSubtags>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2812,10 +2769,9 @@ impl Language {
             (windows_core::Interface::vtable(this).TrySetInputMethodLanguageTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMuiCompatibleLanguageListFromLanguageTags<P0>(languagetags: P0) -> windows_core::Result<super::Foundation::Collections::IVector<windows_core::HSTRING>>
+    pub fn GetMuiCompatibleLanguageListFromLanguageTags<P0>(languagetags: P0) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>
     where
-        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ILanguageStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();

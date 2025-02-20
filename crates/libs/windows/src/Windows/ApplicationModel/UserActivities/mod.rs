@@ -83,14 +83,8 @@ impl windows_core::RuntimeType for IUserActivityChannel2 {
 #[repr(C)]
 pub struct IUserActivityChannel2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetRecentUserActivitiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetRecentUserActivitiesAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSessionHistoryItemsForUserActivityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSessionHistoryItemsForUserActivityAsync: usize,
 }
 windows_core::imp::define_interface!(IUserActivityChannelStatics, IUserActivityChannelStatics_Vtbl, 0xc8c005ab_198d_4d80_abb2_c9775ec4a729);
 impl windows_core::RuntimeType for IUserActivityChannelStatics {
@@ -256,14 +250,8 @@ impl windows_core::RuntimeType for IUserActivityStatics {
 pub struct IUserActivityStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryParseFromJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub TryParseFromJsonArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TryParseFromJsonArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ToJsonArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ToJsonArray: usize,
 }
 windows_core::imp::define_interface!(IUserActivityVisualElements, IUserActivityVisualElements_Vtbl, 0x94757513_262f_49ef_bbbf_9b75d2e85250);
 impl windows_core::RuntimeType for IUserActivityVisualElements {
@@ -398,7 +386,7 @@ impl UserActivity {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetContentInfo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -442,17 +430,15 @@ impl UserActivity {
             (windows_core::Interface::vtable(this).TryParseFromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(json), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TryParseFromJsonArray(json: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVector<UserActivity>> {
+    pub fn TryParseFromJsonArray(json: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<UserActivity>> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParseFromJsonArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(json), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ToJsonArray<P0>(activities: P0) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<UserActivity>>,
+        P0: windows_core::Param<windows_collections::IIterable<UserActivity>>,
     {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -559,37 +545,35 @@ unsafe impl Sync for UserActivityAttribution {}
 pub struct UserActivityChannel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivityChannel, windows_core::IUnknown, windows_core::IInspectable);
 impl UserActivityChannel {
-    pub fn GetOrCreateUserActivityAsync(&self, activityid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UserActivity>> {
+    pub fn GetOrCreateUserActivityAsync(&self, activityid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserActivity>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetOrCreateUserActivityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteActivityAsync(&self, activityid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteActivityAsync(&self, activityid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteActivityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteAllActivitiesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteAllActivitiesAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteAllActivitiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetRecentUserActivitiesAsync(&self, maxuniqueactivities: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
+    pub fn GetRecentUserActivitiesAsync(&self, maxuniqueactivities: i32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &windows_core::Interface::cast::<IUserActivityChannel2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetRecentUserActivitiesAsync)(windows_core::Interface::as_raw(this), maxuniqueactivities, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSessionHistoryItemsForUserActivityAsync(&self, activityid: &windows_core::HSTRING, starttime: super::super::Foundation::DateTime) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
+    pub fn GetSessionHistoryItemsForUserActivityAsync(&self, activityid: &windows_core::HSTRING, starttime: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &windows_core::Interface::cast::<IUserActivityChannel2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -1,0 +1,11 @@
+namespace Test
+{
+    interface ITest
+    {
+        void TestIterable(Windows.Foundation.Collections.IIterable<Int32> collection, Int32[] values);
+        
+        Windows.Foundation.Collections.IIterable<Int32> GetIterable(Int32[] values);
+
+        Windows.Foundation.Collections.IMapView<Int32, Windows.Foundation.Collections.IVectorView<Int32> > GetMapView(Int32[] values);
+    }
+}

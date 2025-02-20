@@ -53,8 +53,7 @@ impl DisplayAdapter {
             (windows_core::Interface::vtable(this).PciRevision)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -218,12 +217,12 @@ impl DisplayDevice {
             (windows_core::Interface::vtable(this).IsCapabilitySupported)(windows_core::Interface::as_raw(this), capability, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
+    #[cfg(feature = "Graphics")]
     pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<P0, P1, P4>(&self, source: P0, surface: P1, subresourceindex: u32, syncinterval: u32, dirtyrects: P4, options: DisplayScanoutOptions) -> windows_core::Result<DisplayScanout>
     where
         P0: windows_core::Param<DisplaySource>,
         P1: windows_core::Param<DisplaySurface>,
-        P4: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>,
+        P4: windows_core::Param<windows_collections::IIterable<super::super::super::Graphics::RectInt32>>,
     {
         let this = &windows_core::Interface::cast::<IDisplayDevice2>(self)?;
         unsafe {
@@ -291,16 +290,14 @@ impl DisplayManager {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCurrentTargets(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>> {
+    pub fn GetCurrentTargets(&self) -> windows_core::Result<windows_collections::IVectorView<DisplayTarget>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentTargets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCurrentAdapters(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>> {
+    pub fn GetCurrentAdapters(&self) -> windows_core::Result<windows_collections::IVectorView<DisplayAdapter>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -331,10 +328,9 @@ impl DisplayManager {
             (windows_core::Interface::vtable(this).TryReadCurrentStateForAllTargets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndReadCurrentState<P0>(&self, targets: P0) -> windows_core::Result<DisplayManagerResultWithState>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>,
+        P0: windows_core::Param<windows_collections::IIterable<DisplayTarget>>,
     {
         let this = self;
         unsafe {
@@ -342,10 +338,9 @@ impl DisplayManager {
             (windows_core::Interface::vtable(this).TryAcquireTargetsAndReadCurrentState)(windows_core::Interface::as_raw(this), targets.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndCreateEmptyState<P0>(&self, targets: P0) -> windows_core::Result<DisplayManagerResultWithState>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>,
+        P0: windows_core::Param<windows_collections::IIterable<DisplayTarget>>,
     {
         let this = self;
         unsafe {
@@ -353,11 +348,10 @@ impl DisplayManager {
             (windows_core::Interface::vtable(this).TryAcquireTargetsAndCreateEmptyState)(windows_core::Interface::as_raw(this), targets.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndCreateSubstate<P0, P1>(&self, existingstate: P0, targets: P1) -> windows_core::Result<DisplayManagerResultWithState>
     where
         P0: windows_core::Param<DisplayState>,
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>,
+        P1: windows_core::Param<windows_collections::IIterable<DisplayTarget>>,
     {
         let this = self;
         unsafe {
@@ -794,8 +788,7 @@ impl DisplayModeInfo {
             (windows_core::Interface::vtable(this).IsWireFormatSupported)(windows_core::Interface::as_raw(this), wireformat.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -893,8 +886,7 @@ impl DisplayMuxDevice {
             (windows_core::Interface::vtable(this).IsActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAvailableMuxTargets(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>> {
+    pub fn GetAvailableMuxTargets(&self) -> windows_core::Result<windows_collections::IVectorView<DisplayTarget>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -922,7 +914,7 @@ impl DisplayMuxDevice {
             (windows_core::Interface::vtable(this).IsAutomaticTargetSwitchingEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPreferredTarget<P0>(&self, target: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn SetPreferredTarget<P0>(&self, target: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<DisplayTarget>,
     {
@@ -932,7 +924,7 @@ impl DisplayMuxDevice {
             (windows_core::Interface::vtable(this).SetPreferredTarget)(windows_core::Interface::as_raw(this), target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetAutomaticTargetSwitching(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetAutomaticTargetSwitching(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -959,7 +951,7 @@ impl DisplayMuxDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceinterfaceid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<DisplayMuxDevice>> {
+    pub fn FromIdAsync(deviceinterfaceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DisplayMuxDevice>> {
         Self::IDisplayMuxDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1130,8 +1122,7 @@ impl DisplayPath {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetScaling)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindModes(&self, flags: DisplayModeQueryOptions) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>> {
+    pub fn FindModes(&self, flags: DisplayModeQueryOptions) -> windows_core::Result<windows_collections::IVectorView<DisplayModeInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1145,8 +1136,7 @@ impl DisplayPath {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ApplyPropertiesFromMode)(windows_core::Interface::as_raw(this), moderesult.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::GUID, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1295,8 +1285,7 @@ impl DisplayPrimaryDescription {
             (windows_core::Interface::vtable(this).MultisampleDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1310,10 +1299,10 @@ impl DisplayPrimaryDescription {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), width, height, pixelformat, colorspace, isstereo, multisampledescription, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
+    #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateWithProperties<P0>(extraproperties: P0, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> windows_core::Result<DisplayPrimaryDescription>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>,
     {
         Self::IDisplayPrimaryDescriptionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1516,24 +1505,21 @@ impl DisplayState {
             (windows_core::Interface::vtable(this).IsStale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Targets(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>> {
+    pub fn Targets(&self) -> windows_core::Result<windows_collections::IVectorView<DisplayTarget>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Targets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Views(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayView>> {
+    pub fn Views(&self) -> windows_core::Result<windows_collections::IVectorView<DisplayView>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Views)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::GUID, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1871,8 +1857,7 @@ impl DisplayTarget {
             (windows_core::Interface::vtable(this).TryGetMonitor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2073,8 +2058,7 @@ impl windows_core::RuntimeType for DisplayTaskSignalKind {
 pub struct DisplayView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayView, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayView {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Paths(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayPath>> {
+    pub fn Paths(&self) -> windows_core::Result<windows_collections::IVectorView<DisplayPath>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2104,8 +2088,7 @@ impl DisplayView {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPrimaryPath)(windows_core::Interface::as_raw(this), path.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::GUID, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2165,8 +2148,7 @@ impl DisplayWireFormat {
             (windows_core::Interface::vtable(this).HdrMetadata)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2179,10 +2161,9 @@ impl DisplayWireFormat {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithProperties<P0>(extraproperties: P0, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> windows_core::Result<DisplayWireFormat>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>,
     {
         Self::IDisplayWireFormatStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2285,10 +2266,7 @@ pub struct IDisplayAdapter_Vtbl {
     pub PciDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub PciSubSystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub PciRevision: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayAdapter2, IDisplayAdapter2_Vtbl, 0x9ab49b18_b3c7_5546_8374_a9127111edd8);
 impl windows_core::RuntimeType for IDisplayAdapter2 {
@@ -2334,9 +2312,9 @@ impl windows_core::RuntimeType for IDisplayDevice2 {
 #[repr(C)]
 pub struct IDisplayDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
+    #[cfg(feature = "Graphics")]
     pub CreateSimpleScanoutWithDirtyRectsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, DisplayScanoutOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics")))]
+    #[cfg(not(feature = "Graphics"))]
     CreateSimpleScanoutWithDirtyRectsAndOptions: usize,
 }
 windows_core::imp::define_interface!(IDisplayDeviceRenderAdapter, IDisplayDeviceRenderAdapter_Vtbl, 0x41c86ce5_b18f_573f_9d59_70463115e4cc);
@@ -2366,29 +2344,14 @@ impl windows_core::RuntimeType for IDisplayManager {
 #[repr(C)]
 pub struct IDisplayManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCurrentTargets: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentAdapters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCurrentAdapters: usize,
     pub TryAcquireTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut DisplayManagerResult) -> windows_core::HRESULT,
     pub ReleaseTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryReadCurrentStateForAllTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub TryAcquireTargetsAndReadCurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TryAcquireTargetsAndReadCurrentState: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub TryAcquireTargetsAndCreateEmptyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TryAcquireTargetsAndCreateEmptyState: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub TryAcquireTargetsAndCreateSubstate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TryAcquireTargetsAndCreateSubstate: usize,
     pub CreateDisplayDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -2510,10 +2473,7 @@ pub struct IDisplayModeInfo_Vtbl {
     pub IsInterlaced: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetWireFormatSupportedBitsPerChannel: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayWireFormatPixelEncoding, *mut DisplayBitsPerChannel) -> windows_core::HRESULT,
     pub IsWireFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayModeInfo2, IDisplayModeInfo2_Vtbl, 0xc86fa386_0ddb_5473_bfb0_4b7807b5f909);
 impl windows_core::RuntimeType for IDisplayModeInfo2 {
@@ -2536,10 +2496,7 @@ pub struct IDisplayMuxDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAvailableMuxTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAvailableMuxTargets: usize,
     pub CurrentTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PreferredTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsAutomaticTargetSwitchingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2610,15 +2567,9 @@ pub struct IDisplayPath_Vtbl {
     pub SetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayRotation) -> windows_core::HRESULT,
     pub Scaling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayPathScaling) -> windows_core::HRESULT,
     pub SetScaling: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayPathScaling) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindModes: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayModeQueryOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindModes: usize,
     pub ApplyPropertiesFromMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayPath2, IDisplayPath2_Vtbl, 0xf32459c5_e994_570b_9ec8_ef42c35a8547);
 impl windows_core::RuntimeType for IDisplayPath2 {
@@ -2658,10 +2609,7 @@ pub struct IDisplayPrimaryDescription_Vtbl {
     pub MultisampleDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     MultisampleDescription: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayPrimaryDescriptionFactory, IDisplayPrimaryDescriptionFactory_Vtbl, 0x1a6aff7b_3637_5c46_b479_76d576216e65);
 impl windows_core::RuntimeType for IDisplayPrimaryDescriptionFactory {
@@ -2682,9 +2630,9 @@ impl windows_core::RuntimeType for IDisplayPrimaryDescriptionStatics {
 #[repr(C)]
 pub struct IDisplayPrimaryDescriptionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
+    #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub CreateWithProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, super::super::super::Graphics::DirectX::DirectXPixelFormat, super::super::super::Graphics::DirectX::DirectXColorSpace, bool, super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11")))]
+    #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     CreateWithProperties: usize,
 }
 windows_core::imp::define_interface!(IDisplayScanout, IDisplayScanout_Vtbl, 0xe3051828_1ba5_50e7_8a39_bb1fd2f4f8b9);
@@ -2732,18 +2680,9 @@ pub struct IDisplayState_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsStale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Targets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Targets: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Views: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Views: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
     pub ConnectTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectTargetToView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CanConnectTargetToView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2789,10 +2728,7 @@ pub struct IDisplayTarget_Vtbl {
     pub MonitorPersistence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayTargetPersistence) -> windows_core::HRESULT,
     pub StableMonitorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryGetMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
     pub IsStale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsSame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2856,10 +2792,7 @@ impl windows_core::RuntimeType for IDisplayView {
 #[repr(C)]
 pub struct IDisplayView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Paths: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Paths: usize,
     #[cfg(feature = "Graphics")]
     pub ContentResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
@@ -2869,10 +2802,7 @@ pub struct IDisplayView_Vtbl {
     #[cfg(not(feature = "Graphics"))]
     SetContentResolution: usize,
     pub SetPrimaryPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayWireFormat, IDisplayWireFormat_Vtbl, 0x1acc967d_872c_5a38_bbb9_1d4872b76255);
 impl windows_core::RuntimeType for IDisplayWireFormat {
@@ -2886,10 +2816,7 @@ pub struct IDisplayWireFormat_Vtbl {
     pub ColorSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayWireFormatColorSpace) -> windows_core::HRESULT,
     pub Eotf: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayWireFormatEotf) -> windows_core::HRESULT,
     pub HdrMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayWireFormatHdrMetadata) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayWireFormatFactory, IDisplayWireFormatFactory_Vtbl, 0xb2efc8d5_09d6_55e6_ad22_9014b3d25229);
 impl windows_core::RuntimeType for IDisplayWireFormatFactory {
@@ -2907,8 +2834,5 @@ impl windows_core::RuntimeType for IDisplayWireFormatStatics {
 #[repr(C)]
 pub struct IDisplayWireFormatStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateWithProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DisplayWireFormatPixelEncoding, i32, DisplayWireFormatColorSpace, DisplayWireFormatEotf, DisplayWireFormatHdrMetadata, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWithProperties: usize,
 }

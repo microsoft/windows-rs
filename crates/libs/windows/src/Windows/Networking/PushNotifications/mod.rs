@@ -132,10 +132,7 @@ impl windows_core::RuntimeType for IRawNotification2 {
 #[repr(C)]
 pub struct IRawNotification2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Headers: usize,
     pub ChannelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRawNotification3, IRawNotification3_Vtbl, 0x62737dde_8a73_424c_ab44_5635f40a96e5);
@@ -202,19 +199,19 @@ unsafe impl Send for PushNotificationChannel {}
 unsafe impl Sync for PushNotificationChannel {}
 pub struct PushNotificationChannelManager;
 impl PushNotificationChannelManager {
-    pub fn CreatePushNotificationChannelForApplicationAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForApplicationAsync() -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreatePushNotificationChannelForApplicationAsyncWithId(applicationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForApplicationAsyncWithId(applicationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsyncWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreatePushNotificationChannelForSecondaryTileAsync(tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForSecondaryTileAsync(tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePushNotificationChannelForSecondaryTileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -273,21 +270,21 @@ impl windows_core::RuntimeName for PushNotificationChannelManager {
 pub struct PushNotificationChannelManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PushNotificationChannelManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl PushNotificationChannelManagerForUser {
-    pub fn CreatePushNotificationChannelForApplicationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForApplicationAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreatePushNotificationChannelForApplicationAsyncWithId(&self, applicationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForApplicationAsyncWithId(&self, applicationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsyncWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -303,7 +300,7 @@ impl PushNotificationChannelManagerForUser {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync<P0>(&self, appserverkey: P0, channelid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>
+    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync<P0>(&self, appserverkey: P0, channelid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -314,7 +311,7 @@ impl PushNotificationChannelManagerForUser {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId<P0>(&self, appserverkey: P0, channelid: &windows_core::HSTRING, appid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>
+    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId<P0>(&self, appserverkey: P0, channelid: &windows_core::HSTRING, appid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -449,8 +446,7 @@ impl RawNotification {
             (windows_core::Interface::vtable(this).Content)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Headers(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Headers(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IRawNotification2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

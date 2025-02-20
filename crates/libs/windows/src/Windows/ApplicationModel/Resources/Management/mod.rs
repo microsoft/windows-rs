@@ -7,14 +7,8 @@ pub struct IIndexedResourceCandidate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IndexedResourceType) -> windows_core::HRESULT,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Metadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Metadata: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Qualifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Qualifiers: usize,
     pub ValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetQualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -39,10 +33,7 @@ impl windows_core::RuntimeType for IResourceIndexer {
 pub struct IResourceIndexer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IndexFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub IndexFileContentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    IndexFileContentsAsync: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IResourceIndexerFactory, IResourceIndexerFactory_Vtbl, 0xb8de3f09_31cd_4d97_bd30_8d39f742bc61);
@@ -87,16 +78,14 @@ impl IndexedResourceCandidate {
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Metadata(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Metadata(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Metadata)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Qualifiers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>> {
+    pub fn Qualifiers(&self) -> windows_core::Result<windows_collections::IVectorView<IndexedResourceQualifier>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -194,8 +183,7 @@ impl ResourceIndexer {
             (windows_core::Interface::vtable(this).IndexFilePath)(windows_core::Interface::as_raw(this), filepath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexFileContentsAsync<P0>(&self, file: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>
+    pub fn IndexFileContentsAsync<P0>(&self, file: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<IndexedResourceCandidate>>>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {

@@ -362,7 +362,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn DecryptAsync<P0, P1, P2>(key: P0, data: P1, iv: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn DecryptAsync<P0, P1, P2>(key: P0, data: P1, iv: P2) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -374,7 +374,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SignAsync<P0, P1>(key: P0, data: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn SignAsync<P0, P1>(key: P0, data: P1) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -385,7 +385,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SignHashedDataAsync<P0, P1>(key: P0, data: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn SignHashedDataAsync<P0, P1>(key: P0, data: P1) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -817,8 +817,7 @@ impl EccCurveNames {
             (windows_core::Interface::vtable(this).X962P256v1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllEccCurveNames() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn AllEccCurveNames() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllEccCurveNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1189,10 +1188,7 @@ pub struct IEccCurveNamesStatics_Vtbl {
     pub X962P239v2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub X962P239v3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub X962P256v1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub AllEccCurveNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllEccCurveNames: usize,
 }
 windows_core::imp::define_interface!(IEncryptedAndAuthenticatedData, IEncryptedAndAuthenticatedData_Vtbl, 0x6fa42fe7_1ecb_4b00_bea5_60b83f862f17);
 impl windows_core::RuntimeType for IEncryptedAndAuthenticatedData {
@@ -1886,7 +1882,7 @@ unsafe impl Sync for MacAlgorithmProvider {}
 pub struct PersistedKeyProvider;
 impl PersistedKeyProvider {
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn OpenKeyPairFromCertificateAsync<P0>(certificate: P0, hashalgorithmname: &windows_core::HSTRING, padding: CryptographicPadding) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>
+    pub fn OpenKeyPairFromCertificateAsync<P0>(certificate: P0, hashalgorithmname: &windows_core::HSTRING, padding: CryptographicPadding) -> windows_core::Result<windows_future::IAsyncOperation<CryptographicKey>>
     where
         P0: windows_core::Param<super::Certificates::Certificate>,
     {

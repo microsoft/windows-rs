@@ -55,14 +55,14 @@ unsafe impl Sync for AdvancedCapturedPhoto {}
 pub struct AdvancedPhotoCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdvancedPhotoCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl AdvancedPhotoCapture {
-    pub fn CaptureAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>> {
+    pub fn CaptureAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<AdvancedCapturedPhoto>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CaptureAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CaptureWithContextAsync<P0>(&self, context: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>
+    pub fn CaptureWithContextAsync<P0>(&self, context: P0) -> windows_core::Result<windows_future::IAsyncOperation<AdvancedCapturedPhoto>>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
@@ -100,7 +100,7 @@ impl AdvancedPhotoCapture {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAllPhotosCaptured)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FinishAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn FinishAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -928,8 +928,7 @@ impl AppBroadcastPlugInManager {
             (windows_core::Interface::vtable(this).IsBroadcastProviderAvailable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PlugInList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AppBroadcastPlugIn>> {
+    pub fn PlugInList(&self) -> windows_core::Result<windows_collections::IVectorView<AppBroadcastPlugIn>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1429,7 +1428,7 @@ impl AppBroadcastServices {
             (windows_core::Interface::vtable(this).CanCapture)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EnterBroadcastModeAsync<P0>(&self, plugin: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    pub fn EnterBroadcastModeAsync<P0>(&self, plugin: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
         P0: windows_core::Param<AppBroadcastPlugIn>,
     {
@@ -2246,7 +2245,7 @@ impl AppCapture {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SetAllowedAsync(allowed: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetAllowedAsync(allowed: bool) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IAppCaptureStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetAllowedAsync)(windows_core::Interface::as_raw(this), allowed, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3393,7 +3392,7 @@ impl CameraCaptureUI {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CaptureFileAsync(&self, mode: CameraCaptureUIMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
+    pub fn CaptureFileAsync(&self, mode: CameraCaptureUIMode) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3666,7 +3665,7 @@ impl CapturedFrame {
             (windows_core::Interface::vtable(this).ControlValues)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[cfg(feature = "Graphics_Imaging")]
     pub fn BitmapProperties(&self) -> windows_core::Result<super::super::Graphics::Imaging::BitmapPropertySet> {
         let this = &windows_core::Interface::cast::<ICapturedFrame2>(self)?;
         unsafe {
@@ -3693,7 +3692,7 @@ impl CapturedFrame {
             (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -3703,7 +3702,7 @@ impl CapturedFrame {
             (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -3713,7 +3712,7 @@ impl CapturedFrame {
             (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FlushAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4490,10 +4489,7 @@ impl windows_core::RuntimeType for IAppBroadcastPlugInManager {
 pub struct IAppBroadcastPlugInManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsBroadcastProviderAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PlugInList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PlugInList: usize,
     pub DefaultPlugIn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDefaultPlugIn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -5286,9 +5282,9 @@ impl windows_core::RuntimeType for ICapturedFrame2 {
 pub struct ICapturedFrame2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ControlValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[cfg(feature = "Graphics_Imaging")]
     pub BitmapProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
+    #[cfg(not(feature = "Graphics_Imaging"))]
     BitmapProperties: usize,
 }
 windows_core::imp::define_interface!(ICapturedFrameControlValues, ICapturedFrameControlValues_Vtbl, 0x90c65b7f_4e0d_4ca4_882d_7a144fed0a90);
@@ -5577,9 +5573,9 @@ pub struct IMediaCapture2_Vtbl {
     pub PrepareLowLagPhotoSequenceCaptureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     PrepareLowLagPhotoSequenceCaptureAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
+    #[cfg(feature = "Media_MediaProperties")]
     pub SetEncodingPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, MediaStreamType, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
+    #[cfg(not(feature = "Media_MediaProperties"))]
     SetEncodingPropertiesAsync: usize,
 }
 windows_core::imp::define_interface!(IMediaCapture3, IMediaCapture3_Vtbl, 0xd4136f30_1564_466e_bc0a_af94e02ab016);
@@ -5647,9 +5643,9 @@ pub struct IMediaCapture5_Vtbl {
     #[cfg(not(feature = "Media_Devices"))]
     PauseRecordWithResultAsync: usize,
     pub StopRecordWithResultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
+    #[cfg(feature = "Media_Capture_Frames")]
     pub FrameSources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames")))]
+    #[cfg(not(feature = "Media_Capture_Frames"))]
     FrameSources: usize,
     #[cfg(feature = "Media_Capture_Frames")]
     pub CreateFrameReaderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5673,9 +5669,9 @@ pub struct IMediaCapture6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CaptureDeviceExclusiveControlStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveCaptureDeviceExclusiveControlStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
+    #[cfg(feature = "Media_Capture_Frames")]
     pub CreateMultiSourceFrameReaderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames")))]
+    #[cfg(not(feature = "Media_Capture_Frames"))]
     CreateMultiSourceFrameReaderAsync: usize,
 }
 windows_core::imp::define_interface!(IMediaCapture7, IMediaCapture7_Vtbl, 0x9169f102_8888_541a_95bc_24e4d462542a);
@@ -5913,18 +5909,9 @@ impl windows_core::RuntimeType for IMediaCaptureStatics {
 pub struct IMediaCaptureStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsVideoProfileSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllVideoProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllVideoProfiles: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindConcurrentProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindConcurrentProfiles: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindKnownVideoProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, KnownVideoProfile, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindKnownVideoProfiles: usize,
 }
 windows_core::imp::define_interface!(IMediaCaptureStopResult, IMediaCaptureStopResult_Vtbl, 0xf9db6a2a_a092_4ad1_97d4_f201f9d082db);
 impl windows_core::RuntimeType for IMediaCaptureStopResult {
@@ -5963,22 +5950,10 @@ pub struct IMediaCaptureVideoProfile_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub VideoDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedPreviewMediaDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedPreviewMediaDescription: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedRecordMediaDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedRecordMediaDescription: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedPhotoMediaDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedPhotoMediaDescription: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetConcurrency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetConcurrency: usize,
 }
 windows_core::imp::define_interface!(IMediaCaptureVideoProfile2, IMediaCaptureVideoProfile2_Vtbl, 0x97ddc95f_94ce_468f_9316_fc5bc2638f6b);
 impl windows_core::RuntimeType for IMediaCaptureVideoProfile2 {
@@ -5987,14 +5962,11 @@ impl windows_core::RuntimeType for IMediaCaptureVideoProfile2 {
 #[repr(C)]
 pub struct IMediaCaptureVideoProfile2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
+    #[cfg(feature = "Media_Capture_Frames")]
     pub FrameSourceInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames")))]
+    #[cfg(not(feature = "Media_Capture_Frames"))]
     FrameSourceInfos: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IMediaCaptureVideoProfileMediaDescription, IMediaCaptureVideoProfileMediaDescription_Vtbl, 0x8012afef_b691_49ff_83f2_c1e76eaaea1b);
 impl windows_core::RuntimeType for IMediaCaptureVideoProfileMediaDescription {
@@ -6023,10 +5995,7 @@ impl windows_core::RuntimeType for IMediaCaptureVideoProfileMediaDescription2 {
 pub struct IMediaCaptureVideoProfileMediaDescription2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Subtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(IOptionalReferencePhotoCapturedEventArgs, IOptionalReferencePhotoCapturedEventArgs_Vtbl, 0x470f88b3_1e6d_4051_9c8b_f1d85af047b7);
 impl windows_core::RuntimeType for IOptionalReferencePhotoCapturedEventArgs {
@@ -6153,21 +6122,21 @@ impl windows_core::RuntimeType for KnownVideoProfile {
 pub struct LowLagMediaRecording(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLagMediaRecording, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLagMediaRecording {
-    pub fn StartAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StopAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FinishAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn FinishAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6175,14 +6144,14 @@ impl LowLagMediaRecording {
         }
     }
     #[cfg(feature = "Media_Devices")]
-    pub fn PauseAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn PauseAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<ILowLagMediaRecording2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PauseAsync)(windows_core::Interface::as_raw(this), behavior, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ResumeAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ResumeAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<ILowLagMediaRecording2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6190,14 +6159,14 @@ impl LowLagMediaRecording {
         }
     }
     #[cfg(feature = "Media_Devices")]
-    pub fn PauseWithResultAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>> {
+    pub fn PauseWithResultAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> windows_core::Result<windows_future::IAsyncOperation<MediaCapturePauseResult>> {
         let this = &windows_core::Interface::cast::<ILowLagMediaRecording3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PauseWithResultAsync)(windows_core::Interface::as_raw(this), behavior, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopWithResultAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>> {
+    pub fn StopWithResultAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MediaCaptureStopResult>> {
         let this = &windows_core::Interface::cast::<ILowLagMediaRecording3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6220,14 +6189,14 @@ impl windows_core::RuntimeName for LowLagMediaRecording {
 pub struct LowLagPhotoCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLagPhotoCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLagPhotoCapture {
-    pub fn CaptureAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CapturedPhoto>> {
+    pub fn CaptureAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<CapturedPhoto>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CaptureAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FinishAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn FinishAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6250,21 +6219,21 @@ impl windows_core::RuntimeName for LowLagPhotoCapture {
 pub struct LowLagPhotoSequenceCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLagPhotoSequenceCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLagPhotoSequenceCapture {
-    pub fn StartAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StopAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FinishAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn FinishAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6313,14 +6282,14 @@ impl MediaCapture {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn InitializeAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn InitializeAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitializeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn InitializeWithSettingsAsync<P0>(&self, mediacaptureinitializationsettings: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn InitializeWithSettingsAsync<P0>(&self, mediacaptureinitializationsettings: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<MediaCaptureInitializationSettings>,
     {
@@ -6331,7 +6300,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn StartRecordToStorageFileAsync<P0, P1>(&self, encodingprofile: P0, file: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartRecordToStorageFileAsync<P0, P1>(&self, encodingprofile: P0, file: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
         P1: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -6343,7 +6312,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn StartRecordToStreamAsync<P0, P1>(&self, encodingprofile: P0, stream: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartRecordToStreamAsync<P0, P1>(&self, encodingprofile: P0, stream: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -6355,7 +6324,7 @@ impl MediaCapture {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn StartRecordToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartRecordToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
         P1: windows_core::Param<super::IMediaExtension>,
@@ -6367,7 +6336,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn StartRecordToCustomSinkIdAsync<P0, P2>(&self, encodingprofile: P0, customsinkactivationid: &windows_core::HSTRING, customsinksettings: P2) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartRecordToCustomSinkIdAsync<P0, P2>(&self, encodingprofile: P0, customsinkactivationid: &windows_core::HSTRING, customsinksettings: P2) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
         P2: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
@@ -6378,7 +6347,7 @@ impl MediaCapture {
             (windows_core::Interface::vtable(this).StartRecordToCustomSinkIdAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), core::mem::transmute_copy(customsinkactivationid), customsinksettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopRecordAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StopRecordAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6386,7 +6355,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn CapturePhotoToStorageFileAsync<P0, P1>(&self, r#type: P0, file: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn CapturePhotoToStorageFileAsync<P0, P1>(&self, r#type: P0, file: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
         P1: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -6398,7 +6367,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn CapturePhotoToStreamAsync<P0, P1>(&self, r#type: P0, stream: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn CapturePhotoToStreamAsync<P0, P1>(&self, r#type: P0, stream: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -6410,7 +6379,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn AddEffectAsync<P2>(&self, mediastreamtype: MediaStreamType, effectactivationid: &windows_core::HSTRING, effectsettings: P2) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn AddEffectAsync<P2>(&self, mediastreamtype: MediaStreamType, effectactivationid: &windows_core::HSTRING, effectsettings: P2) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P2: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
@@ -6420,7 +6389,7 @@ impl MediaCapture {
             (windows_core::Interface::vtable(this).AddEffectAsync)(windows_core::Interface::as_raw(this), mediastreamtype, core::mem::transmute_copy(effectactivationid), effectsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearEffectsAsync(&self, mediastreamtype: MediaStreamType) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ClearEffectsAsync(&self, mediastreamtype: MediaStreamType) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6526,7 +6495,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn PrepareLowLagRecordToStorageFileAsync<P0, P1>(&self, encodingprofile: P0, file: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
+    pub fn PrepareLowLagRecordToStorageFileAsync<P0, P1>(&self, encodingprofile: P0, file: P1) -> windows_core::Result<windows_future::IAsyncOperation<LowLagMediaRecording>>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
         P1: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -6538,7 +6507,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn PrepareLowLagRecordToStreamAsync<P0, P1>(&self, encodingprofile: P0, stream: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
+    pub fn PrepareLowLagRecordToStreamAsync<P0, P1>(&self, encodingprofile: P0, stream: P1) -> windows_core::Result<windows_future::IAsyncOperation<LowLagMediaRecording>>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -6550,7 +6519,7 @@ impl MediaCapture {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn PrepareLowLagRecordToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
+    pub fn PrepareLowLagRecordToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> windows_core::Result<windows_future::IAsyncOperation<LowLagMediaRecording>>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
         P1: windows_core::Param<super::IMediaExtension>,
@@ -6562,7 +6531,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn PrepareLowLagRecordToCustomSinkIdAsync<P0, P2>(&self, encodingprofile: P0, customsinkactivationid: &windows_core::HSTRING, customsinksettings: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
+    pub fn PrepareLowLagRecordToCustomSinkIdAsync<P0, P2>(&self, encodingprofile: P0, customsinkactivationid: &windows_core::HSTRING, customsinksettings: P2) -> windows_core::Result<windows_future::IAsyncOperation<LowLagMediaRecording>>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
         P2: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
@@ -6574,7 +6543,7 @@ impl MediaCapture {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn PrepareLowLagPhotoCaptureAsync<P0>(&self, r#type: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagPhotoCapture>>
+    pub fn PrepareLowLagPhotoCaptureAsync<P0>(&self, r#type: P0) -> windows_core::Result<windows_future::IAsyncOperation<LowLagPhotoCapture>>
     where
         P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
     {
@@ -6585,7 +6554,7 @@ impl MediaCapture {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn PrepareLowLagPhotoSequenceCaptureAsync<P0>(&self, r#type: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagPhotoSequenceCapture>>
+    pub fn PrepareLowLagPhotoSequenceCaptureAsync<P0>(&self, r#type: P0) -> windows_core::Result<windows_future::IAsyncOperation<LowLagPhotoSequenceCapture>>
     where
         P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
     {
@@ -6595,8 +6564,8 @@ impl MediaCapture {
             (windows_core::Interface::vtable(this).PrepareLowLagPhotoSequenceCaptureAsync)(windows_core::Interface::as_raw(this), r#type.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingPropertiesAsync<P1, P2>(&self, mediastreamtype: MediaStreamType, mediaencodingproperties: P1, encoderproperties: P2) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    #[cfg(feature = "Media_MediaProperties")]
+    pub fn SetEncodingPropertiesAsync<P1, P2>(&self, mediastreamtype: MediaStreamType, mediaencodingproperties: P1, encoderproperties: P2) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
         P2: windows_core::Param<super::MediaProperties::MediaPropertySet>,
@@ -6608,7 +6577,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Media_Capture_Core", feature = "Media_MediaProperties"))]
-    pub fn PrepareVariablePhotoSequenceCaptureAsync<P0>(&self, r#type: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Core::VariablePhotoSequenceCapture>>
+    pub fn PrepareVariablePhotoSequenceCaptureAsync<P0>(&self, r#type: P0) -> windows_core::Result<windows_future::IAsyncOperation<Core::VariablePhotoSequenceCapture>>
     where
         P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
     {
@@ -6647,7 +6616,7 @@ impl MediaCapture {
         unsafe { (windows_core::Interface::vtable(this).RemovePhotoConfirmationCaptured)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Media_Effects")]
-    pub fn AddAudioEffectAsync<P0>(&self, definition: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>
+    pub fn AddAudioEffectAsync<P0>(&self, definition: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::IMediaExtension>>
     where
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
@@ -6658,7 +6627,7 @@ impl MediaCapture {
         }
     }
     #[cfg(feature = "Media_Effects")]
-    pub fn AddVideoEffectAsync<P0>(&self, definition: P0, mediastreamtype: MediaStreamType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>
+    pub fn AddVideoEffectAsync<P0>(&self, definition: P0, mediastreamtype: MediaStreamType) -> windows_core::Result<windows_future::IAsyncOperation<super::IMediaExtension>>
     where
         P0: windows_core::Param<super::Effects::IVideoEffectDefinition>,
     {
@@ -6669,14 +6638,14 @@ impl MediaCapture {
         }
     }
     #[cfg(feature = "Media_Devices")]
-    pub fn PauseRecordAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn PauseRecordAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PauseRecordAsync)(windows_core::Interface::as_raw(this), behavior, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ResumeRecordAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ResumeRecordAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6705,14 +6674,14 @@ impl MediaCapture {
             (windows_core::Interface::vtable(this).CameraStreamState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetPreviewFrameAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::VideoFrame>> {
+    pub fn GetPreviewFrameAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::VideoFrame>> {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPreviewFrameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPreviewFrameCopyAsync<P0>(&self, destination: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::VideoFrame>>
+    pub fn GetPreviewFrameCopyAsync<P0>(&self, destination: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::VideoFrame>>
     where
         P0: windows_core::Param<super::VideoFrame>,
     {
@@ -6744,7 +6713,7 @@ impl MediaCapture {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn PrepareAdvancedPhotoCaptureAsync<P0>(&self, encodingproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AdvancedPhotoCapture>>
+    pub fn PrepareAdvancedPhotoCaptureAsync<P0>(&self, encodingproperties: P0) -> windows_core::Result<windows_future::IAsyncOperation<AdvancedPhotoCapture>>
     where
         P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
     {
@@ -6754,7 +6723,7 @@ impl MediaCapture {
             (windows_core::Interface::vtable(this).PrepareAdvancedPhotoCaptureAsync)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemoveEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RemoveEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::IMediaExtension>,
     {
@@ -6765,22 +6734,22 @@ impl MediaCapture {
         }
     }
     #[cfg(feature = "Media_Devices")]
-    pub fn PauseRecordWithResultAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>> {
+    pub fn PauseRecordWithResultAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> windows_core::Result<windows_future::IAsyncOperation<MediaCapturePauseResult>> {
         let this = &windows_core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PauseRecordWithResultAsync)(windows_core::Interface::as_raw(this), behavior, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopRecordWithResultAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>> {
+    pub fn StopRecordWithResultAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MediaCaptureStopResult>> {
         let this = &windows_core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopRecordWithResultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
-    pub fn FrameSources(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, Frames::MediaFrameSource>> {
+    #[cfg(feature = "Media_Capture_Frames")]
+    pub fn FrameSources(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, Frames::MediaFrameSource>> {
         let this = &windows_core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6788,7 +6757,7 @@ impl MediaCapture {
         }
     }
     #[cfg(feature = "Media_Capture_Frames")]
-    pub fn CreateFrameReaderAsync<P0>(&self, inputsource: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
+    pub fn CreateFrameReaderAsync<P0>(&self, inputsource: P0) -> windows_core::Result<windows_future::IAsyncOperation<Frames::MediaFrameReader>>
     where
         P0: windows_core::Param<Frames::MediaFrameSource>,
     {
@@ -6799,7 +6768,7 @@ impl MediaCapture {
         }
     }
     #[cfg(feature = "Media_Capture_Frames")]
-    pub fn CreateFrameReaderWithSubtypeAsync<P0>(&self, inputsource: P0, outputsubtype: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
+    pub fn CreateFrameReaderWithSubtypeAsync<P0>(&self, inputsource: P0, outputsubtype: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Frames::MediaFrameReader>>
     where
         P0: windows_core::Param<Frames::MediaFrameSource>,
     {
@@ -6810,7 +6779,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Graphics_Imaging", feature = "Media_Capture_Frames"))]
-    pub fn CreateFrameReaderWithSubtypeAndSizeAsync<P0>(&self, inputsource: P0, outputsubtype: &windows_core::HSTRING, outputsize: super::super::Graphics::Imaging::BitmapSize) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
+    pub fn CreateFrameReaderWithSubtypeAndSizeAsync<P0>(&self, inputsource: P0, outputsubtype: &windows_core::HSTRING, outputsize: super::super::Graphics::Imaging::BitmapSize) -> windows_core::Result<windows_future::IAsyncOperation<Frames::MediaFrameReader>>
     where
         P0: windows_core::Param<Frames::MediaFrameSource>,
     {
@@ -6834,10 +6803,10 @@ impl MediaCapture {
         let this = &windows_core::Interface::cast::<IMediaCapture6>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveCaptureDeviceExclusiveControlStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
-    pub fn CreateMultiSourceFrameReaderAsync<P0>(&self, inputsources: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Frames::MultiSourceMediaFrameReader>>
+    #[cfg(feature = "Media_Capture_Frames")]
+    pub fn CreateMultiSourceFrameReaderAsync<P0>(&self, inputsources: P0) -> windows_core::Result<windows_future::IAsyncOperation<Frames::MultiSourceMediaFrameReader>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<Frames::MediaFrameSource>>,
+        P0: windows_core::Param<windows_collections::IIterable<Frames::MediaFrameSource>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture6>(self)?;
         unsafe {
@@ -6862,28 +6831,25 @@ impl MediaCapture {
             (windows_core::Interface::vtable(this).IsVideoProfileSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(videodeviceid), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllVideoProfiles(videodeviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>> {
+    pub fn FindAllVideoProfiles(videodeviceid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<MediaCaptureVideoProfile>> {
         Self::IMediaCaptureStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllVideoProfiles)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(videodeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindConcurrentProfiles(videodeviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>> {
+    pub fn FindConcurrentProfiles(videodeviceid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<MediaCaptureVideoProfile>> {
         Self::IMediaCaptureStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindConcurrentProfiles)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(videodeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindKnownVideoProfiles(videodeviceid: &windows_core::HSTRING, name: KnownVideoProfile) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>> {
+    pub fn FindKnownVideoProfiles(videodeviceid: &windows_core::HSTRING, name: KnownVideoProfile) -> windows_core::Result<windows_collections::IVectorView<MediaCaptureVideoProfile>> {
         Self::IMediaCaptureStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindKnownVideoProfiles)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(videodeviceid), name, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn StartPreviewAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StartPreviewAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IMediaCaptureVideoPreview>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6891,7 +6857,7 @@ impl MediaCapture {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn StartPreviewToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartPreviewToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
         P1: windows_core::Param<super::IMediaExtension>,
@@ -6903,7 +6869,7 @@ impl MediaCapture {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub fn StartPreviewToCustomSinkIdAsync<P0, P2>(&self, encodingprofile: P0, customsinkactivationid: &windows_core::HSTRING, customsinksettings: P2) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartPreviewToCustomSinkIdAsync<P0, P2>(&self, encodingprofile: P0, customsinkactivationid: &windows_core::HSTRING, customsinksettings: P2) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
         P2: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
@@ -6914,7 +6880,7 @@ impl MediaCapture {
             (windows_core::Interface::vtable(this).StartPreviewToCustomSinkIdAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), core::mem::transmute_copy(customsinkactivationid), customsinksettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopPreviewAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StopPreviewAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IMediaCaptureVideoPreview>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7673,48 +7639,43 @@ impl MediaCaptureVideoProfile {
             (windows_core::Interface::vtable(this).VideoDeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedPreviewMediaDescription(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>> {
+    pub fn SupportedPreviewMediaDescription(&self) -> windows_core::Result<windows_collections::IVectorView<MediaCaptureVideoProfileMediaDescription>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedPreviewMediaDescription)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedRecordMediaDescription(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>> {
+    pub fn SupportedRecordMediaDescription(&self) -> windows_core::Result<windows_collections::IVectorView<MediaCaptureVideoProfileMediaDescription>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedRecordMediaDescription)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedPhotoMediaDescription(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>> {
+    pub fn SupportedPhotoMediaDescription(&self) -> windows_core::Result<windows_collections::IVectorView<MediaCaptureVideoProfileMediaDescription>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedPhotoMediaDescription)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetConcurrency(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>> {
+    pub fn GetConcurrency(&self) -> windows_core::Result<windows_collections::IVectorView<MediaCaptureVideoProfile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetConcurrency)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
-    pub fn FrameSourceInfos(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<Frames::MediaFrameSourceInfo>> {
+    #[cfg(feature = "Media_Capture_Frames")]
+    pub fn FrameSourceInfos(&self) -> windows_core::Result<windows_collections::IVectorView<Frames::MediaFrameSourceInfo>> {
         let this = &windows_core::Interface::cast::<IMediaCaptureVideoProfile2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FrameSourceInfos)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<IMediaCaptureVideoProfile2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7783,8 +7744,7 @@ impl MediaCaptureVideoProfileMediaDescription {
             (windows_core::Interface::vtable(this).Subtype)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<IMediaCaptureVideoProfileMediaDescription2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

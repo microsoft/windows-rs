@@ -59,10 +59,7 @@ impl windows_core::RuntimeType for IRemoteSystem5 {
 #[repr(C)]
 pub struct IRemoteSystem5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Apps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Apps: usize,
 }
 windows_core::imp::define_interface!(IRemoteSystem6, IRemoteSystem6_Vtbl, 0xd4cda942_c027_533e_9384_3a19b4f7eef3);
 impl windows_core::RuntimeType for IRemoteSystem6 {
@@ -93,10 +90,7 @@ pub struct IRemoteSystemApp_Vtbl {
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsAvailableByProximity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsAvailableBySpatialProximity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Attributes: usize,
 }
 windows_core::imp::define_interface!(IRemoteSystemApp2, IRemoteSystemApp2_Vtbl, 0x6369bf15_0a96_577a_8ff6_c35904dfa8f3);
 impl windows_core::RuntimeType for IRemoteSystemApp2 {
@@ -116,10 +110,7 @@ impl windows_core::RuntimeType for IRemoteSystemAppRegistration {
 pub struct IRemoteSystemAppRegistration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Attributes: usize,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRemoteSystemAppRegistrationStatics, IRemoteSystemAppRegistrationStatics_Vtbl, 0x01b99840_cfd2_453f_ae25_c2539f086afd);
@@ -280,10 +271,7 @@ impl windows_core::RuntimeType for IRemoteSystemKindFilter {
 #[repr(C)]
 pub struct IRemoteSystemKindFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub RemoteSystemKinds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RemoteSystemKinds: usize,
 }
 windows_core::imp::define_interface!(IRemoteSystemKindFilterFactory, IRemoteSystemKindFilterFactory_Vtbl, 0xa1fb18ee_99ea_40bc_9a39_c670aa804a28);
 impl windows_core::RuntimeType for IRemoteSystemKindFilterFactory {
@@ -292,10 +280,7 @@ impl windows_core::RuntimeType for IRemoteSystemKindFilterFactory {
 #[repr(C)]
 pub struct IRemoteSystemKindFilterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create: usize,
 }
 windows_core::imp::define_interface!(IRemoteSystemKindStatics, IRemoteSystemKindStatics_Vtbl, 0xf6317633_ab14_41d0_9553_796aadb882db);
 impl windows_core::RuntimeType for IRemoteSystemKindStatics {
@@ -516,9 +501,9 @@ impl windows_core::RuntimeType for IRemoteSystemSessionParticipant {
 pub struct IRemoteSystemSessionParticipant_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
+    #[cfg(feature = "Networking")]
     pub GetHostNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Networking")))]
+    #[cfg(not(feature = "Networking"))]
     GetHostNames: usize,
 }
 windows_core::imp::define_interface!(IRemoteSystemSessionParticipantAddedEventArgs, IRemoteSystemSessionParticipantAddedEventArgs_Vtbl, 0xd35a57d8_c9a1_4bb7_b6b0_79bb91adf93d);
@@ -625,10 +610,7 @@ pub struct IRemoteSystemStatics_Vtbl {
     #[cfg(not(feature = "Networking"))]
     FindByHostNameAsync: usize,
     pub CreateWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateWatcherWithFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWatcherWithFilters: usize,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRemoteSystemStatics2, IRemoteSystemStatics2_Vtbl, 0x0c98edca_6f99_4c52_a272_ea4f36471744);
@@ -648,10 +630,7 @@ impl windows_core::RuntimeType for IRemoteSystemStatics3 {
 pub struct IRemoteSystemStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWatcherForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateWatcherWithFiltersForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWatcherWithFiltersForUser: usize,
 }
 windows_core::imp::define_interface!(IRemoteSystemStatusTypeFilter, IRemoteSystemStatusTypeFilter_Vtbl, 0x0c39514e_cbb6_4777_8534_2e0c521affa2);
 impl windows_core::RuntimeType for IRemoteSystemStatusTypeFilter {
@@ -831,7 +810,7 @@ impl RemoteSystem {
             (windows_core::Interface::vtable(this).IsAvailableBySpatialProximity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetCapabilitySupportedAsync(&self, capabilityname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn GetCapabilitySupportedAsync(&self, capabilityname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IRemoteSystem2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -859,8 +838,7 @@ impl RemoteSystem {
             (windows_core::Interface::vtable(this).Platform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Apps(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<RemoteSystemApp>> {
+    pub fn Apps(&self) -> windows_core::Result<windows_collections::IVectorView<RemoteSystemApp>> {
         let this = &windows_core::Interface::cast::<IRemoteSystem5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -875,7 +853,7 @@ impl RemoteSystem {
         }
     }
     #[cfg(feature = "Networking")]
-    pub fn FindByHostNameAsync<P0>(hostname: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<RemoteSystem>>
+    pub fn FindByHostNameAsync<P0>(hostname: P0) -> windows_core::Result<windows_future::IAsyncOperation<RemoteSystem>>
     where
         P0: windows_core::Param<super::super::Networking::HostName>,
     {
@@ -890,17 +868,16 @@ impl RemoteSystem {
             (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWatcherWithFilters<P0>(filters: P0) -> windows_core::Result<RemoteSystemWatcher>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>,
+        P0: windows_core::Param<windows_collections::IIterable<IRemoteSystemFilter>>,
     {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWatcherWithFilters)(windows_core::Interface::as_raw(this), filters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<RemoteSystemAccessStatus>> {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -921,11 +898,10 @@ impl RemoteSystem {
             (windows_core::Interface::vtable(this).CreateWatcherForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWatcherWithFiltersForUser<P0, P1>(user: P0, filters: P1) -> windows_core::Result<RemoteSystemWatcher>
     where
         P0: windows_core::Param<super::User>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>,
+        P1: windows_core::Param<windows_collections::IIterable<IRemoteSystemFilter>>,
     {
         Self::IRemoteSystemStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1030,8 +1006,7 @@ impl RemoteSystemApp {
             (windows_core::Interface::vtable(this).IsAvailableBySpatialProximity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Attributes(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Attributes(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1077,15 +1052,14 @@ impl RemoteSystemAppRegistration {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Attributes(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Attributes(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1370,18 +1344,16 @@ pub struct RemoteSystemKindFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteSystemKindFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemKindFilter, IRemoteSystemFilter);
 impl RemoteSystemKindFilter {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RemoteSystemKinds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn RemoteSystemKinds(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoteSystemKinds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(remotesystemkinds: P0) -> windows_core::Result<RemoteSystemKindFilter>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IRemoteSystemKindFilterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1560,7 +1532,7 @@ impl RemoteSystemSession {
             (windows_core::Interface::vtable(this).CreateParticipantWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendInvitationAsync<P0>(&self, invitee: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn SendInvitationAsync<P0>(&self, invitee: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<RemoteSystem>,
     {
@@ -1637,7 +1609,7 @@ impl RemoteSystemSessionController {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveJoinRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RemoveParticipantAsync<P0>(&self, pparticipant: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RemoveParticipantAsync<P0>(&self, pparticipant: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<RemoteSystemSessionParticipant>,
     {
@@ -1647,7 +1619,7 @@ impl RemoteSystemSessionController {
             (windows_core::Interface::vtable(this).RemoveParticipantAsync)(windows_core::Interface::as_raw(this), pparticipant.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateSessionAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemSessionCreationResult>> {
+    pub fn CreateSessionAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<RemoteSystemSessionCreationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1790,7 +1762,7 @@ impl RemoteSystemSessionInfo {
             (windows_core::Interface::vtable(this).ControllerDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn JoinAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemSessionJoinResult>> {
+    pub fn JoinAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<RemoteSystemSessionJoinResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2028,7 +2000,7 @@ impl RemoteSystemSessionMessageChannel {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BroadcastValueSetAsync<P0>(&self, messagedata: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn BroadcastValueSetAsync<P0>(&self, messagedata: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {
@@ -2039,7 +2011,7 @@ impl RemoteSystemSessionMessageChannel {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SendValueSetAsync<P0, P1>(&self, messagedata: P0, participant: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn SendValueSetAsync<P0, P1>(&self, messagedata: P0, participant: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
         P1: windows_core::Param<RemoteSystemSessionParticipant>,
@@ -2051,10 +2023,10 @@ impl RemoteSystemSessionMessageChannel {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SendValueSetToParticipantsAsync<P0, P1>(&self, messagedata: P0, participants: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn SendValueSetToParticipantsAsync<P0, P1>(&self, messagedata: P0, participants: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant>>,
+        P1: windows_core::Param<windows_collections::IIterable<RemoteSystemSessionParticipant>>,
     {
         let this = self;
         unsafe {
@@ -2172,8 +2144,8 @@ impl RemoteSystemSessionParticipant {
             (windows_core::Interface::vtable(this).RemoteSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
-    pub fn GetHostNames(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Networking::HostName>> {
+    #[cfg(feature = "Networking")]
+    pub fn GetHostNames(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Networking::HostName>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

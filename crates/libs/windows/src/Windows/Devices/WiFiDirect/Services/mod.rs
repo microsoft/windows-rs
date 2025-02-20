@@ -9,10 +9,7 @@ pub struct IWiFiDirectService_Vtbl {
     pub RemoteServiceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     RemoteServiceInfo: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedConfigurationMethods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedConfigurationMethods: usize,
     pub PreferGroupOwnerMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetPreferGroupOwnerMode: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -38,10 +35,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceAdvertiser {
 pub struct IWiFiDirectServiceAdvertiser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ServiceNamePrefixes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ServiceNamePrefixes: usize,
     #[cfg(feature = "Storage_Streams")]
     pub ServiceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -54,10 +48,7 @@ pub struct IWiFiDirectServiceAdvertiser_Vtbl {
     pub SetAutoAcceptSession: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub PreferGroupOwnerMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetPreferGroupOwnerMode: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PreferredConfigurationMethods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PreferredConfigurationMethods: usize,
     pub ServiceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiDirectServiceStatus) -> windows_core::HRESULT,
     pub SetServiceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, WiFiDirectServiceStatus) -> windows_core::HRESULT,
     pub CustomServiceStatusCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -128,9 +119,9 @@ impl windows_core::RuntimeType for IWiFiDirectServiceRemotePortAddedEventArgs {
 #[repr(C)]
 pub struct IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
+    #[cfg(feature = "Networking")]
     pub EndpointPairs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Networking")))]
+    #[cfg(not(feature = "Networking"))]
     EndpointPairs: usize,
     pub Protocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiDirectServiceIPProtocol) -> windows_core::HRESULT,
 }
@@ -148,9 +139,9 @@ pub struct IWiFiDirectServiceSession_Vtbl {
     pub AdvertisementId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ServiceAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SessionAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
+    #[cfg(feature = "Networking")]
     pub GetConnectionEndpointPairs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Networking")))]
+    #[cfg(not(feature = "Networking"))]
     GetConnectionEndpointPairs: usize,
     pub SessionStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveSessionStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -230,8 +221,7 @@ impl WiFiDirectService {
             (windows_core::Interface::vtable(this).RemoteServiceInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedConfigurationMethods(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<WiFiDirectServiceConfigurationMethod>> {
+    pub fn SupportedConfigurationMethods(&self) -> windows_core::Result<windows_collections::IVectorView<WiFiDirectServiceConfigurationMethod>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -286,21 +276,21 @@ impl WiFiDirectService {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSessionDeferred)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetProvisioningInfoAsync(&self, selectedconfigurationmethod: WiFiDirectServiceConfigurationMethod) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceProvisioningInfo>> {
+    pub fn GetProvisioningInfoAsync(&self, selectedconfigurationmethod: WiFiDirectServiceConfigurationMethod) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectServiceProvisioningInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetProvisioningInfoAsync)(windows_core::Interface::as_raw(this), selectedconfigurationmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>> {
+    pub fn ConnectAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectServiceSession>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectAsyncWithPin(&self, pin: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>> {
+    pub fn ConnectAsyncWithPin(&self, pin: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectServiceSession>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -323,7 +313,7 @@ impl WiFiDirectService {
             (windows_core::Interface::vtable(this).GetSelectorWithFilter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(servicename), serviceinfofilter.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectService>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectService>> {
         Self::IWiFiDirectServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -373,8 +363,7 @@ impl WiFiDirectServiceAdvertiser {
             (windows_core::Interface::vtable(this).ServiceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServiceNamePrefixes(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn ServiceNamePrefixes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -419,8 +408,7 @@ impl WiFiDirectServiceAdvertiser {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPreferGroupOwnerMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PreferredConfigurationMethods(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<WiFiDirectServiceConfigurationMethod>> {
+    pub fn PreferredConfigurationMethods(&self) -> windows_core::Result<windows_collections::IVector<WiFiDirectServiceConfigurationMethod>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -522,7 +510,7 @@ impl WiFiDirectServiceAdvertiser {
         unsafe { (windows_core::Interface::vtable(this).RemoveAdvertisementStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn ConnectAsync<P0>(&self, deviceinfo: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>
+    pub fn ConnectAsync<P0>(&self, deviceinfo: P0) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectServiceSession>>
     where
         P0: windows_core::Param<super::super::Enumeration::DeviceInformation>,
     {
@@ -533,7 +521,7 @@ impl WiFiDirectServiceAdvertiser {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn ConnectAsyncWithPin<P0>(&self, deviceinfo: P0, pin: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>
+    pub fn ConnectAsyncWithPin<P0>(&self, deviceinfo: P0, pin: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectServiceSession>>
     where
         P0: windows_core::Param<super::super::Enumeration::DeviceInformation>,
     {
@@ -687,8 +675,8 @@ unsafe impl Sync for WiFiDirectServiceProvisioningInfo {}
 pub struct WiFiDirectServiceRemotePortAddedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceRemotePortAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiDirectServiceRemotePortAddedEventArgs {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
-    pub fn EndpointPairs(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>> {
+    #[cfg(feature = "Networking")]
+    pub fn EndpointPairs(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Networking::EndpointPair>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -774,8 +762,8 @@ impl WiFiDirectServiceSession {
             (windows_core::Interface::vtable(this).SessionAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
-    pub fn GetConnectionEndpointPairs(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>> {
+    #[cfg(feature = "Networking")]
+    pub fn GetConnectionEndpointPairs(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Networking::EndpointPair>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -797,7 +785,7 @@ impl WiFiDirectServiceSession {
         unsafe { (windows_core::Interface::vtable(this).RemoveSessionStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Networking_Sockets")]
-    pub fn AddStreamSocketListenerAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn AddStreamSocketListenerAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Networking::Sockets::StreamSocketListener>,
     {
@@ -808,7 +796,7 @@ impl WiFiDirectServiceSession {
         }
     }
     #[cfg(feature = "Networking_Sockets")]
-    pub fn AddDatagramSocketAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn AddDatagramSocketAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Networking::Sockets::DatagramSocket>,
     {

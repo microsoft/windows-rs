@@ -103,7 +103,7 @@ impl<F: FnMut(windows_core::Ref<'_, MediaProtectionManager>, windows_core::Ref<'
 }
 pub struct ComponentRenewal;
 impl ComponentRenewal {
-    pub fn RenewSystemComponentsAsync<P0>(information: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>
+    pub fn RenewSystemComponentsAsync<P0>(information: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<RenewalStatus, u32>>
     where
         P0: windows_core::Param<RevocationAndRenewalInformation>,
     {
@@ -182,7 +182,7 @@ impl HdcpSession {
             (windows_core::Interface::vtable(this).GetEffectiveProtection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> windows_core::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>> {
+    pub fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> windows_core::Result<windows_future::IAsyncOperation<HdcpSetProtectionResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -400,10 +400,7 @@ impl windows_core::RuntimeType for IRevocationAndRenewalInformation {
 #[repr(C)]
 pub struct IRevocationAndRenewalInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Items: usize,
 }
 windows_core::imp::define_interface!(IRevocationAndRenewalItem, IRevocationAndRenewalItem_Vtbl, 0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
 impl windows_core::RuntimeType for IRevocationAndRenewalItem {
@@ -712,8 +709,7 @@ impl windows_core::RuntimeType for RenewalStatus {
 pub struct RevocationAndRenewalInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RevocationAndRenewalInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl RevocationAndRenewalInformation {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Items(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>> {
+    pub fn Items(&self) -> windows_core::Result<windows_collections::IVector<RevocationAndRenewalItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

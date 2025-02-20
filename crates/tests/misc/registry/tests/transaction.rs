@@ -13,8 +13,8 @@ fn create_with_transaction() {
     let tx_key = CURRENT_USER
         .options()
         .transaction(&tx)
-        .read(true)
-        .write(true)
+        .read()
+        .write()
         .open(test_key)
         .unwrap();
 

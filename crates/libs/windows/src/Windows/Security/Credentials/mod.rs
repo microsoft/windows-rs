@@ -113,18 +113,9 @@ pub struct IPasswordVault_Vtbl {
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Retrieve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllByResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllByResource: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllByUserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllByUserName: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RetrieveAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RetrieveAll: usize,
 }
 windows_core::imp::define_interface!(IWebAccount, IWebAccount_Vtbl, 0x69473eb2_8031_49be_80bb_96cb46d99aba);
 impl windows_core::RuntimeType for IWebAccount {
@@ -228,10 +219,7 @@ impl windows_core::RuntimeType for IWebAccount2 {
 pub struct IWebAccount2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
     #[cfg(feature = "Storage_Streams")]
     pub GetPictureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, WebAccountPictureSize, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -331,7 +319,7 @@ impl KeyCredential {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RequestSignAsync<P0>(&self, data: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialOperationResult>>
+    pub fn RequestSignAsync<P0>(&self, data: P0) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialOperationResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -341,7 +329,7 @@ impl KeyCredential {
             (windows_core::Interface::vtable(this).RequestSignAsync)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAttestationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialAttestationResult>> {
+    pub fn GetAttestationAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialAttestationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -432,31 +420,31 @@ impl windows_core::RuntimeType for KeyCredentialCreationOption {
 }
 pub struct KeyCredentialManager;
 impl KeyCredentialManager {
-    pub fn IsSupportedAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsSupportedAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupportedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RenewAttestationAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RenewAttestationAsync() -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RenewAttestationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestCreateAsync(name: &windows_core::HSTRING, option: KeyCredentialCreationOption) -> windows_core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>> {
+    pub fn RequestCreateAsync(name: &windows_core::HSTRING, option: KeyCredentialCreationOption) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialRetrievalResult>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestCreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn OpenAsync(name: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>> {
+    pub fn OpenAsync(name: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialRetrievalResult>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn DeleteAsync(name: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteAsync(name: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -640,7 +628,7 @@ pub struct PasswordCredentialPropertyStore(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PasswordCredentialPropertyStore, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IPropertySet);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( PasswordCredentialPropertyStore , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , super::super::Foundation::Collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy ! ( PasswordCredentialPropertyStore , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , super::super::Foundation::Collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
 #[cfg(feature = "Foundation_Collections")]
 impl PasswordCredentialPropertyStore {
     pub fn new() -> windows_core::Result<Self> {
@@ -650,36 +638,36 @@ impl PasswordCredentialPropertyStore {
         static SHARED: windows_core::imp::FactoryCache<PasswordCredentialPropertyStore, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -689,18 +677,18 @@ impl PasswordCredentialPropertyStore {
     where
         P1: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key)).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
@@ -737,16 +725,16 @@ unsafe impl Send for PasswordCredentialPropertyStore {}
 unsafe impl Sync for PasswordCredentialPropertyStore {}
 #[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for PasswordCredentialPropertyStore {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &PasswordCredentialPropertyStore {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -784,24 +772,21 @@ impl PasswordVault {
             (windows_core::Interface::vtable(this).Retrieve)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), core::mem::transmute_copy(username), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllByResource(&self, resource: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>> {
+    pub fn FindAllByResource(&self, resource: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<PasswordCredential>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllByResource)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllByUserName(&self, username: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>> {
+    pub fn FindAllByUserName(&self, username: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<PasswordCredential>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllByUserName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrieveAll(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>> {
+    pub fn RetrieveAll(&self) -> windows_core::Result<windows_collections::IVectorView<PasswordCredential>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -854,8 +839,7 @@ impl WebAccount {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -863,21 +847,21 @@ impl WebAccount {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetPictureAsync(&self, desizedsize: WebAccountPictureSize) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
+    pub fn GetPictureAsync(&self, desizedsize: WebAccountPictureSize) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = &windows_core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPictureAsync)(windows_core::Interface::as_raw(this), desizedsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SignOutAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SignOutAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SignOutAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SignOutWithClientIdAsync(&self, clientid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SignOutWithClientIdAsync(&self, clientid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

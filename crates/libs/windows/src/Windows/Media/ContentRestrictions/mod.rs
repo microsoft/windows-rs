@@ -84,14 +84,8 @@ pub struct IRatedContentDescription_Vtbl {
     SetImage: usize,
     pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RatedContentCategory) -> windows_core::HRESULT,
     pub SetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, RatedContentCategory) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Ratings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Ratings: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetRatings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetRatings: usize,
 }
 windows_core::imp::define_interface!(IRatedContentDescriptionFactory, IRatedContentDescriptionFactory_Vtbl, 0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
 impl windows_core::RuntimeType for IRatedContentDescriptionFactory {
@@ -195,18 +189,16 @@ impl RatedContentDescription {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCategory)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Ratings(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Ratings(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Ratings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetRatings<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IVector<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRatings)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -246,14 +238,14 @@ impl RatedContentRestrictions {
         static SHARED: windows_core::imp::FactoryCache<RatedContentRestrictions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn GetBrowsePolicyAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ContentRestrictionsBrowsePolicy>> {
+    pub fn GetBrowsePolicyAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ContentRestrictionsBrowsePolicy>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBrowsePolicyAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetRestrictionLevelAsync<P0>(&self, ratedcontentdescription: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ContentAccessRestrictionLevel>>
+    pub fn GetRestrictionLevelAsync<P0>(&self, ratedcontentdescription: P0) -> windows_core::Result<windows_future::IAsyncOperation<ContentAccessRestrictionLevel>>
     where
         P0: windows_core::Param<RatedContentDescription>,
     {
@@ -263,7 +255,7 @@ impl RatedContentRestrictions {
             (windows_core::Interface::vtable(this).GetRestrictionLevelAsync)(windows_core::Interface::as_raw(this), ratedcontentdescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestContentAccessAsync<P0>(&self, ratedcontentdescription: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestContentAccessAsync<P0>(&self, ratedcontentdescription: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<RatedContentDescription>,
     {

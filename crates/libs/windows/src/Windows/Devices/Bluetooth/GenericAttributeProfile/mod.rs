@@ -3,8 +3,8 @@
 pub struct GattCharacteristic(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattCharacteristic, windows_core::IUnknown, windows_core::IInspectable);
 impl GattCharacteristic {
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetDescriptors(&self, descriptoruuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
+    #[cfg(feature = "deprecated")]
+    pub fn GetDescriptors(&self, descriptoruuid: windows_core::GUID) -> windows_core::Result<windows_collections::IVectorView<GattDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -50,22 +50,21 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).AttributeHandle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PresentationFormats(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>> {
+    pub fn PresentationFormats(&self) -> windows_core::Result<windows_collections::IVectorView<GattPresentationFormat>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PresentationFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadValueAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadValueAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -73,7 +72,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -84,7 +83,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueWithOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -94,14 +93,14 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).WriteValueWithOptionAsync)(windows_core::Interface::as_raw(this), value.param().abi(), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
+    pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadClientCharacteristicConfigurationDescriptorAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
+    pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -129,36 +128,36 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).Service)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetAllDescriptors(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
+    #[cfg(feature = "deprecated")]
+    pub fn GetAllDescriptors(&self) -> windows_core::Result<windows_collections::IVectorView<GattDescriptor>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllDescriptors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptorsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptorsWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsForUuidAsync(&self, descriptoruuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsForUuidAsync(&self, descriptoruuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptorsForUuidAsync)(windows_core::Interface::as_raw(this), descriptoruuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -166,7 +165,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -177,7 +176,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithResultAndOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAndOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -187,7 +186,7 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(windows_core::Interface::as_raw(this), value.param().abi(), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
+    pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -792,8 +791,7 @@ impl GattCharacteristicsResult {
             (windows_core::Interface::vtable(this).ProtocolError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Characteristics(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
+    pub fn Characteristics(&self) -> windows_core::Result<windows_collections::IVectorView<GattCharacteristic>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -918,14 +916,14 @@ impl GattDescriptor {
             (windows_core::Interface::vtable(this).AttributeHandle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ReadValueAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadValueAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -933,7 +931,7 @@ impl GattDescriptor {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -944,7 +942,7 @@ impl GattDescriptor {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1043,8 +1041,7 @@ impl GattDescriptorsResult {
             (windows_core::Interface::vtable(this).ProtocolError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Descriptors(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
+    pub fn Descriptors(&self) -> windows_core::Result<windows_collections::IVectorView<GattDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1074,16 +1071,16 @@ impl GattDeviceService {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetCharacteristics(&self, characteristicuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
+    #[cfg(feature = "deprecated")]
+    pub fn GetCharacteristics(&self, characteristicuuid: windows_core::GUID) -> windows_core::Result<windows_collections::IVectorView<GattCharacteristic>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristics)(windows_core::Interface::as_raw(this), characteristicuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetIncludedServices(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
+    #[cfg(feature = "deprecated")]
+    pub fn GetIncludedServices(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<windows_collections::IVectorView<GattDeviceService>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1119,24 +1116,24 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).Device)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn ParentServices(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
+    #[cfg(feature = "deprecated")]
+    pub fn ParentServices(&self) -> windows_core::Result<windows_collections::IVectorView<GattDeviceService>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ParentServices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetAllCharacteristics(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
+    #[cfg(feature = "deprecated")]
+    pub fn GetAllCharacteristics(&self) -> windows_core::Result<windows_collections::IVectorView<GattCharacteristic>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllCharacteristics)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetAllIncludedServices(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
+    #[cfg(feature = "deprecated")]
+    pub fn GetAllIncludedServices(&self) -> windows_core::Result<windows_collections::IVectorView<GattDeviceService>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1166,77 +1163,77 @@ impl GattDeviceService {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn RequestAccessAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
+    pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAsync(&self, sharingmode: GattSharingMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>> {
+    pub fn OpenAsync(&self, sharingmode: GattSharingMode) -> windows_core::Result<windows_future::IAsyncOperation<GattOpenStatus>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsForUuidAsync(&self, characteristicuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsForUuidAsync(&self, characteristicuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsForUuidAsync)(windows_core::Interface::as_raw(this), characteristicuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsForUuidWithCacheModeAsync)(windows_core::Interface::as_raw(this), characteristicuuid, cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesForUuidAsync(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesForUuidAsync(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesForUuidAsync)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(windows_core::Interface::as_raw(this), serviceuuid, cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1262,7 +1259,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
-    pub fn FromIdWithSharingModeAsync(deviceid: &windows_core::HSTRING, sharingmode: GattSharingMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>> {
+    pub fn FromIdWithSharingModeAsync(deviceid: &windows_core::HSTRING, sharingmode: GattSharingMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdWithSharingModeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1344,8 +1341,7 @@ impl GattDeviceServicesResult {
             (windows_core::Interface::vtable(this).ProtocolError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Services(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
+    pub fn Services(&self) -> windows_core::Result<windows_collections::IVectorView<GattDeviceService>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1406,7 +1402,7 @@ impl GattLocalCharacteristic {
             (windows_core::Interface::vtable(this).WriteProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateDescriptorAsync<P1>(&self, descriptoruuid: windows_core::GUID, parameters: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>
+    pub fn CreateDescriptorAsync<P1>(&self, descriptoruuid: windows_core::GUID, parameters: P1) -> windows_core::Result<windows_future::IAsyncOperation<GattLocalDescriptorResult>>
     where
         P1: windows_core::Param<GattLocalDescriptorParameters>,
     {
@@ -1416,8 +1412,7 @@ impl GattLocalCharacteristic {
             (windows_core::Interface::vtable(this).CreateDescriptorAsync)(windows_core::Interface::as_raw(this), descriptoruuid, parameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Descriptors(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalDescriptor>> {
+    pub fn Descriptors(&self) -> windows_core::Result<windows_collections::IVectorView<GattLocalDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1431,16 +1426,14 @@ impl GattLocalCharacteristic {
             (windows_core::Interface::vtable(this).UserDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PresentationFormats(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>> {
+    pub fn PresentationFormats(&self) -> windows_core::Result<windows_collections::IVectorView<GattPresentationFormat>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PresentationFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SubscribedClients(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattSubscribedClient>> {
+    pub fn SubscribedClients(&self) -> windows_core::Result<windows_collections::IVectorView<GattSubscribedClient>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1489,8 +1482,8 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveWriteRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn NotifyValueAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>
+    #[cfg(feature = "Storage_Streams")]
+    pub fn NotifyValueAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GattClientNotificationResult>>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1501,7 +1494,7 @@ impl GattLocalCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn NotifyValueForSubscribedClientAsync<P0, P1>(&self, value: P0, subscribedclient: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>
+    pub fn NotifyValueForSubscribedClientAsync<P0, P1>(&self, value: P0, subscribedclient: P1) -> windows_core::Result<windows_future::IAsyncOperation<GattClientNotificationResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<GattSubscribedClient>,
@@ -1597,8 +1590,7 @@ impl GattLocalCharacteristicParameters {
             (windows_core::Interface::vtable(this).UserDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PresentationFormats(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<GattPresentationFormat>> {
+    pub fn PresentationFormats(&self) -> windows_core::Result<windows_collections::IVector<GattPresentationFormat>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1832,7 +1824,7 @@ impl GattLocalService {
             (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateCharacteristicAsync<P1>(&self, characteristicuuid: windows_core::GUID, parameters: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>
+    pub fn CreateCharacteristicAsync<P1>(&self, characteristicuuid: windows_core::GUID, parameters: P1) -> windows_core::Result<windows_future::IAsyncOperation<GattLocalCharacteristicResult>>
     where
         P1: windows_core::Param<GattLocalCharacteristicParameters>,
     {
@@ -1842,8 +1834,7 @@ impl GattLocalService {
             (windows_core::Interface::vtable(this).CreateCharacteristicAsync)(windows_core::Interface::as_raw(this), characteristicuuid, parameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Characteristics(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalCharacteristic>> {
+    pub fn Characteristics(&self) -> windows_core::Result<windows_collections::IVectorView<GattLocalCharacteristic>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2375,7 +2366,7 @@ impl GattReadRequestedEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetRequestAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadRequest>> {
+    pub fn GetRequestAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadRequest>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2456,14 +2447,14 @@ impl GattReliableWriteTransaction {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).WriteValue)(windows_core::Interface::as_raw(this), characteristic.param().abi(), value.param().abi()).ok() }
     }
-    pub fn CommitAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
+    pub fn CommitAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CommitAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CommitWithResultAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
+    pub fn CommitWithResultAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>> {
         let this = &windows_core::Interface::cast::<IGattReliableWriteTransaction2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2577,7 +2568,7 @@ impl GattServiceProvider {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopAdvertising)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn CreateAsync(serviceuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>> {
+    pub fn CreateAsync(serviceuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattServiceProviderResult>> {
         Self::IGattServiceProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2966,7 +2957,7 @@ impl GattSession {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSessionStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FromDeviceIdAsync<P0>(deviceid: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattSession>>
+    pub fn FromDeviceIdAsync<P0>(deviceid: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattSession>>
     where
         P0: windows_core::Param<super::BluetoothDeviceId>,
     {
@@ -3232,7 +3223,7 @@ impl GattWriteRequestedEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetRequestAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteRequest>> {
+    pub fn GetRequestAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteRequest>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3291,9 +3282,9 @@ impl windows_core::RuntimeType for IGattCharacteristic {
 #[repr(C)]
 pub struct IGattCharacteristic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub GetDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     GetDescriptors: usize,
     pub CharacteristicProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCharacteristicProperties) -> windows_core::HRESULT,
     pub ProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattProtectionLevel) -> windows_core::HRESULT,
@@ -3301,10 +3292,7 @@ pub struct IGattCharacteristic_Vtbl {
     pub UserDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Uuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub AttributeHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PresentationFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PresentationFormats: usize,
     pub ReadValueAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReadValueWithCacheModeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::BluetoothCacheMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -3328,9 +3316,9 @@ impl windows_core::RuntimeType for IGattCharacteristic2 {
 pub struct IGattCharacteristic2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Service: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub GetAllDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     GetAllDescriptors: usize,
 }
 windows_core::imp::define_interface!(IGattCharacteristic3, IGattCharacteristic3_Vtbl, 0x3f3c663e_93d4_406b_b817_db81f8ed53b3);
@@ -3472,10 +3460,7 @@ pub struct IGattCharacteristicsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,
     pub ProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Characteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Characteristics: usize,
 }
 windows_core::imp::define_interface!(IGattClientNotificationResult, IGattClientNotificationResult_Vtbl, 0x506d5599_0112_419a_8e3b_ae21afabd2c2);
 impl windows_core::RuntimeType for IGattClientNotificationResult {
@@ -3562,10 +3547,7 @@ pub struct IGattDescriptorsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,
     pub ProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Descriptors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Descriptors: usize,
 }
 windows_core::imp::define_interface!(IGattDeviceService, IGattDeviceService_Vtbl, 0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
 impl windows_core::RuntimeType for IGattDeviceService {
@@ -3574,13 +3556,13 @@ impl windows_core::RuntimeType for IGattDeviceService {
 #[repr(C)]
 pub struct IGattDeviceService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     GetCharacteristics: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub GetIncludedServices: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     GetIncludedServices: usize,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Uuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -3597,17 +3579,17 @@ pub struct IGattDeviceService2_Vtbl {
     pub Device: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Device: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub ParentServices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     ParentServices: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub GetAllCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     GetAllCharacteristics: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub GetAllIncludedServices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     GetAllIncludedServices: usize,
 }
 windows_core::imp::define_interface!(IGattDeviceService3, IGattDeviceService3_Vtbl, 0xb293a950_0c53_437c_a9b3_5c3210c6e569);
@@ -3677,10 +3659,7 @@ pub struct IGattDeviceServicesResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,
     pub ProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Services: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Services: usize,
 }
 windows_core::imp::define_interface!(IGattLocalCharacteristic, IGattLocalCharacteristic_Vtbl, 0xaede376d_5412_4d74_92a8_8deb8526829c);
 impl windows_core::RuntimeType for IGattLocalCharacteristic {
@@ -3698,28 +3677,19 @@ pub struct IGattLocalCharacteristic_Vtbl {
     pub ReadProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattProtectionLevel) -> windows_core::HRESULT,
     pub WriteProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattProtectionLevel) -> windows_core::HRESULT,
     pub CreateDescriptorAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Descriptors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Descriptors: usize,
     pub UserDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PresentationFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PresentationFormats: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SubscribedClients: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SubscribedClients: usize,
     pub SubscribedClientsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveSubscribedClientsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub ReadRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub WriteRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveWriteRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub NotifyValueAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     NotifyValueAsync: usize,
     #[cfg(feature = "Storage_Streams")]
     pub NotifyValueForSubscribedClientAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3749,10 +3719,7 @@ pub struct IGattLocalCharacteristicParameters_Vtbl {
     pub WriteProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattProtectionLevel) -> windows_core::HRESULT,
     pub SetUserDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UserDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PresentationFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PresentationFormats: usize,
 }
 windows_core::imp::define_interface!(IGattLocalCharacteristicResult, IGattLocalCharacteristicResult_Vtbl, 0x7975de9b_0170_4397_9666_92f863f12ee6);
 impl windows_core::RuntimeType for IGattLocalCharacteristicResult {
@@ -3822,10 +3789,7 @@ pub struct IGattLocalService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub CreateCharacteristicAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Characteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Characteristics: usize,
 }
 windows_core::imp::define_interface!(IGattPresentationFormat, IGattPresentationFormat_Vtbl, 0x196d0021_faad_45dc_ae5b_2ac3184e84db);
 impl windows_core::RuntimeType for IGattPresentationFormat {

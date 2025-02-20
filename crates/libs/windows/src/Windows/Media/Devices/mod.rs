@@ -48,8 +48,7 @@ impl AdvancedPhotoControl {
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedModes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AdvancedPhotoMode>> {
+    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<AdvancedPhotoMode>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -134,8 +133,8 @@ impl AudioDeviceController {
             (windows_core::Interface::vtable(this).AudioCaptureEffectsManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
+    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = &windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -151,7 +150,7 @@ impl AudioDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
@@ -213,7 +212,7 @@ impl AudioDeviceModule {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendCommandAsync<P0>(&self, command: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>
+    pub fn SendCommandAsync<P0>(&self, command: P0) -> windows_core::Result<windows_future::IAsyncOperation<ModuleCommandResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -286,16 +285,14 @@ impl AudioDeviceModulesManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveModuleNotificationReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllById(&self, moduleid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>> {
+    pub fn FindAllById(&self, moduleid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<AudioDeviceModule>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(moduleid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAll(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>> {
+    pub fn FindAll(&self) -> windows_core::Result<windows_collections::IVectorView<AudioDeviceModule>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1079,8 +1076,7 @@ impl DigitalWindowControl {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ConfigureWithBounds)(windows_core::Interface::as_raw(this), digitalwindowmode, digitalwindowbounds.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCapabilities(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>> {
+    pub fn SupportedCapabilities(&self) -> windows_core::Result<windows_collections::IVectorView<DigitalWindowCapability>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1161,7 +1157,7 @@ impl ExposureCompensationControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, value: f32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetValueAsync(&self, value: f32) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1198,7 +1194,7 @@ impl ExposureControl {
             (windows_core::Interface::vtable(this).Auto)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoAsync(&self, value: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetAutoAsync(&self, value: bool) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1233,7 +1229,7 @@ impl ExposureControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, shutterduration: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetValueAsync(&self, shutterduration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1398,8 +1394,7 @@ impl FocusControl {
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedPresets(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<FocusPreset>> {
+    pub fn SupportedPresets(&self) -> windows_core::Result<windows_collections::IVectorView<FocusPreset>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1413,14 +1408,14 @@ impl FocusControl {
             (windows_core::Interface::vtable(this).Preset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPresetAsync(&self, preset: FocusPreset) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetPresetAsync(&self, preset: FocusPreset) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetPresetAsync)(windows_core::Interface::as_raw(this), preset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1455,14 +1450,14 @@ impl FocusControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, focus: u32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetValueAsync(&self, focus: u32) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetValueAsync)(windows_core::Interface::as_raw(this), focus, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FocusAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn FocusAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1483,24 +1478,21 @@ impl FocusControl {
             (windows_core::Interface::vtable(this).WaitForFocusSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedFocusModes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<FocusMode>> {
+    pub fn SupportedFocusModes(&self) -> windows_core::Result<windows_collections::IVectorView<FocusMode>> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedFocusModes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedFocusDistances(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ManualFocusDistance>> {
+    pub fn SupportedFocusDistances(&self) -> windows_core::Result<windows_collections::IVectorView<ManualFocusDistance>> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedFocusDistances)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedFocusRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AutoFocusRange>> {
+    pub fn SupportedFocusRanges(&self) -> windows_core::Result<windows_collections::IVectorView<AutoFocusRange>> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1521,14 +1513,14 @@ impl FocusControl {
             (windows_core::Interface::vtable(this).FocusState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UnlockAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UnlockAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnlockAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LockAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn LockAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1694,8 +1686,7 @@ impl HdrVideoControl {
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedModes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<HdrVideoMode>> {
+    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<HdrVideoMode>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1758,10 +1749,7 @@ impl windows_core::RuntimeType for IAdvancedPhotoControl {
 pub struct IAdvancedPhotoControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedModes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedModes: usize,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdvancedPhotoMode) -> windows_core::HRESULT,
     pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -1957,14 +1945,8 @@ pub struct IAudioDeviceModulesManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ModuleNotificationReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveModuleNotificationReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllById: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllById: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAll: usize,
 }
 windows_core::imp::define_interface!(IAudioDeviceModulesManagerFactory, IAudioDeviceModulesManagerFactory_Vtbl, 0x8db03670_e64d_4773_96c0_bc7ebf0e063f);
 impl windows_core::RuntimeType for IAudioDeviceModulesManagerFactory {
@@ -2163,10 +2145,7 @@ pub struct IDigitalWindowControl_Vtbl {
     pub GetBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, DigitalWindowMode) -> windows_core::HRESULT,
     pub ConfigureWithBounds: unsafe extern "system" fn(*mut core::ffi::c_void, DigitalWindowMode, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedCapabilities: usize,
     pub GetCapabilityForSize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExposureCompensationControl, IExposureCompensationControl_Vtbl, 0x81c8e834_dcec_4011_a610_1f3847e64aca);
@@ -2248,10 +2227,7 @@ impl windows_core::RuntimeType for IFocusControl {
 pub struct IFocusControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedPresets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedPresets: usize,
     pub Preset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FocusPreset) -> windows_core::HRESULT,
     pub SetPresetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, FocusPreset, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPresetWithCompletionOptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, FocusPreset, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2271,18 +2247,9 @@ pub struct IFocusControl2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FocusChangedSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub WaitForFocusSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedFocusModes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedFocusModes: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedFocusDistances: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedFocusDistances: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedFocusRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedFocusRanges: usize,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FocusMode) -> windows_core::HRESULT,
     pub FocusState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaCaptureFocusState) -> windows_core::HRESULT,
     pub UnlockAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2317,10 +2284,7 @@ impl windows_core::RuntimeType for IHdrVideoControl {
 pub struct IHdrVideoControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedModes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedModes: usize,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HdrVideoMode) -> windows_core::HRESULT,
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, HdrVideoMode) -> windows_core::HRESULT,
 }
@@ -2332,10 +2296,7 @@ impl windows_core::RuntimeType for IInfraredTorchControl {
 pub struct IInfraredTorchControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedModes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedModes: usize,
     pub CurrentMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InfraredTorchMode) -> windows_core::HRESULT,
     pub SetCurrentMode: unsafe extern "system" fn(*mut core::ffi::c_void, InfraredTorchMode) -> windows_core::HRESULT,
     pub MinPower: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -2352,9 +2313,9 @@ impl windows_core::RuntimeType for IIsoSpeedControl {
 pub struct IIsoSpeedControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub SupportedPresets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     SupportedPresets: usize,
     #[cfg(feature = "deprecated")]
     pub Preset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsoSpeedPreset) -> windows_core::HRESULT,
@@ -2487,8 +2448,8 @@ impl windows_core::RuntimeType for IMediaDeviceController {
 }
 windows_core::imp::interface_hierarchy!(IMediaDeviceController, windows_core::IUnknown, windows_core::IInspectable);
 impl IMediaDeviceController {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
+    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2504,7 +2465,7 @@ impl IMediaDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
@@ -2515,17 +2476,17 @@ impl IMediaDeviceController {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
 impl windows_core::RuntimeName for IMediaDeviceController {
     const NAME: &'static str = "Windows.Media.Devices.IMediaDeviceController";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
 pub trait IMediaDeviceController_Impl: windows_core::IUnknownImpl {
-    fn GetAvailableMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
+    fn GetAvailableMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
     fn GetMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> windows_core::Result<super::MediaProperties::IMediaEncodingProperties>;
-    fn SetMediaStreamPropertiesAsync(&self, mediaStreamType: super::Capture::MediaStreamType, mediaEncodingProperties: windows_core::Ref<'_, super::MediaProperties::IMediaEncodingProperties>) -> windows_core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetMediaStreamPropertiesAsync(&self, mediaStreamType: super::Capture::MediaStreamType, mediaEncodingProperties: windows_core::Ref<'_, super::MediaProperties::IMediaEncodingProperties>) -> windows_core::Result<windows_future::IAsyncAction>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+#[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
 impl IMediaDeviceController_Vtbl {
     pub const fn new<Identity: IMediaDeviceController_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAvailableMediaStreamProperties<Identity: IMediaDeviceController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2581,9 +2542,9 @@ impl IMediaDeviceController_Vtbl {
 #[repr(C)]
 pub struct IMediaDeviceController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub GetAvailableMediaStreamProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::Capture::MediaStreamType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties")))]
+    #[cfg(not(all(feature = "Media_Capture", feature = "Media_MediaProperties")))]
     GetAvailableMediaStreamProperties: usize,
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub GetMediaStreamProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::Capture::MediaStreamType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2632,10 +2593,7 @@ impl windows_core::RuntimeType for IOpticalImageStabilizationControl {
 pub struct IOpticalImageStabilizationControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedModes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedModes: usize,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OpticalImageStabilizationMode) -> windows_core::HRESULT,
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, OpticalImageStabilizationMode) -> windows_core::HRESULT,
 }
@@ -2722,14 +2680,8 @@ impl windows_core::RuntimeType for IRegionsOfInterestControl {
 pub struct IRegionsOfInterestControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetRegionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetRegionsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetRegionsWithLockAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetRegionsWithLockAsync: usize,
     pub ClearRegionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AutoFocusSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub AutoWhiteBalanceSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2742,10 +2694,7 @@ impl windows_core::RuntimeType for ISceneModeControl {
 #[repr(C)]
 pub struct ISceneModeControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedModes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedModes: usize,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CaptureSceneMode) -> windows_core::HRESULT,
     pub SetValueAsync: unsafe extern "system" fn(*mut core::ffi::c_void, CaptureSceneMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -2808,10 +2757,7 @@ impl windows_core::RuntimeType for IVideoTemporalDenoisingControl {
 pub struct IVideoTemporalDenoisingControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedModes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedModes: usize,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VideoTemporalDenoisingMode) -> windows_core::HRESULT,
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, VideoTemporalDenoisingMode) -> windows_core::HRESULT,
 }
@@ -2852,10 +2798,7 @@ impl windows_core::RuntimeType for IZoomControl2 {
 #[repr(C)]
 pub struct IZoomControl2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedModes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedModes: usize,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ZoomTransitionMode) -> windows_core::HRESULT,
     pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -2883,8 +2826,7 @@ impl InfraredTorchControl {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedModes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<InfraredTorchMode>> {
+    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<InfraredTorchMode>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2973,8 +2915,8 @@ impl IsoSpeedControl {
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn SupportedPresets(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<IsoSpeedPreset>> {
+    #[cfg(feature = "deprecated")]
+    pub fn SupportedPresets(&self) -> windows_core::Result<windows_collections::IVectorView<IsoSpeedPreset>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2990,7 +2932,7 @@ impl IsoSpeedControl {
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3025,7 +2967,7 @@ impl IsoSpeedControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, isospeed: u32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetValueAsync(&self, isospeed: u32) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3039,7 +2981,7 @@ impl IsoSpeedControl {
             (windows_core::Interface::vtable(this).Auto)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetAutoAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3648,8 +3590,7 @@ impl OpticalImageStabilizationControl {
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedModes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<OpticalImageStabilizationMode>> {
+    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<OpticalImageStabilizationMode>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3997,10 +3938,9 @@ impl RegionsOfInterestControl {
             (windows_core::Interface::vtable(this).MaxRegions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetRegionsAsync<P0>(&self, regions: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetRegionsAsync<P0>(&self, regions: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<RegionOfInterest>>,
+        P0: windows_core::Param<windows_collections::IIterable<RegionOfInterest>>,
     {
         let this = self;
         unsafe {
@@ -4008,10 +3948,9 @@ impl RegionsOfInterestControl {
             (windows_core::Interface::vtable(this).SetRegionsAsync)(windows_core::Interface::as_raw(this), regions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetRegionsWithLockAsync<P0>(&self, regions: P0, lockvalues: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetRegionsWithLockAsync<P0>(&self, regions: P0, lockvalues: bool) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<RegionOfInterest>>,
+        P0: windows_core::Param<windows_collections::IIterable<RegionOfInterest>>,
     {
         let this = self;
         unsafe {
@@ -4019,7 +3958,7 @@ impl RegionsOfInterestControl {
             (windows_core::Interface::vtable(this).SetRegionsWithLockAsync)(windows_core::Interface::as_raw(this), regions.param().abi(), lockvalues, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearRegionsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ClearRegionsAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4063,8 +4002,7 @@ impl windows_core::RuntimeName for RegionsOfInterestControl {
 pub struct SceneModeControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneModeControl, windows_core::IUnknown, windows_core::IInspectable);
 impl SceneModeControl {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedModes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<CaptureSceneMode>> {
+    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<CaptureSceneMode>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4078,7 +4016,7 @@ impl SceneModeControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, scenemode: CaptureSceneMode) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetValueAsync(&self, scenemode: CaptureSceneMode) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4444,8 +4382,8 @@ impl VideoDeviceController {
             (windows_core::Interface::vtable(this).DigitalWindowControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
+    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = &windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4461,7 +4399,7 @@ impl VideoDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
@@ -4654,8 +4592,7 @@ impl VideoTemporalDenoisingControl {
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedModes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<VideoTemporalDenoisingMode>> {
+    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<VideoTemporalDenoisingMode>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4719,7 +4656,7 @@ impl WhiteBalanceControl {
             (windows_core::Interface::vtable(this).Preset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4754,7 +4691,7 @@ impl WhiteBalanceControl {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, temperature: u32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetValueAsync(&self, temperature: u32) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4816,8 +4753,7 @@ impl ZoomControl {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedModes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ZoomTransitionMode>> {
+    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<ZoomTransitionMode>> {
         let this = &windows_core::Interface::cast::<IZoomControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

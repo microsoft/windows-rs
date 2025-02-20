@@ -182,15 +182,11 @@ impl windows_core::RuntimeName for DiagnosticsSettings {
 }
 unsafe impl Send for DiagnosticsSettings {}
 unsafe impl Sync for DiagnosticsSettings {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FirstSignInSettings(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(FirstSignInSettings, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( FirstSignInSettings , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , super::super::Foundation::Collections:: IMapView < windows_core::HSTRING , windows_core::IInspectable > );
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy ! ( FirstSignInSettings , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMapView < windows_core::HSTRING , windows_core::IInspectable > );
 impl FirstSignInSettings {
     pub fn GetDefault() -> windows_core::Result<FirstSignInSettings> {
         Self::IFirstSignInSettingsStatics(|this| unsafe {
@@ -198,36 +194,36 @@ impl FirstSignInSettings {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn Split(&self, first: &mut Option<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>, second: &mut Option<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
     fn IFirstSignInSettingsStatics<R, F: FnOnce(&IFirstSignInSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -235,64 +231,53 @@ impl FirstSignInSettings {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for FirstSignInSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFirstSignInSettings>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for FirstSignInSettings {
     type Vtable = <IFirstSignInSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFirstSignInSettings as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for FirstSignInSettings {
     const NAME: &'static str = "Windows.System.UserProfile.FirstSignInSettings";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for FirstSignInSettings {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for FirstSignInSettings {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for FirstSignInSettings {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &FirstSignInSettings {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
 }
 pub struct GlobalizationPreferences;
 impl GlobalizationPreferences {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Calendars() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Calendars() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Calendars)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Clocks() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Clocks() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Clocks)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Currencies() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Currencies() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Currencies)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Languages() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Languages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -317,10 +302,9 @@ impl GlobalizationPreferences {
             (windows_core::Interface::vtable(this).TrySetHomeGeographicRegion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(region), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn TrySetLanguages<P0>(languagetags: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IGlobalizationPreferencesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -364,32 +348,28 @@ impl GlobalizationPreferencesForUser {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Calendars(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Calendars(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Calendars)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Clocks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Clocks(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Clocks)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Currencies(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Currencies(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Currencies)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Languages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -493,13 +473,10 @@ pub struct IDiagnosticsSettingsStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::define_interface!(IFirstSignInSettings, IFirstSignInSettings_Vtbl, 0x3e945153_3a5e_452e_a601_f5baad2a4870);
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for IFirstSignInSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
 pub struct IFirstSignInSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -511,10 +488,7 @@ impl windows_core::RuntimeType for IFirstSignInSettingsStatics {
 #[repr(C)]
 pub struct IFirstSignInSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetDefault: usize,
 }
 windows_core::imp::define_interface!(IGlobalizationPreferencesForUser, IGlobalizationPreferencesForUser_Vtbl, 0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
 impl windows_core::RuntimeType for IGlobalizationPreferencesForUser {
@@ -524,22 +498,10 @@ impl windows_core::RuntimeType for IGlobalizationPreferencesForUser {
 pub struct IGlobalizationPreferencesForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Calendars: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Calendars: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Clocks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Clocks: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Currencies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Currencies: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Languages: usize,
     pub HomeGeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Globalization")]
     pub WeekStartsOn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Globalization::DayOfWeek) -> windows_core::HRESULT,
@@ -553,22 +515,10 @@ impl windows_core::RuntimeType for IGlobalizationPreferencesStatics {
 #[repr(C)]
 pub struct IGlobalizationPreferencesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Calendars: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Calendars: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Clocks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Clocks: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Currencies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Currencies: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Languages: usize,
     pub HomeGeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Globalization")]
     pub WeekStartsOn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Globalization::DayOfWeek) -> windows_core::HRESULT,
@@ -583,10 +533,7 @@ impl windows_core::RuntimeType for IGlobalizationPreferencesStatics2 {
 pub struct IGlobalizationPreferencesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TrySetHomeGeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub TrySetLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TrySetLanguages: usize,
 }
 windows_core::imp::define_interface!(IGlobalizationPreferencesStatics3, IGlobalizationPreferencesStatics3_Vtbl, 0x1e059733_35f5_40d8_b9e8_aef3ef856fce);
 impl windows_core::RuntimeType for IGlobalizationPreferencesStatics3 {
@@ -697,7 +644,7 @@ pub struct IUserProfilePersonalizationSettingsStatics_Vtbl {
 }
 pub struct LockScreen;
 impl LockScreen {
-    pub fn RequestSetImageFeedAsync<P0>(syndicationfeeduri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>
+    pub fn RequestSetImageFeedAsync<P0>(syndicationfeeduri: P0) -> windows_core::Result<windows_future::IAsyncOperation<SetImageFeedResult>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -726,7 +673,7 @@ impl LockScreen {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetImageFileAsync<P0>(value: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetImageFileAsync<P0>(value: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -736,7 +683,7 @@ impl LockScreen {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetImageStreamAsync<P0>(value: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetImageStreamAsync<P0>(value: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -812,7 +759,7 @@ impl UserInformation {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetAccountPictureAsync<P0>(image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPictureAsync<P0>(image: P0) -> windows_core::Result<windows_future::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -822,7 +769,7 @@ impl UserInformation {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetAccountPicturesAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPicturesAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<windows_future::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -834,7 +781,7 @@ impl UserInformation {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetAccountPictureFromStreamAsync<P0>(image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPictureFromStreamAsync<P0>(image: P0) -> windows_core::Result<windows_future::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -844,7 +791,7 @@ impl UserInformation {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetAccountPicturesFromStreamsAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPicturesFromStreamsAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<windows_future::IAsyncOperation<SetAccountPictureResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -867,37 +814,37 @@ impl UserInformation {
     pub fn RemoveAccountPictureChanged(token: i64) -> windows_core::Result<()> {
         Self::IUserInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveAccountPictureChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn GetDisplayNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetDisplayNameAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDisplayNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetFirstNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetFirstNameAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFirstNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetLastNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetLastNameAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetLastNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetPrincipalNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetPrincipalNameAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPrincipalNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetSessionInitiationProtocolUriAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
+    pub fn GetSessionInitiationProtocolUriAsync() -> windows_core::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSessionInitiationProtocolUriAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDomainNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetDomainNameAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDomainNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -918,7 +865,7 @@ pub struct UserProfilePersonalizationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserProfilePersonalizationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl UserProfilePersonalizationSettings {
     #[cfg(feature = "Storage_Streams")]
-    pub fn TrySetLockScreenImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TrySetLockScreenImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -929,7 +876,7 @@ impl UserProfilePersonalizationSettings {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TrySetWallpaperImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TrySetWallpaperImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {

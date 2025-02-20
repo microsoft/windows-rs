@@ -96,8 +96,7 @@ impl BitmapCodecInformation {
             (windows_core::Interface::vtable(this).CodecId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FileExtensions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn FileExtensions(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -111,8 +110,7 @@ impl BitmapCodecInformation {
             (windows_core::Interface::vtable(this).FriendlyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn MimeTypes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn MimeTypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -160,14 +158,14 @@ impl BitmapDecoder {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetPreviewAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
+    pub fn GetPreviewAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ImageStream>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPreviewAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetFrameAsync(&self, frameindex: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapFrame>> {
+    pub fn GetFrameAsync(&self, frameindex: u32) -> windows_core::Result<windows_future::IAsyncOperation<BitmapFrame>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -216,15 +214,14 @@ impl BitmapDecoder {
             (windows_core::Interface::vtable(this).IcoDecoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetDecoderInformationEnumerator() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>> {
+    pub fn GetDecoderInformationEnumerator() -> windows_core::Result<windows_collections::IVectorView<BitmapCodecInformation>> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDecoderInformationEnumerator)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateAsync<P0>(stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>
+    pub fn CreateAsync<P0>(stream: P0) -> windows_core::Result<windows_future::IAsyncOperation<BitmapDecoder>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -234,7 +231,7 @@ impl BitmapDecoder {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateWithIdAsync<P1>(decoderid: windows_core::GUID, stream: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>
+    pub fn CreateWithIdAsync<P1>(decoderid: windows_core::GUID, stream: P1) -> windows_core::Result<windows_future::IAsyncOperation<BitmapDecoder>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -256,7 +253,7 @@ impl BitmapDecoder {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetThumbnailAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
+    pub fn GetThumbnailAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ImageStream>> {
         let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -326,14 +323,14 @@ impl BitmapDecoder {
             (windows_core::Interface::vtable(this).OrientedPixelHeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetPixelDataAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
+    pub fn GetPixelDataAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PixelDataProvider>> {
         let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPixelDataAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPixelDataTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
+    pub fn GetPixelDataTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<windows_future::IAsyncOperation<PixelDataProvider>>
     where
         P2: windows_core::Param<BitmapTransform>,
     {
@@ -343,21 +340,21 @@ impl BitmapDecoder {
             (windows_core::Interface::vtable(this).GetPixelDataTransformedAsync)(windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.param().abi(), exiforientationmode, colormanagementmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSoftwareBitmapAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
+    pub fn GetSoftwareBitmapAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>> {
         let this = &windows_core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSoftwareBitmapAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
+    pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>> {
         let this = &windows_core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(windows_core::Interface::as_raw(this), pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSoftwareBitmapTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
+    pub fn GetSoftwareBitmapTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>>
     where
         P2: windows_core::Param<BitmapTransform>,
     {
@@ -458,17 +455,16 @@ impl BitmapEncoder {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPixelData)(windows_core::Interface::as_raw(this), pixelformat, alphamode, width, height, dpix, dpiy, pixels.len().try_into().unwrap(), pixels.as_ptr()).ok() }
     }
-    pub fn GoToNextFrameAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn GoToNextFrameAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GoToNextFrameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GoToNextFrameWithEncodingOptionsAsync<P0>(&self, encodingoptions: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn GoToNextFrameWithEncodingOptionsAsync<P0>(&self, encodingoptions: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>>,
     {
         let this = self;
         unsafe {
@@ -476,7 +472,7 @@ impl BitmapEncoder {
             (windows_core::Interface::vtable(this).GoToNextFrameWithEncodingOptionsAsync)(windows_core::Interface::as_raw(this), encodingoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FlushAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -519,15 +515,14 @@ impl BitmapEncoder {
             (windows_core::Interface::vtable(this).JpegXREncoderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetEncoderInformationEnumerator() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>> {
+    pub fn GetEncoderInformationEnumerator() -> windows_core::Result<windows_collections::IVectorView<BitmapCodecInformation>> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetEncoderInformationEnumerator)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateAsync<P1>(encoderid: windows_core::GUID, stream: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
+    pub fn CreateAsync<P1>(encoderid: windows_core::GUID, stream: P1) -> windows_core::Result<windows_future::IAsyncOperation<BitmapEncoder>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -536,11 +531,11 @@ impl BitmapEncoder {
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), encoderid, stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn CreateWithEncodingOptionsAsync<P1, P2>(encoderid: windows_core::GUID, stream: P1, encodingoptions: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
+    #[cfg(feature = "Storage_Streams")]
+    pub fn CreateWithEncodingOptionsAsync<P1, P2>(encoderid: windows_core::GUID, stream: P1, encodingoptions: P2) -> windows_core::Result<windows_future::IAsyncOperation<BitmapEncoder>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
-        P2: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>>,
+        P2: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>>,
     {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -548,7 +543,7 @@ impl BitmapEncoder {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateForTranscodingAsync<P0, P1>(stream: P0, bitmapdecoder: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
+    pub fn CreateForTranscodingAsync<P0, P1>(stream: P0, bitmapdecoder: P1) -> windows_core::Result<windows_future::IAsyncOperation<BitmapEncoder>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
         P1: windows_core::Param<BitmapDecoder>,
@@ -558,7 +553,7 @@ impl BitmapEncoder {
             (windows_core::Interface::vtable(this).CreateForTranscodingAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), bitmapdecoder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateForInPlacePropertyEncodingAsync<P0>(bitmapdecoder: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
+    pub fn CreateForInPlacePropertyEncodingAsync<P0>(bitmapdecoder: P0) -> windows_core::Result<windows_future::IAsyncOperation<BitmapEncoder>>
     where
         P0: windows_core::Param<BitmapDecoder>,
     {
@@ -622,7 +617,7 @@ windows_core::imp::interface_hierarchy!(BitmapFrame, windows_core::IUnknown, win
 windows_core::imp::required_hierarchy!(BitmapFrame, IBitmapFrameWithSoftwareBitmap);
 impl BitmapFrame {
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetThumbnailAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
+    pub fn GetThumbnailAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ImageStream>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -692,14 +687,14 @@ impl BitmapFrame {
             (windows_core::Interface::vtable(this).OrientedPixelHeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetPixelDataAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
+    pub fn GetPixelDataAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PixelDataProvider>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPixelDataAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPixelDataTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
+    pub fn GetPixelDataTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<windows_future::IAsyncOperation<PixelDataProvider>>
     where
         P2: windows_core::Param<BitmapTransform>,
     {
@@ -709,21 +704,21 @@ impl BitmapFrame {
             (windows_core::Interface::vtable(this).GetPixelDataTransformedAsync)(windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.param().abi(), exiforientationmode, colormanagementmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSoftwareBitmapAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
+    pub fn GetSoftwareBitmapAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>> {
         let this = &windows_core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSoftwareBitmapAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
+    pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>> {
         let this = &windows_core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(windows_core::Interface::as_raw(this), pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSoftwareBitmapTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
+    pub fn GetSoftwareBitmapTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>>
     where
         P2: windows_core::Param<BitmapTransform>,
     {
@@ -801,10 +796,9 @@ pub struct BitmapProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapProperties, IBitmapPropertiesView);
 impl BitmapProperties {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetPropertiesAsync<P0>(&self, propertiestoset: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetPropertiesAsync<P0>(&self, propertiestoset: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>>,
     {
         let this = self;
         unsafe {
@@ -812,10 +806,9 @@ impl BitmapProperties {
             (windows_core::Interface::vtable(this).SetPropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
+    pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<BitmapPropertySet>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IBitmapPropertiesView>(self)?;
         unsafe {
@@ -841,10 +834,9 @@ unsafe impl Sync for BitmapProperties {}
 pub struct BitmapPropertiesView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapPropertiesView, windows_core::IUnknown, windows_core::IInspectable, IBitmapPropertiesView);
 impl BitmapPropertiesView {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
+    pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<BitmapPropertySet>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -865,15 +857,11 @@ impl windows_core::RuntimeName for BitmapPropertiesView {
 }
 unsafe impl Send for BitmapPropertiesView {}
 unsafe impl Sync for BitmapPropertiesView {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapPropertySet(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy ! ( BitmapPropertySet , windows_core::IUnknown , windows_core::IInspectable , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , BitmapTypedValue > );
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(BitmapPropertySet, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy ! ( BitmapPropertySet , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMap < windows_core::HSTRING , BitmapTypedValue > );
+windows_core::imp::required_hierarchy!(BitmapPropertySet, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>);
 impl BitmapPropertySet {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -882,8 +870,8 @@ impl BitmapPropertySet {
         static SHARED: windows_core::imp::FactoryCache<BitmapPropertySet, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -910,7 +898,7 @@ impl BitmapPropertySet {
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, BitmapTypedValue>> {
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, BitmapTypedValue>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -936,35 +924,28 @@ impl BitmapPropertySet {
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for BitmapPropertySet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IMap<windows_core::HSTRING, BitmapTypedValue>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IMap<windows_core::HSTRING, BitmapTypedValue>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for BitmapPropertySet {
-    type Vtable = <super::super::Foundation::Collections::IMap<windows_core::HSTRING, BitmapTypedValue> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IMap<windows_core::HSTRING, BitmapTypedValue> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IMap<windows_core::HSTRING, BitmapTypedValue> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IMap<windows_core::HSTRING, BitmapTypedValue> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for BitmapPropertySet {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapPropertySet";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for BitmapPropertySet {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for BitmapPropertySet {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for BitmapPropertySet {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &BitmapPropertySet {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -1176,15 +1157,9 @@ impl windows_core::RuntimeType for IBitmapCodecInformation {
 pub struct IBitmapCodecInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CodecId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FileExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FileExtensions: usize,
     pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub MimeTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    MimeTypes: usize,
 }
 windows_core::imp::define_interface!(IBitmapDecoder, IBitmapDecoder_Vtbl, 0xacef22ba_1d74_4c91_9dfc_9620745233e6);
 impl windows_core::RuntimeType for IBitmapDecoder {
@@ -1216,10 +1191,7 @@ pub struct IBitmapDecoderStatics_Vtbl {
     pub GifDecoderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub JpegXRDecoderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub IcoDecoderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetDecoderInformationEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetDecoderInformationEnumerator: usize,
     #[cfg(feature = "Storage_Streams")]
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -1258,10 +1230,7 @@ pub struct IBitmapEncoder_Vtbl {
     pub BitmapTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPixelData: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, u32, u32, f64, f64, u32, *const u8) -> windows_core::HRESULT,
     pub GoToNextFrameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GoToNextFrameWithEncodingOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GoToNextFrameWithEncodingOptionsAsync: usize,
     pub FlushAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapEncoderStatics, IBitmapEncoderStatics_Vtbl, 0xa74356a7_a4e4_4eb9_8e40_564de7e1ccb2);
@@ -1277,17 +1246,14 @@ pub struct IBitmapEncoderStatics_Vtbl {
     pub TiffEncoderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GifEncoderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub JpegXREncoderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetEncoderInformationEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetEncoderInformationEnumerator: usize,
     #[cfg(feature = "Storage_Streams")]
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub CreateWithEncodingOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     CreateWithEncodingOptionsAsync: usize,
     #[cfg(feature = "Storage_Streams")]
     pub CreateForTranscodingAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1320,7 +1286,7 @@ impl windows_core::RuntimeType for IBitmapFrame {
 windows_core::imp::interface_hierarchy!(IBitmapFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl IBitmapFrame {
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetThumbnailAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
+    pub fn GetThumbnailAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ImageStream>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1390,14 +1356,14 @@ impl IBitmapFrame {
             (windows_core::Interface::vtable(this).OrientedPixelHeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetPixelDataAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
+    pub fn GetPixelDataAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PixelDataProvider>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPixelDataAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPixelDataTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
+    pub fn GetPixelDataTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<windows_future::IAsyncOperation<PixelDataProvider>>
     where
         P2: windows_core::Param<BitmapTransform>,
     {
@@ -1414,7 +1380,7 @@ impl windows_core::RuntimeName for IBitmapFrame {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IBitmapFrame_Impl: windows_core::IUnknownImpl {
-    fn GetThumbnailAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
+    fn GetThumbnailAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ImageStream>>;
     fn BitmapProperties(&self) -> windows_core::Result<BitmapPropertiesView>;
     fn BitmapPixelFormat(&self) -> windows_core::Result<BitmapPixelFormat>;
     fn BitmapAlphaMode(&self) -> windows_core::Result<BitmapAlphaMode>;
@@ -1424,8 +1390,8 @@ pub trait IBitmapFrame_Impl: windows_core::IUnknownImpl {
     fn PixelHeight(&self) -> windows_core::Result<u32>;
     fn OrientedPixelWidth(&self) -> windows_core::Result<u32>;
     fn OrientedPixelHeight(&self) -> windows_core::Result<u32>;
-    fn GetPixelDataAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
-    fn GetPixelDataTransformedAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, transform: windows_core::Ref<'_, BitmapTransform>, exifOrientationMode: ExifOrientationMode, colorManagementMode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
+    fn GetPixelDataAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PixelDataProvider>>;
+    fn GetPixelDataTransformedAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, transform: windows_core::Ref<'_, BitmapTransform>, exifOrientationMode: ExifOrientationMode, colorManagementMode: ColorManagementMode) -> windows_core::Result<windows_future::IAsyncOperation<PixelDataProvider>>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IBitmapFrame_Vtbl {
@@ -1624,21 +1590,21 @@ impl windows_core::RuntimeType for IBitmapFrameWithSoftwareBitmap {
 windows_core::imp::interface_hierarchy!(IBitmapFrameWithSoftwareBitmap, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBitmapFrameWithSoftwareBitmap, IBitmapFrame);
 impl IBitmapFrameWithSoftwareBitmap {
-    pub fn GetSoftwareBitmapAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
+    pub fn GetSoftwareBitmapAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSoftwareBitmapAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
+    pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(windows_core::Interface::as_raw(this), pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSoftwareBitmapTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
+    pub fn GetSoftwareBitmapTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>>
     where
         P2: windows_core::Param<BitmapTransform>,
     {
@@ -1649,7 +1615,7 @@ impl IBitmapFrameWithSoftwareBitmap {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetThumbnailAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
+    pub fn GetThumbnailAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ImageStream>> {
         let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1719,14 +1685,14 @@ impl IBitmapFrameWithSoftwareBitmap {
             (windows_core::Interface::vtable(this).OrientedPixelHeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetPixelDataAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
+    pub fn GetPixelDataAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PixelDataProvider>> {
         let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPixelDataAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPixelDataTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
+    pub fn GetPixelDataTransformedAsync<P2>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> windows_core::Result<windows_future::IAsyncOperation<PixelDataProvider>>
     where
         P2: windows_core::Param<BitmapTransform>,
     {
@@ -1743,9 +1709,9 @@ impl windows_core::RuntimeName for IBitmapFrameWithSoftwareBitmap {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IBitmapFrameWithSoftwareBitmap_Impl: IBitmapFrame_Impl {
-    fn GetSoftwareBitmapAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
-    fn GetSoftwareBitmapConvertedAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
-    fn GetSoftwareBitmapTransformedAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, transform: windows_core::Ref<'_, BitmapTransform>, exifOrientationMode: ExifOrientationMode, colorManagementMode: ColorManagementMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
+    fn GetSoftwareBitmapAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>>;
+    fn GetSoftwareBitmapConvertedAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>>;
+    fn GetSoftwareBitmapTransformedAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, transform: windows_core::Ref<'_, BitmapTransform>, exifOrientationMode: ExifOrientationMode, colorManagementMode: ColorManagementMode) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IBitmapFrameWithSoftwareBitmap_Vtbl {
@@ -1814,10 +1780,7 @@ impl windows_core::RuntimeType for IBitmapProperties {
 #[repr(C)]
 pub struct IBitmapProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetPropertiesAsync: usize,
 }
 windows_core::imp::define_interface!(IBitmapPropertiesView, IBitmapPropertiesView_Vtbl, 0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5);
 impl windows_core::RuntimeType for IBitmapPropertiesView {
@@ -1825,10 +1788,9 @@ impl windows_core::RuntimeType for IBitmapPropertiesView {
 }
 windows_core::imp::interface_hierarchy!(IBitmapPropertiesView, windows_core::IUnknown, windows_core::IInspectable);
 impl IBitmapPropertiesView {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
+    pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<BitmapPropertySet>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -1837,15 +1799,12 @@ impl IBitmapPropertiesView {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IBitmapPropertiesView {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapPropertiesView";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait IBitmapPropertiesView_Impl: windows_core::IUnknownImpl {
-    fn GetPropertiesAsync(&self, propertiesToRetrieve: windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>;
+    fn GetPropertiesAsync(&self, propertiesToRetrieve: windows_core::Ref<'_, windows_collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<windows_future::IAsyncOperation<BitmapPropertySet>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IBitmapPropertiesView_Vtbl {
     pub const fn new<Identity: IBitmapPropertiesView_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertiesAsync<Identity: IBitmapPropertiesView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiestoretrieve: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1873,10 +1832,7 @@ impl IBitmapPropertiesView_Vtbl {
 #[repr(C)]
 pub struct IBitmapPropertiesView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetPropertiesAsync: usize,
 }
 windows_core::imp::define_interface!(IBitmapTransform, IBitmapTransform_Vtbl, 0xae755344_e268_4d35_adcf_e995d31a8d34);
 impl windows_core::RuntimeType for IBitmapTransform {
@@ -2012,7 +1968,7 @@ impl ImageStream {
             (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2022,7 +1978,7 @@ impl ImageStream {
             (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2032,7 +1988,7 @@ impl ImageStream {
             (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FlushAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2336,7 +2292,7 @@ impl SoftwareBitmap {
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateCopyFromSurfaceAsync<P0>(surface: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
+    pub fn CreateCopyFromSurfaceAsync<P0>(surface: P0) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>>
     where
         P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DSurface>,
     {
@@ -2346,7 +2302,7 @@ impl SoftwareBitmap {
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateCopyWithAlphaFromSurfaceAsync<P0>(surface: P0, alpha: BitmapAlphaMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
+    pub fn CreateCopyWithAlphaFromSurfaceAsync<P0>(surface: P0, alpha: BitmapAlphaMode) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>>
     where
         P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DSurface>,
     {

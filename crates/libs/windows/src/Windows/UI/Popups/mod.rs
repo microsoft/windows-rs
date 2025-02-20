@@ -7,10 +7,7 @@ pub struct IMessageDialog_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Commands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Commands: usize,
     pub DefaultCommandIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetDefaultCommandIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub CancelCommandIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -38,10 +35,7 @@ impl windows_core::RuntimeType for IPopupMenu {
 #[repr(C)]
 pub struct IPopupMenu_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Commands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Commands: usize,
     pub ShowAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShowAsyncWithRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShowAsyncWithRectAndPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, Placement, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -213,8 +207,7 @@ impl MessageDialog {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Commands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
+    pub fn Commands(&self) -> windows_core::Result<windows_collections::IVector<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -254,7 +247,7 @@ impl MessageDialog {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -373,29 +366,28 @@ impl PopupMenu {
         static SHARED: windows_core::imp::FactoryCache<PopupMenu, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Commands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
+    pub fn Commands(&self) -> windows_core::Result<windows_collections::IVector<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Commands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsync(&self, invocationpoint: super::super::Foundation::Point) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsync(&self, invocationpoint: super::super::Foundation::Point) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), invocationpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsyncWithRect)(windows_core::Interface::as_raw(this), selection, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: Placement) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: Placement) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

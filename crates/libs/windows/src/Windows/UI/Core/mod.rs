@@ -694,7 +694,7 @@ impl CoreDispatcher {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessEvents)(windows_core::Interface::as_raw(this), options).ok() }
     }
-    pub fn RunAsync<P1>(&self, priority: CoreDispatcherPriority, agilecallback: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RunAsync<P1>(&self, priority: CoreDispatcherPriority, agilecallback: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<DispatchedHandler>,
     {
@@ -704,7 +704,7 @@ impl CoreDispatcher {
             (windows_core::Interface::vtable(this).RunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<IdleDispatchedHandler>,
     {
@@ -714,7 +714,7 @@ impl CoreDispatcher {
             (windows_core::Interface::vtable(this).RunIdleAsync)(windows_core::Interface::as_raw(this), agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryRunAsync<P1>(&self, priority: CoreDispatcherPriority, agilecallback: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryRunAsync<P1>(&self, priority: CoreDispatcherPriority, agilecallback: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P1: windows_core::Param<DispatchedHandler>,
     {
@@ -724,7 +724,7 @@ impl CoreDispatcher {
             (windows_core::Interface::vtable(this).TryRunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryRunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryRunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<IdleDispatchedHandler>,
     {
@@ -1895,8 +1895,8 @@ impl CoreWindowDialog {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsInteractionDelayed)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
-    pub fn Commands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>> {
+    #[cfg(feature = "UI_Popups")]
+    pub fn Commands(&self) -> windows_core::Result<windows_collections::IVector<super::Popups::IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1942,7 +1942,7 @@ impl CoreWindowDialog {
         unsafe { (windows_core::Interface::vtable(this).SetBackButtonCommand)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
+    pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::Popups::IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2065,8 +2065,8 @@ impl CoreWindowFlyout {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsInteractionDelayed)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
-    pub fn Commands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>> {
+    #[cfg(feature = "UI_Popups")]
+    pub fn Commands(&self) -> windows_core::Result<windows_collections::IVector<super::Popups::IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2101,7 +2101,7 @@ impl CoreWindowFlyout {
         unsafe { (windows_core::Interface::vtable(this).SetBackButtonCommand)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
+    pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::Popups::IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4478,9 +4478,9 @@ pub struct ICoreWindowDialog_Vtbl {
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsInteractionDelayed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetIsInteractionDelayed: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
+    #[cfg(feature = "UI_Popups")]
     pub Commands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups")))]
+    #[cfg(not(feature = "UI_Popups"))]
     Commands: usize,
     pub DefaultCommandIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetDefaultCommandIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4584,9 +4584,9 @@ pub struct ICoreWindowFlyout_Vtbl {
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsInteractionDelayed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetIsInteractionDelayed: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
+    #[cfg(feature = "UI_Popups")]
     pub Commands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups")))]
+    #[cfg(not(feature = "UI_Popups"))]
     Commands: usize,
     pub DefaultCommandIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetDefaultCommandIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4762,9 +4762,9 @@ pub struct IPointerEventArgs_Vtbl {
     pub KeyModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::VirtualKeyModifiers) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     KeyModifiers: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Input"))]
+    #[cfg(feature = "UI_Input")]
     pub GetIntermediatePoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Input")))]
+    #[cfg(not(feature = "UI_Input"))]
     GetIntermediatePoints: usize,
 }
 windows_core::imp::define_interface!(ISystemNavigationManager, ISystemNavigationManager_Vtbl, 0x93023118_cf50_42a6_9706_69107fa122e1);
@@ -5046,8 +5046,8 @@ impl PointerEventArgs {
             (windows_core::Interface::vtable(this).KeyModifiers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Input"))]
-    pub fn GetIntermediatePoints(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Input::PointerPoint>> {
+    #[cfg(feature = "UI_Input")]
+    pub fn GetIntermediatePoints(&self) -> windows_core::Result<windows_collections::IVector<super::Input::PointerPoint>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

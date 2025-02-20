@@ -1,0 +1,10 @@
+namespace Test
+{
+    interface ITest
+    {
+        void Numerics(Windows.Foundation.Numerics.Vector2 n);
+        void Collections(Windows.Foundation.Collections.IVector<Int32> c);
+        Windows.Foundation.IAsyncAction Async();
+        void Windows(Windows.Foundation.IStringable s);
+    }
+}

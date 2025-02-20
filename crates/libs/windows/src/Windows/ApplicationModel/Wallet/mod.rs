@@ -155,24 +155,12 @@ pub struct IWalletItem_Vtbl {
     pub SetRelevantDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RelevantDateDisplayMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRelevantDateDisplayMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub TransactionHistory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TransactionHistory: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RelevantLocations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RelevantLocations: usize,
     pub IsMoreTransactionHistoryLaunchable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsMoreTransactionHistoryLaunchable: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub DisplayProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DisplayProperties: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Verbs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Verbs: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IWalletItemCustomProperty, IWalletItemCustomProperty_Vtbl, 0xb94b40f3_fa00_40fd_98dc_9de46697f1e7);
@@ -232,14 +220,8 @@ pub struct IWalletItemStore_Vtbl {
     pub AddAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetWalletItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetItemsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetItemsWithKindAsync: unsafe extern "system" fn(*mut core::ffi::c_void, WalletItemKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetItemsWithKindAsync: usize,
     #[cfg(feature = "Storage_Streams")]
     pub ImportItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -382,7 +364,7 @@ impl WalletBarcode {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetImageAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamReference>> {
+    pub fn GetImageAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamReference>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -795,16 +777,14 @@ impl WalletItem {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRelevantDateDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TransactionHistory(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletTransaction>> {
+    pub fn TransactionHistory(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, WalletTransaction>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransactionHistory)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RelevantLocations(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletRelevantLocation>> {
+    pub fn RelevantLocations(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, WalletRelevantLocation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -822,16 +802,14 @@ impl WalletItem {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsMoreTransactionHistoryLaunchable)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DisplayProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletItemCustomProperty>> {
+    pub fn DisplayProperties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, WalletItemCustomProperty>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Verbs(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletVerb>> {
+    pub fn Verbs(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, WalletVerb>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -983,7 +961,7 @@ pub struct WalletItemStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WalletItemStore, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl WalletItemStore {
-    pub fn AddAsync<P1>(&self, id: &windows_core::HSTRING, item: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn AddAsync<P1>(&self, id: &windows_core::HSTRING, item: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P1: windows_core::Param<WalletItem>,
     {
@@ -993,30 +971,28 @@ impl WalletItemStore {
             (windows_core::Interface::vtable(this).AddAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ClearAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClearAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetWalletItemAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WalletItem>> {
+    pub fn GetWalletItemAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WalletItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetWalletItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetItemsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>> {
+    pub fn GetItemsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<WalletItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetItemsWithKindAsync(&self, kind: WalletItemKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>> {
+    pub fn GetItemsWithKindAsync(&self, kind: WalletItemKind) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<WalletItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1024,7 +1000,7 @@ impl WalletItemStore {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportItemAsync<P0>(&self, stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WalletItem>>
+    pub fn ImportItemAsync<P0>(&self, stream: P0) -> windows_core::Result<windows_future::IAsyncOperation<WalletItem>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -1034,28 +1010,28 @@ impl WalletItemStore {
             (windows_core::Interface::vtable(this).ImportItemAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowItemAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowItemAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateAsync<P0>(&self, item: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn UpdateAsync<P0>(&self, item: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<WalletItem>,
     {
@@ -1087,7 +1063,7 @@ unsafe impl Sync for WalletItemStore {}
 pub struct WalletManager;
 #[cfg(feature = "deprecated")]
 impl WalletManager {
-    pub fn RequestStoreAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<WalletItemStore>> {
+    pub fn RequestStoreAsync() -> windows_core::Result<windows_future::IAsyncOperation<WalletItemStore>> {
         Self::IWalletManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

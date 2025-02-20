@@ -25,10 +25,9 @@ impl BasicProperties {
             (windows_core::Interface::vtable(this).ItemDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -36,10 +35,9 @@ impl BasicProperties {
             (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -47,7 +45,7 @@ impl BasicProperties {
             (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -71,8 +69,7 @@ pub struct DocumentProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DocumentProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DocumentProperties, IStorageItemExtraProperties);
 impl DocumentProperties {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Author(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Author(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -90,8 +87,7 @@ impl DocumentProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Keywords(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Keywords(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -109,10 +105,9 @@ impl DocumentProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -120,10 +115,9 @@ impl DocumentProperties {
             (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -131,7 +125,7 @@ impl DocumentProperties {
             (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -152,7 +146,7 @@ impl windows_core::RuntimeName for DocumentProperties {
 pub struct GeotagHelper;
 impl GeotagHelper {
     #[cfg(all(feature = "Devices_Geolocation", feature = "Storage_Streams"))]
-    pub fn GetGeotagAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>
+    pub fn GetGeotagAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>
     where
         P0: windows_core::Param<super::IStorageFile>,
     {
@@ -162,7 +156,7 @@ impl GeotagHelper {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Storage_Streams"))]
-    pub fn SetGeotagFromGeolocatorAsync<P0, P1>(file: P0, geolocator: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetGeotagFromGeolocatorAsync<P0, P1>(file: P0, geolocator: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::IStorageFile>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geolocator>,
@@ -173,7 +167,7 @@ impl GeotagHelper {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Storage_Streams"))]
-    pub fn SetGeotagAsync<P0, P1>(file: P0, geopoint: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetGeotagAsync<P0, P1>(file: P0, geopoint: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::IStorageFile>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -209,16 +203,10 @@ impl windows_core::RuntimeType for IDocumentProperties {
 #[repr(C)]
 pub struct IDocumentProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Author: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Author: usize,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Keywords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Keywords: usize,
     pub Comment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetComment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -251,10 +239,7 @@ pub struct IImageProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Rating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetRating: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Keywords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Keywords: usize,
     pub DateTaken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub SetDateTaken: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -268,10 +253,7 @@ pub struct IImageProperties_Vtbl {
     pub CameraModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCameraModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PhotoOrientation) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PeopleNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PeopleNames: usize,
 }
 windows_core::imp::define_interface!(IMusicProperties, IMusicProperties_Vtbl, 0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da);
 impl windows_core::RuntimeType for IMusicProperties {
@@ -284,10 +266,7 @@ pub struct IMusicProperties_Vtbl {
     pub SetAlbum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Artist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetArtist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Genre: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Genre: usize,
     pub TrackNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetTrackNumber: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -298,26 +277,14 @@ pub struct IMusicProperties_Vtbl {
     pub Bitrate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub AlbumArtist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAlbumArtist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Composers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Composers: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Conductors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Conductors: usize,
     pub Subtitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSubtitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Producers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Producers: usize,
     pub Publisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Writers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Writers: usize,
     pub Year: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetYear: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
@@ -339,10 +306,9 @@ impl windows_core::RuntimeType for IStorageItemExtraProperties {
 }
 windows_core::imp::interface_hierarchy!(IStorageItemExtraProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageItemExtraProperties {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -350,10 +316,9 @@ impl IStorageItemExtraProperties {
             (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
     {
         let this = self;
         unsafe {
@@ -361,7 +326,7 @@ impl IStorageItemExtraProperties {
             (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -369,17 +334,14 @@ impl IStorageItemExtraProperties {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IStorageItemExtraProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.IStorageItemExtraProperties";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait IStorageItemExtraProperties_Impl: windows_core::IUnknownImpl {
-    fn RetrievePropertiesAsync(&self, propertiesToRetrieve: windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>;
-    fn SavePropertiesAsync(&self, propertiesToSave: windows_core::Ref<'_, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>) -> windows_core::Result<super::super::Foundation::IAsyncAction>;
-    fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction>;
+    fn RetrievePropertiesAsync(&self, propertiesToRetrieve: windows_core::Ref<'_, windows_collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>;
+    fn SavePropertiesAsync(&self, propertiesToSave: windows_core::Ref<'_, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IStorageItemExtraProperties_Vtbl {
     pub const fn new<Identity: IStorageItemExtraProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RetrievePropertiesAsync<Identity: IStorageItemExtraProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiestoretrieve: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -435,14 +397,8 @@ impl IStorageItemExtraProperties_Vtbl {
 #[repr(C)]
 pub struct IStorageItemExtraProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub RetrievePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RetrievePropertiesAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SavePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SavePropertiesAsync: usize,
     pub SavePropertiesAsyncOverloadDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IThumbnailProperties, IThumbnailProperties_Vtbl, 0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423);
@@ -466,10 +422,7 @@ pub struct IVideoProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Rating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetRating: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Keywords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Keywords: usize,
     pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -479,23 +432,14 @@ pub struct IVideoProperties_Vtbl {
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Subtitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSubtitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Producers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Producers: usize,
     pub Publisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Writers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Writers: usize,
     pub Year: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetYear: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Bitrate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Directors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Directors: usize,
     pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VideoOrientation) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -515,8 +459,7 @@ impl ImageProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRating)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Keywords(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Keywords(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -602,18 +545,16 @@ impl ImageProperties {
             (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PeopleNames(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn PeopleNames(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PeopleNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -621,10 +562,9 @@ impl ImageProperties {
             (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -632,7 +572,7 @@ impl ImageProperties {
             (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -678,8 +618,7 @@ impl MusicProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetArtist)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Genre(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Genre(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -744,16 +683,14 @@ impl MusicProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAlbumArtist)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Composers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Composers(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Composers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Conductors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Conductors(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -771,8 +708,7 @@ impl MusicProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSubtitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Producers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Producers(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -790,8 +726,7 @@ impl MusicProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPublisher)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Writers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Writers(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -809,10 +744,9 @@ impl MusicProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetYear)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -820,10 +754,9 @@ impl MusicProperties {
             (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -831,7 +764,7 @@ impl MusicProperties {
             (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -925,38 +858,37 @@ pub struct StorageItemContentProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageItemContentProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageItemContentProperties, IStorageItemExtraProperties);
 impl StorageItemContentProperties {
-    pub fn GetMusicPropertiesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MusicProperties>> {
+    pub fn GetMusicPropertiesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MusicProperties>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMusicPropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetVideoPropertiesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VideoProperties>> {
+    pub fn GetVideoPropertiesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<VideoProperties>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetVideoPropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetImagePropertiesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageProperties>> {
+    pub fn GetImagePropertiesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ImageProperties>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetImagePropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDocumentPropertiesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DocumentProperties>> {
+    pub fn GetDocumentPropertiesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<DocumentProperties>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDocumentPropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -964,10 +896,9 @@ impl StorageItemContentProperties {
             (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -975,7 +906,7 @@ impl StorageItemContentProperties {
             (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1014,7 +945,7 @@ impl StorageItemThumbnail {
             (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
     where
         P0: windows_core::Param<super::Streams::IBuffer>,
     {
@@ -1024,7 +955,7 @@ impl StorageItemThumbnail {
             (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::Streams::IBuffer>,
     {
@@ -1034,7 +965,7 @@ impl StorageItemThumbnail {
             (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FlushAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1239,10 +1170,9 @@ pub struct VideoProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoProperties, IStorageItemExtraProperties);
 impl VideoProperties {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1250,10 +1180,9 @@ impl VideoProperties {
             (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
     {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1261,7 +1190,7 @@ impl VideoProperties {
             (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1279,8 +1208,7 @@ impl VideoProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRating)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Keywords(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Keywords(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1344,8 +1272,7 @@ impl VideoProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSubtitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Producers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Producers(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1363,8 +1290,7 @@ impl VideoProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPublisher)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Writers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Writers(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1389,8 +1315,7 @@ impl VideoProperties {
             (windows_core::Interface::vtable(this).Bitrate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Directors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Directors(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

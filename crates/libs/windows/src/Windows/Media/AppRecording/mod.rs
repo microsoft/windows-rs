@@ -11,7 +11,7 @@ impl AppRecordingManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn StartRecordingToFileAsync<P0>(&self, file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
+    pub fn StartRecordingToFileAsync<P0>(&self, file: P0) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingResult>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -22,7 +22,7 @@ impl AppRecordingManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RecordTimeSpanToFileAsync<P2>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
+    pub fn RecordTimeSpanToFileAsync<P2>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P2) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingResult>>
     where
         P2: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -32,19 +32,18 @@ impl AppRecordingManager {
             (windows_core::Interface::vtable(this).RecordTimeSpanToFileAsync)(windows_core::Interface::as_raw(this), starttime, duration, file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedScreenshotMediaEncodingSubtypes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn SupportedScreenshotMediaEncodingSubtypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedScreenshotMediaEncodingSubtypes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
-    pub fn SaveScreenshotToFilesAsync<P0, P3>(&self, folder: P0, filenameprefix: &windows_core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P3) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
+    #[cfg(feature = "Storage_Search")]
+    pub fn SaveScreenshotToFilesAsync<P0, P3>(&self, folder: P0, filenameprefix: &windows_core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P3) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingSaveScreenshotResult>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFolder>,
-        P3: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P3: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -153,8 +152,7 @@ impl AppRecordingSaveScreenshotResult {
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SavedScreenshotInfos(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AppRecordingSavedScreenshotInfo>> {
+    pub fn SavedScreenshotInfos(&self) -> windows_core::Result<windows_collections::IVectorView<AppRecordingSavedScreenshotInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -350,13 +348,10 @@ pub struct IAppRecordingManager_Vtbl {
     pub RecordTimeSpanToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     RecordTimeSpanToFileAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedScreenshotMediaEncodingSubtypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedScreenshotMediaEncodingSubtypes: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
+    #[cfg(feature = "Storage_Search")]
     pub SaveScreenshotToFilesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, AppRecordingSaveScreenshotOption, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Search")))]
+    #[cfg(not(feature = "Storage_Search"))]
     SaveScreenshotToFilesAsync: usize,
 }
 windows_core::imp::define_interface!(IAppRecordingManagerStatics, IAppRecordingManagerStatics_Vtbl, 0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d);
@@ -389,10 +384,7 @@ pub struct IAppRecordingSaveScreenshotResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SavedScreenshotInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SavedScreenshotInfos: usize,
 }
 windows_core::imp::define_interface!(IAppRecordingSavedScreenshotInfo, IAppRecordingSavedScreenshotInfo_Vtbl, 0x9b642d0a_189a_4d00_bf25_e1bb1249d594);
 impl windows_core::RuntimeType for IAppRecordingSavedScreenshotInfo {

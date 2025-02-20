@@ -17,10 +17,7 @@ impl windows_core::RuntimeType for IUserDataAccountProviderAddAccountOperation {
 pub struct IUserDataAccountProviderAddAccountOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentKinds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UserDataAccountContentKinds) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PartnerAccountInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PartnerAccountInfos: usize,
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccountProviderOperation, IUserDataAccountProviderOperation_Vtbl, 0xa20aad63_888c_4a62_a3dd_34d07a802b2b);
@@ -140,8 +137,7 @@ impl UserDataAccountProviderAddAccountOperation {
             (windows_core::Interface::vtable(this).ContentKinds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PartnerAccountInfos(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>> {
+    pub fn PartnerAccountInfos(&self) -> windows_core::Result<windows_collections::IVectorView<UserDataAccountPartnerAccountInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

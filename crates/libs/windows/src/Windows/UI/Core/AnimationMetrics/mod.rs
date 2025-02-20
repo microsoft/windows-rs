@@ -3,8 +3,7 @@
 pub struct AnimationDescription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AnimationDescription, windows_core::IUnknown, windows_core::IInspectable);
 impl AnimationDescription {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Animations(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>> {
+    pub fn Animations(&self) -> windows_core::Result<windows_collections::IVectorView<IPropertyAnimation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -147,10 +146,7 @@ impl windows_core::RuntimeType for IAnimationDescription {
 #[repr(C)]
 pub struct IAnimationDescription_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Animations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Animations: usize,
     pub StaggerDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub StaggerDelayFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub DelayLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,

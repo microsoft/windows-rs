@@ -20,39 +20,38 @@ impl BarcodeScanner {
             (windows_core::Interface::vtable(this).Capabilities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClaimScannerAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ClaimedBarcodeScanner>> {
+    pub fn ClaimScannerAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ClaimedBarcodeScanner>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClaimScannerAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckHealthAsync)(windows_core::Interface::as_raw(this), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSupportedSymbologiesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>> {
+    pub fn GetSupportedSymbologiesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<u32>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedSymbologiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsSymbologySupportedAsync(&self, barcodesymbology: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsSymbologySupportedAsync(&self, barcodesymbology: u32) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSymbologySupportedAsync)(windows_core::Interface::as_raw(this), barcodesymbology, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn RetrieveStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    #[cfg(feature = "Storage_Streams")]
+    pub fn RetrieveStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -60,8 +59,7 @@ impl BarcodeScanner {
             (windows_core::Interface::vtable(this).RetrieveStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSupportedProfiles(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn GetSupportedProfiles(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -96,13 +94,13 @@ impl BarcodeScanner {
             (windows_core::Interface::vtable(this).VideoDeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<BarcodeScanner>> {
         Self::IBarcodeScannerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<BarcodeScanner>> {
         Self::IBarcodeScannerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1132,24 +1130,23 @@ impl CashDrawer {
             (windows_core::Interface::vtable(this).DrawerEventSource)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClaimDrawerAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ClaimedCashDrawer>> {
+    pub fn ClaimDrawerAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ClaimedCashDrawer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClaimDrawerAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckHealthAsync)(windows_core::Interface::as_raw(this), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
+    pub fn GetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -1171,13 +1168,13 @@ impl CashDrawer {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStatusUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<CashDrawer>> {
         Self::ICashDrawerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<CashDrawer>> {
         Self::ICashDrawerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1343,7 +1340,7 @@ impl CashDrawerCloseAlarm {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAlarmTimeoutExpired)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn StartAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1574,14 +1571,14 @@ impl ClaimedBarcodeScanner {
             (windows_core::Interface::vtable(this).IsDecodeDataEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EnableAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn EnableAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisableAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DisableAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1592,10 +1589,9 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RetainDevice)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetActiveSymbologiesAsync<P0>(&self, symbologies: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetActiveSymbologiesAsync<P0>(&self, symbologies: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<u32>>,
+        P0: windows_core::Param<windows_collections::IIterable<u32>>,
     {
         let this = self;
         unsafe {
@@ -1603,10 +1599,9 @@ impl ClaimedBarcodeScanner {
             (windows_core::Interface::vtable(this).SetActiveSymbologiesAsync)(windows_core::Interface::as_raw(this), symbologies.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -1614,10 +1609,9 @@ impl ClaimedBarcodeScanner {
             (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         let this = self;
         unsafe {
@@ -1625,7 +1619,7 @@ impl ClaimedBarcodeScanner {
             (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetActiveProfileAsync(&self, profile: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetActiveProfileAsync(&self, profile: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1716,28 +1710,28 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveErrorOccurred)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn StartSoftwareTriggerAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StartSoftwareTriggerAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IClaimedBarcodeScanner1>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartSoftwareTriggerAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopSoftwareTriggerAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StopSoftwareTriggerAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IClaimedBarcodeScanner1>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopSoftwareTriggerAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSymbologyAttributesAsync(&self, barcodesymbology: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BarcodeSymbologyAttributes>> {
+    pub fn GetSymbologyAttributesAsync(&self, barcodesymbology: u32) -> windows_core::Result<windows_future::IAsyncOperation<BarcodeSymbologyAttributes>> {
         let this = &windows_core::Interface::cast::<IClaimedBarcodeScanner2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSymbologyAttributesAsync)(windows_core::Interface::as_raw(this), barcodesymbology, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSymbologyAttributesAsync<P1>(&self, barcodesymbology: u32, attributes: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn SetSymbologyAttributesAsync<P1>(&self, barcodesymbology: u32, attributes: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P1: windows_core::Param<BarcodeSymbologyAttributes>,
     {
@@ -1747,7 +1741,7 @@ impl ClaimedBarcodeScanner {
             (windows_core::Interface::vtable(this).SetSymbologyAttributesAsync)(windows_core::Interface::as_raw(this), barcodesymbology, attributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowVideoPreviewAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ShowVideoPreviewAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IClaimedBarcodeScanner3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1851,38 +1845,37 @@ impl ClaimedCashDrawer {
             (windows_core::Interface::vtable(this).CloseAlarm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenDrawerAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn OpenDrawerAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenDrawerAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EnableAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn EnableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisableAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn DisableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RetainDeviceAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RetainDeviceAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RetainDeviceAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -1890,10 +1883,9 @@ impl ClaimedCashDrawer {
             (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         let this = self;
         unsafe {
@@ -2187,10 +2179,9 @@ impl ClaimedLineDisplay {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReleaseDeviceRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
+    pub fn GetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
@@ -2198,14 +2189,14 @@ impl ClaimedLineDisplay {
             (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckHealthAsync)(windows_core::Interface::as_raw(this), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CheckPowerStatusAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>> {
+    pub fn CheckPowerStatusAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<LineDisplayPowerStatus>> {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2226,8 +2217,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveStatusUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedScreenSizesInCharacters(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Size>> {
+    pub fn SupportedScreenSizesInCharacters(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Foundation::Size>> {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2241,8 +2231,7 @@ impl ClaimedLineDisplay {
             (windows_core::Interface::vtable(this).MaxBitmapSizeInPixels)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCharacterSets(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
+    pub fn SupportedCharacterSets(&self) -> windows_core::Result<windows_collections::IVectorView<i32>> {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2263,7 +2252,7 @@ impl ClaimedLineDisplay {
             (windows_core::Interface::vtable(this).GetAttributes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryUpdateAttributesAsync<P0>(&self, attributes: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryUpdateAttributesAsync<P0>(&self, attributes: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<LineDisplayAttributes>,
     {
@@ -2273,21 +2262,21 @@ impl ClaimedLineDisplay {
             (windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(windows_core::Interface::as_raw(this), attributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TrySetDescriptorAsync(&self, descriptor: u32, descriptorstate: LineDisplayDescriptorState) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySetDescriptorAsync(&self, descriptor: u32, descriptorstate: LineDisplayDescriptorState) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetDescriptorAsync)(windows_core::Interface::as_raw(this), descriptor, descriptorstate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryClearDescriptorsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryClearDescriptorsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryClearDescriptorsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryCreateWindowAsync(&self, viewport: super::super::Foundation::Rect, windowsize: super::super::Foundation::Size) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayWindow>> {
+    pub fn TryCreateWindowAsync(&self, viewport: super::super::Foundation::Rect, windowsize: super::super::Foundation::Size) -> windows_core::Result<windows_future::IAsyncOperation<LineDisplayWindow>> {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2295,7 +2284,7 @@ impl ClaimedLineDisplay {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryStoreStorageFileBitmapAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
+    pub fn TryStoreStorageFileBitmapAsync<P0>(&self, bitmap: P0) -> windows_core::Result<windows_future::IAsyncOperation<LineDisplayStoredBitmap>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -2306,7 +2295,7 @@ impl ClaimedLineDisplay {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryStoreStorageFileBitmapWithAlignmentAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
+    pub fn TryStoreStorageFileBitmapWithAlignmentAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> windows_core::Result<windows_future::IAsyncOperation<LineDisplayStoredBitmap>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -2317,7 +2306,7 @@ impl ClaimedLineDisplay {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
+    pub fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> windows_core::Result<windows_future::IAsyncOperation<LineDisplayStoredBitmap>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -2341,7 +2330,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveClosed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ClaimedLineDisplay>> {
         Self::IClaimedLineDisplayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2479,14 +2468,14 @@ impl ClaimedMagneticStripeReader {
             (windows_core::Interface::vtable(this).IsTransmitSentinelsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EnableAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn EnableAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisableAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DisableAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2502,38 +2491,37 @@ impl ClaimedMagneticStripeReader {
         unsafe { (windows_core::Interface::vtable(this).SetErrorReportingType)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RetrieveDeviceAuthenticationDataAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn RetrieveDeviceAuthenticationDataAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RetrieveDeviceAuthenticationDataAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AuthenticateDeviceAsync(&self, responsetoken: &[u8]) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn AuthenticateDeviceAsync(&self, responsetoken: &[u8]) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AuthenticateDeviceAsync)(windows_core::Interface::as_raw(this), responsetoken.len().try_into().unwrap(), responsetoken.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeAuthenticateDeviceAsync(&self, responsetoken: &[u8]) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeAuthenticateDeviceAsync(&self, responsetoken: &[u8]) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeAuthenticateDeviceAsync)(windows_core::Interface::as_raw(this), responsetoken.len().try_into().unwrap(), responsetoken.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateKeyAsync(&self, key: &windows_core::HSTRING, keyname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UpdateKeyAsync(&self, key: &windows_core::HSTRING, keyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateKeyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(keyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -2541,10 +2529,9 @@ impl ClaimedMagneticStripeReader {
             (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         let this = self;
         unsafe {
@@ -2751,31 +2738,30 @@ impl ClaimedPosPrinter {
             (windows_core::Interface::vtable(this).Journal)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EnableAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn EnableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisableAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn DisableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RetainDeviceAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RetainDeviceAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RetainDeviceAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -2783,10 +2769,9 @@ impl ClaimedPosPrinter {
             (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         let this = self;
         unsafe {
@@ -3098,14 +3083,14 @@ impl ClaimedSlipPrinter {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).CloseJaws)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn InsertSlipAsync(&self, timeout: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn InsertSlipAsync(&self, timeout: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InsertSlipAsync)(windows_core::Interface::as_raw(this), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemoveSlipAsync(&self, timeout: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RemoveSlipAsync(&self, timeout: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3265,19 +3250,13 @@ pub struct IBarcodeScanner_Vtbl {
     pub Capabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClaimScannerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CheckHealthAsync: unsafe extern "system" fn(*mut core::ffi::c_void, UnifiedPosHealthCheckLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSupportedSymbologiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedSymbologiesAsync: usize,
     pub IsSymbologySupportedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub RetrieveStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     RetrieveStatisticsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetSupportedProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedProfiles: usize,
     pub IsProfileSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub StatusUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStatusUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -3558,10 +3537,7 @@ pub struct ICashDrawer_Vtbl {
     pub DrawerEventSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClaimDrawerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CheckHealthAsync: unsafe extern "system" fn(*mut core::ffi::c_void, UnifiedPosHealthCheckLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetStatisticsAsync: usize,
     pub StatusUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStatusUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
@@ -3711,18 +3687,9 @@ pub struct IClaimedBarcodeScanner_Vtbl {
     pub EnableAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisableAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RetainDevice: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetActiveSymbologiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetActiveSymbologiesAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ResetStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ResetStatisticsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub UpdateStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UpdateStatisticsAsync: usize,
     pub SetActiveProfileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -3802,14 +3769,8 @@ pub struct IClaimedCashDrawer_Vtbl {
     pub EnableAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisableAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RetainDeviceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ResetStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ResetStatisticsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub UpdateStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UpdateStatisticsAsync: usize,
     pub ReleaseDeviceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReleaseDeviceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
@@ -3866,23 +3827,14 @@ impl windows_core::RuntimeType for IClaimedLineDisplay2 {
 #[repr(C)]
 pub struct IClaimedLineDisplay2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetStatisticsAsync: usize,
     pub CheckHealthAsync: unsafe extern "system" fn(*mut core::ffi::c_void, UnifiedPosHealthCheckLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CheckPowerStatusAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StatusUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStatusUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedScreenSizesInCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedScreenSizesInCharacters: usize,
     pub MaxBitmapSizeInPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedCharacterSets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedCharacterSets: usize,
     pub CustomGlyphs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryUpdateAttributesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3962,14 +3914,8 @@ pub struct IClaimedMagneticStripeReader_Vtbl {
     pub AuthenticateDeviceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeAuthenticateDeviceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UpdateKeyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ResetStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ResetStatisticsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub UpdateStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UpdateStatisticsAsync: usize,
     pub BankCardDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveBankCardDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub AamvaCardDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -4021,14 +3967,8 @@ pub struct IClaimedPosPrinter_Vtbl {
     pub EnableAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisableAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RetainDeviceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ResetStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ResetStatisticsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub UpdateStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UpdateStatisticsAsync: usize,
     pub ReleaseDeviceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReleaseDeviceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
@@ -4574,8 +4514,7 @@ impl ICommonPosPrintStationCapabilities {
             (windows_core::Interface::vtable(this).IsPaperNearEndSensorSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCharactersPerLine(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn SupportedCharactersPerLine(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4583,11 +4522,9 @@ impl ICommonPosPrintStationCapabilities {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ICommonPosPrintStationCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonPosPrintStationCapabilities";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait ICommonPosPrintStationCapabilities_Impl: windows_core::IUnknownImpl {
     fn IsPrinterPresent(&self) -> windows_core::Result<bool>;
     fn IsDualColorSupported(&self) -> windows_core::Result<bool>;
@@ -4601,9 +4538,8 @@ pub trait ICommonPosPrintStationCapabilities_Impl: windows_core::IUnknownImpl {
     fn IsDoubleHighDoubleWidePrintSupported(&self) -> windows_core::Result<bool>;
     fn IsPaperEmptySensorSupported(&self) -> windows_core::Result<bool>;
     fn IsPaperNearEndSensorSupported(&self) -> windows_core::Result<bool>;
-    fn SupportedCharactersPerLine(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn SupportedCharactersPerLine(&self) -> windows_core::Result<windows_collections::IVectorView<u32>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ICommonPosPrintStationCapabilities_Vtbl {
     pub const fn new<Identity: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsPrinterPresent<Identity: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
@@ -4799,10 +4735,7 @@ pub struct ICommonPosPrintStationCapabilities_Vtbl {
     pub IsDoubleHighDoubleWidePrintSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsPaperEmptySensorSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsPaperNearEndSensorSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedCharactersPerLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedCharactersPerLine: usize,
 }
 windows_core::imp::define_interface!(ICommonReceiptSlipCapabilities, ICommonReceiptSlipCapabilities_Vtbl, 0x09286b8b_9873_4d05_bfbe_4727a6038f69);
 impl windows_core::RuntimeType for ICommonReceiptSlipCapabilities {
@@ -4860,16 +4793,14 @@ impl ICommonReceiptSlipCapabilities {
             (windows_core::Interface::vtable(this).RuledLineCapabilities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedBarcodeRotations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
+    pub fn SupportedBarcodeRotations(&self) -> windows_core::Result<windows_collections::IVectorView<PosPrinterRotation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedBarcodeRotations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedBitmapRotations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
+    pub fn SupportedBitmapRotations(&self) -> windows_core::Result<windows_collections::IVectorView<PosPrinterRotation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4960,8 +4891,7 @@ impl ICommonReceiptSlipCapabilities {
             (windows_core::Interface::vtable(this).IsPaperNearEndSensorSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCharactersPerLine(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn SupportedCharactersPerLine(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4969,11 +4899,9 @@ impl ICommonReceiptSlipCapabilities {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ICommonReceiptSlipCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonReceiptSlipCapabilities";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait ICommonReceiptSlipCapabilities_Impl: ICommonPosPrintStationCapabilities_Impl {
     fn IsBarcodeSupported(&self) -> windows_core::Result<bool>;
     fn IsBitmapSupported(&self) -> windows_core::Result<bool>;
@@ -4982,10 +4910,9 @@ pub trait ICommonReceiptSlipCapabilities_Impl: ICommonPosPrintStationCapabilitie
     fn Is180RotationSupported(&self) -> windows_core::Result<bool>;
     fn IsPrintAreaSupported(&self) -> windows_core::Result<bool>;
     fn RuledLineCapabilities(&self) -> windows_core::Result<PosPrinterRuledLineCapabilities>;
-    fn SupportedBarcodeRotations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>;
-    fn SupportedBitmapRotations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>;
+    fn SupportedBarcodeRotations(&self) -> windows_core::Result<windows_collections::IVectorView<PosPrinterRotation>>;
+    fn SupportedBitmapRotations(&self) -> windows_core::Result<windows_collections::IVectorView<PosPrinterRotation>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ICommonReceiptSlipCapabilities_Vtbl {
     pub const fn new<Identity: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsBarcodeSupported<Identity: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
@@ -5125,14 +5052,8 @@ pub struct ICommonReceiptSlipCapabilities_Vtbl {
     pub Is180RotationSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsPrintAreaSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub RuledLineCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PosPrinterRuledLineCapabilities) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedBarcodeRotations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedBarcodeRotations: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedBitmapRotations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedBitmapRotations: usize,
 }
 windows_core::imp::define_interface!(IJournalPrintJob, IJournalPrintJob_Vtbl, 0x9f4f2864_f3f0_55d0_8c39_74cc91783eed);
 impl windows_core::RuntimeType for IJournalPrintJob {
@@ -5281,10 +5202,7 @@ impl windows_core::RuntimeType for ILineDisplayCustomGlyphs {
 pub struct ILineDisplayCustomGlyphs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SizeInPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedGlyphCodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedGlyphCodes: usize,
     #[cfg(feature = "Storage_Streams")]
     pub TryRedefineAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -5419,9 +5337,9 @@ pub struct IMagneticStripeReader_Vtbl {
     pub DeviceAuthenticationProtocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MagneticStripeReaderAuthenticationProtocol) -> windows_core::HRESULT,
     pub CheckHealthAsync: unsafe extern "system" fn(*mut core::ffi::c_void, UnifiedPosHealthCheckLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClaimReaderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub RetrieveStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     RetrieveStatisticsAsync: usize,
     pub GetErrorReportingType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MagneticStripeReaderErrorReportingType) -> windows_core::HRESULT,
     pub StatusUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -5539,10 +5457,7 @@ pub struct IMagneticStripeReaderReport_Vtbl {
     pub Track2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Track3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Track4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
     #[cfg(feature = "Storage_Streams")]
     pub CardAuthenticationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -5621,21 +5536,12 @@ pub struct IPosPrinter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedCharacterSets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedCharacterSets: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedTypeFaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedTypeFaces: usize,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClaimPrinterAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CheckHealthAsync: unsafe extern "system" fn(*mut core::ffi::c_void, UnifiedPosHealthCheckLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetStatisticsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetStatisticsAsync: usize,
     pub StatusUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStatusUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
@@ -5646,10 +5552,7 @@ impl windows_core::RuntimeType for IPosPrinter2 {
 #[repr(C)]
 pub struct IPosPrinter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedBarcodeSymbologies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedBarcodeSymbologies: usize,
     pub GetFontProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPosPrinterCapabilities, IPosPrinterCapabilities_Vtbl, 0xcde95721_4380_4985_adc5_39db30cd93bc);
@@ -5690,10 +5593,7 @@ pub struct IPosPrinterFontProperty_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TypeFace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsScalableToAnySize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CharacterSizes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CharacterSizes: usize,
 }
 windows_core::imp::define_interface!(IPosPrinterJob, IPosPrinterJob_Vtbl, 0x9a94005c_0615_4591_a58f_30f87edfe2e4);
 impl windows_core::RuntimeType for IPosPrinterJob {
@@ -5713,7 +5613,7 @@ impl IPosPrinterJob {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).PrintNewline)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ExecuteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ExecuteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5728,7 +5628,7 @@ pub trait IPosPrinterJob_Impl: windows_core::IUnknownImpl {
     fn Print(&self, data: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn PrintLine(&self, data: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn PrintNewline(&self) -> windows_core::Result<()>;
-    fn ExecuteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ExecuteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>>;
 }
 impl IPosPrinterJob_Vtbl {
     pub const fn new<Identity: IPosPrinterJob_Impl, const OFFSET: isize>() -> Self {
@@ -5975,7 +5875,7 @@ impl IReceiptOrSlipJob {
         let this = &windows_core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PrintNewline)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ExecuteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ExecuteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6300,7 +6200,7 @@ impl JournalPrintJob {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).PrintNewline)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ExecuteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ExecuteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6410,8 +6310,7 @@ impl JournalPrinterCapabilities {
             (windows_core::Interface::vtable(this).IsPaperNearEndSensorSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCharactersPerLine(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn SupportedCharactersPerLine(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6532,27 +6431,27 @@ impl LineDisplay {
             (windows_core::Interface::vtable(this).DeviceServiceVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ClaimAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>> {
+    pub fn ClaimAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ClaimedLineDisplay>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClaimAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CheckPowerStatusAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>> {
+    pub fn CheckPowerStatusAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<LineDisplayPowerStatus>> {
         let this = &windows_core::Interface::cast::<ILineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckPowerStatusAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LineDisplay>> {
         Self::ILineDisplayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<LineDisplay>> {
         Self::ILineDisplayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6900,7 +6799,7 @@ impl LineDisplayCursor {
             (windows_core::Interface::vtable(this).GetAttributes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryUpdateAttributesAsync<P0>(&self, attributes: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryUpdateAttributesAsync<P0>(&self, attributes: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<LineDisplayCursorAttributes>,
     {
@@ -7014,8 +6913,7 @@ impl LineDisplayCustomGlyphs {
             (windows_core::Interface::vtable(this).SizeInPixels)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedGlyphCodes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn SupportedGlyphCodes(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7023,7 +6921,7 @@ impl LineDisplayCustomGlyphs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryRedefineAsync<P1>(&self, glyphcode: u32, glyphdata: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryRedefineAsync<P1>(&self, glyphcode: u32, glyphdata: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -7112,14 +7010,14 @@ impl LineDisplayMarquee {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetScrollWaitInterval)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TryStartScrollingAsync(&self, direction: LineDisplayScrollDirection) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryStartScrollingAsync(&self, direction: LineDisplayScrollDirection) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryStartScrollingAsync)(windows_core::Interface::as_raw(this), direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryStopScrollingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryStopScrollingAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7260,7 +7158,7 @@ impl LineDisplayStoredBitmap {
             (windows_core::Interface::vtable(this).EscapeSequence)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TryDeleteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDeleteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7351,42 +7249,42 @@ impl LineDisplayWindow {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInterCharacterWaitInterval)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TryRefreshAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryRefreshAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryRefreshAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryDisplayTextAsync(&self, text: &windows_core::HSTRING, displayattribute: LineDisplayTextAttribute) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayTextAsync(&self, text: &windows_core::HSTRING, displayattribute: LineDisplayTextAttribute) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryDisplayTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), displayattribute, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryDisplayTextAtPositionAsync(&self, text: &windows_core::HSTRING, displayattribute: LineDisplayTextAttribute, startposition: super::super::Foundation::Point) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayTextAtPositionAsync(&self, text: &windows_core::HSTRING, displayattribute: LineDisplayTextAttribute, startposition: super::super::Foundation::Point) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryDisplayTextAtPositionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), displayattribute, startposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryDisplayTextNormalAsync(&self, text: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayTextNormalAsync(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryDisplayTextNormalAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryScrollTextAsync(&self, direction: LineDisplayScrollDirection, numberofcolumnsorrows: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryScrollTextAsync(&self, direction: LineDisplayScrollDirection, numberofcolumnsorrows: u32) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryScrollTextAsync)(windows_core::Interface::as_raw(this), direction, numberofcolumnsorrows, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryClearTextAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryClearTextAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7407,14 +7305,14 @@ impl LineDisplayWindow {
             (windows_core::Interface::vtable(this).Marquee)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadCharacterAtCursorAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn ReadCharacterAtCursorAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<u32>> {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadCharacterAtCursorAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryDisplayStoredBitmapAtCursorAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryDisplayStoredBitmapAtCursorAsync<P0>(&self, bitmap: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<LineDisplayStoredBitmap>,
     {
@@ -7425,7 +7323,7 @@ impl LineDisplayWindow {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryDisplayStorageFileBitmapAtCursorAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryDisplayStorageFileBitmapAtCursorAsync<P0>(&self, bitmap: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -7436,7 +7334,7 @@ impl LineDisplayWindow {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -7447,7 +7345,7 @@ impl LineDisplayWindow {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -7458,7 +7356,7 @@ impl LineDisplayWindow {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryDisplayStorageFileBitmapAtPointAsync<P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryDisplayStorageFileBitmapAtPointAsync<P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -7469,7 +7367,7 @@ impl LineDisplayWindow {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point, widthinpixels: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point, widthinpixels: i32) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -7530,24 +7428,24 @@ impl MagneticStripeReader {
             (windows_core::Interface::vtable(this).DeviceAuthenticationProtocol)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckHealthAsync)(windows_core::Interface::as_raw(this), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClaimReaderAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ClaimedMagneticStripeReader>> {
+    pub fn ClaimReaderAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ClaimedMagneticStripeReader>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClaimReaderAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn RetrieveStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    #[cfg(feature = "Storage_Streams")]
+    pub fn RetrieveStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -7576,13 +7474,13 @@ impl MagneticStripeReader {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStatusUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<MagneticStripeReader>> {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MagneticStripeReader>> {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8150,8 +8048,7 @@ impl MagneticStripeReaderReport {
             (windows_core::Interface::vtable(this).Track4)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8412,16 +8309,14 @@ impl PosPrinter {
             (windows_core::Interface::vtable(this).Capabilities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCharacterSets(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn SupportedCharacterSets(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedCharacterSets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedTypeFaces(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn SupportedTypeFaces(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8435,24 +8330,23 @@ impl PosPrinter {
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClaimPrinterAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ClaimedPosPrinter>> {
+    pub fn ClaimPrinterAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ClaimedPosPrinter>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClaimPrinterAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckHealthAsync)(windows_core::Interface::as_raw(this), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
+    pub fn GetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -8474,8 +8368,7 @@ impl PosPrinter {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStatusUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedBarcodeSymbologies(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn SupportedBarcodeSymbologies(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<IPosPrinter2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8489,13 +8382,13 @@ impl PosPrinter {
             (windows_core::Interface::vtable(this).GetFontProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(typeface), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<PosPrinter>> {
         Self::IPosPrinterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PosPrinter>> {
         Self::IPosPrinterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8824,8 +8717,7 @@ impl PosPrinterFontProperty {
             (windows_core::Interface::vtable(this).IsScalableToAnySize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CharacterSizes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<SizeUInt32>> {
+    pub fn CharacterSizes(&self) -> windows_core::Result<windows_collections::IVectorView<SizeUInt32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9304,7 +9196,7 @@ impl ReceiptPrintJob {
         let this = &windows_core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PrintNewline)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ExecuteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ExecuteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9537,8 +9429,7 @@ impl ReceiptPrinterCapabilities {
             (windows_core::Interface::vtable(this).IsPaperNearEndSensorSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCharactersPerLine(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn SupportedCharactersPerLine(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9594,16 +9485,14 @@ impl ReceiptPrinterCapabilities {
             (windows_core::Interface::vtable(this).RuledLineCapabilities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedBarcodeRotations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
+    pub fn SupportedBarcodeRotations(&self) -> windows_core::Result<windows_collections::IVectorView<PosPrinterRotation>> {
         let this = &windows_core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedBarcodeRotations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedBitmapRotations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
+    pub fn SupportedBitmapRotations(&self) -> windows_core::Result<windows_collections::IVectorView<PosPrinterRotation>> {
         let this = &windows_core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9716,7 +9605,7 @@ impl SlipPrintJob {
         let this = &windows_core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PrintNewline)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ExecuteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ExecuteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9933,8 +9822,7 @@ impl SlipPrinterCapabilities {
             (windows_core::Interface::vtable(this).IsPaperNearEndSensorSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCharactersPerLine(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn SupportedCharactersPerLine(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = &windows_core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9990,16 +9878,14 @@ impl SlipPrinterCapabilities {
             (windows_core::Interface::vtable(this).RuledLineCapabilities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedBarcodeRotations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
+    pub fn SupportedBarcodeRotations(&self) -> windows_core::Result<windows_collections::IVectorView<PosPrinterRotation>> {
         let this = &windows_core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedBarcodeRotations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedBitmapRotations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
+    pub fn SupportedBitmapRotations(&self) -> windows_core::Result<windows_collections::IVectorView<PosPrinterRotation>> {
         let this = &windows_core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

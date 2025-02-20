@@ -181,23 +181,20 @@ pub struct ILegacyGipGameControllerProvider_Vtbl {
     pub IsFirmwareCorrupted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsInterfaceSupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut bool) -> windows_core::HRESULT,
     pub IsSyntheticDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PreferredTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PreferredTypes: usize,
     pub ExecuteCommand: unsafe extern "system" fn(*mut core::ffi::c_void, DeviceCommand) -> windows_core::HRESULT,
     pub SetHomeLedIntensity: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
     pub GetExtendedDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
     pub SetHeadsetOperation: unsafe extern "system" fn(*mut core::ffi::c_void, HeadsetOperation, u32, *const u8) -> windows_core::HRESULT,
     pub GetHeadsetOperation: unsafe extern "system" fn(*mut core::ffi::c_void, HeadsetOperation, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
     pub AppCompatVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
+    #[cfg(feature = "System")]
     pub SetStandardControllerButtonRemapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "System")))]
+    #[cfg(not(feature = "System"))]
     SetStandardControllerButtonRemapping: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
+    #[cfg(feature = "System")]
     pub GetStandardControllerButtonRemapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "System")))]
+    #[cfg(not(feature = "System"))]
     GetStandardControllerButtonRemapping: usize,
 }
 windows_core::imp::define_interface!(ILegacyGipGameControllerProviderStatics, ILegacyGipGameControllerProviderStatics_Vtbl, 0xd40dda17_b1f4_499a_874c_7095aac15291);
@@ -283,8 +280,7 @@ impl LegacyGipGameControllerProvider {
             (windows_core::Interface::vtable(this).IsSyntheticDevice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PreferredTypes(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn PreferredTypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -324,17 +320,17 @@ impl LegacyGipGameControllerProvider {
             (windows_core::Interface::vtable(this).AppCompatVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn SetStandardControllerButtonRemapping<P0, P2>(&self, user: P0, previous: bool, remapping: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::User>,
-        P2: windows_core::Param<super::super::super::Foundation::Collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>,
+        P2: windows_core::Param<windows_collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(this), user.param().abi(), previous, remapping.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub fn GetStandardControllerButtonRemapping<P0>(&self, user: P0, previous: bool) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>
+    #[cfg(feature = "System")]
+    pub fn GetStandardControllerButtonRemapping<P0>(&self, user: P0, previous: bool) -> windows_core::Result<windows_collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {

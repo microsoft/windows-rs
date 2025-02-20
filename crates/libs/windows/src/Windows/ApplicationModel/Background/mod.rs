@@ -4,8 +4,8 @@ pub struct ActivitySensorTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivitySensorTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivitySensorTrigger, IBackgroundTrigger);
 impl ActivitySensorTrigger {
-    #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))]
-    pub fn SubscribedActivities(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Devices::Sensors::ActivityType>> {
+    #[cfg(feature = "Devices_Sensors")]
+    pub fn SubscribedActivities(&self) -> windows_core::Result<windows_collections::IVector<super::super::Devices::Sensors::ActivityType>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -19,8 +19,8 @@ impl ActivitySensorTrigger {
             (windows_core::Interface::vtable(this).ReportInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))]
-    pub fn SupportedActivities(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Sensors::ActivityType>> {
+    #[cfg(feature = "Devices_Sensors")]
+    pub fn SupportedActivities(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Devices::Sensors::ActivityType>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -74,7 +74,7 @@ impl windows_core::RuntimeType for AlarmAccessStatus {
 }
 pub struct AlarmApplicationManager;
 impl AlarmApplicationManager {
-    pub fn RequestAccessAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<AlarmAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<AlarmAccessStatus>> {
         Self::IAlarmApplicationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -234,7 +234,7 @@ impl ApplicationTrigger {
         static SHARED: windows_core::imp::FactoryCache<ApplicationTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn RequestAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>> {
+    pub fn RequestAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ApplicationTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -242,7 +242,7 @@ impl ApplicationTrigger {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>
+    pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> windows_core::Result<windows_future::IAsyncOperation<ApplicationTriggerResult>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {
@@ -366,13 +366,13 @@ impl windows_core::RuntimeType for BackgroundAccessStatus {
 }
 pub struct BackgroundExecutionManager;
 impl BackgroundExecutionManager {
-    pub fn RequestAccessAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<BackgroundAccessStatus>> {
         Self::IBackgroundExecutionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessForApplicationAsync(applicationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>> {
+    pub fn RequestAccessForApplicationAsync(applicationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<BackgroundAccessStatus>> {
         Self::IBackgroundExecutionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessForApplicationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -396,13 +396,13 @@ impl BackgroundExecutionManager {
             (windows_core::Interface::vtable(this).GetAccessStatusForApplication)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).map(|| result__)
         })
     }
-    pub fn RequestAccessKindAsync(requestedaccess: BackgroundAccessRequestKind, reason: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestAccessKindAsync(requestedaccess: BackgroundAccessRequestKind, reason: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IBackgroundExecutionManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessKindAsync)(windows_core::Interface::as_raw(this), requestedaccess, core::mem::transmute_copy(reason), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessKindForModernStandbyAsync(requestedaccess: BackgroundAccessRequestKind, reason: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestAccessKindForModernStandbyAsync(requestedaccess: BackgroundAccessRequestKind, reason: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IBackgroundExecutionManagerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessKindForModernStandbyAsync)(windows_core::Interface::as_raw(this), requestedaccess, core::mem::transmute_copy(reason), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -969,15 +969,13 @@ impl BackgroundTaskRegistration {
             (windows_core::Interface::vtable(this).AppEnergyUsePredictionContribution)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllTasks() -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::GUID, IBackgroundTaskRegistration>> {
+    pub fn AllTasks() -> windows_core::Result<windows_collections::IMapView<windows_core::GUID, IBackgroundTaskRegistration>> {
         Self::IBackgroundTaskRegistrationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllTasks)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllTaskGroups() -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, BackgroundTaskRegistrationGroup>> {
+    pub fn AllTaskGroups() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, BackgroundTaskRegistrationGroup>> {
         Self::IBackgroundTaskRegistrationStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllTaskGroups)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1044,8 +1042,7 @@ impl BackgroundTaskRegistrationGroup {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveBackgroundActivated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllTasks(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::GUID, BackgroundTaskRegistration>> {
+    pub fn AllTasks(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::GUID, BackgroundTaskRegistration>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1645,7 +1642,7 @@ impl DeviceConnectionChangeTrigger {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaintainConnection)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DeviceConnectionChangeTrigger>> {
         Self::IDeviceConnectionChangeTriggerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1729,14 +1726,14 @@ impl DeviceServicingTrigger {
         static SHARED: windows_core::imp::FactoryCache<DeviceServicingTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn RequestAsyncSimple(&self, deviceid: &windows_core::HSTRING, expectedduration: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
+    pub fn RequestAsyncSimple(&self, deviceid: &windows_core::HSTRING, expectedduration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAsyncSimple)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), expectedduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestAsyncWithArguments(&self, deviceid: &windows_core::HSTRING, expectedduration: super::super::Foundation::TimeSpan, arguments: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
+    pub fn RequestAsyncWithArguments(&self, deviceid: &windows_core::HSTRING, expectedduration: super::super::Foundation::TimeSpan, arguments: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1784,14 +1781,14 @@ impl DeviceUseTrigger {
         static SHARED: windows_core::imp::FactoryCache<DeviceUseTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn RequestAsyncSimple(&self, deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
+    pub fn RequestAsyncSimple(&self, deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAsyncSimple)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestAsyncWithArguments(&self, deviceid: &windows_core::HSTRING, arguments: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
+    pub fn RequestAsyncWithArguments(&self, deviceid: &windows_core::HSTRING, arguments: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1968,7 +1965,7 @@ impl GattServiceProviderTrigger {
             (windows_core::Interface::vtable(this).AdvertisingParameters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateAsync(triggerid: &windows_core::HSTRING, serviceuuid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>> {
+    pub fn CreateAsync(triggerid: &windows_core::HSTRING, serviceuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattServiceProviderTriggerResult>> {
         Self::IGattServiceProviderTriggerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(triggerid), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2070,14 +2067,14 @@ impl windows_core::RuntimeType for IActivitySensorTrigger {
 #[repr(C)]
 pub struct IActivitySensorTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Sensors")]
     pub SubscribedActivities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Sensors", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Sensors"))]
     SubscribedActivities: usize,
     pub ReportInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Sensors")]
     pub SupportedActivities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Sensors", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Sensors"))]
     SupportedActivities: usize,
     pub MinimumReportInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
@@ -3175,10 +3172,7 @@ pub struct IBackgroundTaskRegistrationGroup_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Activation"))]
     BackgroundActivated: usize,
     pub RemoveBackgroundActivated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub AllTasks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllTasks: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistrationGroupFactory, IBackgroundTaskRegistrationGroupFactory_Vtbl, 0x83d92b69_44cf_4631_9740_03c7d8741bc5);
 impl windows_core::RuntimeType for IBackgroundTaskRegistrationGroupFactory {
@@ -3197,10 +3191,7 @@ impl windows_core::RuntimeType for IBackgroundTaskRegistrationStatics {
 #[repr(C)]
 pub struct IBackgroundTaskRegistrationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AllTasks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllTasks: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistrationStatics2, IBackgroundTaskRegistrationStatics2_Vtbl, 0x174b671e_b20d_4fa9_ad9a_e93ad6c71e01);
 impl windows_core::RuntimeType for IBackgroundTaskRegistrationStatics2 {
@@ -3209,10 +3200,7 @@ impl windows_core::RuntimeType for IBackgroundTaskRegistrationStatics2 {
 #[repr(C)]
 pub struct IBackgroundTaskRegistrationStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AllTaskGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllTaskGroups: usize,
     pub GetTaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTrigger, IBackgroundTrigger_Vtbl, 0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
@@ -3864,9 +3852,9 @@ pub struct IStorageLibraryContentChangedTriggerStatics_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     Create: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(feature = "Storage")]
     pub CreateFromLibraries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
+    #[cfg(not(feature = "Storage"))]
     CreateFromLibraries: usize,
 }
 windows_core::imp::define_interface!(ISystemCondition, ISystemCondition_Vtbl, 0xc15fb476_89c5_420b_abd3_fb3030472128);
@@ -4057,7 +4045,7 @@ impl MediaProcessingTrigger {
         static SHARED: windows_core::imp::FactoryCache<MediaProcessingTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn RequestAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>> {
+    pub fn RequestAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MediaProcessingTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4065,7 +4053,7 @@ impl MediaProcessingTrigger {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>
+    pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> windows_core::Result<windows_future::IAsyncOperation<MediaProcessingTriggerResult>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {
@@ -4734,10 +4722,10 @@ impl StorageLibraryContentChangedTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), storagelibrary.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(feature = "Storage")]
     pub fn CreateFromLibraries<P0>(storagelibraries: P0) -> windows_core::Result<StorageLibraryContentChangedTrigger>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>,
+        P0: windows_core::Param<windows_collections::IIterable<super::super::Storage::StorageLibrary>>,
     {
         Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();

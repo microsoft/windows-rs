@@ -12,7 +12,7 @@ pub enum InterfaceKind {
 #[derive(Clone, Debug)]
 pub enum MethodOrName {
     Method(Method),
-    Name(&'static str),
+    Name(MethodDef),
 }
 
 #[derive(Clone, Debug)]
@@ -53,7 +53,7 @@ impl Interface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, writer: &Writer) -> Vec<MethodOrName> {
+    pub fn get_methods(&self, writer: &Writer<'_>) -> Vec<MethodOrName> {
         self.def
             .methods()
             .map(|def| {
@@ -61,29 +61,32 @@ impl Interface {
                 if method.dependencies.included(writer.config) {
                     MethodOrName::Method(method)
                 } else {
-                    MethodOrName::Name(method.def.name())
+                    writer.config.warnings.skip_method(
+                        method.def,
+                        &method.dependencies,
+                        writer.config,
+                    );
+                    MethodOrName::Name(method.def)
                 }
             })
             .collect()
     }
 
-    fn write_cfg(&self, writer: &Writer) -> (Cfg, TokenStream) {
+    fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
         if !writer.config.package {
             return (Cfg::default(), quote! {});
         }
 
-        let cfg = Cfg::new(self.def, &self.dependencies());
+        let cfg = Cfg::new(self.def, &self.dependencies(), writer);
         let tokens = cfg.write(writer, false);
         (cfg, tokens)
     }
 
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
         let type_name = self.def.type_name();
         let methods = self.get_methods(writer);
 
-        let mut required_interfaces = self.required_interfaces();
-        required_interfaces.sort();
-
+        let required_interfaces = self.required_interfaces();
         let name = self.write_name(writer);
 
         let vtbl_name = self.write_vtbl_name(writer);
@@ -102,7 +105,7 @@ impl Interface {
                     let name = virtual_names.add(method.def);
                     let vtbl = method.write_abi(writer, false);
 
-                    let method_cfg = class_cfg.difference(method.def, &method.dependencies);
+                    let method_cfg = class_cfg.difference(method.def, &method.dependencies, writer);
                     let yes = method_cfg.write(writer, false);
 
                     if yes.is_empty() {
@@ -120,8 +123,8 @@ impl Interface {
                         }
                     }
                 }
-                MethodOrName::Name(name) => {
-                    let name = to_ident(name);
+                MethodOrName::Name(method) => {
+                    let name = virtual_names.add(*method);
                     quote! { #name: usize, }
                 }
             });
@@ -337,7 +340,11 @@ impl Interface {
                 let runtime_name = format!("{type_name}");
 
                 let cfg = if writer.config.package {
-                    fn combine(interface: &Interface, dependencies: &mut TypeMap, writer: &Writer) {
+                    fn combine(
+                        interface: &Interface,
+                        dependencies: &mut TypeMap,
+                        writer: &Writer<'_>,
+                    ) {
                         for method in interface.get_methods(writer).iter() {
                             if let MethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);
@@ -352,7 +359,7 @@ impl Interface {
                         .iter()
                         .for_each(|interface| combine(interface, &mut dependencies, writer));
 
-                    Cfg::new(self.def, &dependencies).write(writer, false)
+                    Cfg::new(self.def, &dependencies, writer).write(writer, false)
                 } else {
                     quote! {}
                 };
@@ -373,8 +380,8 @@ impl Interface {
                             let name = names.add(method.def);
                             quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
                         }
-                        MethodOrName::Name(name) => {
-                            let name = to_ident(name);
+                        MethodOrName::Name(method) => {
+                            let name = names.add(*method);
                             quote! { #name: 0, }
                         }
                     })
@@ -461,7 +468,11 @@ impl Interface {
                         type Item = T;
 
                         fn next(&mut self) -> Option<Self::Item> {
-                            let result = self.Current().ok();
+                            let result = if self.HasCurrent().unwrap_or(false) {
+                                self.Current().ok()
+                            } else {
+                                None
+                            };
 
                             if result.is_some() {
                                 self.MoveNext().ok()?;
@@ -497,11 +508,11 @@ impl Interface {
         }
     }
 
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
         self.type_name().write(writer, &self.generics)
     }
 
-    fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
+    fn write_vtbl_name(&self, writer: &Writer<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
 
         if self.generics.is_empty() {
@@ -512,7 +523,7 @@ impl Interface {
         }
     }
 
-    pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_impl_name(&self, writer: &Writer<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
         let namespace = writer.write_namespace(self.def.type_name());
 
@@ -551,6 +562,9 @@ impl Interface {
         }
         let mut set = vec![];
         walk(self, &mut set);
+
+        set.sort();
+        set.dedup();
         set
     }
 }

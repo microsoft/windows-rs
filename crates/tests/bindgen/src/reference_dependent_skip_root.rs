@@ -9,6 +9,62 @@
 pub mod Windows {
     pub mod Foundation {
         windows_core::imp::define_interface!(
+            IClosable,
+            IClosable_Vtbl,
+            0x30d5a829_7fa4_4026_83bb_d75bae4ea99e
+        );
+        impl windows_core::RuntimeType for IClosable {
+            const SIGNATURE: windows_core::imp::ConstBuffer =
+                windows_core::imp::ConstBuffer::for_interface::<Self>();
+        }
+        windows_core::imp::interface_hierarchy!(
+            IClosable,
+            windows_core::IUnknown,
+            windows_core::IInspectable
+        );
+        impl IClosable {
+            pub fn Close(&self) -> windows_core::Result<()> {
+                let this = self;
+                unsafe {
+                    (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(
+                        this,
+                    ))
+                    .ok()
+                }
+            }
+        }
+        impl windows_core::RuntimeName for IClosable {
+            const NAME: &'static str = "Windows.Foundation.IClosable";
+        }
+        pub trait IClosable_Impl: windows_core::IUnknownImpl {
+            fn Close(&self) -> windows_core::Result<()>;
+        }
+        impl IClosable_Vtbl {
+            pub const fn new<Identity: IClosable_Impl, const OFFSET: isize>() -> Self {
+                unsafe extern "system" fn Close<Identity: IClosable_Impl, const OFFSET: isize>(
+                    this: *mut core::ffi::c_void,
+                ) -> windows_core::HRESULT {
+                    unsafe {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        IClosable_Impl::Close(this).into()
+                    }
+                }
+                Self {
+                    base__: windows_core::IInspectable_Vtbl::new::<Identity, IClosable, OFFSET>(),
+                    Close: Close::<Identity, OFFSET>,
+                }
+            }
+            pub fn matches(iid: &windows_core::GUID) -> bool {
+                iid == &<IClosable as windows_core::Interface>::IID
+            }
+        }
+        #[repr(C)]
+        pub struct IClosable_Vtbl {
+            pub base__: windows_core::IInspectable_Vtbl,
+            pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+        }
+        windows_core::imp::define_interface!(
             IMemoryBuffer,
             IMemoryBuffer_Vtbl,
             0xfbc4dd2a_245b_11e4_af98_689423260cf8
@@ -22,10 +78,7 @@ pub mod Windows {
             windows_core::IUnknown,
             windows_core::IInspectable
         );
-        windows_core::imp::required_hierarchy!(
-            IMemoryBuffer,
-            crate::reference_dependency_skip_root::Windows::Foundation::IClosable
-        );
+        windows_core::imp::required_hierarchy!(IMemoryBuffer, IClosable);
         impl IMemoryBuffer {
             pub fn CreateReference(
                 &self,
@@ -43,9 +96,7 @@ pub mod Windows {
                 }
             }
             pub fn Close(&self) -> windows_core::Result<()> {
-                let this = &windows_core::Interface::cast::<
-                    crate::reference_dependency_skip_root::Windows::Foundation::IClosable,
-                >(self)?;
+                let this = &windows_core::Interface::cast::<IClosable>(self)?;
                 unsafe {
                     (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(
                         this,
@@ -57,9 +108,7 @@ pub mod Windows {
         impl windows_core::RuntimeName for IMemoryBuffer {
             const NAME: &'static str = "Windows.Foundation.IMemoryBuffer";
         }
-        pub trait IMemoryBuffer_Impl:
-            crate::reference_dependency_skip_root::Windows::Foundation::IClosable_Impl
-        {
+        pub trait IMemoryBuffer_Impl: IClosable_Impl {
             fn CreateReference(
                 &self,
             ) -> windows_core::Result<

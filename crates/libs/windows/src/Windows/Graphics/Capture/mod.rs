@@ -30,8 +30,7 @@ impl Direct3D11CaptureFrame {
             (windows_core::Interface::vtable(this).ContentSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DirtyRegions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::RectInt32>> {
+    pub fn DirtyRegions(&self) -> windows_core::Result<windows_collections::IVectorView<super::RectInt32>> {
         let this = &windows_core::Interface::cast::<IDirect3D11CaptureFrame2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -159,7 +158,7 @@ unsafe impl Sync for Direct3D11CaptureFramePool {}
 pub struct GraphicsCaptureAccess;
 impl GraphicsCaptureAccess {
     #[cfg(feature = "Security_Authorization_AppCapabilityAccess")]
-    pub fn RequestAccessAsync(request: GraphicsCaptureAccessKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>> {
+    pub fn RequestAccessAsync(request: GraphicsCaptureAccessKind) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>> {
         Self::IGraphicsCaptureAccessStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), request, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -288,7 +287,7 @@ impl GraphicsCapturePicker {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCapturePicker, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn PickSingleItemAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<GraphicsCaptureItem>> {
+    pub fn PickSingleItemAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GraphicsCaptureItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -421,10 +420,7 @@ impl windows_core::RuntimeType for IDirect3D11CaptureFrame2 {
 #[repr(C)]
 pub struct IDirect3D11CaptureFrame2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub DirtyRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DirtyRegions: usize,
     pub DirtyRegionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GraphicsCaptureDirtyRegionMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3D11CaptureFramePool, IDirect3D11CaptureFramePool_Vtbl, 0x24eb6d22_1975_422e_82e7_780dbd8ddf24);

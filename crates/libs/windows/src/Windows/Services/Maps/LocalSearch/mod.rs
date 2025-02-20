@@ -41,10 +41,7 @@ pub struct ILocalLocation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RatingInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub HoursOfOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    HoursOfOperation: usize,
 }
 windows_core::imp::define_interface!(ILocalLocationFinderResult, ILocalLocationFinderResult_Vtbl, 0xd09b6cc6_f338_4191_9fd8_5440b9a68f52);
 impl windows_core::RuntimeType for ILocalLocationFinderResult {
@@ -53,10 +50,7 @@ impl windows_core::RuntimeType for ILocalLocationFinderResult {
 #[repr(C)]
 pub struct ILocalLocationFinderResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub LocalLocations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    LocalLocations: usize,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocalLocationFinderStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILocalLocationFinderStatics, ILocalLocationFinderStatics_Vtbl, 0xd2ef7344_a0de_48ca_81a8_07c7dcfd37ab);
@@ -232,8 +226,7 @@ impl LocalLocation {
             (windows_core::Interface::vtable(this).RatingInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn HoursOfOperation(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>> {
+    pub fn HoursOfOperation(&self) -> windows_core::Result<windows_collections::IVectorView<LocalLocationHoursOfOperationItem>> {
         let this = &windows_core::Interface::cast::<ILocalLocation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -256,7 +249,7 @@ unsafe impl Sync for LocalLocation {}
 pub struct LocalLocationFinder;
 impl LocalLocationFinder {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocalLocationsAsync<P1>(searchterm: &windows_core::HSTRING, searcharea: P1, localcategory: &windows_core::HSTRING, maxresults: u32) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
+    pub fn FindLocalLocationsAsync<P1>(searchterm: &windows_core::HSTRING, searcharea: P1, localcategory: &windows_core::HSTRING, maxresults: u32) -> windows_core::Result<windows_future::IAsyncOperation<LocalLocationFinderResult>>
     where
         P1: windows_core::Param<super::super::super::Devices::Geolocation::Geocircle>,
     {
@@ -278,8 +271,7 @@ impl windows_core::RuntimeName for LocalLocationFinder {
 pub struct LocalLocationFinderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocationFinderResult, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalLocationFinderResult {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn LocalLocations(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocation>> {
+    pub fn LocalLocations(&self) -> windows_core::Result<windows_collections::IVectorView<LocalLocation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

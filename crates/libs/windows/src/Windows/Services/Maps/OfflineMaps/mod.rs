@@ -21,10 +21,7 @@ impl windows_core::RuntimeType for IOfflineMapPackageQueryResult {
 pub struct IOfflineMapPackageQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OfflineMapPackageQueryStatus) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Packages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Packages: usize,
 }
 windows_core::imp::define_interface!(IOfflineMapPackageStartDownloadResult, IOfflineMapPackageStartDownloadResult_Vtbl, 0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
 impl windows_core::RuntimeType for IOfflineMapPackageStartDownloadResult {
@@ -102,7 +99,7 @@ impl OfflineMapPackage {
             (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RequestStartDownloadAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>> {
+    pub fn RequestStartDownloadAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<OfflineMapPackageStartDownloadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -110,7 +107,7 @@ impl OfflineMapPackage {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindPackagesAsync<P0>(querypoint: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
+    pub fn FindPackagesAsync<P0>(querypoint: P0) -> windows_core::Result<windows_future::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
         P0: windows_core::Param<super::super::super::Devices::Geolocation::Geopoint>,
     {
@@ -120,7 +117,7 @@ impl OfflineMapPackage {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindPackagesInBoundingBoxAsync<P0>(queryboundingbox: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
+    pub fn FindPackagesInBoundingBoxAsync<P0>(queryboundingbox: P0) -> windows_core::Result<windows_future::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
         P0: windows_core::Param<super::super::super::Devices::Geolocation::GeoboundingBox>,
     {
@@ -130,7 +127,7 @@ impl OfflineMapPackage {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindPackagesInGeocircleAsync<P0>(querycircle: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
+    pub fn FindPackagesInGeocircleAsync<P0>(querycircle: P0) -> windows_core::Result<windows_future::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
         P0: windows_core::Param<super::super::super::Devices::Geolocation::Geocircle>,
     {
@@ -168,8 +165,7 @@ impl OfflineMapPackageQueryResult {
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Packages(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<OfflineMapPackage>> {
+    pub fn Packages(&self) -> windows_core::Result<windows_collections::IVectorView<OfflineMapPackage>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

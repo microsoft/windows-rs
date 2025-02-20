@@ -412,8 +412,7 @@ impl CodecInfo {
             (windows_core::Interface::vtable(this).Category)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Subtypes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Subtypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -472,8 +471,7 @@ impl CodecQuery {
         static SHARED: windows_core::imp::FactoryCache<CodecQuery, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsync(&self, kind: CodecKind, category: CodecCategory, subtype: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>> {
+    pub fn FindAllAsync(&self, kind: CodecKind, category: CodecCategory, subtype: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<CodecInfo>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1060,8 +1058,8 @@ impl FaceDetectionEffectFrame {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_FaceAnalysis"))]
-    pub fn DetectedFaces(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::FaceAnalysis::DetectedFace>> {
+    #[cfg(feature = "Media_FaceAnalysis")]
+    pub fn DetectedFaces(&self) -> windows_core::Result<windows_collections::IVectorView<super::FaceAnalysis::DetectedFace>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1211,8 +1209,8 @@ impl HighDynamicRangeOutput {
             (windows_core::Interface::vtable(this).Certainty)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Devices_Core"))]
-    pub fn FrameControllers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::Devices::Core::FrameController>> {
+    #[cfg(feature = "Media_Devices_Core")]
+    pub fn FrameControllers(&self) -> windows_core::Result<windows_collections::IVectorView<super::Devices::Core::FrameController>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1337,10 +1335,7 @@ pub struct ICodecInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CodecKind) -> windows_core::HRESULT,
     pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CodecCategory) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Subtypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Subtypes: usize,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsTrusted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
@@ -1351,10 +1346,7 @@ impl windows_core::RuntimeType for ICodecQuery {
 #[repr(C)]
 pub struct ICodecQuery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, CodecKind, CodecCategory, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllAsync: usize,
 }
 windows_core::imp::define_interface!(ICodecSubtypesStatics, ICodecSubtypesStatics_Vtbl, 0xa66ac4f2_888b_4224_8cf6_2a8d4eb02382);
 impl windows_core::RuntimeType for ICodecSubtypesStatics {
@@ -1488,9 +1480,9 @@ impl windows_core::RuntimeType for IFaceDetectionEffectFrame {
 #[repr(C)]
 pub struct IFaceDetectionEffectFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_FaceAnalysis"))]
+    #[cfg(feature = "Media_FaceAnalysis")]
     pub DetectedFaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_FaceAnalysis")))]
+    #[cfg(not(feature = "Media_FaceAnalysis"))]
     DetectedFaces: usize,
 }
 windows_core::imp::define_interface!(IHighDynamicRangeControl, IHighDynamicRangeControl_Vtbl, 0x55f1a7ae_d957_4dc9_9d1c_8553a82a7d99);
@@ -1511,9 +1503,9 @@ impl windows_core::RuntimeType for IHighDynamicRangeOutput {
 pub struct IHighDynamicRangeOutput_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Certainty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Devices_Core"))]
+    #[cfg(feature = "Media_Devices_Core")]
     pub FrameControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Devices_Core")))]
+    #[cfg(not(feature = "Media_Devices_Core"))]
     FrameControllers: usize,
 }
 windows_core::imp::define_interface!(IImageCue, IImageCue_Vtbl, 0x52828282_367b_440b_9116_3c84570dd270);
@@ -1569,14 +1561,14 @@ impl windows_core::RuntimeType for ILowLightFusionStatics {
 #[repr(C)]
 pub struct ILowLightFusionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[cfg(feature = "Graphics_Imaging")]
     pub SupportedBitmapPixelFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
+    #[cfg(not(feature = "Graphics_Imaging"))]
     SupportedBitmapPixelFormats: usize,
     pub MaxSupportedFrameCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[cfg(feature = "Graphics_Imaging")]
     pub FuseAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
+    #[cfg(not(feature = "Graphics_Imaging"))]
     FuseAsync: usize,
 }
 windows_core::imp::define_interface!(IMediaBinder, IMediaBinder_Vtbl, 0x2b7e40aa_de07_424f_83f1_f1de46c4fa2e);
@@ -2232,10 +2224,7 @@ pub struct IMediaStreamSample_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Buffer: usize,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub ExtendedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExtendedProperties: usize,
     pub Protection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDecodeTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub DecodeTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -2658,10 +2647,7 @@ pub struct IMseSourceBuffer_Vtbl {
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MseAppendMode) -> windows_core::HRESULT,
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, MseAppendMode) -> windows_core::HRESULT,
     pub IsUpdating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Buffered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Buffered: usize,
     pub TimestampOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub SetTimestampOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub AppendWindowStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -2694,10 +2680,7 @@ pub struct IMseSourceBufferList_Vtbl {
     pub RemoveSourceBufferAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub SourceBufferRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveSourceBufferRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Buffers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Buffers: usize,
 }
 windows_core::imp::define_interface!(IMseStreamSource, IMseStreamSource_Vtbl, 0xb0b4198d_02f4_4923_88dd_81bc3f360ffa);
 impl windows_core::RuntimeType for IMseStreamSource {
@@ -2935,14 +2918,8 @@ pub struct ITimedMetadataTrack_Vtbl {
     pub RemoveCueExited: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub TrackFailed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveTrackFailed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Cues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Cues: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ActiveCues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ActiveCues: usize,
     pub TimedMetadataKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimedMetadataKind) -> windows_core::HRESULT,
     pub DispatchType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddCue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2995,8 +2972,7 @@ impl windows_core::RuntimeType for ITimedMetadataTrackProvider {
 }
 windows_core::imp::interface_hierarchy!(ITimedMetadataTrackProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ITimedMetadataTrackProvider {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TimedMetadataTracks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>> {
+    pub fn TimedMetadataTracks(&self) -> windows_core::Result<windows_collections::IVectorView<TimedMetadataTrack>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3004,15 +2980,12 @@ impl ITimedMetadataTrackProvider {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ITimedMetadataTrackProvider {
     const NAME: &'static str = "Windows.Media.Core.ITimedMetadataTrackProvider";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait ITimedMetadataTrackProvider_Impl: windows_core::IUnknownImpl {
-    fn TimedMetadataTracks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>;
+    fn TimedMetadataTracks(&self) -> windows_core::Result<windows_collections::IVectorView<TimedMetadataTrack>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ITimedMetadataTrackProvider_Vtbl {
     pub const fn new<Identity: ITimedMetadataTrackProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TimedMetadataTracks<Identity: ITimedMetadataTrackProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3040,10 +3013,7 @@ impl ITimedMetadataTrackProvider_Vtbl {
 #[repr(C)]
 pub struct ITimedMetadataTrackProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub TimedMetadataTracks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TimedMetadataTracks: usize,
 }
 windows_core::imp::define_interface!(ITimedTextBouten, ITimedTextBouten_Vtbl, 0xd9062783_5597_5092_820c_8f738e0f774a);
 impl windows_core::RuntimeType for ITimedTextBouten {
@@ -3076,10 +3046,7 @@ pub struct ITimedTextCue_Vtbl {
     pub SetCueRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CueStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCueStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Lines: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Lines: usize,
 }
 windows_core::imp::define_interface!(ITimedTextLine, ITimedTextLine_Vtbl, 0x978d7ce2_7308_4c66_be50_65777289f5df);
 impl windows_core::RuntimeType for ITimedTextLine {
@@ -3090,10 +3057,7 @@ pub struct ITimedTextLine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Subformats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Subformats: usize,
 }
 windows_core::imp::define_interface!(ITimedTextRegion, ITimedTextRegion_Vtbl, 0x1ed0881f_8a06_4222_9f59_b21bf40124b4);
 impl windows_core::RuntimeType for ITimedTextRegion {
@@ -3167,10 +3131,7 @@ impl windows_core::RuntimeType for ITimedTextSourceResolveResultEventArgs {
 pub struct ITimedTextSourceResolveResultEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Tracks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Tracks: usize,
 }
 windows_core::imp::define_interface!(ITimedTextSourceStatics, ITimedTextSourceStatics_Vtbl, 0x7e311853_9aba_4ac4_bb98_2fb176c3bfdd);
 impl windows_core::RuntimeType for ITimedTextSourceStatics {
@@ -3538,8 +3499,8 @@ unsafe impl Send for InitializeMediaStreamSourceRequestedEventArgs {}
 unsafe impl Sync for InitializeMediaStreamSourceRequestedEventArgs {}
 pub struct LowLightFusion;
 impl LowLightFusion {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn SupportedBitmapPixelFormats() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
+    #[cfg(feature = "Graphics_Imaging")]
+    pub fn SupportedBitmapPixelFormats() -> windows_core::Result<windows_collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::ILowLightFusionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedBitmapPixelFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3551,10 +3512,10 @@ impl LowLightFusion {
             (windows_core::Interface::vtable(this).MaxSupportedFrameCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn FuseAsync<P0>(frameset: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>>
+    #[cfg(feature = "Graphics_Imaging")]
+    pub fn FuseAsync<P0>(frameset: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<LowLightFusionResult, f64>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>>,
+        P0: windows_core::Param<windows_collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>>,
     {
         Self::ILowLightFusionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3911,7 +3872,7 @@ impl MediaSource {
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn OpenAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IMediaSource4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4258,7 +4219,6 @@ impl MediaStreamSample {
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn ExtendedProperties(&self) -> windows_core::Result<MediaStreamSamplePropertySet> {
         let this = self;
         unsafe {
@@ -4336,7 +4296,7 @@ impl MediaStreamSample {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStreamAsync<P0>(stream: P0, count: u32, timestamp: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaStreamSample>>
+    pub fn CreateFromStreamAsync<P0>(stream: P0, count: u32, timestamp: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<MediaStreamSample>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
@@ -4376,18 +4336,14 @@ impl windows_core::RuntimeName for MediaStreamSample {
 }
 unsafe impl Send for MediaStreamSample {}
 unsafe impl Sync for MediaStreamSample {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaStreamSamplePropertySet(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy ! ( MediaStreamSamplePropertySet , windows_core::IUnknown , windows_core::IInspectable , super::super::Foundation::Collections:: IMap < windows_core::GUID , windows_core::IInspectable > );
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(MediaStreamSamplePropertySet, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>);
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy ! ( MediaStreamSamplePropertySet , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMap < windows_core::GUID , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(MediaStreamSamplePropertySet, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>);
 impl MediaStreamSamplePropertySet {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4414,7 +4370,7 @@ impl MediaStreamSamplePropertySet {
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), key, &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
+    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::GUID, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4440,35 +4396,28 @@ impl MediaStreamSamplePropertySet {
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for MediaStreamSamplePropertySet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IMap<windows_core::GUID, windows_core::IInspectable>>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for MediaStreamSamplePropertySet {
-    type Vtable = <super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable> as windows_core::Interface>::IID;
+    type Vtable = <windows_collections::IMap<windows_core::GUID, windows_core::IInspectable> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <windows_collections::IMap<windows_core::GUID, windows_core::IInspectable> as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for MediaStreamSamplePropertySet {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSamplePropertySet";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for MediaStreamSamplePropertySet {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for MediaStreamSamplePropertySet {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for MediaStreamSamplePropertySet {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &MediaStreamSamplePropertySet {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -5296,8 +5245,7 @@ impl MseSourceBuffer {
             (windows_core::Interface::vtable(this).IsUpdating)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Buffered(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MseTimeRange>> {
+    pub fn Buffered(&self) -> windows_core::Result<windows_collections::IVectorView<MseTimeRange>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5421,8 +5369,7 @@ impl MseSourceBufferList {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSourceBufferRemoved)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Buffers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MseSourceBuffer>> {
+    pub fn Buffers(&self) -> windows_core::Result<windows_collections::IVectorView<MseSourceBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6150,16 +6097,14 @@ impl TimedMetadataTrack {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTrackFailed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Cues(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>> {
+    pub fn Cues(&self) -> windows_core::Result<windows_collections::IVectorView<IMediaCue>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Cues)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ActiveCues(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>> {
+    pub fn ActiveCues(&self) -> windows_core::Result<windows_collections::IVectorView<IMediaCue>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6464,8 +6409,7 @@ impl TimedTextCue {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCueStyle)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Lines(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<TimedTextLine>> {
+    pub fn Lines(&self) -> windows_core::Result<windows_collections::IVector<TimedTextLine>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6561,8 +6505,7 @@ impl TimedTextLine {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Subformats(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<TimedTextSubformat>> {
+    pub fn Subformats(&self) -> windows_core::Result<windows_collections::IVector<TimedTextSubformat>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7050,8 +6993,7 @@ impl TimedTextSourceResolveResultEventArgs {
             (windows_core::Interface::vtable(this).Error)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Tracks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>> {
+    pub fn Tracks(&self) -> windows_core::Result<windows_collections::IVectorView<TimedMetadataTrack>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

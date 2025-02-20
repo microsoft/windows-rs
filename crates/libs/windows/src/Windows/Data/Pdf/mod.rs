@@ -121,7 +121,7 @@ impl PdfDocument {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromFileAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<PdfDocument>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -131,7 +131,7 @@ impl PdfDocument {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromFileWithPasswordAsync<P0>(file: P0, password: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromFileWithPasswordAsync<P0>(file: P0, password: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PdfDocument>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -141,7 +141,7 @@ impl PdfDocument {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamAsync<P0>(inputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromStreamAsync<P0>(inputstream: P0) -> windows_core::Result<windows_future::IAsyncOperation<PdfDocument>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -151,7 +151,7 @@ impl PdfDocument {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamWithPasswordAsync<P0>(inputstream: P0, password: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromStreamWithPasswordAsync<P0>(inputstream: P0, password: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PdfDocument>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -188,7 +188,7 @@ impl PdfPage {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RenderToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RenderToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -199,7 +199,7 @@ impl PdfPage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RenderWithOptionsToStreamAsync<P0, P1>(&self, outputstream: P0, options: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RenderWithOptionsToStreamAsync<P0, P1>(&self, outputstream: P0, options: P1) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
         P1: windows_core::Param<PdfPageRenderOptions>,
@@ -210,7 +210,7 @@ impl PdfPage {
             (windows_core::Interface::vtable(this).RenderWithOptionsToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PreparePageAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn PreparePageAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

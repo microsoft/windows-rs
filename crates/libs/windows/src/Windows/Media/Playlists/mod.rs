@@ -5,9 +5,9 @@ impl windows_core::RuntimeType for IPlaylist {
 #[repr(C)]
 pub struct IPlaylist_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     Files: usize,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -43,15 +43,15 @@ impl Playlist {
         static SHARED: windows_core::imp::FactoryCache<Playlist, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>> {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Files(&self) -> windows_core::Result<windows_collections::IVector<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -59,7 +59,7 @@ impl Playlist {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveAsAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveAsAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::StorageFile>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
@@ -70,7 +70,7 @@ impl Playlist {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveAsWithFormatAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveAsWithFormatAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::StorageFile>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
@@ -81,7 +81,7 @@ impl Playlist {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Playlist>>
+    pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<Playlist>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {

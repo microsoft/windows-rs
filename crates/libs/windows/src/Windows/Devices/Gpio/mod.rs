@@ -184,15 +184,14 @@ impl GpioChangeReader {
             (windows_core::Interface::vtable(this).PeekNextItem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAllItems(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<GpioChangeRecord>> {
+    pub fn GetAllItems(&self) -> windows_core::Result<windows_collections::IVector<GpioChangeRecord>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllItems)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WaitForItemsAsync(&self, count: i32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn WaitForItemsAsync(&self, count: i32) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -285,8 +284,8 @@ impl GpioController {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>
+    #[cfg(feature = "Devices_Gpio_Provider")]
+    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GpioController>>>
     where
         P0: windows_core::Param<Provider::IGpioProvider>,
     {
@@ -295,7 +294,7 @@ impl GpioController {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<GpioController>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<GpioController>> {
         Self::IGpioControllerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -555,10 +554,7 @@ pub struct IGpioChangeReader_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNextItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GpioChangeRecord) -> windows_core::HRESULT,
     pub PeekNextItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GpioChangeRecord) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAllItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAllItems: usize,
     pub WaitForItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGpioChangeReaderFactory, IGpioChangeReaderFactory_Vtbl, 0xa9598ef3_390e_441a_9d1c_e8de0b2df0df);
@@ -599,9 +595,9 @@ impl windows_core::RuntimeType for IGpioControllerStatics2 {
 #[repr(C)]
 pub struct IGpioControllerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Gpio_Provider")]
     pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Gpio_Provider", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Gpio_Provider"))]
     GetControllersAsync: usize,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }

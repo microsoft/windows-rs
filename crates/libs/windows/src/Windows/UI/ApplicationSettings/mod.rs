@@ -26,20 +26,20 @@ impl AccountsSettingsPane {
     pub fn Show() -> windows_core::Result<()> {
         Self::IAccountsSettingsPaneStatics(|this| unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn ShowManageAccountsAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowManageAccountsAsync() -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowManageAccountsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowAddAccountAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowAddAccountAsync() -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAddAccountAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn ShowManageAccountsForUserAsync<P0>(user: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ShowManageAccountsForUserAsync<P0>(user: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -49,7 +49,7 @@ impl AccountsSettingsPane {
         })
     }
     #[cfg(feature = "System")]
-    pub fn ShowAddAccountForUserAsync<P0>(user: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ShowAddAccountForUserAsync<P0>(user: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -86,32 +86,29 @@ impl windows_core::RuntimeName for AccountsSettingsPane {
 pub struct AccountsSettingsPaneCommandsRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AccountsSettingsPaneCommandsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AccountsSettingsPaneCommandsRequestedEventArgs {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn WebAccountProviderCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<WebAccountProviderCommand>> {
+    pub fn WebAccountProviderCommands(&self) -> windows_core::Result<windows_collections::IVector<WebAccountProviderCommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAccountProviderCommands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn WebAccountCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<WebAccountCommand>> {
+    pub fn WebAccountCommands(&self) -> windows_core::Result<windows_collections::IVector<WebAccountCommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAccountCommands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CredentialCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<CredentialCommand>> {
+    pub fn CredentialCommands(&self) -> windows_core::Result<windows_collections::IVector<CredentialCommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CredentialCommands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
-    pub fn Commands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>> {
+    #[cfg(feature = "UI_Popups")]
+    pub fn Commands(&self) -> windows_core::Result<windows_collections::IVector<SettingsCommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -316,21 +313,12 @@ impl windows_core::RuntimeType for IAccountsSettingsPaneCommandsRequestedEventAr
 #[repr(C)]
 pub struct IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub WebAccountProviderCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    WebAccountProviderCommands: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub WebAccountCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    WebAccountCommands: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CredentialCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CredentialCommands: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
+    #[cfg(feature = "UI_Popups")]
     pub Commands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups")))]
+    #[cfg(not(feature = "UI_Popups"))]
     Commands: usize,
     pub HeaderText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetHeaderText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -469,9 +457,9 @@ impl windows_core::RuntimeType for ISettingsPaneCommandsRequest {
 #[repr(C)]
 pub struct ISettingsPaneCommandsRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
+    #[cfg(feature = "UI_Popups")]
     pub ApplicationCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups")))]
+    #[cfg(not(feature = "UI_Popups"))]
     ApplicationCommands: usize,
 }
 #[cfg(feature = "deprecated")]
@@ -721,8 +709,8 @@ pub struct SettingsPaneCommandsRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SettingsPaneCommandsRequest, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl SettingsPaneCommandsRequest {
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
-    pub fn ApplicationCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>> {
+    #[cfg(feature = "UI_Popups")]
+    pub fn ApplicationCommands(&self) -> windows_core::Result<windows_collections::IVector<SettingsCommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

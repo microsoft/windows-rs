@@ -122,7 +122,7 @@ impl IAsyncInfo_Vtbl {
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IAsyncInfo, OFFSET>(),
             Id: Id::<Identity, OFFSET>,
-            get_Status: 0,
+            Status: 0,
             ErrorCode: ErrorCode::<Identity, OFFSET>,
             Cancel: Cancel::<Identity, OFFSET>,
             Close: Close::<Identity, OFFSET>,
@@ -136,7 +136,7 @@ impl IAsyncInfo_Vtbl {
 pub struct IAsyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    get_Status: usize,
+    Status: usize,
     pub ErrorCode: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut windows_core::HRESULT,
@@ -269,8 +269,8 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult>
                 IAsyncOperation<TResult>,
                 OFFSET,
             >(),
-            put_Completed: 0,
-            get_Completed: 0,
+            SetCompleted: 0,
+            Completed: 0,
             GetResults: GetResults::<TResult, Identity, OFFSET>,
             TResult: core::marker::PhantomData::<TResult>,
         }
@@ -285,8 +285,8 @@ where
     TResult: windows_core::RuntimeType + 'static,
 {
     pub base__: windows_core::IInspectable_Vtbl,
-    put_Completed: usize,
-    get_Completed: usize,
+    SetCompleted: usize,
+    Completed: usize,
     pub GetResults: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut windows_core::AbiType<TResult>,

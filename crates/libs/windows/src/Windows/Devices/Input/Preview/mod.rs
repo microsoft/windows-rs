@@ -47,23 +47,23 @@ impl GazeDevicePreview {
             (windows_core::Interface::vtable(this).ConfigurationState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RequestCalibrationAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestCalibrationAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestCalibrationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation_Collections"))]
-    pub fn GetNumericControlDescriptions(&self, usagepage: u16, usageid: u16) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>> {
+    #[cfg(feature = "Devices_HumanInterfaceDevice")]
+    pub fn GetNumericControlDescriptions(&self, usagepage: u16, usageid: u16) -> windows_core::Result<windows_collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNumericControlDescriptions)(windows_core::Interface::as_raw(this), usagepage, usageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation_Collections"))]
-    pub fn GetBooleanControlDescriptions(&self, usagepage: u16, usageid: u16) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>> {
+    #[cfg(feature = "Devices_HumanInterfaceDevice")]
+    pub fn GetBooleanControlDescriptions(&self, usagepage: u16, usageid: u16) -> windows_core::Result<windows_collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -411,8 +411,7 @@ impl GazeMovedPreviewEventArgs {
             (windows_core::Interface::vtable(this).CurrentPoint)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetIntermediatePoints(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<GazePointPreview>> {
+    pub fn GetIntermediatePoints(&self) -> windows_core::Result<windows_collections::IVector<GazePointPreview>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -498,13 +497,13 @@ pub struct IGazeDevicePreview_Vtbl {
     pub CanTrackHead: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ConfigurationState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GazeDeviceConfigurationStatePreview) -> windows_core::HRESULT,
     pub RequestCalibrationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_HumanInterfaceDevice")]
     pub GetNumericControlDescriptions: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_HumanInterfaceDevice"))]
     GetNumericControlDescriptions: usize,
-    #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_HumanInterfaceDevice")]
     pub GetBooleanControlDescriptions: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_HumanInterfaceDevice"))]
     GetBooleanControlDescriptions: usize,
 }
 windows_core::imp::define_interface!(IGazeDeviceWatcherAddedPreviewEventArgs, IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl, 0xe79e7eed_b389_11e7_b201_c8d3ffb75721);
@@ -608,10 +607,7 @@ pub struct IGazeMovedPreviewEventArgs_Vtbl {
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub CurrentPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetIntermediatePoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetIntermediatePoints: usize,
 }
 windows_core::imp::define_interface!(IGazePointPreview, IGazePointPreview_Vtbl, 0xe79e7eea_b389_11e7_b201_c8d3ffb75721);
 impl windows_core::RuntimeType for IGazePointPreview {

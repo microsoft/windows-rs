@@ -185,9 +185,9 @@ pub struct ISpatialInteractionManager_Vtbl {
     pub RemoveSourceReleased: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub InteractionDetected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveInteractionDetected: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Perception"))]
+    #[cfg(feature = "Perception")]
     pub GetDetectedSourcesAtTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Perception")))]
+    #[cfg(not(feature = "Perception"))]
     GetDetectedSourcesAtTimestamp: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionManagerStatics, ISpatialInteractionManagerStatics_Vtbl, 0x00e31fa6_8ca2_30bf_91fe_d9cb4a008990);
@@ -284,14 +284,8 @@ impl windows_core::RuntimeType for ISpatialInteractionSourceLocation {
 #[repr(C)]
 pub struct ISpatialInteractionSourceLocation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Position: usize,
-    #[cfg(feature = "Foundation_Numerics")]
     pub Velocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Velocity: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceLocation2, ISpatialInteractionSourceLocation2_Vtbl, 0x4c671045_3917_40fc_a9ac_31c9cf5ff91b);
 impl windows_core::RuntimeType for ISpatialInteractionSourceLocation2 {
@@ -313,10 +307,7 @@ impl windows_core::RuntimeType for ISpatialInteractionSourceLocation3 {
 pub struct ISpatialInteractionSourceLocation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PositionAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourcePositionAccuracy) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
     pub AngularVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    AngularVelocity: usize,
     pub SourcePointerPose: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceProperties, ISpatialInteractionSourceProperties_Vtbl, 0x05604542_3ef7_3222_9f53_63c9cb7e3bc7);
@@ -326,9 +317,9 @@ impl windows_core::RuntimeType for ISpatialInteractionSourceProperties {
 #[repr(C)]
 pub struct ISpatialInteractionSourceProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(feature = "Perception_Spatial")]
     pub TryGetSourceLossMitigationDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(feature = "Perception_Spatial"))]
     TryGetSourceLossMitigationDirection: usize,
     pub SourceLossRisk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
@@ -409,10 +400,7 @@ impl windows_core::RuntimeType for ISpatialManipulationDelta {
 #[repr(C)]
 pub struct ISpatialManipulationDelta_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Translation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Translation: usize,
+    pub Translation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialManipulationStartedEventArgs, ISpatialManipulationStartedEventArgs_Vtbl, 0xa1d6bbce_42a5_377b_ada6_d28e3d384737);
 impl windows_core::RuntimeType for ISpatialManipulationStartedEventArgs {
@@ -457,10 +445,7 @@ impl windows_core::RuntimeType for ISpatialNavigationCompletedEventArgs {
 pub struct ISpatialNavigationCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourceKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub NormalizedOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    NormalizedOffset: usize,
+    pub NormalizedOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialNavigationStartedEventArgs, ISpatialNavigationStartedEventArgs_Vtbl, 0x754a348a_fb64_4656_8ebd_9deecaafe475);
 impl windows_core::RuntimeType for ISpatialNavigationStartedEventArgs {
@@ -486,10 +471,7 @@ impl windows_core::RuntimeType for ISpatialNavigationUpdatedEventArgs {
 pub struct ISpatialNavigationUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourceKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub NormalizedOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    NormalizedOffset: usize,
+    pub NormalizedOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialPointerInteractionSourcePose, ISpatialPointerInteractionSourcePose_Vtbl, 0xa7104307_2c2b_4d3a_92a7_80ced7c4a0d0);
 impl windows_core::RuntimeType for ISpatialPointerInteractionSourcePose {
@@ -498,18 +480,9 @@ impl windows_core::RuntimeType for ISpatialPointerInteractionSourcePose {
 #[repr(C)]
 pub struct ISpatialPointerInteractionSourcePose_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Position: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub ForwardDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    ForwardDirection: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub UpDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    UpDirection: usize,
+    pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub ForwardDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
+    pub UpDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialPointerInteractionSourcePose2, ISpatialPointerInteractionSourcePose2_Vtbl, 0xeccd86b8_52db_469f_9e3f_80c47f74bce9);
 impl windows_core::RuntimeType for ISpatialPointerInteractionSourcePose2 {
@@ -1075,7 +1048,7 @@ impl SpatialInteractionController {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryGetRenderableModelAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
+    pub fn TryGetRenderableModelAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = &windows_core::Interface::cast::<ISpatialInteractionController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1309,8 +1282,8 @@ impl SpatialInteractionManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveInteractionDetected)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Perception"))]
-    pub fn GetDetectedSourcesAtTimestamp<P0>(&self, timestamp: P0) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>
+    #[cfg(feature = "Perception")]
+    pub fn GetDetectedSourcesAtTimestamp<P0>(&self, timestamp: P0) -> windows_core::Result<windows_collections::IVectorView<SpatialInteractionSourceState>>
     where
         P0: windows_core::Param<super::super::super::Perception::PerceptionTimestamp>,
     {
@@ -1444,7 +1417,7 @@ impl SpatialInteractionSource {
         }
     }
     #[cfg(feature = "Perception_People")]
-    pub fn TryCreateHandMeshObserverAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>> {
+    pub fn TryCreateHandMeshObserverAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>> {
         let this = &windows_core::Interface::cast::<ISpatialInteractionSource4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1530,16 +1503,14 @@ impl windows_core::RuntimeType for SpatialInteractionSourceKind {
 pub struct SpatialInteractionSourceLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSourceLocation {
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
+    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Velocity(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
+    pub fn Velocity(&self) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1561,8 +1532,7 @@ impl SpatialInteractionSourceLocation {
             (windows_core::Interface::vtable(this).PositionAccuracy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn AngularVelocity(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
+    pub fn AngularVelocity(&self) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>> {
         let this = &windows_core::Interface::cast::<ISpatialInteractionSourceLocation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1607,8 +1577,8 @@ impl windows_core::RuntimeType for SpatialInteractionSourcePositionAccuracy {
 pub struct SpatialInteractionSourceProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSourceProperties {
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetSourceLossMitigationDirection<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>
+    #[cfg(feature = "Perception_Spatial")]
+    pub fn TryGetSourceLossMitigationDirection<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>>
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
@@ -1816,8 +1786,7 @@ unsafe impl Sync for SpatialManipulationCompletedEventArgs {}
 pub struct SpatialManipulationDelta(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialManipulationDelta, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialManipulationDelta {
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Translation(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn Translation(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1946,8 +1915,7 @@ impl SpatialNavigationCompletedEventArgs {
             (windows_core::Interface::vtable(this).InteractionSourceKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn NormalizedOffset(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn NormalizedOffset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2036,8 +2004,7 @@ impl SpatialNavigationUpdatedEventArgs {
             (windows_core::Interface::vtable(this).InteractionSourceKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn NormalizedOffset(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn NormalizedOffset(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2062,24 +2029,21 @@ unsafe impl Sync for SpatialNavigationUpdatedEventArgs {}
 pub struct SpatialPointerInteractionSourcePose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialPointerInteractionSourcePose, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialPointerInteractionSourcePose {
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn Position(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn ForwardDirection(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn ForwardDirection(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForwardDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn UpDirection(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn UpDirection(&self) -> windows_core::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

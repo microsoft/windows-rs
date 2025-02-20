@@ -281,7 +281,7 @@ impl EmailMailboxCreateFolderRequest {
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync<P0>(&self, folder: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ReportCompletedAsync<P0>(&self, folder: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::EmailFolder>,
     {
@@ -291,7 +291,7 @@ impl EmailMailboxCreateFolderRequest {
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self, status: super::EmailMailboxCreateFolderStatus) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self, status: super::EmailMailboxCreateFolderStatus) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -362,14 +362,14 @@ impl EmailMailboxDeleteFolderRequest {
             (windows_core::Interface::vtable(this).EmailFolderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self, status: super::EmailMailboxDeleteFolderStatus) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self, status: super::EmailMailboxDeleteFolderStatus) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -447,14 +447,14 @@ impl EmailMailboxDownloadAttachmentRequest {
             (windows_core::Interface::vtable(this).EmailAttachmentId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -525,14 +525,14 @@ impl EmailMailboxDownloadMessageRequest {
             (windows_core::Interface::vtable(this).EmailMessageId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -603,14 +603,14 @@ impl EmailMailboxEmptyFolderRequest {
             (windows_core::Interface::vtable(this).EmailFolderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self, status: super::EmailMailboxEmptyFolderStatus) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self, status: super::EmailMailboxEmptyFolderStatus) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -681,8 +681,7 @@ impl EmailMailboxForwardMeetingRequest {
             (windows_core::Interface::vtable(this).EmailMessageId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Recipients(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::EmailRecipient>> {
+    pub fn Recipients(&self) -> windows_core::Result<windows_collections::IVectorView<super::EmailRecipient>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -717,14 +716,14 @@ impl EmailMailboxForwardMeetingRequest {
             (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -795,7 +794,7 @@ impl EmailMailboxGetAutoReplySettingsRequest {
             (windows_core::Interface::vtable(this).RequestedFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ReportCompletedAsync<P0>(&self, autoreplysettings: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ReportCompletedAsync<P0>(&self, autoreplysettings: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::EmailMailboxAutoReplySettings>,
     {
@@ -805,7 +804,7 @@ impl EmailMailboxGetAutoReplySettingsRequest {
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), autoreplysettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -890,14 +889,14 @@ impl EmailMailboxMoveFolderRequest {
             (windows_core::Interface::vtable(this).NewFolderName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -996,14 +995,14 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
             (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1067,18 +1066,16 @@ impl EmailMailboxResolveRecipientsRequest {
             (windows_core::Interface::vtable(this).EmailMailboxId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Recipients(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Recipients(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Recipients)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ReportCompletedAsync<P0>(&self, resolutionresults: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ReportCompletedAsync<P0>(&self, resolutionresults: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::EmailRecipientResolutionResult>>,
+        P0: windows_core::Param<windows_collections::IIterable<super::EmailRecipientResolutionResult>>,
     {
         let this = self;
         unsafe {
@@ -1086,7 +1083,7 @@ impl EmailMailboxResolveRecipientsRequest {
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), resolutionresults.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1178,7 +1175,7 @@ impl EmailMailboxServerSearchReadBatchRequest {
             (windows_core::Interface::vtable(this).SuggestedBatchSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SaveMessageAsync<P0>(&self, message: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn SaveMessageAsync<P0>(&self, message: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::EmailMessage>,
     {
@@ -1188,14 +1185,14 @@ impl EmailMailboxServerSearchReadBatchRequest {
             (windows_core::Interface::vtable(this).SaveMessageAsync)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self, batchstatus: super::EmailBatchStatus) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self, batchstatus: super::EmailBatchStatus) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1266,14 +1263,14 @@ impl EmailMailboxSetAutoReplySettingsRequest {
             (windows_core::Interface::vtable(this).AutoReplySettings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1337,14 +1334,14 @@ impl EmailMailboxSyncManagerSyncRequest {
             (windows_core::Interface::vtable(this).EmailMailboxId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1443,14 +1440,14 @@ impl EmailMailboxUpdateMeetingResponseRequest {
             (windows_core::Interface::vtable(this).SendUpdate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1514,18 +1511,17 @@ impl EmailMailboxValidateCertificatesRequest {
             (windows_core::Interface::vtable(this).EmailMailboxId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn Certificates(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn Certificates(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Certificates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ReportCompletedAsync<P0>(&self, validationstatuses: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ReportCompletedAsync<P0>(&self, validationstatuses: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::EmailCertificateValidationStatus>>,
+        P0: windows_core::Param<windows_collections::IIterable<super::EmailCertificateValidationStatus>>,
     {
         let this = self;
         unsafe {
@@ -1533,7 +1529,7 @@ impl EmailMailboxValidateCertificatesRequest {
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), validationstatuses.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1754,10 +1750,7 @@ pub struct IEmailMailboxForwardMeetingRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EmailMailboxId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EmailMessageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Recipients: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Recipients: usize,
     pub Subject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ForwardHeaderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::EmailMessageBodyKind) -> windows_core::HRESULT,
     pub ForwardHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1855,14 +1848,8 @@ impl windows_core::RuntimeType for IEmailMailboxResolveRecipientsRequest {
 pub struct IEmailMailboxResolveRecipientsRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EmailMailboxId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Recipients: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Recipients: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ReportCompletedAsync: usize,
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEmailMailboxResolveRecipientsRequestEventArgs, IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl, 0x260f9e02_b2cf_40f8_8c28_e3ed43b1e89a);
@@ -1978,14 +1965,11 @@ impl windows_core::RuntimeType for IEmailMailboxValidateCertificatesRequest {
 pub struct IEmailMailboxValidateCertificatesRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EmailMailboxId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub Certificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     Certificates: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ReportCompletedAsync: usize,
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEmailMailboxValidateCertificatesRequestEventArgs, IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl, 0x2583bf17_02ff_49fe_a73c_03f37566c691);

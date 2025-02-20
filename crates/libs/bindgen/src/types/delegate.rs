@@ -11,15 +11,15 @@ impl Delegate {
         self.def.type_name()
     }
 
-    pub fn write_cfg(&self, writer: &Writer) -> TokenStream {
+    pub fn write_cfg(&self, writer: &Writer<'_>) -> TokenStream {
         if !writer.config.package {
             return quote! {};
         }
 
-        Cfg::new(self.def, &self.dependencies()).write(writer, false)
+        Cfg::new(self.def, &self.dependencies(), writer).write(writer, false)
     }
 
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
         let name = self.write_name(writer);
         //let vtbl_name = self.write_vtbl_name(writer);
         let vtbl_name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
@@ -199,7 +199,7 @@ impl Delegate {
         }
     }
 
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
         self.type_name().write(writer, &self.generics)
     }
 }

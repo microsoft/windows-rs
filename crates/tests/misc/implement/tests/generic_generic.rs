@@ -1,6 +1,6 @@
 use windows::core::*;
-use windows::Foundation::Collections::*;
 use windows::Foundation::*;
+use windows_collections::*;
 
 #[implement(
     IVectorView<T>,

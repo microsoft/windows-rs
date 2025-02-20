@@ -58,8 +58,7 @@ unsafe impl Sync for EnterpriseKeyCredentialRegistrationInfo {}
 pub struct EnterpriseKeyCredentialRegistrationManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationManager, windows_core::IUnknown, windows_core::IInspectable);
 impl EnterpriseKeyCredentialRegistrationManager {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetRegistrationsAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
+    pub fn GetRegistrationsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -109,10 +108,7 @@ impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationManager {
 #[repr(C)]
 pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetRegistrationsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetRegistrationsAsync: usize,
 }
 windows_core::imp::define_interface!(IEnterpriseKeyCredentialRegistrationManagerStatics, IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl, 0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f);
 impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationManagerStatics {

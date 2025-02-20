@@ -65,8 +65,7 @@ impl AppDiagnosticInfo {
             (windows_core::Interface::vtable(this).AppInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetResourceGroups(&self) -> windows_core::Result<super::Foundation::Collections::IVector<AppResourceGroupInfo>> {
+    pub fn GetResourceGroups(&self) -> windows_core::Result<windows_collections::IVector<AppResourceGroupInfo>> {
         let this = &windows_core::Interface::cast::<IAppDiagnosticInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -80,15 +79,14 @@ impl AppDiagnosticInfo {
             (windows_core::Interface::vtable(this).CreateResourceGroupWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LaunchAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<AppActivationResult>> {
+    pub fn LaunchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<AppActivationResult>> {
         let this = &windows_core::Interface::cast::<IAppDiagnosticInfo3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestInfoAsync() -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
+    pub fn RequestInfoAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -100,28 +98,25 @@ impl AppDiagnosticInfo {
             (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessAsync() -> windows_core::Result<super::Foundation::IAsyncOperation<DiagnosticAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<DiagnosticAccessStatus>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestInfoForPackageAsync(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
+    pub fn RequestInfoForPackageAsync(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoForPackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestInfoForAppAsync() -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
+    pub fn RequestInfoForAppAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoForAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestInfoForAppUserModelId(appusermodelid: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
+    pub fn RequestInfoForAppUserModelId(appusermodelid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoForAppUserModelId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appusermodelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -499,8 +494,7 @@ impl AppResourceGroupInfo {
             (windows_core::Interface::vtable(this).IsShared)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetBackgroundTaskReports(&self) -> windows_core::Result<super::Foundation::Collections::IVector<AppResourceGroupBackgroundTaskReport>> {
+    pub fn GetBackgroundTaskReports(&self) -> windows_core::Result<windows_collections::IVector<AppResourceGroupBackgroundTaskReport>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -514,8 +508,8 @@ impl AppResourceGroupInfo {
             (windows_core::Interface::vtable(this).GetMemoryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "System_Diagnostics"))]
-    pub fn GetProcessDiagnosticInfos(&self) -> windows_core::Result<super::Foundation::Collections::IVector<Diagnostics::ProcessDiagnosticInfo>> {
+    #[cfg(feature = "System_Diagnostics")]
+    pub fn GetProcessDiagnosticInfos(&self) -> windows_core::Result<windows_collections::IVector<Diagnostics::ProcessDiagnosticInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -529,21 +523,21 @@ impl AppResourceGroupInfo {
             (windows_core::Interface::vtable(this).GetStateReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartSuspendAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
+    pub fn StartSuspendAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &windows_core::Interface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartSuspendAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartResumeAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
+    pub fn StartResumeAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &windows_core::Interface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartResumeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartTerminateAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
+    pub fn StartTerminateAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &windows_core::Interface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -671,8 +665,7 @@ unsafe impl Sync for AppResourceGroupInfoWatcher {}
 pub struct AppResourceGroupInfoWatcherEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcherEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppResourceGroupInfoWatcherEventArgs {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AppDiagnosticInfos(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>> {
+    pub fn AppDiagnosticInfos(&self) -> windows_core::Result<windows_collections::IVectorView<AppDiagnosticInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -704,8 +697,7 @@ unsafe impl Sync for AppResourceGroupInfoWatcherEventArgs {}
 pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcherExecutionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AppDiagnosticInfos(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>> {
+    pub fn AppDiagnosticInfos(&self) -> windows_core::Result<windows_collections::IVectorView<AppDiagnosticInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -903,18 +895,16 @@ impl AppUriHandlerRegistration {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAppAddedHostsAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppUriHandlerHost>>> {
+    pub fn GetAppAddedHostsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<AppUriHandlerHost>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAppAddedHostsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAppAddedHostsAsync<P0>(&self, hosts: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
+    pub fn SetAppAddedHostsAsync<P0>(&self, hosts: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<super::Foundation::Collections::IIterable<AppUriHandlerHost>>,
+        P0: windows_core::Param<windows_collections::IIterable<AppUriHandlerHost>>,
     {
         let this = self;
         unsafe {
@@ -922,18 +912,16 @@ impl AppUriHandlerRegistration {
             (windows_core::Interface::vtable(this).SetAppAddedHostsAsync)(windows_core::Interface::as_raw(this), hosts.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAllHosts(&self) -> windows_core::Result<super::Foundation::Collections::IVector<AppUriHandlerHost>> {
+    pub fn GetAllHosts(&self) -> windows_core::Result<windows_collections::IVector<AppUriHandlerHost>> {
         let this = &windows_core::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllHosts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateHosts<P0>(&self, hosts: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::Foundation::Collections::IIterable<AppUriHandlerHost>>,
+        P0: windows_core::Param<windows_collections::IIterable<AppUriHandlerHost>>,
     {
         let this = &windows_core::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).UpdateHosts)(windows_core::Interface::as_raw(this), hosts.param().abi()).ok() }
@@ -1179,7 +1167,7 @@ impl DispatcherQueueController {
             (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShutdownQueueAsync(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
+    pub fn ShutdownQueueAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1395,8 +1383,8 @@ impl FolderLauncherOptions {
         static SHARED: windows_core::imp::FactoryCache<FolderLauncherOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn ItemsToSelect(&self) -> windows_core::Result<super::Foundation::Collections::IVector<super::Storage::IStorageItem>> {
+    #[cfg(feature = "Storage")]
+    pub fn ItemsToSelect(&self) -> windows_core::Result<windows_collections::IVector<super::Storage::IStorageItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1458,10 +1446,7 @@ impl windows_core::RuntimeType for IAppDiagnosticInfo2 {
 #[repr(C)]
 pub struct IAppDiagnosticInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetResourceGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetResourceGroups: usize,
     pub CreateResourceGroupWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppDiagnosticInfo3, IAppDiagnosticInfo3_Vtbl, 0xc895c63d_dd61_4c65_babd_81a10b4f9815);
@@ -1480,10 +1465,7 @@ impl windows_core::RuntimeType for IAppDiagnosticInfoStatics {
 #[repr(C)]
 pub struct IAppDiagnosticInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub RequestInfoAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequestInfoAsync: usize,
 }
 windows_core::imp::define_interface!(IAppDiagnosticInfoStatics2, IAppDiagnosticInfoStatics2_Vtbl, 0x05b24b86_1000_4c90_bb9f_7235071c50fe);
 impl windows_core::RuntimeType for IAppDiagnosticInfoStatics2 {
@@ -1494,18 +1476,9 @@ pub struct IAppDiagnosticInfoStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub RequestInfoForPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequestInfoForPackageAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RequestInfoForAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequestInfoForAppAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub RequestInfoForAppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequestInfoForAppUserModelId: usize,
 }
 windows_core::imp::define_interface!(IAppDiagnosticInfoWatcher, IAppDiagnosticInfoWatcher_Vtbl, 0x75575070_01d3_489a_9325_52f9cc6ede0a);
 impl windows_core::RuntimeType for IAppDiagnosticInfoWatcher {
@@ -1596,14 +1569,11 @@ pub struct IAppResourceGroupInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub IsShared: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetBackgroundTaskReports: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetBackgroundTaskReports: usize,
     pub GetMemoryReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "System_Diagnostics"))]
+    #[cfg(feature = "System_Diagnostics")]
     pub GetProcessDiagnosticInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "System_Diagnostics")))]
+    #[cfg(not(feature = "System_Diagnostics"))]
     GetProcessDiagnosticInfos: usize,
     pub GetStateReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -1646,10 +1616,7 @@ impl windows_core::RuntimeType for IAppResourceGroupInfoWatcherEventArgs {
 #[repr(C)]
 pub struct IAppResourceGroupInfoWatcherEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AppDiagnosticInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AppDiagnosticInfos: usize,
     pub AppResourceGroupInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs, IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl, 0x1bdbedd7_fee6_4fd4_98dd_e92a2cc299f3);
@@ -1659,10 +1626,7 @@ impl windows_core::RuntimeType for IAppResourceGroupInfoWatcherExecutionStateCha
 #[repr(C)]
 pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AppDiagnosticInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AppDiagnosticInfos: usize,
     pub AppResourceGroupInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppResourceGroupMemoryReport, IAppResourceGroupMemoryReport_Vtbl, 0x2c8c06b1_7db1_4c51_a225_7fae2d49e431);
@@ -1725,14 +1689,8 @@ pub struct IAppUriHandlerRegistration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAppAddedHostsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAppAddedHostsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetAppAddedHostsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetAppAddedHostsAsync: usize,
 }
 windows_core::imp::define_interface!(IAppUriHandlerRegistration2, IAppUriHandlerRegistration2_Vtbl, 0xd54dac97_cb39_5f1f_883e_01853730bd6d);
 impl windows_core::RuntimeType for IAppUriHandlerRegistration2 {
@@ -1741,14 +1699,8 @@ impl windows_core::RuntimeType for IAppUriHandlerRegistration2 {
 #[repr(C)]
 pub struct IAppUriHandlerRegistration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAllHosts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAllHosts: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub UpdateHosts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UpdateHosts: usize,
     pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppUriHandlerRegistrationManager, IAppUriHandlerRegistrationManager_Vtbl, 0xe62c9a52_ac94_5750_ac1b_6cfb6f250263);
@@ -1884,9 +1836,9 @@ impl windows_core::RuntimeType for IFolderLauncherOptions {
 #[repr(C)]
 pub struct IFolderLauncherOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(feature = "Storage")]
     pub ItemsToSelect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
+    #[cfg(not(feature = "Storage"))]
     ItemsToSelect: usize,
 }
 windows_core::imp::define_interface!(IKnownUserPropertiesStatics, IKnownUserPropertiesStatics_Vtbl, 0x7755911a_70c5_48e5_b637_5ba3441e4ee4);
@@ -2031,17 +1983,17 @@ pub struct ILauncherStatics2_Vtbl {
     pub QueryFileSupportWithPackageFamilyNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     QueryFileSupportWithPackageFamilyNameAsync: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindUriSchemeHandlersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindUriSchemeHandlersAsync: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindUriSchemeHandlersWithLaunchUriTypeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LaunchQuerySupportType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindUriSchemeHandlersWithLaunchUriTypeAsync: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindFileHandlersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindFileHandlersAsync: usize,
 }
 windows_core::imp::define_interface!(ILauncherStatics3, ILauncherStatics3_Vtbl, 0x234261a8_9db3_4683_aa42_dc6f51d33847);
@@ -2069,9 +2021,9 @@ pub struct ILauncherStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub QueryAppUriSupportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub QueryAppUriSupportWithPackageFamilyNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel")]
     pub FindAppUriHandlersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel"))]
     FindAppUriHandlersAsync: usize,
     pub LaunchUriForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LaunchUriWithOptionsForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2318,10 +2270,7 @@ pub struct IRemoteLauncherOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FallbackUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFallbackUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub PreferredAppIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PreferredAppIds: usize,
 }
 windows_core::imp::define_interface!(IRemoteLauncherStatics, IRemoteLauncherStatics_Vtbl, 0xd7db7a93_a30c_48b7_9f21_051026a4e517);
 impl windows_core::RuntimeType for IRemoteLauncherStatics {
@@ -2372,10 +2321,7 @@ impl windows_core::RuntimeType for ITimeZoneSettingsStatics {
 pub struct ITimeZoneSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentTimeZoneDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedTimeZoneDisplayNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedTimeZoneDisplayNames: usize,
     pub CanChangeTimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ChangeTimeZoneByDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -2454,10 +2400,7 @@ impl windows_core::RuntimeType for IUserChangedEventArgs2 {
 #[repr(C)]
 pub struct IUserChangedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub ChangedPropertyKinds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ChangedPropertyKinds: usize,
 }
 windows_core::imp::define_interface!(IUserDeviceAssociationChangedEventArgs, IUserDeviceAssociationChangedEventArgs_Vtbl, 0xbd1f6f6c_bb5d_4d7b_a5f0_c8cd11a38d42);
 impl windows_core::RuntimeType for IUserDeviceAssociationChangedEventArgs {
@@ -2511,17 +2454,14 @@ impl windows_core::RuntimeType for IUserStatics {
 pub struct IUserStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub FindAllAsyncByType: unsafe extern "system" fn(*mut core::ffi::c_void, UserType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     FindAllAsyncByType: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub FindAllAsyncByTypeAndStatus: unsafe extern "system" fn(*mut core::ffi::c_void, UserType, UserAuthenticationStatus, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "deprecated"))]
     FindAllAsyncByTypeAndStatus: usize,
     pub GetFromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -2729,7 +2669,7 @@ impl windows_core::RuntimeType for LaunchUriStatus {
 pub struct Launcher;
 impl Launcher {
     #[cfg(feature = "Storage_Streams")]
-    pub fn LaunchFileAsync<P0>(file: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::Storage::IStorageFile>,
     {
@@ -2739,7 +2679,7 @@ impl Launcher {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LaunchFileWithOptionsAsync<P0, P1>(file: P0, options: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFileWithOptionsAsync<P0, P1>(file: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::Storage::IStorageFile>,
         P1: windows_core::Param<LauncherOptions>,
@@ -2749,7 +2689,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).LaunchFileWithOptionsAsync)(windows_core::Interface::as_raw(this), file.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchUriAsync<P0>(uri: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchUriAsync<P0>(uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
     {
@@ -2758,7 +2698,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).LaunchUriAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchUriWithOptionsAsync<P0, P1>(uri: P0, options: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchUriWithOptionsAsync<P0, P1>(uri: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
         P1: windows_core::Param<LauncherOptions>,
@@ -2768,7 +2708,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).LaunchUriWithOptionsAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchUriForResultsAsync<P0, P1>(uri: P0, options: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
+    pub fn LaunchUriForResultsAsync<P0, P1>(uri: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperation<LaunchUriResult>>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
         P1: windows_core::Param<LauncherOptions>,
@@ -2779,7 +2719,7 @@ impl Launcher {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LaunchUriForResultsWithDataAsync<P0, P1, P2>(uri: P0, options: P1, inputdata: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
+    pub fn LaunchUriForResultsWithDataAsync<P0, P1, P2>(uri: P0, options: P1, inputdata: P2) -> windows_core::Result<windows_future::IAsyncOperation<LaunchUriResult>>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
         P1: windows_core::Param<LauncherOptions>,
@@ -2791,7 +2731,7 @@ impl Launcher {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LaunchUriWithDataAsync<P0, P1, P2>(uri: P0, options: P1, inputdata: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchUriWithDataAsync<P0, P1, P2>(uri: P0, options: P1, inputdata: P2) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
         P1: windows_core::Param<LauncherOptions>,
@@ -2802,7 +2742,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).LaunchUriWithDataAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn QueryUriSupportAsync<P0>(uri: P0, launchquerysupporttype: LaunchQuerySupportType) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
+    pub fn QueryUriSupportAsync<P0>(uri: P0, launchquerysupporttype: LaunchQuerySupportType) -> windows_core::Result<windows_future::IAsyncOperation<LaunchQuerySupportStatus>>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
     {
@@ -2811,7 +2751,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).QueryUriSupportAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), launchquerysupporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn QueryUriSupportWithPackageFamilyNameAsync<P0>(uri: P0, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
+    pub fn QueryUriSupportWithPackageFamilyNameAsync<P0>(uri: P0, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LaunchQuerySupportStatus>>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
     {
@@ -2821,7 +2761,7 @@ impl Launcher {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn QueryFileSupportAsync<P0>(file: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
+    pub fn QueryFileSupportAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<LaunchQuerySupportStatus>>
     where
         P0: windows_core::Param<super::Storage::StorageFile>,
     {
@@ -2831,7 +2771,7 @@ impl Launcher {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn QueryFileSupportWithPackageFamilyNameAsync<P0>(file: P0, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
+    pub fn QueryFileSupportWithPackageFamilyNameAsync<P0>(file: P0, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LaunchQuerySupportStatus>>
     where
         P0: windows_core::Param<super::Storage::StorageFile>,
     {
@@ -2840,29 +2780,29 @@ impl Launcher {
             (windows_core::Interface::vtable(this).QueryFileSupportWithPackageFamilyNameAsync)(windows_core::Interface::as_raw(this), file.param().abi(), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindUriSchemeHandlersAsync(scheme: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindUriSchemeHandlersAsync(scheme: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindUriSchemeHandlersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(scheme), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindUriSchemeHandlersWithLaunchUriTypeAsync(scheme: &windows_core::HSTRING, launchquerysupporttype: LaunchQuerySupportType) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindUriSchemeHandlersWithLaunchUriTypeAsync(scheme: &windows_core::HSTRING, launchquerysupporttype: LaunchQuerySupportType) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindUriSchemeHandlersWithLaunchUriTypeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(scheme), launchquerysupporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindFileHandlersAsync(extension: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindFileHandlersAsync(extension: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindFileHandlersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(extension), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn LaunchFolderAsync<P0>(folder: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFolderAsync<P0>(folder: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::Storage::IStorageFolder>,
     {
@@ -2872,7 +2812,7 @@ impl Launcher {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn LaunchFolderWithOptionsAsync<P0, P1>(folder: P0, options: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFolderWithOptionsAsync<P0, P1>(folder: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::Storage::IStorageFolder>,
         P1: windows_core::Param<FolderLauncherOptions>,
@@ -2882,7 +2822,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).LaunchFolderWithOptionsAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn QueryAppUriSupportAsync<P0>(uri: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
+    pub fn QueryAppUriSupportAsync<P0>(uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<LaunchQuerySupportStatus>>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
     {
@@ -2891,7 +2831,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).QueryAppUriSupportAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn QueryAppUriSupportWithPackageFamilyNameAsync<P0>(uri: P0, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
+    pub fn QueryAppUriSupportWithPackageFamilyNameAsync<P0>(uri: P0, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LaunchQuerySupportStatus>>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
     {
@@ -2900,8 +2840,8 @@ impl Launcher {
             (windows_core::Interface::vtable(this).QueryAppUriSupportWithPackageFamilyNameAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindAppUriHandlersAsync<P0>(uri: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>
+    #[cfg(feature = "ApplicationModel")]
+    pub fn FindAppUriHandlersAsync<P0>(uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::ApplicationModel::AppInfo>>>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
     {
@@ -2910,7 +2850,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).FindAppUriHandlersAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchUriForUserAsync<P0, P1>(user: P0, uri: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
+    pub fn LaunchUriForUserAsync<P0, P1>(user: P0, uri: P1) -> windows_core::Result<windows_future::IAsyncOperation<LaunchUriStatus>>
     where
         P0: windows_core::Param<User>,
         P1: windows_core::Param<super::Foundation::Uri>,
@@ -2920,7 +2860,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).LaunchUriForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchUriWithOptionsForUserAsync<P0, P1, P2>(user: P0, uri: P1, options: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
+    pub fn LaunchUriWithOptionsForUserAsync<P0, P1, P2>(user: P0, uri: P1, options: P2) -> windows_core::Result<windows_future::IAsyncOperation<LaunchUriStatus>>
     where
         P0: windows_core::Param<User>,
         P1: windows_core::Param<super::Foundation::Uri>,
@@ -2932,7 +2872,7 @@ impl Launcher {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LaunchUriWithDataForUserAsync<P0, P1, P2, P3>(user: P0, uri: P1, options: P2, inputdata: P3) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
+    pub fn LaunchUriWithDataForUserAsync<P0, P1, P2, P3>(user: P0, uri: P1, options: P2, inputdata: P3) -> windows_core::Result<windows_future::IAsyncOperation<LaunchUriStatus>>
     where
         P0: windows_core::Param<User>,
         P1: windows_core::Param<super::Foundation::Uri>,
@@ -2944,7 +2884,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).LaunchUriWithDataForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchUriForResultsForUserAsync<P0, P1, P2>(user: P0, uri: P1, options: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
+    pub fn LaunchUriForResultsForUserAsync<P0, P1, P2>(user: P0, uri: P1, options: P2) -> windows_core::Result<windows_future::IAsyncOperation<LaunchUriResult>>
     where
         P0: windows_core::Param<User>,
         P1: windows_core::Param<super::Foundation::Uri>,
@@ -2956,7 +2896,7 @@ impl Launcher {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LaunchUriForResultsWithDataForUserAsync<P0, P1, P2, P3>(user: P0, uri: P1, options: P2, inputdata: P3) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
+    pub fn LaunchUriForResultsWithDataForUserAsync<P0, P1, P2, P3>(user: P0, uri: P1, options: P2, inputdata: P3) -> windows_core::Result<windows_future::IAsyncOperation<LaunchUriResult>>
     where
         P0: windows_core::Param<User>,
         P1: windows_core::Param<super::Foundation::Uri>,
@@ -2968,13 +2908,13 @@ impl Launcher {
             (windows_core::Interface::vtable(this).LaunchUriForResultsWithDataForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchFolderPathAsync(path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
+    pub fn LaunchFolderPathAsync(path: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchFolderPathAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchFolderPathWithOptionsAsync<P1>(path: &windows_core::HSTRING, options: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFolderPathWithOptionsAsync<P1>(path: &windows_core::HSTRING, options: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P1: windows_core::Param<FolderLauncherOptions>,
     {
@@ -2983,7 +2923,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).LaunchFolderPathWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchFolderPathForUserAsync<P0>(user: P0, path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFolderPathForUserAsync<P0>(user: P0, path: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<User>,
     {
@@ -2992,7 +2932,7 @@ impl Launcher {
             (windows_core::Interface::vtable(this).LaunchFolderPathForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LaunchFolderPathWithOptionsForUserAsync<P0, P2>(user: P0, path: &windows_core::HSTRING, options: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFolderPathWithOptionsForUserAsync<P0, P2>(user: P0, path: &windows_core::HSTRING, options: P2) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<User>,
         P2: windows_core::Param<FolderLauncherOptions>,
@@ -3364,13 +3304,13 @@ impl windows_core::RuntimeType for PowerState {
 }
 pub struct ProcessLauncher;
 impl ProcessLauncher {
-    pub fn RunToCompletionAsync(filename: &windows_core::HSTRING, args: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>> {
+    pub fn RunToCompletionAsync(filename: &windows_core::HSTRING, args: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ProcessLauncherResult>> {
         Self::IProcessLauncherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RunToCompletionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filename), core::mem::transmute_copy(args), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RunToCompletionAsyncWithOptions<P2>(filename: &windows_core::HSTRING, args: &windows_core::HSTRING, options: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>>
+    pub fn RunToCompletionAsyncWithOptions<P2>(filename: &windows_core::HSTRING, args: &windows_core::HSTRING, options: P2) -> windows_core::Result<windows_future::IAsyncOperation<ProcessLauncherResult>>
     where
         P2: windows_core::Param<ProcessLauncherOptions>,
     {
@@ -3594,7 +3534,7 @@ impl windows_core::RuntimeType for RemoteLaunchUriStatus {
 pub struct RemoteLauncher;
 impl RemoteLauncher {
     #[cfg(feature = "System_RemoteSystems")]
-    pub fn LaunchUriAsync<P0, P1>(remotesystemconnectionrequest: P0, uri: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
+    pub fn LaunchUriAsync<P0, P1>(remotesystemconnectionrequest: P0, uri: P1) -> windows_core::Result<windows_future::IAsyncOperation<RemoteLaunchUriStatus>>
     where
         P0: windows_core::Param<RemoteSystems::RemoteSystemConnectionRequest>,
         P1: windows_core::Param<super::Foundation::Uri>,
@@ -3605,7 +3545,7 @@ impl RemoteLauncher {
         })
     }
     #[cfg(feature = "System_RemoteSystems")]
-    pub fn LaunchUriWithOptionsAsync<P0, P1, P2>(remotesystemconnectionrequest: P0, uri: P1, options: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
+    pub fn LaunchUriWithOptionsAsync<P0, P1, P2>(remotesystemconnectionrequest: P0, uri: P1, options: P2) -> windows_core::Result<windows_future::IAsyncOperation<RemoteLaunchUriStatus>>
     where
         P0: windows_core::Param<RemoteSystems::RemoteSystemConnectionRequest>,
         P1: windows_core::Param<super::Foundation::Uri>,
@@ -3617,7 +3557,7 @@ impl RemoteLauncher {
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
-    pub fn LaunchUriWithDataAsync<P0, P1, P2, P3>(remotesystemconnectionrequest: P0, uri: P1, options: P2, inputdata: P3) -> windows_core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
+    pub fn LaunchUriWithDataAsync<P0, P1, P2, P3>(remotesystemconnectionrequest: P0, uri: P1, options: P2, inputdata: P3) -> windows_core::Result<windows_future::IAsyncOperation<RemoteLaunchUriStatus>>
     where
         P0: windows_core::Param<RemoteSystems::RemoteSystemConnectionRequest>,
         P1: windows_core::Param<super::Foundation::Uri>,
@@ -3663,8 +3603,7 @@ impl RemoteLauncherOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFallbackUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PreferredAppIds(&self) -> windows_core::Result<super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn PreferredAppIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3737,8 +3676,7 @@ impl TimeZoneSettings {
             (windows_core::Interface::vtable(this).CurrentTimeZoneDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedTimeZoneDisplayNames() -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn SupportedTimeZoneDisplayNames() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::ITimeZoneSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedTimeZoneDisplayNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3753,7 +3691,7 @@ impl TimeZoneSettings {
     pub fn ChangeTimeZoneByDisplayName(timezonedisplayname: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::ITimeZoneSettingsStatics(|this| unsafe { (windows_core::Interface::vtable(this).ChangeTimeZoneByDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(timezonedisplayname)).ok() })
     }
-    pub fn AutoUpdateTimeZoneAsync(timeout: super::Foundation::TimeSpan) -> windows_core::Result<super::Foundation::IAsyncOperation<AutoUpdateTimeZoneStatus>> {
+    pub fn AutoUpdateTimeZoneAsync(timeout: super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<AutoUpdateTimeZoneStatus>> {
         Self::ITimeZoneSettingsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoUpdateTimeZoneAsync)(windows_core::Interface::as_raw(this), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3797,7 +3735,7 @@ impl User {
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetPropertyAsync(&self, value: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<windows_core::IInspectable>> {
+    pub fn GetPropertyAsync(&self, value: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3805,9 +3743,9 @@ impl User {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPropertiesAsync<P0>(&self, values: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>
+    pub fn GetPropertiesAsync<P0>(&self, values: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::Foundation::Collections::IPropertySet>>
     where
-        P0: windows_core::Param<super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IVectorView<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -3816,14 +3754,14 @@ impl User {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetPictureAsync(&self, desiredsize: UserPictureSize) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>> {
+    pub fn GetPictureAsync(&self, desiredsize: UserPictureSize) -> windows_core::Result<windows_future::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPictureAsync)(windows_core::Interface::as_raw(this), desiredsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CheckUserAgeConsentGroupAsync(&self, consentgroup: UserAgeConsentGroup) -> windows_core::Result<super::Foundation::IAsyncOperation<UserAgeConsentResult>> {
+    pub fn CheckUserAgeConsentGroupAsync(&self, consentgroup: UserAgeConsentGroup) -> windows_core::Result<windows_future::IAsyncOperation<UserAgeConsentResult>> {
         let this = &windows_core::Interface::cast::<IUser2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3836,22 +3774,21 @@ impl User {
             (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsync() -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
+    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn FindAllAsyncByType(r#type: UserType) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
+    #[cfg(feature = "deprecated")]
+    pub fn FindAllAsyncByType(r#type: UserType) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsyncByType)(windows_core::Interface::as_raw(this), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn FindAllAsyncByTypeAndStatus(r#type: UserType, status: UserAuthenticationStatus) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
+    #[cfg(feature = "deprecated")]
+    pub fn FindAllAsyncByTypeAndStatus(r#type: UserType, status: UserAuthenticationStatus) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsyncByTypeAndStatus)(windows_core::Interface::as_raw(this), r#type, status, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4014,8 +3951,7 @@ impl UserChangedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ChangedPropertyKinds(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<UserWatcherUpdateKind>> {
+    pub fn ChangedPropertyKinds(&self) -> windows_core::Result<windows_collections::IVectorView<UserWatcherUpdateKind>> {
         let this = &windows_core::Interface::cast::<IUserChangedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4139,7 +4075,7 @@ impl UserPicker {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSuggestedSelectedUser)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn PickSingleUserAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<User>> {
+    pub fn PickSingleUserAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<User>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

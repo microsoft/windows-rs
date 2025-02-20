@@ -2,9 +2,9 @@
 
 use std::sync::RwLock;
 use windows::core::*;
-use windows::Foundation::Collections::*;
 use windows::Foundation::*;
 use windows::Win32::Foundation::*;
+use windows_collections::*;
 
 pub(crate) fn err_bounds() -> Error {
     E_BOUNDS.into()
@@ -74,7 +74,7 @@ where
     fn Size(&self) -> Result<u32> {
         self.Size()
     }
-    fn GetView(&self) -> Result<windows::Foundation::Collections::IVectorView<T>> {
+    fn GetView(&self) -> Result<IVectorView<T>> {
         unsafe { self.cast() }
     }
     fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {

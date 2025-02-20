@@ -28,5 +28,11 @@ features = [
 [dependencies.windows-core]
 workspace = true
 
+[dependencies.windows-collections]
+workspace = true
+
+[dependencies.windows-future]
+workspace = true
+
 [dependencies]
 static_assertions = "1.1"

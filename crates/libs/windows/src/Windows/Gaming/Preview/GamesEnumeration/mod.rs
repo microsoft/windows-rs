@@ -1,14 +1,12 @@
 pub struct GameList;
 impl GameList {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
+    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GameListEntry>>> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsyncPackageFamilyName(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
+    pub fn FindAllAsyncPackageFamilyName(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GameListEntry>>> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsyncPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -50,7 +48,7 @@ impl GameList {
     pub fn RemoveGameUpdated(token: i64) -> windows_core::Result<()> {
         Self::IGameListStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveGameUpdated)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn MergeEntriesAsync<P0, P1>(left: P0, right: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameListEntry>>
+    pub fn MergeEntriesAsync<P0, P1>(left: P0, right: P1) -> windows_core::Result<windows_future::IAsyncOperation<GameListEntry>>
     where
         P0: windows_core::Param<GameListEntry>,
         P1: windows_core::Param<GameListEntry>,
@@ -60,8 +58,7 @@ impl GameList {
             (windows_core::Interface::vtable(this).MergeEntriesAsync)(windows_core::Interface::as_raw(this), left.param().abi(), right.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UnmergeEntryAsync<P0>(mergedentry: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>>
+    pub fn UnmergeEntryAsync<P0>(mergedentry: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GameListEntry>>>
     where
         P0: windows_core::Param<GameListEntry>,
     {
@@ -177,7 +174,7 @@ impl GameListEntry {
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LaunchAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn LaunchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -191,15 +188,14 @@ impl GameListEntry {
             (windows_core::Interface::vtable(this).Category)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -229,7 +225,7 @@ impl GameListEntry {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetLauncherExecutableFileAsync<P0>(&self, executablefile: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn SetLauncherExecutableFileAsync<P0>(&self, executablefile: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
@@ -240,7 +236,7 @@ impl GameListEntry {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetLauncherExecutableFileWithParamsAsync<P0>(&self, executablefile: P0, launchparams: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn SetLauncherExecutableFileWithParamsAsync<P0>(&self, executablefile: P0, launchparams: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
@@ -257,7 +253,7 @@ impl GameListEntry {
             (windows_core::Interface::vtable(this).TitleId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTitleIdAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetTitleIdAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -380,8 +376,7 @@ impl GameModeConfiguration {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RelatedProcessNames(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn RelatedProcessNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -483,7 +478,7 @@ impl GameModeConfiguration {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAffinitizeToExclusiveCpus)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -508,15 +503,14 @@ unsafe impl Sync for GameModeConfiguration {}
 pub struct GameModeUserConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameModeUserConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl GameModeUserConfiguration {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GamingRelatedProcessNames(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn GamingRelatedProcessNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GamingRelatedProcessNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -560,7 +554,7 @@ impl IGameListEntry {
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LaunchAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn LaunchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -574,15 +568,14 @@ impl IGameListEntry {
             (windows_core::Interface::vtable(this).Category)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -590,19 +583,19 @@ impl IGameListEntry {
         }
     }
 }
-#[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+#[cfg(feature = "ApplicationModel")]
 impl windows_core::RuntimeName for IGameListEntry {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameListEntry";
 }
-#[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+#[cfg(feature = "ApplicationModel")]
 pub trait IGameListEntry_Impl: windows_core::IUnknownImpl {
     fn DisplayInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppDisplayInfo>;
-    fn LaunchAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>>;
     fn Category(&self) -> windows_core::Result<GameListCategory>;
-    fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>;
-    fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>;
+    fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<windows_future::IAsyncAction>;
 }
-#[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+#[cfg(feature = "ApplicationModel")]
 impl IGameListEntry_Vtbl {
     pub const fn new<Identity: IGameListEntry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DisplayInfo<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -691,10 +684,7 @@ pub struct IGameListEntry_Vtbl {
     DisplayInfo: usize,
     pub LaunchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameListCategory) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
     pub SetCategoryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, GameListCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameListEntry2, IGameListEntry2_Vtbl, 0xd84a8f8b_8749_4a25_90d3_f6c5a427886d);
@@ -729,14 +719,8 @@ impl windows_core::RuntimeType for IGameListStatics {
 #[repr(C)]
 pub struct IGameListStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAllAsyncPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllAsyncPackageFamilyName: usize,
     pub GameAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveGameAdded: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub GameRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -752,10 +736,7 @@ impl windows_core::RuntimeType for IGameListStatics2 {
 pub struct IGameListStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MergeEntriesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub UnmergeEntryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UnmergeEntryAsync: usize,
 }
 windows_core::imp::define_interface!(IGameModeConfiguration, IGameModeConfiguration_Vtbl, 0x78e591af_b142_4ef0_8830_55bc2be4f5ea);
 impl windows_core::RuntimeType for IGameModeConfiguration {
@@ -766,10 +747,7 @@ pub struct IGameModeConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub RelatedProcessNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RelatedProcessNames: usize,
     pub PercentGpuTimeAllocatedToGame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPercentGpuTimeAllocatedToGame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PercentGpuMemoryAllocatedToGame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -793,10 +771,7 @@ impl windows_core::RuntimeType for IGameModeUserConfiguration {
 #[repr(C)]
 pub struct IGameModeUserConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GamingRelatedProcessNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GamingRelatedProcessNames: usize,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameModeUserConfigurationStatics, IGameModeUserConfigurationStatics_Vtbl, 0x6e50d97c_66ea_478e_a4a1_f57c0e8d00e7);

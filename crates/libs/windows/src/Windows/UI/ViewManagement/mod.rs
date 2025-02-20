@@ -58,14 +58,14 @@ unsafe impl Sync for AccessibilitySettings {}
 pub struct ActivationViewSwitcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivationViewSwitcher, windows_core::IUnknown, windows_core::IInspectable);
 impl ActivationViewSwitcher {
-    pub fn ShowAsStandaloneAsync(&self, viewid: i32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowAsStandaloneAsync(&self, viewid: i32) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsStandaloneAsync)(windows_core::Interface::as_raw(this), viewid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsStandaloneWithSizePreferenceAsync(&self, viewid: i32, sizepreference: ViewSizePreference) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowAsStandaloneWithSizePreferenceAsync(&self, viewid: i32, sizepreference: ViewSizePreference) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -289,14 +289,14 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).IsViewModeSupported)(windows_core::Interface::as_raw(this), viewmode, &mut result__).map(|| result__)
         }
     }
-    pub fn TryEnterViewModeAsync(&self, viewmode: ApplicationViewMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryEnterViewModeAsync(&self, viewmode: ApplicationViewMode) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IApplicationView4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryEnterViewModeAsync)(windows_core::Interface::as_raw(this), viewmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryEnterViewModeWithPreferencesAsync<P1>(&self, viewmode: ApplicationViewMode, viewmodepreferences: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryEnterViewModeWithPreferencesAsync<P1>(&self, viewmode: ApplicationViewMode, viewmodepreferences: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P1: windows_core::Param<ViewModePreferences>,
     {
@@ -306,7 +306,7 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).TryEnterViewModeWithPreferencesAsync)(windows_core::Interface::as_raw(this), viewmode, viewmodepreferences.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryConsolidateAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryConsolidateAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IApplicationView4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -332,8 +332,8 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).WindowingEnvironment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_WindowManagement"))]
-    pub fn GetDisplayRegions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::WindowManagement::DisplayRegion>> {
+    #[cfg(feature = "UI_WindowManagement")]
+    pub fn GetDisplayRegions(&self) -> windows_core::Result<windows_collections::IVectorView<super::WindowManagement::DisplayRegion>> {
         let this = &windows_core::Interface::cast::<IApplicationView9>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -579,43 +579,43 @@ impl ApplicationViewSwitcher {
     pub fn DisableShowingMainViewOnActivation() -> windows_core::Result<()> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe { (windows_core::Interface::vtable(this).DisableShowingMainViewOnActivation)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn TryShowAsStandaloneAsync(viewid: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryShowAsStandaloneAsync(viewid: i32) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryShowAsStandaloneAsync)(windows_core::Interface::as_raw(this), viewid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryShowAsStandaloneWithSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryShowAsStandaloneWithSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryShowAsStandaloneWithSizePreferenceAsync)(windows_core::Interface::as_raw(this), viewid, sizepreference, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference, anchorviewid: i32, anchorsizepreference: ViewSizePreference) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference, anchorviewid: i32, anchorsizepreference: ViewSizePreference) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync)(windows_core::Interface::as_raw(this), viewid, sizepreference, anchorviewid, anchorsizepreference, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SwitchAsync(viewid: i32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SwitchAsync(viewid: i32) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SwitchAsync)(windows_core::Interface::as_raw(this), viewid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SwitchFromViewAsync(toviewid: i32, fromviewid: i32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SwitchFromViewAsync(toviewid: i32, fromviewid: i32) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SwitchFromViewAsync)(windows_core::Interface::as_raw(this), toviewid, fromviewid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SwitchFromViewWithOptionsAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SwitchFromViewWithOptionsAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SwitchFromViewWithOptionsAsync)(windows_core::Interface::as_raw(this), toviewid, fromviewid, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn PrepareForCustomAnimatedSwitchAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn PrepareForCustomAnimatedSwitchAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrepareForCustomAnimatedSwitchAsync)(windows_core::Interface::as_raw(this), toviewid, fromviewid, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -624,13 +624,13 @@ impl ApplicationViewSwitcher {
     pub fn DisableSystemViewActivationPolicy() -> windows_core::Result<()> {
         Self::IApplicationViewSwitcherStatics2(|this| unsafe { (windows_core::Interface::vtable(this).DisableSystemViewActivationPolicy)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn TryShowAsViewModeAsync(viewid: i32, viewmode: ApplicationViewMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryShowAsViewModeAsync(viewid: i32, viewmode: ApplicationViewMode) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryShowAsViewModeAsync)(windows_core::Interface::as_raw(this), viewid, viewmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryShowAsViewModeWithPreferencesAsync<P2>(viewid: i32, viewmode: ApplicationViewMode, viewmodepreferences: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryShowAsViewModeWithPreferencesAsync<P2>(viewid: i32, viewmode: ApplicationViewMode, viewmodepreferences: P2) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P2: windows_core::Param<ViewModePreferences>,
     {
@@ -1092,9 +1092,9 @@ pub struct IApplicationView9_Vtbl {
     pub WindowingEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "UI_WindowManagement"))]
     WindowingEnvironment: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_WindowManagement"))]
+    #[cfg(feature = "UI_WindowManagement")]
     pub GetDisplayRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_WindowManagement")))]
+    #[cfg(not(feature = "UI_WindowManagement"))]
     GetDisplayRegions: usize,
 }
 windows_core::imp::define_interface!(IApplicationViewConsolidatedEventArgs, IApplicationViewConsolidatedEventArgs_Vtbl, 0x514449ec_7ea2_4de7_a6a6_7dfbaaebb6fb);
@@ -1712,19 +1712,19 @@ impl windows_core::RuntimeName for InputPaneVisibilityEventArgs {
 }
 pub struct ProjectionManager;
 impl ProjectionManager {
-    pub fn StartProjectingAsync(projectionviewid: i32, anchorviewid: i32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StartProjectingAsync(projectionviewid: i32, anchorviewid: i32) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IProjectionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartProjectingAsync)(windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SwapDisplaysForViewsAsync(projectionviewid: i32, anchorviewid: i32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SwapDisplaysForViewsAsync(projectionviewid: i32, anchorviewid: i32) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IProjectionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SwapDisplaysForViewsAsync)(windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn StopProjectingAsync(projectionviewid: i32, anchorviewid: i32) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StopProjectingAsync(projectionviewid: i32, anchorviewid: i32) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IProjectionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopProjectingAsync)(windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1749,7 +1749,7 @@ impl ProjectionManager {
         Self::IProjectionManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveProjectionDisplayAvailableChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn StartProjectingWithDeviceInfoAsync<P2>(projectionviewid: i32, anchorviewid: i32, displaydeviceinfo: P2) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn StartProjectingWithDeviceInfoAsync<P2>(projectionviewid: i32, anchorviewid: i32, displaydeviceinfo: P2) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P2: windows_core::Param<super::super::Devices::Enumeration::DeviceInformation>,
     {
@@ -1758,14 +1758,14 @@ impl ProjectionManager {
             (windows_core::Interface::vtable(this).StartProjectingWithDeviceInfoAsync)(windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, displaydeviceinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestStartProjectingAsync(projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestStartProjectingAsync(projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IProjectionManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestStartProjectingAsync)(windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, selection, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn RequestStartProjectingWithPlacementAsync(projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect, prefferedplacement: super::Popups::Placement) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestStartProjectingWithPlacementAsync(projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect, prefferedplacement: super::Popups::Placement) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IProjectionManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestStartProjectingWithPlacementAsync)(windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, selection, prefferedplacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1807,14 +1807,14 @@ impl windows_core::RuntimeType for ScreenCaptureDisabledBehavior {
 pub struct StatusBar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StatusBar, windows_core::IUnknown, windows_core::IInspectable);
 impl StatusBar {
-    pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HideAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn HideAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1930,14 +1930,14 @@ unsafe impl Sync for StatusBar {}
 pub struct StatusBarProgressIndicator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StatusBarProgressIndicator, windows_core::IUnknown, windows_core::IInspectable);
 impl StatusBarProgressIndicator {
-    pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HideAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn HideAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

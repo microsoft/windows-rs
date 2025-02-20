@@ -5,6 +5,27 @@
 
 --filter
     Windows
+
+// windows-collections
+    !Windows.Foundation.Collections.IIterable
+    !Windows.Foundation.Collections.IIterator
+    !Windows.Foundation.Collections.IKeyValuePair
+    !Windows.Foundation.Collections.IMap
+    !Windows.Foundation.Collections.IMapView
+    !Windows.Foundation.Collections.IVector
+    !Windows.Foundation.Collections.IVectorView
+
+// windows-numerics
+    !Windows.Foundation.Numerics.Matrix3x2
+    !Windows.Foundation.Numerics.Matrix4x4
+    !Windows.Foundation.Numerics.Vector2
+    !Windows.Foundation.Numerics.Vector3
+    !Windows.Foundation.Numerics.Vector4
+
+// windows-future
+    !Windows.Foundation.Async*
+    !Windows.Foundation.IAsync*
+
     !Windows.AI.MachineLearning.Preview
     !Windows.ApplicationModel.SocialInfo
     !Windows.ApplicationModel.Store

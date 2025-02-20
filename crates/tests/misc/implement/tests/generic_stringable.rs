@@ -1,9 +1,9 @@
 use windows::core::*;
-use windows::Foundation::Collections::*;
 use windows::Foundation::*;
+use windows_collections::*;
 
 #[implement(
-    windows::Foundation::Collections::IVectorView<windows::Foundation::IStringable>,
+    IVectorView<IStringable>,
 )]
 struct Thing(Vec<IStringable>);
 

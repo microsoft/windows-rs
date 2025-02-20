@@ -160,13 +160,13 @@ impl DisplayMonitor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DisplayMonitor>> {
         Self::IDisplayMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromInterfaceIdAsync(deviceinterfaceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
+    pub fn FromInterfaceIdAsync(deviceinterfaceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DisplayMonitor>> {
         Self::IDisplayMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromInterfaceIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

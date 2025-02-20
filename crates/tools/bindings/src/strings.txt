@@ -2,7 +2,7 @@
 
 --in default
 --out crates/libs/strings/src/bindings.rs
---flat --sys --no-core --no-comment
+--flat --sys --no-deps --no-comment
 
 --filter
     GetProcessHeap

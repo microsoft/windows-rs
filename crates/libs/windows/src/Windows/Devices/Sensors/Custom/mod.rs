@@ -73,7 +73,7 @@ impl CustomSensor {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), interfaceid, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CustomSensor>> {
+    pub fn FromIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<CustomSensor>> {
         Self::ICustomSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sensorid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -108,8 +108,7 @@ impl CustomSensorReading {
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -195,10 +194,7 @@ impl windows_core::RuntimeType for ICustomSensorReading {
 pub struct ICustomSensorReading_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
 }
 windows_core::imp::define_interface!(ICustomSensorReading2, ICustomSensorReading2_Vtbl, 0x223c98ea_bf73_4992_9a48_d3c897594ccb);
 impl windows_core::RuntimeType for ICustomSensorReading2 {

@@ -1,10 +1,8 @@
 use core::convert::*;
 
-use windows::{
-    core::Interface,
-    Foundation::Collections::{IIterable, IVectorView, PropertySet},
-    Foundation::*,
-};
+use windows::{core::Interface, Foundation::Collections::PropertySet, Foundation::*};
+
+use windows_collections::*;
 
 #[test]
 fn uri() -> windows::core::Result<()> {

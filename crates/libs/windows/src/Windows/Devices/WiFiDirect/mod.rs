@@ -7,14 +7,8 @@ impl windows_core::RuntimeType for IWiFiDirectAdvertisement {
 #[repr(C)]
 pub struct IWiFiDirectAdvertisement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub InformationElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InformationElements: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub SetInformationElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetInformationElements: usize,
     pub ListenStateDiscoverability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiDirectAdvertisementListenStateDiscoverability) -> windows_core::HRESULT,
     pub SetListenStateDiscoverability: unsafe extern "system" fn(*mut core::ffi::c_void, WiFiDirectAdvertisementListenStateDiscoverability) -> windows_core::HRESULT,
     pub IsAutonomousGroupOwnerEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -28,10 +22,7 @@ impl windows_core::RuntimeType for IWiFiDirectAdvertisement2 {
 #[repr(C)]
 pub struct IWiFiDirectAdvertisement2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub SupportedConfigurationMethods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedConfigurationMethods: usize,
 }
 windows_core::imp::define_interface!(IWiFiDirectAdvertisementPublisher, IWiFiDirectAdvertisementPublisher_Vtbl, 0xb35a2d1a_9b1f_45d9_925a_694d66df68ef);
 impl windows_core::RuntimeType for IWiFiDirectAdvertisementPublisher {
@@ -84,10 +75,7 @@ impl windows_core::RuntimeType for IWiFiDirectConnectionParameters2 {
 #[repr(C)]
 pub struct IWiFiDirectConnectionParameters2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub PreferenceOrderedConfigurationMethods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PreferenceOrderedConfigurationMethods: usize,
     pub PreferredPairingProcedure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiDirectPairingProcedure) -> windows_core::HRESULT,
     pub SetPreferredPairingProcedure: unsafe extern "system" fn(*mut core::ffi::c_void, WiFiDirectPairingProcedure) -> windows_core::HRESULT,
 }
@@ -135,9 +123,9 @@ pub struct IWiFiDirectDevice_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectionStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveConnectionStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
+    #[cfg(feature = "Networking")]
     pub GetConnectionEndpointPairs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Networking")))]
+    #[cfg(not(feature = "Networking"))]
     GetConnectionEndpointPairs: usize,
 }
 windows_core::imp::define_interface!(IWiFiDirectDeviceStatics, IWiFiDirectDeviceStatics_Vtbl, 0xe86cb57c_3aac_4851_a792_482aaf931b04);
@@ -196,13 +184,13 @@ impl windows_core::RuntimeType for IWiFiDirectInformationElementStatics {
 #[repr(C)]
 pub struct IWiFiDirectInformationElementStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage_Streams")]
     pub CreateFromBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
-    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Devices_Enumeration")]
     pub CreateFromDeviceInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Devices_Enumeration"))]
     CreateFromDeviceInformation: usize,
 }
 windows_core::imp::define_interface!(IWiFiDirectLegacySettings, IWiFiDirectLegacySettings_Vtbl, 0xa64fdbba_f2fd_4567_a91b_f5c2f5321057);
@@ -230,18 +218,16 @@ pub struct IWiFiDirectLegacySettings_Vtbl {
 pub struct WiFiDirectAdvertisement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectAdvertisement, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiDirectAdvertisement {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn InformationElements(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>> {
+    pub fn InformationElements(&self) -> windows_core::Result<windows_collections::IVector<WiFiDirectInformationElement>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InformationElements)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn SetInformationElements<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>>,
+        P0: windows_core::Param<windows_collections::IVector<WiFiDirectInformationElement>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInformationElements)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -275,8 +261,7 @@ impl WiFiDirectAdvertisement {
             (windows_core::Interface::vtable(this).LegacySettings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedConfigurationMethods(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<WiFiDirectConfigurationMethod>> {
+    pub fn SupportedConfigurationMethods(&self) -> windows_core::Result<windows_collections::IVector<WiFiDirectConfigurationMethod>> {
         let this = &windows_core::Interface::cast::<IWiFiDirectAdvertisement2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -499,8 +484,7 @@ impl WiFiDirectConnectionParameters {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetGroupOwnerIntent)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PreferenceOrderedConfigurationMethods(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<WiFiDirectConfigurationMethod>> {
+    pub fn PreferenceOrderedConfigurationMethods(&self) -> windows_core::Result<windows_collections::IVector<WiFiDirectConfigurationMethod>> {
         let this = &windows_core::Interface::cast::<IWiFiDirectConnectionParameters2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -653,8 +637,8 @@ impl WiFiDirectDevice {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveConnectionStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
-    pub fn GetConnectionEndpointPairs(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Networking::EndpointPair>> {
+    #[cfg(feature = "Networking")]
+    pub fn GetConnectionEndpointPairs(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Networking::EndpointPair>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -667,7 +651,7 @@ impl WiFiDirectDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiDirectDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectDevice>> {
         Self::IWiFiDirectDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -680,7 +664,7 @@ impl WiFiDirectDevice {
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn FromIdAsync2<P1>(deviceid: &windows_core::HSTRING, connectionparameters: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiDirectDevice>>
+    pub fn FromIdAsync2<P1>(deviceid: &windows_core::HSTRING, connectionparameters: P1) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectDevice>>
     where
         P1: windows_core::Param<WiFiDirectConnectionParameters>,
     {
@@ -792,8 +776,8 @@ impl WiFiDirectInformationElement {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn CreateFromBuffer<P0>(buffer: P0) -> windows_core::Result<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>>
+    #[cfg(feature = "Storage_Streams")]
+    pub fn CreateFromBuffer<P0>(buffer: P0) -> windows_core::Result<windows_collections::IVector<WiFiDirectInformationElement>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -802,8 +786,8 @@ impl WiFiDirectInformationElement {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation_Collections"))]
-    pub fn CreateFromDeviceInformation<P0>(deviceinformation: P0) -> windows_core::Result<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>>
+    #[cfg(feature = "Devices_Enumeration")]
+    pub fn CreateFromDeviceInformation<P0>(deviceinformation: P0) -> windows_core::Result<windows_collections::IVector<WiFiDirectInformationElement>>
     where
         P0: windows_core::Param<super::Enumeration::DeviceInformation>,
     {

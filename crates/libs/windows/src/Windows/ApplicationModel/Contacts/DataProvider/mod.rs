@@ -120,7 +120,7 @@ impl ContactListCreateOrUpdateContactRequest {
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCompletedAsync<P0>(&self, createdorupdatedcontact: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ReportCompletedAsync<P0>(&self, createdorupdatedcontact: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::Contact>,
     {
@@ -130,7 +130,7 @@ impl ContactListCreateOrUpdateContactRequest {
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), createdorupdatedcontact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -201,14 +201,14 @@ impl ContactListDeleteContactRequest {
             (windows_core::Interface::vtable(this).ContactId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -293,7 +293,7 @@ impl ContactListServerSearchReadBatchRequest {
             (windows_core::Interface::vtable(this).SuggestedBatchSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SaveContactAsync<P0>(&self, contact: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn SaveContactAsync<P0>(&self, contact: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::Contact>,
     {
@@ -303,14 +303,14 @@ impl ContactListServerSearchReadBatchRequest {
             (windows_core::Interface::vtable(this).SaveContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self, batchstatus: super::ContactBatchStatus) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self, batchstatus: super::ContactBatchStatus) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -374,14 +374,14 @@ impl ContactListSyncManagerSyncRequest {
             (windows_core::Interface::vtable(this).ContactListId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

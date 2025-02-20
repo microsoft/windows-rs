@@ -1,4 +1,5 @@
-use windows::{Foundation::*, Win32::Foundation::*};
+use windows::Win32::Foundation::*;
+use windows_future::*;
 
 #[test]
 fn test() {

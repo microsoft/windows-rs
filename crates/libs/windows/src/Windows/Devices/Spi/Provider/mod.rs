@@ -212,8 +212,7 @@ impl windows_core::RuntimeType for ISpiProvider {
 }
 windows_core::imp::interface_hierarchy!(ISpiProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ISpiProvider {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>> {
+    pub fn GetControllersAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ISpiControllerProvider>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -221,15 +220,12 @@ impl ISpiProvider {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ISpiProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiProvider";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait ISpiProvider_Impl: windows_core::IUnknownImpl {
-    fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>>;
+    fn GetControllersAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ISpiControllerProvider>>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ISpiProvider_Vtbl {
     pub const fn new<Identity: ISpiProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetControllersAsync<Identity: ISpiProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -254,10 +250,7 @@ impl ISpiProvider_Vtbl {
 #[repr(C)]
 pub struct ISpiProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetControllersAsync: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

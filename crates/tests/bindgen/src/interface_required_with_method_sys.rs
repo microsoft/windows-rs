@@ -20,8 +20,8 @@ pub const IID_IAsyncAction: windows_sys::core::GUID =
 #[repr(C)]
 pub struct IAsyncAction_Vtbl {
     pub base__: windows_sys::core::IInspectable_Vtbl,
-    put_Completed: usize,
-    get_Completed: usize,
+    SetCompleted: usize,
+    Completed: usize,
     pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_sys::core::HRESULT,
 }
 pub const IID_IAsyncInfo: windows_sys::core::GUID =

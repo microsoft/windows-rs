@@ -1,0 +1,12 @@
+--out crates/libs/collections/src/bindings.rs
+--flat
+--no-comment
+
+--filter
+    Windows.Foundation.Collections.IIterable
+    Windows.Foundation.Collections.IIterator
+    Windows.Foundation.Collections.IKeyValuePair
+    Windows.Foundation.Collections.IMap
+    Windows.Foundation.Collections.IMapView
+    Windows.Foundation.Collections.IVector
+    Windows.Foundation.Collections.IVectorView

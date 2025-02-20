@@ -824,8 +824,7 @@ impl windows_core::RuntimeType for IMediaMarkers {
 }
 windows_core::imp::interface_hierarchy!(IMediaMarkers, windows_core::IUnknown, windows_core::IInspectable);
 impl IMediaMarkers {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Markers(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<IMediaMarker>> {
+    pub fn Markers(&self) -> windows_core::Result<windows_collections::IVectorView<IMediaMarker>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -833,15 +832,12 @@ impl IMediaMarkers {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IMediaMarkers {
     const NAME: &'static str = "Windows.Media.IMediaMarkers";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait IMediaMarkers_Impl: windows_core::IUnknownImpl {
-    fn Markers(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<IMediaMarker>>;
+    fn Markers(&self) -> windows_core::Result<windows_collections::IVectorView<IMediaMarker>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IMediaMarkers_Vtbl {
     pub const fn new<Identity: IMediaMarkers_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Markers<Identity: IMediaMarkers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -866,10 +862,7 @@ impl IMediaMarkers_Vtbl {
 #[repr(C)]
 pub struct IMediaMarkers_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Markers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Markers: usize,
 }
 windows_core::imp::define_interface!(IMediaProcessingTriggerDetails, IMediaProcessingTriggerDetails_Vtbl, 0xeb8564ac_a351_4f4e_b4f0_9bf2408993db);
 impl windows_core::RuntimeType for IMediaProcessingTriggerDetails {
@@ -953,10 +946,7 @@ pub struct IMusicDisplayProperties2_Vtbl {
     pub SetAlbumTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TrackNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetTrackNumber: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Genres: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Genres: usize,
 }
 windows_core::imp::define_interface!(IMusicDisplayProperties3, IMusicDisplayProperties3_Vtbl, 0x4db51ac1_0681_4e8c_9401_b8159d9eefc7);
 impl windows_core::RuntimeType for IMusicDisplayProperties3 {
@@ -1149,10 +1139,7 @@ impl windows_core::RuntimeType for IVideoDisplayProperties2 {
 #[repr(C)]
 pub struct IVideoDisplayProperties2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Genres: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Genres: usize,
 }
 windows_core::imp::define_interface!(IVideoEffectsStatics, IVideoEffectsStatics_Vtbl, 0x1fcda5e8_baf1_4521_980c_3bcebb44cf38);
 impl windows_core::RuntimeType for IVideoEffectsStatics {
@@ -1926,8 +1913,7 @@ impl MusicDisplayProperties {
         let this = &windows_core::Interface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTrackNumber)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Genres(&self) -> windows_core::Result<super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Genres(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2456,7 +2442,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CopyFromFileAsync<P1>(&self, r#type: MediaPlaybackType, source: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn CopyFromFileAsync<P1>(&self, r#type: MediaPlaybackType, source: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P1: windows_core::Param<super::Storage::StorageFile>,
     {
@@ -2631,8 +2617,7 @@ impl VideoDisplayProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSubtitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Genres(&self) -> windows_core::Result<super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn Genres(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IVideoDisplayProperties2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2761,7 +2746,7 @@ impl VideoFrame {
             (windows_core::Interface::vtable(this).SoftwareBitmap)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CopyToAsync<P0>(&self, frame: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
+    pub fn CopyToAsync<P0>(&self, frame: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<VideoFrame>,
     {
@@ -2780,7 +2765,7 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn CopyToWithBoundsAsync<P0, P1, P2>(&self, frame: P0, sourcebounds: P1, destinationbounds: P2) -> windows_core::Result<super::Foundation::IAsyncAction>
+    pub fn CopyToWithBoundsAsync<P0, P1, P2>(&self, frame: P0, sourcebounds: P1, destinationbounds: P2) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<VideoFrame>,
         P1: windows_core::Param<super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>,

@@ -12,6 +12,6 @@ fn main() {
         "--no-comment",
         "--flat",
         "--reference",
-        "windows,skip-root,Windows",
+        "windows",
     ]);
 }

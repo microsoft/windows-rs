@@ -78,8 +78,8 @@ impl HttpBaseProtocolFilter {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetClientCertificate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -198,7 +198,7 @@ impl HttpBaseProtocolFilter {
             (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
+    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
     where
         P0: windows_core::Param<super::HttpRequestMessage>,
     {
@@ -334,16 +334,16 @@ impl HttpServerCustomValidationRequestedEventArgs {
             (windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerCertificateErrors(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCertificateErrors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>> {
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -397,9 +397,9 @@ pub struct IHttpBaseProtocolFilter_Vtbl {
     pub SetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     SetClientCertificate: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub IgnorableServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     IgnorableServerCertificateErrors: usize,
     pub MaxConnectionsPerServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetMaxConnectionsPerServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -496,7 +496,7 @@ impl windows_core::RuntimeType for IHttpFilter {
 windows_core::imp::interface_hierarchy!(IHttpFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IHttpFilter, super::super::super::Foundation::IClosable);
 impl IHttpFilter {
-    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
+    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
     where
         P0: windows_core::Param<super::HttpRequestMessage>,
     {
@@ -515,7 +515,7 @@ impl windows_core::RuntimeName for IHttpFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.IHttpFilter";
 }
 pub trait IHttpFilter_Impl: super::super::super::Foundation::IClosable_Impl {
-    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::HttpRequestMessage>) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
+    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::HttpRequestMessage>) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
 }
 impl IHttpFilter_Vtbl {
     pub const fn new<Identity: IHttpFilter_Impl, const OFFSET: isize>() -> Self {
@@ -559,13 +559,13 @@ pub struct IHttpServerCustomValidationRequestedEventArgs_Vtbl {
     pub ServerCertificateErrorSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Networking::Sockets::SocketSslErrorSeverity) -> windows_core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))]
     ServerCertificateErrorSeverity: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerCertificateErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerCertificateErrors: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerIntermediateCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerIntermediateCertificates: usize,
     pub Reject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

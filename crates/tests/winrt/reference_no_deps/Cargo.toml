@@ -1,0 +1,15 @@
+[package]
+name = "test_reference_no_deps"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows-core]
+workspace = true
+
+[build-dependencies.windows-bindgen]
+workspace = true

@@ -61,18 +61,9 @@ pub struct ILearningModel_Vtbl {
     pub Domain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Metadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Metadata: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub InputFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    InputFeatures: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub OutputFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    OutputFeatures: usize,
 }
 windows_core::imp::define_interface!(ILearningModelBinding, ILearningModelBinding_Vtbl, 0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8);
 impl windows_core::RuntimeType for ILearningModelBinding {
@@ -95,10 +86,7 @@ impl windows_core::RuntimeType for ILearningModelBindingFactory {
 #[repr(C)]
 pub struct ILearningModelBindingFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromSession: usize,
 }
 windows_core::imp::define_interface!(ILearningModelDevice, ILearningModelDevice_Vtbl, 0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252);
 impl windows_core::RuntimeType for ILearningModelDevice {
@@ -147,10 +135,7 @@ pub struct ILearningModelEvaluationResult_Vtbl {
     pub CorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ErrorStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Outputs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Outputs: usize,
 }
 windows_core::imp::define_interface!(ILearningModelFeatureDescriptor, ILearningModelFeatureDescriptor_Vtbl, 0xbc08cf7c_6ed0_4004_97ba_b9a2eecd2b4f);
 impl windows_core::RuntimeType for ILearningModelFeatureDescriptor {
@@ -347,22 +332,10 @@ pub struct ILearningModelSession_Vtbl {
     pub EvaluationProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     EvaluationProperties: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub EvaluateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EvaluateAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub EvaluateFeaturesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EvaluateFeaturesAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub Evaluate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Evaluate: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub EvaluateFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EvaluateFeatures: usize,
 }
 windows_core::imp::define_interface!(ILearningModelSessionFactory, ILearningModelSessionFactory_Vtbl, 0x0f6b881d_1c9b_47b6_bfe0_f1cf62a67579);
 impl windows_core::RuntimeType for ILearningModelSessionFactory {
@@ -479,8 +452,7 @@ impl ITensor {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -495,16 +467,13 @@ impl ITensor {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ITensor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ITensor";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait ITensor_Impl: ILearningModelFeatureValue_Impl {
     fn TensorKind(&self) -> windows_core::Result<TensorKind>;
-    fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>>;
+    fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ITensor_Vtbl {
     pub const fn new<Identity: ITensor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TensorKind<Identity: ITensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut TensorKind) -> windows_core::HRESULT {
@@ -546,10 +515,7 @@ impl ITensor_Vtbl {
 pub struct ITensor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TensorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TensorKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Shape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Shape: usize,
 }
 windows_core::imp::define_interface!(ITensorBoolean, ITensorBoolean_Vtbl, 0x50f311ed_29e9_4a5c_a44d_8fc512584eed);
 impl windows_core::RuntimeType for ITensorBoolean {
@@ -558,10 +524,7 @@ impl windows_core::RuntimeType for ITensorBoolean {
 #[repr(C)]
 pub struct ITensorBoolean_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorBooleanStatics, ITensorBooleanStatics_Vtbl, 0x2796862c_2357_49a7_b476_d0aa3dfe6866);
 impl windows_core::RuntimeType for ITensorBooleanStatics {
@@ -571,18 +534,9 @@ impl windows_core::RuntimeType for ITensorBooleanStatics {
 pub struct ITensorBooleanStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorBooleanStatics2, ITensorBooleanStatics2_Vtbl, 0xa3a4a501_6a2d_52d7_b04b_c435baee0115);
 impl windows_core::RuntimeType for ITensorBooleanStatics2 {
@@ -604,10 +558,7 @@ impl windows_core::RuntimeType for ITensorDouble {
 #[repr(C)]
 pub struct ITensorDouble_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorDoubleStatics, ITensorDoubleStatics_Vtbl, 0xa86693c5_9538_44e7_a3ca_5df374a5a70c);
 impl windows_core::RuntimeType for ITensorDoubleStatics {
@@ -617,18 +568,9 @@ impl windows_core::RuntimeType for ITensorDoubleStatics {
 pub struct ITensorDoubleStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorDoubleStatics2, ITensorDoubleStatics2_Vtbl, 0x93a570de_5e9a_5094_85c8_592c655e68ac);
 impl windows_core::RuntimeType for ITensorDoubleStatics2 {
@@ -651,10 +593,7 @@ impl windows_core::RuntimeType for ITensorFeatureDescriptor {
 pub struct ITensorFeatureDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TensorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TensorKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Shape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Shape: usize,
 }
 windows_core::imp::define_interface!(ITensorFloat, ITensorFloat_Vtbl, 0xf2282d82_aa02_42c8_a0c8_df1efc9676e1);
 impl windows_core::RuntimeType for ITensorFloat {
@@ -663,10 +602,7 @@ impl windows_core::RuntimeType for ITensorFloat {
 #[repr(C)]
 pub struct ITensorFloat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorFloat16Bit, ITensorFloat16Bit_Vtbl, 0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a);
 impl windows_core::RuntimeType for ITensorFloat16Bit {
@@ -675,10 +611,7 @@ impl windows_core::RuntimeType for ITensorFloat16Bit {
 #[repr(C)]
 pub struct ITensorFloat16Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorFloat16BitStatics, ITensorFloat16BitStatics_Vtbl, 0xa52db6f5_318a_44d4_820b_0cdc7054a84a);
 impl windows_core::RuntimeType for ITensorFloat16BitStatics {
@@ -688,18 +621,9 @@ impl windows_core::RuntimeType for ITensorFloat16BitStatics {
 pub struct ITensorFloat16BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorFloat16BitStatics2, ITensorFloat16BitStatics2_Vtbl, 0x68545726_2dc7_51bf_b470_0b344cc2a1bc);
 impl windows_core::RuntimeType for ITensorFloat16BitStatics2 {
@@ -722,18 +646,9 @@ impl windows_core::RuntimeType for ITensorFloatStatics {
 pub struct ITensorFloatStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorFloatStatics2, ITensorFloatStatics2_Vtbl, 0x24610bc1_5e44_5713_b281_8f4ad4d555e8);
 impl windows_core::RuntimeType for ITensorFloatStatics2 {
@@ -755,10 +670,7 @@ impl windows_core::RuntimeType for ITensorInt16Bit {
 #[repr(C)]
 pub struct ITensorInt16Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorInt16BitStatics, ITensorInt16BitStatics_Vtbl, 0x98646293_266e_4b1a_821f_e60d70898b91);
 impl windows_core::RuntimeType for ITensorInt16BitStatics {
@@ -768,18 +680,9 @@ impl windows_core::RuntimeType for ITensorInt16BitStatics {
 pub struct ITensorInt16BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorInt16BitStatics2, ITensorInt16BitStatics2_Vtbl, 0x0cd70cf4_696c_5e5f_95d8_5ebf9670148b);
 impl windows_core::RuntimeType for ITensorInt16BitStatics2 {
@@ -801,10 +704,7 @@ impl windows_core::RuntimeType for ITensorInt32Bit {
 #[repr(C)]
 pub struct ITensorInt32Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorInt32BitStatics, ITensorInt32BitStatics_Vtbl, 0x6539864b_52fa_4e35_907c_834cac417b50);
 impl windows_core::RuntimeType for ITensorInt32BitStatics {
@@ -814,18 +714,9 @@ impl windows_core::RuntimeType for ITensorInt32BitStatics {
 pub struct ITensorInt32BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorInt32BitStatics2, ITensorInt32BitStatics2_Vtbl, 0x7c4b079a_e956_5ce0_a3bd_157d9d79b5ec);
 impl windows_core::RuntimeType for ITensorInt32BitStatics2 {
@@ -847,10 +738,7 @@ impl windows_core::RuntimeType for ITensorInt64Bit {
 #[repr(C)]
 pub struct ITensorInt64Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorInt64BitStatics, ITensorInt64BitStatics_Vtbl, 0x9648ad9d_1198_4d74_9517_783ab62b9cc2);
 impl windows_core::RuntimeType for ITensorInt64BitStatics {
@@ -860,18 +748,9 @@ impl windows_core::RuntimeType for ITensorInt64BitStatics {
 pub struct ITensorInt64BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorInt64BitStatics2, ITensorInt64BitStatics2_Vtbl, 0x6d3d9dcb_ff40_5ec2_89fe_084e2b6bc6db);
 impl windows_core::RuntimeType for ITensorInt64BitStatics2 {
@@ -893,10 +772,7 @@ impl windows_core::RuntimeType for ITensorInt8Bit {
 #[repr(C)]
 pub struct ITensorInt8Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorInt8BitStatics, ITensorInt8BitStatics_Vtbl, 0xb1a12284_095c_4c76_a661_ac4cee1f3e8b);
 impl windows_core::RuntimeType for ITensorInt8BitStatics {
@@ -906,18 +782,9 @@ impl windows_core::RuntimeType for ITensorInt8BitStatics {
 pub struct ITensorInt8BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorInt8BitStatics2, ITensorInt8BitStatics2_Vtbl, 0xc0d59637_c468_56fb_9535_c052bdb93dc0);
 impl windows_core::RuntimeType for ITensorInt8BitStatics2 {
@@ -939,10 +806,7 @@ impl windows_core::RuntimeType for ITensorString {
 #[repr(C)]
 pub struct ITensorString_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorStringStatics, ITensorStringStatics_Vtbl, 0x83623324_cf26_4f17_a2d4_20ef8d097d53);
 impl windows_core::RuntimeType for ITensorStringStatics {
@@ -952,18 +816,9 @@ impl windows_core::RuntimeType for ITensorStringStatics {
 pub struct ITensorStringStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::HSTRING, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorStringStatics2, ITensorStringStatics2_Vtbl, 0x9e355ed0_c8e2_5254_9137_0193a3668fd8);
 impl windows_core::RuntimeType for ITensorStringStatics2 {
@@ -981,10 +836,7 @@ impl windows_core::RuntimeType for ITensorUInt16Bit {
 #[repr(C)]
 pub struct ITensorUInt16Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt16BitStatics, ITensorUInt16BitStatics_Vtbl, 0x5df745dd_028a_481a_a27c_c7e6435e52dd);
 impl windows_core::RuntimeType for ITensorUInt16BitStatics {
@@ -994,18 +846,9 @@ impl windows_core::RuntimeType for ITensorUInt16BitStatics {
 pub struct ITensorUInt16BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt16BitStatics2, ITensorUInt16BitStatics2_Vtbl, 0x8af40c64_d69f_5315_9348_490877bbd642);
 impl windows_core::RuntimeType for ITensorUInt16BitStatics2 {
@@ -1027,10 +870,7 @@ impl windows_core::RuntimeType for ITensorUInt32Bit {
 #[repr(C)]
 pub struct ITensorUInt32Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt32BitStatics, ITensorUInt32BitStatics_Vtbl, 0x417c3837_e773_4378_8e7f_0cc33dbea697);
 impl windows_core::RuntimeType for ITensorUInt32BitStatics {
@@ -1040,18 +880,9 @@ impl windows_core::RuntimeType for ITensorUInt32BitStatics {
 pub struct ITensorUInt32BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt32BitStatics2, ITensorUInt32BitStatics2_Vtbl, 0xef1a1f1c_314e_569d_b496_5c8447d20cd2);
 impl windows_core::RuntimeType for ITensorUInt32BitStatics2 {
@@ -1073,10 +904,7 @@ impl windows_core::RuntimeType for ITensorUInt64Bit {
 #[repr(C)]
 pub struct ITensorUInt64Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt64BitStatics, ITensorUInt64BitStatics_Vtbl, 0x7a7e20eb_242f_47cb_a9c6_f602ecfbfee4);
 impl windows_core::RuntimeType for ITensorUInt64BitStatics {
@@ -1086,18 +914,9 @@ impl windows_core::RuntimeType for ITensorUInt64BitStatics {
 pub struct ITensorUInt64BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt64BitStatics2, ITensorUInt64BitStatics2_Vtbl, 0x085a687d_67e1_5b1e_b232_4fabe9ca20b3);
 impl windows_core::RuntimeType for ITensorUInt64BitStatics2 {
@@ -1119,10 +938,7 @@ impl windows_core::RuntimeType for ITensorUInt8Bit {
 #[repr(C)]
 pub struct ITensorUInt8Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt8BitStatics, ITensorUInt8BitStatics_Vtbl, 0x05f67583_bc24_4220_8a41_2dcd8c5ed33c);
 impl windows_core::RuntimeType for ITensorUInt8BitStatics {
@@ -1132,18 +948,9 @@ impl windows_core::RuntimeType for ITensorUInt8BitStatics {
 pub struct ITensorUInt8BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create2: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt8BitStatics2, ITensorUInt8BitStatics2_Vtbl, 0x2ba042d6_373e_5a3a_a2fc_a6c41bd52789);
 impl windows_core::RuntimeType for ITensorUInt8BitStatics2 {
@@ -1335,24 +1142,21 @@ impl LearningModel {
             (windows_core::Interface::vtable(this).Version)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Metadata(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Metadata(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Metadata)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn InputFeatures(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>> {
+    pub fn InputFeatures(&self) -> windows_core::Result<windows_collections::IVectorView<ILearningModelFeatureDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputFeatures)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OutputFeatures(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>> {
+    pub fn OutputFeatures(&self) -> windows_core::Result<windows_collections::IVectorView<ILearningModelFeatureDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1360,7 +1164,7 @@ impl LearningModel {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStorageFileAsync<P0>(modelfile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStorageFileAsync<P0>(modelfile: P0) -> windows_core::Result<windows_future::IAsyncOperation<LearningModel>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -1370,7 +1174,7 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamAsync<P0>(modelstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStreamAsync<P0>(modelstream: P0) -> windows_core::Result<windows_future::IAsyncOperation<LearningModel>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -1396,7 +1200,7 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStorageFileWithOperatorProviderAsync<P0, P1>(modelfile: P0, operatorprovider: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStorageFileWithOperatorProviderAsync<P0, P1>(modelfile: P0, operatorprovider: P1) -> windows_core::Result<windows_future::IAsyncOperation<LearningModel>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<ILearningModelOperatorProvider>,
@@ -1407,7 +1211,7 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamWithOperatorProviderAsync<P0, P1>(modelstream: P0, operatorprovider: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStreamWithOperatorProviderAsync<P0, P1>(modelstream: P0, operatorprovider: P1) -> windows_core::Result<windows_future::IAsyncOperation<LearningModel>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
         P1: windows_core::Param<ILearningModelOperatorProvider>,
@@ -1454,18 +1258,14 @@ impl windows_core::RuntimeName for LearningModel {
 }
 unsafe impl Send for LearningModel {}
 unsafe impl Sync for LearningModel {}
-#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelBinding(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(LearningModelBinding, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( LearningModelBinding , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , super::super::Foundation::Collections:: IMapView < windows_core::HSTRING , windows_core::IInspectable > );
-#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy ! ( LearningModelBinding , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMapView < windows_core::HSTRING , windows_core::IInspectable > );
 impl LearningModelBinding {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
+    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
+        let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1478,6 +1278,7 @@ impl LearningModelBinding {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Bind)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi()).ok() }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn BindWithProperties<P1, P2>(&self, name: &windows_core::HSTRING, value: P1, props: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::IInspectable>,
@@ -1500,28 +1301,28 @@ impl LearningModelBinding {
         })
     }
     pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn Split(&self, first: &mut Option<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>, second: &mut Option<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
     fn ILearningModelBindingFactory<R, F: FnOnce(&ILearningModelBindingFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1529,35 +1330,28 @@ impl LearningModelBinding {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for LearningModelBinding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelBinding>();
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for LearningModelBinding {
     type Vtable = <ILearningModelBinding as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModelBinding as windows_core::Interface>::IID;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for LearningModelBinding {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelBinding";
 }
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Send for LearningModelBinding {}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for LearningModelBinding {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for LearningModelBinding {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &LearningModelBinding {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = windows_collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
@@ -1662,8 +1456,7 @@ impl LearningModelEvaluationResult {
             (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Outputs(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Outputs(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1744,8 +1537,7 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).EvaluationProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EvaluateAsync<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
+    pub fn EvaluateAsync<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LearningModelEvaluationResult>>
     where
         P0: windows_core::Param<LearningModelBinding>,
     {
@@ -1755,10 +1547,9 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).EvaluateAsync)(windows_core::Interface::as_raw(this), bindings.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EvaluateFeaturesAsync<P0>(&self, features: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
+    pub fn EvaluateFeaturesAsync<P0>(&self, features: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LearningModelEvaluationResult>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>,
+        P0: windows_core::Param<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -1766,7 +1557,6 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).EvaluateFeaturesAsync)(windows_core::Interface::as_raw(this), features.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Evaluate<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<LearningModelEvaluationResult>
     where
         P0: windows_core::Param<LearningModelBinding>,
@@ -1777,10 +1567,9 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).Evaluate)(windows_core::Interface::as_raw(this), bindings.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn EvaluateFeatures<P0>(&self, features: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<LearningModelEvaluationResult>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>,
+        P0: windows_core::Param<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
@@ -2036,16 +1825,14 @@ impl TensorBoolean {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<bool>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2058,31 +1845,28 @@ impl TensorBoolean {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorBoolean>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[bool]) -> windows_core::Result<TensorBoolean>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorBoolean>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<bool>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<bool>>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2157,16 +1941,14 @@ impl TensorDouble {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<f64>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<f64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2179,31 +1961,28 @@ impl TensorDouble {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorDouble>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[f64]) -> windows_core::Result<TensorDouble>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorDouble>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<f64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<f64>>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2288,8 +2067,7 @@ impl TensorFeatureDescriptor {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2340,16 +2118,14 @@ impl TensorFloat {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<f32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2362,31 +2138,28 @@ impl TensorFloat {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorFloat>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[f32]) -> windows_core::Result<TensorFloat>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorFloat>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<f32>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<f32>>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2461,16 +2234,14 @@ impl TensorFloat16Bit {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<f32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2483,31 +2254,28 @@ impl TensorFloat16Bit {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorFloat16Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[f32]) -> windows_core::Result<TensorFloat16Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorFloat16Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<f32>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<f32>>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2582,16 +2350,14 @@ impl TensorInt16Bit {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i16>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<i16>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2604,31 +2370,28 @@ impl TensorInt16Bit {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt16Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[i16]) -> windows_core::Result<TensorInt16Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt16Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<i16>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<i16>>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2703,16 +2466,14 @@ impl TensorInt32Bit {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2725,31 +2486,28 @@ impl TensorInt32Bit {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt32Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[i32]) -> windows_core::Result<TensorInt32Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt32Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<i32>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<i32>>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2824,16 +2582,14 @@ impl TensorInt64Bit {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2846,31 +2602,28 @@ impl TensorInt64Bit {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt64Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[i64]) -> windows_core::Result<TensorInt64Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt64Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2945,16 +2698,14 @@ impl TensorInt8Bit {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2967,31 +2718,28 @@ impl TensorInt8Bit {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt8Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u8]) -> windows_core::Result<TensorInt8Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt8Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<u8>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<u8>>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3093,16 +2841,14 @@ impl TensorString {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3115,31 +2861,28 @@ impl TensorString {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorString>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[windows_core::HSTRING]) -> windows_core::Result<TensorString>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorString>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3204,16 +2947,14 @@ impl TensorUInt16Bit {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u16>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<u16>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3226,31 +2967,28 @@ impl TensorUInt16Bit {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt16Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u16]) -> windows_core::Result<TensorUInt16Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt16Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<u16>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<u16>>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3325,16 +3063,14 @@ impl TensorUInt32Bit {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3347,31 +3083,28 @@ impl TensorUInt32Bit {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt32Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u32]) -> windows_core::Result<TensorUInt32Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt32Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<u32>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<u32>>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3446,16 +3179,14 @@ impl TensorUInt64Bit {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u64>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<u64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3468,31 +3199,28 @@ impl TensorUInt64Bit {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt64Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u64]) -> windows_core::Result<TensorUInt64Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt64Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<u64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<u64>>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3567,16 +3295,14 @@ impl TensorUInt8Bit {
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsVectorView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
+    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3589,31 +3315,28 @@ impl TensorUInt8Bit {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt8Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u8]) -> windows_core::Result<TensorUInt8Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt8Bit>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<u8>>,
+        P0: windows_core::Param<windows_collections::IIterable<i64>>,
+        P1: windows_core::Param<windows_collections::IIterable<u8>>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();

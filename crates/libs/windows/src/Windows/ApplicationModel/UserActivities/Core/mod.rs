@@ -9,7 +9,7 @@ impl CoreUserActivityManager {
             (windows_core::Interface::vtable(this).CreateUserActivitySessionInBackground)(windows_core::Interface::as_raw(this), activity.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn DeleteUserActivitySessionsInTimeRangeAsync<P0>(channel: P0, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn DeleteUserActivitySessionsInTimeRangeAsync<P0>(channel: P0, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::UserActivityChannel>,
     {

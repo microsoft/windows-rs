@@ -1,7 +1,6 @@
 pub struct AppServiceCatalog;
 impl AppServiceCatalog {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAppServiceProvidersAsync(appservicename: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>> {
+    pub fn FindAppServiceProvidersAsync(appservicename: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::AppInfo>>> {
         Self::IAppServiceCatalogStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAppServiceProvidersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -90,7 +89,7 @@ impl AppServiceConnection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn OpenAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>> {
+    pub fn OpenAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<AppServiceConnectionStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -98,7 +97,7 @@ impl AppServiceConnection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SendMessageAsync<P0>(&self, message: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppServiceResponse>>
+    pub fn SendMessageAsync<P0>(&self, message: P0) -> windows_core::Result<windows_future::IAsyncOperation<AppServiceResponse>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {
@@ -137,7 +136,7 @@ impl AppServiceConnection {
         unsafe { (windows_core::Interface::vtable(this).RemoveServiceClosed)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "System_RemoteSystems")]
-    pub fn OpenRemoteAsync<P0>(&self, remotesystemconnectionrequest: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>
+    pub fn OpenRemoteAsync<P0>(&self, remotesystemconnectionrequest: P0) -> windows_core::Result<windows_future::IAsyncOperation<AppServiceConnectionStatus>>
     where
         P0: windows_core::Param<super::super::System::RemoteSystems::RemoteSystemConnectionRequest>,
     {
@@ -164,7 +163,7 @@ impl AppServiceConnection {
         unsafe { (windows_core::Interface::vtable(this).SetUser)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
-    pub fn SendStatelessMessageAsync<P0, P1, P2>(connection: P0, connectionrequest: P1, message: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>>
+    pub fn SendStatelessMessageAsync<P0, P1, P2>(connection: P0, connectionrequest: P1, message: P2) -> windows_core::Result<windows_future::IAsyncOperation<StatelessAppServiceResponse>>
     where
         P0: windows_core::Param<AppServiceConnection>,
         P1: windows_core::Param<super::super::System::RemoteSystems::RemoteSystemConnectionRequest>,
@@ -255,7 +254,7 @@ impl AppServiceRequest {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SendResponseAsync<P0>(&self, message: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>>
+    pub fn SendResponseAsync<P0>(&self, message: P0) -> windows_core::Result<windows_future::IAsyncOperation<AppServiceResponseStatus>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {
@@ -398,7 +397,7 @@ impl AppServiceTriggerDetails {
             (windows_core::Interface::vtable(this).IsRemoteSystemConnection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CheckCallerForCapabilityAsync(&self, capabilityname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn CheckCallerForCapabilityAsync(&self, capabilityname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IAppServiceTriggerDetails3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -432,10 +431,7 @@ impl windows_core::RuntimeType for IAppServiceCatalogStatics {
 #[repr(C)]
 pub struct IAppServiceCatalogStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub FindAppServiceProvidersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAppServiceProvidersAsync: usize,
 }
 windows_core::imp::define_interface!(IAppServiceClosedEventArgs, IAppServiceClosedEventArgs_Vtbl, 0xde6016f6_cb03_4d35_ac8d_cc6303239731);
 impl windows_core::RuntimeType for IAppServiceClosedEventArgs {

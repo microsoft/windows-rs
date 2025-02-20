@@ -1,7 +1,8 @@
 // Implementations of `SetCompleted` must fail with `E_ILLEGAL_DELEGATE_ASSIGNMENT` if they are called twice.
 // Also tests that any error from the handler is ignored by the implementation.
 
-use windows::{core::*, Foundation::*, Win32::Foundation::*};
+use windows::{core::*, Win32::Foundation::*};
+use windows_future::*;
 
 #[test]
 fn action_ready() -> Result<()> {

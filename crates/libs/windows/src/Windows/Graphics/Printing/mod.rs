@@ -115,9 +115,9 @@ impl windows_core::RuntimeType for IPrintTask {
 #[repr(C)]
 pub struct IPrintTask_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel_DataTransfer")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "ApplicationModel_DataTransfer"))]
     Properties: usize,
     pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -171,10 +171,7 @@ impl windows_core::RuntimeType for IPrintTaskOptions2 {
 pub struct IPrintTaskOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PageRangeOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
     pub CustomPageRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CustomPageRanges: usize,
 }
 windows_core::imp::define_interface!(IPrintTaskOptionsCore, IPrintTaskOptionsCore_Vtbl, 0x1bdbb474_4ed1_41eb_be3c_72d18ed67337);
 impl windows_core::RuntimeType for IPrintTaskOptionsCore {
@@ -685,8 +682,7 @@ impl windows_core::RuntimeType for IPrintTaskOptionsCoreUIConfiguration {
 }
 windows_core::imp::interface_hierarchy!(IPrintTaskOptionsCoreUIConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl IPrintTaskOptionsCoreUIConfiguration {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DisplayedOptions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn DisplayedOptions(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -694,15 +690,12 @@ impl IPrintTaskOptionsCoreUIConfiguration {
         }
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IPrintTaskOptionsCoreUIConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptionsCoreUIConfiguration";
 }
-#[cfg(feature = "Foundation_Collections")]
 pub trait IPrintTaskOptionsCoreUIConfiguration_Impl: windows_core::IUnknownImpl {
-    fn DisplayedOptions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>>;
+    fn DisplayedOptions(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>;
 }
-#[cfg(feature = "Foundation_Collections")]
 impl IPrintTaskOptionsCoreUIConfiguration_Vtbl {
     pub const fn new<Identity: IPrintTaskOptionsCoreUIConfiguration_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DisplayedOptions<Identity: IPrintTaskOptionsCoreUIConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -730,10 +723,7 @@ impl IPrintTaskOptionsCoreUIConfiguration_Vtbl {
 #[repr(C)]
 pub struct IPrintTaskOptionsCoreUIConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub DisplayedOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DisplayedOptions: usize,
 }
 windows_core::imp::define_interface!(IPrintTaskProgressingEventArgs, IPrintTaskProgressingEventArgs_Vtbl, 0x810cd3cb_b410_4282_a073_5ac378234174);
 impl windows_core::RuntimeType for IPrintTaskProgressingEventArgs {
@@ -983,7 +973,7 @@ impl PrintManager {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowPrintUIAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ShowPrintUIAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IPrintManagerStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowPrintUIAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1504,7 +1494,7 @@ impl windows_core::RuntimeType for PrintStaple {
 pub struct PrintTask(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTask, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTask {
-    #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections"))]
+    #[cfg(feature = "ApplicationModel_DataTransfer")]
     pub fn Properties(&self) -> windows_core::Result<super::super::ApplicationModel::DataTransfer::DataPackagePropertySet> {
         let this = self;
         unsafe {
@@ -1703,8 +1693,7 @@ impl PrintTaskOptions {
             (windows_core::Interface::vtable(this).PageRangeOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CustomPageRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<PrintPageRange>> {
+    pub fn CustomPageRanges(&self) -> windows_core::Result<windows_collections::IVector<PrintPageRange>> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1853,8 +1842,7 @@ impl PrintTaskOptions {
             (windows_core::Interface::vtable(this).NumberOfCopies)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DisplayedOptions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+    pub fn DisplayedOptions(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreUIConfiguration>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

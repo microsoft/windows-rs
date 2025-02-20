@@ -5,10 +5,7 @@ impl windows_core::RuntimeType for IInstalledVoicesStatic {
 #[repr(C)]
 pub struct IInstalledVoicesStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub AllVoices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllVoices: usize,
     pub DefaultVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInstalledVoicesStatic2, IInstalledVoicesStatic2_Vtbl, 0x64255f2e_358d_4058_be9a_fd3fcb423530);
@@ -30,10 +27,7 @@ impl windows_core::RuntimeType for ISpeechSynthesisStream {
 #[repr(C)]
 pub struct ISpeechSynthesisStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
     pub Markers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Markers: usize,
 }
 windows_core::imp::define_interface!(ISpeechSynthesizer, ISpeechSynthesizer_Vtbl, 0xce9f7c76_97f4_4ced_ad68_d51c458e45c6);
 impl windows_core::RuntimeType for ISpeechSynthesizer {
@@ -160,7 +154,7 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -170,7 +164,7 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -180,7 +174,7 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FlushAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -244,16 +238,14 @@ impl SpeechSynthesisStream {
             (windows_core::Interface::vtable(this).CanWrite)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Markers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::IMediaMarker>> {
+    pub fn Markers(&self) -> windows_core::Result<windows_collections::IVectorView<super::IMediaMarker>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Markers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TimedMetadataTracks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>> {
+    pub fn TimedMetadataTracks(&self) -> windows_core::Result<windows_collections::IVectorView<super::Core::TimedMetadataTrack>> {
         let this = &windows_core::Interface::cast::<super::Core::ITimedMetadataTrackProvider>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -295,8 +287,7 @@ impl SpeechSynthesizer {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllVoices() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<VoiceInformation>> {
+    pub fn AllVoices() -> windows_core::Result<windows_collections::IVectorView<VoiceInformation>> {
         Self::IInstalledVoicesStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllVoices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -308,7 +299,7 @@ impl SpeechSynthesizer {
             (windows_core::Interface::vtable(this).DefaultVoice)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TrySetDefaultVoiceAsync<P0>(voice: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TrySetDefaultVoiceAsync<P0>(voice: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<VoiceInformation>,
     {
@@ -318,7 +309,7 @@ impl SpeechSynthesizer {
         })
     }
     #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
-    pub fn SynthesizeTextToStreamAsync(&self, text: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
+    pub fn SynthesizeTextToStreamAsync(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -326,7 +317,7 @@ impl SpeechSynthesizer {
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
-    pub fn SynthesizeSsmlToStreamAsync(&self, ssml: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
+    pub fn SynthesizeSsmlToStreamAsync(&self, ssml: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
