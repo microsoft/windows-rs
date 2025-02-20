@@ -28,7 +28,9 @@ fn file_not_found() {
 }
 
 #[test]
-#[should_panic(expected = "failed to read file lines `../../../libs/bindgen/default/Windows.winmd`")]
+#[should_panic(
+    expected = "failed to read file lines `../../../libs/bindgen/default/Windows.winmd`"
+)]
 fn not_text_file() {
     bindgen("--etc ../../../libs/bindgen/default/Windows.winmd");
 }
