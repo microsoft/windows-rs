@@ -6,9 +6,9 @@ members = [
     "crates/samples/windows/*",
     "crates/samples/components/*",
     "crates/targets/*",
-    "crates/tests/bindgen",
     "crates/tests/misc/*",
     "crates/tests/winrt/*",
+    "crates/tests/libs/*",
     "crates/tools/*",
 ]
 exclude = [
