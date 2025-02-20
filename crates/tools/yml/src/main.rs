@@ -1,13 +1,12 @@
 use std::fmt::Write;
 
 fn main() {
-    test_yml("test", false);
-    test_yml("raw-dylib", true);
+    test_yml("test");
     clippy_yml();
     no_default_features_yml();
 }
 
-fn test_yml(name: &str, raw_dylib: bool) {
+fn test_yml(name: &str) {
     let mut yml = format!(
         r"name: {name}
 
@@ -22,21 +21,7 @@ on:
       - 'web/**'
     branches:
       - master
-"
-    );
 
-    if raw_dylib {
-        write!(
-            &mut yml,
-            r"
-env:
-  RUSTFLAGS: --cfg windows_raw_dylib
-"
-        )
-        .unwrap();
-    }
-
-    write!(&mut yml, r"
 jobs:
   check:
     runs-on: windows-2022
@@ -80,7 +65,7 @@ jobs:
         run: rustup component add rustfmt
       - name: Fix environment
         uses: ./.github/actions/fix-environment"
-    ).unwrap();
+    );
 
     // This unrolling is required since "cargo test --all" consumes too much memory for the GitHub hosted runners
     // and the occasional "cargo clean" is required to avoid running out of disk space in the same runners.
