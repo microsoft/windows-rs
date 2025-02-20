@@ -45,7 +45,7 @@ use type_name::*;
 use type_tree::*;
 use types::*;
 use value::*;
-pub use warnings::Warnings;
+pub use warnings::*;
 use winmd::*;
 use writer::*;
 mod method_names;
@@ -66,6 +66,7 @@ struct Config {
     pub implement: bool,
     pub derive: Derive,
     pub link: String,
+    pub warnings: WarningBuilder,
 }
 
 /// The Windows code generator.
@@ -203,6 +204,7 @@ where
         sys,
         implement,
         link,
+        warnings: WarningBuilder::default(),
     };
 
     let tree = TypeTree::new(&config.types);
@@ -213,7 +215,7 @@ where
     };
 
     writer.write(tree);
-    warnings::get()
+    config.warnings.build()
 }
 
 enum ArgKind {

@@ -156,14 +156,27 @@ fn failed_to_write_file() {
 #[should_panic(
     expected = "skipping `Windows.Win32.System.Com.IPersistFile.Load` due to missing dependencies:\n  Windows.Win32.System.Com.STGM"
 )]
-fn skip_method() {
-    bindgen("--out out.txt --filter IPersistFile").unwrap();
+fn skip_cpp_method() {
+    let mut path = std::env::temp_dir();
+    path.push("skip_cpp_method");
+
+    windows_bindgen::bindgen(["--out", &path.to_string_lossy(), "--filter", "IPersistFile"])
+        .unwrap();
 }
 
 #[test]
 #[should_panic(
     expected = "skipping `Windows.Foundation.IMemoryBuffer.CreateReference` due to missing dependencies:\n  Windows.Foundation.IMemoryBufferReference"
 )]
-fn skip_cpp_method() {
-    bindgen("--out out.txt --filter IMemoryBuffer").unwrap();
+fn skip_method() {
+    let mut path = std::env::temp_dir();
+    path.push("skip_method");
+
+    windows_bindgen::bindgen([
+        "--out",
+        &path.to_string_lossy(),
+        "--filter",
+        "IMemoryBuffer",
+    ])
+    .unwrap();
 }
