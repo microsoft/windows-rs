@@ -6,7 +6,7 @@ const ERROR_CANCELLED: u32 = 1223;
 const ERROR_INVALID_DATA: u32 = 13;
 const E_CANCELLED: HRESULT = HRESULT::from_win32(ERROR_CANCELLED);
 
-windows_targets::link!("kernel32.dll" "system" fn SetLastError(code: u32));
+windows_link::link!("kernel32.dll" "system" fn SetLastError(code: u32));
 
 #[test]
 fn empty() {

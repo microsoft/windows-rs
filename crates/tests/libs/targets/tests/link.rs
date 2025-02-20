@@ -1,5 +1,3 @@
-#![cfg(test)]
-
 #[test]
 fn min() {
     windows_targets::link!("kernel32.dll" "system" fn SetLastError(code: u32));
@@ -19,17 +17,6 @@ fn link_name() {
     unsafe {
         set_last_error(1234);
         assert_eq!(get_last_error(), 1234);
-    }
-}
-
-#[test]
-fn doc() {
-    windows_targets::link!("kernel32.dll" "system" "SetLastError" fn SetLastError(code: u32) -> ());
-    windows_targets::link!("kernel32.dll" "system" fn GetLastError() -> u32);
-
-    unsafe {
-        SetLastError(1234);
-        assert_eq!(GetLastError(), 1234);
     }
 }
 
