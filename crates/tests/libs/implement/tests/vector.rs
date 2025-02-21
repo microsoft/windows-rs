@@ -75,7 +75,7 @@ where
         self.Size()
     }
     fn GetView(&self) -> Result<IVectorView<T>> {
-        unsafe { self.cast() }
+        Ok(self.to_interface())
     }
     fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
         self.IndexOf(value, result)

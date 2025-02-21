@@ -36,7 +36,6 @@ pub fn implement(
     original_type: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
-    let interfaces_len = proc_macro2::Literal::usize_unsuffixed(attributes.implement.len());
 
     let identity_type = if let Some(first) = attributes.implement.first() {
         first.to_ident()
@@ -325,22 +324,6 @@ pub fn implement(
             }
 
             const INNER_OFFSET_IN_POINTERS: usize = #offset_of_this_in_pointers_token;
-        }
-
-        impl #generics #original_ident::#generics where #constraints {
-            /// Try casting as the provided interface
-            ///
-            /// # Safety
-            ///
-            /// This function can only be safely called if `self` has been heap allocated and pinned using
-            /// the mechanisms provided by `implement` macro.
-            #[inline(always)]
-            unsafe fn cast<I: ::windows_core::Interface>(&self) -> ::windows_core::Result<I> {
-                let boxed = (self as *const _ as *const *mut ::core::ffi::c_void).sub(1 + #interfaces_len) as *mut #impl_ident::#generics;
-                let mut result = ::core::ptr::null_mut();
-                _ = <#impl_ident::#generics as ::windows_core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result);
-                ::windows_core::Type::from_abi(result)
-            }
         }
 
         impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IUnknown where #constraints {
