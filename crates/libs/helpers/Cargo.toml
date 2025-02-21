@@ -5,6 +5,5 @@ edition = "2021"
 publish = false
 
 [dependencies]
-regex = "1.7"
-windows-bindgen = { workspace = true }
+regex = "1.11"
 windows-link = { workspace = true }
