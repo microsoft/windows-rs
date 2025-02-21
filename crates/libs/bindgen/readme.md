@@ -9,11 +9,11 @@ The [windows-bindgen](https://crates.io/crates/windows-bindgen) crate automatica
 Start by adding the following to your Cargo.toml file:
 
 ```toml
-[dependencies.windows-targets]
-version = "0.53"
+[dependencies.windows-link]
+version = "0.1"
 
-[dev-dependencies.windows-bindgen]
-version = "0.59"
+[build-dependencies.windows-bindgen]
+version = "0.60"
 ```
 
 Generate Rust bindings in a build script as follows:
