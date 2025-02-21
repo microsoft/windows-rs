@@ -27,3 +27,6 @@ default-features = false
 [dependencies.windows-link]
 version = "0.1.0"
 path = "../link"
+
+[dev-dependencies]
+windows-result = { path = "../result" }
