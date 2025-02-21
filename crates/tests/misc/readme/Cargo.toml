@@ -42,6 +42,9 @@ workspace = true
 [dev-dependencies.windows-strings]
 workspace = true
 
+[dev-dependencies.windows-future]
+workspace = true
+
 [dev-dependencies.cppwinrt]
 workspace = true
 
