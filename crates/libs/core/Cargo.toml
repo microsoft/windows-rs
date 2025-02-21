@@ -1,11 +1,11 @@
 [package]
 name = "windows-core"
-version = "0.59.0"
+version = "0.60.0"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.74"
 license = "MIT OR Apache-2.0"
-description = "Rust for Windows"
+description = "Core type support for COM and Windows"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 categories = ["os::windows-apis"]

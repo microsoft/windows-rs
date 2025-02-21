@@ -35,5 +35,6 @@ fn main() {
         "--implement",
         "--flat",
         "--no-deps",
+        "--no-comment",
     ]);
 }

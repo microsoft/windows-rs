@@ -10,7 +10,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.cppwinrt]
-version = "0.1"
+version = "0.2"
 ```
 
 Use `cppwinrt` function as needed:

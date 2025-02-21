@@ -20,7 +20,7 @@ default = ["std"]
 std = []
 
 [dependencies.windows-core]
-version = "0.59.0"
+version = "0.60.0"
 path = "../core"
 default-features = false
 
