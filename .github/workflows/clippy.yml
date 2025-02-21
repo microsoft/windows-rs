@@ -35,8 +35,6 @@ jobs:
         uses: ./.github/actions/fix-environment
       - name: Clippy cppwinrt
         run:  cargo clippy -p cppwinrt
-      - name: Clippy helpers
-        run:  cargo clippy -p helpers
       - name: Clippy windows
         run:  cargo clippy -p windows
       - name: Clippy windows-bindgen
