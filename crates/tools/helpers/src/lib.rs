@@ -1,33 +1,43 @@
-use regex::Regex;
 use std::path::Path;
+use serde::Deserialize;
 
-pub fn crates<P: AsRef<Path>>(path: P) -> Vec<(String, String)> {
-    let regex = Regex::new(r#"name = "([^"]+)"\sversion = "([^"]+)""#).expect("regex");
-    let mut names = find(path, &regex);
-    names.sort();
-    names
+#[derive(Deserialize)]
+pub struct Crate {
+    pub package: Package,
 }
 
-fn find<P: AsRef<Path>>(path: P, regex: &Regex) -> Vec<(String, String)> {
-    let mut names = vec![];
+#[derive(Deserialize, Ord, PartialOrd, Eq, PartialEq)]
+pub struct Package {
+    pub name: String,
+    pub version: String,
+    #[serde(rename = "rust-version")]
+    pub rust_version: Option<String>,
+}
+
+pub fn crates<P: AsRef<Path>>(path: P) -> Vec<Package> {
+    let mut crates = find(path);
+    crates.sort();
+    crates
+}
+
+fn find<P: AsRef<Path>>(path: P) -> Vec<Package> {
+    let mut crates = vec![];
 
     if let Ok(files) = std::fs::read_dir(path) {
         for file in files.filter_map(|file| file.ok()) {
             if let Ok(file_type) = file.file_type() {
                 if file_type.is_dir() {
-                    names.append(&mut find(file.path(), regex));
+                    crates.append(&mut find(file.path()));
                 } else if file.file_name() == "Cargo.toml" {
                     let text = std::fs::read_to_string(file.path()).expect("Cargo.toml");
-                    let captures = regex.captures(&text).expect("captures");
-                    let name = captures.get(1).expect("name");
-                    let version = captures.get(2).expect("version");
-                    names.push((name.as_str().to_string(), version.as_str().to_string()));
+                    let toml : Crate = toml::from_str(&text).expect("toml");
+                    crates.push(toml.package);
                 }
             }
         }
     }
 
-    names
+    crates
 }
 
 pub fn set_thread_ui_language() {
