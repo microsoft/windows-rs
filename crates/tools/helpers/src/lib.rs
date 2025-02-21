@@ -1,5 +1,5 @@
-use std::path::Path;
 use serde::Deserialize;
+use std::path::Path;
 
 #[derive(Deserialize)]
 pub struct Crate {
@@ -30,7 +30,7 @@ fn find<P: AsRef<Path>>(path: P) -> Vec<Package> {
                     crates.append(&mut find(file.path()));
                 } else if file.file_name() == "Cargo.toml" {
                     let text = std::fs::read_to_string(file.path()).expect("Cargo.toml");
-                    let toml : Crate = toml::from_str(&text).expect("toml");
+                    let toml: Crate = toml::from_str(&text).expect("toml");
                     crates.push(toml.package);
                 }
             }
