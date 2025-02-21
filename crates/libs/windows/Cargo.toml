@@ -27,7 +27,7 @@ targets = []
 rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies.windows-core]
-version = "0.60.0"
+version = "0.60.1"
 path = "../core"
 default-features = false
 
@@ -36,17 +36,17 @@ version = "0.1.0"
 path = "../link"
 
 [dependencies.windows-collections]
-version = "0.1.0"
+version = "0.1.1"
 path = "../collections"
 default-features = false
 
 [dependencies.windows-numerics]
-version = "0.1.0"
+version = "0.1.1"
 path = "../numerics"
 default-features = false
 
 [dependencies.windows-future]
-version = "0.1.0"
+version = "0.1.1"
 path = "../future"
 default-features = false
 
