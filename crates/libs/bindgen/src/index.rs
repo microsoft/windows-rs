@@ -86,9 +86,12 @@ pub fn write() {
 
     for ty in all_types {
         let type_deps = ty.dependencies();
-
         let type_name = ty.type_name();
+
         let namespace = type_name.namespace();
+        if namespace.is_empty() {
+            continue;
+        }
 
         let features: BTreeSet<String> = type_deps
             .keys()
