@@ -31,5 +31,6 @@ fn main() {
         "IStringable",
         "--implement",
         "--flat",
+        "--no-comment",
     ]);
 }

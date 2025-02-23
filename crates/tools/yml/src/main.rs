@@ -1,15 +1,15 @@
 use std::fmt::Write;
 
 fn main() {
-    test_yml("test", false);
-    test_yml("raw-dylib", true);
+    test_yml();
     clippy_yml();
     no_default_features_yml();
+    msrv_yml();
 }
 
-fn test_yml(name: &str, raw_dylib: bool) {
+fn test_yml() {
     let mut yml = format!(
-        r"name: {name}
+        r"name: test
 
 on:
   pull_request:
@@ -22,21 +22,7 @@ on:
       - 'web/**'
     branches:
       - master
-"
-    );
 
-    if raw_dylib {
-        write!(
-            &mut yml,
-            r"
-env:
-  RUSTFLAGS: --cfg windows_raw_dylib
-"
-        )
-        .unwrap();
-    }
-
-    write!(&mut yml, r"
 jobs:
   check:
     runs-on: windows-2022
@@ -80,12 +66,13 @@ jobs:
         run: rustup component add rustfmt
       - name: Fix environment
         uses: ./.github/actions/fix-environment"
-    ).unwrap();
+    );
 
     // This unrolling is required since "cargo test --all" consumes too much memory for the GitHub hosted runners
     // and the occasional "cargo clean" is required to avoid running out of disk space in the same runners.
 
-    for (count, (name, _)) in helpers::crates("crates").iter().enumerate() {
+    for (count, package) in helpers::crates("crates").iter().enumerate() {
+        let name = &package.name;
         if count % 50 == 0 {
             write!(
                 &mut yml,
@@ -117,7 +104,7 @@ jobs:
     )
     .unwrap();
 
-    std::fs::write(format!(".github/workflows/{name}.yml"), yml.as_bytes()).unwrap();
+    std::fs::write(format!(".github/workflows/test.yml"), yml.as_bytes()).unwrap();
 }
 
 fn clippy_yml() {
@@ -160,7 +147,8 @@ jobs:
 
     // This unrolling is required since "cargo clippy --all" consumes too much memory for the GitHub hosted runners.
 
-    for (name, _) in helpers::crates("crates") {
+    for package in helpers::crates("crates/libs") {
+        let name = package.name;
         write!(
             &mut yml,
             r"
@@ -209,7 +197,8 @@ jobs:
         uses: ./.github/actions/fix-environment"
         .to_string();
 
-    for (name, _) in helpers::crates("crates/libs") {
+    for package in helpers::crates("crates/libs") {
+        let name = package.name;
         write!(
             &mut yml,
             r"
@@ -220,4 +209,53 @@ jobs:
     }
 
     std::fs::write(".github/workflows/no-default-features.yml", yml.as_bytes()).unwrap();
+}
+
+fn msrv_yml() {
+    let mut yml = r"name: msrv
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
+    branches:
+      - master
+
+jobs:
+  check:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4"
+        .to_string();
+
+    for package in helpers::crates("crates/libs") {
+        let name = package.name;
+        let version = package.rust_version.expect("rust-version");
+
+        let features = if name == "windows" {
+            // We can't use `--all-features` for the `windows` crate as that would exhaust the available
+            // memory on GitHub VMs so this is just a smoke test for representative Win32 and WinRT APIs.
+            " --features Globalization,Win32_Graphics_Direct2D"
+        } else {
+            " --all-features"
+        };
+
+        write!(
+            &mut yml,
+            r"
+      - name: Rust version
+        run: rustup update --no-self-update {version} && rustup default {version}
+      - name: Check {name}
+        run:  cargo check -p {name}{features}"
+        )
+        .unwrap();
+    }
+
+    std::fs::write(".github/workflows/msrv.yml", yml.as_bytes()).unwrap();
 }

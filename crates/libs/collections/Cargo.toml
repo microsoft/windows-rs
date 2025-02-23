@@ -1,6 +1,6 @@
 [package]
 name = "windows-collections"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.74"
 license = "MIT OR Apache-2.0"
@@ -16,7 +16,7 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows-core]
-version = "0.59.0"
+version = "0.60.1"
 path = "../core"
 default-features = false
 

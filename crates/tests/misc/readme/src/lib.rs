@@ -10,3 +10,5 @@
 #![doc = include_str!("../../../../libs/windows/readme.md")]
 #![doc = include_str!("../../../../libs/link/readme.md")]
 #![doc = include_str!("../../../../libs/collections/readme.md")]
+#![doc = include_str!("../../../../libs/numerics/readme.md")]
+#![doc = include_str!("../../../../libs/future/readme.md")]
