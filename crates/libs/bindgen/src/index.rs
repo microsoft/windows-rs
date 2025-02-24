@@ -63,6 +63,7 @@ impl Index {
                     existing_item.features.push(feature);
                 }
             }
+            existing_item.features.sort();
             return;
         }
 
