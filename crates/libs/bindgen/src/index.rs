@@ -51,18 +51,27 @@ impl Index {
             }
         }
 
+        let features: Vec<usize> = compact
+            .iter()
+            .map(|dep| self.get_or_create_namespace_index(dep))
+            .collect();
+        let items = self.items.entry(namespace_idx).or_default();
+
+        if let Some(existing_item) = items.iter_mut().find(|item| item.name == name) {
+            for &feature in &features {
+                if !existing_item.features.contains(&feature) {
+                    existing_item.features.push(feature);
+                }
+            }
+            return;
+        }
+
         let index_item = IndexItem {
             name: name.to_string(),
-            features: compact
-                .iter()
-                .map(|dep| self.get_or_create_namespace_index(dep))
-                .collect(),
+            features,
         };
 
-        self.items
-            .entry(namespace_idx)
-            .or_default()
-            .push(index_item);
+        items.push(index_item);
     }
 }
 
