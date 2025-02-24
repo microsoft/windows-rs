@@ -117,11 +117,6 @@ pub fn implement(
         quote!()
     };
 
-    // The distance from the beginning of the generated type to the 'this' field, in units of pointers (not bytes).
-    let offset_of_this_in_pointers = 1 + attributes.implement.len();
-    let offset_of_this_in_pointers_token =
-        proc_macro2::Literal::usize_unsuffixed(offset_of_this_in_pointers);
-
     let trust_level = proc_macro2::Literal::usize_unsuffixed(attributes.trust_level);
 
     let conversions = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
@@ -309,11 +304,6 @@ pub fn implement(
                 ::windows_core::HRESULT(0)
             }
 
-            unsafe fn from_inner_ref(inner: &Self::Impl) -> &Self {
-                &*((inner as *const Self::Impl as *const *const ::core::ffi::c_void)
-                    .sub(#offset_of_this_in_pointers_token) as *const Self)
-            }
-
             fn to_object(&self) -> ::windows_core::ComObject<Self::Impl> {
                 self.count.add_ref();
                 unsafe {
@@ -322,8 +312,6 @@ pub fn implement(
                     )
                 }
             }
-
-            const INNER_OFFSET_IN_POINTERS: usize = #offset_of_this_in_pointers_token;
         }
 
         impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IUnknown where #constraints {
