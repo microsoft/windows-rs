@@ -220,7 +220,7 @@ where
     writer.write(tree);
 
     if index {
-        index::write();
+        index::write(&config.types, &format!("{}/features.json", config.output));
     }
 
     config.warnings.build()

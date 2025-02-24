@@ -69,14 +69,9 @@ impl Index {
 const EXCLUDED_NAMESPACES: &[&str] = &["Windows.Foundation", "Windows.Win32.Foundation"];
 
 #[doc(hidden)]
-pub fn write() {
+pub fn write(types: &TypeMap, output: &str) {
     let mut feature_index = Index::new();
-    let reader = Reader::new(expand_input(&["default"]));
-
-    let mut all_types: Vec<_> = reader
-        .values()
-        .flat_map(|types| types.values().flatten())
-        .collect();
+    let mut all_types: Vec<_> = types.values().flatten().collect();
 
     all_types.sort_by(|a, b| {
         let a_name = a.type_name();
@@ -130,8 +125,5 @@ pub fn write() {
         }
     }
 
-    write_to_file(
-        "features.json",
-        serde_json::to_string(&feature_index).unwrap(),
-    );
+    write_to_file(output, serde_json::to_string(&feature_index).unwrap());
 }
