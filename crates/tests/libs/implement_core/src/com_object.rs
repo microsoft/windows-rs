@@ -47,8 +47,7 @@ impl IFoo_Impl for MyApp_Impl {
     }
 
     unsafe fn get_self_as_bar(&self) -> IBar {
-        let outer = MyApp_Impl::from_inner_ref(self);
-        outer.to_interface()
+        self.to_interface()
     }
 
     unsafe fn common(&self) -> u32 {
