@@ -96,6 +96,7 @@ where
     let mut output = String::new();
     let mut sys = false;
     let mut link = "windows_link".to_string();
+    let mut index = false;
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -119,6 +120,7 @@ where
                 "--sys" => sys = true,
                 "--implement" => implement = true,
                 "--link" => kind = ArgKind::Link,
+                "--index" => index = true,
                 _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
@@ -216,7 +218,11 @@ where
     };
 
     writer.write(tree);
-    index::write();
+
+    if index {
+        index::write();
+    }
+
     config.warnings.build()
 }
 
