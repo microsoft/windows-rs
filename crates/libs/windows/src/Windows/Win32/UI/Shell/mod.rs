@@ -19446,7 +19446,7 @@ pub struct IEnumAssocHandlers_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IEnumAssocHandlers_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IAssocHandler>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IAssocHandler>, pceltfetched: *mut u32) -> windows_core::Result<()>;
 }
 impl IEnumAssocHandlers_Vtbl {
     pub const fn new<Identity: IEnumAssocHandlers_Impl, const OFFSET: isize>() -> Self {
@@ -19491,7 +19491,7 @@ pub struct IEnumExplorerCommand_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumExplorerCommand_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, puicommand: windows_core::OutRef<'_, IExplorerCommand>, pceltfetched: *mut u32) -> windows_core::HRESULT;
+    fn Next(&self, celt: u32, puicommand: *mut Option<IExplorerCommand>, pceltfetched: *mut u32) -> windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumExplorerCommand>;
@@ -20122,7 +20122,7 @@ pub struct IEnumShellItems_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumShellItems_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IShellItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IShellItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumShellItems>;
@@ -20200,7 +20200,7 @@ pub struct IEnumSyncMgrConflict_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumSyncMgrConflict_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, ISyncMgrConflict>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<ISyncMgrConflict>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumSyncMgrConflict>;
@@ -20278,7 +20278,7 @@ pub struct IEnumSyncMgrEvents_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumSyncMgrEvents_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, ISyncMgrEvent>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<ISyncMgrEvent>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumSyncMgrEvents>;
@@ -20356,7 +20356,7 @@ pub struct IEnumSyncMgrSyncItems_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumSyncMgrSyncItems_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, ISyncMgrSyncItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<ISyncMgrSyncItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumSyncMgrSyncItems>;
@@ -20434,7 +20434,7 @@ pub struct IEnumTravelLogEntry_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumTravelLogEntry_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, ITravelLogEntry>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<ITravelLogEntry>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumTravelLogEntry>;
@@ -30234,7 +30234,7 @@ pub struct INotifyReplica_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait INotifyReplica_Impl: windows_core::IUnknownImpl {
-    fn YouAreAReplica(&self, ulcotherreplicas: u32, rgpmkotherreplicas: windows_core::OutRef<'_, super::super::System::Com::IMoniker>) -> windows_core::Result<()>;
+    fn YouAreAReplica(&self, ulcotherreplicas: u32, rgpmkotherreplicas: *mut Option<super::super::System::Com::IMoniker>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl INotifyReplica_Vtbl {

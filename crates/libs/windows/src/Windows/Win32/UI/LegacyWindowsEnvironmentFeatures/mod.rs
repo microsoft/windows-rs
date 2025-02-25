@@ -436,7 +436,7 @@ pub struct IReconcilableObject_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IReconcilableObject_Impl: windows_core::IUnknownImpl {
-    fn Reconcile(&self, pinitiator: windows_core::Ref<'_, IReconcileInitiator>, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: windows_core::OutRef<'_, super::super::System::Com::IMoniker>, ploutindex: *mut i32, pstgnewresidues: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IStorage>, pvreserved: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn Reconcile(&self, pinitiator: windows_core::Ref<'_, IReconcileInitiator>, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: *mut Option<super::super::System::Com::IMoniker>, ploutindex: *mut i32, pstgnewresidues: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IStorage>, pvreserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn GetProgressFeedbackMaxEstimate(&self) -> windows_core::Result<u32>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]

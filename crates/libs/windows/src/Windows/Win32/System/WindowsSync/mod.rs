@@ -1647,7 +1647,7 @@ pub struct IEnumSyncProviderConfigUIInfos_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IEnumSyncProviderConfigUIInfos_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cfactories: u32, ppsyncproviderconfiguiinfo: windows_core::OutRef<'_, ISyncProviderConfigUIInfo>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, cfactories: u32, ppsyncproviderconfiguiinfo: *mut Option<ISyncProviderConfigUIInfo>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, cfactories: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumSyncProviderConfigUIInfos>;
@@ -1732,7 +1732,7 @@ pub struct IEnumSyncProviderInfos_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IEnumSyncProviderInfos_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cinstances: u32, ppsyncproviderinfo: windows_core::OutRef<'_, ISyncProviderInfo>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, cinstances: u32, ppsyncproviderinfo: *mut Option<ISyncProviderInfo>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, cinstances: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumSyncProviderInfos>;

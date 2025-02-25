@@ -1054,7 +1054,7 @@ pub struct IEnumITfCompositionView_Vtbl {
 }
 pub trait IEnumITfCompositionView_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumITfCompositionView>;
-    fn Next(&self, ulcount: u32, rgcompositionview: windows_core::OutRef<'_, ITfCompositionView>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgcompositionview: *mut Option<ITfCompositionView>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1210,7 +1210,7 @@ pub struct IEnumTfCandidates_Vtbl {
 }
 pub trait IEnumTfCandidates_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfCandidates>;
-    fn Next(&self, ulcount: u32, ppcand: windows_core::OutRef<'_, ITfCandidateString>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppcand: *mut Option<ITfCandidateString>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1288,7 +1288,7 @@ pub struct IEnumTfContextViews_Vtbl {
 }
 pub trait IEnumTfContextViews_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfContextViews>;
-    fn Next(&self, ulcount: u32, rgviews: windows_core::OutRef<'_, ITfContextView>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgviews: *mut Option<ITfContextView>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1366,7 +1366,7 @@ pub struct IEnumTfContexts_Vtbl {
 }
 pub trait IEnumTfContexts_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfContexts>;
-    fn Next(&self, ulcount: u32, rgcontext: windows_core::OutRef<'_, ITfContext>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgcontext: *mut Option<ITfContext>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1444,7 +1444,7 @@ pub struct IEnumTfDisplayAttributeInfo_Vtbl {
 }
 pub trait IEnumTfDisplayAttributeInfo_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfDisplayAttributeInfo>;
-    fn Next(&self, ulcount: u32, rginfo: windows_core::OutRef<'_, ITfDisplayAttributeInfo>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rginfo: *mut Option<ITfDisplayAttributeInfo>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1522,7 +1522,7 @@ pub struct IEnumTfDocumentMgrs_Vtbl {
 }
 pub trait IEnumTfDocumentMgrs_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfDocumentMgrs>;
-    fn Next(&self, ulcount: u32, rgdocumentmgr: windows_core::OutRef<'_, ITfDocumentMgr>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgdocumentmgr: *mut Option<ITfDocumentMgr>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1600,7 +1600,7 @@ pub struct IEnumTfFunctionProviders_Vtbl {
 }
 pub trait IEnumTfFunctionProviders_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfFunctionProviders>;
-    fn Next(&self, ulcount: u32, ppcmdobj: windows_core::OutRef<'_, ITfFunctionProvider>, pcfetch: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppcmdobj: *mut Option<ITfFunctionProvider>, pcfetch: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1763,7 +1763,7 @@ pub struct IEnumTfLangBarItems_Vtbl {
 }
 pub trait IEnumTfLangBarItems_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfLangBarItems>;
-    fn Next(&self, ulcount: u32, ppitem: windows_core::OutRef<'_, ITfLangBarItem>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppitem: *mut Option<ITfLangBarItem>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1997,7 +1997,7 @@ pub struct IEnumTfProperties_Vtbl {
 }
 pub trait IEnumTfProperties_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfProperties>;
-    fn Next(&self, ulcount: u32, ppprop: windows_core::OutRef<'_, ITfProperty>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppprop: *mut Option<ITfProperty>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -2160,7 +2160,7 @@ pub struct IEnumTfRanges_Vtbl {
 }
 pub trait IEnumTfRanges_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfRanges>;
-    fn Next(&self, ulcount: u32, pprange: windows_core::OutRef<'_, ITfRange>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, pprange: *mut Option<ITfRange>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -2238,7 +2238,7 @@ pub struct IEnumTfUIElements_Vtbl {
 }
 pub trait IEnumTfUIElements_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfUIElements>;
-    fn Next(&self, ulcount: u32, ppelement: windows_core::OutRef<'_, ITfUIElement>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppelement: *mut Option<ITfUIElement>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }

@@ -9296,7 +9296,7 @@ unsafe impl Sync for ID2D1GeometryGroup {}
 pub trait ID2D1GeometryGroup_Impl: ID2D1Geometry_Impl {
     fn GetFillMode(&self) -> Common::D2D1_FILL_MODE;
     fn GetSourceGeometryCount(&self) -> u32;
-    fn GetSourceGeometries(&self, geometries: windows_core::OutRef<'_, ID2D1Geometry>, geometriescount: u32);
+    fn GetSourceGeometries(&self, geometries: *mut Option<ID2D1Geometry>, geometriescount: u32);
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1GeometryGroup_Vtbl {

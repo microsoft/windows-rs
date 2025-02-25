@@ -2233,7 +2233,7 @@ pub struct IEnumAddress_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAddress_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITAddress>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITAddress>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumAddress>;
@@ -2736,7 +2736,7 @@ pub struct IEnumCallHub_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumCallHub_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITCallHub>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITCallHub>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumCallHub>;
@@ -2984,7 +2984,7 @@ pub struct IEnumDirectory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumDirectory_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITDirectory>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITDirectory>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDirectory>;
@@ -3069,7 +3069,7 @@ pub struct IEnumDirectoryObject_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumDirectoryObject_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, pval: windows_core::OutRef<'_, ITDirectoryObject>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, pval: *mut Option<ITDirectoryObject>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDirectoryObject>;
@@ -3324,7 +3324,7 @@ pub struct IEnumPhone_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPhone_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITPhone>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITPhone>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPhone>;
@@ -3409,7 +3409,7 @@ pub struct IEnumPluggableSuperclassInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPluggableSuperclassInfo_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITPluggableTerminalSuperclassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITPluggableTerminalSuperclassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPluggableSuperclassInfo>;
@@ -3494,7 +3494,7 @@ pub struct IEnumPluggableTerminalClassInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPluggableTerminalClassInfo_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITPluggableTerminalClassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITPluggableTerminalClassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPluggableTerminalClassInfo>;

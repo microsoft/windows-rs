@@ -2935,7 +2935,7 @@ pub struct IRTCEnumBuddies_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumBuddies_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, IRTCBuddy>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCBuddy>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumBuddies>;
@@ -3013,7 +3013,7 @@ pub struct IRTCEnumGroups_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumGroups_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, IRTCBuddyGroup>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCBuddyGroup>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumGroups>;
@@ -3091,7 +3091,7 @@ pub struct IRTCEnumParticipants_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumParticipants_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, IRTCParticipant>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCParticipant>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumParticipants>;
@@ -3169,7 +3169,7 @@ pub struct IRTCEnumPresenceDevices_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumPresenceDevices_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, IRTCPresenceDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCPresenceDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumPresenceDevices>;
@@ -3247,7 +3247,7 @@ pub struct IRTCEnumProfiles_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumProfiles_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, IRTCProfile>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCProfile>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumProfiles>;
@@ -3325,7 +3325,7 @@ pub struct IRTCEnumUserSearchResults_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumUserSearchResults_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, IRTCUserSearchResult>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCUserSearchResult>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumUserSearchResults>;
@@ -3403,7 +3403,7 @@ pub struct IRTCEnumWatchers_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumWatchers_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, IRTCWatcher>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCWatcher>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumWatchers>;

@@ -152,7 +152,7 @@ pub struct IEnumPortableDeviceConnectors_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumPortableDeviceConnectors_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, crequested: u32, pconnectors: windows_core::OutRef<'_, IPortableDeviceConnector>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, crequested: u32, pconnectors: *mut Option<IPortableDeviceConnector>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, cconnectors: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPortableDeviceConnectors>;

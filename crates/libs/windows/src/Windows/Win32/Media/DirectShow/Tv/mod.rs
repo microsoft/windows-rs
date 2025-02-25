@@ -15553,7 +15553,7 @@ pub struct IEnumComponentTypes_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumComponentTypes_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IComponentType>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IComponentType>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumComponentTypes>;
@@ -15638,7 +15638,7 @@ pub struct IEnumComponents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumComponents_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IComponent>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IComponent>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumComponents>;
@@ -16049,7 +16049,7 @@ pub struct IEnumTuningSpaces_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumTuningSpaces_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, ITuningSpace>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<ITuningSpace>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumTuningSpaces>;

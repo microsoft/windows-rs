@@ -61,7 +61,7 @@ pub struct IEnumWbemClassObject_Vtbl {
 }
 pub trait IEnumWbemClassObject_Impl: windows_core::IUnknownImpl {
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Next(&self, ltimeout: i32, ucount: u32, apobjects: windows_core::OutRef<'_, IWbemClassObject>, pureturned: *mut u32) -> windows_core::HRESULT;
+    fn Next(&self, ltimeout: i32, ucount: u32, apobjects: *mut Option<IWbemClassObject>, pureturned: *mut u32) -> windows_core::HRESULT;
     fn NextAsync(&self, ucount: u32, psink: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumWbemClassObject>;
     fn Skip(&self, ltimeout: i32, ncount: u32) -> windows_core::HRESULT;
@@ -6629,7 +6629,7 @@ pub struct IWbemHiPerfEnum_Vtbl {
 pub trait IWbemHiPerfEnum_Impl: windows_core::IUnknownImpl {
     fn AddObjects(&self, lflags: i32, unumobjects: u32, apids: *const i32, apobj: *const Option<IWbemObjectAccess>) -> windows_core::Result<()>;
     fn RemoveObjects(&self, lflags: i32, unumobjects: u32, apids: *const i32) -> windows_core::Result<()>;
-    fn GetObjects(&self, lflags: i32, unumobjects: u32, apobj: windows_core::OutRef<'_, IWbemObjectAccess>, pureturned: *mut u32) -> windows_core::Result<()>;
+    fn GetObjects(&self, lflags: i32, unumobjects: u32, apobj: *mut Option<IWbemObjectAccess>, pureturned: *mut u32) -> windows_core::Result<()>;
     fn RemoveAll(&self, lflags: i32) -> windows_core::Result<()>;
 }
 impl IWbemHiPerfEnum_Vtbl {
@@ -6744,7 +6744,7 @@ pub trait IWbemHiPerfProvider_Impl: windows_core::IUnknownImpl {
     fn CreateRefreshableObject(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, ptemplate: windows_core::Ref<'_, IWbemObjectAccess>, prefresher: windows_core::Ref<'_, IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>, pprefreshable: windows_core::OutRef<'_, IWbemObjectAccess>, plid: *mut i32) -> windows_core::Result<()>;
     fn StopRefreshing(&self, prefresher: windows_core::Ref<'_, IWbemRefresher>, lid: i32, lflags: i32) -> windows_core::Result<()>;
     fn CreateRefreshableEnum(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, wszclass: &windows_core::PCWSTR, prefresher: windows_core::Ref<'_, IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>, phiperfenum: windows_core::Ref<'_, IWbemHiPerfEnum>) -> windows_core::Result<i32>;
-    fn GetObjects(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, lnumobjects: i32, apobj: windows_core::OutRef<'_, IWbemObjectAccess>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<()>;
+    fn GetObjects(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, lnumobjects: i32, apobj: *mut Option<IWbemObjectAccess>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<()>;
 }
 impl IWbemHiPerfProvider_Vtbl {
     pub const fn new<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>() -> Self {
