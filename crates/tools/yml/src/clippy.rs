@@ -37,7 +37,7 @@ jobs:
         let name = &package.name;
 
         // Tests are skipped since there's a lot of noise from some tests that are not useful/relevant to correct.
-        if name.starts_with("test_") {
+        if name.starts_with("test_") || name.starts_with("sample_") {
             continue;
         }
 
