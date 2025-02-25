@@ -15,53 +15,62 @@ on:
 jobs:
   check:
     runs-on: windows-2022
-
-    strategy:
-      matrix:
-        include:
-          - version: nightly
-            target: x86_64-pc-windows-msvc
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Update toolchain
-        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
+        run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Add toolchain target
-        run: rustup target add ${{ matrix.target }}
+        run: rustup target add x86_64-pc-windows-msvc
       - name: Install clippy
         run: rustup component add clippy
       - name: Fix environment
         uses: ./.github/actions/fix-environment
-      - name: Clippy cppwinrt
+      - name: Check cppwinrt
         run:  cargo clippy -p cppwinrt
-      - name: Clippy windows
+      - name: Check windows
         run:  cargo clippy -p windows
-      - name: Clippy windows-bindgen
+      - name: Check windows-bindgen
         run:  cargo clippy -p windows-bindgen
-      - name: Clippy windows-collections
+      - name: Check windows-collections
         run:  cargo clippy -p windows-collections
-      - name: Clippy windows-core
+      - name: Check windows-core
         run:  cargo clippy -p windows-core
-      - name: Clippy windows-future
+      - name: Check windows-future
         run:  cargo clippy -p windows-future
-      - name: Clippy windows-implement
+      - name: Check windows-implement
         run:  cargo clippy -p windows-implement
-      - name: Clippy windows-interface
+      - name: Check windows-interface
         run:  cargo clippy -p windows-interface
-      - name: Clippy windows-link
+      - name: Check windows-link
         run:  cargo clippy -p windows-link
-      - name: Clippy windows-numerics
+      - name: Check windows-numerics
         run:  cargo clippy -p windows-numerics
-      - name: Clippy windows-registry
+      - name: Check windows-registry
         run:  cargo clippy -p windows-registry
-      - name: Clippy windows-result
+      - name: Check windows-result
         run:  cargo clippy -p windows-result
-      - name: Clippy windows-strings
+      - name: Check windows-strings
         run:  cargo clippy -p windows-strings
-      - name: Clippy windows-sys
+      - name: Check windows-sys
         run:  cargo clippy -p windows-sys
-      - name: Clippy windows-targets
+      - name: Check windows-targets
         run:  cargo clippy -p windows-targets
-      - name: Clippy windows-version
+      - name: Check windows-version
         run:  cargo clippy -p windows-version
+      - name: Check helpers
+        run:  cargo clippy -p helpers
+      - name: Check tool_bindgen
+        run:  cargo clippy -p tool_bindgen
+      - name: Check tool_bindings
+        run:  cargo clippy -p tool_bindings
+      - name: Check tool_gnu
+        run:  cargo clippy -p tool_gnu
+      - name: Check tool_license
+        run:  cargo clippy -p tool_license
+      - name: Check tool_msvc
+        run:  cargo clippy -p tool_msvc
+      - name: Check tool_standalone
+        run:  cargo clippy -p tool_standalone
+      - name: Check tool_yml
+        run:  cargo clippy -p tool_yml
