@@ -24,7 +24,6 @@ pub(crate) fn gen_all(inputs: &ImplementInputs) -> Vec<syn::Item> {
     items.push(gen_impl_impl(inputs));
     items.push(gen_iunknown_impl(inputs));
     items.push(gen_impl_com_object_inner(inputs));
-    items.extend(gen_impl_from(inputs));
     items.extend(gen_impl_com_object_interfaces(inputs));
 
     for (i, interface_chain) in inputs.interface_chains.iter().enumerate() {
@@ -418,76 +417,6 @@ fn gen_into_static(inputs: &ImplementInputs) -> syn::ImplItem {
             ::windows_core::StaticComObject::from_outer(self.into_outer())
         }
     }
-}
-
-/// Generates `From`-based conversions.
-///
-/// These conversions convert from the user's type `T` to `ComObject<T>` or to an interface
-/// implemented by `T`. These conversions are shorthand for calling `ComObject::new(value)`.
-///
-/// We can only generate conversions from `T` to the roots of each interface chain. We can't
-/// generate `From` conversions from `T` to an interface that is inherited by an interface chain,
-/// because this proc macro does not have access to any information about the inheritance chain
-/// of interfaces that are referenced.
-///
-/// For example:
-///
-/// ```rust,ignore
-/// #[implement(IFoo3)]
-/// struct MyType;
-/// ```
-///
-/// If `IFoo3` inherits from `IFoo2`, then this code will _not_ generate a conversion for `IFoo2`.
-/// However, user code can still do this:
-///
-/// ```rust,ignore
-/// let ifoo2 = IFoo3::from(MyType).into();
-/// ```
-///
-/// This works because the `IFoo3` type has an `Into` impl for `IFoo2`.
-fn gen_impl_from(inputs: &ImplementInputs) -> Vec<syn::Item> {
-    let mut items = Vec::new();
-
-    let original_ident = &inputs.original_type.ident;
-    let generics = &inputs.generics;
-    let constraints = &inputs.constraints;
-
-    items.push(parse_quote! {
-        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IUnknown where #constraints {
-            #[inline(always)]
-            fn from(this: #original_ident::#generics) -> Self {
-                let com_object = ::windows_core::ComObject::new(this);
-                com_object.into_interface()
-            }
-        }
-    });
-
-    items.push(parse_quote! {
-        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IInspectable where #constraints {
-            #[inline(always)]
-            fn from(this: #original_ident::#generics) -> Self {
-                let com_object = ::windows_core::ComObject::new(this);
-                com_object.into_interface()
-            }
-        }
-    });
-
-    for interface_chain in inputs.interface_chains.iter() {
-        let interface_ident = interface_chain.implement.to_ident();
-
-        items.push(parse_quote_spanned! {
-            interface_chain.implement.span =>
-            impl #generics ::core::convert::From<#original_ident::#generics> for #interface_ident where #constraints {
-                #[inline(always)]
-                fn from(this: #original_ident::#generics) -> Self {
-                    let com_object = ::windows_core::ComObject::new(this);
-                    com_object.into_interface()
-                }
-            }
-        });
-    }
-
-    items
 }
 
 /// Generates the `ComObjectInterface` implementation for each interface chain.
