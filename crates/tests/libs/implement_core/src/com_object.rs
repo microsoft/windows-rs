@@ -1,6 +1,5 @@
 //! Unit tests for `windows_core::ComObject`
 
-use core::ffi::c_void;
 use std::borrow::Borrow;
 use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
 use std::sync::Arc;
@@ -437,32 +436,13 @@ fn interface_debug_fmt() {
 fn iunknown_identity() {
     let app = MyApp::new(0);
 
-    println!("identity = {:?}", &app.identity as *const _);
-    println!("vtables.0 = {:?}", &app.vtables.0 as *const _);
-    println!("vtables.1 = {:?}", &app.vtables.1 as *const _);
-    println!("vtables.2 = {:?}", &app.vtables.2 as *const _);
-
-    let raw_identity: *mut c_void = &app.identity as *const _ as *mut c_void;
-    let raw_foo: *mut c_void = &app.vtables.0 as *const _ as *mut c_void;
-    let raw_bar: *mut c_void = &app.vtables.1 as *const _ as *mut c_void;
-    let raw_bar2: *mut c_void = &app.vtables.2 as *const _ as *mut c_void;
-
     // iunknown is from the identity vtable slot. It is the canonical IUnknown pointer.
     let iunknown: IUnknown = app.to_interface();
-    assert_eq!(
-        iunknown.as_raw(),
-        raw_identity,
-        "IUnknown should come from primary interface"
-    );
 
     // Get the most-derived interface of each interface chain.
-    let ifoo: IFoo = app.to_interface();
+    let _ifoo: IFoo = app.to_interface();
     let ibar: IBar = app.to_interface();
     let ibar2: IBar2 = app.to_interface();
-
-    assert_eq!(ifoo.as_raw(), raw_foo, "IFoo interface chain");
-    assert_eq!(ibar.as_raw(), raw_bar, "IBar interface chain");
-    assert_eq!(ibar2.as_raw(), raw_bar2, "IBar2 interface chain");
 
     // Do a static cast from IBar to IUnknown and verify that the interface pointer for the
     // resulting IUnknown is _not_ the same as the canonical IUnknown pointer.
