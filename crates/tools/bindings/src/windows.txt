@@ -2,6 +2,7 @@
 --out crates/libs/windows
 --package --no-comment --no-allow
 --rustfmt max_width=800,newline_style=Unix
+--index
 
 --filter
     Windows

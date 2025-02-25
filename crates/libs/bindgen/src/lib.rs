@@ -10,6 +10,7 @@ mod derive;
 mod derive_writer;
 mod filter;
 mod guid;
+mod index;
 mod io;
 mod libraries;
 mod param;
@@ -95,6 +96,7 @@ where
     let mut output = String::new();
     let mut sys = false;
     let mut link = "windows_link".to_string();
+    let mut index = false;
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -118,6 +120,7 @@ where
                 "--sys" => sys = true,
                 "--implement" => implement = true,
                 "--link" => kind = ArgKind::Link,
+                "--index" => index = true,
                 _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
@@ -215,6 +218,11 @@ where
     };
 
     writer.write(tree);
+
+    if index {
+        index::write(&config.types, &format!("{}/features.json", config.output));
+    }
+
     config.warnings.build()
 }
 
