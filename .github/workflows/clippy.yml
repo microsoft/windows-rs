@@ -15,53 +15,164 @@ on:
 jobs:
   check:
     runs-on: windows-2022
-
-    strategy:
-      matrix:
-        include:
-          - version: nightly
-            target: x86_64-pc-windows-msvc
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Update toolchain
-        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
+        run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Add toolchain target
-        run: rustup target add ${{ matrix.target }}
+        run: rustup target add x86_64-pc-windows-msvc
       - name: Install clippy
         run: rustup component add clippy
       - name: Fix environment
         uses: ./.github/actions/fix-environment
-      - name: Clippy cppwinrt
+      - name: Check cppwinrt
         run:  cargo clippy -p cppwinrt
-      - name: Clippy windows
+      - name: Check helpers
+        run:  cargo clippy -p helpers
+      - name: Check sample_bits
+        run:  cargo clippy -p sample_bits
+      - name: Check sample_com_uri
+        run:  cargo clippy -p sample_com_uri
+      - name: Check sample_consent
+        run:  cargo clippy -p sample_consent
+      - name: Check sample_core_app
+        run:  cargo clippy -p sample_core_app
+      - name: Check sample_counter
+        run:  cargo clippy -p sample_counter
+      - name: Check sample_counter_sys
+        run:  cargo clippy -p sample_counter_sys
+      - name: Check sample_create_window
+        run:  cargo clippy -p sample_create_window
+      - name: Check sample_create_window_sys
+        run:  cargo clippy -p sample_create_window_sys
+      - name: Check sample_credentials
+        run:  cargo clippy -p sample_credentials
+      - name: Check sample_data_protection
+        run:  cargo clippy -p sample_data_protection
+      - name: Check sample_dcomp
+        run:  cargo clippy -p sample_dcomp
+      - name: Check sample_delay_load
+        run:  cargo clippy -p sample_delay_load
+      - name: Check sample_delay_load_sys
+        run:  cargo clippy -p sample_delay_load_sys
+      - name: Check sample_device_watcher
+        run:  cargo clippy -p sample_device_watcher
+      - name: Check sample_direct2d
+        run:  cargo clippy -p sample_direct2d
+      - name: Check sample_direct3d12
+        run:  cargo clippy -p sample_direct3d12
+      - name: Check sample_enum_windows
+        run:  cargo clippy -p sample_enum_windows
+      - name: Check sample_enum_windows_sys
+        run:  cargo clippy -p sample_enum_windows_sys
+      - name: Check sample_file_dialogs
+        run:  cargo clippy -p sample_file_dialogs
+      - name: Check sample_json_validator
+        run:  cargo clippy -p sample_json_validator
+      - name: Check sample_json_validator_client
+        run:  cargo clippy -p sample_json_validator_client
+      - name: Check sample_json_validator_winrt
+        run:  cargo clippy -p sample_json_validator_winrt
+      - name: Check sample_json_validator_winrt_client
+        run:  cargo clippy -p sample_json_validator_winrt_client
+      - name: Check sample_json_validator_winrt_client_cpp
+        run:  cargo clippy -p sample_json_validator_winrt_client_cpp
+      - name: Check sample_kernel_event
+        run:  cargo clippy -p sample_kernel_event
+      - name: Check sample_memory_buffer
+        run:  cargo clippy -p sample_memory_buffer
+      - name: Check sample_message_box
+        run:  cargo clippy -p sample_message_box
+      - name: Check sample_message_box_sys
+        run:  cargo clippy -p sample_message_box_sys
+      - name: Check sample_ocr
+        run:  cargo clippy -p sample_ocr
+      - name: Check sample_overlapped
+        run:  cargo clippy -p sample_overlapped
+      - name: Check sample_privileges
+        run:  cargo clippy -p sample_privileges
+      - name: Check sample_privileges_sys
+        run:  cargo clippy -p sample_privileges_sys
+      - name: Check sample_rss
+        run:  cargo clippy -p sample_rss
+      - name: Check sample_shell
+        run:  cargo clippy -p sample_shell
+      - name: Check sample_simple
+        run:  cargo clippy -p sample_simple
+      - name: Check sample_spellchecker
+        run:  cargo clippy -p sample_spellchecker
+      - name: Check sample_task_dialog
+        run:  cargo clippy -p sample_task_dialog
+      - name: Check sample_task_dialog_sys
+        run:  cargo clippy -p sample_task_dialog_sys
+      - name: Check sample_thread_pool_work
+        run:  cargo clippy -p sample_thread_pool_work
+      - name: Check sample_thread_pool_work_sys
+        run:  cargo clippy -p sample_thread_pool_work_sys
+      - name: Check sample_uiautomation
+        run:  cargo clippy -p sample_uiautomation
+      - name: Check sample_wmi
+        run:  cargo clippy -p sample_wmi
+      - name: Check sample_xml
+        run:  cargo clippy -p sample_xml
+      - name: Check tool_bindgen
+        run:  cargo clippy -p tool_bindgen
+      - name: Check tool_bindings
+        run:  cargo clippy -p tool_bindings
+      - name: Check tool_gnu
+        run:  cargo clippy -p tool_gnu
+      - name: Check tool_license
+        run:  cargo clippy -p tool_license
+      - name: Check tool_msvc
+        run:  cargo clippy -p tool_msvc
+      - name: Check tool_standalone
+        run:  cargo clippy -p tool_standalone
+      - name: Check tool_yml
+        run:  cargo clippy -p tool_yml
+      - name: Check windows
         run:  cargo clippy -p windows
-      - name: Clippy windows-bindgen
+      - name: Check windows-bindgen
         run:  cargo clippy -p windows-bindgen
-      - name: Clippy windows-collections
+      - name: Check windows-collections
         run:  cargo clippy -p windows-collections
-      - name: Clippy windows-core
+      - name: Check windows-core
         run:  cargo clippy -p windows-core
-      - name: Clippy windows-future
+      - name: Check windows-future
         run:  cargo clippy -p windows-future
-      - name: Clippy windows-implement
+      - name: Check windows-implement
         run:  cargo clippy -p windows-implement
-      - name: Clippy windows-interface
+      - name: Check windows-interface
         run:  cargo clippy -p windows-interface
-      - name: Clippy windows-link
+      - name: Check windows-link
         run:  cargo clippy -p windows-link
-      - name: Clippy windows-numerics
+      - name: Check windows-numerics
         run:  cargo clippy -p windows-numerics
-      - name: Clippy windows-registry
+      - name: Check windows-registry
         run:  cargo clippy -p windows-registry
-      - name: Clippy windows-result
+      - name: Check windows-result
         run:  cargo clippy -p windows-result
-      - name: Clippy windows-strings
+      - name: Check windows-strings
         run:  cargo clippy -p windows-strings
-      - name: Clippy windows-sys
+      - name: Check windows-sys
         run:  cargo clippy -p windows-sys
-      - name: Clippy windows-targets
+      - name: Check windows-targets
         run:  cargo clippy -p windows-targets
-      - name: Clippy windows-version
+      - name: Check windows-version
         run:  cargo clippy -p windows-version
+      - name: Check windows_aarch64_gnullvm
+        run:  cargo clippy -p windows_aarch64_gnullvm
+      - name: Check windows_aarch64_msvc
+        run:  cargo clippy -p windows_aarch64_msvc
+      - name: Check windows_i686_gnu
+        run:  cargo clippy -p windows_i686_gnu
+      - name: Check windows_i686_gnullvm
+        run:  cargo clippy -p windows_i686_gnullvm
+      - name: Check windows_i686_msvc
+        run:  cargo clippy -p windows_i686_msvc
+      - name: Check windows_x86_64_gnu
+        run:  cargo clippy -p windows_x86_64_gnu
+      - name: Check windows_x86_64_gnullvm
+        run:  cargo clippy -p windows_x86_64_gnullvm
+      - name: Check windows_x86_64_msvc
+        run:  cargo clippy -p windows_x86_64_msvc
