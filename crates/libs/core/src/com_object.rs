@@ -40,6 +40,14 @@ pub trait ComObjectInner: Sized {
     /// This ensures that our requirement -- that safe Rust code never own a `<foo>_Impl` value
     /// directly -- is met.
     fn into_object(self) -> ComObject<Self>;
+
+    ///
+    fn into_interface<I: Interface>(self) -> I
+    where
+        Self::Outer: ComObjectInterface<I>,
+    {
+        self.into_object().into_interface()
+    }
 }
 
 /// Describes the COM interfaces implemented by a specific COM object.

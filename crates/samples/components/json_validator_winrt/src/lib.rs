@@ -52,7 +52,7 @@ impl bindings::IJsonValidatorFactory_Impl for JsonValidatorFactory_Impl {
         let schema =
             Validator::new(&schema).map_err(|error| Error::new(E_INVALIDARG, error.to_string()))?;
 
-        Ok(JsonValidator { schema }.into())
+        Ok(JsonValidator { schema }.into_interface())
     }
 }
 
