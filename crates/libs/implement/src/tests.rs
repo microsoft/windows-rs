@@ -2,7 +2,12 @@
 //! They don't check the output in any way.
 //!
 //! This exists because of some difficulties of running `cargo expand` against the `#[implement]`
-//! macro.
+//! macro. It's also just really convenient. You can see the output by using `--nocapture` and
+//! you'll probably want to restrict the output to a single thread:
+//!
+//! ```text
+//! cargo test -p windows-implement --lib -- --nocapture --test-threads=1
+//! ```
 
 use std::io::{Read, Write};
 use std::process::{Command, Stdio};
