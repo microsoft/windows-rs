@@ -20,47 +20,27 @@ impl Default for ACTIVE_LATENCY_CONFIGURATION_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACTIVE_LATENCY_CONFIGURATION_0_0 {
     pub _bitfield: u16,
 }
-impl Default for ACTIVE_LATENCY_CONFIGURATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BUCKET_COUNTER {
     pub Reserved: u32,
     pub Trim: u32,
     pub Write: u32,
     pub Read: u32,
 }
-impl Default for BUCKET_COUNTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEBUG_BIT_FIELD {
     pub _bitfield: u16,
 }
-impl Default for DEBUG_BIT_FIELD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSSD_POWER_STATE_DESCRIPTOR {
     pub _bitfield: u8,
-}
-impl Default for DSSD_POWER_STATE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -129,17 +109,12 @@ impl Default for LATENCY_MONITOR_FEATURE_STATUS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LATENCY_MONITOR_FEATURE_STATUS_0_0 {
     pub _bitfield: u8,
 }
-impl Default for LATENCY_MONITOR_FEATURE_STATUS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LATENCY_STAMP {
     pub Trim3: u64,
     pub Write3: u64,
@@ -154,23 +129,13 @@ pub struct LATENCY_STAMP {
     pub Write0: u64,
     pub Read0: u64,
 }
-impl Default for LATENCY_STAMP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LATENCY_STAMP_UNITS {
     pub _bitfield: u16,
 }
-impl Default for LATENCY_STAMP_UNITS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MEASURED_LATENCY {
     pub Trim3: u16,
     pub Write3: u16,
@@ -184,11 +149,6 @@ pub struct MEASURED_LATENCY {
     pub Trim0: u16,
     pub Write0: u16,
     pub Read0: u16,
-}
-impl Default for MEASURED_LATENCY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -261,14 +221,9 @@ impl Default for NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS_0 {
     pub _bitfield: u64,
-}
-impl Default for NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -282,14 +237,9 @@ impl Default for NVME_ADMIN_QUEUE_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_ADMIN_QUEUE_ATTRIBUTES_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_ADMIN_QUEUE_ATTRIBUTES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -303,14 +253,9 @@ impl Default for NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS_0 {
     pub _bitfield: u64,
-}
-impl Default for NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -363,15 +308,10 @@ pub const NVME_ASYNC_NOTICE_PREDICTABLE_LATENCY_EVENT_AGGREGATE_LOG_CHANGE: NVME
 pub const NVME_ASYNC_NOTICE_TELEMETRY_LOG_CHANGED: NVME_ASYNC_EVENT_NOTICE_CODES = NVME_ASYNC_EVENT_NOTICE_CODES(2i32);
 pub const NVME_ASYNC_NOTICE_ZONE_DESCRIPTOR_CHANGED: NVME_ASYNC_EVENT_NOTICE_CODES = NVME_ASYNC_EVENT_NOTICE_CODES(239i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_AUTO_POWER_STATE_TRANSITION_ENTRY {
     pub _bitfield: u32,
     pub Reserved1: u32,
-}
-impl Default for NVME_AUTO_POWER_STATE_TRANSITION_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NVME_CC_SHN_ABRUPT_SHUTDOWN: NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS = NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS(2i32);
 pub const NVME_CC_SHN_NORMAL_SHUTDOWN: NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS = NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS(1i32);
@@ -391,14 +331,9 @@ impl Default for NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -412,14 +347,9 @@ impl Default for NVME_CDW0_FEATURE_ERROR_INJECTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW0_FEATURE_ERROR_INJECTION_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW0_FEATURE_ERROR_INJECTION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -433,24 +363,14 @@ impl Default for NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
     pub _bitfield: u32,
 }
-impl Default for NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW0_RESERVATION_PERSISTENCE {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW0_RESERVATION_PERSISTENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -464,14 +384,9 @@ impl Default for NVME_CDW10_ABORT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_ABORT_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_ABORT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -485,14 +400,9 @@ impl Default for NVME_CDW10_CREATE_IO_QUEUE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_CREATE_IO_QUEUE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_CREATE_IO_QUEUE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -506,34 +416,19 @@ impl Default for NVME_CDW10_DATASET_MANAGEMENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_DATASET_MANAGEMENT_0 {
     pub _bitfield: u32,
 }
-impl Default for NVME_CDW10_DATASET_MANAGEMENT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_DIRECTIVE_RECEIVE {
     pub NUMD: u32,
 }
-impl Default for NVME_CDW10_DIRECTIVE_RECEIVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_DIRECTIVE_SEND {
     pub NUMD: u32,
-}
-impl Default for NVME_CDW10_DIRECTIVE_SEND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -547,24 +442,14 @@ impl Default for NVME_CDW10_FIRMWARE_ACTIVATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_FIRMWARE_ACTIVATE_0 {
     pub _bitfield: u32,
 }
-impl Default for NVME_CDW10_FIRMWARE_ACTIVATE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_FIRMWARE_DOWNLOAD {
     pub NUMD: u32,
-}
-impl Default for NVME_CDW10_FIRMWARE_DOWNLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -578,14 +463,9 @@ impl Default for NVME_CDW10_FORMAT_NVM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_FORMAT_NVM_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_FORMAT_NVM_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -599,14 +479,9 @@ impl Default for NVME_CDW10_GET_FEATURES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_GET_FEATURES_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_GET_FEATURES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -620,14 +495,9 @@ impl Default for NVME_CDW10_GET_LOG_PAGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_GET_LOG_PAGE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -641,14 +511,9 @@ impl Default for NVME_CDW10_GET_LOG_PAGE_V13 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_GET_LOG_PAGE_V13_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_GET_LOG_PAGE_V13_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -662,14 +527,9 @@ impl Default for NVME_CDW10_IDENTIFY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_IDENTIFY_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_IDENTIFY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -683,14 +543,9 @@ impl Default for NVME_CDW10_RESERVATION_ACQUIRE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_RESERVATION_ACQUIRE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_RESERVATION_ACQUIRE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -704,14 +559,9 @@ impl Default for NVME_CDW10_RESERVATION_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_RESERVATION_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_RESERVATION_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -725,14 +575,9 @@ impl Default for NVME_CDW10_RESERVATION_RELEASE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_RESERVATION_RELEASE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_RESERVATION_RELEASE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -746,14 +591,9 @@ impl Default for NVME_CDW10_RESERVATION_REPORT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_RESERVATION_REPORT_0 {
     pub NUMD: u32,
-}
-impl Default for NVME_CDW10_RESERVATION_REPORT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -767,14 +607,9 @@ impl Default for NVME_CDW10_SANITIZE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_SANITIZE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_SANITIZE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -788,14 +623,9 @@ impl Default for NVME_CDW10_SECURITY_SEND_RECEIVE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_SECURITY_SEND_RECEIVE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW10_SECURITY_SEND_RECEIVE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -809,44 +639,24 @@ impl Default for NVME_CDW10_SET_FEATURES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_SET_FEATURES_0 {
     pub _bitfield: u32,
 }
-impl Default for NVME_CDW10_SET_FEATURES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_ZONE_APPEND {
     pub SLBA: u64,
 }
-impl Default for NVME_CDW10_ZONE_APPEND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_ZONE_MANAGEMENT_RECEIVE {
     pub SLBA: u64,
 }
-impl Default for NVME_CDW10_ZONE_MANAGEMENT_RECEIVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW10_ZONE_MANAGEMENT_SEND {
     pub SLBA: u64,
-}
-impl Default for NVME_CDW10_ZONE_MANAGEMENT_SEND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -860,14 +670,9 @@ impl Default for NVME_CDW11_CREATE_IO_CQ {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_CREATE_IO_CQ_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_CREATE_IO_CQ_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -881,14 +686,9 @@ impl Default for NVME_CDW11_CREATE_IO_SQ {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_CREATE_IO_SQ_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_CREATE_IO_SQ_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -902,14 +702,9 @@ impl Default for NVME_CDW11_DATASET_MANAGEMENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_DATASET_MANAGEMENT_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_DATASET_MANAGEMENT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -923,14 +718,9 @@ impl Default for NVME_CDW11_DIRECTIVE_RECEIVE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_DIRECTIVE_RECEIVE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_DIRECTIVE_RECEIVE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -944,14 +734,9 @@ impl Default for NVME_CDW11_DIRECTIVE_SEND {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_DIRECTIVE_SEND_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_DIRECTIVE_SEND_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -996,14 +781,9 @@ impl Default for NVME_CDW11_FEATURE_ARBITRATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_ARBITRATION_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_ARBITRATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1017,14 +797,9 @@ impl Default for NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1038,14 +813,9 @@ impl Default for NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1059,14 +829,9 @@ impl Default for NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1080,14 +845,9 @@ impl Default for NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1101,14 +861,9 @@ impl Default for NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1122,14 +877,9 @@ impl Default for NVME_CDW11_FEATURE_ERROR_RECOVERY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_ERROR_RECOVERY_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_ERROR_RECOVERY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1143,24 +893,14 @@ impl Default for NVME_CDW11_FEATURE_GET_HOST_METADATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_GET_HOST_METADATA_0 {
     pub _bitfield: u32,
 }
-impl Default for NVME_CDW11_FEATURE_GET_HOST_METADATA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_HOST_IDENTIFIER {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_HOST_IDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1174,14 +914,9 @@ impl Default for NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1195,14 +930,9 @@ impl Default for NVME_CDW11_FEATURE_INTERRUPT_COALESCING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_INTERRUPT_COALESCING_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_INTERRUPT_COALESCING_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1216,14 +946,9 @@ impl Default for NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1237,14 +962,9 @@ impl Default for NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1258,14 +978,9 @@ impl Default for NVME_CDW11_FEATURE_LBA_RANGE_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_LBA_RANGE_TYPE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_LBA_RANGE_TYPE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1279,14 +994,9 @@ impl Default for NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1300,14 +1010,9 @@ impl Default for NVME_CDW11_FEATURE_NUMBER_OF_QUEUES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_NUMBER_OF_QUEUES_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_NUMBER_OF_QUEUES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1321,14 +1026,9 @@ impl Default for NVME_CDW11_FEATURE_POWER_MANAGEMENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_POWER_MANAGEMENT_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_POWER_MANAGEMENT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1342,34 +1042,19 @@ impl Default for NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
     pub _bitfield: u32,
 }
-impl Default for NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK {
     pub _bitfield: u32,
 }
-impl Default for NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1383,14 +1068,9 @@ impl Default for NVME_CDW11_FEATURE_SET_HOST_METADATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_SET_HOST_METADATA_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_SET_HOST_METADATA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1404,14 +1084,9 @@ impl Default for NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1425,14 +1100,9 @@ impl Default for NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1446,14 +1116,9 @@ impl Default for NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1467,24 +1132,14 @@ impl Default for NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL_0 {
     pub _bitfield: u32,
 }
-impl Default for NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_FIRMWARE_DOWNLOAD {
     pub OFST: u32,
-}
-impl Default for NVME_CDW11_FIRMWARE_DOWNLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1498,14 +1153,9 @@ impl Default for NVME_CDW11_GET_LOG_PAGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_GET_LOG_PAGE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1520,25 +1170,15 @@ impl Default for NVME_CDW11_IDENTIFY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_IDENTIFY_0 {
     pub NVMSETID: u16,
     pub Reserved: u16,
 }
-impl Default for NVME_CDW11_IDENTIFY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_IDENTIFY_1 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_IDENTIFY_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1552,14 +1192,9 @@ impl Default for NVME_CDW11_RESERVATION_REPORT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_RESERVATION_REPORT_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW11_RESERVATION_REPORT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1573,34 +1208,19 @@ impl Default for NVME_CDW11_SANITIZE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_SANITIZE_0 {
     pub OVRPAT: u32,
 }
-impl Default for NVME_CDW11_SANITIZE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_SECURITY_RECEIVE {
     pub AL: u32,
 }
-impl Default for NVME_CDW11_SECURITY_RECEIVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW11_SECURITY_SEND {
     pub TL: u32,
-}
-impl Default for NVME_CDW11_SECURITY_SEND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1625,14 +1245,9 @@ impl Default for NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1657,14 +1272,9 @@ impl Default for NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1689,24 +1299,14 @@ impl Default for NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub HSIZE: u32,
 }
-impl Default for NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW12_GET_LOG_PAGE {
     pub LPOL: u32,
-}
-impl Default for NVME_CDW12_GET_LOG_PAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1720,14 +1320,9 @@ impl Default for NVME_CDW12_READ_WRITE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW12_READ_WRITE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW12_READ_WRITE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1741,14 +1336,9 @@ impl Default for NVME_CDW12_ZONE_APPEND {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW12_ZONE_APPEND_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW12_ZONE_APPEND_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1773,24 +1363,14 @@ impl Default for NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub _bitfield: u32,
 }
-impl Default for NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW13_GET_LOG_PAGE {
     pub LPOU: u32,
-}
-impl Default for NVME_CDW13_GET_LOG_PAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1804,26 +1384,16 @@ impl Default for NVME_CDW13_READ_WRITE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW13_READ_WRITE_0 {
     pub DSM: NVME_CDW13_READ_WRITE_0_0,
     pub Reserved: u8,
     pub DSPEC: u16,
 }
-impl Default for NVME_CDW13_READ_WRITE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW13_READ_WRITE_0_0 {
     pub _bitfield: u8,
-}
-impl Default for NVME_CDW13_READ_WRITE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1837,14 +1407,9 @@ impl Default for NVME_CDW13_ZONE_MANAGEMENT_RECEIVE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW13_ZONE_MANAGEMENT_RECEIVE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW13_ZONE_MANAGEMENT_RECEIVE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1858,14 +1423,9 @@ impl Default for NVME_CDW13_ZONE_MANAGEMENT_SEND {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW13_ZONE_MANAGEMENT_SEND_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW13_ZONE_MANAGEMENT_SEND_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1890,14 +1450,9 @@ impl Default for NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub HMDLUA: u32,
-}
-impl Default for NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1911,14 +1466,9 @@ impl Default for NVME_CDW14_GET_LOG_PAGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW14_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW14_GET_LOG_PAGE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1943,14 +1493,9 @@ impl Default for NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub HMDLEC: u32,
-}
-impl Default for NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1964,14 +1509,9 @@ impl Default for NVME_CDW15_READ_WRITE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW15_READ_WRITE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW15_READ_WRITE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1985,14 +1525,9 @@ impl Default for NVME_CDW15_ZONE_APPEND {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CDW15_ZONE_APPEND_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CDW15_ZONE_APPEND_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2182,7 +1717,7 @@ impl Default for NVME_COMMAND_0_12 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_COMMAND_0_11 {
     pub CDW10: NVME_CDW10_FIRMWARE_DOWNLOAD,
     pub CDW11: NVME_CDW11_FIRMWARE_DOWNLOAD,
@@ -2190,11 +1725,6 @@ pub struct NVME_COMMAND_0_11 {
     pub CDW13: u32,
     pub CDW14: u32,
     pub CDW15: u32,
-}
-impl Default for NVME_COMMAND_0_11 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2212,7 +1742,7 @@ impl Default for NVME_COMMAND_0_13 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_COMMAND_0_0 {
     pub CDW10: u32,
     pub CDW11: u32,
@@ -2220,11 +1750,6 @@ pub struct NVME_COMMAND_0_0 {
     pub CDW13: u32,
     pub CDW14: u32,
     pub CDW15: u32,
-}
-impl Default for NVME_COMMAND_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2471,14 +1996,9 @@ impl Default for NVME_COMMAND_DWORD0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_COMMAND_DWORD0_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_COMMAND_DWORD0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2492,14 +2012,9 @@ impl Default for NVME_COMMAND_EFFECTS_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_COMMAND_EFFECTS_DATA_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_COMMAND_EFFECTS_DATA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2537,45 +2052,25 @@ impl Default for NVME_COMMAND_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_COMMAND_STATUS_0 {
     pub _bitfield: u16,
 }
-impl Default for NVME_COMMAND_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
     pub _bitfield: u32,
 }
-impl Default for NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
     pub Anonymous: NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0,
     pub AsUlong: u32,
 }
-impl Default for NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2602,15 +2097,10 @@ impl Default for NVME_COMPLETION_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_COMPLETION_ENTRY_0_0 {
     pub SQHD: u16,
     pub SQID: u16,
-}
-impl Default for NVME_COMPLETION_ENTRY_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2646,14 +2136,9 @@ impl Default for NVME_COMPLETION_QUEUE_HEAD_DOORBELL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_COMPLETION_QUEUE_HEAD_DOORBELL_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_COMPLETION_QUEUE_HEAD_DOORBELL_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2667,14 +2152,9 @@ impl Default for NVME_CONTEXT_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CONTEXT_ATTRIBUTES_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CONTEXT_ATTRIBUTES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2688,14 +2168,9 @@ impl Default for NVME_CONTROLLER_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CONTROLLER_CAPABILITIES_0 {
     pub _bitfield: u64,
-}
-impl Default for NVME_CONTROLLER_CAPABILITIES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2709,14 +2184,9 @@ impl Default for NVME_CONTROLLER_CONFIGURATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CONTROLLER_CONFIGURATION_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CONTROLLER_CONFIGURATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2741,14 +2211,9 @@ impl Default for NVME_CONTROLLER_MEMORY_BUFFER_LOCATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CONTROLLER_MEMORY_BUFFER_LOCATION_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CONTROLLER_MEMORY_BUFFER_LOCATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2762,14 +2227,9 @@ impl Default for NVME_CONTROLLER_MEMORY_BUFFER_SIZE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CONTROLLER_MEMORY_BUFFER_SIZE_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CONTROLLER_MEMORY_BUFFER_SIZE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NVME_CONTROLLER_METADATA_CHIPSET_DRIVER_NAME: NVME_CONTROLLER_METADATA_ELEMENT_TYPES = NVME_CONTROLLER_METADATA_ELEMENT_TYPES(8i32);
 pub const NVME_CONTROLLER_METADATA_CHIPSET_DRIVER_VERSION: NVME_CONTROLLER_METADATA_ELEMENT_TYPES = NVME_CONTROLLER_METADATA_ELEMENT_TYPES(9i32);
@@ -2827,14 +2287,9 @@ impl Default for NVME_CONTROLLER_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_CONTROLLER_STATUS_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_CONTROLLER_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NVME_CSS_ADMIN_COMMAND_SET_ONLY: NVME_CSS_COMMAND_SETS = NVME_CSS_COMMAND_SETS(7i32);
 pub const NVME_CSS_ALL_SUPPORTED_IO_COMMAND_SET: NVME_CSS_COMMAND_SETS = NVME_CSS_COMMAND_SETS(6i32);
@@ -2862,27 +2317,17 @@ impl Default for NVME_DEVICE_SELF_TEST_LOG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_LOG_1 {
     pub _bitfield: u8,
 }
-impl Default for NVME_DEVICE_SELF_TEST_LOG_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_LOG_0 {
     pub _bitfield: u8,
 }
-impl Default for NVME_DEVICE_SELF_TEST_LOG_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA {
     pub Status: NVME_DEVICE_SELF_TEST_RESULT_DATA_0,
     pub SegmentNumber: u8,
@@ -2895,51 +2340,26 @@ pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA {
     pub StatusCode: u8,
     pub VendorSpecific: u16,
 }
-impl Default for NVME_DEVICE_SELF_TEST_RESULT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_2 {
     pub _bitfield: u8,
 }
-impl Default for NVME_DEVICE_SELF_TEST_RESULT_DATA_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_0 {
     pub _bitfield: u8,
 }
-impl Default for NVME_DEVICE_SELF_TEST_RESULT_DATA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_1 {
     pub _bitfield: u8,
 }
-impl Default for NVME_DEVICE_SELF_TEST_RESULT_DATA_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS {
     pub DirectivesSupported: NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR,
     pub DirectivesEnabled: NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR,
-}
-impl Default for NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3044,14 +2464,9 @@ impl Default for NVME_ERROR_INFO_LOG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_ERROR_INFO_LOG_0 {
     pub _bitfield: u16,
-}
-impl Default for NVME_ERROR_INFO_LOG_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3078,14 +2493,9 @@ impl Default for NVME_ERROR_INJECTION_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_ERROR_INJECTION_ENTRY_0_0 {
     pub _bitfield: u8,
-}
-impl Default for NVME_ERROR_INJECTION_ENTRY_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3207,14 +2617,9 @@ impl Default for NVME_FIRMWARE_SLOT_INFO_LOG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_FIRMWARE_SLOT_INFO_LOG_0 {
     pub _bitfield: u8,
-}
-impl Default for NVME_FIRMWARE_SLOT_INFO_LOG_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3270,27 +2675,17 @@ impl Default for NVME_HEALTH_INFO_LOG_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_HEALTH_INFO_LOG_0_0 {
     pub _bitfield: u8,
 }
-impl Default for NVME_HEALTH_INFO_LOG_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const NVME_HOST_IDENTIFIER_SIZE: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY {
     pub BADD: u64,
     pub BSIZE: u32,
     pub Reserved: u32,
-}
-impl Default for NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NVME_HOST_METADATA_ADD_ENTRY_MULTIPLE: NVME_HOST_METADATA_ELEMENT_ACTIONS = NVME_HOST_METADATA_ELEMENT_ACTIONS(2i32);
 pub const NVME_HOST_METADATA_ADD_REPLACE_ENTRY: NVME_HOST_METADATA_ELEMENT_ACTIONS = NVME_HOST_METADATA_ELEMENT_ACTIONS(0i32);
@@ -3439,224 +2834,114 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_12 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_12 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_8 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_7 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_0 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_14 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_14 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_2 {
     pub _bitfield: u32,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_17 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_17 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_5 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_16 {
     pub _bitfield: u16,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_10 {
     pub _bitfield: u16,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_10 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_6 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_19 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_19 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_20 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_20 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_4 {
     pub _bitfield: u16,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_1 {
     pub _bitfield: u32,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_15 {
     pub _bitfield: u16,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_15 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_9 {
     pub _bitfield: u32,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_3 {
     pub _bitfield: u16,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_11 {
     pub _bitfield: u32,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_11 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_21 {
     pub _bitfield: u32,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_21 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_13 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_13 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_18 {
     pub _bitfield: u8,
-}
-impl Default for NVME_IDENTIFY_CONTROLLER_DATA_18 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3718,94 +3003,49 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_7 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_NAMESPACE_DATA_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_3 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_NAMESPACE_DATA_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_4 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_NAMESPACE_DATA_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_1 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_NAMESPACE_DATA_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_6 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_NAMESPACE_DATA_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_2 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_NAMESPACE_DATA_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_5 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_NAMESPACE_DATA_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_8 {
     pub _bitfield: u8,
 }
-impl Default for NVME_IDENTIFY_NAMESPACE_DATA_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_0 {
     pub _bitfield: u8,
-}
-impl Default for NVME_IDENTIFY_NAMESPACE_DATA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3856,24 +3096,14 @@ impl Default for NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1 {
     pub _bitfield: u16,
 }
-impl Default for NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0 {
     pub _bitfield: u16,
-}
-impl Default for NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3902,16 +3132,11 @@ impl Default for NVME_LBA_FORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_LBA_FORMAT_0 {
     pub MS: u16,
     pub LBADS: u8,
     pub _bitfield: u8,
-}
-impl Default for NVME_LBA_FORMAT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3942,14 +3167,9 @@ impl Default for NVME_LBA_RANGET_TYPE_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_LBA_RANGET_TYPE_ENTRY_0 {
     pub _bitfield: u8,
-}
-impl Default for NVME_LBA_RANGET_TYPE_ENTRY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4043,14 +3263,9 @@ pub const NVME_NVM_QUEUE_PRIORITY_LOW: NVME_NVM_QUEUE_PRIORITIES = NVME_NVM_QUEU
 pub const NVME_NVM_QUEUE_PRIORITY_MEDIUM: NVME_NVM_QUEUE_PRIORITIES = NVME_NVM_QUEUE_PRIORITIES(2i32);
 pub const NVME_NVM_QUEUE_PRIORITY_URGENT: NVME_NVM_QUEUE_PRIORITIES = NVME_NVM_QUEUE_PRIORITIES(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_NVM_SUBSYSTEM_RESET {
     pub NSSRC: u32,
-}
-impl Default for NVME_NVM_SUBSYSTEM_RESET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4086,14 +3301,9 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_3 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0 {
     pub _bitfield: u16,
-}
-impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4107,14 +3317,9 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_5 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0 {
     pub _bitfield: u16,
-}
-impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4128,14 +3333,9 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0 {
     pub _bitfield: u16,
-}
-impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4149,14 +3349,9 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_2 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0 {
     pub _bitfield: u16,
-}
-impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4170,14 +3365,9 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_4 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0 {
     pub _bitfield: u16,
-}
-impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4191,14 +3381,9 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_1 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0 {
     pub _bitfield: u16,
-}
-impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NVME_OCP_DEVICE_CAPABILITIES_LOG_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
@@ -4300,14 +3485,9 @@ impl Default for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 {
     pub _bitfield: u8,
-}
-impl Default for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
@@ -4373,37 +3553,22 @@ impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2 {
     pub DetectedCounts: u32,
     pub CorrectedCounts: u32,
 }
-impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4 {
     pub EventCount: u8,
     pub Status: u8,
 }
-impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3 {
     pub MaximumCount: u32,
     pub MinimumCount: u32,
-}
-impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NVME_OCP_DEVICE_SMART_INFORMATION_LOG_VERSION_3: u32 = 3u32;
 #[repr(C, packed(1))]
@@ -4448,14 +3613,9 @@ impl Default for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 {
     pub _bitfield: u8,
-}
-impl Default for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
@@ -4602,14 +3762,9 @@ impl Default for NVME_PRP_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_PRP_ENTRY_0 {
     pub _bitfield: u64,
-}
-impl Default for NVME_PRP_ENTRY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4626,14 +3781,9 @@ impl Default for NVME_REGISTERED_CONTROLLER_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_REGISTERED_CONTROLLER_DATA_0 {
     pub _bitfield: u8,
-}
-impl Default for NVME_REGISTERED_CONTROLLER_DATA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4651,14 +3801,9 @@ impl Default for NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0 {
     pub _bitfield: u8,
-}
-impl Default for NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4679,15 +3824,10 @@ pub const NVME_RESERVATION_ACQUIRE_ACTION_ACQUIRE: NVME_RESERVATION_ACQUIRE_ACTI
 pub const NVME_RESERVATION_ACQUIRE_ACTION_PREEMPT: NVME_RESERVATION_ACQUIRE_ACTIONS = NVME_RESERVATION_ACQUIRE_ACTIONS(1i32);
 pub const NVME_RESERVATION_ACQUIRE_ACTION_PREEMPT_AND_ABORT: NVME_RESERVATION_ACQUIRE_ACTIONS = NVME_RESERVATION_ACQUIRE_ACTIONS(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE {
     pub CRKEY: u64,
     pub PRKEY: u64,
-}
-impl Default for NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4718,15 +3858,10 @@ pub const NVME_RESERVATION_REGISTER_ACTION_REGISTER: NVME_RESERVATION_REGISTER_A
 pub const NVME_RESERVATION_REGISTER_ACTION_REPLACE: NVME_RESERVATION_REGISTER_ACTIONS = NVME_RESERVATION_REGISTER_ACTIONS(2i32);
 pub const NVME_RESERVATION_REGISTER_ACTION_UNREGISTER: NVME_RESERVATION_REGISTER_ACTIONS = NVME_RESERVATION_REGISTER_ACTIONS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_RESERVATION_REGISTER_DATA_STRUCTURE {
     pub CRKEY: u64,
     pub NRKEY: u64,
-}
-impl Default for NVME_RESERVATION_REGISTER_DATA_STRUCTURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4741,14 +3876,9 @@ pub struct NVME_RESERVATION_RELEASE_ACTIONS(pub i32);
 pub const NVME_RESERVATION_RELEASE_ACTION_CLEAR: NVME_RESERVATION_RELEASE_ACTIONS = NVME_RESERVATION_RELEASE_ACTIONS(1i32);
 pub const NVME_RESERVATION_RELEASE_ACTION_RELEASE: NVME_RESERVATION_RELEASE_ACTIONS = NVME_RESERVATION_RELEASE_ACTIONS(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_RESERVATION_RELEASE_DATA_STRUCTURE {
     pub CRKEY: u64,
-}
-impl Default for NVME_RESERVATION_RELEASE_DATA_STRUCTURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4815,14 +3945,9 @@ pub struct NVME_SANITIZE_OPERATION_STATUS(pub i32);
 pub const NVME_SANITIZE_OPERATION_SUCCEEDED: NVME_SANITIZE_OPERATION_STATUS = NVME_SANITIZE_OPERATION_STATUS(1i32);
 pub const NVME_SANITIZE_OPERATION_SUCCEEDED_WITH_FORCED_DEALLOCATION: NVME_SANITIZE_OPERATION_STATUS = NVME_SANITIZE_OPERATION_STATUS(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_SANITIZE_STATUS {
     pub _bitfield: u16,
-}
-impl Default for NVME_SANITIZE_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5013,14 +4138,9 @@ impl Default for NVME_SUBMISSION_QUEUE_TAIL_DOORBELL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5086,14 +4206,9 @@ impl Default for NVME_VERSION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_VERSION_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_VERSION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5117,14 +4232,9 @@ impl Default for NVME_WCS_DEVICE_CAPABILITIES_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_WCS_DEVICE_CAPABILITIES_0_0 {
     pub _bitfield: u32,
-}
-impl Default for NVME_WCS_DEVICE_CAPABILITIES_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5176,14 +4286,9 @@ impl Default for NVME_WCS_DEVICE_RESET_ACTION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_WCS_DEVICE_RESET_ACTION_0_0 {
     pub _bitfield: u8,
-}
-impl Default for NVME_WCS_DEVICE_RESET_ACTION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5257,37 +4362,22 @@ impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2 {
     pub DetectedCounts: u32,
     pub CorrectedCounts: u32,
 }
-impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_4 {
     pub EventCount: u8,
     pub Status: u8,
 }
-impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3 {
     pub MaximumCount: u32,
     pub MinimumCount: u32,
-}
-impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_VERSION_2: u32 = 2u32;
 #[repr(C)]
@@ -5308,34 +4398,19 @@ impl Default for NVME_ZONE_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_ZONE_DESCRIPTOR_0 {
     pub _bitfield: u8,
 }
-impl Default for NVME_ZONE_DESCRIPTOR_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_ZONE_DESCRIPTOR_1 {
     pub _bitfield: u8,
 }
-impl Default for NVME_ZONE_DESCRIPTOR_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVME_ZONE_DESCRIPTOR_2 {
     pub _bitfield: u8,
-}
-impl Default for NVME_ZONE_DESCRIPTOR_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5395,14 +4470,9 @@ impl Default for NVM_RESERVATION_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NVM_RESERVATION_CAPABILITIES_0 {
     pub _bitfield: u8,
-}
-impl Default for NVM_RESERVATION_CAPABILITIES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5431,45 +4501,25 @@ pub const NVMeDeviceRecoverySubsystemReset: NVME_WCS_DEVICE_RECOVERY_ACTION2 = N
 pub const NVMeDeviceRecoveryVendorAnalysis: NVME_WCS_DEVICE_RECOVERY_ACTION1 = NVME_WCS_DEVICE_RECOVERY_ACTION1(3i32);
 pub const NVMeDeviceRecoveryVendorSpecificCommand: NVME_WCS_DEVICE_RECOVERY_ACTION1 = NVME_WCS_DEVICE_RECOVERY_ACTION1(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCG_ACTIVATE_METHOD_SPECIFIC {
     pub RangeStartLengthPolicy: u8,
 }
-impl Default for TCG_ACTIVATE_METHOD_SPECIFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCG_ASSIGN_METHOD_SPECIFIC {
     pub NamespaceId: u32,
 }
-impl Default for TCG_ASSIGN_METHOD_SPECIFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCG_AUTH_METHOD_SPECIFIC {
     pub AuthorityId: u64,
     pub TriesCount: u8,
 }
-impl Default for TCG_AUTH_METHOD_SPECIFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCG_BLOCKSID_METHOD_SPECIFIC {
     pub ClearEvents: u8,
-}
-impl Default for TCG_BLOCKSID_METHOD_SPECIFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5494,14 +4544,9 @@ impl Default for TCG_HISTORY_ENTRY {
 }
 pub const TCG_HISTORY_ENTRY_VERSION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCG_REACTIVATE_METHOD_SPECIFIC {
     pub RangeStartLengthPolicy: u8,
-}
-impl Default for TCG_REACTIVATE_METHOD_SPECIFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

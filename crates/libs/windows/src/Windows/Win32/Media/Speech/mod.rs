@@ -16848,16 +16848,11 @@ pub const SPAS_PAUSE: SPAUDIOSTATE = SPAUDIOSTATE(2i32);
 pub const SPAS_RUN: SPAUDIOSTATE = SPAUDIOSTATE(3i32);
 pub const SPAS_STOP: SPAUDIOSTATE = SPAUDIOSTATE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPAUDIOBUFFERINFO {
     pub ulMsMinNotification: u32,
     pub ulMsBufferSize: u32,
     pub ulMsEventBias: u32,
-}
-impl Default for SPAUDIOBUFFERINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16866,7 +16861,7 @@ pub struct SPAUDIOOPTIONS(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPAUDIOSTATE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPAUDIOSTATUS {
     pub cbFreeBuffSpace: i32,
     pub cbNonBlockingIO: u32,
@@ -16876,20 +16871,10 @@ pub struct SPAUDIOSTATUS {
     pub dwAudioLevel: u32,
     pub dwReserved2: u32,
 }
-impl Default for SPAUDIOSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPBINARYGRAMMAR {
     pub ulTotalSerializedSize: u32,
-}
-impl Default for SPBINARYGRAMMAR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16958,16 +16943,11 @@ impl Default for SPDISPLAYPHRASE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPDISPLAYTOKEN {
     pub pszLexical: windows_core::PCWSTR,
     pub pszDisplay: windows_core::PCWSTR,
     pub bDisplayAttributes: u8,
-}
-impl Default for SPDISPLAYTOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SPDKL_CurrentConfig: SPDATAKEYLOCATION = SPDATAKEYLOCATION(5i32);
 pub const SPDKL_CurrentUser: SPDATAKEYLOCATION = SPDATAKEYLOCATION(1i32);
@@ -17038,7 +17018,7 @@ pub const SPET_LPARAM_IS_STRING: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(4i32);
 pub const SPET_LPARAM_IS_TOKEN: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(1i32);
 pub const SPET_LPARAM_IS_UNDEFINED: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPEVENT {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -17046,16 +17026,11 @@ pub struct SPEVENT {
     pub wParam: super::super::Foundation::WPARAM,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Default for SPEVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENTENUM(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPEVENTEX {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -17064,25 +17039,15 @@ pub struct SPEVENTEX {
     pub lParam: super::super::Foundation::LPARAM,
     pub ullAudioTimeOffset: u64,
 }
-impl Default for SPEVENTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENTLPARAMTYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPEVENTSOURCEINFO {
     pub ullEventInterest: u64,
     pub ullQueuedInterest: u64,
     pub ulCount: u32,
-}
-impl Default for SPEVENTSOURCEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -17211,15 +17176,10 @@ impl Default for SPPARSEINFO {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPARTOFSPEECH(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPPATHENTRY {
     pub hTransition: SPTRANSITIONID,
     pub elem: SPPHRASEELEMENT,
-}
-impl Default for SPPATHENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -17330,17 +17290,11 @@ impl Default for SPPHRASEPROPERTY_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: u8,
     pub bReserved: u8,
     pub usArrayIndex: u16,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for SPPHRASEPROPERTY_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -17359,17 +17313,12 @@ impl Default for SPPHRASEPROPERTYHANDLE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPHRASEPROPERTYUNIONTYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPPHRASEREPLACEMENT {
     pub bDisplayAttributes: u8,
     pub pszReplacementText: windows_core::PCWSTR,
     pub ulFirstElement: u32,
     pub ulCountOfElements: u32,
-}
-impl Default for SPPHRASEREPLACEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -17566,29 +17515,19 @@ impl Default for SPRECORESULTINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SPRECORESULTINFOEX {
     pub Base: SPRECORESULTINFO,
     pub ullStreamTimeStart: u64,
     pub ullStreamTimeEnd: u64,
 }
-impl Default for SPRECORESULTINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPRECORESULTTIMES {
     pub ftStreamTime: super::super::Foundation::FILETIME,
     pub ullLength: u64,
     pub dwTickCount: u32,
     pub ullStart: u64,
-}
-impl Default for SPRECORESULTTIMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -17627,16 +17566,11 @@ pub const SPRT_PROPRIETARY: SPRESULTTYPE = SPRESULTTYPE(2i32);
 pub const SPRT_SLM: SPRESULTTYPE = SPRESULTTYPE(1i32);
 pub const SPRT_TYPE_MASK: SPRESULTTYPE = SPRESULTTYPE(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPRULE {
     pub pszRuleName: windows_core::PCWSTR,
     pub ulRuleId: u32,
     pub dwAttributes: u32,
-}
-impl Default for SPRULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -17675,7 +17609,7 @@ pub struct SPRULESTATE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRUNSTATE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPSEMANTICERRORINFO {
     pub ulLineNumber: u32,
     pub pszScriptLine: windows_core::PWSTR,
@@ -17683,16 +17617,11 @@ pub struct SPSEMANTICERRORINFO {
     pub pszDescription: windows_core::PWSTR,
     pub hrResultCode: windows_core::HRESULT,
 }
-impl Default for SPSEMANTICERRORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSEMANTICFORMAT(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPSERIALIZEDEVENT {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -17700,13 +17629,8 @@ pub struct SPSERIALIZEDEVENT {
     pub SerializedwParam: u32,
     pub SerializedlParam: i32,
 }
-impl Default for SPSERIALIZEDEVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPSERIALIZEDEVENT64 {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -17714,30 +17638,15 @@ pub struct SPSERIALIZEDEVENT64 {
     pub SerializedwParam: u64,
     pub SerializedlParam: i64,
 }
-impl Default for SPSERIALIZEDEVENT64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPSERIALIZEDPHRASE {
     pub ulSerializedSize: u32,
 }
-impl Default for SPSERIALIZEDPHRASE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPSERIALIZEDRESULT {
     pub ulSerializedSize: u32,
-}
-impl Default for SPSERIALIZEDRESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SPSF_11kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(10i32);
 pub const SPSF_11kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(11i32);
@@ -17892,30 +17801,20 @@ pub struct SPSTREAMFORMATTYPE(pub i32);
 pub const SPSUnknown: SpeechPartOfSpeech = SpeechPartOfSpeech(0i32);
 pub const SPSVerb: SpeechPartOfSpeech = SpeechPartOfSpeech(8192i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPTEXTSELECTIONINFO {
     pub ulStartActiveOffset: u32,
     pub cchActiveChars: u32,
     pub ulStartSelection: u32,
     pub cchSelection: u32,
 }
-impl Default for SPTEXTSELECTIONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPTMTHREADINFO {
     pub lPoolSize: i32,
     pub lPriority: i32,
     pub ulConcurrencyLimit: u32,
     pub ulMaxQuickAllocThreads: u32,
-}
-impl Default for SPTMTHREADINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SPTOKENKEY_ATTRIBUTES: windows_core::PCWSTR = windows_core::w!("Attributes");
 pub const SPTOKENKEY_AUDIO_LATENCY_TRUNCATE: windows_core::PCWSTR = windows_core::w!("LatencyTruncateThreshold");
@@ -17945,14 +17844,9 @@ impl Default for SPTRANSITIONENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPTRANSITIONENTRY_0 {
     pub fHasProperty: u32,
-}
-impl Default for SPTRANSITIONENTRY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -18053,16 +17947,11 @@ pub const SPVA_Silence: SPVACTIONS = SPVACTIONS(1i32);
 pub const SPVA_Speak: SPVACTIONS = SPVACTIONS(0i32);
 pub const SPVA_SpellOut: SPVACTIONS = SPVACTIONS(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPVCONTEXT {
     pub pCategory: windows_core::PCWSTR,
     pub pBefore: windows_core::PCWSTR,
     pub pAfter: windows_core::PCWSTR,
-}
-impl Default for SPVCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -18085,7 +17974,7 @@ pub struct SPVISEMES(pub i32);
 pub struct SPVLIMITS(pub i32);
 pub const SPVOICECATEGORY_TTSRATE: windows_core::PCWSTR = windows_core::w!("DefaultTTSRate");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPVOICESTATUS {
     pub ulCurrentStream: u32,
     pub ulLastStreamQueued: u32,
@@ -18101,21 +17990,11 @@ pub struct SPVOICESTATUS {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Default for SPVOICESTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPVPITCH {
     pub MiddleAdj: i32,
     pub RangeAdj: i32,
-}
-impl Default for SPVPITCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

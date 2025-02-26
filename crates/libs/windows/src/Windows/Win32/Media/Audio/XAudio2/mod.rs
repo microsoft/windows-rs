@@ -44,14 +44,9 @@ pub const FXECHO_DEFAULT_DELAY: f32 = 500f32;
 pub const FXECHO_DEFAULT_FEEDBACK: f32 = 0.5f32;
 pub const FXECHO_DEFAULT_WETDRYMIX: f32 = 0.5f32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FXECHO_INITDATA {
     pub MaxDelay: f32,
-}
-impl Default for FXECHO_INITDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FXECHO_MAX_DELAY: f32 = 2000f32;
 pub const FXECHO_MAX_FEEDBACK: f32 = 1f32;
@@ -60,16 +55,11 @@ pub const FXECHO_MIN_DELAY: f32 = 1f32;
 pub const FXECHO_MIN_FEEDBACK: f32 = 0f32;
 pub const FXECHO_MIN_WETDRYMIX: f32 = 0f32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FXECHO_PARAMETERS {
     pub WetDryMix: f32,
     pub Feedback: f32,
     pub Delay: f32,
-}
-impl Default for FXECHO_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FXEQ: windows_core::GUID = windows_core::GUID::from_u128(0xf5e01117_d6c4_485a_a3f5_695196f3dbfa);
 pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1f32;
@@ -87,7 +77,7 @@ pub const FXEQ_MIN_FRAMERATE: u32 = 22000u32;
 pub const FXEQ_MIN_FREQUENCY_CENTER: f32 = 20f32;
 pub const FXEQ_MIN_GAIN: f32 = 0.126f32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FXEQ_PARAMETERS {
     pub FrequencyCenter0: f32,
     pub Gain0: f32,
@@ -102,11 +92,6 @@ pub struct FXEQ_PARAMETERS {
     pub Gain3: f32,
     pub Bandwidth3: f32,
 }
-impl Default for FXEQ_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FXEcho: windows_core::GUID = windows_core::GUID::from_u128(0x5039d740_f736_449a_84d3_a56202557b87);
 pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400u32;
 pub const FXLOUDNESS_DEFAULT_SHORTTERM_MS: u32 = 3000u32;
@@ -117,15 +102,10 @@ pub const FXMASTERINGLIMITER_MAX_RELEASE: u32 = 20u32;
 pub const FXMASTERINGLIMITER_MIN_LOUDNESS: u32 = 1u32;
 pub const FXMASTERINGLIMITER_MIN_RELEASE: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FXMASTERINGLIMITER_PARAMETERS {
     pub Release: u32,
     pub Loudness: u32,
-}
-impl Default for FXMASTERINGLIMITER_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FXMasteringLimiter: windows_core::GUID = windows_core::GUID::from_u128(0xc4137916_2be1_46fd_8599_441536f49856);
 pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9f32;
@@ -135,15 +115,10 @@ pub const FXREVERB_MAX_ROOMSIZE: f32 = 1f32;
 pub const FXREVERB_MIN_DIFFUSION: f32 = 0f32;
 pub const FXREVERB_MIN_ROOMSIZE: f32 = 0.0001f32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FXREVERB_PARAMETERS {
     pub Diffusion: f32,
     pub RoomSize: f32,
-}
-impl Default for FXREVERB_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FXReverb: windows_core::GUID = windows_core::GUID::from_u128(0x7d9aca56_cb68_4807_b632_b137352e8596);
 pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1f32;
@@ -164,55 +139,35 @@ impl Default for HrtfApoInit {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HrtfDirectivity {
     pub r#type: HrtfDirectivityType,
     pub scaling: f32,
 }
-impl Default for HrtfDirectivity {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HrtfDirectivityCardioid {
     pub directivity: HrtfDirectivity,
     pub order: f32,
 }
-impl Default for HrtfDirectivityCardioid {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HrtfDirectivityCone {
     pub directivity: HrtfDirectivity,
     pub innerAngle: f32,
     pub outerAngle: f32,
 }
-impl Default for HrtfDirectivityCone {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HrtfDirectivityType(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HrtfDistanceDecay {
     pub r#type: HrtfDistanceDecayType,
     pub maxGain: f32,
     pub minGain: f32,
     pub unityGainDistance: f32,
     pub cutoffDistance: f32,
-}
-impl Default for HrtfDistanceDecay {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -231,16 +186,11 @@ impl Default for HrtfOrientation {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HrtfPosition {
     pub x: f32,
     pub y: f32,
     pub z: f32,
-}
-impl Default for HrtfPosition {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(IXAPO, IXAPO_Vtbl, 0xa410b984_9839_4819_a0be_2856ae6b3adb);
 windows_core::imp::interface_hierarchy!(IXAPO, windows_core::IUnknown);
@@ -1583,7 +1533,7 @@ pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_FILTER_MAIN: f32 = 0f32;
 pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_SIZE: f32 = 100f32;
 pub const XAUDIO2FX_REVERB_DEFAULT_WET_DRY_MIX: f32 = 100f32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     pub WetDryMix: f32,
     pub Room: i32,
@@ -1598,11 +1548,6 @@ pub struct XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     pub Diffusion: f32,
     pub Density: f32,
     pub HFReference: f32,
-}
-impl Default for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XAUDIO2FX_REVERB_MAX_7POINT1_REAR_DELAY: u32 = 20u32;
 pub const XAUDIO2FX_REVERB_MAX_7POINT1_SIDE_DELAY: u32 = 5u32;
@@ -1646,7 +1591,7 @@ pub const XAUDIO2FX_REVERB_MIN_ROOM_FILTER_MAIN: f32 = -100f32;
 pub const XAUDIO2FX_REVERB_MIN_ROOM_SIZE: f32 = 0f32;
 pub const XAUDIO2FX_REVERB_MIN_WET_DRY_MIX: f32 = 0f32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XAUDIO2FX_REVERB_PARAMETERS {
     pub WetDryMix: f32,
     pub ReflectionsDelay: u32,
@@ -1672,11 +1617,6 @@ pub struct XAUDIO2FX_REVERB_PARAMETERS {
     pub Density: f32,
     pub RoomSize: f32,
     pub DisableLateField: windows_core::BOOL,
-}
-impl Default for XAUDIO2FX_REVERB_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1724,7 +1664,7 @@ impl Default for XAUDIO2_BUFFER_WMA {
 pub const XAUDIO2_COMMIT_ALL: u32 = 0u32;
 pub const XAUDIO2_COMMIT_NOW: u32 = 0u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_DEBUG_CONFIGURATION {
     pub TraceMask: u32,
     pub BreakMask: u32,
@@ -1732,11 +1672,6 @@ pub struct XAUDIO2_DEBUG_CONFIGURATION {
     pub LogFileline: windows_core::BOOL,
     pub LogFunctionName: windows_core::BOOL,
     pub LogTiming: windows_core::BOOL,
-}
-impl Default for XAUDIO2_DEBUG_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XAUDIO2_DEBUG_ENGINE: u32 = 1u32;
 pub const XAUDIO2_DEFAULT_CHANNELS: u32 = 0u32;
@@ -1760,15 +1695,11 @@ impl Default for XAUDIO2_EFFECT_CHAIN {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Default)]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR {
     pub pEffect: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub InitialState: windows_core::BOOL,
     pub OutputChannels: u32,
-}
-impl Default for XAUDIO2_EFFECT_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XAUDIO2_END_OF_STREAM: u32 = 64u32;
 pub const XAUDIO2_E_DEVICE_INVALIDATED: windows_core::HRESULT = windows_core::HRESULT(0x88960004_u32 as _);
@@ -1776,16 +1707,11 @@ pub const XAUDIO2_E_INVALID_CALL: windows_core::HRESULT = windows_core::HRESULT(
 pub const XAUDIO2_E_XAPO_CREATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x88960003_u32 as _);
 pub const XAUDIO2_E_XMA_DECODER_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x88960002_u32 as _);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_FILTER_PARAMETERS {
     pub Type: XAUDIO2_FILTER_TYPE,
     pub Frequency: f32,
     pub OneOverQ: f32,
-}
-impl Default for XAUDIO2_FILTER_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1818,7 +1744,7 @@ pub const XAUDIO2_MIN_SAMPLE_RATE: u32 = 1000u32;
 pub const XAUDIO2_NO_LOOP_REGION: u32 = 0u32;
 pub const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: u32 = 65536u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_PERFORMANCE_DATA {
     pub AudioCyclesSinceLastQuery: u64,
     pub TotalCyclesSinceLastQuery: u64,
@@ -1835,39 +1761,25 @@ pub struct XAUDIO2_PERFORMANCE_DATA {
     pub ActiveXmaSourceVoices: u32,
     pub ActiveXmaStreams: u32,
 }
-impl Default for XAUDIO2_PERFORMANCE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const XAUDIO2_PLAY_TAILS: u32 = 32u32;
 pub const XAUDIO2_QUANTUM_DENOMINATOR: u32 = 100u32;
 pub const XAUDIO2_QUANTUM_NUMERATOR: u32 = 1u32;
 #[repr(C, packed(1))]
+#[derive(Default)]
 pub struct XAUDIO2_SEND_DESCRIPTOR {
     pub Flags: u32,
     pub pOutputVoice: core::mem::ManuallyDrop<Option<IXAudio2Voice>>,
-}
-impl Default for XAUDIO2_SEND_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XAUDIO2_SEND_USEFILTER: u32 = 128u32;
 pub const XAUDIO2_STOP_ENGINE_WHEN_IDLE: u32 = 8192u32;
 pub const XAUDIO2_USE_DEFAULT_PROCESSOR: u32 = 0u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_VOICE_DETAILS {
     pub CreationFlags: u32,
     pub ActiveFlags: u32,
     pub InputChannels: u32,
     pub InputSampleRate: u32,
-}
-impl Default for XAUDIO2_VOICE_DETAILS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XAUDIO2_VOICE_NOPITCH: u32 = 2u32;
 pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: u32 = 256u32;

@@ -14264,15 +14264,10 @@ pub const MQSEC_WRITE_MESSAGE: MQQUEUEACCESSMASK = MQQUEUEACCESSMASK(4u32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQSHARE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MQSORTKEY {
     pub propColumn: u32,
     pub dwOrder: u32,
-}
-impl Default for MQSORTKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14689,16 +14684,11 @@ pub const REL_LT: RELOPS = RELOPS(3i32);
 pub const REL_NEQ: RELOPS = RELOPS(2i32);
 pub const REL_NOP: RELOPS = RELOPS(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEQUENCE_INFO {
     pub SeqID: i64,
     pub SeqNo: u32,
     pub PrevNo: u32,
-}
-impl Default for SEQUENCE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

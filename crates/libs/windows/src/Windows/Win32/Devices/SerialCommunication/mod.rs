@@ -164,7 +164,7 @@ impl Default for SERIALCONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIALPERF_STATS {
     pub ReceivedCount: u32,
     pub TransmittedCount: u32,
@@ -173,36 +173,21 @@ pub struct SERIALPERF_STATS {
     pub BufferOverrunErrorCount: u32,
     pub ParityErrorCount: u32,
 }
-impl Default for SERIALPERF_STATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIAL_BASIC_SETTINGS {
     pub Timeouts: SERIAL_TIMEOUTS,
     pub HandFlow: SERIAL_HANDFLOW,
     pub RxFifo: u32,
     pub TxFifo: u32,
 }
-impl Default for SERIAL_BASIC_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIAL_BAUD_RATE {
     pub BaudRate: u32,
 }
-impl Default for SERIAL_BAUD_RATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIAL_CHARS {
     pub EofChar: u8,
     pub ErrorChar: u8,
@@ -210,11 +195,6 @@ pub struct SERIAL_CHARS {
     pub EventChar: u8,
     pub XonChar: u8,
     pub XoffChar: u8,
-}
-impl Default for SERIAL_CHARS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -257,29 +237,19 @@ pub const SERIAL_EV_RXCHAR: u32 = 1u32;
 pub const SERIAL_EV_RXFLAG: u32 = 2u32;
 pub const SERIAL_EV_TXEMPTY: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIAL_HANDFLOW {
     pub ControlHandShake: u32,
     pub FlowReplace: u32,
     pub XonLimit: i32,
     pub XoffLimit: i32,
 }
-impl Default for SERIAL_HANDFLOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIAL_LINE_CONTROL {
     pub StopBits: u8,
     pub Parity: u8,
     pub WordLength: u8,
-}
-impl Default for SERIAL_LINE_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERIAL_LSRMST_ESCAPE: u16 = 0u16;
 pub const SERIAL_LSRMST_LSR_DATA: u16 = 1u16;
@@ -290,18 +260,13 @@ pub const SERIAL_PURGE_RXCLEAR: u32 = 8u32;
 pub const SERIAL_PURGE_TXABORT: u32 = 1u32;
 pub const SERIAL_PURGE_TXCLEAR: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIAL_QUEUE_SIZE {
     pub InSize: u32,
     pub OutSize: u32,
 }
-impl Default for SERIAL_QUEUE_SIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIAL_STATUS {
     pub Errors: u32,
     pub HoldReasons: u32,
@@ -310,13 +275,8 @@ pub struct SERIAL_STATUS {
     pub EofReceived: bool,
     pub WaitForImmediate: bool,
 }
-impl Default for SERIAL_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIAL_TIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -324,22 +284,12 @@ pub struct SERIAL_TIMEOUTS {
     pub WriteTotalTimeoutMultiplier: u32,
     pub WriteTotalTimeoutConstant: u32,
 }
-impl Default for SERIAL_TIMEOUTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIAL_XOFF_COUNTER {
     pub Timeout: u32,
     pub Counter: i32,
     pub XoffChar: u8,
-}
-impl Default for SERIAL_XOFF_COUNTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SPACE_PARITY: u32 = 4u32;
 pub const STOP_BITS_1_5: u32 = 1u32;

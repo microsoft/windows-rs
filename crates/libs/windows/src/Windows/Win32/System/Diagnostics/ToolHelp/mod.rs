@@ -116,7 +116,7 @@ impl core::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HEAPENTRY32 {
     pub dwSize: usize,
     pub hHandle: super::super::super::Foundation::HANDLE,
@@ -128,26 +128,16 @@ pub struct HEAPENTRY32 {
     pub th32ProcessID: u32,
     pub th32HeapID: usize,
 }
-impl Default for HEAPENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAPENTRY32_FLAGS(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HEAPLIST32 {
     pub dwSize: usize,
     pub th32ProcessID: u32,
     pub th32HeapID: usize,
     pub dwFlags: u32,
-}
-impl Default for HEAPLIST32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HF32_DEFAULT: u32 = 1u32;
 pub const HF32_SHARED: u32 = 2u32;
@@ -239,7 +229,7 @@ pub const TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_
 pub const TH32CS_SNAPPROCESS: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2u32);
 pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(4u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct THREADENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -248,9 +238,4 @@ pub struct THREADENTRY32 {
     pub tpBasePri: i32,
     pub tpDeltaPri: i32,
     pub dwFlags: u32,
-}
-impl Default for THREADENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

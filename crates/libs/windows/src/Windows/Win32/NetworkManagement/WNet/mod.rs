@@ -526,7 +526,7 @@ pub const CONNECT_UPDATE_PROFILE: NET_CONNECT_FLAGS = NET_CONNECT_FLAGS(1u32);
 pub const CONNECT_UPDATE_RECENT: NET_CONNECT_FLAGS = NET_CONNECT_FLAGS(2u32);
 pub const CONNECT_WRITE_THROUGH_SEMANTICS: NET_CONNECT_FLAGS = NET_CONNECT_FLAGS(65536u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -534,24 +534,14 @@ pub struct DISCDLGSTRUCTA {
     pub lpRemoteName: windows_core::PSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
-impl Default for DISCDLGSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
     pub lpLocalName: windows_core::PWSTR,
     pub lpRemoteName: windows_core::PWSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
-}
-impl Default for DISCDLGSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -592,7 +582,7 @@ impl core::ops::Not for DISCDLGSTRUCT_FLAGS {
 pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(64u32);
 pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(1u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETCONNECTINFOSTRUCT {
     pub cbStructure: u32,
     pub dwFlags: u32,
@@ -600,13 +590,8 @@ pub struct NETCONNECTINFOSTRUCT {
     pub dwDelay: u32,
     pub dwOptDataSize: u32,
 }
-impl Default for NETCONNECTINFOSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETINFOSTRUCT {
     pub cbStructure: u32,
     pub dwProviderVersion: u32,
@@ -616,11 +601,6 @@ pub struct NETINFOSTRUCT {
     pub wNetType: u16,
     pub dwPrinters: u32,
     pub dwDrives: u32,
-}
-impl Default for NETINFOSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -663,7 +643,7 @@ pub const NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTER
 pub const NETINFO_PRINTERRED: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(8u32);
 pub const NETPROPERTY_PERSISTENT: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETRESOURCEA {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -674,13 +654,8 @@ pub struct NETRESOURCEA {
     pub lpComment: windows_core::PSTR,
     pub lpProvider: windows_core::PSTR,
 }
-impl Default for NETRESOURCEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETRESOURCEW {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -690,11 +665,6 @@ pub struct NETRESOURCEW {
     pub lpRemoteName: windows_core::PWSTR,
     pub lpComment: windows_core::PWSTR,
     pub lpProvider: windows_core::PWSTR,
-}
-impl Default for NETRESOURCEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -775,29 +745,19 @@ impl core::ops::Not for NET_RESOURCE_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NOTIFYADD {
     pub hwndOwner: super::super::Foundation::HWND,
     pub NetResource: NETRESOURCEA,
     pub dwAddFlags: NET_CONNECT_FLAGS,
 }
-impl Default for NOTIFYADD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NOTIFYCANCEL {
     pub lpName: windows_core::PWSTR,
     pub lpProvider: windows_core::PWSTR,
     pub dwFlags: u32,
     pub fForce: windows_core::BOOL,
-}
-impl Default for NOTIFYCANCEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -851,28 +811,18 @@ pub type PF_NPPasswordChangeNotify = Option<unsafe extern "system" fn(lpauthenti
 pub type PF_NPPropertyDialog = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, ibuttondlg: u32, npropsel: u32, lpfilename: windows_core::PCWSTR, ntype: u32) -> u32>;
 pub type PF_NPSearchDialog = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpbuffer: *mut core::ffi::c_void, cbbuffer: u32, lpnflags: *mut u32) -> u32>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REMOTE_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
     pub lpConnectionName: windows_core::PSTR,
     pub lpRemainingPath: windows_core::PSTR,
 }
-impl Default for REMOTE_NAME_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REMOTE_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
     pub lpConnectionName: windows_core::PWSTR,
     pub lpRemainingPath: windows_core::PWSTR,
-}
-impl Default for REMOTE_NAME_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(2u32);
 pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
@@ -902,24 +852,14 @@ pub const RESOURCE_REMEMBERED: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(3u32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNC_INFO_LEVEL(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
 }
-impl Default for UNIVERSAL_NAME_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
-}
-impl Default for UNIVERSAL_NAME_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(1u32);
 pub const WNCON_DYNAMIC: u32 = 8u32;

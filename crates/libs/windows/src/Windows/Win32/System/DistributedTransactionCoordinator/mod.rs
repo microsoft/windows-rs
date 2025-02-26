@@ -4125,28 +4125,18 @@ pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = TX_MISC_CONSTANTS(40i32);
 pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(2i32);
 pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OLE_TM_CONFIG_PARAMS_V1 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
 }
-impl Default for OLE_TM_CONFIG_PARAMS_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OLE_TM_CONFIG_PARAMS_V2 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
     pub applicationType: APPLICATIONTYPE,
     pub clusterResourceId: windows_core::GUID,
-}
-impl Default for OLE_TM_CONFIG_PARAMS_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OLE_TM_CONFIG_VERSION_1: u32 = 1u32;
 pub const OLE_TM_CONFIG_VERSION_2: u32 = 2u32;
@@ -4156,14 +4146,9 @@ pub const OLE_TM_FLAG_NODEMANDSTART: u32 = 1u32;
 pub const OLE_TM_FLAG_NONE: u32 = 0u32;
 pub const OLE_TM_FLAG_QUERY_SERVICE_LOCKSTATUS: u32 = 2147483648u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROXY_CONFIG_PARAMS {
     pub wcThreadsMax: u16,
-}
-impl Default for PROXY_CONFIG_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RMNAMESZ: u32 = 32u32;
 pub const TMASYNC: i32 = -2147483648i32;
@@ -4222,7 +4207,7 @@ pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = XACTRM(1i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTSTAT(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XACTSTATS {
     pub cOpen: u32,
     pub cCommitting: u32,
@@ -4232,11 +4217,6 @@ pub struct XACTSTATS {
     pub cInDoubt: u32,
     pub cHeuristicDecision: u32,
     pub timeTransactionsUp: super::super::Foundation::FILETIME,
-}
-impl Default for XACTSTATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XACTSTAT_ABORTED: XACTSTAT = XACTSTAT(512i32);
 pub const XACTSTAT_ABORTING: XACTSTAT = XACTSTAT(256i32);
@@ -4271,7 +4251,7 @@ pub const XACTTC_SYNC: XACTTC = XACTTC(2i32);
 pub const XACTTC_SYNC_PHASEONE: XACTTC = XACTTC(1i32);
 pub const XACTTC_SYNC_PHASETWO: XACTTC = XACTTC(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XACTTRANSINFO {
     pub uow: BOID,
     pub isoLevel: i32,
@@ -4280,11 +4260,6 @@ pub struct XACTTRANSINFO {
     pub grfRMSupported: u32,
     pub grfTCSupportedRetaining: u32,
     pub grfRMSupportedRetaining: u32,
-}
-impl Default for XACTTRANSINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

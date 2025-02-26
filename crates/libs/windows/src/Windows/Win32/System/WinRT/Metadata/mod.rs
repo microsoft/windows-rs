@@ -159,15 +159,10 @@ pub const COR_E_OUTOFMEMORY: i32 = -2147024882i32;
 pub const COR_E_TARGETPARAMCOUNT: windows_core::HRESULT = windows_core::HRESULT(0x8002000E_u32 as _);
 pub const COR_E_UNAUTHORIZEDACCESS: i32 = -2147024891i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_FIELD_OFFSET {
     pub ridOfField: u32,
     pub ulOffset: u32,
-}
-impl Default for COR_FIELD_OFFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COR_ILEXCEPTION_CLAUSE_DEPRECATED: CorExceptionFlag = CorExceptionFlag(0i32);
 pub const COR_ILEXCEPTION_CLAUSE_DUPLICATED: CorExceptionFlag = CorExceptionFlag(8i32);
@@ -177,16 +172,11 @@ pub const COR_ILEXCEPTION_CLAUSE_FINALLY: CorExceptionFlag = CorExceptionFlag(2i
 pub const COR_ILEXCEPTION_CLAUSE_NONE: CorExceptionFlag = CorExceptionFlag(0i32);
 pub const COR_ILEXCEPTION_CLAUSE_OFFSETLEN: CorExceptionFlag = CorExceptionFlag(0i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COR_NATIVE_LINK {
     pub m_linkType: u8,
     pub m_flags: u8,
     pub m_entryPoint: u32,
-}
-impl Default for COR_NATIVE_LINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COR_NATIVE_LINK_CUSTOM_VALUE: windows_core::PCWSTR = windows_core::w!("COMPLUS_NativeLink");
 pub const COR_NATIVE_LINK_CUSTOM_VALUE_ANSI: windows_core::PCSTR = windows_core::s!("COMPLUS_NativeLink");
@@ -217,17 +207,12 @@ pub const COUNINITEE_DLL: COUNINITIEE = COUNINITIEE(1i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COUNINITIEE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CVStruct {
     pub Major: i16,
     pub Minor: i16,
     pub Sub: i16,
     pub Build: i16,
-}
-impl Default for CVStruct {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -746,16 +731,11 @@ impl Default for IMAGE_COR_ILMETHOD {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_COR_ILMETHOD_FAT {
     pub _bitfield: u32,
     pub CodeSize: u32,
     pub LocalVarSigTok: u32,
-}
-impl Default for IMAGE_COR_ILMETHOD_FAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -872,47 +852,27 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_EH_SMALL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_COR_ILMETHOD_SECT_FAT {
     pub _bitfield: u32,
 }
-impl Default for IMAGE_COR_ILMETHOD_SECT_FAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_COR_ILMETHOD_SECT_SMALL {
     pub Kind: u8,
     pub DataSize: u8,
 }
-impl Default for IMAGE_COR_ILMETHOD_SECT_SMALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_COR_ILMETHOD_TINY {
     pub Flags_CodeSize: u8,
 }
-impl Default for IMAGE_COR_ILMETHOD_TINY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_COR_VTABLEFIXUP {
     pub RVA: u32,
     pub Count: u16,
     pub Type: u16,
-}
-impl Default for IMAGE_COR_VTABLEFIXUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IMAGE_DIRECTORY_ENTRY_COMHEADER: ReplacesGeneralNumericDefines = ReplacesGeneralNumericDefines(14i32);
 windows_core::imp::define_interface!(IMapToken, IMapToken_Vtbl, 0x06a3ea8b_0225_11d1_bf72_00c04fc31e12);
@@ -4320,16 +4280,11 @@ pub const NONVERSIONABLE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System
 pub struct NativeTypeArrayFlags(pub i32);
 pub const NoDupCheck: MergeFlags = MergeFlags(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OSINFO {
     pub dwOSPlatformId: u32,
     pub dwOSMajorVersion: u32,
     pub dwOSMinorVersion: u32,
-}
-impl Default for OSINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

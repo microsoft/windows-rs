@@ -766,15 +766,10 @@ impl Default for DECIMAL_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DECIMAL_0_0 {
     pub scale: u8,
     pub sign: u8,
-}
-impl Default for DECIMAL_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -788,26 +783,16 @@ impl Default for DECIMAL_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
 }
-impl Default for DECIMAL_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVPROPKEY {
     pub fmtid: windows_core::GUID,
     pub pid: u32,
-}
-impl Default for DEVPROPKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DIGSIG_E_CRYPTO: windows_core::HRESULT = windows_core::HRESULT(0x800B0008_u32 as _);
 pub const DIGSIG_E_DECODE: windows_core::HRESULT = windows_core::HRESULT(0x800B0006_u32 as _);
@@ -4916,15 +4901,10 @@ pub const FDAEMON_E_WORDLISTCOMMITFAILED: windows_core::HRESULT = windows_core::
 pub const FDAEMON_W_EMPTYWORDLIST: windows_core::HRESULT = windows_core::HRESULT(0x41685_u32 as _);
 pub const FDAEMON_W_WORDLISTFULL: windows_core::HRESULT = windows_core::HRESULT(0x41680_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
-}
-impl Default for FILETIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILTER_E_ALREADY_OPEN: windows_core::HRESULT = windows_core::HRESULT(0x80041736_u32 as _);
 pub const FILTER_E_CONTENTINDEXCORRUPT: windows_core::HRESULT = windows_core::HRESULT(0xC0041734_u32 as _);
@@ -4942,15 +4922,10 @@ pub const FILTER_S_NO_PROPSETS: windows_core::HRESULT = windows_core::HRESULT(0x
 pub const FILTER_S_NO_SECURITY_DESCRIPTOR: windows_core::HRESULT = windows_core::HRESULT(0x4173C_u32 as _);
 pub const FILTER_S_PARTIAL_CONTENTSCAN_IMMEDIATE: windows_core::HRESULT = windows_core::HRESULT(0x41731_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLOAT128 {
     pub LowPart: i64,
     pub HighPart: i64,
-}
-impl Default for FLOAT128 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FRS_ERR_AUTHENTICATION: i32 = 8008i32;
 pub const FRS_ERR_CHILD_TO_PARENT_COMM: i32 = 8011i32;
@@ -5835,15 +5810,10 @@ pub struct LPARAM(pub isize);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LRESULT(pub isize);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LUID {
     pub LowPart: u32,
     pub HighPart: i32,
-}
-impl Default for LUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MARSHAL_E_FIRST: i32 = -2147221216i32;
 pub const MARSHAL_E_LAST: i32 = -2147221201i32;
@@ -6405,50 +6375,30 @@ pub const PLA_E_TASKSCHED_CHANNEL_NOT_ENABLED: windows_core::HRESULT = windows_c
 pub const PLA_E_TOO_MANY_FOLDERS: windows_core::HRESULT = windows_core::HRESULT(0x80300045_u32 as _);
 pub const PLA_S_PROPERTY_IGNORED: windows_core::HRESULT = windows_core::HRESULT(0x300100_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
-impl Default for POINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
-impl Default for POINTL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTS {
     pub x: i16,
     pub y: i16,
 }
-impl Default for POINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PRESENTATION_ERROR_LOST: windows_core::HRESULT = windows_core::HRESULT(0x88810001_u32 as _);
 pub type PROC = Option<unsafe extern "system" fn() -> isize>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPERTYKEY {
     pub fmtid: windows_core::GUID,
     pub pid: u32,
-}
-impl Default for PROPERTYKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PSINK_E_INDEX_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x80041791_u32 as _);
 pub const PSINK_E_LARGE_ATTACHMENT: windows_core::HRESULT = windows_core::HRESULT(0x80041792_u32 as _);
@@ -6510,30 +6460,20 @@ pub const QUERY_S_NO_QUERY: windows_core::HRESULT = windows_core::HRESULT(0x8004
 pub const QUTIL_E_CANT_CONVERT_VROOT: windows_core::HRESULT = windows_core::HRESULT(0x80041676_u32 as _);
 pub const QUTIL_E_INVALID_CODEPAGE: windows_core::HRESULT = windows_core::HRESULT(0xC0041678_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,
     pub right: i32,
     pub bottom: i32,
 }
-impl Default for RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECTL {
     pub left: i32,
     pub top: i32,
     pub right: i32,
     pub bottom: i32,
-}
-impl Default for RECTL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const REGDB_E_BADTHREADINGMODEL: windows_core::HRESULT = windows_core::HRESULT(0x80040156_u32 as _);
 pub const REGDB_E_CLASSNOTREG: windows_core::HRESULT = windows_core::HRESULT(0x80040154_u32 as _);
@@ -6977,15 +6917,10 @@ pub const SEVERITY_SUCCESS: u32 = 0u32;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SHANDLE_PTR(pub isize);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SIZE {
     pub cx: i32,
     pub cy: i32,
-}
-impl Default for SIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SPAPI_E_AUTHENTICODE_DISALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x800F0240_u32 as _);
 pub const SPAPI_E_AUTHENTICODE_PUBLISHER_NOT_TRUSTED: windows_core::HRESULT = windows_core::HRESULT(0x800F0243_u32 as _);
@@ -9961,7 +9896,7 @@ pub const STORE_ERROR_UNLICENSED_USER: i32 = 15862i32;
 pub const STRICT: u32 = 1u32;
 pub const SUCCESS: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -9971,11 +9906,6 @@ pub struct SYSTEMTIME {
     pub wMinute: u16,
     pub wSecond: u16,
     pub wMilliseconds: u16,
-}
-impl Default for SYSTEMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const S_APPLICATION_ACTIVATION_ERROR_HANDLED_BY_DIALOG: windows_core::HRESULT = windows_core::HRESULT(0x270259_u32 as _);
 pub const S_FALSE: windows_core::HRESULT = windows_core::HRESULT(0x1_u32 as _);
@@ -10432,16 +10362,11 @@ pub const UI_E_VALUE_NOT_SET: windows_core::HRESULT = windows_core::HRESULT(0x80
 pub const UI_E_WINDOW_CLOSED: windows_core::HRESULT = windows_core::HRESULT(0x802A0201_u32 as _);
 pub const UI_E_WRONG_THREAD: windows_core::HRESULT = windows_core::HRESULT(0x802A000C_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_core::PWSTR,
-}
-impl Default for UNICODE_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UTC_E_ACTION_NOT_SUPPORTED_IN_DESTINATION: windows_core::HRESULT = windows_core::HRESULT(0x87C51044_u32 as _);
 pub const UTC_E_AGENT_DIAGNOSTICS_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0x87C51055_u32 as _);

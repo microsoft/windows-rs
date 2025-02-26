@@ -77,7 +77,7 @@ pub const DS3DALG_HRTF_LIGHT: windows_core::GUID = windows_core::GUID::from_u128
 pub const DS3DALG_NO_VIRTUALIZATION: windows_core::GUID = windows_core::GUID::from_u128(0xc241333f_1c1b_11d2_94f5_00c04fc28aca);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS3DBUFFER {
     pub dwSize: u32,
     pub vPosition: super::super::super::Graphics::Direct3D::D3DVECTOR,
@@ -90,15 +90,9 @@ pub struct DS3DBUFFER {
     pub flMaxDistance: f32,
     pub dwMode: u32,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Default for DS3DBUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS3DLISTENER {
     pub dwSize: u32,
     pub vPosition: super::super::super::Graphics::Direct3D::D3DVECTOR,
@@ -108,12 +102,6 @@ pub struct DS3DLISTENER {
     pub flDistanceFactor: f32,
     pub flRolloffFactor: f32,
     pub flDopplerFactor: f32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Default for DS3DLISTENER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DS3DMODE_DISABLE: u32 = 2u32;
 pub const DS3DMODE_HEADRELATIVE: u32 = 1u32;
@@ -134,18 +122,13 @@ pub const DS3D_MINCONEANGLE: u32 = 0u32;
 pub const DS3D_MINDOPPLERFACTOR: f32 = 0f32;
 pub const DS3D_MINROLLOFFFACTOR: f32 = 0f32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSBCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwBufferBytes: u32,
     pub dwUnlockTransferRate: u32,
     pub dwPlayCpuOverhead: u32,
-}
-impl Default for DSBCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSBCAPS_CTRL3D: u32 = 16u32;
 pub const DSBCAPS_CTRLFREQUENCY: u32 = 32u32;
@@ -180,15 +163,10 @@ pub const DSBPLAY_TERMINATEBY_PRIORITY: u64 = 32u64;
 pub const DSBPLAY_TERMINATEBY_TIME: u32 = 8u32;
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSBPOSITIONNOTIFY {
     pub dwOffset: u32,
     pub hEventNotify: super::super::super::Foundation::HANDLE,
-}
-impl Default for DSBPOSITIONNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSBSIZE_FX_MIN: u32 = 150u32;
 pub const DSBSIZE_MAX: u32 = 268435455u32;
@@ -231,7 +209,7 @@ impl Default for DSBUFFERDESC1 {
 pub const DSBVOLUME_MAX: u32 = 0u32;
 pub const DSBVOLUME_MIN: i32 = -10000i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -258,11 +236,6 @@ pub struct DSCAPS {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Default for DSCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DSCAPS_CERTIFIED: u32 = 64u32;
 pub const DSCAPS_CONTINUOUSRATE: u32 = 16u32;
 pub const DSCAPS_EMULDRIVER: u32 = 32u32;
@@ -275,17 +248,12 @@ pub const DSCAPS_SECONDARY8BIT: u32 = 1024u32;
 pub const DSCAPS_SECONDARYMONO: u32 = 256u32;
 pub const DSCAPS_SECONDARYSTEREO: u32 = 512u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSCBCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwBufferBytes: u32,
     pub dwReserved: u32,
-}
-impl Default for DSCBCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSCBCAPS_CTRLFX: u32 = 512u32;
 pub const DSCBCAPS_WAVEMAPPED: u32 = 2147483648u32;
@@ -324,23 +292,18 @@ impl Default for DSCBUFFERDESC1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSCCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwFormats: u32,
     pub dwChannels: u32,
 }
-impl Default for DSCCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DSCCAPS_CERTIFIED: u32 = 64u32;
 pub const DSCCAPS_EMULDRIVER: u32 = 32u32;
 pub const DSCCAPS_MULTIPLECAPTURE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSCEFFECTDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -349,32 +312,17 @@ pub struct DSCEFFECTDESC {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Default for DSCEFFECTDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSCFXAec {
     pub fEnable: windows_core::BOOL,
     pub fNoiseFill: windows_core::BOOL,
     pub dwMode: u32,
 }
-impl Default for DSCFXAec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSCFXNoiseSuppress {
     pub fEnable: windows_core::BOOL,
-}
-impl Default for DSCFXNoiseSuppress {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSCFXR_LOCHARDWARE: u32 = 16u32;
 pub const DSCFXR_LOCSOFTWARE: u32 = 32u32;
@@ -392,18 +340,13 @@ pub const DSDEVID_DefaultPlayback: windows_core::GUID = windows_core::GUID::from
 pub const DSDEVID_DefaultVoiceCapture: windows_core::GUID = windows_core::GUID::from_u128(0xdef00003_9c6d_47ed_aaf1_4dda8f2b5c03);
 pub const DSDEVID_DefaultVoicePlayback: windows_core::GUID = windows_core::GUID::from_u128(0xdef00002_9c6d_47ed_aaf1_4dda8f2b5c03);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSEFFECTDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub guidDSFXClass: windows_core::GUID,
     pub dwReserved1: usize,
     pub dwReserved2: usize,
-}
-impl Default for DSEFFECTDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSFXCHORUS_DELAY_MAX: f32 = 20f32;
 pub const DSFXCHORUS_DELAY_MIN: f32 = 0f32;
@@ -437,7 +380,7 @@ pub const DSFXCOMPRESSOR_RELEASE_MIN: f32 = 50f32;
 pub const DSFXCOMPRESSOR_THRESHOLD_MAX: f32 = 0f32;
 pub const DSFXCOMPRESSOR_THRESHOLD_MIN: f32 = -60f32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSFXChorus {
     pub fWetDryMix: f32,
     pub fDepth: f32,
@@ -447,13 +390,8 @@ pub struct DSFXChorus {
     pub fDelay: f32,
     pub lPhase: i32,
 }
-impl Default for DSFXChorus {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSFXCompressor {
     pub fGain: f32,
     pub fAttack: f32,
@@ -461,11 +399,6 @@ pub struct DSFXCompressor {
     pub fThreshold: f32,
     pub fRatio: f32,
     pub fPredelay: f32,
-}
-impl Default for DSFXCompressor {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSFXDISTORTION_EDGE_MAX: f32 = 100f32;
 pub const DSFXDISTORTION_EDGE_MIN: f32 = 0f32;
@@ -478,18 +411,13 @@ pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MIN: f32 = 100f32;
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MAX: f32 = 8000f32;
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MIN: f32 = 100f32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSFXDistortion {
     pub fGain: f32,
     pub fEdge: f32,
     pub fPostEQCenterFrequency: f32,
     pub fPostEQBandwidth: f32,
     pub fPreLowpassCutoff: f32,
-}
-impl Default for DSFXDistortion {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSFXECHO_FEEDBACK_MAX: f32 = 100f32;
 pub const DSFXECHO_FEEDBACK_MIN: f32 = 0f32;
@@ -502,18 +430,13 @@ pub const DSFXECHO_RIGHTDELAY_MIN: f32 = 1f32;
 pub const DSFXECHO_WETDRYMIX_MAX: f32 = 100f32;
 pub const DSFXECHO_WETDRYMIX_MIN: f32 = 0f32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSFXEcho {
     pub fWetDryMix: f32,
     pub fFeedback: f32,
     pub fLeftDelay: f32,
     pub fRightDelay: f32,
     pub lPanDelay: i32,
-}
-impl Default for DSFXEcho {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSFXFLANGER_DELAY_MAX: f32 = 4f32;
 pub const DSFXFLANGER_DELAY_MIN: f32 = 0f32;
@@ -535,7 +458,7 @@ pub const DSFXFLANGER_WAVE_TRIANGLE: u32 = 0u32;
 pub const DSFXFLANGER_WETDRYMIX_MAX: f32 = 100f32;
 pub const DSFXFLANGER_WETDRYMIX_MIN: f32 = 0f32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSFXFlanger {
     pub fWetDryMix: f32,
     pub fDepth: f32,
@@ -545,28 +468,18 @@ pub struct DSFXFlanger {
     pub fDelay: f32,
     pub lPhase: i32,
 }
-impl Default for DSFXFlanger {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DSFXGARGLE_RATEHZ_MAX: u32 = 1000u32;
 pub const DSFXGARGLE_RATEHZ_MIN: u32 = 1u32;
 pub const DSFXGARGLE_WAVE_SQUARE: u32 = 1u32;
 pub const DSFXGARGLE_WAVE_TRIANGLE: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSFXGargle {
     pub dwRateHz: u32,
     pub dwWaveShape: u32,
 }
-impl Default for DSFXGargle {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSFXI3DL2Reverb {
     pub lRoom: i32,
     pub lRoomHF: i32,
@@ -581,11 +494,6 @@ pub struct DSFXI3DL2Reverb {
     pub flDensity: f32,
     pub flHFReference: f32,
 }
-impl Default for DSFXI3DL2Reverb {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DSFXPARAMEQ_BANDWIDTH_MAX: f32 = 36f32;
 pub const DSFXPARAMEQ_BANDWIDTH_MIN: f32 = 1f32;
 pub const DSFXPARAMEQ_CENTER_MAX: f32 = 16000f32;
@@ -593,16 +501,11 @@ pub const DSFXPARAMEQ_CENTER_MIN: f32 = 80f32;
 pub const DSFXPARAMEQ_GAIN_MAX: f32 = 15f32;
 pub const DSFXPARAMEQ_GAIN_MIN: f32 = -15f32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSFXParamEq {
     pub fCenter: f32,
     pub fBandwidth: f32,
     pub fGain: f32,
-}
-impl Default for DSFXParamEq {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSFXR_FAILED: i32 = 4i32;
 pub const DSFXR_LOCHARDWARE: i32 = 1i32;
@@ -612,17 +515,12 @@ pub const DSFXR_SENDLOOP: i32 = 6i32;
 pub const DSFXR_UNALLOCATED: i32 = 3i32;
 pub const DSFXR_UNKNOWN: i32 = 5i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSFXWavesReverb {
     pub fInGain: f32,
     pub fReverbMix: f32,
     pub fReverbTime: f32,
     pub fHighFreqRTRatio: f32,
-}
-impl Default for DSFXWavesReverb {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_DEFAULT: f32 = 0.83f32;
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MAX: f32 = 2f32;

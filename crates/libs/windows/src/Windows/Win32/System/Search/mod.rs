@@ -1614,17 +1614,12 @@ pub unsafe fn dbprtypeW(param0: i32) -> windows_core::PWSTR {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_MASKENUM(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AUTHENTICATION_INFO {
     pub dwSize: u32,
     pub atAuthenticationType: AUTH_TYPE,
     pub pcwszUser: windows_core::PCWSTR,
     pub pcwszPassword: windows_core::PCWSTR,
-}
-impl Default for AUTHENTICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1661,15 +1656,10 @@ pub const BMK_DURABILITY_REORGANIZATION: i32 = 3i32;
 pub const BMK_DURABILITY_ROWSET: i32 = 0i32;
 pub const BMK_DURABILITY_XTRANSACTION: i32 = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BUCKETCATEGORIZE {
     pub cBuckets: u32,
     pub Distribution: u32,
-}
-impl Default for BUCKETCATEGORIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BUCKET_EXPONENTIAL: u32 = 1u32;
 pub const BUCKET_LINEAR: u32 = 0u32;
@@ -1966,16 +1956,11 @@ pub struct CatalogStatus(pub i32);
 pub const CompoundCondition: windows_core::GUID = windows_core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
 pub const ConditionFactory: windows_core::GUID = windows_core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DATE_STRUCT {
     pub year: i16,
     pub month: u16,
     pub day: u16,
-}
-impl Default for DATE_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2459,31 +2444,19 @@ pub const DBCOPY_NON_RECURSIVE: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(2048i32);
 pub const DBCOPY_REPLACE_EXISTING: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(512i32);
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBCOST {
     pub eKind: u32,
     pub dwUnits: u32,
     pub lValue: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBCOST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBCOST {
     pub eKind: u32,
     pub dwUnits: u32,
     pub lValue: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBCOST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2497,38 +2470,23 @@ pub const DBDATACONVERT_DSTISFIXEDLENGTH: DBDATACONVERTENUM = DBDATACONVERTENUM(
 pub const DBDATACONVERT_LENGTHFROMNTS: DBDATACONVERTENUM = DBDATACONVERTENUM(2i32);
 pub const DBDATACONVERT_SETDATABEHAVIOR: DBDATACONVERTENUM = DBDATACONVERTENUM(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBDATE {
     pub year: i16,
     pub month: u16,
     pub day: u16,
 }
-impl Default for DBDATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBDATETIM4 {
     pub numdays: u16,
     pub nummins: u16,
 }
-impl Default for DBDATETIM4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBDATETIME {
     pub dtdays: i32,
     pub dttime: u32,
-}
-impl Default for DBDATETIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2556,31 +2514,19 @@ pub const DBEXECLIMITS_STOP: DBEXECLIMITSENUM = DBEXECLIMITSENUM(2i32);
 pub const DBEXECLIMITS_SUSPEND: DBEXECLIMITSENUM = DBEXECLIMITSENUM(3i32);
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
     pub iColumn: usize,
     pub failure: windows_core::HRESULT,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBFAILUREINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
     pub iColumn: usize,
     pub failure: windows_core::HRESULT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBFAILUREINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DBGUID_MSSQLXML: windows_core::GUID = windows_core::GUID::from_u128(0x5d531cb2_e6ed_11d2_b252_00c04f681b71);
 pub const DBGUID_ROWDEFAULTSTREAM: windows_core::GUID = windows_core::GUID::from_u128(0x0c733ab7_2a1c_11ce_ade5_00aa0044773d);
@@ -2659,7 +2605,7 @@ pub struct DBLITERALENUM20(pub i32);
 pub struct DBLITERALENUM21(pub i32);
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBLITERALINFO {
     pub pwszLiteralValue: windows_core::PWSTR,
     pub pwszInvalidChars: windows_core::PWSTR,
@@ -2667,16 +2613,10 @@ pub struct DBLITERALINFO {
     pub lt: u32,
     pub fSupported: windows_core::BOOL,
     pub cchMaxLen: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBLITERALINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBLITERALINFO {
     pub pwszLiteralValue: windows_core::PWSTR,
     pub pwszInvalidChars: windows_core::PWSTR,
@@ -2684,12 +2624,6 @@ pub struct DBLITERALINFO {
     pub lt: u32,
     pub fSupported: windows_core::BOOL,
     pub cchMaxLen: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBLITERALINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = DBLITERALENUM(1i32);
 pub const DBLITERAL_CATALOG_NAME: DBLITERALENUM = DBLITERALENUM(2i32);
@@ -2735,15 +2669,10 @@ pub struct DBMEMOWNERENUM(pub i32);
 pub const DBMEMOWNER_CLIENTOWNED: DBMEMOWNERENUM = DBMEMOWNERENUM(0i32);
 pub const DBMEMOWNER_PROVIDEROWNED: DBMEMOWNERENUM = DBMEMOWNERENUM(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBMONEY {
     pub mnyhigh: i32,
     pub mnylow: u32,
-}
-impl Default for DBMONEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2755,33 +2684,21 @@ pub const DBMOVE_DONT_UPDATE_LINKS: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(512i32);
 pub const DBMOVE_REPLACE_EXISTING: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(1i32);
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBOBJECT {
     pub dwFlags: u32,
     pub iid: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBOBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBOBJECT {
     pub dwFlags: u32,
     pub iid: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBOBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBPARAMBINDINFO {
     pub pwszDataSourceType: windows_core::PWSTR,
     pub pwszName: windows_core::PWSTR,
@@ -2789,16 +2706,10 @@ pub struct DBPARAMBINDINFO {
     pub dwFlags: u32,
     pub bPrecision: u8,
     pub bScale: u8,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBPARAMBINDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBPARAMBINDINFO {
     pub pwszDataSourceType: windows_core::PWSTR,
     pub pwszName: windows_core::PWSTR,
@@ -2806,12 +2717,6 @@ pub struct DBPARAMBINDINFO {
     pub dwFlags: u32,
     pub bPrecision: u8,
     pub bScale: u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBPARAMBINDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2828,6 +2733,7 @@ pub const DBPARAMFLAGS_SCALEISNEGATIVE: DBPARAMFLAGSENUM20 = DBPARAMFLAGSENUM20(
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Default)]
 pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
@@ -2837,18 +2743,11 @@ pub struct DBPARAMINFO {
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl Default for DBPARAMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
@@ -2858,13 +2757,6 @@ pub struct DBPARAMINFO {
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl Default for DBPARAMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3764,33 +3656,21 @@ pub const DBROWSTATUS_S_OK: DBROWSTATUSENUM = DBROWSTATUSENUM(0i32);
 pub const DBROWSTATUS_S_PENDINGCHANGES: DBROWSTATUSENUM = DBROWSTATUSENUM(3i32);
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBROWWATCHCHANGE {
     pub hRegion: usize,
     pub eChangeKind: u32,
     pub hRow: usize,
     pub iRow: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBROWWATCHCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBROWWATCHCHANGE {
     pub hRegion: usize,
     pub eChangeKind: u32,
     pub hRow: usize,
     pub iRow: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBROWWATCHCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DBSCHEMA_LINKEDSERVERS: windows_core::GUID = windows_core::GUID::from_u128(0x9093caf4_2eac_11d1_9809_00c04fc2ad98);
 #[repr(transparent)]
@@ -3874,20 +3754,15 @@ pub const DBSTAT_TUPLE_CARDINALITY: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICST
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBTABLESTATISTICSTYPE26(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBTIME {
     pub hour: u16,
     pub minute: u16,
     pub second: u16,
 }
-impl Default for DBTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBTIMESTAMP {
     pub year: i16,
     pub month: u16,
@@ -3896,16 +3771,10 @@ pub struct DBTIMESTAMP {
     pub minute: u16,
     pub second: u16,
     pub fraction: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBTIMESTAMP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBTIMESTAMP {
     pub year: i16,
     pub month: u16,
@@ -3914,12 +3783,6 @@ pub struct DBTIMESTAMP {
     pub minute: u16,
     pub second: u16,
     pub fraction: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBTIMESTAMP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4576,35 +4439,23 @@ impl windows_core::RuntimeName for DataSourceObject {}
 pub struct EBindInfoOptions(pub i32);
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ERRORINFO {
     pub hrError: windows_core::HRESULT,
     pub dwMinor: u32,
     pub clsid: windows_core::GUID,
     pub iid: windows_core::GUID,
     pub dispid: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for ERRORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ERRORINFO {
     pub hrError: windows_core::HRESULT,
     pub dwMinor: u32,
     pub clsid: windows_core::GUID,
     pub iid: windows_core::GUID,
     pub dispid: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for ERRORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ERROR_FTE: u32 = 13824u32;
 pub const ERROR_FTE_CB: u32 = 51968u32;
@@ -5099,15 +4950,10 @@ impl HACCESSOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HITRANGE {
     pub iPosition: u32,
     pub cLength: u32,
-}
-impl Default for HITRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(IAccessor, IAccessor_Vtbl, 0x0c733a8c_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IAccessor, windows_core::IUnknown);
@@ -9503,15 +9349,10 @@ impl IMultipleResults_Vtbl {
 }
 impl windows_core::RuntimeName for IMultipleResults {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INCREMENTAL_ACCESS_INFO {
     pub dwSize: u32,
     pub ftLastModifiedTime: super::super::Foundation::FILETIME,
-}
-impl Default for INCREMENTAL_ACCESS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const INET_E_AGENT_CACHE_SIZE_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F82_u32 as _);
 pub const INET_E_AGENT_CONNECTION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F83_u32 as _);
@@ -16582,18 +16423,13 @@ impl Default for ITEMPROP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ITEM_INFO {
     pub dwSize: u32,
     pub pcwszFromEMail: windows_core::PCWSTR,
     pub pcwszApplicationName: windows_core::PCWSTR,
     pub pcwszCatalogName: windows_core::PCWSTR,
     pub pcwszContentClass: windows_core::PCWSTR,
-}
-impl Default for ITEM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(ITableCreation, ITableCreation_Vtbl, 0x0c733abc_2a1c_11ce_ade5_00aa0044773d);
 impl core::ops::Deref for ITableCreation {
@@ -18412,17 +18248,11 @@ pub const KAGPROP_SYSTEMFUNCTIONS: u32 = 21u32;
 pub const KAGPROP_TIMEDATEFUNCTIONS: u32 = 22u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KAGREQDIAG {
     pub ulDiagFlags: u32,
     pub vt: super::Variant::VARENUM,
     pub sDiagField: i16,
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Default for KAGREQDIAG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -19371,7 +19201,7 @@ pub const PROXY_ACCESS_DIRECT: PROXY_ACCESS = PROXY_ACCESS(1i32);
 pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = PROXY_ACCESS(0i32);
 pub const PROXY_ACCESS_PROXY: PROXY_ACCESS = PROXY_ACCESS(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROXY_INFO {
     pub dwSize: u32,
     pub pcwszUserAgent: windows_core::PCWSTR,
@@ -19380,11 +19210,6 @@ pub struct PROXY_INFO {
     pub dwPortNumber: u32,
     pub pcwszProxyName: windows_core::PCWSTR,
     pub pcwszBypassList: windows_core::PCWSTR,
-}
-impl Default for PROXY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PRRE: u32 = 6u32;
 pub const PRSomeBits: u32 = 8u32;
@@ -19711,28 +19536,18 @@ impl Default for SEARCH_ITEM_CHANGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEARCH_ITEM_INDEXING_STATUS {
     pub dwDocID: u32,
     pub hrIndexingStatus: windows_core::HRESULT,
 }
-impl Default for SEARCH_ITEM_INDEXING_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEARCH_ITEM_PERSISTENT_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
     pub URL: windows_core::PWSTR,
     pub OldURL: windows_core::PWSTR,
     pub Priority: SEARCH_NOTIFICATION_PRIORITY,
-}
-impl Default for SEARCH_ITEM_PERSISTENT_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -19899,7 +19714,7 @@ pub const SQLNUMERIC: u32 = 108u32;
 pub const SQLNUMERICN: u32 = 108u32;
 pub const SQLNVARCHAR: u32 = 231u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SQLPERF {
     pub TimerResolution: u32,
     pub SQLidu: u32,
@@ -19934,11 +19749,6 @@ pub struct SQLPERF {
     pub BytesRec: u32,
     pub msExecutionTime: u32,
     pub msNetWorkServerTime: u32,
-}
-impl Default for SQLPERF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SQLTEXT: u32 = 35u32;
 pub const SQLUNIQUEID: u32 = 36u32;
@@ -20558,18 +20368,13 @@ pub const SQL_DATETIME_LITERALS: u32 = 119u32;
 pub const SQL_DATE_LEN: u32 = 10u32;
 pub const SQL_DAY: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SQL_DAY_SECOND_STRUCT {
     pub day: u32,
     pub hour: u32,
     pub minute: u32,
     pub second: u32,
     pub fraction: u32,
-}
-impl Default for SQL_DAY_SECOND_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SQL_DAY_TO_HOUR: u32 = 8u32;
 pub const SQL_DAY_TO_MINUTE: u32 = 9u32;
@@ -21635,15 +21440,10 @@ pub const SQL_XL_ON: i32 = 1i32;
 pub const SQL_XOPEN_CLI_YEAR: u32 = 10000u32;
 pub const SQL_YEAR: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SQL_YEAR_MONTH_STRUCT {
     pub year: u32,
     pub month: u32,
-}
-impl Default for SQL_YEAR_MONTH_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SQL_YEAR_TO_MONTH: u32 = 7u32;
 pub const SQLudtBINARY: u32 = 3u32;
@@ -21712,7 +21512,7 @@ pub const SQS_NATURAL_QUERY_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_S
 pub const SQS_NO_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_SYNTAX(0i32);
 pub const SRCH_SCHEMA_CACHE_E_UNEXPECTED: i32 = -2147208447i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SSERRORINFO {
     pub pwszMessage: windows_core::PWSTR,
     pub pwszServer: windows_core::PWSTR,
@@ -21721,11 +21521,6 @@ pub struct SSERRORINFO {
     pub bState: u8,
     pub bClass: u8,
     pub wLineNumber: u16,
-}
-impl Default for SSERRORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SSPROPVAL_COMMANDTYPE_BULKLOAD: u32 = 22u32;
 pub const SSPROPVAL_COMMANDTYPE_REGULAR: u32 = 21u32;
@@ -21823,16 +21618,10 @@ impl Default for SSVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SSVARIANT_0_4 {
     pub dbobj: DBOBJECT,
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -21993,18 +21782,13 @@ impl Default for SUBSCRIPTIONINFO {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUBSCRIPTIONINFOFLAGS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SUBSCRIPTIONITEMINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub dwPriority: u32,
     pub ScheduleGroup: windows_core::GUID,
     pub clsidAgent: windows_core::GUID,
-}
-impl Default for SUBSCRIPTIONITEMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -22046,32 +21830,22 @@ pub const SUCCEED_ABORT: u32 = 2u32;
 pub const SUCCEED_ASYNC: u32 = 3u32;
 pub const SubscriptionMgr: windows_core::GUID = windows_core::GUID::from_u128(0xabbe31d0_6dae_11d0_beca_00c04fd940be);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TEXT_SOURCE {
     pub pfnFillTextBuffer: PFNFILLTEXTBUFFER,
     pub awcBuffer: windows_core::PCWSTR,
     pub iEnd: u32,
     pub iCur: u32,
 }
-impl Default for TEXT_SOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIMEOUT_INFO {
     pub dwSize: u32,
     pub dwConnectTimeout: u32,
     pub dwDataTimeout: u32,
 }
-impl Default for TIMEOUT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIMESTAMP_STRUCT {
     pub year: i16,
     pub month: u16,
@@ -22081,38 +21855,22 @@ pub struct TIMESTAMP_STRUCT {
     pub second: u16,
     pub fraction: u32,
 }
-impl Default for TIMESTAMP_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIME_STRUCT {
     pub hour: u16,
     pub minute: u16,
     pub second: u16,
-}
-impl Default for TIME_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TRACE_ON: i32 = 1i32;
 pub const TRACE_VERSION: u32 = 1000u32;
 pub const TRACE_VS_EVENT_ON: i32 = 2i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VECTORRESTRICTION {
     pub Node: NODERESTRICTION,
     pub RankMethod: u32,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for VECTORRESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VT_SS_BINARY: SQLVARENUM = SQLVARENUM(207i32);
 pub const VT_SS_BIT: SQLVARENUM = SQLVARENUM(11i32);

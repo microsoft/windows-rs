@@ -3424,7 +3424,7 @@ impl Default for VSS_VOLUME_PROP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VSS_VOLUME_PROTECTION_INFO {
     pub m_protectionLevel: VSS_PROTECTION_LEVEL,
     pub m_volumeIsOfflineForProtection: windows_core::BOOL,
@@ -3432,11 +3432,6 @@ pub struct VSS_VOLUME_PROTECTION_INFO {
     pub m_failureStatus: i32,
     pub m_volumeHasUnusedDiffArea: windows_core::BOOL,
     pub m_reserved: u32,
-}
-impl Default for VSS_VOLUME_PROTECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

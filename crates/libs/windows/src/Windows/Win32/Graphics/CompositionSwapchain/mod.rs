@@ -10,7 +10,7 @@ where
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CompositionFrameDisplayInstance {
     pub displayAdapterLUID: super::super::Foundation::LUID,
     pub displayVidPnSourceId: u32,
@@ -20,12 +20,6 @@ pub struct CompositionFrameDisplayInstance {
     pub finalTransform: PresentationTransform,
     pub requiredCrossAdapterCopy: u8,
     pub colorSpace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for CompositionFrameDisplayInstance {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -839,7 +833,7 @@ pub const PresentStatus_Canceled: PresentStatus = PresentStatus(2i32);
 pub const PresentStatus_Queued: PresentStatus = PresentStatus(0i32);
 pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PresentationTransform {
     pub M11: f32,
     pub M12: f32,
@@ -848,18 +842,8 @@ pub struct PresentationTransform {
     pub M31: f32,
     pub M32: f32,
 }
-impl Default for PresentationTransform {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SystemInterruptTime {
     pub value: u64,
-}
-impl Default for SystemInterruptTime {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

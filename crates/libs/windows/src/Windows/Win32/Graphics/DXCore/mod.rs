@@ -18,28 +18,18 @@ pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: windows_core::GUID = windows_
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: windows_core::GUID = windows_core::GUID::from_u128(0x248e2800_a793_4724_abaa_23a6de1be090);
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: windows_core::GUID = windows_core::GUID::from_u128(0x0c9ece4d_2f6e_4f01_8c96_e89e331b47b1);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXCoreAdapterMemoryBudget {
     pub budget: u64,
     pub currentUsage: u64,
     pub availableForReservation: u64,
     pub currentReservation: u64,
 }
-impl Default for DXCoreAdapterMemoryBudget {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     pub nodeIndex: u32,
     pub segmentGroup: DXCoreSegmentGroup,
-}
-impl Default for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -51,31 +41,21 @@ pub struct DXCoreAdapterProperty(pub u32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterState(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXCoreHardwareID {
     pub vendorID: u32,
     pub deviceID: u32,
     pub subSysID: u32,
     pub revision: u32,
 }
-impl Default for DXCoreHardwareID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXCoreHardwareIDParts {
     pub vendorID: u32,
     pub deviceID: u32,
     pub subSystemID: u32,
     pub subVendorID: u32,
     pub revisionID: u32,
-}
-impl Default for DXCoreHardwareIDParts {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -88,17 +88,12 @@ pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges(registrationobjec
     unsafe { NetworkIsolationUnregisterForAppContainerChanges(registrationobject) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS0 {
     pub id: windows_core::GUID,
     pub keyword: windows_core::PCWSTR,
     pub flags: u32,
     pub addresses: windows_core::PCWSTR,
-}
-impl Default for FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7132,7 +7127,7 @@ pub const NETCON_MAX_NAME_LEN: u32 = 256u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETCON_MEDIATYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETCON_PROPERTIES {
     pub guidId: windows_core::GUID,
     pub pszwName: windows_core::PWSTR,
@@ -7142,11 +7137,6 @@ pub struct NETCON_PROPERTIES {
     pub dwCharacter: u32,
     pub clsidThisObject: windows_core::GUID,
     pub clsidUiObject: windows_core::GUID,
-}
-impl Default for NETCON_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

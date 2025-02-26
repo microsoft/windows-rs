@@ -726,16 +726,11 @@ pub unsafe fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, millisecon
     unsafe { WindowPattern_WaitForInputIdle(hobj, milliseconds, presult as _).ok() }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ACCESSTIMEOUT {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub iTimeOutMSec: u32,
-}
-impl Default for ACCESSTIMEOUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1035,18 +1030,13 @@ pub const ExpandCollapseState_PartiallyExpanded: ExpandCollapseState = ExpandCol
 pub const ExpandCollapse_ExpandCollapseState_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x275a4c48_85a7_4f69_aba0_af157610002b);
 pub const ExpandCollapse_Pattern_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xae05efa2_f9d1_428a_834c_53a5c52f9b8b);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ExtendedProperty {
     pub PropertyName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub PropertyValue: core::mem::ManuallyDrop<windows_core::BSTR>,
 }
-impl Default for ExtendedProperty {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILTERKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1054,11 +1044,6 @@ pub struct FILTERKEYS {
     pub iDelayMSec: u32,
     pub iRepeatMSec: u32,
     pub iBounceMSec: u32,
-}
-impl Default for FILTERKEYS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FillColor_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x6e0ec4d0_e2a8_4a56_9de7_953389933b39);
 #[repr(transparent)]
@@ -1100,28 +1085,18 @@ pub const HCF_HOTKEYSOUND: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(16u32);
 pub const HCF_INDICATOR: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(32u32);
 pub const HCF_OPTION_NOTHEMECHANGE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(4096u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HIGHCONTRASTA {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
     pub lpszDefaultScheme: windows_core::PSTR,
 }
-impl Default for HIGHCONTRASTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HIGHCONTRASTW {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
     pub lpszDefaultScheme: windows_core::PWSTR,
-}
-impl Default for HIGHCONTRASTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -19343,7 +19318,7 @@ pub const LiveSetting_Property_GUID: windows_core::GUID = windows_core::GUID::fr
 pub const LocalizedControlType_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x8763404f_a1bd_452a_89c4_3f01d3833806);
 pub const LocalizedLandmarkType_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x7ac81980_eafb_4fb2_bf91_f485bef5e8e1);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MOUSEKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -19353,22 +19328,12 @@ pub struct MOUSEKEYS {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Default for MOUSEKEYS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSAAMENUINFO {
     pub dwMSAASignature: u32,
     pub cchWText: u32,
     pub pszWText: windows_core::PWSTR,
-}
-impl Default for MSAAMENUINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
 pub const MenuBar_Control_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcc384250_0e7b_4ae8_95ae_a08f261b52ee);
@@ -19620,7 +19585,7 @@ pub const SELFLAG_TAKEFOCUS: u32 = 1u32;
 pub const SELFLAG_TAKESELECTION: u32 = 2u32;
 pub const SELFLAG_VALID: u32 = 31u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIALKEYSA {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
@@ -19630,13 +19595,8 @@ pub struct SERIALKEYSA {
     pub iPortState: u32,
     pub iActive: u32,
 }
-impl Default for SERIALKEYSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIALKEYSW {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
@@ -19645,11 +19605,6 @@ pub struct SERIALKEYSW {
     pub iBaudRate: u32,
     pub iPortState: u32,
     pub iActive: u32,
-}
-impl Default for SERIALKEYSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -19718,7 +19673,7 @@ pub const SKF_STICKYKEYSON: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1u32);
 pub const SKF_TRISTATE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(128u32);
 pub const SKF_TWOKEYSOFF: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(256u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOUNDSENTRYA {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -19733,13 +19688,8 @@ pub struct SOUNDSENTRYA {
     pub lpszWindowsEffectDLL: windows_core::PSTR,
     pub iWindowsEffectOrdinal: u32,
 }
-impl Default for SOUNDSENTRYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOUNDSENTRYW {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -19753,11 +19703,6 @@ pub struct SOUNDSENTRYW {
     pub iWindowsEffectMSec: u32,
     pub lpszWindowsEffectDLL: windows_core::PWSTR,
     pub iWindowsEffectOrdinal: u32,
-}
-impl Default for SOUNDSENTRYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -19821,15 +19766,10 @@ pub const SSWF_WINDOW: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(2
 pub const STATE_SYSTEM_HASPOPUP: u32 = 1073741824u32;
 pub const STATE_SYSTEM_NORMAL: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STICKYKEYS {
     pub cbSize: u32,
     pub dwFlags: STICKYKEYS_FLAGS,
-}
-impl Default for STICKYKEYS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -20050,15 +19990,10 @@ pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = Synchroniz
 pub const SynchronizedInput_Pattern_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x05c288a6_c47b_488b_b653_33977a551b8b);
 pub const SystemAlert_Event_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xd271545d_7a3a_47a7_8474_81d29a2451c9);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TOGGLEKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
-}
-impl Default for TOGGLEKEYS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TabItem_Control_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x2c6a634f_921b_4e6e_b26e_08fcb0798f4c);
 pub const Tab_Control_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x38cd1f2d_337a_4bd2_a5e3_adb469e30bd3);
@@ -20596,15 +20531,10 @@ pub const UIA_WindowWindowVisualStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_
 pub const UIA_Window_WindowClosedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20017i32);
 pub const UIA_Window_WindowOpenedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20016i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UIAutomationEventInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,
-}
-impl Default for UIAutomationEventInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -20653,16 +20583,11 @@ impl Default for UIAutomationPatternInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UIAutomationPropertyInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,
     pub r#type: UIAutomationType,
-}
-impl Default for UIAutomationPropertyInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -20744,17 +20669,12 @@ impl Default for UiaAndOrCondition {
 }
 pub const UiaAppendRuntimeId: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UiaAsyncContentLoadedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
     pub AsyncContentLoadedState: AsyncContentLoadedState,
     pub PercentComplete: f64,
-}
-impl Default for UiaAsyncContentLoadedEventArgs {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -20807,25 +20727,15 @@ impl Default for UiaChangesEventArgs {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UiaCondition {
     pub ConditionType: ConditionType,
 }
-impl Default for UiaCondition {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UiaEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
-}
-impl Default for UiaEventArgs {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 pub type UiaEventCallback = Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: windows_core::Ref<'_, windows_core::BSTR>)>;
@@ -20854,15 +20764,10 @@ impl Default for UiaNotCondition {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UiaPoint {
     pub x: f64,
     pub y: f64,
-}
-impl Default for UiaPoint {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20908,17 +20813,12 @@ impl Default for UiaPropertyCondition {
 #[cfg(feature = "Win32_System_Com")]
 pub type UiaProviderCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UiaRect {
     pub left: f64,
     pub top: f64,
     pub width: f64,
     pub height: f64,
-}
-impl Default for UiaRect {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UiaRootObjectId: i32 = -25i32;
 #[repr(C)]

@@ -1,13 +1,8 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMDLG_FILTERSPEC {
     pub pszName: windows_core::PCWSTR,
     pub pszSpec: windows_core::PCWSTR,
-}
-impl Default for COMDLG_FILTERSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -149,14 +144,9 @@ impl IObjectCollection_Vtbl {
 }
 impl windows_core::RuntimeName for IObjectCollection {}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
-}
-impl Default for ITEMIDLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

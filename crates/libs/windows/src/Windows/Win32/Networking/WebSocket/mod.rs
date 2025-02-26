@@ -166,17 +166,12 @@ impl Default for WEB_SOCKET_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WEB_SOCKET_HTTP_HEADER {
     pub pcName: windows_core::PSTR,
     pub ulNameLength: u32,
     pub pcValue: windows_core::PSTR,
     pub ulValueLength: u32,
-}
-impl Default for WEB_SOCKET_HTTP_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WEB_SOCKET_INDICATE_RECEIVE_COMPLETE_ACTION: WEB_SOCKET_ACTION = WEB_SOCKET_ACTION(4i32);
 pub const WEB_SOCKET_INDICATE_SEND_COMPLETE_ACTION: WEB_SOCKET_ACTION = WEB_SOCKET_ACTION(2i32);

@@ -151,6 +151,9 @@ impl CppStruct {
 
         let default = if writer.config.sys {
             quote! {}
+        } else if self.can_derive_default() {
+            derive.extend(["Default"]);
+            quote! {}
         } else {
             quote! {
                 #cfg
@@ -222,6 +225,16 @@ impl CppStruct {
         }
 
         tokens
+    }
+
+    fn can_derive_default(&self) -> bool {
+        !self.has_explicit_layout()
+            && self.def.fields().all(|field| {
+                !matches!(
+                    field.ty(Some(self)),
+                    Type::ArrayFixed(..) | Type::PtrConst(..) | Type::PtrMut(..)
+                )
+            })
     }
 
     pub fn is_copyable(&self) -> bool {

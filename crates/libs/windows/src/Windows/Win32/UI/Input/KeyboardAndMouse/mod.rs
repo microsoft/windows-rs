@@ -280,16 +280,11 @@ pub const CAPLOKALTGR: u32 = 4u32;
 pub const CEDILLA: u32 = 807u32;
 pub const CIRCUMFLEX: u32 = 770u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEADKEY {
     pub dwBoth: u32,
     pub wchComposed: u16,
     pub uFlags: u16,
-}
-impl Default for DEADKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEC_KBD_ANSI_LAYOUT_TYPE: u32 = 1u32;
 pub const DEC_KBD_JIS_LAYOUT_TYPE: u32 = 2u32;
@@ -313,16 +308,11 @@ pub const GRAVE: u32 = 768u32;
 pub const GRPSELTAP: u32 = 128u32;
 pub const HACEK: u32 = 780u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HARDWAREINPUT {
     pub uMsg: u32,
     pub wParamL: u16,
     pub wParamH: u16,
-}
-impl Default for HARDWAREINPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -510,31 +500,21 @@ impl Default for KBDTABLE_MULTI {
 pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
 pub const KBD_TYPE: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KBD_TYPE_INFO {
     pub dwVersion: u32,
     pub dwType: u32,
     pub dwSubType: u32,
 }
-impl Default for KBD_TYPE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const KBD_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEYBDINPUT {
     pub wVk: VIRTUAL_KEY,
     pub wScan: u16,
     pub dwFlags: KEYBD_EVENT_FLAGS,
     pub time: u32,
     pub dwExtraInfo: usize,
-}
-impl Default for KEYBDINPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -593,15 +573,10 @@ pub const KLLF_GLOBAL_ATTRS: u32 = 2u32;
 pub const KLLF_LRM_RLM: u32 = 4u32;
 pub const KLLF_SHIFTLOCK: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LASTINPUTINFO {
     pub cbSize: u32,
     pub dwTime: u32,
-}
-impl Default for LASTINPUTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -714,7 +689,7 @@ pub const MOUSEEVENTF_WHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(2048u32);
 pub const MOUSEEVENTF_XDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(128u32);
 pub const MOUSEEVENTF_XUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(256u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MOUSEINPUT {
     pub dx: i32,
     pub dy: i32,
@@ -723,23 +698,13 @@ pub struct MOUSEINPUT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl Default for MOUSEINPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MOUSEMOVEPOINT {
     pub x: i32,
     pub y: i32,
     pub time: u32,
     pub dwExtraInfo: usize,
-}
-impl Default for MOUSEMOVEPOINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -819,17 +784,12 @@ pub const TONOS: u32 = 900u32;
 pub const TOSHIBA_KBD_DESKTOP_TYPE: u32 = 13u32;
 pub const TOSHIBA_KBD_LAPTOP_TYPE: u32 = 15u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRACKMOUSEEVENT {
     pub cbSize: u32,
     pub dwFlags: TRACKMOUSEEVENT_FLAGS,
     pub hwndTrack: super::super::super::Foundation::HWND,
     pub dwHoverTime: u32,
-}
-impl Default for TRACKMOUSEEVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -971,15 +931,10 @@ pub const VK_F8: VIRTUAL_KEY = VIRTUAL_KEY(119u16);
 pub const VK_F9: VIRTUAL_KEY = VIRTUAL_KEY(120u16);
 pub const VK_FINAL: VIRTUAL_KEY = VIRTUAL_KEY(24u16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VK_FPARAM {
     pub NLSFEProcIndex: u8,
     pub NLSFEProcParam: u32,
-}
-impl Default for VK_FPARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VK_G: VIRTUAL_KEY = VIRTUAL_KEY(71u16);
 pub const VK_GAMEPAD_A: VIRTUAL_KEY = VIRTUAL_KEY(195u16);
@@ -1131,15 +1086,10 @@ pub const VK_SUBTRACT: VIRTUAL_KEY = VIRTUAL_KEY(109u16);
 pub const VK_T: VIRTUAL_KEY = VIRTUAL_KEY(84u16);
 pub const VK_TAB: VIRTUAL_KEY = VIRTUAL_KEY(9u16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VK_TO_BIT {
     pub Vk: u8,
     pub ModBits: u8,
-}
-impl Default for VK_TO_BIT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1280,15 +1230,10 @@ pub const VK_VOLUME_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(174u16);
 pub const VK_VOLUME_MUTE: VIRTUAL_KEY = VIRTUAL_KEY(173u16);
 pub const VK_VOLUME_UP: VIRTUAL_KEY = VIRTUAL_KEY(175u16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VK_VSC {
     pub Vk: u8,
     pub Vsc: u8,
-}
-impl Default for VK_VSC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VK_W: VIRTUAL_KEY = VIRTUAL_KEY(87u16);
 pub const VK_X: VIRTUAL_KEY = VIRTUAL_KEY(88u16);
@@ -1299,26 +1244,16 @@ pub const VK_Z: VIRTUAL_KEY = VIRTUAL_KEY(90u16);
 pub const VK_ZOOM: VIRTUAL_KEY = VIRTUAL_KEY(251u16);
 pub const VK__none_: VIRTUAL_KEY = VIRTUAL_KEY(255u16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VSC_LPWSTR {
     pub vsc: u8,
     pub pwsz: windows_core::PWSTR,
 }
-impl Default for VSC_LPWSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VSC_VK {
     pub Vsc: u8,
     pub Vk: u16,
-}
-impl Default for VSC_VK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WCH_DEAD: u32 = 61441u32;
 pub const WCH_LGTR: u32 = 61442u32;

@@ -253,18 +253,12 @@ pub const DWM_BB_ENABLE: u32 = 1u32;
 pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4u32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DWM_BLURBEHIND {
     pub dwFlags: u32,
     pub fEnable: windows_core::BOOL,
     pub hRgnBlur: super::Gdi::HRGN,
     pub fTransitionOnMaximized: windows_core::BOOL,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DWM_BLURBEHIND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DWM_CLOAKED_APP: u32 = 1u32;
 pub const DWM_CLOAKED_INHERITED: u32 = 4u32;
@@ -273,7 +267,7 @@ pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
 pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DWM_PRESENT_PARAMETERS {
     pub cbSize: u32,
     pub fQueue: windows_core::BOOL,
@@ -283,11 +277,6 @@ pub struct DWM_PRESENT_PARAMETERS {
     pub rateSource: UNSIGNED_RATIO,
     pub cRefreshesPerFrame: u32,
     pub eSampling: DWM_SOURCE_FRAME_SAMPLING,
-}
-impl Default for DWM_PRESENT_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -372,7 +361,7 @@ impl core::ops::Not for DWM_TAB_WINDOW_REQUIREMENTS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
     pub dwFlags: u32,
     pub rcDestination: super::super::Foundation::RECT,
@@ -381,13 +370,8 @@ pub struct DWM_THUMBNAIL_PROPERTIES {
     pub fVisible: windows_core::BOOL,
     pub fSourceClientAreaOnly: windows_core::BOOL,
 }
-impl Default for DWM_THUMBNAIL_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DWM_TIMING_INFO {
     pub cbSize: u32,
     pub rateRefresh: UNSIGNED_RATIO,
@@ -430,11 +414,6 @@ pub struct DWM_TIMING_INFO {
     pub cPixelsDrawn: u64,
     pub cBuffersEmpty: u64,
 }
-impl Default for DWM_TIMING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DWM_TNP_OPACITY: u32 = 4u32;
 pub const DWM_TNP_RECTDESTINATION: u32 = 1u32;
 pub const DWM_TNP_RECTSOURCE: u32 = 2u32;
@@ -458,7 +437,7 @@ pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = GESTURE_TYPE(10i32);
 pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = GESTURE_TYPE(7i32);
 pub const GT_TOUCH_TAP: GESTURE_TYPE = GESTURE_TYPE(5i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MilMatrix3x2D {
     pub S_11: f64,
     pub S_12: f64,
@@ -467,21 +446,11 @@ pub struct MilMatrix3x2D {
     pub DX: f64,
     pub DY: f64,
 }
-impl Default for MilMatrix3x2D {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UNSIGNED_RATIO {
     pub uiNumerator: u32,
     pub uiDenominator: u32,
-}
-impl Default for UNSIGNED_RATIO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const c_DwmMaxAdapters: u32 = 16u32;
 pub const c_DwmMaxMonitors: u32 = 16u32;

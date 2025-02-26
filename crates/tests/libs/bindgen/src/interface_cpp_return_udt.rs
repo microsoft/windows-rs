@@ -7,15 +7,10 @@
 )]
 
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D_SIZE_F {
     pub width: f32,
     pub height: f32,
-}
-impl Default for D2D_SIZE_F {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(
     ID2D1Bitmap,

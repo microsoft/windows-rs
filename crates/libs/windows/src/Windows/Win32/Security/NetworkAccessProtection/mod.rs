@@ -1,26 +1,16 @@
 pub const ComponentTypeEnforcementClientRp: u32 = 2u32;
 pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CorrelationId {
     pub connId: windows_core::GUID,
     pub timeStamp: super::super::Foundation::FILETIME,
 }
-impl Default for CorrelationId {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CountedString {
     pub length: u16,
     pub string: windows_core::PWSTR,
-}
-impl Default for CountedString {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -39,17 +29,12 @@ impl Default for FailureCategoryMapping {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FixupInfo {
     pub state: FixupState,
     pub percentage: u8,
     pub resultCodes: ResultCodes,
     pub fixupMsgId: u32,
-}
-impl Default for FixupInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -75,35 +60,25 @@ impl Default for Ipv6Address {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IsolationInfo {
     pub isolationState: IsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-impl Default for IsolationInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IsolationInfoEx {
     pub isolationState: IsolationState,
     pub extendedIsolationState: ExtendedIsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-impl Default for IsolationInfoEx {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolationState(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NapComponentRegistrationInfo {
     pub id: u32,
     pub friendlyName: CountedString,
@@ -114,11 +89,6 @@ pub struct NapComponentRegistrationInfo {
     pub configClsid: windows_core::GUID,
     pub registrationDate: super::super::Foundation::FILETIME,
     pub componentType: u32,
-}
-impl Default for NapComponentRegistrationInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -186,17 +156,12 @@ impl Default for SoHAttribute {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SystemHealthAgentState {
     pub id: u32,
     pub shaResultCodes: ResultCodes,
     pub failureCategory: FailureCategory,
     pub fixupInfo: FixupInfo,
-}
-impl Default for SystemHealthAgentState {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const extendedIsolationStateInfected: ExtendedIsolationState = ExtendedIsolationState(2i32);
 pub const extendedIsolationStateNoData: ExtendedIsolationState = ExtendedIsolationState(0i32);

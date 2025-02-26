@@ -540,17 +540,12 @@ pub const SECURITY_OBJECT_ID_CENTRAL_POLICY: u32 = 3u32;
 pub const SECURITY_OBJECT_ID_OBJECT_SD: u32 = 1u32;
 pub const SECURITY_OBJECT_ID_SHARE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SID_INFO {
     pub pSid: super::super::PSID,
     pub pwzCommonName: windows_core::PWSTR,
     pub pwzClass: windows_core::PWSTR,
     pub pwzUPN: windows_core::PWSTR,
-}
-impl Default for SID_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -609,7 +604,7 @@ pub const SI_NO_ADDITIONAL_PERMISSION: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLA
 pub const SI_NO_TREE_APPLY: i32 = 1024i32;
 pub const SI_OBJECT_GUID: i32 = 65536i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SI_OBJECT_INFO {
     pub dwFlags: SI_OBJECT_INFO_FLAGS,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
@@ -617,11 +612,6 @@ pub struct SI_OBJECT_INFO {
     pub pszObjectName: windows_core::PWSTR,
     pub pszPageTitle: windows_core::PWSTR,
     pub guidObjectType: windows_core::GUID,
-}
-impl Default for SI_OBJECT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

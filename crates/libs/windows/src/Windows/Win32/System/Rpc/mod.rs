@@ -3041,15 +3041,10 @@ impl Default for CLIENT_CALL_RETURN {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMM_FAULT_OFFSETS {
     pub CommOffset: i16,
     pub FaultOffset: i16,
-}
-impl Default for COMM_FAULT_OFFSETS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CS_TAG_GETTING_ROUTINE = Option<unsafe extern "system" fn(hbinding: *mut core::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32)>;
 pub type CS_TYPE_FROM_NETCS_ROUTINE = Option<unsafe extern "system" fn(hbinding: *mut core::ffi::c_void, ulnetworkcodeset: u32, pnetworkdata: *mut u8, ulnetworkdatalength: u32, ullocalbuffersize: u32, plocaldata: *mut core::ffi::c_void, pullocaldatalength: *mut u32, pstatus: *mut u32)>;
@@ -3110,15 +3105,10 @@ impl Default for GENERIC_BINDING_INFO {
 }
 pub type GENERIC_BINDING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GENERIC_BINDING_ROUTINE_PAIR {
     pub pfnBind: GENERIC_BINDING_ROUTINE,
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
-}
-impl Default for GENERIC_BINDING_ROUTINE_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type GENERIC_UNBIND_ROUTINE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut u8)>;
 #[repr(transparent)]
@@ -3134,7 +3124,7 @@ pub const INVALID_FRAGMENT_ID: u32 = 0u32;
 pub type I_RpcFreeCalloutStateFn = Option<unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE)>;
 pub type I_RpcPerformCalloutFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct I_RpcProxyCallbackInterface {
     pub IsValidMachineFn: I_RpcProxyIsValidMachineFn,
     pub GetClientAddressFn: I_RpcProxyGetClientAddressFn,
@@ -3145,11 +3135,6 @@ pub struct I_RpcProxyCallbackInterface {
     pub ProxyFilterIfFn: I_RpcProxyFilterIfFn,
     pub RpcProxyUpdatePerfCounterFn: I_RpcProxyUpdatePerfCounterFn,
     pub RpcProxyUpdatePerfCounterBackendServerFn: I_RpcProxyUpdatePerfCounterBackendServerFn,
-}
-impl Default for I_RpcProxyCallbackInterface {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type I_RpcProxyFilterIfFn = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ifuuid: *const windows_core::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS>;
 pub type I_RpcProxyGetClientAddressFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, buffer: windows_core::PCSTR, bufferlength: *mut u32) -> RPC_STATUS>;
@@ -3162,15 +3147,10 @@ pub type I_RpcProxyUpdatePerfCounterFn = Option<unsafe extern "system" fn(counte
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MALLOC_FREE_STRUCT {
     pub pfnAllocate: isize,
     pub pfnFree: isize,
-}
-impl Default for MALLOC_FREE_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MES_DECODE: MIDL_ES_CODE = MIDL_ES_CODE(1i32);
 pub const MES_DYNAMIC_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(2i32);
@@ -3224,15 +3204,10 @@ impl Default for MIDL_INTERFACE_METHOD_PROPERTIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MIDL_METHOD_PROPERTY {
     pub Id: u32,
     pub Value: usize,
-}
-impl Default for MIDL_METHOD_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3459,14 +3434,9 @@ impl Default for NDR64_ARRAY_ELEMENT_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_ARRAY_FLAGS {
     pub _bitfield: u8,
-}
-impl Default for NDR64_ARRAY_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3481,18 +3451,13 @@ impl Default for NDR64_BINDINGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_BIND_AND_NOTIFY_EXTENSION {
     pub Binding: NDR64_BIND_CONTEXT,
     pub NotifyIndex: u16,
 }
-impl Default for NDR64_BIND_AND_NOTIFY_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_BIND_CONTEXT {
     pub HandleType: u8,
     pub Flags: u8,
@@ -3500,13 +3465,8 @@ pub struct NDR64_BIND_CONTEXT {
     pub RoutineIndex: u8,
     pub Ordinal: u8,
 }
-impl Default for NDR64_BIND_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_BIND_GENERIC {
     pub HandleType: u8,
     pub Flags: u8,
@@ -3514,23 +3474,13 @@ pub struct NDR64_BIND_GENERIC {
     pub RoutineIndex: u8,
     pub Size: u8,
 }
-impl Default for NDR64_BIND_GENERIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_BIND_PRIMITIVE {
     pub HandleType: u8,
     pub Flags: u8,
     pub StackOffset: u16,
     pub Reserved: u16,
-}
-impl Default for NDR64_BIND_PRIMITIVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3565,27 +3515,17 @@ impl Default for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_BUFFER_ALIGN_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
     pub Reserved: u16,
     pub Reserved2: u32,
 }
-impl Default for NDR64_BUFFER_ALIGN_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_CONFORMANT_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
-}
-impl Default for NDR64_CONFORMANT_STRING_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3665,40 +3605,25 @@ impl Default for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_CONSTANT_IID_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
     pub Reserved: u16,
     pub Guid: windows_core::GUID,
 }
-impl Default for NDR64_CONSTANT_IID_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_CONTEXT_HANDLE_FLAGS {
     pub _bitfield: u8,
 }
-impl Default for NDR64_CONTEXT_HANDLE_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_CONTEXT_HANDLE_FORMAT {
     pub FormatCode: u8,
     pub ContextFlags: u8,
     pub RundownRoutineIndex: u8,
     pub Ordinal: u8,
-}
-impl Default for NDR64_CONTEXT_HANDLE_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3714,7 +3639,7 @@ impl Default for NDR64_EMBEDDED_COMPLEX_FORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_ENCAPSULATED_UNION {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -3724,74 +3649,44 @@ pub struct NDR64_ENCAPSULATED_UNION {
     pub MemorySize: u32,
     pub Reserved: u32,
 }
-impl Default for NDR64_ENCAPSULATED_UNION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_EXPR_CONST32 {
     pub ExprType: u8,
     pub Reserved: u8,
     pub Reserved1: u16,
     pub ConstValue: u32,
 }
-impl Default for NDR64_EXPR_CONST32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_EXPR_CONST64 {
     pub ExprType: u8,
     pub Reserved: u8,
     pub Reserved1: u16,
     pub ConstValue: i64,
 }
-impl Default for NDR64_EXPR_CONST64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_EXPR_NOOP {
     pub ExprType: u8,
     pub Size: u8,
     pub Reserved: u16,
 }
-impl Default for NDR64_EXPR_NOOP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_EXPR_OPERATOR {
     pub ExprType: u8,
     pub Operator: u8,
     pub CastType: u8,
     pub Reserved: u8,
 }
-impl Default for NDR64_EXPR_OPERATOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_EXPR_VAR {
     pub ExprType: u8,
     pub VarType: u8,
     pub Reserved: u16,
     pub Offset: u32,
-}
-impl Default for NDR64_EXPR_VAR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NDR64_FC_AUTO_HANDLE: u32 = 3u32;
 pub const NDR64_FC_BIND_GENERIC: u32 = 1u32;
@@ -3800,19 +3695,14 @@ pub const NDR64_FC_CALLBACK_HANDLE: u32 = 4u32;
 pub const NDR64_FC_EXPLICIT_HANDLE: u32 = 0u32;
 pub const NDR64_FC_NO_HANDLE: u32 = 5u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_FIXED_REPEAT_FORMAT {
     pub RepeatFormat: NDR64_REPEAT_FORMAT,
     pub Iterations: u32,
     pub Reserved: u32,
 }
-impl Default for NDR64_FIXED_REPEAT_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_FIX_ARRAY_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -3820,20 +3710,10 @@ pub struct NDR64_FIX_ARRAY_HEADER_FORMAT {
     pub Reserved: u8,
     pub TotalSize: u32,
 }
-impl Default for NDR64_FIX_ARRAY_HEADER_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_IID_FLAGS {
     pub _bitfield: u8,
-}
-impl Default for NDR64_IID_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3849,28 +3729,18 @@ impl Default for NDR64_IID_FORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_MEMPAD_FORMAT {
     pub FormatCode: u8,
     pub Reserve1: u8,
     pub MemPad: u16,
     pub Reserved2: u32,
 }
-impl Default for NDR64_MEMPAD_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_NON_CONFORMANT_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
     pub TotalSize: u32,
-}
-impl Default for NDR64_NON_CONFORMANT_STRING_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3889,27 +3759,17 @@ impl Default for NDR64_NON_ENCAPSULATED_UNION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_NO_REPEAT_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
     pub Reserved1: u16,
     pub Reserved2: u32,
 }
-impl Default for NDR64_NO_REPEAT_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_PARAM_FLAGS {
     pub _bitfield: u16,
-}
-impl Default for NDR64_PARAM_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3925,14 +3785,9 @@ impl Default for NDR64_PARAM_FORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_PIPE_FLAGS {
     pub _bitfield: u8,
-}
-impl Default for NDR64_PIPE_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3964,38 +3819,23 @@ impl Default for NDR64_POINTER_FORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     pub Offset: u32,
     pub Reserved: u32,
 }
-impl Default for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_POINTER_REPEAT_FLAGS {
     pub _bitfield: u8,
 }
-impl Default for NDR64_POINTER_REPEAT_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_PROC_FLAGS {
     pub _bitfield: u32,
 }
-impl Default for NDR64_PROC_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_PROC_FORMAT {
     pub Flags: u32,
     pub StackSize: u32,
@@ -4006,37 +3846,22 @@ pub struct NDR64_PROC_FORMAT {
     pub NumberOfParams: u16,
     pub ExtensionSize: u16,
 }
-impl Default for NDR64_PROC_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_RANGED_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
     pub Reserved: u32,
     pub Min: u64,
     pub Max: u64,
 }
-impl Default for NDR64_RANGED_STRING_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_RANGE_FORMAT {
     pub FormatCode: u8,
     pub RangeType: u8,
     pub Reserved: u16,
     pub MinValue: i64,
     pub MaxValue: i64,
-}
-impl Default for NDR64_RANGE_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4057,7 +3882,7 @@ impl Default for NDR64_RANGE_PIPE_FORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_REPEAT_FORMAT {
     pub FormatCode: u8,
     pub Flags: NDR64_POINTER_REPEAT_FLAGS,
@@ -4066,46 +3891,26 @@ pub struct NDR64_REPEAT_FORMAT {
     pub OffsetToArray: u32,
     pub NumberOfPointers: u32,
 }
-impl Default for NDR64_REPEAT_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_RPC_FLAGS {
     pub _bitfield: u16,
 }
-impl Default for NDR64_RPC_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_SIMPLE_MEMBER_FORMAT {
     pub FormatCode: u8,
     pub Reserved1: u8,
     pub Reserved2: u16,
     pub Reserved3: u32,
 }
-impl Default for NDR64_SIMPLE_MEMBER_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_SIMPLE_REGION_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
     pub RegionSize: u16,
     pub Reserved: u32,
-}
-impl Default for NDR64_SIMPLE_REGION_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4119,39 +3924,24 @@ impl Default for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_STRING_FLAGS {
     pub _bitfield: u8,
 }
-impl Default for NDR64_STRING_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_STRING_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Flags: NDR64_STRING_FLAGS,
     pub ElementSize: u16,
 }
-impl Default for NDR64_STRING_HEADER_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_STRUCTURE_FLAGS {
     pub _bitfield: u8,
 }
-impl Default for NDR64_STRUCTURE_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_STRUCTURE_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -4159,32 +3949,17 @@ pub struct NDR64_STRUCTURE_HEADER_FORMAT {
     pub Reserve: u8,
     pub MemorySize: u32,
 }
-impl Default for NDR64_STRUCTURE_HEADER_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_SYSTEM_HANDLE_FORMAT {
     pub FormatCode: u8,
     pub HandleType: u8,
     pub DesiredAccess: u32,
 }
-impl Default for NDR64_SYSTEM_HANDLE_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_TRANSMIT_AS_FLAGS {
     pub _bitfield: u8,
-}
-impl Default for NDR64_TRANSMIT_AS_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4231,27 +4006,17 @@ impl Default for NDR64_UNION_ARM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_UNION_ARM_SELECTOR {
     pub Reserved1: u8,
     pub Alignment: u8,
     pub Reserved2: u16,
     pub Arms: u32,
 }
-impl Default for NDR64_UNION_ARM_SELECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_USER_MARSHAL_FLAGS {
     pub _bitfield: u8,
-}
-impl Default for NDR64_USER_MARSHAL_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4301,17 +4066,12 @@ impl Default for NDR_CS_ROUTINES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
     pub pfnNetSize: CS_TYPE_NET_SIZE_ROUTINE,
     pub pfnToNetCs: CS_TYPE_TO_NETCS_ROUTINE,
     pub pfnLocalSize: CS_TYPE_LOCAL_SIZE_ROUTINE,
     pub pfnFromNetCs: CS_TYPE_FROM_NETCS_ROUTINE,
-}
-impl Default for NDR_CS_SIZE_CONVERT_ROUTINES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456u32;
 pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912u32;
@@ -4487,16 +4247,10 @@ impl Default for RPC_ASYNC_NOTIFICATION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
     pub hThread: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_System_IO")]
-impl Default for RPC_ASYNC_NOTIFICATION_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
@@ -4515,16 +4269,10 @@ impl Default for RPC_ASYNC_NOTIFICATION_INFO_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub hWnd: super::super::Foundation::HWND,
     pub Msg: u32,
-}
-#[cfg(feature = "Win32_System_IO")]
-impl Default for RPC_ASYNC_NOTIFICATION_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
@@ -4590,17 +4338,12 @@ impl core::ops::Not for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
     pub Version: u32,
     pub Flags: RPC_BINDING_HANDLE_OPTIONS_FLAGS,
     pub ComTimeout: u32,
     pub CallTimeout: u32,
-}
-impl Default for RPC_BINDING_HANDLE_OPTIONS_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -5058,15 +4801,10 @@ pub const RPC_C_OPT_BINDING_NONCAUSAL: u32 = 9u32;
 pub const RPC_C_OPT_CALL_TIMEOUT: u32 = 12u32;
 pub const RPC_C_OPT_COOKIE_AUTH: u32 = 7u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     pub BufferSize: u32,
     pub Buffer: windows_core::PSTR,
-}
-impl Default for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RPC_C_OPT_DONT_LINGER: u32 = 13u32;
 pub const RPC_C_OPT_MAX_OPTIONS: u32 = 12u32;
@@ -5166,16 +4904,11 @@ pub const RPC_C_VERS_MAJOR_ONLY: u32 = 4u32;
 pub const RPC_C_VERS_UPTO: u32 = 5u32;
 pub type RPC_DISPATCH_FUNCTION = Option<unsafe extern "system" fn(message: *mut RPC_MESSAGE)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_DISPATCH_TABLE {
     pub DispatchTableCount: u32,
     pub DispatchTable: RPC_DISPATCH_FUNCTION,
     pub Reserved: isize,
-}
-impl Default for RPC_DISPATCH_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RPC_EEINFO_VERSION: u32 = 1u32;
 #[repr(C)]
@@ -5391,16 +5124,11 @@ pub const RPC_IF_ASYNC_CALLBACK: u32 = 256u32;
 pub const RPC_IF_AUTOLISTEN: u32 = 1u32;
 pub type RPC_IF_CALLBACK_FN = Option<unsafe extern "system" fn(interfaceuuid: *const core::ffi::c_void, context: *const core::ffi::c_void) -> RPC_STATUS>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_IF_ID {
     pub Uuid: windows_core::GUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
-}
-impl Default for RPC_IF_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5504,16 +5232,11 @@ pub struct RPC_NOTIFICATIONS(pub i32);
 pub struct RPC_NOTIFICATION_TYPES(pub i32);
 pub type RPC_OBJECT_INQ_FN = Option<unsafe extern "system" fn(objectuuid: *const windows_core::GUID, typeuuid: *mut windows_core::GUID, status: *mut RPC_STATUS)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_POLICY {
     pub Length: u32,
     pub EndpointFlags: u32,
     pub NICFlags: u32,
-}
-impl Default for RPC_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5566,18 +5289,12 @@ pub const RPC_QUERY_SERVER_PRINCIPAL_NAME: u32 = 2u32;
 pub type RPC_SECURITY_CALLBACK_FN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_SECURITY_QOS {
     pub Version: u32,
     pub Capabilities: RPC_C_QOS_CAPABILITIES,
     pub IdentityTracking: RPC_C_QOS_IDENTITY,
     pub ImpersonationType: super::Com::RPC_C_IMP_LEVEL,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for RPC_SECURITY_QOS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -5824,16 +5541,11 @@ impl Default for RPC_SECURITY_QOS_V5_W_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_SEC_CONTEXT_KEY_INFO {
     pub EncryptAlgorithm: u32,
     pub KeySize: u32,
     pub SignatureAlgorithm: u32,
-}
-impl Default for RPC_SEC_CONTEXT_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5870,15 +5582,10 @@ impl Default for RPC_STATS_VECTOR {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_STATUS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_SYNTAX_IDENTIFIER {
     pub SyntaxGUID: windows_core::GUID,
     pub SyntaxVersion: RPC_VERSION,
-}
-impl Default for RPC_SYNTAX_IDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RPC_SYSTEM_HANDLE_FREE_ALL: u32 = 3u32;
 pub const RPC_SYSTEM_HANDLE_FREE_ERROR_ON_CLOSE: u32 = 4u32;
@@ -5995,29 +5702,19 @@ pub const RPC_S_UUID_NO_ADDRESS: RPC_STATUS = RPC_STATUS(1739i32);
 pub const RPC_S_WRONG_KIND_OF_BINDING: RPC_STATUS = RPC_STATUS(1701i32);
 pub const RPC_S_ZERO_DIVIDE: RPC_STATUS = RPC_STATUS(1767i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_TRANSFER_SYNTAX {
     pub Uuid: windows_core::GUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
-impl Default for RPC_TRANSFER_SYNTAX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE: u32 = 2147483648u32;
 pub const RPC_TYPE_STRICT_CONTEXT_HANDLE: u32 = 1073741824u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
-}
-impl Default for RPC_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RpcAttemptedLbsDecisions: RpcPerfCounters = RpcPerfCounters(8i32);
 pub const RpcAttemptedLbsMessages: RpcPerfCounters = RpcPerfCounters(10i32);
@@ -6187,17 +5884,12 @@ pub const USER_MARSHAL_FC_WCHAR: u32 = 5u32;
 pub type USER_MARSHAL_FREEING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut core::ffi::c_void)>;
 pub type USER_MARSHAL_MARSHALLING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut core::ffi::c_void) -> *mut u8>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
     pub pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
     pub pfnMarshall: USER_MARSHAL_MARSHALLING_ROUTINE,
     pub pfnUnmarshall: USER_MARSHAL_UNMARSHALLING_ROUTINE,
     pub pfnFree: USER_MARSHAL_FREEING_ROUTINE,
-}
-impl Default for USER_MARSHAL_ROUTINE_QUADRUPLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type USER_MARSHAL_SIZING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut core::ffi::c_void) -> u32>;
 pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut core::ffi::c_void) -> *mut u8>;
@@ -6221,18 +5913,12 @@ pub struct XLAT_SIDE(pub i32);
 pub type XMIT_HELPER_ROUTINE = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XMIT_ROUTINE_QUINTUPLE {
     pub pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
     pub pfnTranslateFromXmit: XMIT_HELPER_ROUTINE,
     pub pfnFreeXmit: XMIT_HELPER_ROUTINE,
     pub pfnFreeInst: XMIT_HELPER_ROUTINE,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for XMIT_ROUTINE_QUINTUPLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

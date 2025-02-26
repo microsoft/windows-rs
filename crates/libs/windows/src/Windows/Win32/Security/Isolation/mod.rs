@@ -283,14 +283,9 @@ impl IIsolatedProcessLauncher2_Vtbl {
 impl windows_core::RuntimeName for IIsolatedProcessLauncher2 {}
 pub const IsolatedAppLauncher: windows_core::GUID = windows_core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IsolatedAppLauncherTelemetryParameters {
     pub EnableForLaunch: windows_core::BOOL,
     pub CorrelationGUID: windows_core::GUID,
-}
-impl Default for IsolatedAppLauncherTelemetryParameters {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WDAG_CLIPBOARD_TAG: windows_core::PCWSTR = windows_core::w!("CrossIsolatedEnvironmentContent");

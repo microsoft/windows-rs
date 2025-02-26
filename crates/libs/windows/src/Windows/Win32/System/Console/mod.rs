@@ -580,51 +580,31 @@ pub const COMMON_LVB_UNDERSCORE: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTE
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLECONTROL(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLEENDTASK {
     pub ProcessId: super::super::Foundation::HANDLE,
     pub hwnd: super::super::Foundation::HWND,
     pub ConsoleEventCode: u32,
     pub ConsoleFlags: u32,
 }
-impl Default for CONSOLEENDTASK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLESETFOREGROUND {
     pub hProcess: super::super::Foundation::HANDLE,
     pub bForeground: windows_core::BOOL,
 }
-impl Default for CONSOLESETFOREGROUND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLEWINDOWOWNER {
     pub hwnd: super::super::Foundation::HWND,
     pub ProcessId: u32,
     pub ThreadId: u32,
 }
-impl Default for CONSOLEWINDOWOWNER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLE_CARET_INFO {
     pub hwnd: super::super::Foundation::HWND,
     pub rc: super::super::Foundation::RECT,
-}
-impl Default for CONSOLE_CARET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -663,26 +643,16 @@ impl core::ops::Not for CONSOLE_CHARACTER_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLE_CURSOR_INFO {
     pub dwSize: u32,
     pub bVisible: windows_core::BOOL,
 }
-impl Default for CONSOLE_CURSOR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLE_FONT_INFO {
     pub nFont: u32,
     pub dwFontSize: COORD,
-}
-impl Default for CONSOLE_FONT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -703,17 +673,12 @@ pub const CONSOLE_FULLSCREEN: u32 = 1u32;
 pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2u32;
 pub const CONSOLE_FULLSCREEN_MODE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLE_HISTORY_INFO {
     pub cbSize: u32,
     pub HistoryBufferSize: u32,
     pub NumberOfHistoryBuffers: u32,
     pub dwFlags: u32,
-}
-impl Default for CONSOLE_HISTORY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -755,42 +720,27 @@ pub const CONSOLE_MOUSE_DOWN: u32 = 8u32;
 pub const CONSOLE_MOUSE_SELECTION: u32 = 4u32;
 pub const CONSOLE_NO_SELECTION: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLE_PROCESS_INFO {
     pub dwProcessID: u32,
     pub dwFlags: u32,
 }
-impl Default for CONSOLE_PROCESS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLE_READCONSOLE_CONTROL {
     pub nLength: u32,
     pub nInitialChars: u32,
     pub dwCtrlWakeupMask: u32,
     pub dwControlKeyState: u32,
 }
-impl Default for CONSOLE_READCONSOLE_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub dwSize: COORD,
     pub dwCursorPosition: COORD,
     pub wAttributes: CONSOLE_CHARACTER_ATTRIBUTES,
     pub srWindow: SMALL_RECT,
     pub dwMaximumWindowSize: COORD,
-}
-impl Default for CONSOLE_SCREEN_BUFFER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -811,31 +761,21 @@ impl Default for CONSOLE_SCREEN_BUFFER_INFOEX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONSOLE_SELECTION_INFO {
     pub dwFlags: u32,
     pub dwSelectionAnchor: COORD,
     pub srSelection: SMALL_RECT,
-}
-impl Default for CONSOLE_SELECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1u32;
 pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2u32;
 pub const CONSOLE_TEXTMODE_BUFFER: u32 = 1u32;
 pub const CONSOLE_WINDOWED_MODE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COORD {
     pub X: i16,
     pub Y: i16,
-}
-impl Default for COORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CTRL_BREAK_EVENT: u32 = 1u32;
 pub const CTRL_CLOSE_EVENT: u32 = 2u32;
@@ -866,14 +806,9 @@ pub const ENABLE_WRAP_AT_EOL_OUTPUT: CONSOLE_MODE = CONSOLE_MODE(2u32);
 pub const ENHANCED_KEY: u32 = 256u32;
 pub const FOCUS_EVENT: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FOCUS_EVENT_RECORD {
     pub bSetFocus: windows_core::BOOL,
-}
-impl Default for FOCUS_EVENT_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FOREGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(1u16);
 pub const FOREGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(2u16);
@@ -959,28 +894,18 @@ pub const LEFT_ALT_PRESSED: u32 = 2u32;
 pub const LEFT_CTRL_PRESSED: u32 = 8u32;
 pub const MENU_EVENT: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MENU_EVENT_RECORD {
     pub dwCommandId: u32,
 }
-impl Default for MENU_EVENT_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const MOUSE_EVENT: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MOUSE_EVENT_RECORD {
     pub dwMousePosition: COORD,
     pub dwButtonState: u32,
     pub dwControlKeyState: u32,
     pub dwEventFlags: u32,
-}
-impl Default for MOUSE_EVENT_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MOUSE_HWHEELED: u32 = 8u32;
 pub const MOUSE_MOVED: u32 = 1u32;
@@ -1004,17 +929,12 @@ pub const Reserved3: CONSOLECONTROL = CONSOLECONTROL(4i32);
 pub const SCROLLLOCK_ON: u32 = 64u32;
 pub const SHIFT_PRESSED: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SMALL_RECT {
     pub Left: i16,
     pub Top: i16,
     pub Right: i16,
     pub Bottom: i16,
-}
-impl Default for SMALL_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const STD_ERROR_HANDLE: STD_HANDLE = STD_HANDLE(4294967284u32);
 #[repr(transparent)]
@@ -1024,12 +944,7 @@ pub const STD_INPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967286u32);
 pub const STD_OUTPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967285u32);
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINDOW_BUFFER_SIZE_RECORD {
     pub dwSize: COORD,
-}
-impl Default for WINDOW_BUFFER_SIZE_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

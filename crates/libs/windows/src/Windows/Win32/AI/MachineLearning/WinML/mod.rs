@@ -1358,16 +1358,11 @@ impl IWinMLRuntimeFactory_Vtbl {
 }
 impl windows_core::RuntimeName for IWinMLRuntimeFactory {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MLOperatorAttribute {
     pub name: windows_core::PCSTR,
     pub r#type: MLOperatorAttributeType,
     pub required: u8,
-}
-impl Default for MLOperatorAttribute {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1609,15 +1604,10 @@ impl MLOperatorSchemaEdgeTypeFormat {
     pub const Label: Self = Self(1i32);
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MLOperatorSetId {
     pub domain: windows_core::PCSTR,
     pub version: i32,
-}
-impl Default for MLOperatorSetId {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1762,29 +1752,19 @@ impl Default for WINML_MAP_BINDING_DESC_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINML_MAP_VARIABLE_DESC {
     pub KeyType: WINML_TENSOR_DATA_TYPE,
     pub Fields: WINML_TENSOR_DATA_TYPE,
 }
-impl Default for WINML_MAP_VARIABLE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINML_MODEL_DESC {
     pub Author: windows_core::PWSTR,
     pub Name: windows_core::PWSTR,
     pub Domain: windows_core::PWSTR,
     pub Description: windows_core::PWSTR,
     pub Version: usize,
-}
-impl Default for WINML_MODEL_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1831,14 +1811,9 @@ impl Default for WINML_SEQUENCE_BINDING_DESC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINML_SEQUENCE_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
-}
-impl Default for WINML_SEQUENCE_VARIABLE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

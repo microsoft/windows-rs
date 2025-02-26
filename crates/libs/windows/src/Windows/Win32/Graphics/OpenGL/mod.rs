@@ -2084,16 +2084,10 @@ pub unsafe fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: 
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMRPIXELFORMAT {
     pub emr: super::Gdi::EMR,
     pub pfd: PIXELFORMATDESCRIPTOR,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for EMRPIXELFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GLU_AUTO_LOAD_MATRIX: u32 = 100200u32;
 pub const GLU_BEGIN: u32 = 100100u32;
@@ -2234,18 +2228,13 @@ pub type GLUtessVertexProc = Option<unsafe extern "system" fn(param0: *mut core:
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct GLUtesselator(pub isize);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GLYPHMETRICSFLOAT {
     pub gmfBlackBoxX: f32,
     pub gmfBlackBoxY: f32,
     pub gmfptGlyphOrigin: POINTFLOAT,
     pub gmfCellIncX: f32,
     pub gmfCellIncY: f32,
-}
-impl Default for GLYPHMETRICSFLOAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GL_2D: u32 = 1536u32;
 pub const GL_2_BYTES: u32 = 5127u32;
@@ -2860,7 +2849,7 @@ impl Default for HGLRC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LAYERPLANEDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -2886,11 +2875,6 @@ pub struct LAYERPLANEDESCRIPTOR {
     pub iLayerPlane: u8,
     pub bReserved: u8,
     pub crTransparent: super::super::Foundation::COLORREF,
-}
-impl Default for LAYERPLANEDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PFD_DEPTH_DONTCARE: PFD_FLAGS = PFD_FLAGS(536870912u32);
 pub const PFD_DIRECT3D_ACCELERATED: PFD_FLAGS = PFD_FLAGS(16384u32);
@@ -2976,7 +2960,7 @@ pub type PFNGLNORMALPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: u3
 pub type PFNGLTEXCOORDPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
 pub type PFNGLVERTEXPOINTEREXTPROC = Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PIXELFORMATDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -3005,19 +2989,9 @@ pub struct PIXELFORMATDESCRIPTOR {
     pub dwVisibleMask: u32,
     pub dwDamageMask: u32,
 }
-impl Default for PIXELFORMATDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTFLOAT {
     pub x: f32,
     pub y: f32,
-}
-impl Default for POINTFLOAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

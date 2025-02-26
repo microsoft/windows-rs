@@ -1070,15 +1070,10 @@ impl Default for CABSTRBLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CAC {
     pub cElems: u32,
     pub pElems: windows_core::PSTR,
-}
-impl Default for CAC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2804,15 +2799,10 @@ impl Default for OLESTREAM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OLESTREAMVTBL {
     pub Get: isize,
     pub Put: isize,
-}
-impl Default for OLESTREAMVTBL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PIDDI_THUMBNAIL: i32 = 2i32;
 pub const PIDDSI_BYTECOUNT: u32 = 4u32;
@@ -2884,7 +2874,7 @@ pub const PID_MODIFY_TIME: u32 = 2147483649u32;
 pub const PID_SECURITY: u32 = 2147483650u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: super::super::Variant::VARENUM,
@@ -2892,12 +2882,6 @@ pub struct PROPBAG2 {
     pub dwHint: u32,
     pub pstrName: windows_core::PWSTR,
     pub clsid: windows_core::GUID,
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Default for PROPBAG2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PROPSETFLAG_ANSI: u32 = 2u32;
 pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8u32;
@@ -3192,7 +3176,7 @@ impl Default for SERIALIZEDPROPERTYVALUE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STATPROPSETSTG {
     pub fmtid: windows_core::GUID,
     pub clsid: windows_core::GUID,
@@ -3202,24 +3186,13 @@ pub struct STATPROPSETSTG {
     pub atime: super::super::super::Foundation::FILETIME,
     pub dwOSVersion: u32,
 }
-impl Default for STATPROPSETSTG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STATPROPSTG {
     pub lpwstrName: windows_core::PWSTR,
     pub propid: u32,
     pub vt: super::super::Variant::VARENUM,
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Default for STATPROPSTG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3237,27 +3210,17 @@ pub const STGMOVE_COPY: STGMOVE = STGMOVE(1i32);
 pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
 pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STGOPTIONS {
     pub usVersion: u16,
     pub reserved: u16,
     pub ulSectorSize: u32,
     pub pwcsTemplateFile: windows_core::PCWSTR,
 }
-impl Default for STGOPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: windows_core::GUID,
     pub pStream: core::mem::ManuallyDrop<Option<super::IStream>>,
-}
-impl Default for VERSIONEDSTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

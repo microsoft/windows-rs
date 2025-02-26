@@ -135,28 +135,18 @@ pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
 pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MANAGEMENT_REGISTRATION_INFO {
     pub fDeviceRegisteredWithManagement: windows_core::BOOL,
     pub dwDeviceRegistionKind: u32,
     pub pszUPN: windows_core::PWSTR,
     pub pszMDMServiceUri: windows_core::PWSTR,
 }
-impl Default for MANAGEMENT_REGISTRATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MANAGEMENT_SERVICE_INFO {
     pub pszMDMServiceUri: windows_core::PWSTR,
     pub pszAuthenticationUri: windows_core::PWSTR,
-}
-impl Default for MANAGEMENT_SERVICE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: windows_core::HRESULT = windows_core::HRESULT(0x80180028_u32 as _);

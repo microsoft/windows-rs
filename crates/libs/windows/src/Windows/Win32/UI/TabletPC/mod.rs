@@ -178,15 +178,10 @@ pub const CFL_INTERMEDIATE: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(1i32);
 pub const CFL_POOR: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(2i32);
 pub const CFL_STRONG: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHARACTER_RANGE {
     pub wcLow: u16,
     pub cChars: u16,
-}
-impl Default for CHARACTER_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -754,15 +749,10 @@ pub const DISPID_Text: DISPID_InkEdit = DISPID_InkEdit(0i32);
 pub const DISPID_TextRTF: DISPID_InkEdit = DISPID_InkEdit(1i32);
 pub const DISPID_UseMouseForInput: DISPID_InkEdit = DISPID_InkEdit(23i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
     pub dynamicRenderer: core::mem::ManuallyDrop<Option<IDynamicRenderer>>,
-}
-impl Default for DYNAMIC_RENDERER_CACHED_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DockedBottom: VisualState = VisualState(3i32);
 pub const DockedTop: VisualState = VisualState(2i32);
@@ -873,24 +863,14 @@ pub const FLICKMODE_MIN: FLICKMODE = FLICKMODE(0i32);
 pub const FLICKMODE_OFF: FLICKMODE = FLICKMODE(0i32);
 pub const FLICKMODE_ON: FLICKMODE = FLICKMODE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLICK_DATA {
     pub _bitfield: i32,
 }
-impl Default for FLICK_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLICK_POINT {
     pub _bitfield: i32,
-}
-impl Default for FLICK_POINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FLICK_WM_HANDLED_MASK: u32 = 1u32;
 pub const Floating: VisualState = VisualState(1i32);
@@ -924,16 +904,11 @@ pub const GESTURE_CLOSEUP: u32 = 61455u32;
 pub const GESTURE_CROSS: u32 = 61447u32;
 pub const GESTURE_CURLICUE: u32 = 61456u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GESTURE_DATA {
     pub gestureId: i32,
     pub recoConfidence: i32,
     pub strokeCount: i32,
-}
-impl Default for GESTURE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GESTURE_DIAGONAL_LEFTDOWN: u32 = 61534u32;
 pub const GESTURE_DIAGONAL_LEFTUP: u32 = 61532u32;
@@ -1555,30 +1530,18 @@ impl Default for IEC_GESTUREINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub RecognitionResult: core::mem::ManuallyDrop<Option<IInkRecognitionResult>>,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl Default for IEC_RECOGNITIONRESULTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: core::mem::ManuallyDrop<Option<IInkCursor>>,
     pub Stroke: core::mem::ManuallyDrop<Option<IInkStrokeDisp>>,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl Default for IEC_STROKEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IEC__BASE: u32 = 1536u32;
 pub const IEF_CopyFromOriginal: InkExtractFlags = InkExtractFlags(0i32);
@@ -13044,18 +13007,13 @@ impl windows_core::RuntimeName for IMathInputControl {}
 pub const INKEDIT_CLASS: windows_core::PCWSTR = windows_core::w!("INKEDIT");
 pub const INKEDIT_CLASSW: windows_core::PCWSTR = windows_core::w!("INKEDIT");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INKMETRIC {
     pub iHeight: i32,
     pub iFontAscent: i32,
     pub iFontDescent: i32,
     pub dwFlags: u32,
     pub color: super::super::Foundation::COLORREF,
-}
-impl Default for INKMETRIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const INKRECOGNITIONPROPERTY_BOXNUMBER: windows_core::PCWSTR = windows_core::w!("{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}");
 pub const INKRECOGNITIONPROPERTY_CONFIDENCELEVEL: windows_core::PCWSTR = windows_core::w!("{7DFE11A7-FB5D-4958-8765-154ADF0D833F}");
@@ -15721,18 +15679,13 @@ pub struct InkPictureSizeMode(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRasterOperation(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::super::Foundation::RECT,
     pub rectDrawnBox: super::super::Foundation::RECT,
     pub cRows: i32,
     pub cColumns: i32,
     pub midline: i32,
-}
-impl Default for InkRecoGuide {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15787,30 +15740,20 @@ pub const KEYMODIFIER_MENU: KEYMODIFIER = KEYMODIFIER(2i32);
 pub const KEYMODIFIER_SHIFT: KEYMODIFIER = KEYMODIFIER(4i32);
 pub const KEYMODIFIER_WIN: KEYMODIFIER = KEYMODIFIER(8i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LATTICE_METRICS {
     pub lsBaseline: LINE_SEGMENT,
     pub iMidlineOffset: i16,
-}
-impl Default for LATTICE_METRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LEFT_BUTTON: MouseButton = MouseButton(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LINE_METRICS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LINE_SEGMENT {
     pub PtA: super::super::Foundation::POINT,
     pub PtB: super::super::Foundation::POINT,
-}
-impl Default for LINE_SEGMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LM_ASCENDER: LINE_METRICS = LINE_METRICS(2i32);
 pub const LM_BASELINE: LINE_METRICS = LINE_METRICS(0i32);
@@ -15868,28 +15811,18 @@ impl Default for PACKET_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PACKET_PROPERTY {
     pub guid: windows_core::GUID,
     pub PropertyMetrics: PROPERTY_METRICS,
 }
-impl Default for PACKET_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPERTY_METRICS {
     pub nLogicalMin: i32,
     pub nLogicalMax: i32,
     pub Units: PROPERTY_UNITS,
     pub fResolution: f32,
-}
-impl Default for PROPERTY_METRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15953,7 +15886,7 @@ impl Default for RECO_ATTRS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECO_GUIDE {
     pub xOrigin: i32,
     pub yOrigin: i32,
@@ -15964,11 +15897,6 @@ pub struct RECO_GUIDE {
     pub cHorzBox: i32,
     pub cVertBox: i32,
     pub cyMid: i32,
-}
-impl Default for RECO_GUIDE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -16040,15 +15968,10 @@ impl Default for RECO_LATTICE_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECO_RANGE {
     pub iwcBegin: u32,
     pub cCount: u32,
-}
-impl Default for RECO_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16123,15 +16046,10 @@ pub const SHR_SW: SelectionHitResult = SelectionHitResult(4i32);
 pub const SHR_Selection: SelectionHitResult = SelectionHitResult(9i32);
 pub const SHR_W: SelectionHitResult = SelectionHitResult(6i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STROKE_RANGE {
     pub iStrokeBegin: u32,
     pub iStrokeEnd: u32,
-}
-impl Default for STROKE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const STR_GUID_ALTITUDEORIENTATION: windows_core::PCWSTR = windows_core::w!("{82DEC5C7-F6BA-4906-894F-66D68DFC456C}");
 pub const STR_GUID_AZIMUTHORIENTATION: windows_core::PCWSTR = windows_core::w!("{029123B4-8828-410B-B250-A0536595E5DC}");
@@ -16155,7 +16073,7 @@ pub const STR_GUID_YAWROTATION: windows_core::PCWSTR = windows_core::w!("{6A8499
 pub const STR_GUID_YTILTORIENTATION: windows_core::PCWSTR = windows_core::w!("{0E932389-1D77-43AF-AC00-5B950D6D4B2D}");
 pub const STR_GUID_Z: windows_core::PCWSTR = windows_core::w!("{735ADB30-0EBB-4788-A0E4-0F316490055D}");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYSTEM_EVENT_DATA {
     pub bModifier: u8,
     pub wKey: u16,
@@ -16163,11 +16081,6 @@ pub struct SYSTEM_EVENT_DATA {
     pub yPos: i32,
     pub bCursorMode: u8,
     pub dwButtonState: u32,
-}
-impl Default for SYSTEM_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16181,16 +16094,11 @@ pub struct SelectionHitResult(pub i32);
 pub const SketchInk: windows_core::GUID = windows_core::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
 pub const StrokeBuilder: windows_core::GUID = windows_core::GUID::from_u128(0xe810cee7_6e51_4cb0_aa3a_0b985b70daf7);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct StylusInfo {
     pub tcid: u32,
     pub cid: u32,
     pub bIsInvertedCursor: windows_core::BOOL,
-}
-impl Default for StylusInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -19,16 +19,11 @@ pub unsafe fn ReadThreadProfilingData(performancedatahandle: super::super::super
     unsafe { ReadThreadProfilingData(performancedatahandle, flags, performancedata as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HARDWARE_COUNTER_DATA {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
     pub Value: u64,
-}
-impl Default for HARDWARE_COUNTER_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -300,7 +300,7 @@ impl core::ops::Not for CRYPTCATATTRIBUTE_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CRYPTCATCDF {
     pub cbStruct: u32,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -309,11 +309,6 @@ pub struct CRYPTCATCDF {
     pub fEOF: windows_core::BOOL,
     pub pwszResultDir: windows_core::PWSTR,
     pub hCATStore: super::super::super::Foundation::HANDLE,
-}
-impl Default for CRYPTCATCDF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]

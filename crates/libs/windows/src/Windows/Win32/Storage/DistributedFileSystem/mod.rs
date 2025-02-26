@@ -225,68 +225,38 @@ impl Default for DFS_GET_PKT_ENTRY_STATE_ARG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_1 {
     pub EntryPath: windows_core::PWSTR,
 }
-impl Default for DFS_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_100 {
     pub Comment: windows_core::PWSTR,
 }
-impl Default for DFS_INFO_100 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_101 {
     pub State: u32,
 }
-impl Default for DFS_INFO_101 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_102 {
     pub Timeout: u32,
 }
-impl Default for DFS_INFO_102 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_103 {
     pub PropertyFlagMask: u32,
     pub PropertyFlags: u32,
 }
-impl Default for DFS_INFO_103 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_104 {
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
-impl Default for DFS_INFO_104 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_105 {
     pub Comment: windows_core::PWSTR,
     pub State: u32,
@@ -294,25 +264,15 @@ pub struct DFS_INFO_105 {
     pub PropertyFlagMask: u32,
     pub PropertyFlags: u32,
 }
-impl Default for DFS_INFO_105 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_106 {
     pub State: u32,
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
-impl Default for DFS_INFO_106 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_107 {
     pub Comment: windows_core::PWSTR,
     pub State: u32,
@@ -322,74 +282,40 @@ pub struct DFS_INFO_107 {
     pub SdLengthReserved: u32,
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Default for DFS_INFO_107 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_150 {
     pub SdLengthReserved: u32,
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Default for DFS_INFO_150 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_1_32 {
     pub EntryPath: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DFS_INFO_1_32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_2 {
     pub EntryPath: windows_core::PWSTR,
     pub Comment: windows_core::PWSTR,
     pub State: u32,
     pub NumberOfStorages: u32,
 }
-impl Default for DFS_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_200 {
     pub FtDfsName: windows_core::PWSTR,
 }
-impl Default for DFS_INFO_200 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_2_32 {
     pub EntryPath: u32,
     pub Comment: u32,
     pub State: u32,
     pub NumberOfStorages: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DFS_INFO_2_32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -406,31 +332,20 @@ impl Default for DFS_INFO_3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_300 {
     pub Flags: u32,
     pub DfsName: windows_core::PWSTR,
 }
-impl Default for DFS_INFO_300 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_3_32 {
     pub EntryPath: u32,
     pub Comment: u32,
     pub State: u32,
     pub NumberOfStorages: u32,
     pub Storage: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DFS_INFO_3_32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -450,7 +365,7 @@ impl Default for DFS_INFO_4 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_4_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -460,14 +375,8 @@ pub struct DFS_INFO_4_32 {
     pub NumberOfStorages: u32,
     pub Storage: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DFS_INFO_4_32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_5 {
     pub EntryPath: windows_core::PWSTR,
     pub Comment: windows_core::PWSTR,
@@ -478,22 +387,12 @@ pub struct DFS_INFO_5 {
     pub MetadataSize: u32,
     pub NumberOfStorages: u32,
 }
-impl Default for DFS_INFO_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_50 {
     pub NamespaceMajorVersion: u32,
     pub NamespaceMinorVersion: u32,
     pub NamespaceCapabilities: u64,
-}
-impl Default for DFS_INFO_50 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -514,18 +413,13 @@ impl Default for DFS_INFO_6 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_7 {
     pub GenerationGuid: windows_core::GUID,
 }
-impl Default for DFS_INFO_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_8 {
     pub EntryPath: windows_core::PWSTR,
     pub Comment: windows_core::PWSTR,
@@ -537,12 +431,6 @@ pub struct DFS_INFO_8 {
     pub SdLengthReserved: u32,
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
     pub NumberOfStorages: u32,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for DFS_INFO_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -592,63 +480,42 @@ impl Default for DFS_SITELIST_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_SITENAME_INFO {
     pub SiteFlags: u32,
     pub SiteName: windows_core::PWSTR,
 }
-impl Default for DFS_SITENAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DFS_SITE_PRIMARY: u32 = 1u32;
 pub const DFS_STORAGE_FLAVOR_UNUSED2: u32 = 768u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_STORAGE_INFO {
     pub State: u32,
     pub ServerName: windows_core::PWSTR,
     pub ShareName: windows_core::PWSTR,
 }
-impl Default for DFS_STORAGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_STORAGE_INFO_0_32 {
     pub State: u32,
     pub ServerName: u32,
     pub ShareName: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DFS_STORAGE_INFO_0_32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_STORAGE_INFO_1 {
     pub State: u32,
     pub ServerName: windows_core::PWSTR,
     pub ShareName: windows_core::PWSTR,
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
-impl Default for DFS_STORAGE_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DFS_STORAGE_STATES: u32 = 15u32;
 pub const DFS_STORAGE_STATE_ACTIVE: u32 = 4u32;
 pub const DFS_STORAGE_STATE_OFFLINE: u32 = 1u32;
 pub const DFS_STORAGE_STATE_ONLINE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     pub DomainDfsMajorVersion: u32,
     pub DomainDfsMinorVersion: u32,
@@ -657,22 +524,12 @@ pub struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     pub StandaloneDfsMinorVersion: u32,
     pub StandaloneDfsCapabilities: u64,
 }
-impl Default for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_TARGET_PRIORITY {
     pub TargetPriorityClass: DFS_TARGET_PRIORITY_CLASS,
     pub TargetPriorityRank: u16,
     pub Reserved: u16,
-}
-impl Default for DFS_TARGET_PRIORITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

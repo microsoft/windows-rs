@@ -16,7 +16,7 @@ where
     unsafe { CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.param().abi(), typeinfo.param().abi(), iid, ppv as _).ok() }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CALLFRAMEINFO {
     pub iMethod: u32,
     pub fHasInValues: windows_core::BOOL,
@@ -31,23 +31,13 @@ pub struct CALLFRAMEINFO {
     pub cMethod: u32,
     pub cParams: u32,
 }
-impl Default for CALLFRAMEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CALLFRAMEPARAMINFO {
     pub fIn: bool,
     pub fOut: bool,
     pub stackOffset: u32,
     pub cbParam: u32,
-}
-impl Default for CALLFRAMEPARAMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

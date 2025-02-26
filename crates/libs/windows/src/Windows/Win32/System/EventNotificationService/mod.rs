@@ -407,17 +407,12 @@ pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
 pub const NETWORK_ALIVE_LAN: u32 = 1u32;
 pub const NETWORK_ALIVE_WAN: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwInSpeed: u32,
     pub dwOutSpeed: u32,
-}
-impl Default for QOCINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SENS: windows_core::GUID = windows_core::GUID::from_u128(0xd597cafe_5b9f_11d1_8dd2_00aa004abd5e);
 pub const SENSGUID_EVENTCLASS_LOGON: windows_core::GUID = windows_core::GUID::from_u128(0xd5978630_5b9f_11d1_8dd2_00aa004abd5e);
@@ -431,15 +426,10 @@ pub const SENSGUID_SUBSCRIBER_WININET: windows_core::GUID = windows_core::GUID::
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SENS_CONNECTION_TYPE(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SENS_QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwOutSpeed: u32,
     pub dwInSpeed: u32,
-}
-impl Default for SENS_QOCINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
