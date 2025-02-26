@@ -2367,7 +2367,7 @@ unsafe impl Sync for IDXGIDevice {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIDevice_Impl: IDXGIObject_Impl {
     fn GetAdapter(&self) -> windows_core::Result<IDXGIAdapter>;
-    fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: windows_core::OutRef<'_, IDXGISurface>) -> windows_core::Result<()>;
+    fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut Option<IDXGISurface>) -> windows_core::Result<()>;
     fn QueryResourceResidency(&self, ppresources: *const Option<windows_core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> windows_core::Result<()>;
     fn SetGPUThreadPriority(&self, priority: i32) -> windows_core::Result<()>;
     fn GetGPUThreadPriority(&self) -> windows_core::Result<i32>;

@@ -709,7 +709,7 @@ pub struct IMDSPEnumDevice_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMDSPEnumDevice_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppdevice: windows_core::OutRef<'_, IMDSPDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppdevice: *mut Option<IMDSPDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IMDSPEnumDevice>;
@@ -796,7 +796,7 @@ pub struct IMDSPEnumStorage_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMDSPEnumStorage_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppstorage: windows_core::OutRef<'_, IMDSPStorage>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppstorage: *mut Option<IMDSPStorage>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IMDSPEnumStorage>;
@@ -3282,7 +3282,7 @@ pub struct IWMDMEnumDevice_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMEnumDevice_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppdevice: windows_core::OutRef<'_, IWMDMDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppdevice: *mut Option<IWMDMDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IWMDMEnumDevice>;
@@ -3369,7 +3369,7 @@ pub struct IWMDMEnumStorage_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMEnumStorage_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppstorage: windows_core::OutRef<'_, IWMDMStorage>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppstorage: *mut Option<IWMDMStorage>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IWMDMEnumStorage>;

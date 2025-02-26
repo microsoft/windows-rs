@@ -1517,7 +1517,7 @@ pub struct IEnumOpenServiceActivity_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumOpenServiceActivity_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IOpenServiceActivity>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IOpenServiceActivity>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOpenServiceActivity>;
@@ -1595,7 +1595,7 @@ pub struct IEnumOpenServiceActivityCategory_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumOpenServiceActivityCategory_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IOpenServiceActivityCategory>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IOpenServiceActivityCategory>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOpenServiceActivityCategory>;

@@ -3796,24 +3796,24 @@ pub trait ID3D10Device_Impl: windows_core::IUnknownImpl {
     fn ClearDepthStencilView(&self, pdepthstencilview: windows_core::Ref<'_, ID3D10DepthStencilView>, clearflags: u32, depth: f32, stencil: u8);
     fn GenerateMips(&self, pshaderresourceview: windows_core::Ref<'_, ID3D10ShaderResourceView>);
     fn ResolveSubresource(&self, pdstresource: windows_core::Ref<'_, ID3D10Resource>, dstsubresource: u32, psrcresource: windows_core::Ref<'_, ID3D10Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
-    fn VSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: windows_core::OutRef<'_, ID3D10Buffer>);
-    fn PSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: windows_core::OutRef<'_, ID3D10ShaderResourceView>);
+    fn VSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut Option<ID3D10Buffer>);
+    fn PSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut Option<ID3D10ShaderResourceView>);
     fn PSGetShader(&self, pppixelshader: windows_core::OutRef<'_, ID3D10PixelShader>);
-    fn PSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: windows_core::OutRef<'_, ID3D10SamplerState>);
+    fn PSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut Option<ID3D10SamplerState>);
     fn VSGetShader(&self, ppvertexshader: windows_core::OutRef<'_, ID3D10VertexShader>);
-    fn PSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: windows_core::OutRef<'_, ID3D10Buffer>);
+    fn PSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut Option<ID3D10Buffer>);
     fn IAGetInputLayout(&self, ppinputlayout: windows_core::OutRef<'_, ID3D10InputLayout>);
     fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: windows_core::OutRef<'_, ID3D10Buffer>, pstrides: *mut u32, poffsets: *mut u32);
     fn IAGetIndexBuffer(&self, pindexbuffer: windows_core::OutRef<'_, ID3D10Buffer>, format: *mut super::Dxgi::Common::DXGI_FORMAT, offset: *mut u32);
-    fn GSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: windows_core::OutRef<'_, ID3D10Buffer>);
+    fn GSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut Option<ID3D10Buffer>);
     fn GSGetShader(&self, ppgeometryshader: windows_core::OutRef<'_, ID3D10GeometryShader>);
     fn IAGetPrimitiveTopology(&self, ptopology: *mut super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
-    fn VSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: windows_core::OutRef<'_, ID3D10ShaderResourceView>);
-    fn VSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: windows_core::OutRef<'_, ID3D10SamplerState>);
+    fn VSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut Option<ID3D10ShaderResourceView>);
+    fn VSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut Option<ID3D10SamplerState>);
     fn GetPredication(&self, pppredicate: windows_core::OutRef<'_, ID3D10Predicate>, ppredicatevalue: *mut windows_core::BOOL);
-    fn GSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: windows_core::OutRef<'_, ID3D10ShaderResourceView>);
-    fn GSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: windows_core::OutRef<'_, ID3D10SamplerState>);
-    fn OMGetRenderTargets(&self, numviews: u32, pprendertargetviews: windows_core::OutRef<'_, ID3D10RenderTargetView>, ppdepthstencilview: windows_core::OutRef<'_, ID3D10DepthStencilView>);
+    fn GSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut Option<ID3D10ShaderResourceView>);
+    fn GSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut Option<ID3D10SamplerState>);
+    fn OMGetRenderTargets(&self, numviews: u32, pprendertargetviews: *mut Option<ID3D10RenderTargetView>, ppdepthstencilview: windows_core::OutRef<'_, ID3D10DepthStencilView>);
     fn OMGetBlendState(&self, ppblendstate: windows_core::OutRef<'_, ID3D10BlendState>, blendfactor: *mut f32, psamplemask: *mut u32);
     fn OMGetDepthStencilState(&self, ppdepthstencilstate: windows_core::OutRef<'_, ID3D10DepthStencilState>, pstencilref: *mut u32);
     fn SOGetTargets(&self, numbuffers: u32, ppsotargets: windows_core::OutRef<'_, ID3D10Buffer>, poffsets: *mut u32);
@@ -5209,7 +5209,7 @@ pub trait ID3D10EffectDepthStencilViewVariable_Impl: ID3D10EffectVariable_Impl {
     fn SetDepthStencil(&self, presource: windows_core::Ref<'_, ID3D10DepthStencilView>) -> windows_core::Result<()>;
     fn GetDepthStencil(&self) -> windows_core::Result<ID3D10DepthStencilView>;
     fn SetDepthStencilArray(&self, ppresources: *const Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> windows_core::Result<()>;
-    fn GetDepthStencilArray(&self, ppresources: windows_core::OutRef<'_, ID3D10DepthStencilView>, offset: u32, count: u32) -> windows_core::Result<()>;
+    fn GetDepthStencilArray(&self, ppresources: *mut Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> windows_core::Result<()>;
 }
 impl ID3D10EffectDepthStencilViewVariable_Vtbl {
     pub const fn new<Identity: ID3D10EffectDepthStencilViewVariable_Impl>() -> Self {
@@ -5699,7 +5699,7 @@ pub trait ID3D10EffectRenderTargetViewVariable_Impl: ID3D10EffectVariable_Impl {
     fn SetRenderTarget(&self, presource: windows_core::Ref<'_, ID3D10RenderTargetView>) -> windows_core::Result<()>;
     fn GetRenderTarget(&self) -> windows_core::Result<ID3D10RenderTargetView>;
     fn SetRenderTargetArray(&self, ppresources: *const Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> windows_core::Result<()>;
-    fn GetRenderTargetArray(&self, ppresources: windows_core::OutRef<'_, ID3D10RenderTargetView>, offset: u32, count: u32) -> windows_core::Result<()>;
+    fn GetRenderTargetArray(&self, ppresources: *mut Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> windows_core::Result<()>;
 }
 impl ID3D10EffectRenderTargetViewVariable_Vtbl {
     pub const fn new<Identity: ID3D10EffectRenderTargetViewVariable_Impl>() -> Self {
@@ -6085,7 +6085,7 @@ pub trait ID3D10EffectShaderResourceVariable_Impl: ID3D10EffectVariable_Impl {
     fn SetResource(&self, presource: windows_core::Ref<'_, ID3D10ShaderResourceView>) -> windows_core::Result<()>;
     fn GetResource(&self) -> windows_core::Result<ID3D10ShaderResourceView>;
     fn SetResourceArray(&self, ppresources: *const Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> windows_core::Result<()>;
-    fn GetResourceArray(&self, ppresources: windows_core::OutRef<'_, ID3D10ShaderResourceView>, offset: u32, count: u32) -> windows_core::Result<()>;
+    fn GetResourceArray(&self, ppresources: *mut Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> windows_core::Result<()>;
 }
 impl ID3D10EffectShaderResourceVariable_Vtbl {
     pub const fn new<Identity: ID3D10EffectShaderResourceVariable_Impl>() -> Self {

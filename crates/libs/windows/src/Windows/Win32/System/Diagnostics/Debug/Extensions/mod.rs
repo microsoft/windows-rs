@@ -50740,7 +50740,7 @@ pub struct IModelIterator_Vtbl {
 }
 pub trait IModelIterator_Impl: windows_core::IUnknownImpl {
     fn Reset(&self) -> windows_core::Result<()>;
-    fn GetNext(&self, object: windows_core::OutRef<'_, IModelObject>, dimensions: u64, indexers: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
+    fn GetNext(&self, object: windows_core::OutRef<'_, IModelObject>, dimensions: u64, indexers: *mut Option<IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
 }
 impl IModelIterator_Vtbl {
     pub const fn new<Identity: IModelIterator_Impl, const OFFSET: isize>() -> Self {

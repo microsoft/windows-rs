@@ -70,7 +70,7 @@ pub struct IEnumEventObject_Vtbl {
 }
 pub trait IEnumEventObject_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumEventObject>;
-    fn Next(&self, creqelem: u32, ppinterface: windows_core::OutRef<'_, windows_core::IUnknown>, cretelem: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, creqelem: u32, ppinterface: *mut Option<windows_core::IUnknown>, cretelem: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::HRESULT;
     fn Skip(&self, cskipelem: u32) -> windows_core::Result<()>;
 }

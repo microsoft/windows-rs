@@ -2741,7 +2741,7 @@ pub struct IEnumNetCfgBindingInterface_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumNetCfgBindingInterface_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, INetCfgBindingInterface>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self, ppenum: *const Option<IEnumNetCfgBindingInterface>) -> windows_core::Result<()>;
@@ -2810,7 +2810,7 @@ pub struct IEnumNetCfgBindingPath_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumNetCfgBindingPath_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, INetCfgBindingPath>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self, ppenum: *const Option<IEnumNetCfgBindingPath>) -> windows_core::Result<()>;
@@ -2879,7 +2879,7 @@ pub struct IEnumNetCfgComponent_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumNetCfgComponent_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, INetCfgComponent>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<INetCfgComponent>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self, ppenum: *const Option<IEnumNetCfgComponent>) -> windows_core::Result<()>;

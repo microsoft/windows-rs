@@ -8404,7 +8404,7 @@ pub struct IJsEnumDebugProperty_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IJsEnumDebugProperty_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, count: u32, ppdebugproperty: windows_core::OutRef<'_, IJsDebugProperty>, pactualcount: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, count: u32, ppdebugproperty: *mut Option<IJsDebugProperty>, pactualcount: *mut u32) -> windows_core::Result<()>;
     fn GetCount(&self) -> windows_core::Result<u32>;
 }
 impl IJsEnumDebugProperty_Vtbl {

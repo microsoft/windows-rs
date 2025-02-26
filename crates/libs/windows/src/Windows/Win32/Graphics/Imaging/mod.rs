@@ -824,7 +824,7 @@ pub trait IWICBitmapDecoder_Impl: windows_core::IUnknownImpl {
     fn CopyPalette(&self, pipalette: windows_core::Ref<'_, IWICPalette>) -> windows_core::Result<()>;
     fn GetMetadataQueryReader(&self) -> windows_core::Result<IWICMetadataQueryReader>;
     fn GetPreview(&self) -> windows_core::Result<IWICBitmapSource>;
-    fn GetColorContexts(&self, ccount: u32, ppicolorcontexts: windows_core::OutRef<'_, IWICColorContext>, pcactualcount: *mut u32) -> windows_core::Result<()>;
+    fn GetColorContexts(&self, ccount: u32, ppicolorcontexts: *mut Option<IWICColorContext>, pcactualcount: *mut u32) -> windows_core::Result<()>;
     fn GetThumbnail(&self) -> windows_core::Result<IWICBitmapSource>;
     fn GetFrameCount(&self) -> windows_core::Result<u32>;
     fn GetFrame(&self, index: u32) -> windows_core::Result<IWICBitmapFrameDecode>;
@@ -1367,7 +1367,7 @@ pub struct IWICBitmapFrameDecode_Vtbl {
 }
 pub trait IWICBitmapFrameDecode_Impl: IWICBitmapSource_Impl {
     fn GetMetadataQueryReader(&self) -> windows_core::Result<IWICMetadataQueryReader>;
-    fn GetColorContexts(&self, ccount: u32, ppicolorcontexts: windows_core::OutRef<'_, IWICColorContext>, pcactualcount: *mut u32) -> windows_core::Result<()>;
+    fn GetColorContexts(&self, ccount: u32, ppicolorcontexts: *mut Option<IWICColorContext>, pcactualcount: *mut u32) -> windows_core::Result<()>;
     fn GetThumbnail(&self) -> windows_core::Result<IWICBitmapSource>;
 }
 impl IWICBitmapFrameDecode_Vtbl {

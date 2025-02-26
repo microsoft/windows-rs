@@ -4779,7 +4779,7 @@ pub struct IEnumDiscRecorders_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDiscRecorders_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, crecorders: u32, pprecorder: windows_core::OutRef<'_, IDiscRecorder>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, crecorders: u32, pprecorder: *mut Option<IDiscRecorder>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, crecorders: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDiscRecorders>;
@@ -4862,7 +4862,7 @@ pub struct IEnumFsiItems_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumFsiItems_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IFsiItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IFsiItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumFsiItems>;
@@ -4947,7 +4947,7 @@ pub struct IEnumProgressItems_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumProgressItems_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IProgressItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IProgressItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumProgressItems>;

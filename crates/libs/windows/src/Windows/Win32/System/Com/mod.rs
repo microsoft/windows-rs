@@ -5056,7 +5056,7 @@ pub struct IEnumConnectionPoints_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumConnectionPoints_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cconnections: u32, ppcp: windows_core::OutRef<'_, IConnectionPoint>, pcfetched: *mut u32) -> windows_core::HRESULT;
+    fn Next(&self, cconnections: u32, ppcp: *mut Option<IConnectionPoint>, pcfetched: *mut u32) -> windows_core::HRESULT;
     fn Skip(&self, cconnections: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumConnectionPoints>;
@@ -5467,7 +5467,7 @@ pub struct IEnumMoniker_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumMoniker_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IMoniker>, pceltfetched: *mut u32) -> windows_core::HRESULT;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IMoniker>, pceltfetched: *mut u32) -> windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> windows_core::HRESULT;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumMoniker>;
@@ -5701,7 +5701,7 @@ pub struct IEnumUnknown_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumUnknown_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, windows_core::IUnknown>, pceltfetched: *mut u32) -> windows_core::HRESULT;
+    fn Next(&self, celt: u32, rgelt: *mut Option<windows_core::IUnknown>, pceltfetched: *mut u32) -> windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumUnknown>;

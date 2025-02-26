@@ -22445,7 +22445,7 @@ pub struct IEnumFilters_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumFilters_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cfilters: u32, ppfilter: windows_core::OutRef<'_, IBaseFilter>, pcfetched: *mut u32) -> windows_core::HRESULT;
+    fn Next(&self, cfilters: u32, ppfilter: *mut Option<IBaseFilter>, pcfetched: *mut u32) -> windows_core::HRESULT;
     fn Skip(&self, cfilters: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumFilters>;
@@ -22688,7 +22688,7 @@ pub struct IEnumPins_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumPins_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cpins: u32, pppins: windows_core::OutRef<'_, IPin>, pcfetched: *mut u32) -> windows_core::HRESULT;
+    fn Next(&self, cpins: u32, pppins: *mut Option<IPin>, pcfetched: *mut u32) -> windows_core::HRESULT;
     fn Skip(&self, cpins: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPins>;

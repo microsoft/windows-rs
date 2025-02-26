@@ -656,7 +656,7 @@ pub struct IEnumNetConnection_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumNetConnection_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, INetConnection>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<INetConnection>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumNetConnection>;

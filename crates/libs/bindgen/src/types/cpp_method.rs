@@ -423,12 +423,23 @@ impl CppMethod {
         let mut params = quote! {};
 
         if self.return_hint == ReturnHint::ResultValue {
-            for param in &self.signature.params[..self.signature.params.len() - 1] {
-                params.combine(write_produce_type(writer, param));
+            for (position, param) in self.signature.params[..self.signature.params.len() - 1]
+                .iter()
+                .enumerate()
+            {
+                params.combine(write_produce_type(
+                    writer,
+                    param,
+                    self.param_hints[position],
+                ));
             }
         } else {
-            for param in &self.signature.params {
-                params.combine(write_produce_type(writer, param));
+            for (position, param) in self.signature.params.iter().enumerate() {
+                params.combine(write_produce_type(
+                    writer,
+                    param,
+                    self.param_hints[position],
+                ));
             }
         }
 
@@ -700,14 +711,14 @@ impl CppMethod {
     }
 }
 
-fn write_produce_type(writer: &Writer<'_>, param: &Param) -> TokenStream {
+fn write_produce_type(writer: &Writer<'_>, param: &Param, hint: ParamHint) -> TokenStream {
     let name = param.write_ident();
     let kind = param.write_default(writer);
 
     if param.is_input() && param.is_interface() {
         let type_name = param.write_name(writer);
         quote! { #name: windows_core::Ref<'_, #type_name>, }
-    } else if !param.is_input() && param.deref().is_interface() {
+    } else if !param.is_input() && param.deref().is_interface() && !hint.is_array() {
         let type_name = param.deref().write_name(writer);
         quote! { #name: windows_core::OutRef<'_, #type_name>, }
     } else if param.is_input() {

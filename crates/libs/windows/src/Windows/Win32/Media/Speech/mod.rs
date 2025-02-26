@@ -4378,7 +4378,7 @@ pub struct ISpRecoResult_Vtbl {
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISpRecoResult_Impl: ISpPhrase_Impl {
     fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> windows_core::Result<()>;
-    fn GetAlternates(&self, ulstartelement: u32, celements: u32, ulrequestcount: u32, ppphrases: windows_core::OutRef<'_, ISpPhraseAlt>, pcphrasesreturned: *mut u32) -> windows_core::Result<()>;
+    fn GetAlternates(&self, ulstartelement: u32, celements: u32, ulrequestcount: u32, ppphrases: *mut Option<ISpPhraseAlt>, pcphrasesreturned: *mut u32) -> windows_core::Result<()>;
     fn GetAudio(&self, ulstartelement: u32, celements: u32) -> windows_core::Result<ISpStreamFormat>;
     fn SpeakAudio(&self, ulstartelement: u32, celements: u32, dwflags: u32, pulstreamnumber: *mut u32) -> windows_core::Result<()>;
     fn Serialize(&self, ppcomemserializedresult: *mut *mut SPSERIALIZEDRESULT) -> windows_core::Result<()>;

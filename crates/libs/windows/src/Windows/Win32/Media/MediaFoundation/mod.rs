@@ -12604,7 +12604,7 @@ pub struct IDXVAHD_Device_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDXVAHD_Device_Impl: windows_core::IUnknownImpl {
-    fn CreateVideoSurface(&self, width: u32, height: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, r#type: DXVAHD_SURFACE_TYPE, numsurfaces: u32, ppsurfaces: windows_core::OutRef<'_, super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn CreateVideoSurface(&self, width: u32, height: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, r#type: DXVAHD_SURFACE_TYPE, numsurfaces: u32, ppsurfaces: *mut Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn GetVideoProcessorDeviceCaps(&self, pcaps: *mut DXVAHD_VPDEVCAPS) -> windows_core::Result<()>;
     fn GetVideoProcessorOutputFormats(&self, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> windows_core::Result<()>;
     fn GetVideoProcessorInputFormats(&self, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> windows_core::Result<()>;
