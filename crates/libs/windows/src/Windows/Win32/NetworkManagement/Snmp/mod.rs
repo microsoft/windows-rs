@@ -758,15 +758,10 @@ impl Default for SnmpVarBindList {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct smiCNTR64 {
     pub hipart: u32,
     pub lopart: u32,
-}
-impl Default for smiCNTR64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

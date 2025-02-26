@@ -186,7 +186,7 @@ pub const CAIF_REGISTRY: u32 = 4u32;
 pub const CAIF_REGISTRYPARENT: u32 = 16u32;
 pub const CAIF_SHAREDFOLDERENTRY: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CAINFO {
     pub cbSize: u32,
     pub CAType: ENUM_CATYPES,
@@ -198,11 +198,6 @@ pub struct CAINFO {
     pub cKRACertUsedCount: u32,
     pub cKRACertCount: u32,
     pub fAdvancedServer: u32,
-}
-impl Default for CAINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CAPATHLENGTH_INFINITE: u32 = 4294967295u32;
 pub const CAPropCertificate: EnrollmentCAProperty = EnrollmentCAProperty(7i32);
@@ -600,15 +595,10 @@ pub const CSCONTROL_RESTART: u64 = 3u64;
 pub const CSCONTROL_SHUTDOWN: u64 = 1u64;
 pub const CSCONTROL_SUSPEND: u64 = 2u64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CSEDB_RSTMAPW {
     pub pwszDatabaseName: windows_core::PWSTR,
     pub pwszNewDatabaseName: windows_core::PWSTR,
-}
-impl Default for CSEDB_RSTMAPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CSRESTORE_TYPE_CATCHUP: u32 = 4u32;
 pub const CSRESTORE_TYPE_FULL: u32 = 1u32;

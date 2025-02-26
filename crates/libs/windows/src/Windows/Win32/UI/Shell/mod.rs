@@ -5631,7 +5631,7 @@ pub const APPACTION_UNSCHEDULE: APPACTIONFLAGS = APPACTIONFLAGS(512i32);
 pub const APPACTION_UPGRADE: APPACTIONFLAGS = APPACTIONFLAGS(16i32);
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APPBARDATA {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
@@ -5640,15 +5640,9 @@ pub struct APPBARDATA {
     pub rc: super::super::Foundation::RECT,
     pub lParam: super::super::Foundation::LPARAM,
 }
-#[cfg(target_arch = "x86")]
-impl Default for APPBARDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct APPBARDATA {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
@@ -5657,23 +5651,12 @@ pub struct APPBARDATA {
     pub rc: super::super::Foundation::RECT,
     pub lParam: super::super::Foundation::LPARAM,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for APPBARDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct APPCATEGORYINFO {
     pub Locale: u32,
     pub pszDescription: windows_core::PWSTR,
     pub AppCategoryId: windows_core::GUID,
-}
-impl Default for APPCATEGORYINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5690,7 +5673,7 @@ impl Default for APPCATEGORYINFOLIST {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPDOCLISTTYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct APPINFODATA {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -5712,11 +5695,6 @@ pub struct APPINFODATA {
     pub pszImage: windows_core::PWSTR,
     pub pszReadmeUrl: windows_core::PWSTR,
     pub pszUpdateInfoUrl: windows_core::PWSTR,
-}
-impl Default for APPINFODATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5845,34 +5823,20 @@ pub const ASSOCF_VERIFY: ASSOCF = ASSOCF(64u32);
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::super::System::Registry::HKEY,
     pub pszClass: windows_core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Registry")]
-impl Default for ASSOCIATIONELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::super::System::Registry::HKEY,
     pub pszClass: windows_core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Registry")]
-impl Default for ASSOCIATIONELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6044,28 +6008,18 @@ impl Default for BANDINFOSFB {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BANDSITECID(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BANDSITEINFO {
     pub dwMask: u32,
     pub dwState: u32,
     pub dwStyle: u32,
 }
-impl Default for BANDSITEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BANNER_NOTIFICATION {
     pub event: BANNER_NOTIFICATION_EVENT,
     pub providerIdentity: windows_core::PCWSTR,
     pub contentId: windows_core::PCWSTR,
-}
-impl Default for BANNER_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6308,17 +6262,12 @@ pub const BUFFLEN: u32 = 255u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BrowserNavConstants(pub i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CABINETSTATE {
     pub cLength: u16,
     pub nVersion: u16,
     pub _bitfield: i32,
     pub fMenuEnumFilter: u32,
-}
-impl Default for CABINETSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CABINETSTATE_VERSION: u32 = 2u32;
 pub const CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80270120_u32 as _);
@@ -6685,7 +6634,7 @@ pub const CMIC_MASK_CONTROL_DOWN: u32 = 1073741824u32;
 pub const CMIC_MASK_PTINVOKE: u32 = 536870912u32;
 pub const CMIC_MASK_SHIFT_DOWN: u32 = 268435456u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CMINVOKECOMMANDINFO {
     pub cbSize: u32,
     pub fMask: u32,
@@ -6697,13 +6646,8 @@ pub struct CMINVOKECOMMANDINFO {
     pub dwHotKey: u32,
     pub hIcon: super::super::Foundation::HANDLE,
 }
-impl Default for CMINVOKECOMMANDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CMINVOKECOMMANDINFOEX {
     pub cbSize: u32,
     pub fMask: u32,
@@ -6721,13 +6665,8 @@ pub struct CMINVOKECOMMANDINFOEX {
     pub lpTitleW: windows_core::PCWSTR,
     pub ptInvoke: super::super::Foundation::POINT,
 }
-impl Default for CMINVOKECOMMANDINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub cbSize: u32,
     pub fMask: u32,
@@ -6745,11 +6684,6 @@ pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub ptInvoke: super::super::Foundation::POINT,
     pub lpVerbInt: u32,
     pub lpVerbWInt: u32,
-}
-impl Default for CMINVOKECOMMANDINFOEX_REMOTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6917,7 +6851,7 @@ pub const COMP_TYPE_MAX: u32 = 4u32;
 pub const COMP_TYPE_PICTURE: u32 = 1u32;
 pub const COMP_TYPE_WEBSITE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct CONFIRM_CONFLICT_ITEM {
     pub pShellItem: core::mem::ManuallyDrop<Option<IShellItem2>>,
     pub pszOriginalName: windows_core::PWSTR,
@@ -6926,21 +6860,11 @@ pub struct CONFIRM_CONFLICT_ITEM {
     pub pszLocationFull: windows_core::PWSTR,
     pub nType: SYNCMGR_CONFLICT_ITEM_TYPE,
 }
-impl Default for CONFIRM_CONFLICT_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONFIRM_CONFLICT_RESULT_INFO {
     pub pszNewName: windows_core::PWSTR,
     pub iItemIndex: u32,
-}
-impl Default for CONFIRM_CONFLICT_RESULT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CONFLICT_RESOLUTION_CLSID_KEY: windows_core::PCWSTR = windows_core::w!("ConflictResolutionCLSID");
 pub const COPYENGINE_E_ACCESSDENIED_READONLY: windows_core::HRESULT = windows_core::HRESULT(0x8027003F_u32 as _);
@@ -7073,17 +6997,12 @@ pub const CPGSR_NO_CREDENTIAL_NOT_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATIO
 pub const CPGSR_RETURN_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(2i32);
 pub const CPGSR_RETURN_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(3i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CPLINFO {
     pub idIcon: i32,
     pub idName: i32,
     pub idInfo: i32,
     pub lData: isize,
-}
-impl Default for CPLINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CPLPAGE_DISPLAY_BACKGROUND: u32 = 1u32;
 pub const CPLPAGE_KEYBOARD_SPEED: u32 = 1u32;
@@ -7206,17 +7125,12 @@ impl Default for CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
     pub dwFieldID: u32,
     pub cpft: CREDENTIAL_PROVIDER_FIELD_TYPE,
     pub pszLabel: windows_core::PWSTR,
     pub guidFieldType: windows_core::GUID,
-}
-impl Default for CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7343,15 +7257,10 @@ pub const CTF_WAIT_NO_REENTRANCY: i32 = 512i32;
 pub struct CommandStateChangeConstants(pub i32);
 pub const ConflictFolder: windows_core::GUID = windows_core::GUID::from_u128(0x289978ac_a101_4341_a817_21eba7fd046d);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DATABLOCK_HEADER {
     pub cbSize: u32,
     pub dwSignature: u32,
-}
-impl Default for DATABLOCK_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7812,7 +7721,7 @@ pub const DI_GETDRAGIMAGE: windows_core::PCWSTR = windows_core::w!("ShellGetDrag
 pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
 pub type DLLGETVERSIONPROC = Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DLLVERSIONINFO {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
@@ -7820,22 +7729,12 @@ pub struct DLLVERSIONINFO {
     pub dwBuildNumber: u32,
     pub dwPlatformID: u32,
 }
-impl Default for DLLVERSIONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DLLVERSIONINFO2 {
     pub info1: DLLVERSIONINFO,
     pub dwFlags: u32,
     pub ullVersion: u64,
-}
-impl Default for DLLVERSIONINFO2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DLLVER_BUILD_MASK: u64 = 4294901760u64;
 pub const DLLVER_MAJOR_MASK: u64 = 18446462598732840960u64;
@@ -7850,67 +7749,43 @@ pub const DOGIF_ONLY_IF_ONE: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(8i3
 pub const DOGIF_TRAVERSE_LINK: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(1i32);
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRAGINFOA {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
     pub fNC: windows_core::BOOL,
     pub lpFileList: windows_core::PSTR,
     pub grfKeyState: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DRAGINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DRAGINFOA {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
     pub fNC: windows_core::BOOL,
     pub lpFileList: windows_core::PSTR,
     pub grfKeyState: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DRAGINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRAGINFOW {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
     pub fNC: windows_core::BOOL,
     pub lpFileList: windows_core::PWSTR,
     pub grfKeyState: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DRAGINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DRAGINFOW {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
     pub fNC: windows_core::BOOL,
     pub lpFileList: windows_core::PWSTR,
     pub grfKeyState: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DRAGINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7925,17 +7800,12 @@ impl Default for DROPDESCRIPTION {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DROPFILES {
     pub pFiles: u32,
     pub pt: super::super::Foundation::POINT,
     pub fNC: windows_core::BOOL,
     pub fWide: windows_core::BOOL,
-}
-impl Default for DROPFILES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8319,17 +8189,12 @@ impl Default for EXP_PROPERTYSTORAGE {
 }
 pub const EXP_PROPERTYSTORAGE_SIG: u32 = 2684354569u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXP_SPECIAL_FOLDER {
     pub cbSize: u32,
     pub dwSignature: u32,
     pub idSpecialFolder: u32,
     pub cbOffset: u32,
-}
-impl Default for EXP_SPECIAL_FOLDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EXP_SPECIAL_FOLDER_SIG: u32 = 2684354565u32;
 pub const EXP_SZ_ICON_SIG: u32 = 2684354567u32;
@@ -8933,27 +8798,17 @@ pub const FOLDERID_Windows: windows_core::GUID = windows_core::GUID::from_u128(0
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOLDERLOGICALVIEWMODE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FOLDERSETDATA {
     pub _fs: FOLDERSETTINGS,
     pub _vidRestore: windows_core::GUID,
     pub _dwViewPriority: u32,
 }
-impl Default for FOLDERSETDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FOLDERSETTINGS {
     pub ViewMode: u32,
     pub fFlags: u32,
-}
-impl Default for FOLDERSETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FOLDERTYPEID_AccountPictures: windows_core::GUID = windows_core::GUID::from_u128(0xdb2a5d8f_06e6_4007_aba6_af877d526ea6);
 pub const FOLDERTYPEID_Communications: windows_core::GUID = windows_core::GUID::from_u128(0x91475fe5_586b_4eba_8d75_d17434b8cdf6);
@@ -10645,7 +10500,7 @@ impl Default for HDROP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HELPINFO {
     pub cbSize: u32,
     pub iContextType: HELP_INFO_TYPE,
@@ -10653,11 +10508,6 @@ pub struct HELPINFO {
     pub hItemHandle: super::super::Foundation::HANDLE,
     pub dwContextId: usize,
     pub MousePos: super::super::Foundation::POINT,
-}
-impl Default for HELPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HELPINFO_MENUITEM: HELP_INFO_TYPE = HELP_INFO_TYPE(2i32);
 pub const HELPINFO_WINDOW: HELP_INFO_TYPE = HELP_INFO_TYPE(1i32);
@@ -10745,18 +10595,13 @@ pub const HLBWIF_HASFRAMEWNDINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(1i32);
 pub const HLBWIF_HASWEBTOOLBARINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(16i32);
 pub const HLBWIF_WEBTOOLBARHIDDEN: HLBWIF_FLAGS = HLBWIF_FLAGS(32i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HLBWINFO {
     pub cbSize: u32,
     pub grfHLBWIF: u32,
     pub rcFramePos: super::super::Foundation::RECT,
     pub rcDocPos: super::super::Foundation::RECT,
     pub hltbinfo: HLTBINFO,
-}
-impl Default for HLBWINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10832,15 +10677,10 @@ pub const HLINK_E_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x8004010
 pub const HLINK_S_DONTHIDE: i32 = 262400i32;
 pub const HLINK_S_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x40100_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HLITEM {
     pub uHLID: u32,
     pub pwzFriendlyName: windows_core::PWSTR,
-}
-impl Default for HLITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10912,15 +10752,10 @@ pub const HLSR_HISTORYFOLDER: HLSR = HLSR(2i32);
 pub const HLSR_HOME: HLSR = HLSR(0i32);
 pub const HLSR_SEARCHPAGE: HLSR = HLSR(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HLTBINFO {
     pub uDockType: u32,
     pub rcTbPos: super::super::Foundation::RECT,
-}
-impl Default for HLTBINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HLTB_DOCKEDBOTTOM: HLTB_INFO = HLTB_INFO(3i32);
 pub const HLTB_DOCKEDLEFT: HLTB_INFO = HLTB_INFO(0i32);
@@ -46817,17 +46652,12 @@ impl ISyncMgrUIOperation_Vtbl {
 }
 impl windows_core::RuntimeName for ISyncMgrUIOperation {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ITEMSPACING {
     pub cxSmall: i32,
     pub cySmall: i32,
     pub cxLarge: i32,
     pub cyLarge: i32,
-}
-impl Default for ITEMSPACING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ITSAT_DEFAULT_PRIORITY: u32 = 268435456u32;
 pub const ITSAT_MAX_PRIORITY: u32 = 2147483647u32;
@@ -51335,7 +51165,7 @@ pub const KF_REDIRECT_WITH_UI: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(32i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNOWNDESTCATEGORY(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KNOWNFOLDER_DEFINITION {
     pub category: KF_CATEGORY,
     pub pszName: windows_core::PWSTR,
@@ -51350,11 +51180,6 @@ pub struct KNOWNFOLDER_DEFINITION {
     pub dwAttributes: u32,
     pub kfdFlags: u32,
     pub ftidType: windows_core::GUID,
-}
-impl Default for KNOWNFOLDER_DEFINITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -51951,33 +51776,21 @@ impl Default for NOTIFYICONDATAW_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
     pub uID: u32,
     pub guidItem: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Default for NOTIFYICONIDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
     pub uID: u32,
     pub guidItem: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for NOTIFYICONIDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NOTIFYICON_VERSION: u32 = 3u32;
 pub const NOTIFYICON_VERSION_4: u32 = 4u32;
@@ -52108,7 +51921,7 @@ impl Default for NRESARRAY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct NSTCCUSTOMDRAW {
     pub psi: core::mem::ManuallyDrop<Option<IShellItem>>,
     pub uItemState: u32,
@@ -52118,12 +51931,6 @@ pub struct NSTCCUSTOMDRAW {
     pub himl: super::Controls::HIMAGELIST,
     pub iLevel: i32,
     pub iIndent: i32,
-}
-#[cfg(feature = "Win32_UI_Controls")]
-impl Default for NSTCCUSTOMDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NSTCDHPOS_ONTOP: i32 = -1i32;
 pub const NSTCECT_BUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(3i32);
@@ -52323,15 +52130,10 @@ impl Default for NT_CONSOLE_PROPS {
 }
 pub const NT_CONSOLE_PROPS_SIG: u32 = 2684354562u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NT_FE_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
     pub uCodePage: u32,
-}
-impl Default for NT_FE_CONSOLE_PROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NT_FE_CONSOLE_PROPS_SIG: u32 = 2684354564u32;
 pub const NUM_POINTS: u32 = 3u32;
@@ -52415,16 +52217,11 @@ pub const OF_CAP_CANSWITCHTO: u32 = 1u32;
 pub const OI_ASYNC: u32 = 4294962926u32;
 pub const OI_DEFAULT: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPENASINFO {
     pub pcszFile: windows_core::PCWSTR,
     pub pcszClass: windows_core::PCWSTR,
     pub oaifInFlags: OPEN_AS_INFO_FLAGS,
-}
-impl Default for OPENASINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OPENPROPS_INHIBITPIF: u32 = 32768u32;
 pub const OPENPROPS_NONE: u32 = 0u32;
@@ -52466,67 +52263,43 @@ impl core::ops::Not for OPEN_AS_INFO_FLAGS {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwSize: u32,
     pub pszSheetName: windows_core::PSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: windows_core::BOOL,
-}
-#[cfg(target_arch = "x86")]
-impl Default for OPEN_PRINTER_PROPS_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwSize: u32,
     pub pszSheetName: windows_core::PSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: windows_core::BOOL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for OPEN_PRINTER_PROPS_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwSize: u32,
     pub pszSheetName: windows_core::PWSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: windows_core::BOOL,
-}
-#[cfg(target_arch = "x86")]
-impl Default for OPEN_PRINTER_PROPS_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwSize: u32,
     pub pszSheetName: windows_core::PWSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: windows_core::BOOL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for OPEN_PRINTER_PROPS_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OPPROGDLG_ALLOWUNDO: _OPPROGDLGF = _OPPROGDLGF(256i32);
 pub const OPPROGDLG_DEFAULT: _OPPROGDLGF = _OPPROGDLGF(0i32);
@@ -52605,7 +52378,7 @@ pub type PAPPSTATE_CHANGE_ROUTINE = Option<unsafe extern "system" fn(quiesced: b
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PAPPSTATE_REGISTRATION(pub isize);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PARSEDURLA {
     pub cbSize: u32,
     pub pszProtocol: windows_core::PCSTR,
@@ -52614,13 +52387,8 @@ pub struct PARSEDURLA {
     pub cchSuffix: u32,
     pub nScheme: u32,
 }
-impl Default for PARSEDURLA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PARSEDURLW {
     pub cbSize: u32,
     pub pszProtocol: windows_core::PCWSTR,
@@ -52628,11 +52396,6 @@ pub struct PARSEDURLW {
     pub pszSuffix: windows_core::PCWSTR,
     pub cchSuffix: u32,
     pub nScheme: u32,
-}
-impl Default for PARSEDURLW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PATHCCH_ALLOW_LONG_PATHS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(1u32);
 pub const PATHCCH_CANONICALIZE_SLASHES: PATHCCH_OPTIONS = PATHCCH_OPTIONS(64u32);
@@ -52926,16 +52689,10 @@ pub const PPCF_LONGESTPOSSIBLE: u32 = 128u32;
 pub const PPCF_NODIRECTORIES: u32 = 16u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PREVIEWHANDLERFRAMEINFO {
     pub haccel: super::WindowsAndMessaging::HACCEL,
     pub cAccelEntries: u32,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for PREVIEWHANDLERFRAMEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PRF_DONTFINDLNK: PRF_FLAGS = PRF_FLAGS(8i32);
 pub const PRF_FIRSTDIRDEF: PRF_FLAGS = PRF_FLAGS(4i32);
@@ -52988,7 +52745,7 @@ pub const PRINTACTION_SERVERPROPERTIES: u32 = 7u32;
 pub const PRINTACTION_TESTPAGE: u32 = 4u32;
 pub const PRINT_PROP_FORCE_NAME: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROFILEINFOA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -52999,13 +52756,8 @@ pub struct PROFILEINFOA {
     pub lpPolicyPath: windows_core::PSTR,
     pub hProfile: super::super::Foundation::HANDLE,
 }
-impl Default for PROFILEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROFILEINFOW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -53015,11 +52767,6 @@ pub struct PROFILEINFOW {
     pub lpServerName: windows_core::PWSTR,
     pub lpPolicyPath: windows_core::PWSTR,
     pub hProfile: super::super::Foundation::HANDLE,
-}
-impl Default for PROFILEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PROGDLG_AUTOTIME: u32 = 2u32;
 pub const PROGDLG_MARQUEEPROGRESS: u32 = 32u32;
@@ -53053,7 +52800,7 @@ pub const PSGUID_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x644
 pub const PSGUID_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x9b174b35_40ff_11d2_a27e_00c04fc30871);
 pub const PSGUID_WEBVIEW: windows_core::GUID = windows_core::GUID::from_u128(0xf2275480_f782_4291_bd94_f13693513aec);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PUBAPPINFO {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -53062,11 +52809,6 @@ pub struct PUBAPPINFO {
     pub stPublished: super::super::Foundation::SYSTEMTIME,
     pub stScheduled: super::super::Foundation::SYSTEMTIME,
     pub stExpire: super::super::Foundation::SYSTEMTIME,
-}
-impl Default for PUBAPPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -53106,15 +52848,10 @@ impl Default for QCMINFO_IDMAP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QCMINFO_IDMAP_PLACEMENT {
     pub id: u32,
     pub fFlags: u32,
-}
-impl Default for QCMINFO_IDMAP_PLACEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const QCMINFO_PLACE_AFTER: u32 = 1u32;
 pub const QCMINFO_PLACE_BEFORE: u32 = 0u32;
@@ -53544,17 +53281,11 @@ pub const SFVM_MERGEMENU: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(1i32);
 pub struct SFVM_MESSAGE_ID(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SFVM_PROPPAGE_DATA {
     pub dwReserved: u32,
     pub pfn: super::Controls::LPFNSVADDPROPSHEETPAGE,
     pub lParam: super::super::Foundation::LPARAM,
-}
-#[cfg(feature = "Win32_UI_Controls")]
-impl Default for SFVM_PROPPAGE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SFVM_QUERYFSNOTIFY: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(25i32);
 pub const SFVM_REARRANGE: u32 = 1u32;
@@ -53586,18 +53317,12 @@ pub const SFVVO_SHOWSYSFILES: ShellFolderViewOptions = ShellFolderViewOptions(32
 pub const SFVVO_WIN95CLASSIC: ShellFolderViewOptions = ShellFolderViewOptions(64i32);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ole")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SFV_CREATE {
     pub cbSize: u32,
     pub pshf: core::mem::ManuallyDrop<Option<IShellFolder>>,
     pub psvOuter: core::mem::ManuallyDrop<Option<IShellView>>,
     pub psfvcb: core::mem::ManuallyDrop<Option<IShellFolderViewCB>>,
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl Default for SFV_CREATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -53629,14 +53354,10 @@ pub const SHACF_VIRTUAL_NAMESPACE: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARD(pub i32);
 #[repr(C, packed(1))]
+#[derive(Default)]
 pub struct SHARDAPPIDINFO {
     pub psi: core::mem::ManuallyDrop<Option<IShellItem>>,
     pub pszAppID: windows_core::PCWSTR,
-}
-impl Default for SHARDAPPIDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -53652,14 +53373,10 @@ impl Default for SHARDAPPIDINFOIDLIST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Default)]
 pub struct SHARDAPPIDINFOLINK {
     pub psl: core::mem::ManuallyDrop<Option<IShellLinkA>>,
     pub pszAppID: windows_core::PCWSTR,
-}
-impl Default for SHARDAPPIDINFOLINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SHARD_APPIDINFO: SHARD = SHARD(4i32);
 pub const SHARD_APPIDINFOIDLIST: SHARD = SHARD(5i32);
@@ -53947,17 +53664,12 @@ impl Default for SHCREATEPROCESSINFOW {
 }
 pub const SHC_E_SHELL_COMPONENT_STARTUP_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x80270234_u32 as _);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHChangeDWORDAsIDList {
     pub cb: u16,
     pub dwItem1: u32,
     pub dwItem2: u32,
     pub cbZero: u16,
-}
-impl Default for SHChangeDWORDAsIDList {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -54001,15 +53713,10 @@ impl Default for SHChangeUpdateImageIDList {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SHDESCRIPTIONID {
     pub dwDescriptionId: u32,
     pub clsid: windows_core::GUID,
-}
-impl Default for SHDESCRIPTIONID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SHDID_COMPUTER_AUDIO: SHDID_ID = SHDID_ID(19i32);
 pub const SHDID_COMPUTER_CDROM: SHDID_ID = SHDID_ID(10i32);
@@ -54038,18 +53745,12 @@ pub const SHDID_REMOTE_DESKTOP_DRIVE: SHDID_ID = SHDID_ID(22i32);
 pub const SHDID_ROOT_REGITEM: SHDID_ID = SHDID_ID(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::super::Foundation::SIZE,
     pub ptOffset: super::super::Foundation::POINT,
     pub hbmpDragImage: super::super::Graphics::Gdi::HBITMAP,
     pub crColorKey: super::super::Foundation::COLORREF,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for SHDRAGIMAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -54227,17 +53928,12 @@ impl Default for SHELLEXECUTEINFOW_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHELLFLAGSTATE {
     pub _bitfield: i32,
 }
-impl Default for SHELLFLAGSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHELLSTATEA {
     pub _bitfield1: i32,
     pub dwWin95Unused: u32,
@@ -54248,15 +53944,10 @@ pub struct SHELLSTATEA {
     pub uNotUsed: u32,
     pub _bitfield2: i32,
 }
-impl Default for SHELLSTATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SHELLSTATEVERSION_IE4: u32 = 9u32;
 pub const SHELLSTATEVERSION_WIN2K: u32 = 10u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHELLSTATEW {
     pub _bitfield1: i32,
     pub dwWin95Unused: u32,
@@ -54266,11 +53957,6 @@ pub struct SHELLSTATEW {
     pub version: u32,
     pub uNotUsed: u32,
     pub _bitfield2: i32,
-}
-impl Default for SHELLSTATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -54736,63 +54422,39 @@ pub const SHIMSTCAPFLAG_LOCKABLE: u32 = 1u32;
 pub const SHIMSTCAPFLAG_PURGEABLE: u32 = 2u32;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHNAMEMAPPINGA {
     pub pszOldPath: windows_core::PSTR,
     pub pszNewPath: windows_core::PSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SHNAMEMAPPINGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SHNAMEMAPPINGA {
     pub pszOldPath: windows_core::PSTR,
     pub pszNewPath: windows_core::PSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SHNAMEMAPPINGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHNAMEMAPPINGW {
     pub pszOldPath: windows_core::PWSTR,
     pub pszNewPath: windows_core::PWSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SHNAMEMAPPINGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SHNAMEMAPPINGW {
     pub pszOldPath: windows_core::PWSTR,
     pub pszNewPath: windows_core::PWSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SHNAMEMAPPINGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SHOP_FILEPATH: SHOP_TYPE = SHOP_TYPE(2i32);
 pub const SHOP_PRINTERNAME: SHOP_TYPE = SHOP_TYPE(1i32);
@@ -54847,31 +54509,19 @@ pub const SHPWHF_USEMRU: u32 = 8u32;
 pub const SHPWHF_VALIDATEVIAWEBFOLDERS: u32 = 65536u32;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHQUERYRBINFO {
     pub cbSize: u32,
     pub i64Size: i64,
     pub i64NumItems: i64,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SHQUERYRBINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SHQUERYRBINFO {
     pub cbSize: u32,
     pub i64Size: i64,
     pub i64NumItems: i64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SHQUERYRBINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SHREGDEL_BOTH: SHREGDEL_FLAGS = SHREGDEL_FLAGS(17i32);
 pub const SHREGDEL_DEFAULT: SHREGDEL_FLAGS = SHREGDEL_FLAGS(0i32);
@@ -55229,17 +54879,12 @@ pub const SLGP_RELATIVEPRIORITY: SLGP_FLAGS = SLGP_FLAGS(8i32);
 pub const SLGP_SHORTPATH: SLGP_FLAGS = SLGP_FLAGS(1i32);
 pub const SLGP_UNCPRIORITY: SLGP_FLAGS = SLGP_FLAGS(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLOWAPPINFO {
     pub ullSize: u64,
     pub ftLastUsed: super::super::Foundation::FILETIME,
     pub iTimesUsed: i32,
     pub pszImage: windows_core::PWSTR,
-}
-impl Default for SLOWAPPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SLR_ANY_MATCH: SLR_FLAGS = SLR_FLAGS(2i32);
 #[repr(transparent)]
@@ -55379,17 +55024,12 @@ pub const SMIM_FLAGS: SMINFOMASK = SMINFOMASK(2i32);
 pub const SMIM_ICON: SMINFOMASK = SMINFOMASK(4i32);
 pub const SMIM_TYPE: SMINFOMASK = SMINFOMASK(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SMINFO {
     pub dwMask: u32,
     pub dwType: u32,
     pub dwFlags: u32,
     pub iIcon: i32,
-}
-impl Default for SMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -55417,15 +55057,10 @@ pub const SMSET_BOTTOM: u32 = 536870912u32;
 pub const SMSET_DONTOWN: u32 = 1u32;
 pub const SMSET_TOP: u32 = 268435456u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SORTCOLUMN {
     pub propkey: super::super::Foundation::PROPERTYKEY,
     pub direction: SORTDIRECTION,
-}
-impl Default for SORTCOLUMN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -55836,18 +55471,13 @@ pub const SYNCMGRITEM_MAYDELETEITEM: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(16i32);
 pub const SYNCMGRITEM_ROAMINGUSER: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(4i32);
 pub const SYNCMGRITEM_TEMPORARY: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYNCMGRLOGERRORINFO {
     pub cbSize: u32,
     pub mask: u32,
     pub dwSyncMgrErrorFlags: u32,
     pub ErrorID: windows_core::GUID,
     pub ItemID: windows_core::GUID,
-}
-impl Default for SYNCMGRLOGERRORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SYNCMGRLOGERROR_ERRORFLAGS: u32 = 1u32;
 pub const SYNCMGRLOGERROR_ERRORID: u32 = 2u32;
@@ -55860,7 +55490,7 @@ pub const SYNCMGRLOGLEVEL_INFORMATION: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(1i32);
 pub const SYNCMGRLOGLEVEL_LOGLEVELMAX: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(3i32);
 pub const SYNCMGRLOGLEVEL_WARNING: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYNCMGRPROGRESSITEM {
     pub cbSize: u32,
     pub mask: u32,
@@ -55868,11 +55498,6 @@ pub struct SYNCMGRPROGRESSITEM {
     pub dwStatusType: u32,
     pub iProgValue: i32,
     pub iMaxValue: i32,
-}
-impl Default for SYNCMGRPROGRESSITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SYNCMGRPROGRESSITEM_MAXVALUE: u32 = 8u32;
 pub const SYNCMGRPROGRESSITEM_PROGVALUE: u32 = 4u32;
@@ -56154,15 +55779,10 @@ pub const TBIF_PREPEND: u32 = 1u32;
 pub const TBIF_REPLACE: u32 = 2u32;
 pub const TBIF_STANDARDTOOLBAR: u32 = 131072u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TBINFO {
     pub cbuttons: u32,
     pub uFlags: u32,
-}
-impl Default for TBINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -56329,19 +55949,13 @@ pub const TLOG_CURRENT: u32 = 0u32;
 pub const TLOG_FORE: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct TOOLBARITEM {
     pub ptbar: core::mem::ManuallyDrop<Option<IDockingWindow>>,
     pub rcBorderTool: super::super::Foundation::RECT,
     pub pwszItem: windows_core::PWSTR,
     pub fShow: windows_core::BOOL,
     pub hMon: super::super::Graphics::Gdi::HMONITOR,
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
-impl Default for TOOLBARITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TRANSLATEURL_FL_GUESS_PROTOCOL: TRANSLATEURL_IN_FLAGS = TRANSLATEURL_IN_FLAGS(1i32);
 pub const TRANSLATEURL_FL_USE_DEFAULT_PROTOCOL: TRANSLATEURL_IN_FLAGS = TRANSLATEURL_IN_FLAGS(2i32);
@@ -56417,30 +56031,20 @@ pub const URLASSOCDLG_FL_USE_DEFAULT_NAME: URLASSOCIATIONDIALOG_IN_FLAGS = URLAS
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URLASSOCIATIONDIALOG_IN_FLAGS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct URLINVOKECOMMANDINFOA {
     pub dwcbSize: u32,
     pub dwFlags: u32,
     pub hwndParent: super::super::Foundation::HWND,
     pub pcszVerb: windows_core::PCSTR,
 }
-impl Default for URLINVOKECOMMANDINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct URLINVOKECOMMANDINFOW {
     pub dwcbSize: u32,
     pub dwFlags: u32,
     pub hwndParent: super::super::Foundation::HWND,
     pub pcszVerb: windows_core::PCWSTR,
-}
-impl Default for URLINVOKECOMMANDINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

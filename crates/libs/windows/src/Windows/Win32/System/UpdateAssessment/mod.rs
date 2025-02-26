@@ -38,7 +38,7 @@ impl IWaaSAssessor_Vtbl {
 }
 impl windows_core::RuntimeName for IWaaSAssessor {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OSUpdateAssessment {
     pub isEndOfSupport: windows_core::BOOL,
     pub assessmentForCurrent: UpdateAssessment,
@@ -51,22 +51,12 @@ pub struct OSUpdateAssessment {
     pub upToDateOSBuild: windows_core::PWSTR,
     pub upToDateOSReleaseTime: super::super::Foundation::FILETIME,
 }
-impl Default for OSUpdateAssessment {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UpdateAssessment {
     pub status: UpdateAssessmentStatus,
     pub impact: UpdateImpactLevel,
     pub daysOutOfDate: u32,
-}
-impl Default for UpdateAssessment {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

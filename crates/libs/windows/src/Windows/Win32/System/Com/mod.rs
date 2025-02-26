@@ -938,15 +938,10 @@ pub const APTTYPE_STA: APTTYPE = APTTYPE(0i32);
 pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
 pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AUTHENTICATEINFO {
     pub dwFlags: u32,
     pub dwReserved: u32,
-}
-impl Default for AUTHENTICATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1564,17 +1559,12 @@ pub struct BIND_FLAGS(pub i32);
 pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = BIND_FLAGS(2i32);
 pub const BIND_MAYBOTHERUSER: BIND_FLAGS = BIND_FLAGS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BIND_OPTS {
     pub cbStruct: u32,
     pub grfFlags: u32,
     pub grfMode: u32,
     pub dwTickCountDeadline: u32,
-}
-impl Default for BIND_OPTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1591,15 +1581,10 @@ impl Default for BIND_OPTS2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BIND_OPTS3 {
     pub Base: BIND_OPTS2,
     pub hwnd: super::super::Foundation::HWND,
-}
-impl Default for BIND_OPTS3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1858,15 +1843,10 @@ pub const COM_RIGHTS_EXECUTE_REMOTE: u32 = 4u32;
 pub const COM_RIGHTS_RESERVED1: u32 = 32u32;
 pub const COM_RIGHTS_RESERVED2: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct CONNECTDATA {
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub dwCookie: u32,
-}
-impl Default for CONNECTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1994,17 +1974,12 @@ impl Default for CO_MTA_USAGE_COOKIE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CSPLATFORM {
     pub dwPlatformId: u32,
     pub dwVersionHi: u32,
     pub dwVersionLo: u32,
     pub dwProcessorArch: u32,
-}
-impl Default for CSPLATFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2089,15 +2064,10 @@ impl Default for CY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CY_0 {
     pub Lo: u32,
     pub Hi: i32,
-}
-impl Default for CY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2112,16 +2082,11 @@ impl Default for ComCallData {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContextProperty {
     pub policyId: windows_core::GUID,
     pub flags: u32,
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-impl Default for ContextProperty {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4528,15 +4493,10 @@ impl IContextCallback_Vtbl {
 }
 impl windows_core::RuntimeName for IContextCallback {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IDLDESC {
     pub dwReserved: usize,
     pub wIDLFlags: IDLFLAGS,
-}
-impl Default for IDLDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6956,16 +6916,11 @@ impl IMultiQI_Vtbl {
 }
 impl windows_core::RuntimeName for IMultiQI {}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct INTERFACEINFO {
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub iid: windows_core::GUID,
     pub wMethod: u16,
-}
-impl Default for INTERFACEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11782,18 +11737,13 @@ pub const PENDINGTYPE_NESTED: PENDINGTYPE = PENDINGTYPE(2i32);
 pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = PENDINGTYPE(1i32);
 pub type PFNCONTEXTCALL = Option<unsafe extern "system" fn(pparam: *mut ComCallData) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERYCONTEXT {
     pub dwContext: u32,
     pub Platform: CSPLATFORM,
     pub Locale: u32,
     pub dwVersionHi: u32,
     pub dwVersionLo: u32,
-}
-impl Default for QUERYCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11947,15 +11897,10 @@ impl Default for SAFEARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SAFEARRAYBOUND {
     pub cElements: u32,
     pub lLbound: i32,
-}
-impl Default for SAFEARRAYBOUND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12009,30 +11954,20 @@ impl Default for SOLE_AUTHENTICATION_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOLE_AUTHENTICATION_SERVICE {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
     pub pPrincipalName: windows_core::PWSTR,
     pub hr: windows_core::HRESULT,
 }
-impl Default for SOLE_AUTHENTICATION_SERVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct STATDATA {
     pub formatetc: FORMATETC,
     pub advf: u32,
     pub pAdvSink: core::mem::ManuallyDrop<Option<IAdviseSink>>,
     pub dwConnection: u32,
-}
-impl Default for STATDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12041,7 +11976,7 @@ pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
 pub const STATFLAG_NONAME: STATFLAG = STATFLAG(1i32);
 pub const STATFLAG_NOOPEN: STATFLAG = STATFLAG(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STATSTG {
     pub pwcsName: windows_core::PWSTR,
     pub r#type: u32,
@@ -12054,11 +11989,6 @@ pub struct STATSTG {
     pub clsid: windows_core::GUID,
     pub grfStateBits: u32,
     pub reserved: u32,
-}
-impl Default for STATSTG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12226,17 +12156,12 @@ pub const ServerApplication: ApplicationType = ApplicationType(0i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ShutdownType(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct StorageLayout {
     pub LayoutType: u32,
     pub pwcsElementName: windows_core::PWSTR,
     pub cOffset: i64,
     pub cBytes: i64,
-}
-impl Default for StorageLayout {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12253,7 +12178,7 @@ pub const TKIND_MODULE: TYPEKIND = TYPEKIND(2i32);
 pub const TKIND_RECORD: TYPEKIND = TYPEKIND(1i32);
 pub const TKIND_UNION: TYPEKIND = TYPEKIND(7i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TLIBATTR {
     pub guid: windows_core::GUID,
     pub lcid: u32,
@@ -12261,11 +12186,6 @@ pub struct TLIBATTR {
     pub wMajorVerNum: u16,
     pub wMinorVerNum: u16,
     pub wLibFlags: u16,
-}
-impl Default for TLIBATTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12530,26 +12450,16 @@ impl Default for uCLSSPEC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct uCLSSPEC_0_0 {
     pub pPackageName: windows_core::PWSTR,
     pub PolicyId: windows_core::GUID,
 }
-impl Default for uCLSSPEC_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct uCLSSPEC_0_1 {
     pub ObjectId: windows_core::GUID,
     pub PolicyId: windows_core::GUID,
-}
-impl Default for uCLSSPEC_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]

@@ -76,19 +76,13 @@ impl IPdfRendererNative_Vtbl {
 impl windows_core::RuntimeName for IPdfRendererNative {}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PDF_RENDER_PARAMS {
     pub SourceRect: super::super::super::Graphics::Direct2D::Common::D2D_RECT_F,
     pub DestinationWidth: u32,
     pub DestinationHeight: u32,
     pub BackgroundColor: super::super::super::Graphics::Direct2D::Common::D2D_COLOR_F,
     pub IgnoreHighContrast: bool,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for PDF_RENDER_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub type PFN_PDF_CREATE_RENDERER = Option<unsafe extern "system" fn(param0: windows_core::Ref<'_, super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: windows_core::OutRef<'_, IPdfRendererNative>) -> windows_core::HRESULT>;

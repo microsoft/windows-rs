@@ -1674,7 +1674,7 @@ impl IMILBitmapEffects_Vtbl {
 impl windows_core::RuntimeName for IMILBitmapEffects {}
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MILMatrixF {
     pub _11: f64,
     pub _12: f64,
@@ -1693,32 +1693,17 @@ pub struct MILMatrixF {
     pub _43: f64,
     pub _44: f64,
 }
-impl Default for MILMatrixF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MilPoint2D {
     pub X: f64,
     pub Y: f64,
 }
-impl Default for MilPoint2D {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MilRectD {
     pub left: f64,
     pub top: f64,
     pub right: f64,
     pub bottom: f64,
-}
-impl Default for MilRectD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

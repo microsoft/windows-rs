@@ -14090,7 +14090,7 @@ pub struct XHR_CERT_IGNORE_FLAG(pub u32);
 pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(128u32);
 pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(256u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XHR_COOKIE {
     pub pwszUrl: windows_core::PWSTR,
     pub pwszName: windows_core::PWSTR,
@@ -14098,11 +14098,6 @@ pub struct XHR_COOKIE {
     pub pwszP3PPolicy: windows_core::PWSTR,
     pub ftExpires: super::super::super::Foundation::FILETIME,
     pub dwFlags: u32,
-}
-impl Default for XHR_COOKIE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XHR_COOKIE_APPLY_P3P: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(128i32);
 pub const XHR_COOKIE_EVALUATE_P3P: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(64i32);
@@ -14196,7 +14191,7 @@ pub const XMLHTTP60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a
 pub const XMLHTTPRequest: windows_core::GUID = windows_core::GUID::from_u128(0xed8c108e_4349_11d2_91a4_00c04f7969e8);
 pub const XMLSchemaCache60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct XML_ERROR {
     pub _nLine: u32,
     pub _pchBuf: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -14207,14 +14202,9 @@ pub struct XML_ERROR {
     pub _reserved1: u32,
     pub _reserved2: u32,
 }
-impl Default for XML_ERROR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const XSLTemplate60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct __msxml6_ReferenceRemainingTypes__ {
     pub __tagDomNodeType__: DOMNodeType,
     pub __domNodeType__: DOMNodeType,
@@ -14238,9 +14228,4 @@ pub struct __msxml6_ReferenceRemainingTypes__ {
     pub __schemaWhitespace__: SCHEMAWHITESPACE,
     pub __schemaTypeVarietyEnum__: SCHEMATYPEVARIETY,
     pub __schemaTypeVariety__: SCHEMATYPEVARIETY,
-}
-impl Default for __msxml6_ReferenceRemainingTypes__ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

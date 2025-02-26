@@ -37,7 +37,7 @@ pub type PWLX_WIN31_MIGRATE = Option<unsafe extern "system" fn(hwlx: super::supe
 pub const STATUSMSG_OPTION_NOANIMATION: u32 = 1u32;
 pub const STATUSMSG_OPTION_SETFOREGROUND: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     pub dwType: u32,
     pub pszUserName: windows_core::PWSTR,
@@ -45,13 +45,8 @@ pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     pub pszPassword: windows_core::PWSTR,
     pub fPromptForPassword: windows_core::BOOL,
 }
-impl Default for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     pub dwType: u32,
     pub pszUserName: windows_core::PWSTR,
@@ -59,11 +54,6 @@ pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     pub pszPassword: windows_core::PWSTR,
     pub fPromptForPassword: windows_core::BOOL,
     pub fDisconnectOnLogonFailure: windows_core::BOOL,
-}
-impl Default for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1u32;
 #[repr(C)]
@@ -109,25 +99,19 @@ pub const WLX_CREDENTIAL_TYPE_V2_0: u32 = 2u32;
 pub const WLX_CURRENT_VERSION: u32 = 65540u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_DESKTOP {
     pub Size: u32,
     pub Flags: u32,
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
     pub pszDesktopName: windows_core::PWSTR,
 }
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl Default for WLX_DESKTOP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WLX_DESKTOP_HANDLE: u32 = 2u32;
 pub const WLX_DESKTOP_NAME: u32 = 1u32;
 pub const WLX_DIRECTORY_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_DISPATCH_VERSION_1_0 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -143,15 +127,9 @@ pub struct WLX_DISPATCH_VERSION_1_0 {
     pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
     pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for WLX_DISPATCH_VERSION_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_DISPATCH_VERSION_1_1 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -171,15 +149,9 @@ pub struct WLX_DISPATCH_VERSION_1_1 {
     pub WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
     pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
 }
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for WLX_DISPATCH_VERSION_1_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_DISPATCH_VERSION_1_2 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -200,15 +172,9 @@ pub struct WLX_DISPATCH_VERSION_1_2 {
     pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
     pub WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
 }
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for WLX_DISPATCH_VERSION_1_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_DISPATCH_VERSION_1_3 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -236,15 +202,9 @@ pub struct WLX_DISPATCH_VERSION_1_3 {
     pub WlxDisconnect: PWLX_DISCONNECT,
     pub WlxQueryTerminalServicesData: PWLX_QUERY_TERMINAL_SERVICES_DATA,
 }
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for WLX_DISPATCH_VERSION_1_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_DISPATCH_VERSION_1_4 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -274,33 +234,22 @@ pub struct WLX_DISPATCH_VERSION_1_4 {
     pub WlxQueryConsoleSwitchCredentials: PWLX_QUERY_CONSOLESWITCH_CREDENTIALS,
     pub WlxQueryTsLogonCredentials: PWLX_QUERY_TS_LOGON_CREDENTIALS,
 }
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for WLX_DISPATCH_VERSION_1_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WLX_DLG_INPUT_TIMEOUT: u32 = 102u32;
 pub const WLX_DLG_SAS: u32 = 101u32;
 pub const WLX_DLG_SCREEN_SAVER_TIMEOUT: u32 = 103u32;
 pub const WLX_DLG_USER_LOGOFF: u32 = 104u32;
 pub const WLX_LOGON_OPT_NO_PROFILE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_MPR_NOTIFY_INFO {
     pub pszUserName: windows_core::PWSTR,
     pub pszDomain: windows_core::PWSTR,
     pub pszPassword: windows_core::PWSTR,
     pub pszOldPassword: windows_core::PWSTR,
 }
-impl Default for WLX_MPR_NOTIFY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_NOTIFICATION_INFO {
     pub Size: u32,
     pub Flags: u32,
@@ -310,12 +259,6 @@ pub struct WLX_NOTIFICATION_INFO {
     pub hToken: super::super::Foundation::HANDLE,
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
     pub pStatusCallback: PFNMSGECALLBACK,
-}
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl Default for WLX_NOTIFICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WLX_OPTION_CONTEXT_POINTER: u32 = 2u32;
 pub const WLX_OPTION_DISPATCH_TABLE_SIZE: u32 = 65539u32;
@@ -329,18 +272,13 @@ pub const WLX_OPTION_USE_SMART_CARD: u32 = 3u32;
 pub const WLX_PROFILE_TYPE_V1_0: u32 = 1u32;
 pub const WLX_PROFILE_TYPE_V2_0: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_PROFILE_V1_0 {
     pub dwType: u32,
     pub pszProfile: windows_core::PWSTR,
 }
-impl Default for WLX_PROFILE_V1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_PROFILE_V2_0 {
     pub dwType: u32,
     pub pszProfile: windows_core::PWSTR,
@@ -348,11 +286,6 @@ pub struct WLX_PROFILE_V2_0 {
     pub pszNetworkDefaultUserProfile: windows_core::PWSTR,
     pub pszServerName: windows_core::PWSTR,
     pub pszEnvironment: windows_core::PWSTR,
-}
-impl Default for WLX_PROFILE_V2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WLX_SAS_ACTION_DELAYED_FORCE_LOGOFF: u32 = 16u32;
 pub const WLX_SAS_ACTION_FORCE_LOGOFF: u32 = 9u32;
@@ -384,17 +317,12 @@ pub const WLX_SAS_TYPE_SWITCHUSER: u32 = 10u32;
 pub const WLX_SAS_TYPE_TIMEOUT: u32 = 0u32;
 pub const WLX_SAS_TYPE_USER_LOGOFF: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_SC_NOTIFICATION_INFO {
     pub pszCard: windows_core::PWSTR,
     pub pszReader: windows_core::PWSTR,
     pub pszContainer: windows_core::PWSTR,
     pub pszCryptoProvider: windows_core::PWSTR,
-}
-impl Default for WLX_SC_NOTIFICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

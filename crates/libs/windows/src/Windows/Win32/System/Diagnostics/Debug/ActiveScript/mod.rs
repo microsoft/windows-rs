@@ -203,7 +203,7 @@ pub const DST_INVOCATION_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(2i
 pub const DST_SCRIPT_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(0i32);
 pub const DebugHelper: windows_core::GUID = windows_core::GUID::from_u128(0x0bfcc060_8c1d_11d0_accd_00aa0060275c);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DebugStackFrameDescriptor {
     pub pdsf: core::mem::ManuallyDrop<Option<IDebugStackFrame>>,
     pub dwMin: u32,
@@ -211,24 +211,14 @@ pub struct DebugStackFrameDescriptor {
     pub fFinal: windows_core::BOOL,
     pub punkFinal: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
-impl Default for DebugStackFrameDescriptor {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DebugStackFrameDescriptor64 {
     pub pdsf: core::mem::ManuallyDrop<Option<IDebugStackFrame>>,
     pub dwMin: u64,
     pub dwLim: u64,
     pub fFinal: windows_core::BOOL,
     pub punkFinal: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-impl Default for DebugStackFrameDescriptor64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DefaultDebugSessionProvider: windows_core::GUID = windows_core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
 #[repr(transparent)]
@@ -10535,17 +10525,12 @@ impl IWebAppDiagnosticsSetup_Vtbl {
 }
 impl windows_core::RuntimeName for IWebAppDiagnosticsSetup {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JS_NATIVE_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
     pub FrameOffset: u64,
     pub StackOffset: u64,
-}
-impl Default for JS_NATIVE_FRAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10565,18 +10550,13 @@ pub const JS_PROPERTY_METHOD: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(4i
 pub const JS_PROPERTY_NATIVE_WINRT_POINTER: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(16i32);
 pub const JS_PROPERTY_READONLY: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(8i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct JsDebugPropertyInfo {
     pub name: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub r#type: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub value: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub fullName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub attr: JS_PROPERTY_ATTRIBUTES,
-}
-impl Default for JsDebugPropertyInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10900,15 +10880,10 @@ impl Default for PROFILER_HEAP_OBJECT_SCOPE_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROFILER_HEAP_SUMMARY {
     pub version: PROFILER_HEAP_SUMMARY_VERSION,
     pub totalHeapSize: u32,
-}
-impl Default for PROFILER_HEAP_SUMMARY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10921,15 +10896,10 @@ pub const PROFILER_PROPERTY_TYPE_NUMBER: PROFILER_RELATIONSHIP_INFO = PROFILER_R
 pub const PROFILER_PROPERTY_TYPE_STRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(2i32);
 pub const PROFILER_PROPERTY_TYPE_SUBSTRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(6i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
     pub length: u32,
     pub value: windows_core::PCWSTR,
-}
-impl Default for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

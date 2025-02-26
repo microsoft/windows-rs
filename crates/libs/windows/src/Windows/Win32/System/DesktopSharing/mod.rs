@@ -3394,7 +3394,7 @@ impl _IRDPSessionEvents_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for _IRDPSessionEvents {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct __ReferenceRemainingTypes__ {
     pub __ctrlLevel__: CTRL_LEVEL,
     pub __attendeeDisconnectReason__: ATTENDEE_DISCONNECT_REASON,
@@ -3404,9 +3404,4 @@ pub struct __ReferenceRemainingTypes__ {
     pub __rdpencomapiAttendeeFlags__: RDPENCOMAPI_ATTENDEE_FLAGS,
     pub __rdpsrapiWndFlags__: RDPSRAPI_WND_FLAGS,
     pub __rdpsrapiAppFlags__: RDPSRAPI_APP_FLAGS,
-}
-impl Default for __ReferenceRemainingTypes__ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

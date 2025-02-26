@@ -75,7 +75,7 @@ pub const CCT_UNINITIALIZED: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(65535i32);
 pub const CHECKED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(2i32);
 pub const COMBOBOXBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONTEXTMENUITEM {
     pub strName: windows_core::PWSTR,
     pub strStatusBarText: windows_core::PWSTR,
@@ -84,13 +84,8 @@ pub struct CONTEXTMENUITEM {
     pub fFlags: i32,
     pub fSpecialFlags: i32,
 }
-impl Default for CONTEXTMENUITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONTEXTMENUITEM2 {
     pub strName: windows_core::PWSTR,
     pub strStatusBarText: windows_core::PWSTR,
@@ -99,11 +94,6 @@ pub struct CONTEXTMENUITEM2 {
     pub fFlags: i32,
     pub fSpecialFlags: i32,
     pub strLanguageIndependentName: windows_core::PWSTR,
-}
-impl Default for CONTEXTMENUITEM2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(Column, Column_Vtbl, 0xfd1c5f63_2b16_4d06_9ab3_f45350b940ab);
@@ -4939,22 +4929,17 @@ pub const ListMode_List: _ListViewMode = _ListViewMode(2i32);
 pub const ListMode_Small_Icons: _ListViewMode = _ListViewMode(0i32);
 pub const MENUBUTTON: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MENUBUTTONDATA {
     pub idCommand: i32,
     pub x: i32,
     pub y: i32,
 }
-impl Default for MENUBUTTONDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const MFCC_DISABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(0i32);
 pub const MFCC_ENABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(1i32);
 pub const MFCC_VALUE_CHANGE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMCBUTTON {
     pub nBitmap: i32,
     pub idCommand: i32,
@@ -4962,11 +4947,6 @@ pub struct MMCBUTTON {
     pub fsType: u8,
     pub lpButtonText: windows_core::PWSTR,
     pub lpTooltipText: windows_core::PWSTR,
-}
-impl Default for MMCBUTTON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = MMC_MENU_COMMAND_IDS(-1i32);
 pub const MMCLV_AUTO: i32 = -1i32;
@@ -5027,17 +5007,12 @@ pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = MMC_ACTION_TYPE(-1i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_BUTTON_STATE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_COLUMN_DATA {
     pub nColIndex: i32,
     pub dwFlags: u32,
     pub nWidth: i32,
     pub ulReserved: usize,
-}
-impl Default for MMC_COLUMN_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5060,19 +5035,14 @@ pub struct MMC_CONTROL_TYPE(pub i32);
 pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
 pub const MMC_ENSUREFOCUSVISIBLE: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(8i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_EXPANDSYNC_STRUCT {
     pub bHandled: windows_core::BOOL,
     pub bExpanding: windows_core::BOOL,
     pub hItem: isize,
 }
-impl Default for MMC_EXPANDSYNC_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_EXT_VIEW_DATA {
     pub viewID: windows_core::GUID,
     pub pszURL: windows_core::PCWSTR,
@@ -5080,22 +5050,12 @@ pub struct MMC_EXT_VIEW_DATA {
     pub pszTooltipText: windows_core::PCWSTR,
     pub bReplacesDefaultView: windows_core::BOOL,
 }
-impl Default for MMC_EXT_VIEW_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_FILTERDATA {
     pub pszText: windows_core::PWSTR,
     pub cchTextMax: i32,
     pub lValue: i32,
-}
-impl Default for MMC_FILTERDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5110,16 +5070,11 @@ pub const MMC_ITEM_OVERLAY_STATE_MASK: u32 = 3840u32;
 pub const MMC_ITEM_OVERLAY_STATE_SHIFT: u32 = 8u32;
 pub const MMC_ITEM_STATE_MASK: u32 = 255u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_LISTPAD_INFO {
     pub szTitle: windows_core::PWSTR,
     pub szButtonText: windows_core::PWSTR,
     pub nCommandID: isize,
-}
-impl Default for MMC_LISTPAD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5152,17 +5107,12 @@ pub const MMC_PSO_NEWWIZARDTYPE: u32 = 4u32;
 pub const MMC_PSO_NOAPPLYNOW: u32 = 1u32;
 pub const MMC_PSO_NO_PROPTITLE: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_RESTORE_VIEW {
     pub dwSize: u32,
     pub cookie: isize,
     pub pViewType: windows_core::PWSTR,
     pub lViewOptions: i32,
-}
-impl Default for MMC_RESTORE_VIEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5195,16 +5145,11 @@ impl Default for MMC_SNAPIN_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_SORT_DATA {
     pub nColIndex: i32,
     pub dwSortOptions: u32,
     pub ulReserved: usize,
-}
-impl Default for MMC_SORT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5246,15 +5191,10 @@ impl Default for MMC_TASK_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_TASK_DISPLAY_BITMAP {
     pub szMouseOverBitmap: windows_core::PWSTR,
     pub szMouseOffBitmap: windows_core::PWSTR,
-}
-impl Default for MMC_TASK_DISPLAY_BITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5279,16 +5219,11 @@ impl Default for MMC_TASK_DISPLAY_OBJECT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_TASK_DISPLAY_SYMBOL {
     pub szFontFamilyName: windows_core::PWSTR,
     pub szURLtoEOT: windows_core::PWSTR,
     pub szSymbolString: windows_core::PWSTR,
-}
-impl Default for MMC_TASK_DISPLAY_SYMBOL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5953,16 +5888,11 @@ impl Default for RDCOMPARE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RDITEMHDR {
     pub dwFlags: u32,
     pub cookie: isize,
     pub lpReserved: super::super::Foundation::LPARAM,
-}
-impl Default for RDITEMHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RDI_IMAGE: u32 = 4u32;
 pub const RDI_INDENT: u32 = 64u32;
@@ -5971,7 +5901,7 @@ pub const RDI_PARAM: u32 = 16u32;
 pub const RDI_STATE: u32 = 8u32;
 pub const RDI_STR: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RESULTDATAITEM {
     pub mask: u32,
     pub bScopeItem: windows_core::BOOL,
@@ -5984,22 +5914,12 @@ pub struct RESULTDATAITEM {
     pub lParam: super::super::Foundation::LPARAM,
     pub iIndent: i32,
 }
-impl Default for RESULTDATAITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RESULTFINDINFO {
     pub psz: windows_core::PWSTR,
     pub nStart: i32,
     pub dwOptions: u32,
-}
-impl Default for RESULTFINDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 pub struct RESULT_VIEW_TYPE_INFO {
@@ -6035,26 +5955,16 @@ impl Default for RESULT_VIEW_TYPE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RESULT_VIEW_TYPE_INFO_0_0 {
     pub dwHTMLOptions: u32,
     pub pstrURL: windows_core::PWSTR,
 }
-impl Default for RESULT_VIEW_TYPE_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct RESULT_VIEW_TYPE_INFO_0_1 {
     pub dwOCXOptions: u32,
     pub pUnkControl: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-impl Default for RESULT_VIEW_TYPE_INFO_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RFI_PARTIAL: u32 = 1u32;
 pub const RFI_WRAP: u32 = 2u32;
@@ -6075,7 +5985,7 @@ pub const RVTI_OCX_OPTIONS_CACHE_OCX: u32 = 2u32;
 pub const RVTI_OCX_OPTIONS_NOLISTVIEW: u32 = 1u32;
 pub const RVTI_OCX_OPTIONS_NONE: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCOPEDATAITEM {
     pub mask: u32,
     pub displayname: windows_core::PWSTR,
@@ -6086,11 +5996,6 @@ pub struct SCOPEDATAITEM {
     pub lParam: super::super::Foundation::LPARAM,
     pub relativeID: isize,
     pub ID: isize,
-}
-impl Default for SCOPEDATAITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

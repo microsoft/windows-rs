@@ -12,7 +12,7 @@ pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
     unsafe { GlobalMemoryStatus(lpbuffer as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MEMORYSTATUS {
     pub dwLength: u32,
     pub dwMemoryLoad: u32,
@@ -22,9 +22,4 @@ pub struct MEMORYSTATUS {
     pub dwAvailPageFile: usize,
     pub dwTotalVirtual: usize,
     pub dwAvailVirtual: usize,
-}
-impl Default for MEMORYSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

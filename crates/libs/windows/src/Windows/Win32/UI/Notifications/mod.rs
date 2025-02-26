@@ -33,13 +33,8 @@ impl INotificationActivationCallback_Vtbl {
 }
 impl windows_core::RuntimeName for INotificationActivationCallback {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NOTIFICATION_USER_INPUT_DATA {
     pub Key: windows_core::PCWSTR,
     pub Value: windows_core::PCWSTR,
-}
-impl Default for NOTIFICATION_USER_INPUT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

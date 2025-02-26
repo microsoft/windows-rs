@@ -1,12 +1,7 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ACT_AUTHORIZATION_STATE {
     pub ulState: u32,
-}
-impl Default for ACT_AUTHORIZATION_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -88,7 +83,7 @@ pub const ENHANCED_STORAGE_COMMAND_SILO_ENUMERATE_SILOS: super::super::Foundatio
 pub const ENHANCED_STORAGE_COMMAND_SILO_GET_AUTHENTICATION_STATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 7 };
 pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 6 };
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     pub CurrentAdminFailures: u8,
     pub CurrentUserFailures: u8,
@@ -116,11 +111,6 @@ pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     pub MaxUserNameSize: u8,
     pub MaxSiloNameSize: u8,
     pub MaxChallengeSize: u16,
-}
-impl Default for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2011 };
 pub const ENHANCED_STORAGE_PROPERTY_AUTHENTICATION_STATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1006 };
@@ -1950,7 +1940,7 @@ pub const SHARINGSTATUS_NOTSHARED: u32 = 0u32;
 pub const SHARINGSTATUS_PRIVATE: u32 = 2u32;
 pub const SHARINGSTATUS_SHARED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SILO_INFO {
     pub ulSTID: u32,
     pub SpecificationMajor: u8,
@@ -1959,11 +1949,6 @@ pub struct SILO_INFO {
     pub ImplementationMinor: u8,
     pub r#type: u8,
     pub capabilities: u8,
-}
-impl Default for SILO_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const STORAGEPROVIDERSTATE_ERROR: u32 = 7u32;
 pub const STORAGEPROVIDERSTATE_EXCLUDED: u32 = 9u32;

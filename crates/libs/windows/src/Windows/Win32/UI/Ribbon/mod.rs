@@ -842,7 +842,7 @@ impl Default for UI_EVENTPARAMS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UI_EVENTPARAMS_COMMAND {
     pub CommandID: u32,
     pub CommandName: windows_core::PCWSTR,
@@ -850,11 +850,6 @@ pub struct UI_EVENTPARAMS_COMMAND {
     pub ParentCommandName: windows_core::PCWSTR,
     pub SelectionIndex: u32,
     pub Location: UI_EVENTLOCATION,
-}
-impl Default for UI_EVENTPARAMS_COMMAND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

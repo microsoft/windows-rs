@@ -1,13 +1,8 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDP_FILE_EXTENT {
     pub Length: i64,
     pub Offset: i64,
-}
-impl Default for DDP_FILE_EXTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -27,16 +22,11 @@ impl Default for DEDUP_CHUNK_INFO_HASH32 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEDUP_CONTAINER_EXTENT {
     pub ContainerIndex: u32,
     pub StartOffset: i64,
     pub Length: i64,
-}
-impl Default for DEDUP_CONTAINER_EXTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEDUP_PT_AvgChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(3i32);
 pub const DEDUP_PT_DisableStrongHashComputation: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(5i32);
@@ -50,17 +40,12 @@ pub const DEDUP_RECONSTRUCT_UNOPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = DEDUP
 pub struct DEDUP_SET_PARAM_TYPE(pub i32);
 pub const DedupBackupSupport: windows_core::GUID = windows_core::GUID::from_u128(0x73d6b2ad_2984_4715_b2e3_924c149744dd);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DedupChunk {
     pub Hash: DedupHash,
     pub Flags: DedupChunkFlags,
     pub LogicalSize: u32,
     pub DataSize: u32,
-}
-impl Default for DedupChunk {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -119,29 +104,19 @@ pub struct DedupHashingAlgorithm(pub i32);
 pub const DedupHashingAlgorithm_Unknonwn: DedupHashingAlgorithm = DedupHashingAlgorithm(0i32);
 pub const DedupHashingAlgorithm_V1: DedupHashingAlgorithm = DedupHashingAlgorithm(1i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DedupStream {
     pub Path: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub Offset: u64,
     pub Length: u64,
     pub ChunkCount: u32,
 }
-impl Default for DedupStream {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DedupStreamEntry {
     pub Hash: DedupHash,
     pub LogicalSize: u32,
     pub Offset: u64,
-}
-impl Default for DedupStreamEntry {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(IDedupBackupSupport, IDedupBackupSupport_Vtbl, 0xc719d963_2b2d_415e_acf7_7eb7ca596ff4);
 windows_core::imp::interface_hierarchy!(IDedupBackupSupport, windows_core::IUnknown);

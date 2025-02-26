@@ -85,14 +85,9 @@ pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(
 pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(200u32);
 pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(400u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TBS_CONTEXT_PARAMS {
     pub version: u32,
-}
-impl Default for TBS_CONTEXT_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -117,14 +112,9 @@ impl Default for TBS_CONTEXT_PARAMS2_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
     pub _bitfield: u32,
-}
-impl Default for TBS_CONTEXT_PARAMS2_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TBS_CONTEXT_VERSION_ONE: u32 = 1u32;
 pub const TBS_CONTEXT_VERSION_TWO: u32 = 2u32;
@@ -142,17 +132,12 @@ pub const TBS_TCGLOG_SRTM_BOOT: u32 = 2u32;
 pub const TBS_TCGLOG_SRTM_CURRENT: u32 = 0u32;
 pub const TBS_TCGLOG_SRTM_RESUME: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TPM_DEVICE_INFO {
     pub structVersion: u32,
     pub tpmVersion: u32,
     pub tpmInterfaceType: u32,
     pub tpmImpRevision: u32,
-}
-impl Default for TPM_DEVICE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TPM_IFTYPE_1: u32 = 1u32;
 pub const TPM_IFTYPE_EMULATOR: u32 = 4u32;

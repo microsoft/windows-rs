@@ -222,17 +222,12 @@ pub struct APPDOMAIN_SECURITY_FLAGS(pub i32);
 pub const APPDOMAIN_SECURITY_FORBID_CROSSAD_REVERSE_PINVOKE: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(2i32);
 pub const APPDOMAIN_SECURITY_SANDBOXED: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AssemblyBindInfo {
     pub dwAppDomainId: u32,
     pub lpReferencedIdentity: windows_core::PCWSTR,
     pub lpPostPolicyIdentity: windows_core::PCWSTR,
     pub ePolicyLevel: u32,
-}
-impl Default for AssemblyBindInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BucketParamLength: u32 = 255u32;
 #[repr(transparent)]
@@ -264,18 +259,13 @@ pub const CLR_DEBUGGING_MANAGED_EVENT_PENDING: CLR_DEBUGGING_PROCESS_FLAGS = CLR
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLR_DEBUGGING_PROCESS_FLAGS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLR_DEBUGGING_VERSION {
     pub wStructVersion: u16,
     pub wMajor: u16,
     pub wMinor: u16,
     pub wBuild: u16,
     pub wRevision: u16,
-}
-impl Default for CLR_DEBUGGING_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CLR_MAJOR_VERSION: u32 = 4u32;
 pub const CLR_MINOR_VERSION: u32 = 0u32;
@@ -317,15 +307,10 @@ impl Default for COR_GC_STATS {
 pub struct COR_GC_STAT_TYPES(pub i32);
 pub const COR_GC_THREAD_HAS_PROMOTED_BYTES: COR_GC_THREAD_STATS_TYPES = COR_GC_THREAD_STATS_TYPES(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_GC_THREAD_STATS {
     pub PerThreadAllocation: u64,
     pub Flags: u32,
-}
-impl Default for COR_GC_THREAD_STATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6601,16 +6586,11 @@ pub const MALLOC_THREADSAFE: MALLOC_TYPE = MALLOC_TYPE(1i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MALLOC_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MDAInfo {
     pub lpMDACaption: windows_core::PCWSTR,
     pub lpMDAMessage: windows_core::PCWSTR,
     pub lpStackTrace: windows_core::PCWSTR,
-}
-impl Default for MDAInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6634,16 +6614,11 @@ pub const MaxClrFailure: EClrFailure = EClrFailure(7i32);
 pub const MaxClrOperation: EClrOperation = EClrOperation(7i32);
 pub const MaxPolicyAction: EPolicyAction = EPolicyAction(10i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ModuleBindInfo {
     pub dwAppDomainId: u32,
     pub lpAssemblyIdentity: windows_core::PCWSTR,
     pub lpModuleName: windows_core::PCWSTR,
-}
-impl Default for ModuleBindInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OPR_AppDomainRudeUnload: EClrOperation = EClrOperation(4i32);
 pub const OPR_AppDomainUnload: EClrOperation = EClrOperation(3i32);

@@ -331,7 +331,7 @@ pub const GPM_PROCESS_SECURITY: u32 = 2u32;
 pub const GPM_USE_ANYDC: u32 = 1u32;
 pub const GPM_USE_PDC: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -344,11 +344,6 @@ pub struct GPOBROWSEINFO {
     pub dwNameSize: u32,
     pub gpoType: GROUP_POLICY_OBJECT_TYPE,
     pub gpoHint: GROUP_POLICY_HINT_TYPE,
-}
-impl Default for GPOBROWSEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GPOTypeDS: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(2i32);
 pub const GPOTypeLocal: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(0i32);
@@ -9107,26 +9102,16 @@ impl Default for INSTALLSPEC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INSTALLSPEC_0 {
     pub Name: windows_core::PWSTR,
     pub GPOId: windows_core::GUID,
 }
-impl Default for INSTALLSPEC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INSTALLSPEC_1 {
     pub Clsid: windows_core::GUID,
     pub ClsCtx: u32,
-}
-impl Default for INSTALLSPEC_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9203,17 +9188,12 @@ impl IRSOPInformation_Vtbl {
 }
 impl windows_core::RuntimeName for IRSOPInformation {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LOCALMANAGEDAPPLICATION {
     pub pszDeploymentName: windows_core::PWSTR,
     pub pszPolicyName: windows_core::PWSTR,
     pub pszProductId: windows_core::PWSTR,
     pub dwState: u32,
-}
-impl Default for LOCALMANAGEDAPPLICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
 pub const LOCALSTATE_ORPHANED: u32 = 32u32;
@@ -9224,7 +9204,7 @@ pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
 pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
 pub const MACHINE_POLICY_PRESENT_TRIGGER_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MANAGEDAPPLICATION {
     pub pszPackageName: windows_core::PWSTR,
     pub pszPublisher: windows_core::PWSTR,
@@ -9242,11 +9222,6 @@ pub struct MANAGEDAPPLICATION {
     pub pszSupportUrl: windows_core::PWSTR,
     pub dwPathType: u32,
     pub bInstalled: windows_core::BOOL,
-}
-impl Default for MANAGEDAPPLICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
 pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
@@ -9272,7 +9247,7 @@ pub type PFNSTATUSMESSAGECALLBACK = Option<unsafe extern "system" fn(bverbose: w
 pub const PI_APPLYPOLICY: u32 = 2u32;
 pub const PI_NOUI: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICYSETTINGSTATUSINFO {
     pub szKey: windows_core::PWSTR,
     pub szEventSource: windows_core::PWSTR,
@@ -9281,11 +9256,6 @@ pub struct POLICYSETTINGSTATUSINFO {
     pub dwErrorCode: u32,
     pub status: SETTINGSTATUS,
     pub timeLogged: super::super::Foundation::SYSTEMTIME,
-}
-impl Default for POLICYSETTINGSTATUSINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PROGID: INSTALLSPECTYPE = INSTALLSPECTYPE(3i32);
 pub const PT_MANDATORY: u32 = 4u32;

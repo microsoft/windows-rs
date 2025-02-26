@@ -12,15 +12,10 @@ pub const ATSC_ETM_LOCATION_NOT_PRESENT: u32 = 0u32;
 pub const ATSC_ETM_LOCATION_RESERVED: u32 = 3u32;
 pub const ATSC_ETT_TID: u32 = 204u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATSC_FILTER_OPTIONS {
     pub fSpecifyEtmId: windows_core::BOOL,
     pub EtmId: u32,
-}
-impl Default for ATSC_FILTER_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ATSC_MGT_PID: u32 = 8187u32;
 pub const ATSC_MGT_TID: u32 = 199u32;
@@ -88,28 +83,18 @@ pub struct BDA_LockType(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_SignalType(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BDA_TRANSPORT_INFO {
     pub ulcbPhyiscalPacket: u32,
     pub ulcbPhyiscalFrame: u32,
     pub ulcbPhyiscalFrameAlignment: u32,
     pub AvgTimePerFrame: i64,
 }
-impl Default for BDA_TRANSPORT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const BSKYB_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x9e9e46c6_3aba_4f08_ad0e_cc5ac8148c2b);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BadSampleInfo {
     pub hrReason: windows_core::HRESULT,
-}
-impl Default for BadSampleInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const Bda_DigitalStandard_ATSC: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(8i32);
 pub const Bda_DigitalStandard_DVB_C: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(4i32);
@@ -173,14 +158,9 @@ pub const CAF_TV_Reserved: EnTvRat_CAF_TV = EnTvRat_CAF_TV(7i32);
 pub const CAF_TV_Reserved6: EnTvRat_CAF_TV = EnTvRat_CAF_TV(6i32);
 pub const CAF_ValidAttrSubmask: BfEnTvRat_Attributes_CAF_TV = BfEnTvRat_Attributes_CAF_TV(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CAPTURE_STREAMTIME {
     pub StreamTime: i64,
-}
-impl Default for CAPTURE_STREAMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CLSID_CPCAFiltersCategory: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4fc_0049_4e2b_98fb_9537f6ce516d);
 pub const CLSID_DTFilterEncProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c482_0049_4e2b_98fb_9537f6ce516d);
@@ -253,15 +233,10 @@ pub const CXDSData: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f
 pub const Canadian_English: EnTvRat_System = EnTvRat_System(2i32);
 pub const Canadian_French: EnTvRat_System = EnTvRat_System(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ChannelChangeInfo {
     pub state: ChannelChangeSpanningEvent_State,
     pub TimeStamp: u64,
-}
-impl Default for ChannelChangeInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ChannelChangeSpanningEvent_End: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(2i32);
 pub const ChannelChangeSpanningEvent_Start: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(0i32);
@@ -294,36 +269,21 @@ impl Default for ChannelInfo_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ChannelInfo_0_2 {
     pub lProgNumber: i32,
 }
-impl Default for ChannelInfo_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ChannelInfo_0_1 {
     pub lProgNumber: i32,
 }
-impl Default for ChannelInfo_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ChannelInfo_0_0 {
     pub lONID: i32,
     pub lTSID: i32,
     pub lSID: i32,
-}
-impl Default for ChannelInfo_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ChannelTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x0369b4e5_45b6_11d3_b650_00c04f79498e);
 #[repr(transparent)]
@@ -333,15 +293,10 @@ pub const ChannelTypeAudio: ChannelType = ChannelType(4i32);
 pub const ChannelTypeCaptions: ChannelType = ChannelType(32i32);
 pub const ChannelTypeData: ChannelType = ChannelType(128i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ChannelTypeInfo {
     pub channelType: ChannelType,
     pub timeStamp: u64,
-}
-impl Default for ChannelTypeInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ChannelTypeNone: ChannelType = ChannelType(0i32);
 pub const ChannelTypeOther: ChannelType = ChannelType(1i32);
@@ -492,18 +447,13 @@ pub const DOWNRES_Undefined: DownResEventParam = DownResEventParam(2i32);
 pub const DSATTRIB_BadSampleInfo: windows_core::GUID = windows_core::GUID::from_u128(0xe4846dda_5838_42b4_b897_6f7e5faa2f2f);
 pub const DSATTRIB_WMDRMProtectionInfo: windows_core::GUID = windows_core::GUID::from_u128(0x40749583_6b9d_4eec_b43c_67a1801e1a9b);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSHOW_STREAM_DESC {
     pub VersionNo: u32,
     pub StreamId: u32,
     pub Default: windows_core::BOOL,
     pub Creation: windows_core::BOOL,
     pub Reserved: u32,
-}
-impl Default for DSHOW_STREAM_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -520,7 +470,7 @@ impl Default for DSMCC_ELEMENT {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSMCC_FILTER_OPTIONS {
     pub fSpecifyProtocol: windows_core::BOOL,
     pub Protocol: u8,
@@ -537,11 +487,6 @@ pub struct DSMCC_FILTER_OPTIONS {
     pub BlockNumber: u16,
     pub fGetModuleCall: windows_core::BOOL,
     pub NumberOfBlocksInModule: u16,
-}
-impl Default for DSMCC_FILTER_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -603,15 +548,10 @@ pub const DVBSLocator: windows_core::GUID = windows_core::GUID::from_u128(0x1df7
 pub const DVBSTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xb64016f3_c9a2_4066_96f0_bd9563314726);
 pub const DVBS_SCAN_TABLE_MAX_SIZE: u32 = 400u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVBScramblingControlSpanningEvent {
     pub ulPID: u32,
     pub fScrambled: windows_core::BOOL,
-}
-impl Default for DVBScramblingControlSpanningEvent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DVBTLocator: windows_core::GUID = windows_core::GUID::from_u128(0x9cd64701_bdf3_4d14_8e03_f12983d86664);
 pub const DVBTLocator2: windows_core::GUID = windows_core::GUID::from_u128(0xefe3fa02_45d7_4920_be96_53fa7f35b0e6);
@@ -624,15 +564,10 @@ pub const DVB_DIT_PID: u32 = 30u32;
 pub const DVB_DIT_TID: u32 = 126u32;
 pub const DVB_EIT_ACTUAL_TID: u32 = 78u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DVB_EIT_FILTER_OPTIONS {
     pub fSpecifySegment: windows_core::BOOL,
     pub bSegment: u8,
-}
-impl Default for DVB_EIT_FILTER_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DVB_EIT_OTHER_TID: u32 = 79u32;
 pub const DVB_EIT_PID: u32 = 18u32;
@@ -675,7 +610,7 @@ pub struct DVDSPExt(pub i32);
 pub struct DVDTextStringType(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DVR_STREAM_DESC {
     pub Version: u32,
     pub StreamId: u32,
@@ -685,12 +620,6 @@ pub struct DVR_STREAM_DESC {
     pub guidSubMediaType: windows_core::GUID,
     pub guidFormatType: windows_core::GUID,
     pub MediaType: super::super::MediaFoundation::AM_MEDIA_TYPE,
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Default for DVR_STREAM_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DigitalCableLocator: windows_core::GUID = windows_core::GUID::from_u128(0x03c06416_d127_407a_ab4c_fdd279abbe5d);
 pub const DigitalCableTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x26ec0b63_aa90_458a_8df4_5659f2c8a18a);
@@ -703,17 +632,12 @@ pub struct DisplaySizeList(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DownResEventParam(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DualMonoInfo {
     pub LangID1: u16,
     pub LangID2: u16,
     pub lISOLangCode1: i32,
     pub lISOLangCode2: i32,
-}
-impl Default for DualMonoInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -39979,15 +39903,10 @@ impl Default for LONG_SECTION_1 {
 }
 pub const LanguageComponentType: windows_core::GUID = windows_core::GUID::from_u128(0x1be49f30_0e1b_11d3_9d8e_00c04f72d980);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LanguageInfo {
     pub LangID: u16,
     pub lISOLangCode: i32,
-}
-impl Default for LanguageInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LastReservedDeviceDispid: SegDispidList = SegDispidList(16383i32);
 pub const LastReservedDeviceEvent: SegEventidList = SegEventidList(16383i32);
@@ -40091,14 +40010,9 @@ impl Default for MPEG2_FILTER2_0_0 {
 pub const MPEG2_FILTER_VERSION_1_SIZE: u32 = 124u32;
 pub const MPEG2_FILTER_VERSION_2_SIZE: u32 = 133u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPEG_BCS_DEMUX {
     pub AVMGraphId: u32,
-}
-impl Default for MPEG_BCS_DEMUX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MPEG_CAT_PID: u32 = 1u32;
 pub const MPEG_CAT_TID: u32 = 1u32;
@@ -40133,67 +40047,37 @@ pub const MPEG_CONTEXT_WINSOCK: MPEG_CONTEXT_TYPE = MPEG_CONTEXT_TYPE(1i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG_CURRENT_NEXT_BIT(pub i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPEG_DATE {
     pub Date: u8,
     pub Month: u8,
     pub Year: u16,
 }
-impl Default for MPEG_DATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPEG_DATE_AND_TIME {
     pub D: MPEG_DATE,
     pub T: MPEG_TIME,
 }
-impl Default for MPEG_DATE_AND_TIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPEG_HEADER_BITS {
     pub _bitfield: u16,
 }
-impl Default for MPEG_HEADER_BITS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPEG_HEADER_BITS_MIDL {
     pub Bits: u16,
 }
-impl Default for MPEG_HEADER_BITS_MIDL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MPEG_HEADER_VERSION_BITS {
     pub _bitfield: u8,
 }
-impl Default for MPEG_HEADER_VERSION_BITS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MPEG_HEADER_VERSION_BITS_MIDL {
     pub Bits: u8,
-}
-impl Default for MPEG_HEADER_VERSION_BITS_MIDL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -40250,15 +40134,10 @@ impl Default for MPEG_SERVICE_REQUEST {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPEG_SERVICE_RESPONSE {
     pub IPAddress: u32,
     pub Port: u16,
-}
-impl Default for MPEG_SERVICE_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -40288,28 +40167,18 @@ impl Default for MPEG_STREAM_FILTER {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPEG_TIME {
     pub Hours: u8,
     pub Minutes: u8,
     pub Seconds: u8,
 }
-impl Default for MPEG_TIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const MPEG_TSDT_PID: u32 = 2u32;
 pub const MPEG_TSDT_TID: u32 = 3u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPEG_WINSOCK {
     pub AVMGraphId: u32,
-}
-impl Default for MPEG_WINSOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -40479,14 +40348,9 @@ impl Default for PBDA_TAG_ATTRIBUTE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PIC_SEQ_SAMPLE {
     pub _bitfield: u32,
-}
-impl Default for PIC_SEQ_SAMPLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -40500,24 +40364,14 @@ impl Default for PIDListSpanningEvent {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PID_BITS {
     pub _bitfield: u16,
 }
-impl Default for PID_BITS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PID_BITS_MIDL {
     pub Bits: u16,
-}
-impl Default for PID_BITS_MIDL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PINNAME_BDA_ANALOG_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xd28a580a_9b1f_4b0c_9c33_9bf0a8ea636b);
 pub const PINNAME_BDA_ANALOG_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x5c0c8281_5667_486c_8482_63e31f01a6e9);
@@ -40542,29 +40396,19 @@ pub const PersistTuneXmlUtility: windows_core::GUID = windows_core::GUID::from_u
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PositionModeList(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ProgramElement {
     pub wProgramNumber: u16,
     pub wProgramMapPID: u16,
-}
-impl Default for ProgramElement {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProtType(pub i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RATING_ATTRIBUTE {
     pub rating_attribute_id: u32,
     pub rating_attribute_value: u32,
-}
-impl Default for RATING_ATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -40614,15 +40458,10 @@ pub const Reserved7: EnTvRat_System = EnTvRat_System(7i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RevokedComponent(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SAMPLE_LIVE_STREAM_TIME {
     pub qwStreamTime: u64,
     pub qwLiveTime: u64,
-}
-impl Default for SAMPLE_LIVE_STREAM_TIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SAMPLE_SEQ_CONTENT_B_FRAME: u32 = 3u32;
 pub const SAMPLE_SEQ_CONTENT_I_FRAME: u32 = 1u32;
@@ -40634,49 +40473,34 @@ pub const SAMPLE_SEQ_CONTENT_UNKNOWN: u32 = 0u32;
 pub const SAMPLE_SEQ_FRAME_START: u32 = 3u32;
 pub const SAMPLE_SEQ_GOP_HEADER: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SAMPLE_SEQ_OFFSET {
     pub _bitfield: u32,
-}
-impl Default for SAMPLE_SEQ_OFFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SAMPLE_SEQ_PICTURE_HEADER: u32 = 3u32;
 pub const SAMPLE_SEQ_SEEK_POINT: u32 = 2u32;
 pub const SAMPLE_SEQ_SEQUENCE_HEADER: u32 = 1u32;
 pub const SAMPLE_SEQ_SEQUENCE_START: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SBE2_STREAM_DESC {
     pub Version: u32,
     pub StreamId: u32,
     pub Default: u32,
     pub Reserved: u32,
 }
-impl Default for SBE2_STREAM_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SBE2_STREAM_DESC_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x2313a4ed_bf2d_454f_ad8a_d95ba7f91fee);
 pub const SBE2_STREAM_DESC_VERSION: u32 = 1u32;
 pub const SBE2_V1_STREAMS_CREATION_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x000fcf09_97f5_46ac_9769_7a83b35384fb);
 pub const SBE2_V2_STREAMS_CREATION_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0xa72530a3_0344_4cab_a2d0_fe937dbdcab3);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SBE_PIN_DATA {
     pub cDataBytes: u64,
     pub cSamplesProcessed: u64,
     pub cDiscontinuities: u64,
     pub cSyncPoints: u64,
     pub cTimestamps: u64,
-}
-impl Default for SBE_PIN_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCTE_EAS_IB_PID: u32 = 8187u32;
 pub const SCTE_EAS_OOB_PID: u32 = 8188u32;
@@ -40808,15 +40632,10 @@ pub const System5: EnTvRat_System = EnTvRat_System(5i32);
 pub const System6: EnTvRat_System = EnTvRat_System(6i32);
 pub const SystemTuningSpaces: windows_core::GUID = windows_core::GUID::from_u128(0xd02aac50_027e_11d3_9d8e_00c04f72d980);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TID_EXTENSION {
     pub wTidExt: u16,
     pub wCount: u16,
-}
-impl Default for TID_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TIFLoad: windows_core::GUID = windows_core::GUID::from_u128(0x14eb8748_1753_4393_95ae_4f7e7a87aad6);
 #[repr(C)]
@@ -40843,14 +40662,9 @@ impl Default for TRANSPORT_PROPERTIES_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRANSPORT_PROPERTIES_0_0 {
     pub _bitfield: i64,
-}
-impl Default for TRANSPORT_PROPERTIES_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TenthsSecondsMode: PositionModeList = PositionModeList(1i32);
 pub const TuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0xb46e0d38_ab35_4a06_a137_70576b01b39f);
@@ -40930,7 +40744,7 @@ pub const VA_MATRIX_COEFF_SMPTE_170M: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFIC
 pub const VA_MATRIX_COEFF_SMPTE_240M: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(7i32);
 pub const VA_MATRIX_COEFF_UNSPECIFIED: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VA_OPTIONAL_VIDEO_PROPERTIES {
     pub dwPictureHeight: u16,
     pub dwPictureWidth: u16,
@@ -40940,11 +40754,6 @@ pub struct VA_OPTIONAL_VIDEO_PROPERTIES {
     pub VAColorPrimaries: VA_COLOR_PRIMARIES,
     pub VATransferCharacteristics: VA_TRANSFER_CHARACTERISTICS,
     pub VAMatrixCoefficients: VA_MATRIX_COEFFICIENTS,
-}
-impl Default for VA_OPTIONAL_VIDEO_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VA_PRIMARIES_H264_GENERIC_FILM: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(8i32);
 pub const VA_PRIMARIES_ITU_R_BT_470_SYSTEM_B_G: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(5i32);

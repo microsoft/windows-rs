@@ -49,7 +49,7 @@ pub unsafe fn RegisterHelper(pguidparentcontext: *const windows_core::GUID, pfnr
     unsafe { RegisterHelper(pguidparentcontext, pfnregistersubcontext) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: windows_core::PCWSTR,
     pub pfnCmdHandler: PFN_HANDLE_CMD,
@@ -58,11 +58,6 @@ pub struct CMD_ENTRY {
     pub dwFlags: u32,
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
     pub pfnCustomHelpFn: PFN_CUSTOM_HELP,
-}
-impl Default for CMD_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = NS_CMD_FLAGS(32i32);
 pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = NS_CMD_FLAGS(2i32);
@@ -160,15 +155,10 @@ impl Default for NS_CONTEXT_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
-}
-impl Default for NS_CONTEXT_ATTRIBUTES_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -204,15 +194,10 @@ impl Default for NS_HELPER_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NS_HELPER_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
-}
-impl Default for NS_HELPER_ATTRIBUTES_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -236,25 +221,15 @@ pub type PNS_HELPER_START_FN = Option<unsafe extern "system" fn(pguidparent: *co
 pub type PNS_HELPER_STOP_FN = Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
 pub type PNS_OSVERSIONCHECK = Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: windows_core::PCWSTR, cimosbuildnumber: windows_core::PCWSTR, cimservicepackmajorversion: windows_core::PCWSTR, cimservicepackminorversion: windows_core::PCWSTR, uireserved: u32, dwreserved: u32) -> windows_core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TAG_TYPE {
     pub pwszTag: windows_core::PCWSTR,
     pub dwRequired: u32,
     pub bPresent: windows_core::BOOL,
 }
-impl Default for TAG_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TOKEN_VALUE {
     pub pwszToken: windows_core::PCWSTR,
     pub dwValue: u32,
-}
-impl Default for TOKEN_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

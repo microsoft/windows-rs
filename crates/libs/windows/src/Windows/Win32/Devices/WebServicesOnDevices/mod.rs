@@ -3910,18 +3910,13 @@ pub struct WSDEventType(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSDUdpMessageType(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSDUdpRetransmitParams {
     pub ulSendDelay: u32,
     pub ulRepeat: u32,
     pub ulRepeatMinDelay: u32,
     pub ulRepeatMaxDelay: u32,
     pub ulRepeatUpperDelay: u32,
-}
-impl Default for WSDUdpRetransmitParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4019,15 +4014,10 @@ impl Default for WSDXML_PREFIX_MAPPING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSDXML_TEXT {
     pub Node: WSDXML_NODE,
     pub Text: windows_core::PWSTR,
-}
-impl Default for WSDXML_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4041,16 +4031,11 @@ impl Default for WSDXML_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSD_APP_SEQUENCE {
     pub InstanceId: u64,
     pub SequenceId: windows_core::PCWSTR,
     pub MessageNumber: u64,
-}
-impl Default for WSD_APP_SEQUENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4094,7 +4079,7 @@ impl Default for WSD_CONFIG_PARAM {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSD_CONFIG_PARAM_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSD_DATETIME {
     pub isPositive: windows_core::BOOL,
     pub year: u32,
@@ -4109,16 +4094,11 @@ pub struct WSD_DATETIME {
     pub TZHour: u8,
     pub TZMinute: u8,
 }
-impl Default for WSD_DATETIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WSD_DEFAULT_EVENTING_ADDRESS: windows_core::PCWSTR = windows_core::w!("http://*:5357/");
 pub const WSD_DEFAULT_HOSTING_ADDRESS: windows_core::PCWSTR = windows_core::w!("http://*:5357/");
 pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: windows_core::PCWSTR = windows_core::w!("https://*:5358/");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSD_DURATION {
     pub isPositive: windows_core::BOOL,
     pub year: u32,
@@ -4128,11 +4108,6 @@ pub struct WSD_DURATION {
     pub minute: u32,
     pub second: u32,
     pub millisecond: u32,
-}
-impl Default for WSD_DURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4281,15 +4256,10 @@ impl Default for WSD_HOST_METADATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSD_LOCALIZED_STRING {
     pub lang: windows_core::PCWSTR,
     pub String: windows_core::PCWSTR,
-}
-impl Default for WSD_LOCALIZED_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

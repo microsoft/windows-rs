@@ -1468,7 +1468,7 @@ pub const RADIUS_ATTRIBUTE_ARAP_SECURITY: ATTRIBUTEID = ATTRIBUTEID(73u32);
 pub const RADIUS_ATTRIBUTE_ARAP_SECURITY_DATA: ATTRIBUTEID = ATTRIBUTEID(74u32);
 pub const RADIUS_ATTRIBUTE_ARAP_ZONE_ACCESS: ATTRIBUTEID = ATTRIBUTEID(72u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RADIUS_ATTRIBUTE_ARRAY {
     pub cbSize: u32,
     pub Add: isize,
@@ -1477,11 +1477,6 @@ pub struct RADIUS_ATTRIBUTE_ARRAY {
     pub InsertAt: isize,
     pub RemoveAt: isize,
     pub SetAt: isize,
-}
-impl Default for RADIUS_ATTRIBUTE_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RADIUS_ATTRIBUTE_CALLBACK_ID: ATTRIBUTEID = ATTRIBUTEID(20u32);
 pub const RADIUS_ATTRIBUTE_CALLBACK_NUMBER: ATTRIBUTEID = ATTRIBUTEID(19u32);
@@ -1559,7 +1554,7 @@ pub struct RADIUS_CODE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUS_DATA_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RADIUS_EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -1569,11 +1564,6 @@ pub struct RADIUS_EXTENSION_CONTROL_BLOCK {
     pub GetRequest: isize,
     pub GetResponse: isize,
     pub SetResponseType: isize,
-}
-impl Default for RADIUS_EXTENSION_CONTROL_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RADIUS_EXTENSION_FREE_ATTRIBUTES: windows_core::PCSTR = windows_core::s!("RadiusExtensionFreeAttributes");
 pub const RADIUS_EXTENSION_INIT: windows_core::PCSTR = windows_core::s!("RadiusExtensionInit");

@@ -86,16 +86,11 @@ impl Default for CCAB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ERF {
     pub erfOper: i32,
     pub erfType: i32,
     pub fError: windows_core::BOOL,
-}
-impl Default for ERF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -111,7 +106,7 @@ pub const FCIERR_READ_SRC: FCIERROR = FCIERROR(2i32);
 pub const FCIERR_TEMP_FILE: FCIERROR = FCIERROR(4i32);
 pub const FCIERR_USER_ABORT: FCIERROR = FCIERROR(7i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FDICABINETINFO {
     pub cbCabinet: i32,
     pub cFolders: u16,
@@ -121,11 +116,6 @@ pub struct FDICABINETINFO {
     pub fReserve: windows_core::BOOL,
     pub hasprev: windows_core::BOOL,
     pub hasnext: windows_core::BOOL,
-}
-impl Default for FDICABINETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

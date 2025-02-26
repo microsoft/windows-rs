@@ -4,16 +4,11 @@ pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
     unsafe { Netbios(pncb as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ACTION_HEADER {
     pub transport_id: u32,
     pub action_code: u16,
     pub reserved: u16,
-}
-impl Default for ACTION_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -73,16 +68,11 @@ impl Default for FIND_NAME_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FIND_NAME_HEADER {
     pub node_count: u16,
     pub reserved: u8,
     pub unique_group: u8,
-}
-impl Default for FIND_NAME_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GROUP_NAME: u32 = 128u32;
 pub const HANGUP_COMPLETE: u32 = 5u32;
@@ -252,16 +242,11 @@ impl Default for SESSION_BUFFER {
 }
 pub const SESSION_ESTABLISHED: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SESSION_HEADER {
     pub sess_name: u8,
     pub num_sess: u8,
     pub rcv_dg_outstanding: u8,
     pub rcv_any_outstanding: u8,
-}
-impl Default for SESSION_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UNIQUE_NAME: u32 = 0u32;

@@ -967,28 +967,18 @@ impl ICustomFilterInfo_Vtbl {
 }
 impl windows_core::RuntimeName for ICustomFilterInfo {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ID_PARAMETERS {
     pub dwSize: u32,
     pub replicaId: ID_PARAMETER_PAIR,
     pub itemId: ID_PARAMETER_PAIR,
     pub changeUnitId: ID_PARAMETER_PAIR,
 }
-impl Default for ID_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ID_PARAMETER_PAIR {
     pub fIsVariable: windows_core::BOOL,
     pub cbIdSize: u16,
-}
-impl Default for ID_PARAMETER_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(IDataRetrieverCallback, IDataRetrieverCallback_Vtbl, 0x71b4863b_f969_4676_bbc3_3d9fdc3fb2c7);
 windows_core::imp::interface_hierarchy!(IDataRetrieverCallback, windows_core::IUnknown);
@@ -6509,15 +6499,10 @@ pub const SYNC_CHANGE_FLAG_GHOST: u32 = 4u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYNC_FILTER_CHANGE {
     pub fMoveIn: windows_core::BOOL,
     pub moveVersion: SYNC_VERSION,
-}
-impl Default for SYNC_FILTER_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
 pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
@@ -6561,46 +6546,31 @@ pub const SYNC_SERIALIZATION_VERSION_V2: SYNC_SERIALIZATION_VERSION = SYNC_SERIA
 pub const SYNC_SERIALIZATION_VERSION_V3: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(5i32);
 pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYNC_SESSION_STATISTICS {
     pub dwChangesApplied: u32,
     pub dwChangesFailed: u32,
-}
-impl Default for SYNC_SESSION_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_STATISTICS(pub i32);
 pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = SYNC_STATISTICS(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYNC_TIME {
     pub dwDate: u32,
     pub dwTime: u32,
 }
-impl Default for SYNC_TIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYNC_VERSION {
     pub dwLastUpdatingReplicaKey: u32,
     pub ullTickCount: u64,
 }
-impl Default for SYNC_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SyncProviderConfigUIConfiguration {
     pub dwVersion: u32,
     pub guidInstanceId: windows_core::GUID,
@@ -6610,13 +6580,8 @@ pub struct SyncProviderConfigUIConfiguration {
     pub dwSupportedArchitecture: u32,
     pub fIsGlobal: windows_core::BOOL,
 }
-impl Default for SyncProviderConfigUIConfiguration {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SyncProviderConfiguration {
     pub dwVersion: u32,
     pub guidInstanceId: windows_core::GUID,
@@ -6625,10 +6590,5 @@ pub struct SyncProviderConfiguration {
     pub guidContentType: windows_core::GUID,
     pub dwCapabilities: u32,
     pub dwSupportedArchitecture: u32,
-}
-impl Default for SyncProviderConfiguration {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SyncProviderRegistration: windows_core::GUID = windows_core::GUID::from_u128(0xf82b4ef1_93a9_4dde_8015_f7950a1a6e31);

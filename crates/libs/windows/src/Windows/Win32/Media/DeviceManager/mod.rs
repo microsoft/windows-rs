@@ -5376,7 +5376,7 @@ pub const SCP_EVENTID_DRMINFO: windows_core::GUID = windows_core::GUID::from_u12
 pub const SCP_EVENTID_NEEDTOINDIV: windows_core::GUID = windows_core::GUID::from_u128(0x87a507c7_b469_4386_b976_d5d1ce538a6f);
 pub const SCP_PARAMID_DRMVERSION: windows_core::GUID = windows_core::GUID::from_u128(0x41d0155d_7cc7_4217_ada9_005074624da4);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WMDMDATETIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -5384,11 +5384,6 @@ pub struct WMDMDATETIME {
     pub wHour: u16,
     pub wMinute: u16,
     pub wSecond: u16,
-}
-impl Default for WMDMDATETIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5514,7 +5509,7 @@ impl Default for WMDMMetadataView {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WMDMRIGHTS {
     pub cbSize: u32,
     pub dwContentType: u32,
@@ -5523,11 +5518,6 @@ pub struct WMDMRIGHTS {
     pub dwAppSec: u32,
     pub dwPlaybackCount: u32,
     pub ExpirationDate: WMDMDATETIME,
-}
-impl Default for WMDMRIGHTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WMDMStorage: windows_core::GUID = windows_core::GUID::from_u128(0x807b3ce0_357a_11d3_8471_00c04f79dbc0);
 pub const WMDMStorageEnum: windows_core::GUID = windows_core::GUID::from_u128(0xeb401a3b_3af7_11d3_8474_00c04f79dbc0);
@@ -5918,15 +5908,10 @@ pub const WMDM_TYPE_STRING: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(1i32);
 pub const WMDM_TYPE_WORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(5i32);
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WMFILECAPABILITIES {
     pub pwszMimeType: windows_core::PWSTR,
     pub dwReserved: u32,
-}
-impl Default for WMFILECAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const g_wszAudioWAVECodec: windows_core::PCWSTR = windows_core::w!("WMDM/AudioWAVECodec");
 pub const g_wszVideoFourCCCodec: windows_core::PCWSTR = windows_core::w!("WMDM/VideoFourCCCodec");

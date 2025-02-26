@@ -15952,16 +15952,11 @@ pub const WMPCOREEVENT_WARNING_BASE: u32 = 5600u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMPCallbackNotification(pub i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct WMPContextMenuInfo {
     pub dwID: u32,
     pub bstrMenuText: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub bstrHelpText: core::mem::ManuallyDrop<windows_core::BSTR>,
-}
-impl Default for WMPContextMenuInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16053,15 +16048,10 @@ impl Default for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
     pub dwChangesSinceTransactionID: u32,
     pub dwResultSetStartingIndex: u32,
-}
-impl Default for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WMProfile_V40_100Video: windows_core::GUID = windows_core::GUID::from_u128(0x8f99ddd8_6684_456b_a0a3_33e1316895f0);
 pub const WMProfile_V40_128Audio: windows_core::GUID = windows_core::GUID::from_u128(0x93ddbe12_13dc_4e32_a35e_40378e34279a);
