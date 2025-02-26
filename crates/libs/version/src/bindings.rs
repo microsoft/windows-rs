@@ -23,6 +23,11 @@ pub struct OSVERSIONINFOEXW {
     pub wProductType: u8,
     pub wReserved: u8,
 }
+impl Default for OSVERSIONINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OSVERSIONINFOW {
@@ -32,5 +37,10 @@ pub struct OSVERSIONINFOW {
     pub dwBuildNumber: u32,
     pub dwPlatformId: u32,
     pub szCSDVersion: [u16; 128],
+}
+impl Default for OSVERSIONINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const VER_NT_WORKSTATION: u32 = 1u32;
