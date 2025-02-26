@@ -218,11 +218,21 @@ pub struct BSTRBLOB {
     pub cbSize: u32,
     pub pData: *mut u8,
 }
+impl Default for BSTRBLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CABOOL {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::VARIANT_BOOL,
+}
+impl Default for CABOOL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -230,11 +240,21 @@ pub struct CABSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::BSTR,
 }
+impl Default for CABSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CABSTRBLOB {
     pub cElems: u32,
     pub pElems: *mut BSTRBLOB,
+}
+impl Default for CABSTRBLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -242,11 +262,21 @@ pub struct CAC {
     pub cElems: u32,
     pub pElems: windows_sys::core::PSTR,
 }
+impl Default for CAC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CACLIPDATA {
     pub cElems: u32,
     pub pElems: *mut CLIPDATA,
+}
+impl Default for CACLIPDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -254,11 +284,21 @@ pub struct CACLSID {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::GUID,
 }
+impl Default for CACLSID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CACY {
     pub cElems: u32,
     pub pElems: *mut super::CY,
+}
+impl Default for CACY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -266,11 +306,21 @@ pub struct CADATE {
     pub cElems: u32,
     pub pElems: *mut f64,
 }
+impl Default for CADATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CADBL {
     pub cElems: u32,
     pub pElems: *mut f64,
+}
+impl Default for CADBL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -278,11 +328,21 @@ pub struct CAFILETIME {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::FILETIME,
 }
+impl Default for CAFILETIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CAFLT {
     pub cElems: u32,
     pub pElems: *mut f32,
+}
+impl Default for CAFLT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -290,11 +350,21 @@ pub struct CAH {
     pub cElems: u32,
     pub pElems: *mut i64,
 }
+impl Default for CAH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CAI {
     pub cElems: u32,
     pub pElems: *mut i16,
+}
+impl Default for CAI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -302,17 +372,32 @@ pub struct CAL {
     pub cElems: u32,
     pub pElems: *mut i32,
 }
+impl Default for CAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CALPSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::PSTR,
 }
+impl Default for CALPSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CALPWSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::PWSTR,
+}
+impl Default for CALPWSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
@@ -321,11 +406,22 @@ pub struct CAPROPVARIANT {
     pub cElems: u32,
     pub pElems: *mut PROPVARIANT,
 }
+#[cfg(feature = "Win32_System_Variant")]
+impl Default for CAPROPVARIANT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CASCODE {
     pub cElems: u32,
     pub pElems: *mut i32,
+}
+impl Default for CASCODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -333,11 +429,21 @@ pub struct CAUB {
     pub cElems: u32,
     pub pElems: *mut u8,
 }
+impl Default for CAUB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CAUH {
     pub cElems: u32,
     pub pElems: *mut u64,
+}
+impl Default for CAUH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -345,11 +451,21 @@ pub struct CAUI {
     pub cElems: u32,
     pub pElems: *mut u16,
 }
+impl Default for CAUI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CAUL {
     pub cElems: u32,
     pub pElems: *mut u32,
+}
+impl Default for CAUL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
 #[repr(C)]
@@ -359,14 +475,24 @@ pub struct CLIPDATA {
     pub ulClipFmt: i32,
     pub pClipData: *mut u8,
 }
+impl Default for CLIPDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CWCSTORAGENAME: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OLESTREAM {
     pub lpstbl: *mut OLESTREAMVTBL,
 }
+impl Default for OLESTREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OLESTREAMVTBL {
     pub Get: isize,
     pub Put: isize,
@@ -448,6 +574,12 @@ pub struct PROPBAG2 {
     pub pstrName: windows_sys::core::PWSTR,
     pub clsid: windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_System_Variant")]
+impl Default for PROPBAG2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PROPSETFLAG_ANSI: u32 = 2u32;
 pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8u32;
 pub const PROPSETFLAG_DEFAULT: u32 = 0u32;
@@ -461,11 +593,21 @@ pub struct PROPSPEC {
     pub ulKind: PROPSPEC_KIND,
     pub Anonymous: PROPSPEC_0,
 }
+impl Default for PROPSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROPSPEC_0 {
     pub propid: u32,
     pub lpwstr: windows_sys::core::PWSTR,
+}
+impl Default for PROPSPEC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PROPSPEC_KIND = u32;
 #[repr(C)]
@@ -474,12 +616,24 @@ pub type PROPSPEC_KIND = u32;
 pub struct PROPVARIANT {
     pub Anonymous: PROPVARIANT_0,
 }
+#[cfg(feature = "Win32_System_Variant")]
+impl Default for PROPVARIANT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy)]
 pub union PROPVARIANT_0 {
     pub Anonymous: PROPVARIANT_0_0,
     pub decVal: super::super::super::Foundation::DECIMAL,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Default for PROPVARIANT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
@@ -490,6 +644,12 @@ pub struct PROPVARIANT_0_0 {
     pub wReserved2: u16,
     pub wReserved3: u16,
     pub Anonymous: PROPVARIANT_0_0_0,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Default for PROPVARIANT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
@@ -569,6 +729,12 @@ pub union PROPVARIANT_0_0_0 {
     pub pparray: *mut *mut super::SAFEARRAY,
     pub pvarVal: *mut PROPVARIANT,
 }
+#[cfg(feature = "Win32_System_Variant")]
+impl Default for PROPVARIANT_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PROPVAR_CHANGE_FLAGS = i32;
 pub type PROPVAR_COMPARE_FLAGS = i32;
 pub type PROPVAR_COMPARE_UNIT = i32;
@@ -602,14 +768,24 @@ pub struct RemSNB {
     pub ulCntChar: u32,
     pub rgString: [u16; 1],
 }
+impl Default for RemSNB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERIALIZEDPROPERTYVALUE {
     pub dwType: u32,
     pub rgb: [u8; 1],
 }
+impl Default for SERIALIZEDPROPERTYVALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STATPROPSETSTG {
     pub fmtid: windows_sys::core::GUID,
     pub clsid: windows_sys::core::GUID,
@@ -626,6 +802,12 @@ pub struct STATPROPSTG {
     pub lpwstrName: windows_sys::core::PWSTR,
     pub propid: u32,
     pub vt: super::super::Variant::VARENUM,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Default for STATPROPSTG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type STGFMT = u32;
 pub const STGFMT_ANY: STGFMT = 4u32;
@@ -646,10 +828,20 @@ pub struct STGOPTIONS {
     pub ulSectorSize: u32,
     pub pwcsTemplateFile: windows_sys::core::PCWSTR,
 }
+impl Default for STGOPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: windows_sys::core::GUID,
     pub pStream: *mut core::ffi::c_void,
+}
+impl Default for VERSIONEDSTREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

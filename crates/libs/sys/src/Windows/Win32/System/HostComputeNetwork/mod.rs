@@ -51,7 +51,7 @@ pub const HCN_PORT_PROTOCOL_BOTH: HCN_PORT_PROTOCOL = 3i32;
 pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = 1i32;
 pub const HCN_PORT_PROTOCOL_UDP: HCN_PORT_PROTOCOL = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HCN_PORT_RANGE_ENTRY {
     pub OwningPartitionId: windows_sys::core::GUID,
     pub TargetPartitionId: windows_sys::core::GUID,
@@ -64,7 +64,7 @@ pub struct HCN_PORT_RANGE_ENTRY {
     pub EndingPort: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HCN_PORT_RANGE_RESERVATION {
     pub startingPort: u16,
     pub endingPort: u16,

@@ -299,6 +299,11 @@ pub struct PROPPRG {
     pub achOtherFile: [i8; 80],
     pub achPIFFile: [i8; 260],
 }
+impl Default for PROPPRG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PSC_DIRTY: PSC_STATE = 2i32;
 pub const PSC_NORMAL: PSC_STATE = 0i32;
 pub const PSC_NOTINSOURCE: PSC_STATE = 1i32;

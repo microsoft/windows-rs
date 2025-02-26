@@ -55,6 +55,11 @@ pub struct GLOBALENTRY {
     pub dwNext: u32,
     pub dwNextAlt: u32,
 }
+impl Default for GLOBALENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const GLOBAL_ALL: u32 = 0u32;
 pub const GLOBAL_FREE: u32 = 2u32;
 pub const GLOBAL_LRU: u32 = 1u32;
@@ -77,6 +82,11 @@ pub struct IMAGE_NOTE {
     pub hModule: u16,
     pub hTask: u16,
 }
+impl Default for IMAGE_NOTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MAX_MODULE_NAME: u32 = 9u32;
 pub const MAX_PATH16: u32 = 255u32;
 #[repr(C, packed(4))]
@@ -88,6 +98,11 @@ pub struct MODULEENTRY {
     pub wcUsage: u16,
     pub szExePath: [i8; 256],
     pub wNext: u16,
+}
+impl Default for MODULEENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PROCESSENUMPROC = Option<unsafe extern "system" fn(dwprocessid: u32, dwattributes: u32, lpuserdefined: super::super::Foundation::LPARAM) -> windows_sys::core::BOOL>;
 #[repr(C)]
@@ -101,6 +116,11 @@ pub struct SEGMENT_NOTE {
     pub Type: u16,
     pub Length: u32,
 }
+impl Default for SEGMENT_NOTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SN_CODE: u32 = 0u32;
 pub const SN_DATA: u32 = 1u32;
 pub const SN_V86: u32 = 2u32;
@@ -108,7 +128,7 @@ pub const STATUS_VDM_EVENT: i32 = 1073741829i32;
 pub type TASKENUMPROC = Option<unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, lpuserdefined: super::super::Foundation::LPARAM) -> windows_sys::core::BOOL>;
 pub type TASKENUMPROCEX = Option<unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, pszmodname: *mut i8, pszfilename: *mut i8, lpuserdefined: super::super::Foundation::LPARAM) -> windows_sys::core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TEMP_BP_NOTE {
     pub Seg: u16,
     pub Offset: u32,
@@ -163,9 +183,16 @@ pub struct VDMCONTEXT {
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for VDMCONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VDMCONTEXT_WITHOUT_XSAVE {
     pub ContextFlags: u32,
     pub Dr0: u32,
@@ -245,6 +272,12 @@ pub struct VDMLDT_ENTRY {
     pub BaseLow: u16,
     pub HighWord: VDMLDT_ENTRY_0,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for VDMLDT_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -252,15 +285,21 @@ pub union VDMLDT_ENTRY_0 {
     pub Bytes: VDMLDT_ENTRY_0_0,
     pub Bits: VDMLDT_ENTRY_0_1,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for VDMLDT_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VDMLDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VDMLDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
@@ -293,5 +332,10 @@ pub struct VDM_SEGINFO {
     pub Type: u16,
     pub ModuleName: [i8; 9],
     pub FileName: [i8; 255],
+}
+impl Default for VDM_SEGINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WOW_SYSTEM: u32 = 1u32;

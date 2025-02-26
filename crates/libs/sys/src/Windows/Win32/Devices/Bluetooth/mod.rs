@@ -116,11 +116,21 @@ pub const BDIF_VISIBLE: u32 = 128u32;
 pub struct BLUETOOTH_ADDRESS {
     pub Anonymous: BLUETOOTH_ADDRESS_0,
 }
+impl Default for BLUETOOTH_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BLUETOOTH_ADDRESS_0 {
     pub ullLong: u64,
     pub rgBytes: [u8; 6],
+}
+impl Default for BLUETOOTH_ADDRESS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -130,6 +140,11 @@ pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
     pub Anonymous: BLUETOOTH_AUTHENTICATE_RESPONSE_0,
     pub negativeResponse: u8,
 }
+impl Default for BLUETOOTH_AUTHENTICATE_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
@@ -137,6 +152,11 @@ pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     pub oobInfo: BLUETOOTH_OOB_DATA_INFO,
     pub numericCompInfo: BLUETOOTH_NUMERIC_COMPARISON_INFO,
     pub passkeyInfo: BLUETOOTH_PASSKEY_INFO,
+}
+impl Default for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -147,11 +167,21 @@ pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     pub authenticationRequirements: BLUETOOTH_AUTHENTICATION_REQUIREMENTS,
     pub Anonymous: BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0,
 }
+impl Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     pub Numeric_Value: u32,
     pub Passkey: u32,
+}
+impl Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type BLUETOOTH_AUTHENTICATION_METHOD = i32;
 pub const BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: BLUETOOTH_AUTHENTICATION_METHOD = 1i32;
@@ -166,6 +196,11 @@ pub struct BLUETOOTH_COD_PAIRS {
     pub ulCODMask: u32,
     pub pcszDescription: windows_sys::core::PCWSTR,
 }
+impl Default for BLUETOOTH_COD_PAIRS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BLUETOOTH_DEVICE_INFO {
@@ -178,6 +213,11 @@ pub struct BLUETOOTH_DEVICE_INFO {
     pub stLastSeen: super::super::Foundation::SYSTEMTIME,
     pub stLastUsed: super::super::Foundation::SYSTEMTIME,
     pub szName: [u16; 248],
+}
+impl Default for BLUETOOTH_DEVICE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256u32;
 #[repr(C)]
@@ -192,8 +232,13 @@ pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub cTimeoutMultiplier: u8,
     pub hRadio: super::super::Foundation::HANDLE,
 }
+impl Default for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BLUETOOTH_FIND_RADIO_PARAMS {
     pub dwSize: u32,
 }
@@ -212,11 +257,21 @@ pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     pub CharacteristicValueDataSize: usize,
     pub CharacteristicValue: *mut BTH_LE_GATT_CHARACTERISTIC_VALUE,
 }
+impl Default for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     pub NumCharacteristics: u16,
     pub Characteristics: [BTH_LE_GATT_CHARACTERISTIC; 1],
+}
+impl Default for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type BLUETOOTH_IO_CAPABILITY = i32;
 pub const BLUETOOTH_IO_CAPABILITY_DISPLAYONLY: BLUETOOTH_IO_CAPABILITY = 0i32;
@@ -232,6 +287,11 @@ pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
     pub szName: [u16; 256],
     pub szDeviceString: [u16; 256],
 }
+impl Default for BLUETOOTH_LOCAL_SERVICE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const BLUETOOTH_MAX_NAME_SIZE: u32 = 248u32;
 pub const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: u32 = 17u32;
 pub const BLUETOOTH_MAX_PASSKEY_SIZE: u32 = 16u32;
@@ -244,7 +304,7 @@ pub const BLUETOOTH_MITM_ProtectionRequired: BLUETOOTH_AUTHENTICATION_REQUIREMEN
 pub const BLUETOOTH_MITM_ProtectionRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 3i32;
 pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 5i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO {
     pub NumericValue: u32,
 }
@@ -254,8 +314,13 @@ pub struct BLUETOOTH_OOB_DATA_INFO {
     pub C: [u8; 16],
     pub R: [u8; 16],
 }
+impl Default for BLUETOOTH_OOB_DATA_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BLUETOOTH_PASSKEY_INFO {
     pub passkey: u32,
 }
@@ -264,6 +329,11 @@ pub struct BLUETOOTH_PASSKEY_INFO {
 pub struct BLUETOOTH_PIN_INFO {
     pub pin: [u8; 16],
     pub pinLength: u8,
+}
+impl Default for BLUETOOTH_PIN_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -274,6 +344,11 @@ pub struct BLUETOOTH_RADIO_INFO {
     pub ulClassofDevice: u32,
     pub lmpSubversion: u16,
     pub manufacturer: u16,
+}
+impl Default for BLUETOOTH_RADIO_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -293,6 +368,11 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub pvParam: *mut core::ffi::c_void,
     pub cNumDevices: u32,
     pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
+}
+impl Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BLUETOOTH_SERVICE_DISABLE: u32 = 0u32;
 pub const BLUETOOTH_SERVICE_ENABLE: u32 = 1u32;
@@ -318,6 +398,11 @@ pub struct BTH_DEVICE_INFO {
     pub address: u64,
     pub classOfDevice: u32,
     pub name: [i8; 248],
+}
+impl Default for BTH_DEVICE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BTH_EIR_128_UUIDS_COMPLETE_ID: u32 = 7u32;
 pub const BTH_EIR_128_UUIDS_PARTIAL_ID: u32 = 6u32;
@@ -405,7 +490,7 @@ pub const BTH_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER: u32 = 17u32;
 pub const BTH_ERROR_UNSUPPORTED_LMP_PARM_VALUE: u32 = 32u32;
 pub const BTH_ERROR_UNSUPPORTED_REMOTE_FEATURE: u32 = 26u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BTH_HCI_EVENT_INFO {
     pub bthAddress: u64,
     pub connectionType: u8,
@@ -417,7 +502,7 @@ pub const BTH_HOST_FEATURE_SCO_HCI: u64 = 8u64;
 pub const BTH_HOST_FEATURE_SCO_HCIBYPASS: u64 = 16u64;
 pub const BTH_HOST_FEATURE_STREAMING_MODE: u64 = 2u64;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BTH_INFO_REQ {
     pub btAddr: u64,
     pub infoType: u16,
@@ -429,15 +514,25 @@ pub struct BTH_INFO_RSP {
     pub dataLen: u8,
     pub Anonymous: BTH_INFO_RSP_0,
 }
+impl Default for BTH_INFO_RSP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union BTH_INFO_RSP_0 {
     pub connectionlessMTU: u16,
     pub data: [u8; 44],
 }
+impl Default for BTH_INFO_RSP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const BTH_IOCTL_BASE: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BTH_L2CAP_EVENT_INFO {
     pub bthAddress: u64,
     pub psm: u16,
@@ -589,6 +684,11 @@ pub struct BTH_LE_GATT_CHARACTERISTIC {
     pub IsIndicatable: bool,
     pub HasExtendedProperties: bool,
 }
+impl Default for BTH_LE_GATT_CHARACTERISTIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const BTH_LE_GATT_CHARACTERISTIC_DESCRIPTOR_AGGREGATE_FORMAT: u32 = 10501u32;
 pub const BTH_LE_GATT_CHARACTERISTIC_DESCRIPTOR_CLIENT_CONFIGURATION: u32 = 10498u32;
 pub const BTH_LE_GATT_CHARACTERISTIC_DESCRIPTOR_EXTENDED_PROPERTIES: u32 = 10496u32;
@@ -607,6 +707,11 @@ pub struct BTH_LE_GATT_CHARACTERISTIC_VALUE {
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
+impl Default for BTH_LE_GATT_CHARACTERISTIC_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const BTH_LE_GATT_DEFAULT_MAX_INCLUDED_SERVICES_DEPTH: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -616,6 +721,11 @@ pub struct BTH_LE_GATT_DESCRIPTOR {
     pub DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
     pub DescriptorUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
+}
+impl Default for BTH_LE_GATT_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type BTH_LE_GATT_DESCRIPTOR_TYPE = i32;
 #[repr(C)]
@@ -627,6 +737,11 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE {
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
+impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
@@ -635,8 +750,13 @@ pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_2,
     pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
 }
+impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     pub IsReliableWriteEnabled: bool,
     pub IsAuxiliariesWritable: bool,
@@ -650,14 +770,19 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     pub NameSpace: u8,
     pub Description: BTH_LE_UUID,
 }
+impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     pub IsSubscribeToNotification: bool,
     pub IsSubscribeToIndication: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     pub IsBroadcast: bool,
 }
@@ -668,6 +793,11 @@ pub struct BTH_LE_GATT_SERVICE {
     pub ServiceUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
 }
+impl Default for BTH_LE_GATT_SERVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const BTH_LE_SERVICE_GAP: u32 = 6144u32;
 pub const BTH_LE_SERVICE_GATT: u32 = 6145u32;
 #[repr(C)]
@@ -676,11 +806,21 @@ pub struct BTH_LE_UUID {
     pub IsShortUuid: bool,
     pub Value: BTH_LE_UUID_0,
 }
+impl Default for BTH_LE_UUID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BTH_LE_UUID_0 {
     pub ShortUuid: u16,
     pub LongUuid: windows_sys::core::GUID,
+}
+impl Default for BTH_LE_UUID_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BTH_LINK_KEY_LENGTH: u32 = 16u32;
 pub const BTH_MAJORVERSION: u32 = 2u32;
@@ -745,14 +885,24 @@ pub struct BTH_PING_REQ {
     pub dataLen: u8,
     pub data: [u8; 44],
 }
+impl Default for BTH_PING_REQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BTH_PING_RSP {
     pub dataLen: u8,
     pub data: [u8; 44],
 }
+impl Default for BTH_PING_RSP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BTH_QUERY_DEVICE {
     pub LAP: u32,
     pub length: u8,
@@ -766,8 +916,13 @@ pub struct BTH_QUERY_SERVICE {
     pub numRange: u32,
     pub pRange: [SdpAttributeRange; 1],
 }
+impl Default for BTH_QUERY_SERVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BTH_RADIO_IN_RANGE {
     pub deviceInfo: BTH_DEVICE_INFO,
     pub previousDeviceFlags: u32,
@@ -782,6 +937,11 @@ pub struct BTH_SET_SERVICE {
     pub Reserved: [u32; 5],
     pub ulRecordLength: u32,
     pub pRecord: [u8; 1],
+}
+impl Default for BTH_SET_SERVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BTH_VID_DEFAULT_VALUE: u32 = 65535u32;
 pub const BT_PORT_DYN_FIRST: u32 = 4097u32;
@@ -1065,6 +1225,11 @@ pub struct RFCOMM_COMMAND {
     pub CmdType: u32,
     pub Data: RFCOMM_COMMAND_0,
 }
+impl Default for RFCOMM_COMMAND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RFCOMM_COMMAND_0 {
@@ -1072,22 +1237,27 @@ pub union RFCOMM_COMMAND_0 {
     pub RLS: RFCOMM_RLS_DATA,
     pub RPN: RFCOMM_RPN_DATA,
 }
+impl Default for RFCOMM_COMMAND_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RFCOMM_MAX_MTU: u32 = 1011u32;
 pub const RFCOMM_MIN_MTU: u32 = 23u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFCOMM_MSC_DATA {
     pub Signals: u8,
     pub Break: u8,
 }
 pub const RFCOMM_PROTOCOL_UUID16: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFCOMM_RLS_DATA {
     pub LineStatus: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFCOMM_RPN_DATA {
     pub Baud: u8,
     pub Data: u8,
@@ -1219,6 +1389,11 @@ pub struct SDP_ELEMENT_DATA {
     pub specificType: SDP_SPECIFICTYPE,
     pub data: SDP_ELEMENT_DATA_0,
 }
+impl Default for SDP_ELEMENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SDP_ELEMENT_DATA_0 {
@@ -1241,11 +1416,21 @@ pub union SDP_ELEMENT_DATA_0 {
     pub sequence: SDP_ELEMENT_DATA_0_2,
     pub alternative: SDP_ELEMENT_DATA_0_3,
 }
+impl Default for SDP_ELEMENT_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SDP_ELEMENT_DATA_0_3 {
     pub value: *mut u8,
     pub length: u32,
+}
+impl Default for SDP_ELEMENT_DATA_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1253,17 +1438,32 @@ pub struct SDP_ELEMENT_DATA_0_2 {
     pub value: *mut u8,
     pub length: u32,
 }
+impl Default for SDP_ELEMENT_DATA_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SDP_ELEMENT_DATA_0_0 {
     pub value: *mut u8,
     pub length: u32,
 }
+impl Default for SDP_ELEMENT_DATA_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SDP_ELEMENT_DATA_0_1 {
     pub value: *mut u8,
     pub length: u32,
+}
+impl Default for SDP_ELEMENT_DATA_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SDP_ERROR_INSUFFICIENT_RESOURCES: u32 = 6u32;
 pub const SDP_ERROR_INVALID_CONTINUATION_STATE: u32 = 5u32;
@@ -1272,7 +1472,7 @@ pub const SDP_ERROR_INVALID_RECORD_HANDLE: u32 = 2u32;
 pub const SDP_ERROR_INVALID_REQUEST_SYNTAX: u32 = 3u32;
 pub const SDP_ERROR_INVALID_SDP_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SDP_LARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: i64,
@@ -1289,7 +1489,7 @@ pub const SDP_SERVICE_SEARCH_ATTRIBUTE_REQUEST: u32 = 3u32;
 pub const SDP_SERVICE_SEARCH_REQUEST: u32 = 1u32;
 pub type SDP_SPECIFICTYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SDP_STRING_TYPE_DATA {
     pub encoding: u16,
     pub mibeNum: u16,
@@ -1321,7 +1521,7 @@ pub const SDP_TYPE_UINT: SDP_TYPE = 1i32;
 pub const SDP_TYPE_URL: SDP_TYPE = 8i32;
 pub const SDP_TYPE_UUID: SDP_TYPE = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SDP_ULARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: u64,
@@ -1338,7 +1538,7 @@ pub const SERVICE_SECURITY_NONE: u32 = 1u32;
 pub const SERVICE_SECURITY_NO_ASK: u32 = 536870912u32;
 pub const SERVICE_SECURITY_USE_DEFAULTS: u32 = 0u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCKADDR_BTH {
     pub addressFamily: u16,
     pub btAddr: u64,
@@ -1371,7 +1571,7 @@ pub const SYNCH_DATA_STORE_MESSAGES: u32 = 6u32;
 pub const SYNCH_DATA_STORE_NOTES: u32 = 5u32;
 pub const SYNCH_DATA_STORE_PHONEBOOK: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SdpAttributeRange {
     pub minAttribute: u16,
     pub maxAttribute: u16,
@@ -1382,12 +1582,22 @@ pub struct SdpQueryUuid {
     pub u: SdpQueryUuidUnion,
     pub uuidType: u16,
 }
+impl Default for SdpQueryUuid {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SdpQueryUuidUnion {
     pub uuid128: windows_sys::core::GUID,
     pub uuid32: u32,
     pub uuid16: u16,
+}
+impl Default for SdpQueryUuidUnion {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SerialPortServiceClassID_UUID16: u32 = 4353u32;
 pub const ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = 3i32;

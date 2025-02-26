@@ -62,6 +62,11 @@ pub struct ENUMUILANG {
     pub SizeOfEnumUIBuffer: u32,
     pub pEnumUIBuffer: *mut u16,
 }
+impl Default for ENUMUILANG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
 pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512u32;
 pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256u32;
@@ -92,12 +97,22 @@ pub struct REDIRECTION_DESCRIPTOR {
     pub FunctionCount: u32,
     pub Redirections: *mut REDIRECTION_FUNCTION_DESCRIPTOR,
 }
+impl Default for REDIRECTION_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
     pub DllName: windows_sys::core::PCSTR,
     pub FunctionName: windows_sys::core::PCSTR,
     pub RedirectionTarget: *mut core::ffi::c_void,
+}
+impl Default for REDIRECTION_FUNCTION_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RESOURCE_ENUM_LN: u32 = 1u32;
 pub const RESOURCE_ENUM_MODULE_EXACT: u32 = 16u32;

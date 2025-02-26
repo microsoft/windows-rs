@@ -1,7 +1,7 @@
 pub const ComponentTypeEnforcementClientRp: u32 = 2u32;
 pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CorrelationId {
     pub connId: windows_sys::core::GUID,
     pub timeStamp: super::super::Foundation::FILETIME,
@@ -12,6 +12,11 @@ pub struct CountedString {
     pub length: u16,
     pub string: windows_sys::core::PWSTR,
 }
+impl Default for CountedString {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type ExtendedIsolationState = i32;
 pub type FailureCategory = i32;
 #[repr(C)]
@@ -19,8 +24,13 @@ pub type FailureCategory = i32;
 pub struct FailureCategoryMapping {
     pub mappingCompliance: [windows_sys::core::BOOL; 5],
 }
+impl Default for FailureCategoryMapping {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FixupInfo {
     pub state: FixupState,
     pub percentage: u8,
@@ -33,20 +43,30 @@ pub type FixupState = i32;
 pub struct Ipv4Address {
     pub addr: [u8; 4],
 }
+impl Default for Ipv4Address {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct Ipv6Address {
     pub addr: [u8; 16],
 }
+impl Default for Ipv6Address {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IsolationInfo {
     pub isolationState: IsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IsolationInfoEx {
     pub isolationState: IsolationState,
     pub extendedIsolationState: ExtendedIsolationState,
@@ -55,7 +75,7 @@ pub struct IsolationInfoEx {
 }
 pub type IsolationState = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NapComponentRegistrationInfo {
     pub id: u32,
     pub friendlyName: CountedString,
@@ -75,11 +95,21 @@ pub struct NetworkSoH {
     pub size: u16,
     pub data: *mut u8,
 }
+impl Default for NetworkSoH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PrivateData {
     pub size: u16,
     pub data: *mut u8,
+}
+impl Default for PrivateData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RemoteConfigurationType = i32;
 #[repr(C)]
@@ -88,11 +118,21 @@ pub struct ResultCodes {
     pub count: u16,
     pub results: *mut windows_sys::core::HRESULT,
 }
+impl Default for ResultCodes {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SoH {
     pub count: u16,
     pub attributes: *mut SoHAttribute,
+}
+impl Default for SoH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -101,8 +141,13 @@ pub struct SoHAttribute {
     pub size: u16,
     pub value: *mut u8,
 }
+impl Default for SoHAttribute {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SystemHealthAgentState {
     pub id: u32,
     pub shaResultCodes: ResultCodes,

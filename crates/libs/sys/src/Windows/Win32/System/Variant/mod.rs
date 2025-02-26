@@ -183,12 +183,24 @@ pub type VARENUM = u16;
 pub struct VARIANT {
     pub Anonymous: VARIANT_0,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl Default for VARIANT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[derive(Clone, Copy)]
 pub union VARIANT_0 {
     pub Anonymous: VARIANT_0_0,
     pub decVal: super::super::Foundation::DECIMAL,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl Default for VARIANT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -199,6 +211,12 @@ pub struct VARIANT_0_0 {
     pub wReserved2: u16,
     pub wReserved3: u16,
     pub Anonymous: VARIANT_0_0_0,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl Default for VARIANT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -251,12 +269,24 @@ pub union VARIANT_0_0_0 {
     pub puintVal: *mut u32,
     pub Anonymous: VARIANT_0_0_0_0,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl Default for VARIANT_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[derive(Clone, Copy)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
     pub pRecInfo: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl Default for VARIANT_0_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const VARIANT_ALPHABOOL: VAR_CHANGE_FLAGS = 2u16;
 pub const VARIANT_CALENDAR_GREGORIAN: VAR_CHANGE_FLAGS = 64u16;

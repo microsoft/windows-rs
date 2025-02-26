@@ -108,6 +108,11 @@ pub struct FAX_CONFIGURATIONA {
     pub ArchiveDirectory: windows_sys::core::PCSTR,
     pub Reserved: windows_sys::core::PCSTR,
 }
+impl Default for FAX_CONFIGURATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAX_CONFIGURATIONW {
@@ -125,6 +130,11 @@ pub struct FAX_CONFIGURATIONW {
     pub ArchiveDirectory: windows_sys::core::PCWSTR,
     pub Reserved: windows_sys::core::PCWSTR,
 }
+impl Default for FAX_CONFIGURATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FAX_CONFIG_QUERY: u32 = 4u32;
 pub const FAX_CONFIG_SET: u32 = 8u32;
 #[repr(C)]
@@ -135,6 +145,12 @@ pub struct FAX_CONTEXT_INFOA {
     pub hDC: super::super::Graphics::Gdi::HDC,
     pub ServerName: [i8; 16],
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for FAX_CONTEXT_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -142,6 +158,12 @@ pub struct FAX_CONTEXT_INFOW {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
     pub ServerName: [u16; 16],
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for FAX_CONTEXT_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -176,6 +198,11 @@ pub struct FAX_COVERPAGE_INFOA {
     pub TimeSent: super::super::Foundation::SYSTEMTIME,
     pub PageCount: u32,
 }
+impl Default for FAX_COVERPAGE_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAX_COVERPAGE_INFOW {
@@ -209,6 +236,11 @@ pub struct FAX_COVERPAGE_INFOW {
     pub TimeSent: super::super::Foundation::SYSTEMTIME,
     pub PageCount: u32,
 }
+impl Default for FAX_COVERPAGE_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FAX_COVERPAGE_TYPE_ENUM = i32;
 pub type FAX_DEVICE_RECEIVE_MODE_ENUM = i32;
 #[repr(C)]
@@ -235,6 +267,11 @@ pub struct FAX_DEVICE_STATUSA {
     pub Tsid: windows_sys::core::PCSTR,
     pub UserName: windows_sys::core::PCSTR,
 }
+impl Default for FAX_DEVICE_STATUSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAX_DEVICE_STATUSW {
@@ -259,6 +296,11 @@ pub struct FAX_DEVICE_STATUSW {
     pub Tsid: windows_sys::core::PCWSTR,
     pub UserName: windows_sys::core::PCWSTR,
 }
+impl Default for FAX_DEVICE_STATUSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAX_DEV_STATUS {
@@ -271,6 +313,11 @@ pub struct FAX_DEV_STATUS {
     pub RoutingInfo: windows_sys::core::PWSTR,
     pub ErrorCode: u32,
     pub Reserved: [u32; 3],
+}
+impl Default for FAX_DEV_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FAX_ENUM_DELIVERY_REPORT_TYPES = i32;
 pub type FAX_ENUM_DEVICE_ID_SOURCE = i32;
@@ -295,7 +342,7 @@ pub const FAX_ERR_SRV_OUTOFMEMORY: i32 = 7001i32;
 pub const FAX_ERR_START: i32 = 7001i32;
 pub const FAX_ERR_VERSION_MISMATCH: i32 = 7012i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FAX_EVENTA {
     pub SizeOfStruct: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -304,7 +351,7 @@ pub struct FAX_EVENTA {
     pub JobId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FAX_EVENTW {
     pub SizeOfStruct: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -336,6 +383,11 @@ pub struct FAX_GLOBAL_ROUTING_INFOA {
     pub ExtensionImageName: windows_sys::core::PCSTR,
     pub ExtensionFriendlyName: windows_sys::core::PCSTR,
 }
+impl Default for FAX_GLOBAL_ROUTING_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAX_GLOBAL_ROUTING_INFOW {
@@ -346,6 +398,11 @@ pub struct FAX_GLOBAL_ROUTING_INFOW {
     pub FunctionName: windows_sys::core::PCWSTR,
     pub ExtensionImageName: windows_sys::core::PCWSTR,
     pub ExtensionFriendlyName: windows_sys::core::PCWSTR,
+}
+impl Default for FAX_GLOBAL_ROUTING_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FAX_GROUP_STATUS_ENUM = i32;
 #[repr(C)]
@@ -372,6 +429,11 @@ pub struct FAX_JOB_ENTRYA {
     pub DeliveryReportAddress: windows_sys::core::PCSTR,
     pub DocumentName: windows_sys::core::PCSTR,
 }
+impl Default for FAX_JOB_ENTRYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAX_JOB_ENTRYW {
@@ -396,6 +458,11 @@ pub struct FAX_JOB_ENTRYW {
     pub DeliveryReportAddress: windows_sys::core::PCWSTR,
     pub DocumentName: windows_sys::core::PCWSTR,
 }
+impl Default for FAX_JOB_ENTRYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FAX_JOB_EXTENDED_STATUS_ENUM = i32;
 pub const FAX_JOB_MANAGE: u32 = 64u32;
 pub type FAX_JOB_OPERATIONS_ENUM = i32;
@@ -418,6 +485,11 @@ pub struct FAX_JOB_PARAMA {
     pub CallHandle: u32,
     pub Reserved: [usize; 3],
 }
+impl Default for FAX_JOB_PARAMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAX_JOB_PARAMW {
@@ -437,6 +509,11 @@ pub struct FAX_JOB_PARAMW {
     pub CallHandle: u32,
     pub Reserved: [usize; 3],
 }
+impl Default for FAX_JOB_PARAMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FAX_JOB_QUERY: u32 = 2u32;
 pub type FAX_JOB_STATUS_ENUM = i32;
 pub const FAX_JOB_SUBMIT: u32 = 1u32;
@@ -448,12 +525,22 @@ pub struct FAX_LOG_CATEGORYA {
     pub Category: u32,
     pub Level: u32,
 }
+impl Default for FAX_LOG_CATEGORYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAX_LOG_CATEGORYW {
     pub Name: windows_sys::core::PCWSTR,
     pub Category: u32,
     pub Level: u32,
+}
+impl Default for FAX_LOG_CATEGORYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FAX_LOG_LEVEL_ENUM = i32;
 #[repr(C)]
@@ -469,6 +556,11 @@ pub struct FAX_PORT_INFOA {
     pub Tsid: windows_sys::core::PCSTR,
     pub Csid: windows_sys::core::PCSTR,
 }
+impl Default for FAX_PORT_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAX_PORT_INFOW {
@@ -481,6 +573,11 @@ pub struct FAX_PORT_INFOW {
     pub DeviceName: windows_sys::core::PCWSTR,
     pub Tsid: windows_sys::core::PCWSTR,
     pub Csid: windows_sys::core::PCWSTR,
+}
+impl Default for FAX_PORT_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FAX_PORT_QUERY: u32 = 16u32;
 pub const FAX_PORT_SET: u32 = 32u32;
@@ -499,6 +596,11 @@ pub struct FAX_PRINT_INFOA {
     pub DrEmailAddress: windows_sys::core::PCSTR,
     pub OutputFileName: windows_sys::core::PCSTR,
 }
+impl Default for FAX_PRINT_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAX_PRINT_INFOW {
@@ -514,6 +616,11 @@ pub struct FAX_PRINT_INFOW {
     pub DrEmailAddress: windows_sys::core::PCWSTR,
     pub OutputFileName: windows_sys::core::PCWSTR,
 }
+impl Default for FAX_PRINT_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FAX_PRIORITY_TYPE_ENUM = i32;
 pub type FAX_PROVIDER_STATUS_ENUM = i32;
 pub type FAX_RECEIPT_TYPE_ENUM = i32;
@@ -525,6 +632,11 @@ pub struct FAX_RECEIVE {
     pub ReceiverName: windows_sys::core::PWSTR,
     pub ReceiverNumber: windows_sys::core::PWSTR,
     pub Reserved: [u32; 4],
+}
+impl Default for FAX_RECEIVE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -545,8 +657,13 @@ pub struct FAX_ROUTE {
     pub RoutingInfoData: *mut u8,
     pub RoutingInfoDataSize: u32,
 }
+impl Default for FAX_ROUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FAX_ROUTE_CALLBACKROUTINES {
     pub SizeOfStruct: u32,
     pub FaxRouteAddFile: PFAXROUTEADDFILE,
@@ -568,6 +685,11 @@ pub struct FAX_ROUTING_METHODA {
     pub ExtensionImageName: windows_sys::core::PCSTR,
     pub ExtensionFriendlyName: windows_sys::core::PCSTR,
 }
+impl Default for FAX_ROUTING_METHODA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAX_ROUTING_METHODW {
@@ -580,6 +702,11 @@ pub struct FAX_ROUTING_METHODW {
     pub FunctionName: windows_sys::core::PCWSTR,
     pub ExtensionImageName: windows_sys::core::PCWSTR,
     pub ExtensionFriendlyName: windows_sys::core::PCWSTR,
+}
+impl Default for FAX_ROUTING_METHODW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FAX_ROUTING_RULE_CODE_ENUM = i32;
 pub type FAX_RULE_STATUS_ENUM = i32;
@@ -597,11 +724,16 @@ pub struct FAX_SEND {
     pub CallHandle: u32,
     pub Reserved: [u32; 3],
 }
+impl Default for FAX_SEND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FAX_SERVER_APIVERSION_ENUM = i32;
 pub type FAX_SERVER_EVENTS_TYPE_ENUM = i32;
 pub type FAX_SMTP_AUTHENTICATION_TYPE_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FAX_TIME {
     pub Hour: u16,
     pub Minute: u16,
@@ -915,6 +1047,11 @@ pub struct STINOTIFY {
     pub guidNotificationCode: windows_sys::core::GUID,
     pub abNotificationData: [u8; 64],
 }
+impl Default for STINOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STISUBSCRIBE {
@@ -924,6 +1061,11 @@ pub struct STISUBSCRIBE {
     pub hWndNotify: super::super::Foundation::HWND,
     pub hEvent: super::super::Foundation::HANDLE,
     pub uiNotificationMessage: u32,
+}
+impl Default for STISUBSCRIBE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STI_ADD_DEVICE_BROADCAST_ACTION: windows_sys::core::PCSTR = windows_sys::core::s!("Arrival");
 pub const STI_ADD_DEVICE_BROADCAST_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("STI\\");
@@ -947,9 +1089,14 @@ pub struct STI_DEVICE_INFORMATIONW {
     pub pszPropProvider: windows_sys::core::PWSTR,
     pub pszLocalName: windows_sys::core::PWSTR,
 }
+impl Default for STI_DEVICE_INFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type STI_DEVICE_MJ_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STI_DEVICE_STATUS {
     pub dwSize: u32,
     pub StatusMask: u32,
@@ -973,12 +1120,12 @@ pub const STI_DEVICE_VALUE_TWAIN_NAME_A: windows_sys::core::PCSTR = windows_sys:
 pub const STI_DEVSTATUS_EVENTS_STATE: u32 = 2u32;
 pub const STI_DEVSTATUS_ONLINE_STATE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STI_DEV_CAPS {
     pub dwGeneric: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STI_DIAG {
     pub dwSize: u32,
     pub dwBasicDiagCode: u32,
@@ -1030,7 +1177,7 @@ pub const STI_TRACE_INFORMATION: u32 = 1u32;
 pub const STI_TRACE_WARNING: u32 = 2u32;
 pub const STI_UNICODE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STI_USD_CAPS {
     pub dwVersion: u32,
     pub dwGenericCaps: u32,
@@ -1057,6 +1204,11 @@ pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub pszUiDll: windows_sys::core::PWSTR,
     pub pszServer: windows_sys::core::PWSTR,
 }
+impl Default for STI_WIA_DEVICE_INFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SUPPORTS_MSCPLUS_STR: windows_sys::core::PCWSTR = windows_sys::core::w!("SupportsMSCPlus");
 pub const SUPPORTS_MSCPLUS_VAL: u32 = 1u32;
 pub type SendToMode = i32;
@@ -1072,6 +1224,11 @@ pub struct _ERROR_INFOW {
     pub dwGenericError: u32,
     pub dwVendorError: u32,
     pub szExtendedErrorText: [u16; 255],
+}
+impl Default for _ERROR_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const faetFXSSVC_ENDED: FAX_ACCOUNT_EVENTS_TYPE_ENUM = 16i32;
 pub const faetIN_ARCHIVE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = 4i32;

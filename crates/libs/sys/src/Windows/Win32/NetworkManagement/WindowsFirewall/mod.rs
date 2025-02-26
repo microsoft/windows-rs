@@ -26,6 +26,11 @@ pub struct FW_DYNAMIC_KEYWORD_ADDRESS0 {
     pub flags: u32,
     pub addresses: windows_sys::core::PCWSTR,
 }
+impl Default for FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
@@ -33,6 +38,11 @@ pub struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     pub next: *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0,
     pub schemaVersion: u16,
     pub originType: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
+}
+impl Default for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = i32;
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 3i32;
@@ -57,6 +67,11 @@ pub struct INET_FIREWALL_AC_BINARIES {
     pub count: u32,
     pub binaries: *mut windows_sys::core::PWSTR,
 }
+impl Default for INET_FIREWALL_AC_BINARIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -64,6 +79,12 @@ pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = 2i32;
 pub struct INET_FIREWALL_AC_CAPABILITIES {
     pub count: u32,
     pub capabilities: *mut super::super::Security::SID_AND_ATTRIBUTES,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for INET_FIREWALL_AC_CAPABILITIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -76,12 +97,24 @@ pub struct INET_FIREWALL_AC_CHANGE {
     pub displayName: windows_sys::core::PWSTR,
     pub Anonymous: INET_FIREWALL_AC_CHANGE_0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for INET_FIREWALL_AC_CHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union INET_FIREWALL_AC_CHANGE_0 {
     pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
     pub binaries: INET_FIREWALL_AC_BINARIES,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for INET_FIREWALL_AC_CHANGE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const INET_FIREWALL_AC_CHANGE_CREATE: INET_FIREWALL_AC_CHANGE_TYPE = 1i32;
 pub const INET_FIREWALL_AC_CHANGE_DELETE: INET_FIREWALL_AC_CHANGE_TYPE = 2i32;
@@ -105,6 +138,12 @@ pub struct INET_FIREWALL_APP_CONTAINER {
     pub binaries: INET_FIREWALL_AC_BINARIES,
     pub workingDirectory: windows_sys::core::PWSTR,
     pub packageFullName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for INET_FIREWALL_APP_CONTAINER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NCCF_ALLOW_DUPLICATION: NETCON_CHARACTERISTIC_FLAGS = 2i32;
 pub const NCCF_ALLOW_REMOVAL: NETCON_CHARACTERISTIC_FLAGS = 4i32;
@@ -181,6 +220,11 @@ pub struct NETCON_PROPERTIES {
     pub dwCharacter: u32,
     pub clsidThisObject: windows_sys::core::GUID,
     pub clsidUiObject: windows_sys::core::GUID,
+}
+impl Default for NETCON_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type NETCON_STATUS = i32;
 pub type NETCON_TYPE = i32;

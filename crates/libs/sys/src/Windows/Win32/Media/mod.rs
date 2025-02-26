@@ -65,6 +65,11 @@ pub struct MMTIME {
     pub wType: u32,
     pub u: MMTIME_0,
 }
+impl Default for MMTIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MMTIME_0 {
@@ -75,8 +80,13 @@ pub union MMTIME_0 {
     pub smpte: MMTIME_0_0,
     pub midi: MMTIME_0_1,
 }
+impl Default for MMTIME_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MMTIME_0_1 {
     pub songptrpos: u32,
 }
@@ -90,6 +100,11 @@ pub struct MMTIME_0_0 {
     pub fps: u8,
     pub dummy: u8,
     pub pad: [u8; 2],
+}
+impl Default for MMTIME_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MM_ADLIB: u32 = 9u32;
 pub const MM_DRVM_CLOSE: u32 = 977u32;
@@ -141,7 +156,7 @@ pub const MM_WOM_CLOSE: u32 = 956u32;
 pub const MM_WOM_DONE: u32 = 957u32;
 pub const MM_WOM_OPEN: u32 = 955u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
@@ -152,8 +167,13 @@ pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: u64,
 }
+impl Default for TIMECODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TIMECODE_0 {
     pub wFrameRate: u16,
     pub wFrameFract: u16,
@@ -166,6 +186,11 @@ pub struct TIMECODE_SAMPLE {
     pub timecode: TIMECODE,
     pub dwUser: u32,
     pub dwFlags: TIMECODE_SAMPLE_FLAGS,
+}
+impl Default for TIMECODE_SAMPLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type TIMECODE_SAMPLE_FLAGS = u32;
 pub const TIMERR_BASE: u32 = 96u32;

@@ -101,7 +101,7 @@ pub const CBF_SKIP_REGISTRATIONS: DDE_INITIALIZE_COMMAND = 524288u32;
 pub const CBF_SKIP_UNREGISTRATIONS: DDE_INITIALIZE_COMMAND = 1048576u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONVCONTEXT {
     pub cb: u32,
     pub wFlags: u32,
@@ -132,6 +132,12 @@ pub struct CONVINFO {
     pub hwnd: super::super::Foundation::HWND,
     pub hwndPartner: super::super::Foundation::HWND,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for CONVINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CONVINFO_CONVERSATION_STATE = u32;
 pub type CONVINFO_STATUS = u32;
 #[repr(C)]
@@ -141,16 +147,21 @@ pub struct COPYDATASTRUCT {
     pub cbData: u32,
     pub lpData: *mut core::ffi::c_void,
 }
+impl Default for COPYDATASTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CP_WINANSI: i32 = 1004i32;
 pub const CP_WINNEUTRAL: i32 = 1200i32;
 pub const CP_WINUNICODE: i32 = 1200i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DDEACK {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DDEADVISE {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -162,8 +173,13 @@ pub struct DDEDATA {
     pub cfFormat: i16,
     pub Value: [u8; 1],
 }
+impl Default for DDEDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DDELN {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -176,6 +192,11 @@ pub struct DDEML_MSG_HOOK_DATA {
     pub cbData: u32,
     pub Data: [u32; 8],
 }
+impl Default for DDEML_MSG_HOOK_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DDEPOKE {
@@ -183,12 +204,22 @@ pub struct DDEPOKE {
     pub cfFormat: i16,
     pub Value: [u8; 1],
 }
+impl Default for DDEPOKE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DDEUP {
     pub _bitfield: u16,
     pub cfFormat: i16,
     pub rgb: [u8; 1],
+}
+impl Default for DDEUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DDE_CLIENT_TRANSACTION_TYPE = u32;
 pub type DDE_ENABLE_CALLBACK_CMD = u32;
@@ -242,6 +273,11 @@ pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
 }
+impl Default for HSZPAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MAX_MONITORS: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -251,6 +287,12 @@ pub struct METAFILEPICT {
     pub xExt: i32,
     pub yExt: i32,
     pub hMF: super::super::Graphics::Gdi::HMETAFILE,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for METAFILEPICT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MF_CALLBACKS: DDE_INITIALIZE_COMMAND = 134217728u32;
 pub const MF_CONV: DDE_INITIALIZE_COMMAND = 1073741824u32;
@@ -284,6 +326,12 @@ pub struct MONCBSTRUCT {
     pub cbData: u32,
     pub Data: [u32; 8],
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for MONCBSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MONCONVSTRUCT {
@@ -296,6 +344,11 @@ pub struct MONCONVSTRUCT {
     pub hConvClient: HCONV,
     pub hConvServer: HCONV,
 }
+impl Default for MONCONVSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MONERRSTRUCT {
@@ -303,6 +356,11 @@ pub struct MONERRSTRUCT {
     pub wLastError: u32,
     pub dwTime: u32,
     pub hTask: super::super::Foundation::HANDLE,
+}
+impl Default for MONERRSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -314,6 +372,11 @@ pub struct MONHSZSTRUCTA {
     pub hTask: super::super::Foundation::HANDLE,
     pub str: [i8; 1],
 }
+impl Default for MONHSZSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MONHSZSTRUCTW {
@@ -323,6 +386,11 @@ pub struct MONHSZSTRUCTW {
     pub hsz: HSZ,
     pub hTask: super::super::Foundation::HANDLE,
     pub str: [u16; 1],
+}
+impl Default for MONHSZSTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -340,6 +408,11 @@ pub struct MONLINKSTRUCT {
     pub hConvServer: HCONV,
     pub hConvClient: HCONV,
 }
+impl Default for MONLINKSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MONMSGSTRUCT {
@@ -351,6 +424,11 @@ pub struct MONMSGSTRUCT {
     pub wParam: super::super::Foundation::WPARAM,
     pub lParam: super::super::Foundation::LPARAM,
     pub dmhd: DDEML_MSG_HOOK_DATA,
+}
+impl Default for MONMSGSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MSGF_DDEMGR: u32 = 32769u32;
 pub type PFNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;

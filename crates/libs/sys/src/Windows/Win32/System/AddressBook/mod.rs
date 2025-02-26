@@ -88,12 +88,24 @@ pub struct ADRENTRY {
     pub cValues: u32,
     pub rgPropVals: *mut SPropValue,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for ADRENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct ADRLIST {
     pub cEntries: u32,
     pub aEntries: [ADRENTRY; 1],
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for ADRLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -118,23 +130,29 @@ pub struct ADRPARM {
     pub lpContRestriction: *mut SRestriction,
     pub lpHierRestriction: *mut SRestriction,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for ADRPARM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CALLERRELEASE = Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: *mut core::ffi::c_void, lpvue: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLBUTTON {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
     pub ulPRControl: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLCHECKBOX {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
     pub ulPRPropertyName: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLCOMBOBOX {
     pub ulbLpszCharsAllowed: u32,
     pub ulFlags: u32,
@@ -143,7 +161,7 @@ pub struct DTBLCOMBOBOX {
     pub ulPRTableName: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLDDLBX {
     pub ulFlags: u32,
     pub ulPRDisplayProperty: u32,
@@ -151,7 +169,7 @@ pub struct DTBLDDLBX {
     pub ulPRTableName: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLEDIT {
     pub ulbLpszCharsAllowed: u32,
     pub ulFlags: u32,
@@ -159,38 +177,38 @@ pub struct DTBLEDIT {
     pub ulPropTag: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLGROUPBOX {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLLABEL {
     pub ulbLpszLabelName: u32,
     pub ulFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLLBX {
     pub ulFlags: u32,
     pub ulPRSetProperty: u32,
     pub ulPRTableName: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLMVDDLBX {
     pub ulFlags: u32,
     pub ulMVPropTag: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLMVLISTBOX {
     pub ulFlags: u32,
     pub ulMVPropTag: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLPAGE {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
@@ -198,7 +216,7 @@ pub struct DTBLPAGE {
     pub ulContext: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBLRADIOBUTTON {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
@@ -217,6 +235,11 @@ pub struct DTCTL {
     pub ulItemID: u32,
     pub ctl: DTCTL_0,
 }
+impl Default for DTCTL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DTCTL_0 {
@@ -234,6 +257,11 @@ pub union DTCTL_0 {
     pub lpmvddlbx: *mut DTBLMVDDLBX,
     pub lppage: *mut DTBLPAGE,
 }
+impl Default for DTCTL_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DTPAGE {
@@ -242,17 +270,32 @@ pub struct DTPAGE {
     pub Anonymous: DTPAGE_0,
     pub lpctl: *mut DTCTL,
 }
+impl Default for DTPAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DTPAGE_0 {
     pub lpszComponent: *mut i8,
     pub ulItemID: u32,
 }
+impl Default for DTPAGE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ENTRYID {
     pub abFlags: [u8; 4],
     pub ab: [u8; 1],
+}
+impl Default for ENTRYID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -263,12 +306,22 @@ pub struct ERROR_NOTIFICATION {
     pub ulFlags: u32,
     pub lpMAPIError: *mut MAPIERROR,
 }
+impl Default for ERROR_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EXTENDED_NOTIFICATION {
     pub ulEvent: u32,
     pub cb: u32,
     pub pbEventParameters: *mut u8,
+}
+impl Default for EXTENDED_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const E_IMAPI_BURN_VERIFICATION_FAILED: windows_sys::core::HRESULT = 0xC0AA0007_u32 as _;
 pub const E_IMAPI_DF2DATA_CLIENT_NAME_IS_NOT_VALID: windows_sys::core::HRESULT = 0xC0AA0408_u32 as _;
@@ -361,12 +414,22 @@ pub struct FLATENTRY {
     pub cb: u32,
     pub abEntry: [u8; 1],
 }
+impl Default for FLATENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FLATENTRYLIST {
     pub cEntries: u32,
     pub cbEntries: u32,
     pub abEntries: [u8; 1],
+}
+impl Default for FLATENTRYLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -375,11 +438,21 @@ pub struct FLATMTSIDLIST {
     pub cbMTSIDs: u32,
     pub abMTSIDs: [u8; 1],
 }
+impl Default for FLATMTSIDLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FlagList {
     pub cFlags: u32,
     pub ulFlag: [u32; 1],
+}
+impl Default for FlagList {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type Gender = i32;
 pub const IMAPI_E_BAD_MULTISESSION_PARAMETER: windows_sys::core::HRESULT = 0xC0AAB162_u32 as _;
@@ -471,6 +544,11 @@ pub struct MAPIERROR {
     pub ulLowLevelError: u32,
     pub ulContext: u32,
 }
+impl Default for MAPIERROR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MAPINAMEID {
@@ -478,16 +556,31 @@ pub struct MAPINAMEID {
     pub ulKind: u32,
     pub Kind: MAPINAMEID_0,
 }
+impl Default for MAPINAMEID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MAPINAMEID_0 {
     pub lID: i32,
     pub lpwstrName: windows_sys::core::PWSTR,
 }
+impl Default for MAPINAMEID_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MAPIUID {
     pub ab: [u8; 16],
+}
+impl Default for MAPIUID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MAPI_COMPOUND: u32 = 128u32;
 pub const MAPI_DIM: u32 = 1u32;
@@ -514,6 +607,11 @@ pub struct MTSID {
     pub cb: u32,
     pub ab: [u8; 1],
 }
+impl Default for MTSID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MV_FLAG: u32 = 4096u32;
 pub const MV_INSTANCE: u32 = 8192u32;
 #[repr(C)]
@@ -527,6 +625,11 @@ pub struct NEWMAIL_NOTIFICATION {
     pub lpszMessageClass: *mut i8,
     pub ulMessageFlags: u32,
 }
+impl Default for NEWMAIL_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -534,6 +637,12 @@ pub struct NOTIFICATION {
     pub ulEventType: u32,
     pub ulAlignPad: u32,
     pub info: NOTIFICATION_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -546,11 +655,22 @@ pub union NOTIFICATION_0 {
     pub ext: EXTENDED_NOTIFICATION,
     pub statobj: STATUS_OBJECT_NOTIFICATION,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for NOTIFICATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NOTIFKEY {
     pub cb: u32,
     pub ab: [u8; 1],
+}
+impl Default for NOTIFKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -565,6 +685,11 @@ pub struct OBJECT_NOTIFICATION {
     pub cbOldParentID: u32,
     pub lpOldParentID: *mut ENTRYID,
     pub lpPropTagArray: *mut SPropTagArray,
+}
+impl Default for OBJECT_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OPENSTREAMONFILE: windows_sys::core::PCSTR = windows_sys::core::s!("OpenStreamOnFile");
 pub type PFNIDLE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
@@ -582,11 +707,22 @@ pub struct SAndRestriction {
     pub cRes: u32,
     pub lpRes: *mut SRestriction,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SAndRestriction {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SAppTimeArray {
     pub cValues: u32,
     pub lpat: *mut f64,
+}
+impl Default for SAppTimeArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -594,14 +730,24 @@ pub struct SBinary {
     pub cb: u32,
     pub lpb: *mut u8,
 }
+impl Default for SBinary {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SBinaryArray {
     pub cValues: u32,
     pub lpbin: *mut SBinary,
 }
+impl Default for SBinaryArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SBitMaskRestriction {
     pub relBMR: u32,
     pub ulPropTag: u32,
@@ -615,8 +761,14 @@ pub struct SCommentRestriction {
     pub lpRes: *mut SRestriction,
     pub lpProp: *mut SPropValue,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SCommentRestriction {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SComparePropsRestriction {
     pub relop: u32,
     pub ulPropTag1: u32,
@@ -630,6 +782,12 @@ pub struct SContentRestriction {
     pub ulPropTag: u32,
     pub lpProp: *mut SPropValue,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SContentRestriction {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -637,11 +795,22 @@ pub struct SCurrencyArray {
     pub cValues: u32,
     pub lpcur: *mut super::Com::CY,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SCurrencyArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SDateTimeArray {
     pub cValues: u32,
     pub lpft: *mut super::super::Foundation::FILETIME,
+}
+impl Default for SDateTimeArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -649,10 +818,15 @@ pub struct SDoubleArray {
     pub cValues: u32,
     pub lpdbl: *mut f64,
 }
+impl Default for SDoubleArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SERVICE_UI_ALLOWED: u32 = 16u32;
 pub const SERVICE_UI_ALWAYS: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SExistRestriction {
     pub ulReserved1: u32,
     pub ulPropTag: u32,
@@ -664,11 +838,21 @@ pub struct SGuidArray {
     pub cValues: u32,
     pub lpguid: *mut windows_sys::core::GUID,
 }
+impl Default for SGuidArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SLPSTRArray {
     pub cValues: u32,
     pub lppszA: *mut windows_sys::core::PSTR,
+}
+impl Default for SLPSTRArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -676,11 +860,21 @@ pub struct SLargeIntegerArray {
     pub cValues: u32,
     pub lpli: *mut i64,
 }
+impl Default for SLargeIntegerArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SLongArray {
     pub cValues: u32,
     pub lpl: *mut i32,
+}
+impl Default for SLongArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -689,6 +883,12 @@ pub struct SNotRestriction {
     pub ulReserved: u32,
     pub lpRes: *mut SRestriction,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SNotRestriction {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -696,8 +896,14 @@ pub struct SOrRestriction {
     pub cRes: u32,
     pub lpRes: *mut SRestriction,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SOrRestriction {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SPropProblem {
     pub ulIndex: u32,
     pub ulPropTag: u32,
@@ -709,11 +915,21 @@ pub struct SPropProblemArray {
     pub cProblem: u32,
     pub aProblem: [SPropProblem; 1],
 }
+impl Default for SPropProblemArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SPropTagArray {
     pub cValues: u32,
     pub aulPropTag: [u32; 1],
+}
+impl Default for SPropTagArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -723,6 +939,12 @@ pub struct SPropValue {
     pub dwAlignPad: u32,
     pub Value: __UPV,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SPropValue {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -731,11 +953,22 @@ pub struct SPropertyRestriction {
     pub ulPropTag: u32,
     pub lpProp: *mut SPropValue,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SPropertyRestriction {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SRealArray {
     pub cValues: u32,
     pub lpflt: *mut f32,
+}
+impl Default for SRealArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -743,6 +976,12 @@ pub struct SRealArray {
 pub struct SRestriction {
     pub rt: u32,
     pub res: SRestriction_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SRestriction {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -760,6 +999,12 @@ pub union SRestriction_0 {
     pub resSub: SSubRestriction,
     pub resComment: SCommentRestriction,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SRestriction_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -768,6 +1013,12 @@ pub struct SRow {
     pub cValues: u32,
     pub lpProps: *mut SPropValue,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SRow {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -775,21 +1026,32 @@ pub struct SRowSet {
     pub cRows: u32,
     pub aRow: [SRow; 1],
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SRowSet {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SShortArray {
     pub cValues: u32,
     pub lpi: *mut i16,
 }
+impl Default for SShortArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SSizeRestriction {
     pub relop: u32,
     pub ulPropTag: u32,
     pub cb: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SSortOrder {
     pub ulPropTag: u32,
     pub ulOrder: u32,
@@ -802,12 +1064,23 @@ pub struct SSortOrderSet {
     pub cExpanded: u32,
     pub aSort: [SSortOrder; 1],
 }
+impl Default for SSortOrderSet {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct SSubRestriction {
     pub ulSubObject: u32,
     pub lpRes: *mut SRestriction,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSubRestriction {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -818,11 +1091,22 @@ pub struct STATUS_OBJECT_NOTIFICATION {
     pub cValues: u32,
     pub lpPropVals: *mut SPropValue,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for STATUS_OBJECT_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SWStringArray {
     pub cValues: u32,
     pub lppszW: *mut windows_sys::core::PWSTR,
+}
+impl Default for SWStringArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const S_IMAPI_BOTHADJUSTED: windows_sys::core::HRESULT = 0xAA0006_u32 as _;
 pub const S_IMAPI_COMMAND_HAS_SENSE_DATA: windows_sys::core::HRESULT = 0xAA0200_u32 as _;
@@ -842,6 +1126,12 @@ pub struct TABLE_NOTIFICATION {
     pub propPrior: SPropValue,
     pub row: SRow,
     pub ulPad: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for TABLE_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TABLE_RELOAD: u32 = 9u32;
 pub const TABLE_RESTRICT_DONE: u32 = 7u32;
@@ -866,6 +1156,11 @@ pub struct WABEXTDISPLAY {
     pub lpv: *mut core::ffi::c_void,
     pub lpsz: *mut i8,
 }
+impl Default for WABEXTDISPLAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WABIMPORTPARAM {
@@ -874,6 +1169,11 @@ pub struct WABIMPORTPARAM {
     pub hWnd: super::super::Foundation::HWND,
     pub ulFlags: u32,
     pub lpszFileName: windows_sys::core::PSTR,
+}
+impl Default for WABIMPORTPARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WABOBJECT_LDAPURL_RETURN_MAILUSER: u32 = 1u32;
 pub const WABOBJECT_ME_NEW: u32 = 1u32;
@@ -894,6 +1194,11 @@ pub struct WAB_PARAM {
     pub szFileName: windows_sys::core::PSTR,
     pub ulFlags: u32,
     pub guidPSExt: windows_sys::core::GUID,
+}
+impl Default for WAB_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WAB_PROFILE_CONTENTS: u32 = 2097152u32;
 pub const WAB_USE_OE_SENDMAIL: u32 = 1u32;
@@ -931,6 +1236,12 @@ pub union __UPV {
     pub MVli: SLargeIntegerArray,
     pub err: i32,
     pub x: i32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for __UPV {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const cchProfileNameMax: u32 = 64u32;
 pub const cchProfilePassMax: u32 = 64u32;

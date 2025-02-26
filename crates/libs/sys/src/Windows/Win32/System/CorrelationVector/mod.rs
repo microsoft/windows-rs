@@ -8,6 +8,11 @@ pub struct CORRELATION_VECTOR {
     pub Version: i8,
     pub Vector: [i8; 129],
 }
+impl Default for CORRELATION_VECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: u32 = 129u32;
 pub const RTL_CORRELATION_VECTOR_V1_LENGTH: u32 = 64u32;
 pub const RTL_CORRELATION_VECTOR_V1_PREFIX_LENGTH: u32 = 16u32;

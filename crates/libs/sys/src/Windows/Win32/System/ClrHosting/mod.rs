@@ -40,6 +40,11 @@ pub struct AssemblyBindInfo {
     pub lpPostPolicyIdentity: windows_sys::core::PCWSTR,
     pub ePolicyLevel: u32,
 }
+impl Default for AssemblyBindInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const BucketParamLength: u32 = 255u32;
 pub type BucketParameterIndex = i32;
 #[repr(C)]
@@ -48,6 +53,11 @@ pub struct BucketParameters {
     pub fInited: windows_sys::core::BOOL,
     pub pszEventTypeName: [u16; 255],
     pub pszParams: [u16; 2550],
+}
+impl Default for BucketParameters {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BucketParamsCount: u32 = 10u32;
 pub type CLRCreateInstanceFnPtr = Option<unsafe extern "system" fn(clsid: *const windows_sys::core::GUID, riid: *const windows_sys::core::GUID, ppinterface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
@@ -61,7 +71,7 @@ pub const CLR_DEBUGGING_MANAGED_EVENT_DEBUGGER_LAUNCH: CLR_DEBUGGING_PROCESS_FLA
 pub const CLR_DEBUGGING_MANAGED_EVENT_PENDING: CLR_DEBUGGING_PROCESS_FLAGS = 1i32;
 pub type CLR_DEBUGGING_PROCESS_FLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLR_DEBUGGING_VERSION {
     pub wStructVersion: u16,
     pub wMajor: u16,
@@ -97,10 +107,15 @@ pub struct COR_GC_STATS {
     pub KBytesPromotedFromGen0: usize,
     pub KBytesPromotedFromGen1: usize,
 }
+impl Default for COR_GC_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type COR_GC_STAT_TYPES = i32;
 pub const COR_GC_THREAD_HAS_PROMOTED_BYTES: COR_GC_THREAD_STATS_TYPES = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COR_GC_THREAD_STATS {
     pub PerThreadAllocation: u64,
     pub Flags: u32,
@@ -118,10 +133,20 @@ pub struct CustomDumpItem {
     pub itemKind: ECustomDumpItemKind,
     pub Anonymous: CustomDumpItem_0,
 }
+impl Default for CustomDumpItem {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CustomDumpItem_0 {
     pub pReserved: usize,
+}
+impl Default for CustomDumpItem_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEPRECATED_CLR_API_MESG: windows_sys::core::PCSTR = windows_sys::core::s!("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.");
 pub const DUMP_FLAVOR_CriticalCLRState: ECustomDumpFlavor = 1i32;
@@ -181,6 +206,11 @@ pub struct MDAInfo {
     pub lpMDAMessage: windows_sys::core::PCWSTR,
     pub lpStackTrace: windows_sys::core::PCWSTR,
 }
+impl Default for MDAInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type METAHOST_CONFIG_FLAGS = i32;
 pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_FALSE: METAHOST_CONFIG_FLAGS = 2i32;
 pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_MASK: METAHOST_CONFIG_FLAGS = 3i32;
@@ -204,6 +234,11 @@ pub struct ModuleBindInfo {
     pub dwAppDomainId: u32,
     pub lpAssemblyIdentity: windows_sys::core::PCWSTR,
     pub lpModuleName: windows_sys::core::PCWSTR,
+}
+impl Default for ModuleBindInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OPR_AppDomainRudeUnload: EClrOperation = 4i32;
 pub const OPR_AppDomainUnload: EClrOperation = 3i32;
@@ -259,6 +294,12 @@ pub const STARTUP_TRIM_GC_COMMIT: STARTUP_FLAGS = 524288i32;
 pub struct StackOverflowInfo {
     pub soType: StackOverflowType,
     pub pExceptionInfo: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl Default for StackOverflowInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type StackOverflowType = i32;
 pub const TT_ADUNLOAD: ETaskType = 128i32;

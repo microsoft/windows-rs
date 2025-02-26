@@ -96,6 +96,11 @@ pub struct AsnAny {
     pub asnType: u8,
     pub asnValue: AsnAny_0,
 }
+impl Default for AsnAny {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub union AsnAny_0 {
@@ -112,6 +117,11 @@ pub union AsnAny_0 {
     pub ticks: u32,
     pub arbitrary: AsnOctetString,
 }
+impl Default for AsnAny_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -119,12 +129,24 @@ pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
 }
+#[cfg(target_arch = "x86")]
+impl Default for AsnObjectIdentifier {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for AsnObjectIdentifier {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -134,6 +156,12 @@ pub struct AsnOctetString {
     pub length: u32,
     pub dynamic: windows_sys::core::BOOL,
 }
+#[cfg(target_arch = "x86")]
+impl Default for AsnOctetString {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -141,6 +169,12 @@ pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
     pub dynamic: windows_sys::core::BOOL,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for AsnOctetString {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEFAULT_SNMPTRAP_PORT_IPX: u32 = 36880u32;
 pub const DEFAULT_SNMPTRAP_PORT_UDP: u32 = 162u32;
@@ -322,12 +356,23 @@ pub struct SnmpVarBind {
     pub name: AsnObjectIdentifier,
     pub value: AsnAny,
 }
+impl Default for SnmpVarBind {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SnmpVarBindList {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -336,8 +381,14 @@ pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SnmpVarBindList {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct smiCNTR64 {
     pub hipart: u32,
     pub lopart: u32,
@@ -348,17 +399,32 @@ pub struct smiOCTETS {
     pub len: u32,
     pub ptr: *mut u8,
 }
+impl Default for smiOCTETS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct smiOID {
     pub len: u32,
     pub ptr: *mut u32,
 }
+impl Default for smiOID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct smiVALUE {
     pub syntax: u32,
     pub value: smiVALUE_0,
+}
+impl Default for smiVALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -370,6 +436,11 @@ pub union smiVALUE_0 {
     pub oid: smiOID,
     pub empty: u8,
 }
+impl Default for smiVALUE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct smiVENDORINFO {
@@ -378,4 +449,9 @@ pub struct smiVENDORINFO {
     pub vendorVersionId: [i8; 32],
     pub vendorVersionDate: [i8; 32],
     pub vendorEnterprise: u32,
+}
+impl Default for smiVENDORINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

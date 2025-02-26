@@ -86,6 +86,11 @@ pub struct AAAccountingData {
     pub mainSessionId: windows_sys::core::GUID,
     pub subSessionId: i32,
 }
+impl Default for AAAccountingData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type AAAccountingDataType = i32;
 pub type AAAuthSchemes = i32;
 pub type AATrustClassID = i32;
@@ -112,7 +117,7 @@ pub const AA_UNTRUSTED: AATrustClassID = 0i32;
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
 pub const ADsTSUserEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_CURRENT_POSITION {
     pub u64DevicePosition: u64,
     pub u64StreamPosition: u64,
@@ -124,7 +129,7 @@ pub struct AE_CURRENT_POSITION {
 pub type AE_POSITION_FLAGS = i32;
 pub const AllowOnlySDRServers: PolicyAttributeType = 7i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BITMAP_RENDERER_STATISTICS {
     pub dwFramesDelivered: u32,
     pub dwFramesDropped: u32,
@@ -137,8 +142,13 @@ pub struct CHANNEL_DEF {
     pub name: [i8; 8],
     pub options: u32,
 }
+impl Default for CHANNEL_DEF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHANNEL_ENTRY_POINTS {
     pub cbSize: u32,
     pub protocolVersion: u32,
@@ -173,7 +183,7 @@ pub const CHANNEL_OPTION_PRI_MED: u32 = 67108864u32;
 pub const CHANNEL_OPTION_REMOTE_CONTROL_PERSISTENT: u32 = 1048576u32;
 pub const CHANNEL_OPTION_SHOW_PROTOCOL: u32 = 2097152u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHANNEL_PDU_HEADER {
     pub length: u32,
     pub flags: u32,
@@ -202,7 +212,7 @@ pub const CHANNEL_RC_ZERO_LENGTH: u32 = 17u32;
 pub const CLIENTADDRESS_LENGTH: u32 = 30u32;
 pub const CLIENTNAME_LENGTH: u32 = 20u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLIENT_DISPLAY {
     pub HorizontalResolution: u32,
     pub VerticalResolution: u32,
@@ -311,11 +321,21 @@ pub struct PRODUCT_INFOA {
     pub CompanyName: [i8; 256],
     pub ProductID: [i8; 4],
 }
+impl Default for PRODUCT_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRODUCT_INFOW {
     pub CompanyName: [u16; 256],
     pub ProductID: [u16; 4],
+}
+impl Default for PRODUCT_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0cdfd28e_d0b9_4c1f_a5eb_6d1f6c6535b9);
 pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed2c3fda_338d_4d3f_81a3_e767310d908e);
@@ -365,7 +385,7 @@ pub const RESOURCE_PLUGIN: PLUGIN_TYPE = 2i32;
 pub const RFX_CLIENT_ID_LENGTH: u32 = 32u32;
 pub const RFX_GFX_MAX_SUPPORTED_MONITORS: u32 = 16u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MONITOR_INFO {
     pub left: i32,
     pub top: i32,
@@ -377,7 +397,7 @@ pub struct RFX_GFX_MONITOR_INFO {
     pub primary: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
 }
@@ -390,13 +410,18 @@ pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     pub MonitorData: [RFX_GFX_MONITOR_INFO; 16],
     pub clientUniqueId: [u16; 32],
 }
+impl Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     pub channelHdr: RFX_GFX_MSG_HEADER,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub ulWidth: u32,
@@ -405,26 +430,26 @@ pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     pub Reserved: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub ulWidth: u32,
     pub ulHeight: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub RedrawRect: RFX_GFX_RECT,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MSG_DISCONNECT_NOTIFY {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub DisconnectReason: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MSG_HEADER {
     pub uMSGType: u16,
     pub cbSize: u16,
@@ -437,8 +462,13 @@ pub struct RFX_GFX_MSG_RDP_DATA {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub rdpData: [u8; 1],
 }
+impl Default for RFX_GFX_MSG_RDP_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_RECT {
     pub left: i32,
     pub top: i32,
@@ -531,6 +561,11 @@ pub struct TSSD_ConnectionPoint {
     pub PortNumber: u16,
     pub AddressScope: u32,
 }
+impl Default for TSSD_ConnectionPoint {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type TSSESSION_STATE = i32;
 pub const TSUserExInterfaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0910dd01_df8c_11d1_ae27_00c04fa35813);
 pub type TS_SB_SORT_BY = i32;
@@ -555,11 +590,21 @@ pub struct VM_NOTIFY_ENTRY {
     pub VmName: [u16; 128],
     pub VmHost: [u16; 128],
 }
+impl Default for VM_NOTIFY_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VM_NOTIFY_INFO {
     pub dwNumEntries: u32,
     pub ppVmEntries: *mut *mut VM_NOTIFY_ENTRY,
+}
+impl Default for VM_NOTIFY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VM_NOTIFY_STATUS = i32;
 pub const VM_NOTIFY_STATUS_CANCELED: VM_NOTIFY_STATUS = 4i32;
@@ -573,6 +618,11 @@ pub struct VM_PATCH_INFO {
     pub dwNumEntries: u32,
     pub pVmNames: *mut windows_sys::core::PWSTR,
 }
+impl Default for VM_PATCH_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WINSTATIONNAME_LENGTH: u32 = 32u32;
 pub const WKS_FLAG_CLEAR_CREDS_ON_LAST_RESOURCE: u32 = 1u32;
 pub const WKS_FLAG_CREDS_AUTHENTICATED: u32 = 4u32;
@@ -585,11 +635,21 @@ pub const WRDS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
 pub union WRDS_CONNECTION_SETTING {
     pub WRdsConnectionSettings1: WRDS_CONNECTION_SETTINGS_1,
 }
+impl Default for WRDS_CONNECTION_SETTING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WRDS_CONNECTION_SETTINGS {
     pub WRdsConnectionSettingLevel: WRDS_CONNECTION_SETTING_LEVEL,
     pub WRdsConnectionSetting: WRDS_CONNECTION_SETTING,
+}
+impl Default for WRDS_CONNECTION_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -660,6 +720,11 @@ pub struct WRDS_CONNECTION_SETTINGS_1 {
     pub ContextSize: u32,
     pub ContextData: *mut u8,
 }
+impl Default for WRDS_CONNECTION_SETTINGS_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WRDS_CONNECTION_SETTING_LEVEL = i32;
 pub const WRDS_CONNECTION_SETTING_LEVEL_1: WRDS_CONNECTION_SETTING_LEVEL = 1i32;
 pub const WRDS_CONNECTION_SETTING_LEVEL_INVALID: WRDS_CONNECTION_SETTING_LEVEL = 0i32;
@@ -680,6 +745,11 @@ pub struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     pub TimeZoneKeyName: [u16; 128],
     pub DynamicDaylightTimeDisabled: u16,
 }
+impl Default for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WRDS_IMEFILENAME_LENGTH: u32 = 32u32;
 pub const WRDS_INITIALPROGRAM_LENGTH: u32 = 256u32;
 pub const WRDS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
@@ -691,11 +761,21 @@ pub const WRDS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
 pub union WRDS_LISTENER_SETTING {
     pub WRdsListenerSettings1: WRDS_LISTENER_SETTINGS_1,
 }
+impl Default for WRDS_LISTENER_SETTING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WRDS_LISTENER_SETTINGS {
     pub WRdsListenerSettingLevel: WRDS_LISTENER_SETTING_LEVEL,
     pub WRdsListenerSetting: WRDS_LISTENER_SETTING,
+}
+impl Default for WRDS_LISTENER_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -703,6 +783,11 @@ pub struct WRDS_LISTENER_SETTINGS_1 {
     pub MaxProtocolListenerConnectionCount: u32,
     pub SecurityDescriptorSize: u32,
     pub pSecurityDescriptor: *mut u8,
+}
+impl Default for WRDS_LISTENER_SETTINGS_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WRDS_LISTENER_SETTING_LEVEL = i32;
 pub const WRDS_LISTENER_SETTING_LEVEL_1: WRDS_LISTENER_SETTING_LEVEL = 1i32;
@@ -730,6 +815,11 @@ pub const WRDS_SERVICE_ID_GRAPHICS_GUID: windows_sys::core::GUID = windows_sys::
 pub union WRDS_SETTING {
     pub WRdsSettings1: WRDS_SETTINGS_1,
 }
+impl Default for WRDS_SETTING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WRDS_SETTINGS {
@@ -737,8 +827,13 @@ pub struct WRDS_SETTINGS {
     pub WRdsSettingLevel: WRDS_SETTING_LEVEL,
     pub WRdsSetting: WRDS_SETTING,
 }
+impl Default for WRDS_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WRDS_SETTINGS_1 {
     pub WRdsDisableClipStatus: WRDS_SETTING_STATUS,
     pub WRdsDisableClipValue: u32,
@@ -819,6 +914,11 @@ pub struct WTSCLIENTA {
     pub OutBufLength: u16,
     pub DeviceId: [i8; 261],
 }
+impl Default for WTSCLIENTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTSCLIENTW {
@@ -842,6 +942,11 @@ pub struct WTSCLIENTW {
     pub OutBufLength: u16,
     pub DeviceId: [u16; 261],
 }
+impl Default for WTSCLIENTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTSCONFIGINFOA {
@@ -857,6 +962,11 @@ pub struct WTSCONFIGINFOA {
     pub InitialProgram: [i8; 261],
     pub ApplicationName: [i8; 261],
 }
+impl Default for WTSCONFIGINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTSCONFIGINFOW {
@@ -871,6 +981,11 @@ pub struct WTSCONFIGINFOW {
     pub WorkDirectory: [u16; 261],
     pub InitialProgram: [u16; 261],
     pub ApplicationName: [u16; 261],
+}
+impl Default for WTSCONFIGINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WTSClientAddress: WTS_INFO_CLASS = 14i32;
 pub const WTSClientBuildNumber: WTS_INFO_CLASS = 9i32;
@@ -908,17 +1023,32 @@ pub struct WTSINFOA {
     pub LogonTime: i64,
     pub CurrentTime: i64,
 }
+impl Default for WTSINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTSINFOEXA {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_A,
 }
+impl Default for WTSINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTSINFOEXW {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_W,
+}
+impl Default for WTSINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -941,6 +1071,11 @@ pub struct WTSINFOEX_LEVEL1_A {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
+impl Default for WTSINFOEX_LEVEL1_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTSINFOEX_LEVEL1_W {
@@ -962,15 +1097,30 @@ pub struct WTSINFOEX_LEVEL1_W {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
+impl Default for WTSINFOEX_LEVEL1_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WTSINFOEX_LEVEL_A {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_A,
 }
+impl Default for WTSINFOEX_LEVEL_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WTSINFOEX_LEVEL_W {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_W,
+}
+impl Default for WTSINFOEX_LEVEL_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -991,6 +1141,11 @@ pub struct WTSINFOW {
     pub LastInputTime: i64,
     pub LogonTime: i64,
     pub CurrentTime: i64,
+}
+impl Default for WTSINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WTSIdle: WTS_CONNECTSTATE_CLASS = 5i32;
 pub const WTSIdleTime: WTS_INFO_CLASS = 17i32;
@@ -1034,6 +1189,11 @@ pub struct WTSLISTENERCONFIGA {
     pub WorkDirectory: [i8; 261],
     pub InitialProgram: [i8; 261],
 }
+impl Default for WTSLISTENERCONFIGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTSLISTENERCONFIGW {
@@ -1069,6 +1229,11 @@ pub struct WTSLISTENERCONFIGW {
     pub WorkDirectory: [u16; 261],
     pub InitialProgram: [u16; 261],
 }
+impl Default for WTSLISTENERCONFIGW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WTSListen: WTS_CONNECTSTATE_CLASS = 6i32;
 pub const WTSLogonTime: WTS_INFO_CLASS = 18i32;
 pub const WTSOEMId: WTS_INFO_CLASS = 3i32;
@@ -1089,6 +1254,11 @@ pub struct WTSSBX_IP_ADDRESS {
     pub PortNumber: u16,
     pub dwScope: u32,
 }
+impl Default for WTSSBX_IP_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTSSBX_MACHINE_CONNECT_INFO {
@@ -1096,6 +1266,11 @@ pub struct WTSSBX_MACHINE_CONNECT_INFO {
     pub wczMachineNetBiosName: [u16; 17],
     pub dwNumOfIPAddr: u32,
     pub IPaddr: [WTSSBX_IP_ADDRESS; 12],
+}
+impl Default for WTSSBX_MACHINE_CONNECT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WTSSBX_MACHINE_DRAIN = i32;
 pub const WTSSBX_MACHINE_DRAIN_OFF: WTSSBX_MACHINE_DRAIN = 1i32;
@@ -1112,6 +1287,11 @@ pub struct WTSSBX_MACHINE_INFO {
     pub SingleSessionMode: WTSSBX_MACHINE_SESSION_MODE,
     pub InDrain: WTSSBX_MACHINE_DRAIN,
     pub MachineState: WTSSBX_MACHINE_STATE,
+}
+impl Default for WTSSBX_MACHINE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WTSSBX_MACHINE_SESSION_MODE = i32;
 pub const WTSSBX_MACHINE_SESSION_MODE_MULTIPLE: WTSSBX_MACHINE_SESSION_MODE = 2i32;
@@ -1137,12 +1317,17 @@ pub struct WTSSBX_SESSION_INFO {
     pub DisconnectTime: super::super::Foundation::FILETIME,
     pub SessionState: WTSSBX_SESSION_STATE,
 }
+impl Default for WTSSBX_SESSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WTSSBX_SESSION_STATE = i32;
 pub const WTSSBX_SESSION_STATE_ACTIVE: WTSSBX_SESSION_STATE = 1i32;
 pub const WTSSBX_SESSION_STATE_DISCONNECTED: WTSSBX_SESSION_STATE = 2i32;
 pub const WTSSBX_SESSION_STATE_UNSPEC: WTSSBX_SESSION_STATE = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTSSESSION_NOTIFICATION {
     pub cbSize: u32,
     pub dwSessionId: u32,
@@ -1177,6 +1362,11 @@ pub struct WTSUSERCONFIGA {
     pub TerminalServerHomeDir: [i8; 261],
     pub TerminalServerHomeDirDrive: [i8; 4],
 }
+impl Default for WTSUSERCONFIGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTSUSERCONFIGW {
@@ -1198,6 +1388,11 @@ pub struct WTSUSERCONFIGW {
     pub TerminalServerProfilePath: [u16; 261],
     pub TerminalServerHomeDir: [u16; 261],
     pub TerminalServerHomeDirDrive: [u16; 4],
+}
+impl Default for WTSUSERCONFIGW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WTSUserConfigBrokenTimeoutSettings: WTS_CONFIG_CLASS = 10i32;
 pub const WTSUserConfigInitialProgram: WTS_CONFIG_CLASS = 0i32;
@@ -1234,12 +1429,22 @@ pub struct WTS_CACHE_STATS {
     pub ProtocolType: u16,
     pub Length: u16,
 }
+impl Default for WTS_CACHE_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WTS_CACHE_STATS_UN {
     pub ProtocolCache: [WTS_PROTOCOL_CACHE; 4],
     pub TShareCacheStats: u32,
     pub Reserved: [u32; 20],
+}
+impl Default for WTS_CACHE_STATS_UN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WTS_CERT_TYPE = i32;
 pub const WTS_CERT_TYPE_INVALID: WTS_CERT_TYPE = 0i32;
@@ -1258,6 +1463,11 @@ pub const WTS_CLIENTNAME_LENGTH: u32 = 20u32;
 pub struct WTS_CLIENT_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
+}
+impl Default for WTS_CLIENT_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1318,8 +1528,13 @@ pub struct WTS_CLIENT_DATA {
     pub fDisableClip: bool,
     pub fDisablePNP: bool,
 }
+impl Default for WTS_CLIENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_CLIENT_DISPLAY {
     pub HorizontalResolution: u32,
     pub VerticalResolution: u32,
@@ -1341,6 +1556,11 @@ pub const WTS_DIRECTORY_LENGTH: u32 = 256u32;
 pub struct WTS_DISPLAY_IOCTL {
     pub pDisplayIOCtlData: [u8; 256],
     pub cbDisplayIOCtlData: u32,
+}
+impl Default for WTS_DISPLAY_IOCTL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WTS_DOMAIN_LENGTH: u32 = 255u32;
 pub const WTS_DRAIN_IN_DRAIN: WTS_RCM_DRAIN_STATE = 1i32;
@@ -1375,6 +1595,11 @@ pub struct WTS_LICENSE_CAPABILITIES {
     pub cbClientName: u32,
     pub rgbClientName: [u8; 42],
 }
+impl Default for WTS_LICENSE_CAPABILITIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WTS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
 pub const WTS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
 pub const WTS_LISTENER_CREATE: u32 = 1u32;
@@ -1403,7 +1628,7 @@ pub const WTS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
 pub const WTS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
 pub const WTS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_POLICY_DATA {
     pub fDisableEncryption: bool,
     pub fDisableAutoReconnect: bool,
@@ -1425,6 +1650,12 @@ pub struct WTS_PROCESS_INFOA {
     pub pProcessName: windows_sys::core::PSTR,
     pub pUserSid: super::super::Security::PSID,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for WTS_PROCESS_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1433,6 +1664,12 @@ pub struct WTS_PROCESS_INFOW {
     pub ProcessId: u32,
     pub pProcessName: windows_sys::core::PWSTR,
     pub pUserSid: super::super::Security::PSID,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for WTS_PROCESS_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1451,6 +1688,12 @@ pub struct WTS_PROCESS_INFO_EXA {
     pub UserTime: i64,
     pub KernelTime: i64,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for WTS_PROCESS_INFO_EXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1468,6 +1711,12 @@ pub struct WTS_PROCESS_INFO_EXW {
     pub UserTime: i64,
     pub KernelTime: i64,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for WTS_PROCESS_INFO_EXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
 pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
 pub const WTS_PROPERTY_DEFAULT_CONFIG: windows_sys::core::PCWSTR = windows_sys::core::w!("DefaultConfig");
@@ -1477,6 +1726,11 @@ pub struct WTS_PROPERTY_VALUE {
     pub Type: u16,
     pub u: WTS_PROPERTY_VALUE_0,
 }
+impl Default for WTS_PROPERTY_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WTS_PROPERTY_VALUE_0 {
@@ -1485,11 +1739,21 @@ pub union WTS_PROPERTY_VALUE_0 {
     pub bVal: WTS_PROPERTY_VALUE_0_1,
     pub guidVal: windows_sys::core::GUID,
 }
+impl Default for WTS_PROPERTY_VALUE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
     pub pbVal: windows_sys::core::PSTR,
+}
+impl Default for WTS_PROPERTY_VALUE_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1497,8 +1761,13 @@ pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
     pub pstrVal: windows_sys::core::PWSTR,
 }
+impl Default for WTS_PROPERTY_VALUE_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_PROTOCOL_CACHE {
     pub CacheReads: u32,
     pub CacheHits: u32,
@@ -1525,6 +1794,11 @@ pub struct WTS_PROTOCOL_COUNTERS {
     pub Specific: u16,
     pub Reserved: [u32; 100],
 }
+impl Default for WTS_PROTOCOL_COUNTERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WTS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1535,6 +1809,11 @@ pub struct WTS_PROTOCOL_STATUS {
     pub AsyncSignal: u32,
     pub AsyncSignalMask: u32,
     pub Counters: [i64; 100],
+}
+impl Default for WTS_PROTOCOL_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0u32;
 pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1u32;
@@ -1566,15 +1845,25 @@ pub const WTS_SECURITY_VIRTUAL_CHANNELS: WTS_SECURITY_FLAGS = 8u32;
 pub struct WTS_SERVER_INFOA {
     pub pServerName: windows_sys::core::PSTR,
 }
+impl Default for WTS_SERVER_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTS_SERVER_INFOW {
     pub pServerName: windows_sys::core::PWSTR,
 }
+impl Default for WTS_SERVER_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WTS_SERVICE_NONE: WTS_RCM_SERVICE_STATE = 0i32;
 pub const WTS_SERVICE_START: WTS_RCM_SERVICE_STATE = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_SERVICE_STATE {
     pub RcmServiceState: WTS_RCM_SERVICE_STATE,
     pub RcmDrainState: WTS_RCM_DRAIN_STATE,
@@ -1589,8 +1878,13 @@ pub struct WTS_SESSION_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
 }
+impl Default for WTS_SESSION_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_SESSION_ID {
     pub SessionUniqueGuid: windows_sys::core::GUID,
     pub SessionId: u32,
@@ -1602,12 +1896,22 @@ pub struct WTS_SESSION_INFOA {
     pub pWinStationName: windows_sys::core::PSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
 }
+impl Default for WTS_SESSION_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTS_SESSION_INFOW {
     pub SessionId: u32,
     pub pWinStationName: windows_sys::core::PWSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
+}
+impl Default for WTS_SESSION_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1621,6 +1925,11 @@ pub struct WTS_SESSION_INFO_1A {
     pub pDomainName: windows_sys::core::PSTR,
     pub pFarmName: windows_sys::core::PSTR,
 }
+impl Default for WTS_SESSION_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTS_SESSION_INFO_1W {
@@ -1633,8 +1942,13 @@ pub struct WTS_SESSION_INFO_1W {
     pub pDomainName: windows_sys::core::PWSTR,
     pub pFarmName: windows_sys::core::PWSTR,
 }
+impl Default for WTS_SESSION_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_SMALL_RECT {
     pub Left: i16,
     pub Top: i16,
@@ -1647,11 +1961,21 @@ pub struct WTS_SOCKADDR {
     pub sin_family: u16,
     pub u: WTS_SOCKADDR_0,
 }
+impl Default for WTS_SOCKADDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WTS_SOCKADDR_0 {
     pub ipv4: WTS_SOCKADDR_0_0,
     pub ipv6: WTS_SOCKADDR_0_1,
+}
+impl Default for WTS_SOCKADDR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1659,6 +1983,11 @@ pub struct WTS_SOCKADDR_0_0 {
     pub sin_port: u16,
     pub IN_ADDR: u32,
     pub sin_zero: [u8; 8],
+}
+impl Default for WTS_SOCKADDR_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1668,8 +1997,13 @@ pub struct WTS_SOCKADDR_0_1 {
     pub sin6_addr: [u16; 8],
     pub sin6_scope_id: u32,
 }
+impl Default for WTS_SOCKADDR_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -1691,6 +2025,11 @@ pub struct WTS_TIME_ZONE_INFORMATION {
     pub DaylightDate: WTS_SYSTEMTIME,
     pub DaylightBias: i32,
 }
+impl Default for WTS_TIME_ZONE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WTS_TYPE_CLASS = i32;
 pub const WTS_USERNAME_LENGTH: u32 = 255u32;
 #[repr(C)]
@@ -1700,12 +2039,22 @@ pub struct WTS_USER_CREDENTIAL {
     pub Password: [u16; 256],
     pub Domain: [u16; 256],
 }
+impl Default for WTS_USER_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTS_USER_DATA {
     pub WorkDirectory: [u16; 257],
     pub InitialProgram: [u16; 257],
     pub UserTimeZone: WTS_TIME_ZONE_INFORMATION,
+}
+impl Default for WTS_USER_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1716,6 +2065,11 @@ pub struct WTS_VALIDATION_INFORMATIONA {
     pub HardwareID: [u8; 20],
     pub HardwareIDLength: u32,
 }
+impl Default for WTS_VALIDATION_INFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTS_VALIDATION_INFORMATIONW {
@@ -1724,6 +2078,11 @@ pub struct WTS_VALIDATION_INFORMATIONW {
     pub LicenseLength: u32,
     pub HardwareID: [u8; 20],
     pub HardwareIDLength: u32,
+}
+impl Default for WTS_VALIDATION_INFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WTS_VALUE_TYPE_BINARY: u32 = 3u32;
 pub const WTS_VALUE_TYPE_GUID: u32 = 4u32;
@@ -1751,6 +2110,11 @@ pub struct pluginResource {
     pub pcePluginBlobSize: u32,
     pub blobContents: *mut u8,
 }
+impl Default for pluginResource {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct pluginResource2 {
@@ -1761,6 +2125,11 @@ pub struct pluginResource2 {
     pub pceFolderListSize: u32,
     pub folderList: *mut *mut u16,
 }
+impl Default for pluginResource2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct pluginResource2FileAssociation {
@@ -1768,4 +2137,9 @@ pub struct pluginResource2FileAssociation {
     pub primaryHandler: u8,
     pub pceIconSize: u32,
     pub iconContents: *mut u8,
+}
+impl Default for pluginResource2FileAssociation {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

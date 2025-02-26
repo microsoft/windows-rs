@@ -7,7 +7,7 @@ pub const AME_8mm: STORAGE_MEDIA_TYPE = 37i32;
 pub const ASSERT_ALTERNATE: u32 = 9u32;
 pub const ASSERT_PRIMARY: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ASYNC_DUPLICATE_EXTENTS_STATUS {
     pub Version: u32,
     pub State: DUPLICATE_EXTENTS_STATE,
@@ -23,13 +23,13 @@ pub const AtaDataTypeIdentify: STORAGE_PROTOCOL_ATA_DATA_TYPE = 1i32;
 pub const AtaDataTypeLogPage: STORAGE_PROTOCOL_ATA_DATA_TYPE = 2i32;
 pub const AtaDataTypeUnknown: STORAGE_PROTOCOL_ATA_DATA_TYPE = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BIN_COUNT {
     pub BinRange: BIN_RANGE,
     pub BinCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BIN_RANGE {
     pub StartValue: i64,
     pub Length: i64,
@@ -40,6 +40,11 @@ pub struct BIN_RESULTS {
     pub NumberOfBins: u32,
     pub BinCounts: [BIN_COUNT; 1],
 }
+impl Default for BIN_RESULTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type BIN_TYPES = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -47,8 +52,13 @@ pub struct BOOT_AREA_INFO {
     pub BootSectorCount: u32,
     pub BootSectors: [BOOT_AREA_INFO_0; 2],
 }
+impl Default for BOOT_AREA_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BOOT_AREA_INFO_0 {
     pub Offset: i64,
 }
@@ -57,6 +67,11 @@ pub struct BOOT_AREA_INFO_0 {
 pub struct BULK_SECURITY_TEST_DATA {
     pub DesiredAccess: u32,
     pub SecurityIds: [u32; 1],
+}
+impl Default for BULK_SECURITY_TEST_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CAP_ATAPI_ID_CMD: u32 = 2u32;
 pub const CAP_ATA_ID_CMD: u32 = 1u32;
@@ -77,13 +92,13 @@ pub const CHANGER_DEVICE_REINITIALIZE_CAPABLE: CHANGER_FEATURES = 134217728u32;
 pub const CHANGER_DRIVE_CLEANING_REQUIRED: CHANGER_FEATURES = 65536u32;
 pub const CHANGER_DRIVE_EMPTY_ON_DOOR_ACCESS: CHANGER_FEATURES = 536870912u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHANGER_ELEMENT {
     pub ElementType: ELEMENT_TYPE,
     pub ElementAddress: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHANGER_ELEMENT_LIST {
     pub Element: CHANGER_ELEMENT,
     pub NumberOfElements: u32,
@@ -101,6 +116,11 @@ pub struct CHANGER_ELEMENT_STATUS {
     pub PrimaryVolumeID: [u8; 36],
     pub AlternateVolumeID: [u8; 36],
 }
+impl Default for CHANGER_ELEMENT_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CHANGER_ELEMENT_STATUS_EX {
@@ -117,10 +137,15 @@ pub struct CHANGER_ELEMENT_STATUS_EX {
     pub ProductIdentification: [u8; 16],
     pub SerialNumber: [u8; 32],
 }
+impl Default for CHANGER_ELEMENT_STATUS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CHANGER_ELEMENT_STATUS_FLAGS = u32;
 pub const CHANGER_EXCHANGE_MEDIA: CHANGER_FEATURES = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHANGER_EXCHANGE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
@@ -133,7 +158,7 @@ pub type CHANGER_FEATURES = u32;
 pub const CHANGER_IEPORT_USER_CONTROL_CLOSE: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483904u32;
 pub const CHANGER_IEPORT_USER_CONTROL_OPEN: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483776u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
     pub BarCodeScan: bool,
@@ -144,7 +169,7 @@ pub const CHANGER_LOCK_UNLOCK: CHANGER_FEATURES = 128u32;
 pub const CHANGER_MEDIUM_FLIP: CHANGER_FEATURES = 512u32;
 pub const CHANGER_MOVE_EXTENDS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 = 2147484160u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHANGER_MOVE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
@@ -167,8 +192,13 @@ pub struct CHANGER_PRODUCT_DATA {
     pub SerialNumber: [u8; 32],
     pub DeviceType: u8,
 }
+impl Default for CHANGER_PRODUCT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHANGER_READ_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
     pub VolumeTagInfo: bool,
@@ -183,15 +213,20 @@ pub struct CHANGER_SEND_VOLUME_TAG_INFORMATION {
     pub ActionCode: u32,
     pub VolumeIDTemplate: [u8; 40],
 }
+impl Default for CHANGER_SEND_VOLUME_TAG_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CHANGER_SERIAL_NUMBER_VALID: CHANGER_FEATURES = 67108864u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHANGER_SET_ACCESS {
     pub Element: CHANGER_ELEMENT,
     pub Control: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHANGER_SET_POSITION {
     pub Transport: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
@@ -220,14 +255,14 @@ pub const CHECKSUM_TYPE_FIRST_UNUSED_TYPE: u32 = 5u32;
 pub const CHECKSUM_TYPE_NONE: u32 = 0u32;
 pub const CHECKSUM_TYPE_SHA256: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLASS_MEDIA_CHANGE_CONTEXT {
     pub MediaChangeCount: u32,
     pub NewState: u32,
 }
 pub const CLEANER_CARTRIDGE: STORAGE_MEDIA_TYPE = 50i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUSTER_RANGE {
     pub StartingCluster: i64,
     pub ClusterCount: i64,
@@ -243,7 +278,7 @@ pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_EXCEPTION_ROOT: u32 = 16u32;
 pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_ROOT: u32 = 4u32;
 pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_TARGET_ROOT: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONTAINER_ROOT_INFO_INPUT {
     pub Flags: u32,
 }
@@ -253,9 +288,14 @@ pub struct CONTAINER_ROOT_INFO_OUTPUT {
     pub ContainerRootIdLength: u16,
     pub ContainerRootId: [u8; 1],
 }
+impl Default for CONTAINER_ROOT_INFO_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CONTAINER_ROOT_INFO_VALID_FLAGS: u32 = 1023u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONTAINER_VOLUME_STATE {
     pub Flags: u32,
 }
@@ -269,25 +309,35 @@ pub struct CREATE_DISK {
     pub PartitionStyle: PARTITION_STYLE,
     pub Anonymous: CREATE_DISK_0,
 }
+impl Default for CREATE_DISK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CREATE_DISK_0 {
     pub Mbr: CREATE_DISK_MBR,
     pub Gpt: CREATE_DISK_GPT,
 }
+impl Default for CREATE_DISK_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREATE_DISK_GPT {
     pub DiskId: windows_sys::core::GUID,
     pub MaxPartitionCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREATE_DISK_MBR {
     pub Signature: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREATE_USN_JOURNAL_DATA {
     pub MaximumSize: u64,
     pub AllocationDelta: u64,
@@ -295,25 +345,25 @@ pub struct CREATE_USN_JOURNAL_DATA {
 pub type CSVFS_DISK_CONNECTIVITY = i32;
 pub type CSV_CONTROL_OP = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSV_CONTROL_PARAM {
     pub Operation: CSV_CONTROL_OP,
     pub Unused: i64,
 }
 pub const CSV_INVALID_DEVICE_NUMBER: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSV_IS_OWNED_BY_CSVFS {
     pub OwnedByCSVFS: bool,
 }
 pub const CSV_MGMTLOCK_CHECK_VOLUME_REDIRECTED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSV_MGMT_LOCK {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSV_NAMESPACE_INFO {
     pub Version: u32,
     pub DeviceNumber: u32,
@@ -326,12 +376,23 @@ pub struct CSV_QUERY_FILE_REVISION {
     pub FileId: i64,
     pub FileRevision: [i64; 3],
 }
+impl Default for CSV_QUERY_FILE_REVISION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
 pub struct CSV_QUERY_FILE_REVISION_FILE_ID_128 {
     pub FileId: super::super::Storage::FileSystem::FILE_ID_128,
     pub FileRevision: [i64; 3],
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -341,11 +402,16 @@ pub struct CSV_QUERY_MDS_PATH {
     pub PathLength: u32,
     pub Path: [u16; 1],
 }
+impl Default for CSV_QUERY_MDS_PATH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CSV_QUERY_MDS_PATH_FLAG_CSV_DIRECT_IO_ENABLED: u32 = 2u32;
 pub const CSV_QUERY_MDS_PATH_FLAG_SMB_BYPASS_CSV_ENABLED: u32 = 4u32;
 pub const CSV_QUERY_MDS_PATH_FLAG_STORAGE_ON_THIS_NODE_IS_CONNECTED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSV_QUERY_MDS_PATH_V2 {
     pub Version: i64,
     pub RequiredSize: u32,
@@ -361,7 +427,7 @@ pub struct CSV_QUERY_MDS_PATH_V2 {
 }
 pub const CSV_QUERY_MDS_PATH_V2_VERSION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSV_QUERY_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
@@ -374,13 +440,18 @@ pub struct CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     pub VetoedFromAltitudeDecimal: u64,
     pub Reason: [u16; 256],
 }
+impl Default for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSV_QUERY_VOLUME_ID {
     pub VolumeId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
@@ -389,7 +460,7 @@ pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
     pub DiskConnectivity: CSVFS_DISK_CONNECTIVITY,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSV_SET_VOLUME_ID {
     pub VolumeId: windows_sys::core::GUID,
 }
@@ -428,12 +499,12 @@ pub const DAX_ALLOC_ALIGNMENT_FLAG_MANDATORY: u32 = 1u32;
 pub const DDS_4mm: STORAGE_MEDIA_TYPE = 32i32;
 pub const DDUMP_FLAG_DATA_READ_FROM_DEVICE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DECRYPTION_STATUS_BUFFER {
     pub NoEncryptedStreams: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DELETE_USN_JOURNAL_DATA {
     pub UsnJournalID: u64,
     pub DeleteFlags: USN_DELETE_FLAGS,
@@ -450,6 +521,11 @@ pub struct DEVICEDUMP_PRIVATE_SUBSECTION {
     pub GPLogId: GP_LOG_PAGE_DESCRIPTOR,
     pub bData: [u8; 1],
 }
+impl Default for DEVICEDUMP_PRIVATE_SUBSECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_PUBLIC_SUBSECTION {
@@ -458,10 +534,20 @@ pub struct DEVICEDUMP_PUBLIC_SUBSECTION {
     pub szDescription: [i8; 16],
     pub bData: [u8; 1],
 }
+impl Default for DEVICEDUMP_PUBLIC_SUBSECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_RESTRICTED_SUBSECTION {
     pub bData: [u8; 1],
+}
+impl Default for DEVICEDUMP_RESTRICTED_SUBSECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -476,8 +562,13 @@ pub struct DEVICEDUMP_SECTION_HEADER {
     pub dwFirmwareIssueId: u32,
     pub szIssueDescriptionString: [u8; 132],
 }
+impl Default for DEVICEDUMP_SECTION_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGEDEVICE_DATA {
     pub Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
     pub SectionHeader: DEVICEDUMP_SECTION_HEADER,
@@ -496,6 +587,11 @@ pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     pub uiNumRecords: u32,
     pub RecordArray: [DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD; 1],
 }
+impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
@@ -507,6 +603,11 @@ pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
     pub OperationError: u32,
     pub StackSpecific: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0,
 }
+impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
@@ -514,23 +615,28 @@ pub union DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
     pub AtaPort: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1,
     pub StorPort: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2,
 }
+impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
     pub dwAtaPortSpecific: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
     pub dwReserved: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
     pub SrbTag: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STRUCTURE_VERSION {
     pub dwSignature: u32,
     pub dwVersion: u32,
@@ -538,7 +644,7 @@ pub struct DEVICEDUMP_STRUCTURE_VERSION {
 }
 pub const DEVICEDUMP_STRUCTURE_VERSION_V1: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_SUBSECTION_POINTER {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -559,8 +665,13 @@ pub struct DEVICE_COPY_OFFLOAD_DESCRIPTOR {
     pub OptimalTransferLengthGranularity: u16,
     pub Reserved: [u8; 2],
 }
+impl Default for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
     pub Version: u32,
     pub Size: u32,
@@ -579,6 +690,11 @@ pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE {
     pub SlabAllocationBitMapLength: u32,
     pub SlabAllocationBitMap: [u32; 1],
 }
+impl Default for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
@@ -590,14 +706,19 @@ pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
     pub SlabAllocationBitMapLength: u32,
     pub SlabAllocationBitMap: [u32; 1],
 }
+impl Default for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_DATA_SET_RANGE {
     pub StartingOffset: i64,
     pub LengthInBytes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_DATA_SET_REPAIR_OUTPUT {
     pub ParityExtent: DEVICE_DATA_SET_RANGE,
 }
@@ -608,8 +729,13 @@ pub struct DEVICE_DATA_SET_REPAIR_PARAMETERS {
     pub SourceCopy: u32,
     pub RepairCopies: [u32; 1],
 }
+impl Default for DEVICE_DATA_SET_REPAIR_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
     pub BytesProcessed: u64,
     pub BytesRepaired: u64,
@@ -618,7 +744,7 @@ pub struct DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
     pub BytesScrubbed: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_DATA_SET_SCRUB_OUTPUT {
     pub BytesProcessed: u64,
     pub BytesRepaired: u64,
@@ -630,14 +756,19 @@ pub struct DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
     pub TopologyRangeBytes: u64,
     pub TopologyId: [u8; 16],
 }
+impl Default for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_DSM_CONVERSION_OUTPUT {
     pub Version: u32,
     pub Source: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_DSM_DEFINITION {
     pub Action: u32,
     pub SingleRange: bool,
@@ -657,7 +788,7 @@ pub const DEVICE_DSM_FLAG_SCRUB_SKIP_IN_SYNC: u32 = 268435456u32;
 pub const DEVICE_DSM_FLAG_TRIM_BYPASS_RZAT: u32 = 1073741824u32;
 pub const DEVICE_DSM_FLAG_TRIM_NOT_FS_ALLOCATED: u32 = 2147483648u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_DSM_FREE_SPACE_OUTPUT {
     pub Version: u32,
     pub FreeSpace: u64,
@@ -671,8 +802,13 @@ pub struct DEVICE_DSM_LOST_QUERY_OUTPUT {
     pub NumberOfBits: u32,
     pub BitMap: [u32; 1],
 }
+impl Default for DEVICE_DSM_LOST_QUERY_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_DSM_LOST_QUERY_PARAMETERS {
     pub Version: u32,
     pub Granularity: u64,
@@ -685,6 +821,11 @@ pub struct DEVICE_DSM_NOTIFICATION_PARAMETERS {
     pub NumFileTypeIDs: u32,
     pub FileTypeID: [windows_sys::core::GUID; 1],
 }
+impl Default for DEVICE_DSM_NOTIFICATION_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DEVICE_DSM_NOTIFY_FLAG_BEGIN: u32 = 1u32;
 pub const DEVICE_DSM_NOTIFY_FLAG_END: u32 = 2u32;
 #[repr(C)]
@@ -694,12 +835,22 @@ pub struct DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
     pub TargetPriority: u8,
     pub Reserved: [u8; 3],
 }
+impl Default for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
     pub Flags: u32,
     pub TimeToLive: u32,
     pub Reserved: [u32; 2],
+}
+impl Default for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -708,6 +859,11 @@ pub struct DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     pub Reserved: u32,
     pub TokenOffset: u64,
     pub Token: STORAGE_OFFLOAD_TOKEN,
+}
+impl Default for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEVICE_DSM_PARAMETERS_V1: u32 = 1u32;
 #[repr(C)]
@@ -718,6 +874,11 @@ pub struct DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     pub TotalNumberOfRanges: u32,
     pub NumberOfRangesReturned: u32,
     pub Ranges: [DEVICE_STORAGE_ADDRESS_RANGE; 1],
+}
+impl Default for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_V1: u32 = 1u32;
 pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_VERSION_V1: u32 = 1u32;
@@ -730,6 +891,11 @@ pub struct DEVICE_DSM_RANGE_ERROR_INFO {
     pub NumberOfRangesReturned: u32,
     pub Ranges: [DEVICE_STORAGE_RANGE_ATTRIBUTES; 1],
 }
+impl Default for DEVICE_DSM_RANGE_ERROR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DEVICE_DSM_RANGE_ERROR_INFO_VERSION_V1: u32 = 1u32;
 pub const DEVICE_DSM_RANGE_ERROR_OUTPUT_V1: u32 = 1u32;
 #[repr(C)]
@@ -741,6 +907,11 @@ pub struct DEVICE_DSM_REPORT_ZONES_DATA {
     pub Reserved0: u32,
     pub ZoneDescriptors: [STORAGE_ZONE_DESCRIPTOR; 1],
 }
+impl Default for DEVICE_DSM_REPORT_ZONES_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DSM_REPORT_ZONES_PARAMETERS {
@@ -748,6 +919,11 @@ pub struct DEVICE_DSM_REPORT_ZONES_PARAMETERS {
     pub ReportOption: u8,
     pub Partial: u8,
     pub Reserved: [u8; 2],
+}
+impl Default for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -757,6 +933,11 @@ pub struct DEVICE_DSM_TIERING_QUERY_INPUT {
     pub Flags: u32,
     pub NumberOfTierIds: u32,
     pub TierIds: [windows_sys::core::GUID; 1],
+}
+impl Default for DEVICE_DSM_TIERING_QUERY_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -769,6 +950,11 @@ pub struct DEVICE_DSM_TIERING_QUERY_OUTPUT {
     pub TotalNumberOfRegions: u32,
     pub NumberOfRegionsReturned: u32,
     pub Regions: [STORAGE_TIER_REGION; 1],
+}
+impl Default for DEVICE_DSM_TIERING_QUERY_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -786,6 +972,11 @@ pub struct DEVICE_INTERNAL_STATUS_DATA {
     pub StatusDataLength: u32,
     pub StatusData: [u8; 1],
 }
+impl Default for DEVICE_INTERNAL_STATUS_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = i32;
 pub type DEVICE_INTERNAL_STATUS_DATA_SET = i32;
 #[repr(C)]
@@ -800,6 +991,11 @@ pub struct DEVICE_LB_PROVISIONING_DESCRIPTOR {
     pub MaxUnmapLbaCount: u32,
     pub MaxUnmapBlockDescriptorCount: u32,
 }
+impl Default for DEVICE_LB_PROVISIONING_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_LOCATION {
@@ -809,26 +1005,36 @@ pub struct DEVICE_LOCATION {
     pub Port: u32,
     pub Anonymous: DEVICE_LOCATION_0,
 }
+impl Default for DEVICE_LOCATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVICE_LOCATION_0 {
     pub Anonymous1: DEVICE_LOCATION_0_0,
     pub Anonymous2: DEVICE_LOCATION_0_1,
 }
+impl Default for DEVICE_LOCATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_LOCATION_0_0 {
     pub Channel: u32,
     pub Device: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_LOCATION_0_1 {
     pub Target: u32,
     pub Lun: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
     pub Size: u32,
     pub Action: u32,
@@ -839,7 +1045,7 @@ pub struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
     pub DataSetRangesLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
     pub Size: u32,
     pub Action: u32,
@@ -857,6 +1063,12 @@ pub struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
 pub struct DEVICE_MEDIA_INFO {
     pub DeviceSpecific: DEVICE_MEDIA_INFO_0,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for DEVICE_MEDIA_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
@@ -865,9 +1077,15 @@ pub union DEVICE_MEDIA_INFO_0 {
     pub RemovableDiskInfo: DEVICE_MEDIA_INFO_0_1,
     pub TapeInfo: DEVICE_MEDIA_INFO_0_2,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for DEVICE_MEDIA_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_MEDIA_INFO_0_0 {
     pub Cylinders: i64,
     pub MediaType: STORAGE_MEDIA_TYPE,
@@ -879,7 +1097,7 @@ pub struct DEVICE_MEDIA_INFO_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_MEDIA_INFO_0_1 {
     pub Cylinders: i64,
     pub MediaType: STORAGE_MEDIA_TYPE,
@@ -899,15 +1117,27 @@ pub struct DEVICE_MEDIA_INFO_0_2 {
     pub BusType: super::super::Storage::FileSystem::STORAGE_BUS_TYPE,
     pub BusSpecificData: DEVICE_MEDIA_INFO_0_2_0,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for DEVICE_MEDIA_INFO_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
 pub union DEVICE_MEDIA_INFO_0_2_0 {
     pub ScsiInformation: DEVICE_MEDIA_INFO_0_2_0_0,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for DEVICE_MEDIA_INFO_0_2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_MEDIA_INFO_0_2_0_0 {
     pub MediumType: u8,
     pub DensityCode: u8,
@@ -926,15 +1156,20 @@ pub struct DEVICE_POWER_DESCRIPTOR {
     pub Reserved: [u8; 2],
     pub IdleTimeoutInMS: u32,
 }
+impl Default for DEVICE_POWER_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub IncursSeekPenalty: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_STORAGE_ADDRESS_RANGE {
     pub StartAddress: i64,
     pub LengthInBytes: u64,
@@ -947,26 +1182,36 @@ pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES {
     pub Anonymous: DEVICE_STORAGE_RANGE_ATTRIBUTES_0,
     pub Reserved: u32,
 }
+impl Default for DEVICE_STORAGE_RANGE_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
     pub AllFlags: u32,
     pub Anonymous: DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0,
 }
+impl Default for DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_TRIM_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub TrimEnabled: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -996,20 +1241,30 @@ pub struct DISK_CACHE_INFORMATION {
     pub PrefetchScalar: bool,
     pub Anonymous: DISK_CACHE_INFORMATION_0,
 }
+impl Default for DISK_CACHE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISK_CACHE_INFORMATION_0 {
     pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_0,
     pub BlockPrefetch: DISK_CACHE_INFORMATION_0_1,
 }
+impl Default for DISK_CACHE_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_CACHE_INFORMATION_0_1 {
     pub Minimum: u16,
     pub Maximum: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_CACHE_INFORMATION_0_0 {
     pub Minimum: u16,
     pub Maximum: u16,
@@ -1017,7 +1272,7 @@ pub struct DISK_CACHE_INFORMATION_0_0 {
 }
 pub type DISK_CACHE_RETENTION_PRIORITY = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_CONTROLLER_NUMBER {
     pub ControllerNumber: u32,
     pub DiskNumber: u32,
@@ -1029,26 +1284,36 @@ pub struct DISK_DETECTION_INFO {
     pub DetectionType: DETECTION_TYPE,
     pub Anonymous: DISK_DETECTION_INFO_0,
 }
+impl Default for DISK_DETECTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISK_DETECTION_INFO_0 {
     pub Anonymous: DISK_DETECTION_INFO_0_0,
 }
+impl Default for DISK_DETECTION_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_DETECTION_INFO_0_0 {
     pub Int13: DISK_INT13_INFO,
     pub ExInt13: DISK_EX_INT13_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_EXTENT {
     pub DiskNumber: u32,
     pub StartingOffset: i64,
     pub ExtentLength: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_EX_INT13_INFO {
     pub ExBufferSize: u16,
     pub ExFlags: u16,
@@ -1060,7 +1325,7 @@ pub struct DISK_EX_INT13_INFO {
     pub ExReserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_GEOMETRY {
     pub Cylinders: i64,
     pub MediaType: MEDIA_TYPE,
@@ -1075,8 +1340,13 @@ pub struct DISK_GEOMETRY_EX {
     pub DiskSize: i64,
     pub Data: [u8; 1],
 }
+impl Default for DISK_GEOMETRY_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_GROW_PARTITION {
     pub PartitionNumber: u32,
     pub BytesToGrow: i64,
@@ -1096,8 +1366,13 @@ pub struct DISK_HISTOGRAM {
     pub WriteCount: u32,
     pub Histogram: *mut HISTOGRAM_BUCKET,
 }
+impl Default for DISK_HISTOGRAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_INT13_INFO {
     pub DriveSelect: u16,
     pub MaxCylinders: u32,
@@ -1112,6 +1387,11 @@ pub struct DISK_LOGGING {
     pub BufferAddress: *mut core::ffi::c_void,
     pub BufferSize: u32,
 }
+impl Default for DISK_LOGGING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DISK_LOGGING_DUMP: u32 = 2u32;
 pub const DISK_LOGGING_START: u32 = 0u32;
 pub const DISK_LOGGING_STOP: u32 = 1u32;
@@ -1122,19 +1402,29 @@ pub struct DISK_PARTITION_INFO {
     pub PartitionStyle: PARTITION_STYLE,
     pub Anonymous: DISK_PARTITION_INFO_0,
 }
+impl Default for DISK_PARTITION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISK_PARTITION_INFO_0 {
     pub Mbr: DISK_PARTITION_INFO_0_0,
     pub Gpt: DISK_PARTITION_INFO_0_1,
 }
+impl Default for DISK_PARTITION_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_PARTITION_INFO_0_1 {
     pub DiskId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_PARTITION_INFO_0_0 {
     pub Signature: u32,
     pub CheckSum: u32,
@@ -1155,6 +1445,11 @@ pub struct DISK_PERFORMANCE {
     pub StorageDeviceNumber: u32,
     pub StorageManagerName: [u16; 8],
 }
+impl Default for DISK_PERFORMANCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISK_RECORD {
@@ -1166,6 +1461,11 @@ pub struct DISK_RECORD {
     pub DeviceNumber: u8,
     pub ReadRequest: bool,
 }
+impl Default for DISK_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DLT: STORAGE_MEDIA_TYPE = 39i32;
 pub const DMI: STORAGE_MEDIA_TYPE = 48i32;
 #[repr(C, packed(1))]
@@ -1176,12 +1476,22 @@ pub struct DRIVERSTATUS {
     pub bReserved: [u8; 2],
     pub dwReserved: [u32; 2],
 }
+impl Default for DRIVERSTATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVE_LAYOUT_INFORMATION {
     pub PartitionCount: u32,
     pub Signature: u32,
     pub PartitionEntry: [PARTITION_INFORMATION; 1],
+}
+impl Default for DRIVE_LAYOUT_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1191,14 +1501,24 @@ pub struct DRIVE_LAYOUT_INFORMATION_EX {
     pub Anonymous: DRIVE_LAYOUT_INFORMATION_EX_0,
     pub PartitionEntry: [PARTITION_INFORMATION_EX; 1],
 }
+impl Default for DRIVE_LAYOUT_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DRIVE_LAYOUT_INFORMATION_EX_0 {
     pub Mbr: DRIVE_LAYOUT_INFORMATION_MBR,
     pub Gpt: DRIVE_LAYOUT_INFORMATION_GPT,
 }
+impl Default for DRIVE_LAYOUT_INFORMATION_EX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRIVE_LAYOUT_INFORMATION_GPT {
     pub DiskId: windows_sys::core::GUID,
     pub StartingUsableOffset: i64,
@@ -1206,7 +1526,7 @@ pub struct DRIVE_LAYOUT_INFORMATION_GPT {
     pub MaxPartitionCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRIVE_LAYOUT_INFORMATION_MBR {
     pub Signature: u32,
     pub CheckSum: u32,
@@ -1222,9 +1542,14 @@ pub struct DUPLICATE_EXTENTS_DATA {
     pub TargetFileOffset: i64,
     pub ByteCount: i64,
 }
+impl Default for DUPLICATE_EXTENTS_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DUPLICATE_EXTENTS_DATA32 {
     pub FileHandle: u32,
     pub SourceFileOffset: i64,
@@ -1241,9 +1566,14 @@ pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub ByteCount: i64,
     pub Flags: u32,
 }
+impl Default for DUPLICATE_EXTENTS_DATA_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DUPLICATE_EXTENTS_DATA_EX32 {
     pub Size: u32,
     pub FileHandle: u32,
@@ -1358,6 +1688,11 @@ pub struct ENCRYPTED_DATA_INFO {
     pub NumberOfDataBlocks: u16,
     pub DataBlockSize: [u32; 1],
 }
+impl Default for ENCRYPTED_DATA_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ENCRYPTED_DATA_INFO_SPARSE_FILE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1365,9 +1700,14 @@ pub struct ENCRYPTION_BUFFER {
     pub EncryptionOperation: u32,
     pub Private: [u8; 1],
 }
+impl Default for ENCRYPTION_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ENCRYPTION_FORMAT_DEFAULT: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENCRYPTION_KEY_CTRL_INPUT {
     pub HeaderSize: u32,
     pub StructureSize: u32,
@@ -1387,7 +1727,7 @@ pub const ERROR_TRAY_MALFUNCTION: u32 = 16u32;
 pub const ERROR_UNHANDLED_ERROR: u32 = 4294967295u32;
 pub const EXECUTE_OFFLINE_DIAGS: u32 = 212u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXFAT_STATISTICS {
     pub CreateHits: u32,
     pub SuccessfulCreates: u32,
@@ -1400,7 +1740,7 @@ pub struct EXFAT_STATISTICS {
     pub NonCachedDiskWrites: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXTENDED_ENCRYPTED_DATA_INFO {
     pub ExtendedCode: u32,
     pub Length: u32,
@@ -1433,7 +1773,7 @@ pub const F5_640_512: MEDIA_TYPE = 15i32;
 pub const F5_720_512: MEDIA_TYPE = 16i32;
 pub const F8_256_128: MEDIA_TYPE = 22i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FAT_STATISTICS {
     pub CreateHits: u32,
     pub SuccessfulCreates: u32,
@@ -1446,7 +1786,7 @@ pub struct FAT_STATISTICS {
     pub NonCachedDiskWrites: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILESYSTEM_STATISTICS {
     pub FileSystemType: FILESYSTEM_STATISTICS_TYPE,
     pub Version: u16,
@@ -1465,7 +1805,7 @@ pub struct FILESYSTEM_STATISTICS {
     pub MetaDataDiskWrites: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILESYSTEM_STATISTICS_EX {
     pub FileSystemType: FILESYSTEM_STATISTICS_TYPE,
     pub Version: u16,
@@ -1489,7 +1829,7 @@ pub const FILESYSTEM_STATISTICS_TYPE_FAT: FILESYSTEM_STATISTICS_TYPE = 2u16;
 pub const FILESYSTEM_STATISTICS_TYPE_NTFS: FILESYSTEM_STATISTICS_TYPE = 1u16;
 pub const FILESYSTEM_STATISTICS_TYPE_REFS: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_ALLOCATED_RANGE_BUFFER {
     pub FileOffset: i64,
     pub Length: i64,
@@ -1497,7 +1837,7 @@ pub struct FILE_ALLOCATED_RANGE_BUFFER {
 pub const FILE_ANY_ACCESS: u32 = 0u32;
 pub const FILE_CLEAR_ENCRYPTION: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_DESIRED_STORAGE_CLASS_INFORMATION {
     pub Class: FILE_STORAGE_TIER_CLASS,
     pub Flags: u32,
@@ -1587,7 +1927,7 @@ pub const FILE_DEVICE_WAVE_IN: u32 = 37u32;
 pub const FILE_DEVICE_WAVE_OUT: u32 = 38u32;
 pub const FILE_DEVICE_WPD: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_FS_PERSISTENT_VOLUME_INFORMATION {
     pub VolumeFlags: u32,
     pub FlagMask: u32,
@@ -1638,7 +1978,7 @@ pub const FILE_INITIATE_REPAIR_HINT1_SYSTEM_FILE: u64 = 16u64;
 pub const FILE_INITIATE_REPAIR_HINT1_UNABLE_TO_REPAIR: u64 = 64u64;
 pub const FILE_INITIATE_REPAIR_HINT1_VALID_INDEX_ENTRY: u64 = 536870912u64;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
     pub Hint1: u64,
     pub Hint2: u64,
@@ -1646,7 +1986,7 @@ pub struct FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
     pub Status: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_LAYOUT_ENTRY {
     pub Version: u32,
     pub NextFileOffset: u32,
@@ -1659,7 +1999,7 @@ pub struct FILE_LAYOUT_ENTRY {
     pub ExtraInfoLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_LAYOUT_INFO_ENTRY {
     pub BasicInformation: FILE_LAYOUT_INFO_ENTRY_0,
     pub OwnerId: u32,
@@ -1668,7 +2008,7 @@ pub struct FILE_LAYOUT_INFO_ENTRY {
     pub StorageReserveId: STORAGE_RESERVE_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_LAYOUT_INFO_ENTRY_0 {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -1686,6 +2026,11 @@ pub struct FILE_LAYOUT_NAME_ENTRY {
     pub Reserved: u32,
     pub FileName: [u16; 1],
 }
+impl Default for FILE_LAYOUT_NAME_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FILE_LAYOUT_NAME_ENTRY_DOS: u32 = 2u32;
 pub const FILE_LAYOUT_NAME_ENTRY_PRIMARY: u32 = 1u32;
 #[repr(C)]
@@ -1695,19 +2040,24 @@ pub struct FILE_LEVEL_TRIM {
     pub NumRanges: u32,
     pub Ranges: [FILE_LEVEL_TRIM_RANGE; 1],
 }
+impl Default for FILE_LEVEL_TRIM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_LEVEL_TRIM_OUTPUT {
     pub NumRangesProcessed: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_LEVEL_TRIM_RANGE {
     pub Offset: u64,
     pub Length: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_MAKE_COMPATIBLE_BUFFER {
     pub CloseDisc: bool,
 }
@@ -1717,11 +2067,21 @@ pub struct FILE_OBJECTID_BUFFER {
     pub ObjectId: [u8; 16],
     pub Anonymous: FILE_OBJECTID_BUFFER_0,
 }
+impl Default for FILE_OBJECTID_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FILE_OBJECTID_BUFFER_0 {
     pub Anonymous: FILE_OBJECTID_BUFFER_0_0,
     pub ExtendedInfo: [u8; 48],
+}
+impl Default for FILE_OBJECTID_BUFFER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1730,12 +2090,22 @@ pub struct FILE_OBJECTID_BUFFER_0_0 {
     pub BirthObjectId: [u8; 16],
     pub DomainId: [u8; 16],
 }
+impl Default for FILE_OBJECTID_BUFFER_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PREFETCH {
     pub Type: u32,
     pub Count: u32,
     pub Prefetch: [u64; 1],
+}
+impl Default for FILE_PREFETCH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1745,6 +2115,11 @@ pub struct FILE_PREFETCH_EX {
     pub Context: *mut core::ffi::c_void,
     pub Prefetch: [u64; 1],
 }
+impl Default for FILE_PREFETCH_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FILE_PREFETCH_TYPE_FOR_CREATE: u32 = 1u32;
 pub const FILE_PREFETCH_TYPE_FOR_CREATE_EX: u32 = 3u32;
 pub const FILE_PREFETCH_TYPE_FOR_DIRENUM: u32 = 2u32;
@@ -1753,13 +2128,13 @@ pub const FILE_PREFETCH_TYPE_MAX: u32 = 4u32;
 pub const FILE_PROVIDER_COMPRESSION_MAXIMUM: u32 = 4u32;
 pub const FILE_PROVIDER_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_PROVIDER_EXTERNAL_INFO_V0 {
     pub Version: u32,
     pub Algorithm: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_PROVIDER_EXTERNAL_INFO_V1 {
     pub Version: u32,
     pub Algorithm: u32,
@@ -1782,8 +2157,13 @@ pub struct FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     pub FormattingImplementationInfo: [u16; 34],
     pub LastModifyingImplementationInfo: [u16; 34],
 }
+impl Default for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_QUERY_SPARING_BUFFER {
     pub SparingUnitBytes: u32,
     pub SoftwareSparing: bool,
@@ -1792,13 +2172,13 @@ pub struct FILE_QUERY_SPARING_BUFFER {
 }
 pub const FILE_READ_ACCESS: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_REFERENCE_RANGE {
     pub StartingFileReferenceNumber: u64,
     pub EndingFileReferenceNumber: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_REGION_INFO {
     pub FileOffset: i64,
     pub Length: i64,
@@ -1806,7 +2186,7 @@ pub struct FILE_REGION_INFO {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_REGION_INPUT {
     pub FileOffset: i64,
     pub Length: i64,
@@ -1821,6 +2201,11 @@ pub struct FILE_REGION_OUTPUT {
     pub Reserved: u32,
     pub Region: [FILE_REGION_INFO; 1],
 }
+impl Default for FILE_REGION_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FILE_REGION_USAGE_HUGE_PAGE_ALIGNMENT: u32 = 16u32;
 pub const FILE_REGION_USAGE_LARGE_PAGE_ALIGNMENT: u32 = 8u32;
 pub const FILE_REGION_USAGE_OTHER_PAGE_ALIGNMENT: u32 = 4u32;
@@ -1828,13 +2213,13 @@ pub const FILE_REGION_USAGE_QUERY_ALIGNMENT: u32 = 8u32;
 pub const FILE_REGION_USAGE_VALID_CACHED_DATA: u32 = 1u32;
 pub const FILE_REGION_USAGE_VALID_NONCACHED_DATA: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_SET_DEFECT_MGMT_BUFFER {
     pub Disable: bool,
 }
 pub const FILE_SET_ENCRYPTION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_SET_SPARSE_BUFFER {
     pub SetSparse: bool,
 }
@@ -1850,6 +2235,11 @@ pub struct FILE_STORAGE_TIER {
     pub MediaType: FILE_STORAGE_TIER_MEDIA_TYPE,
     pub Class: FILE_STORAGE_TIER_CLASS,
 }
+impl Default for FILE_STORAGE_TIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FILE_STORAGE_TIER_CLASS = i32;
 pub const FILE_STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
 pub type FILE_STORAGE_TIER_FLAGS = u32;
@@ -1861,7 +2251,7 @@ pub const FILE_STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
 pub type FILE_STORAGE_TIER_MEDIA_TYPE = i32;
 pub const FILE_STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_STORAGE_TIER_REGION {
     pub TierId: windows_sys::core::GUID,
     pub Offset: u64,
@@ -1871,6 +2261,11 @@ pub struct FILE_STORAGE_TIER_REGION {
 #[derive(Clone, Copy)]
 pub struct FILE_SYSTEM_RECOGNITION_INFORMATION {
     pub FileSystem: [i8; 9],
+}
+impl Default for FILE_SYSTEM_RECOGNITION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: u32 = 1u32;
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: u32 = 2u32;
@@ -1884,15 +2279,20 @@ pub struct FILE_TYPE_NOTIFICATION_INPUT {
     pub NumFileTypeIDs: u32,
     pub FileTypeID: [windows_sys::core::GUID; 1],
 }
+impl Default for FILE_TYPE_NOTIFICATION_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FILE_WRITE_ACCESS: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_ZERO_DATA_INFORMATION {
     pub FileOffset: i64,
     pub BeyondFinalZero: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_ZERO_DATA_INFORMATION_EX {
     pub FileOffset: i64,
     pub BeyondFinalZero: i64,
@@ -1901,7 +2301,7 @@ pub struct FILE_ZERO_DATA_INFORMATION_EX {
 pub const FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FIND_BY_SID_DATA {
     pub Restart: u32,
     pub Sid: super::super::Security::SID,
@@ -1913,6 +2313,11 @@ pub struct FIND_BY_SID_OUTPUT {
     pub FileIndex: u32,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
+}
+impl Default for FIND_BY_SID_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FLAG_USN_TRACK_MODIFIED_RANGES_ENABLE: u32 = 1u32;
 #[repr(C)]
@@ -1927,8 +2332,13 @@ pub struct FORMAT_EX_PARAMETERS {
     pub SectorsPerTrack: u16,
     pub SectorNumber: [u16; 1],
 }
+impl Default for FORMAT_EX_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FORMAT_PARAMETERS {
     pub MediaType: MEDIA_TYPE,
     pub StartCylinderNumber: u32,
@@ -1996,7 +2406,7 @@ pub const FSCTL_GET_EXTERNAL_BACKING: u32 = 590608u32;
 pub const FSCTL_GET_FILTER_FILE_IDENTIFIER: u32 = 590788u32;
 pub const FSCTL_GET_INTEGRITY_INFORMATION: u32 = 590460u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
     pub ChecksumAlgorithm: u16,
     pub Reserved: u16,
@@ -2043,7 +2453,7 @@ pub const FSCTL_NOTIFY_DATA_CHANGE: u32 = 590844u32;
 pub const FSCTL_NOTIFY_STORAGE_SPACE_ALLOCATION: u32 = 590748u32;
 pub const FSCTL_OFFLOAD_READ: u32 = 606820u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FSCTL_OFFLOAD_READ_INPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -2060,6 +2470,11 @@ pub struct FSCTL_OFFLOAD_READ_OUTPUT {
     pub TransferLength: u64,
     pub Token: [u8; 512],
 }
+impl Default for FSCTL_OFFLOAD_READ_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FSCTL_OFFLOAD_WRITE: u32 = 623208u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2071,8 +2486,13 @@ pub struct FSCTL_OFFLOAD_WRITE_INPUT {
     pub TransferOffset: u64,
     pub Token: [u8; 512],
 }
+impl Default for FSCTL_OFFLOAD_WRITE_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FSCTL_OFFLOAD_WRITE_OUTPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -2095,6 +2515,11 @@ pub const FSCTL_QUERY_FAT_BPB: u32 = 589912u32;
 pub struct FSCTL_QUERY_FAT_BPB_BUFFER {
     pub First0x24BytesOfBootSector: [u8; 36],
 }
+impl Default for FSCTL_QUERY_FAT_BPB_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FSCTL_QUERY_FILE_LAYOUT: u32 = 590455u32;
 pub const FSCTL_QUERY_FILE_METADATA_OPTIMIZATION: u32 = 590688u32;
 pub const FSCTL_QUERY_FILE_REGIONS: u32 = 590468u32;
@@ -2116,6 +2541,11 @@ pub struct FSCTL_QUERY_REGION_INFO_INPUT {
     pub NumberOfTierIds: u32,
     pub TierIds: [windows_sys::core::GUID; 1],
 }
+impl Default for FSCTL_QUERY_REGION_INFO_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FSCTL_QUERY_REGION_INFO_OUTPUT {
@@ -2127,6 +2557,11 @@ pub struct FSCTL_QUERY_REGION_INFO_OUTPUT {
     pub TotalNumberOfRegions: u32,
     pub NumberOfRegionsReturned: u32,
     pub Regions: [FILE_STORAGE_TIER_REGION; 1],
+}
+impl Default for FSCTL_QUERY_REGION_INFO_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FSCTL_QUERY_RETRIEVAL_POINTERS: u32 = 589883u32;
 pub const FSCTL_QUERY_SHARED_VIRTUAL_DISK_SUPPORT: u32 = 590592u32;
@@ -2141,6 +2576,11 @@ pub struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     pub TotalNumberOfTiers: u32,
     pub NumberOfTiersReturned: u32,
     pub Tiers: [FILE_STORAGE_TIER; 1],
+}
+impl Default for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FSCTL_QUERY_USN_JOURNAL: u32 = 590068u32;
 pub const FSCTL_QUERY_VOLUME_CONTAINER_STATE: u32 = 590736u32;
@@ -2185,7 +2625,7 @@ pub const FSCTL_SET_ENCRYPTION: u32 = 590039u32;
 pub const FSCTL_SET_EXTERNAL_BACKING: u32 = 590604u32;
 pub const FSCTL_SET_INTEGRITY_INFORMATION: u32 = 639616u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
     pub ChecksumAlgorithm: u16,
     pub Reserved: u16,
@@ -2200,6 +2640,11 @@ pub struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
     pub Flags: u32,
     pub Version: u8,
     pub Reserved2: [u8; 7],
+}
+impl Default for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FSCTL_SET_INTEGRITY_INFORMATION_EX: u32 = 590720u32;
 pub const FSCTL_SET_LAYER_ROOT: u32 = 590740u32;
@@ -2272,8 +2717,13 @@ pub struct FS_BPIO_INFO {
     pub StorageDriverNameLen: u16,
     pub StorageDriverName: [u16; 32],
 }
+impl Default for FS_BPIO_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FS_BPIO_INPUT {
     pub Operation: FS_BPIO_OPERATIONS,
     pub InFlags: FS_BPIO_INFLAGS,
@@ -2300,6 +2750,11 @@ pub struct FS_BPIO_OUTPUT {
     pub Reserved2: u64,
     pub Anonymous: FS_BPIO_OUTPUT_0,
 }
+impl Default for FS_BPIO_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FS_BPIO_OUTPUT_0 {
@@ -2309,6 +2764,11 @@ pub union FS_BPIO_OUTPUT_0 {
     pub StreamResume: FS_BPIO_RESULTS,
     pub GetInfo: FS_BPIO_INFO,
 }
+impl Default for FS_BPIO_OUTPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FS_BPIO_RESULTS {
@@ -2317,6 +2777,11 @@ pub struct FS_BPIO_RESULTS {
     pub FailingDriverName: [u16; 32],
     pub FailureReasonLen: u16,
     pub FailureReason: [u16; 128],
+}
+impl Default for FS_BPIO_RESULTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FW_ISSUEID_NO_ISSUE: u32 = 0u32;
 pub const FW_ISSUEID_UNKNOWN: u32 = 4294967295u32;
@@ -2354,6 +2819,11 @@ pub struct GETVERSIONINPARAMS {
     pub fCapabilities: u32,
     pub dwReserved: [u32; 4],
 }
+impl Default for GETVERSIONINPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GET_CHANGER_PARAMETERS {
@@ -2386,9 +2856,14 @@ pub struct GET_CHANGER_PARAMETERS {
     pub Reserved1: [u8; 2],
     pub Reserved2: [u32; 2],
 }
+impl Default for GET_CHANGER_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type GET_CHANGER_PARAMETERS_FEATURES1 = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
     pub Version: u32,
     pub Size: u32,
@@ -2396,7 +2871,7 @@ pub struct GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
     pub RequestDataSet: DEVICE_INTERNAL_STATUS_DATA_SET,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GET_DISK_ATTRIBUTES {
     pub Version: u32,
     pub Reserved1: u32,
@@ -2408,14 +2883,24 @@ pub struct GET_FILTER_FILE_IDENTIFIER_INPUT {
     pub AltitudeLength: u16,
     pub Altitude: [u16; 1],
 }
+impl Default for GET_FILTER_FILE_IDENTIFIER_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GET_FILTER_FILE_IDENTIFIER_OUTPUT {
     pub FilterFileIdentifierLength: u16,
     pub FilterFileIdentifier: [u8; 1],
 }
+impl Default for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GET_LENGTH_INFORMATION {
     pub Length: i64,
 }
@@ -2426,6 +2911,12 @@ pub struct GET_MEDIA_TYPES {
     pub DeviceType: u32,
     pub MediaInfoCount: u32,
     pub MediaInfo: [DEVICE_MEDIA_INFO; 1],
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for GET_MEDIA_TYPES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GET_VOLUME_BITMAP_FLAG_MASK_METADATA: u32 = 1u32;
 pub type GPT_ATTRIBUTES = u64;
@@ -2441,7 +2932,7 @@ pub const GPT_BASIC_DATA_ATTRIBUTE_SERVICE: u64 = 144115188075855872u64;
 pub const GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GPT_ATTRIBUTES = 2305843009213693952u64;
 pub const GPT_SPACES_ATTRIBUTE_NO_METADATA: u64 = 9223372036854775808u64;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GP_LOG_PAGE_DESCRIPTOR {
     pub LogAddress: u16,
     pub LogSectors: u16,
@@ -2470,7 +2961,7 @@ pub const GUID_DEVINTERFACE_ZNSDISK: windows_sys::core::GUID = windows_sys::core
 pub const GUID_SCM_PD_HEALTH_NOTIFICATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9da2d386_72f5_4ee3_8155_eca0678e3b06);
 pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4309ac30_0d11_11e4_9191_0800200c9a66);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HISTOGRAM_BUCKET {
     pub Reads: u32,
     pub Writes: u32,
@@ -2489,7 +2980,7 @@ pub const IBM_Magstar_3590: STORAGE_MEDIA_TYPE = 43i32;
 pub const IBM_Magstar_MP: STORAGE_MEDIA_TYPE = 44i32;
 pub const IDENTIFY_BUFFER_SIZE: u32 = 512u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IDEREGS {
     pub bFeaturesReg: u8,
     pub bSectorCountReg: u8,
@@ -2650,7 +3141,7 @@ pub const IOCTL_STORAGE_STOP_DATA_INTEGRITY_CHECK: u32 = 3004552u32;
 pub const IOMEGA_JAZ: STORAGE_MEDIA_TYPE = 74i32;
 pub const IOMEGA_ZIP: STORAGE_MEDIA_TYPE = 73i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IO_IRP_EXT_TRACK_OFFSET_HEADER {
     pub Validation: u16,
     pub Flags: u16,
@@ -2662,12 +3153,12 @@ pub const KeepReadData: DISK_CACHE_RETENTION_PRIORITY = 2i32;
 pub const LMRQuerySessionInfo: LMR_QUERY_INFO_CLASS = 1i32;
 pub type LMR_QUERY_INFO_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LMR_QUERY_INFO_PARAM {
     pub Operation: LMR_QUERY_INFO_CLASS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LMR_QUERY_SESSION_INFO {
     pub SessionId: u64,
 }
@@ -2684,6 +3175,11 @@ pub struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     pub Cluster: i64,
     pub FileName: [u16; 1],
 }
+impl Default for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_DATA: u32 = 16777216u32;
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_INDEX: u32 = 33554432u32;
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_MASK: u32 = 4278190080u32;
@@ -2699,8 +3195,13 @@ pub struct LOOKUP_STREAM_FROM_CLUSTER_INPUT {
     pub NumberOfClusters: u32,
     pub Cluster: [i64; 1],
 }
+impl Default for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     pub Offset: u32,
     pub NumberOfMatches: u32,
@@ -2720,11 +3221,21 @@ pub struct MARK_HANDLE_INFO {
     pub VolumeHandle: super::super::Foundation::HANDLE,
     pub HandleInfo: u32,
 }
+impl Default for MARK_HANDLE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MARK_HANDLE_INFO_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
+}
+impl Default for MARK_HANDLE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2734,12 +3245,24 @@ pub struct MARK_HANDLE_INFO32 {
     pub VolumeHandle: u32,
     pub HandleInfo: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for MARK_HANDLE_INFO32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union MARK_HANDLE_INFO32_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for MARK_HANDLE_INFO32_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MARK_HANDLE_NOT_READ_COPY: u32 = 256u32;
 pub const MARK_HANDLE_NOT_REALTIME: u32 = 64u32;
@@ -2770,14 +3293,14 @@ pub const METHOD_IN_DIRECT: u32 = 1u32;
 pub const METHOD_NEITHER: u32 = 3u32;
 pub const METHOD_OUT_DIRECT: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MFT_ENUM_DATA_V0 {
     pub StartFileReferenceNumber: u64,
     pub LowUsn: i64,
     pub HighUsn: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MFT_ENUM_DATA_V1 {
     pub StartFileReferenceNumber: u64,
     pub LowUsn: i64,
@@ -2793,9 +3316,14 @@ pub struct MOVE_FILE_DATA {
     pub StartingLcn: i64,
     pub ClusterCount: u32,
 }
+impl Default for MOVE_FILE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MOVE_FILE_DATA32 {
     pub FileHandle: u32,
     pub StartingVcn: i64,
@@ -2809,6 +3337,11 @@ pub struct MOVE_FILE_RECORD_DATA {
     pub SourceFileRecord: i64,
     pub TargetFileRecord: i64,
 }
+impl Default for MOVE_FILE_RECORD_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MO_3_RW: STORAGE_MEDIA_TYPE = 57i32;
 pub const MO_5_LIMDOW: STORAGE_MEDIA_TYPE = 60i32;
 pub const MO_5_RW: STORAGE_MEDIA_TYPE = 59i32;
@@ -2820,7 +3353,7 @@ pub const MiniQic: STORAGE_MEDIA_TYPE = 33i32;
 pub const NCTP: STORAGE_MEDIA_TYPE = 40i32;
 pub const NIKON_12_RW: STORAGE_MEDIA_TYPE = 72i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_EXTENDED_VOLUME_DATA {
     pub ByteCount: u32,
     pub MajorVersion: u16,
@@ -2834,7 +3367,7 @@ pub struct NTFS_EXTENDED_VOLUME_DATA {
     pub MaxVolumeTrimByteCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_FILE_RECORD_INPUT_BUFFER {
     pub FileReferenceNumber: i64,
 }
@@ -2845,8 +3378,13 @@ pub struct NTFS_FILE_RECORD_OUTPUT_BUFFER {
     pub FileRecordLength: u32,
     pub FileRecordBuffer: [u8; 1],
 }
+impl Default for NTFS_FILE_RECORD_OUTPUT_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS {
     pub LogFileFullExceptions: u32,
     pub OtherExceptions: u32,
@@ -2896,7 +3434,7 @@ pub struct NTFS_STATISTICS {
     pub DiskResourcesExhausted: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_4 {
     pub Calls: u32,
     pub Clusters: u32,
@@ -2910,14 +3448,14 @@ pub struct NTFS_STATISTICS_4 {
     pub CacheMissClusters: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_2 {
     pub Write: u16,
     pub Create: u16,
     pub SetInfo: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_1 {
     pub Write: u16,
     pub Create: u16,
@@ -2925,7 +3463,7 @@ pub struct NTFS_STATISTICS_1 {
     pub Flush: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_3 {
     pub Write: u16,
     pub Create: u16,
@@ -2933,7 +3471,7 @@ pub struct NTFS_STATISTICS_3 {
     pub Flush: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_0 {
     pub Write: u16,
     pub Create: u16,
@@ -2941,7 +3479,7 @@ pub struct NTFS_STATISTICS_0 {
     pub Flush: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX {
     pub LogFileFullExceptions: u32,
     pub OtherExceptions: u32,
@@ -3002,7 +3540,7 @@ pub struct NTFS_STATISTICS_EX {
     pub NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_4 {
     pub Calls: u32,
     pub RunsReturned: u32,
@@ -3016,7 +3554,7 @@ pub struct NTFS_STATISTICS_EX_4 {
     pub CacheMissClusters: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_2 {
     pub Write: u32,
     pub Create: u32,
@@ -3024,7 +3562,7 @@ pub struct NTFS_STATISTICS_EX_2 {
     pub Flush: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_1 {
     pub Write: u32,
     pub Create: u32,
@@ -3032,7 +3570,7 @@ pub struct NTFS_STATISTICS_EX_1 {
     pub Flush: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_3 {
     pub Write: u32,
     pub Create: u32,
@@ -3040,7 +3578,7 @@ pub struct NTFS_STATISTICS_EX_3 {
     pub Flush: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_0 {
     pub Write: u32,
     pub Create: u32,
@@ -3048,7 +3586,7 @@ pub struct NTFS_STATISTICS_EX_0 {
     pub Flush: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_VOLUME_DATA_BUFFER {
     pub VolumeSerialNumber: i64,
     pub NumberSectors: i64,
@@ -3091,7 +3629,7 @@ pub const PARTITION_GPT: u32 = 238u32;
 pub const PARTITION_HUGE: u32 = 6u32;
 pub const PARTITION_IFS: u32 = 7u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PARTITION_INFORMATION {
     pub StartingOffset: i64,
     pub PartitionLength: i64,
@@ -3113,11 +3651,21 @@ pub struct PARTITION_INFORMATION_EX {
     pub IsServicePartition: bool,
     pub Anonymous: PARTITION_INFORMATION_EX_0,
 }
+impl Default for PARTITION_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PARTITION_INFORMATION_EX_0 {
     pub Mbr: PARTITION_INFORMATION_MBR,
     pub Gpt: PARTITION_INFORMATION_GPT,
+}
+impl Default for PARTITION_INFORMATION_EX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3127,8 +3675,13 @@ pub struct PARTITION_INFORMATION_GPT {
     pub Attributes: GPT_ATTRIBUTES,
     pub Name: [u16; 36],
 }
+impl Default for PARTITION_INFORMATION_GPT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PARTITION_INFORMATION_MBR {
     pub PartitionType: u8,
     pub BootIndicator: bool,
@@ -3162,6 +3715,11 @@ pub struct PATHNAME_BUFFER {
     pub PathNameLength: u32,
     pub Name: [u16; 1],
 }
+impl Default for PATHNAME_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PC_5_RW: STORAGE_MEDIA_TYPE = 62i32;
 pub const PC_5_WO: STORAGE_MEDIA_TYPE = 61i32;
 pub const PD_5_RW: STORAGE_MEDIA_TYPE = 63i32;
@@ -3172,6 +3730,11 @@ pub struct PERF_BIN {
     pub TypeOfBin: u32,
     pub BinsRanges: [BIN_RANGE; 1],
 }
+impl Default for PERF_BIN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PERSISTENT_RESERVE_COMMAND {
@@ -3179,14 +3742,24 @@ pub struct PERSISTENT_RESERVE_COMMAND {
     pub Size: u32,
     pub Anonymous: PERSISTENT_RESERVE_COMMAND_0,
 }
+impl Default for PERSISTENT_RESERVE_COMMAND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PERSISTENT_RESERVE_COMMAND_0 {
     pub PR_IN: PERSISTENT_RESERVE_COMMAND_0_0,
     pub PR_OUT: PERSISTENT_RESERVE_COMMAND_0_1,
 }
+impl Default for PERSISTENT_RESERVE_COMMAND_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERSISTENT_RESERVE_COMMAND_0_0 {
     pub _bitfield: u8,
     pub AllocationLength: u16,
@@ -3197,6 +3770,11 @@ pub struct PERSISTENT_RESERVE_COMMAND_0_1 {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
     pub ParameterList: [u8; 1],
+}
+impl Default for PERSISTENT_RESERVE_COMMAND_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PERSISTENT_VOLUME_STATE_BACKED_BY_WIM: u32 = 64u32;
 pub const PERSISTENT_VOLUME_STATE_CHKDSK_RAN_ONCE: u32 = 1024u32;
@@ -3225,6 +3803,11 @@ pub struct PHYSICAL_ELEMENT_STATUS {
     pub Reserved: u32,
     pub Descriptors: [PHYSICAL_ELEMENT_STATUS_DESCRIPTOR; 1],
 }
+impl Default for PHYSICAL_ELEMENT_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
@@ -3237,6 +3820,11 @@ pub struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
     pub AssociatedCapacity: u64,
     pub Reserved2: [u32; 4],
 }
+impl Default for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PHYSICAL_ELEMENT_STATUS_REQUEST {
@@ -3247,17 +3835,22 @@ pub struct PHYSICAL_ELEMENT_STATUS_REQUEST {
     pub ReportType: u8,
     pub Reserved: [u8; 2],
 }
+impl Default for PHYSICAL_ELEMENT_STATUS_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PINNACLE_APEX_5_RW: STORAGE_MEDIA_TYPE = 65i32;
 pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = Option<unsafe extern "system" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PLEX_READ_DATA_REQUEST {
     pub ByteOffset: i64,
     pub ByteLength: u32,
     pub PlexNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PREVENT_MEDIA_REMOVAL {
     pub PreventMediaRemoval: bool,
 }
@@ -3286,8 +3879,13 @@ pub struct QUERY_BAD_RANGES_INPUT {
     pub NumRanges: u32,
     pub Ranges: [QUERY_BAD_RANGES_INPUT_RANGE; 1],
 }
+impl Default for QUERY_BAD_RANGES_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_BAD_RANGES_INPUT_RANGE {
     pub StartOffset: u64,
     pub LengthInBytes: u64,
@@ -3300,8 +3898,13 @@ pub struct QUERY_BAD_RANGES_OUTPUT {
     pub NextOffsetToLookUp: u64,
     pub BadRanges: [QUERY_BAD_RANGES_OUTPUT_RANGE; 1],
 }
+impl Default for QUERY_BAD_RANGES_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_BAD_RANGES_OUTPUT_RANGE {
     pub Flags: u32,
     pub Reserved: u32,
@@ -3339,11 +3942,21 @@ pub struct QUERY_FILE_LAYOUT_INPUT {
     pub Reserved: u32,
     pub Filter: QUERY_FILE_LAYOUT_INPUT_1,
 }
+impl Default for QUERY_FILE_LAYOUT_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union QUERY_FILE_LAYOUT_INPUT_0 {
     pub FilterEntryCount: u32,
     pub NumberOfPairs: u32,
+}
+impl Default for QUERY_FILE_LAYOUT_INPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3352,9 +3965,14 @@ pub union QUERY_FILE_LAYOUT_INPUT_1 {
     pub FileReferenceRanges: [FILE_REFERENCE_RANGE; 1],
     pub StorageReserveIds: [STORAGE_RESERVE_ID; 1],
 }
+impl Default for QUERY_FILE_LAYOUT_INPUT_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const QUERY_FILE_LAYOUT_NUM_FILTER_TYPES: QUERY_FILE_LAYOUT_FILTER_TYPE = 4i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_FILE_LAYOUT_OUTPUT {
     pub FileEntryCount: u32,
     pub FirstFileOffset: u32,
@@ -3379,8 +3997,13 @@ pub struct READ_ELEMENT_ADDRESS_INFO {
     pub NumberOfElements: u32,
     pub ElementStatus: [CHANGER_ELEMENT_STATUS; 1],
 }
+impl Default for READ_ELEMENT_ADDRESS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct READ_FILE_USN_DATA {
     pub MinMajorVersion: u16,
     pub MaxMajorVersion: u16,
@@ -3388,7 +4011,7 @@ pub struct READ_FILE_USN_DATA {
 pub const READ_THRESHOLDS: u32 = 209u32;
 pub const READ_THRESHOLD_BUFFER_SIZE: u32 = 512u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct READ_USN_JOURNAL_DATA_V0 {
     pub StartUsn: i64,
     pub ReasonMask: u32,
@@ -3398,7 +4021,7 @@ pub struct READ_USN_JOURNAL_DATA_V0 {
     pub UsnJournalID: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct READ_USN_JOURNAL_DATA_V1 {
     pub StartUsn: i64,
     pub ReasonMask: u32,
@@ -3416,12 +4039,22 @@ pub struct REASSIGN_BLOCKS {
     pub Count: u16,
     pub BlockNumber: [u32; 1],
 }
+impl Default for REASSIGN_BLOCKS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct REASSIGN_BLOCKS_EX {
     pub Reserved: u16,
     pub Count: u16,
     pub BlockNumber: [i64; 1],
+}
+impl Default for REASSIGN_BLOCKS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RECOVERED_READS_VALID: u32 = 4u32;
 pub const RECOVERED_WRITES_VALID: u32 = 1u32;
@@ -3437,6 +4070,11 @@ pub struct REFS_SMR_VOLUME_GC_PARAMETERS {
     pub IoGranularity: u32,
     pub CompressionFormat: u32,
     pub Unused: [u64; 8],
+}
+impl Default for REFS_SMR_VOLUME_GC_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const REFS_SMR_VOLUME_GC_PARAMETERS_VERSION_V1: u32 = 1u32;
 pub type REFS_SMR_VOLUME_GC_STATE = i32;
@@ -3454,6 +4092,11 @@ pub struct REFS_SMR_VOLUME_INFO_OUTPUT {
     pub VolumeGcLastStatus: u32,
     pub CurrentGcBandFillPercentage: u32,
     pub Unused: [u64; 6],
+}
+impl Default for REFS_SMR_VOLUME_INFO_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V0: u32 = 0u32;
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V1: u32 = 1u32;
@@ -3479,8 +4122,13 @@ pub struct REFS_VOLUME_DATA_BUFFER {
     pub Reserved0: [u8; 6],
     pub Reserved: [i64; 8],
 }
+impl Default for REFS_VOLUME_DATA_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
     pub Version: u32,
     pub Size: u32,
@@ -3499,8 +4147,13 @@ pub struct REPAIR_COPIES_INPUT {
     pub NumberOfRepairCopies: u32,
     pub RepairCopies: [u32; 1],
 }
+impl Default for REPAIR_COPIES_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPAIR_COPIES_OUTPUT {
     pub Size: u32,
     pub Status: u32,
@@ -3510,7 +4163,7 @@ pub const REPLACE_ALTERNATE: u32 = 11u32;
 pub const REPLACE_PRIMARY: u32 = 10u32;
 pub const REQUEST_OPLOCK_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REQUEST_OPLOCK_INPUT_BUFFER {
     pub StructureVersion: u16,
     pub StructureLength: u16,
@@ -3521,7 +4174,7 @@ pub const REQUEST_OPLOCK_INPUT_FLAG_ACK: u32 = 2u32;
 pub const REQUEST_OPLOCK_INPUT_FLAG_COMPLETE_ACK_ON_CLOSE: u32 = 4u32;
 pub const REQUEST_OPLOCK_INPUT_FLAG_REQUEST: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REQUEST_OPLOCK_OUTPUT_BUFFER {
     pub StructureVersion: u16,
     pub StructureLength: u16,
@@ -3535,7 +4188,7 @@ pub const REQUEST_OPLOCK_OUTPUT_FLAG_ACK_REQUIRED: u32 = 1u32;
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_MODES_PROVIDED: u32 = 2u32;
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_WRITABLE_SECTION_PRESENT: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REQUEST_RAW_ENCRYPTED_DATA {
     pub FileOffset: i64,
     pub Length: u32,
@@ -3548,8 +4201,13 @@ pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     pub StartingVcn: i64,
     pub Extents: [RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0; 1],
 }
+impl Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     pub NextVcn: i64,
     pub Lcn: i64,
@@ -3562,19 +4220,24 @@ pub struct RETRIEVAL_POINTERS_BUFFER {
     pub StartingVcn: i64,
     pub Extents: [RETRIEVAL_POINTERS_BUFFER_0; 1],
 }
+impl Default for RETRIEVAL_POINTERS_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RETRIEVAL_POINTERS_BUFFER_0 {
     pub NextVcn: i64,
     pub Lcn: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RETRIEVAL_POINTER_BASE {
     pub FileAreaOffset: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RETRIEVAL_POINTER_COUNT {
     pub ExtentCount: u32,
 }
@@ -3593,8 +4256,13 @@ pub struct SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
     pub DeviceCount: u32,
     pub Devices: [SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO; 1],
 }
+impl Default for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
     pub DeviceGuid: windows_sys::core::GUID,
     pub DeviceNumber: u32,
@@ -3602,12 +4270,12 @@ pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
     pub DeviceSize: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
     pub ActivateState: bool,
 }
@@ -3622,6 +4290,11 @@ pub struct SCM_BUS_PROPERTY_QUERY {
     pub QueryType: SCM_BUS_QUERY_TYPE,
     pub AdditionalParameters: [u8; 1],
 }
+impl Default for SCM_BUS_PROPERTY_QUERY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCM_BUS_PROPERTY_SET {
@@ -3631,9 +4304,14 @@ pub struct SCM_BUS_PROPERTY_SET {
     pub SetType: SCM_BUS_SET_TYPE,
     pub AdditionalParameters: [u8; 1],
 }
+impl Default for SCM_BUS_PROPERTY_SET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SCM_BUS_QUERY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -3646,13 +4324,13 @@ pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub PlatformSupportedMaxIOAccessQuiesceTimeInUSecs: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     pub _bitfield: u32,
 }
 pub type SCM_BUS_SET_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_INTERLEAVED_PD_INFO {
     pub DeviceHandle: u32,
     pub DeviceGuid: windows_sys::core::GUID,
@@ -3665,6 +4343,11 @@ pub struct SCM_LD_INTERLEAVE_SET_INFO {
     pub InterleaveSetSize: u32,
     pub InterleaveSet: [SCM_INTERLEAVED_PD_INFO; 1],
 }
+impl Default for SCM_LD_INTERLEAVE_SET_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCM_LOGICAL_DEVICES {
@@ -3672,6 +4355,11 @@ pub struct SCM_LOGICAL_DEVICES {
     pub Size: u32,
     pub DeviceCount: u32,
     pub Devices: [SCM_LOGICAL_DEVICE_INSTANCE; 1],
+}
+impl Default for SCM_LOGICAL_DEVICES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3681,15 +4369,20 @@ pub struct SCM_LOGICAL_DEVICE_INSTANCE {
     pub DeviceGuid: windows_sys::core::GUID,
     pub SymbolicLink: [u16; 256],
 }
+impl Default for SCM_LOGICAL_DEVICE_INSTANCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SCM_MAX_SYMLINK_LEN_IN_CHARS: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_PD_DESCRIPTOR_HEADER {
     pub Version: u32,
     pub Size: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_PD_DEVICE_HANDLE {
     pub Version: u32,
     pub Size: u32,
@@ -3722,6 +4415,11 @@ pub struct SCM_PD_DEVICE_INFO {
     pub SerialNumberLengthInChars: u32,
     pub SerialNumber: [i8; 1],
 }
+impl Default for SCM_PD_DEVICE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCM_PD_DEVICE_SPECIFIC_INFO {
@@ -3730,14 +4428,24 @@ pub struct SCM_PD_DEVICE_SPECIFIC_INFO {
     pub NumberOfProperties: u32,
     pub DeviceSpecificProperties: [SCM_PD_DEVICE_SPECIFIC_PROPERTY; 1],
 }
+impl Default for SCM_PD_DEVICE_SPECIFIC_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCM_PD_DEVICE_SPECIFIC_PROPERTY {
     pub Name: [u16; 128],
     pub Value: i64,
 }
+impl Default for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_PD_FIRMWARE_ACTIVATE {
     pub Version: u32,
     pub Size: u32,
@@ -3757,6 +4465,11 @@ pub struct SCM_PD_FIRMWARE_DOWNLOAD {
     pub FirmwareImageSizeInBytes: u32,
     pub FirmwareImage: [u8; 1],
 }
+impl Default for SCM_PD_FIRMWARE_DOWNLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCM_PD_FIRMWARE_INFO {
@@ -3766,6 +4479,11 @@ pub struct SCM_PD_FIRMWARE_INFO {
     pub NextActiveSlot: u8,
     pub SlotCount: u8,
     pub Slots: [SCM_PD_FIRMWARE_SLOT_INFO; 1],
+}
+impl Default for SCM_PD_FIRMWARE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SCM_PD_FIRMWARE_LAST_DOWNLOAD: u32 = 1u32;
 pub const SCM_PD_FIRMWARE_REVISION_LENGTH_BYTES: u32 = 32u32;
@@ -3779,6 +4497,11 @@ pub struct SCM_PD_FIRMWARE_SLOT_INFO {
     pub Reserved1: [u8; 6],
     pub Revision: [u8; 32],
 }
+impl Default for SCM_PD_FIRMWARE_SLOT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCM_PD_FRU_ID_STRING {
@@ -3787,8 +4510,13 @@ pub struct SCM_PD_FRU_ID_STRING {
     pub IdentifierSize: u32,
     pub Identifier: [u8; 1],
 }
+impl Default for SCM_PD_FRU_ID_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_PD_HEALTH_NOTIFICATION_DATA {
     pub DeviceGuid: windows_sys::core::GUID,
 }
@@ -3801,6 +4529,11 @@ pub struct SCM_PD_LOCATION_STRING {
     pub Size: u32,
     pub Location: [u16; 1],
 }
+impl Default for SCM_PD_LOCATION_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCM_PD_MANAGEMENT_STATUS {
@@ -3811,6 +4544,11 @@ pub struct SCM_PD_MANAGEMENT_STATUS {
     pub NumberOfAdditionalReasons: u32,
     pub OperationalStatus: [SCM_PD_OPERATIONAL_STATUS; 16],
     pub AdditionalReasons: [SCM_PD_OPERATIONAL_STATUS_REASON; 1],
+}
+impl Default for SCM_PD_MANAGEMENT_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SCM_PD_MAX_OPERATIONAL_STATUS: u32 = 16u32;
 pub type SCM_PD_MEDIA_REINITIALIZATION_STATUS = i32;
@@ -3825,12 +4563,22 @@ pub struct SCM_PD_PASSTHROUGH_INPUT {
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
+impl Default for SCM_PD_PASSTHROUGH_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
     pub Opcode: u32,
     pub OpcodeParametersLength: u32,
     pub OpcodeParameters: [u8; 1],
+}
+impl Default for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3840,6 +4588,11 @@ pub struct SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
     pub OutputDataLength: u32,
     pub OutputData: [u8; 1],
 }
+impl Default for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCM_PD_PASSTHROUGH_OUTPUT {
@@ -3848,6 +4601,11 @@ pub struct SCM_PD_PASSTHROUGH_OUTPUT {
     pub ProtocolGuid: windows_sys::core::GUID,
     pub DataSize: u32,
     pub Data: [u8; 1],
+}
+impl Default for SCM_PD_PASSTHROUGH_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SCM_PD_PROPERTY_ID = i32;
 pub const SCM_PD_PROPERTY_NAME_LENGTH_IN_CHARS: u32 = 128u32;
@@ -3860,6 +4618,11 @@ pub struct SCM_PD_PROPERTY_QUERY {
     pub QueryType: SCM_PD_QUERY_TYPE,
     pub AdditionalParameters: [u8; 1],
 }
+impl Default for SCM_PD_PROPERTY_QUERY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCM_PD_PROPERTY_SET {
@@ -3869,33 +4632,38 @@ pub struct SCM_PD_PROPERTY_SET {
     pub SetType: SCM_PD_SET_TYPE,
     pub AdditionalParameters: [u8; 1],
 }
+impl Default for SCM_PD_PROPERTY_SET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SCM_PD_QUERY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT {
     pub Version: u32,
     pub Size: u32,
     pub Options: SCM_PD_REINITIALIZE_MEDIA_INPUT_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
     pub Version: u32,
     pub Size: u32,
     pub Status: SCM_PD_MEDIA_REINITIALIZATION_STATUS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     pub ArmState: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -3911,6 +4679,11 @@ pub struct SCM_PHYSICAL_DEVICES {
     pub DeviceCount: u32,
     pub Devices: [SCM_PHYSICAL_DEVICE_INSTANCE; 1],
 }
+impl Default for SCM_PHYSICAL_DEVICES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCM_PHYSICAL_DEVICE_INSTANCE {
@@ -3919,8 +4692,13 @@ pub struct SCM_PHYSICAL_DEVICE_INSTANCE {
     pub NfitHandle: u32,
     pub SymbolicLink: [u16; 256],
 }
+impl Default for SCM_PHYSICAL_DEVICE_INSTANCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCM_REGION {
     pub Version: u32,
     pub Size: u32,
@@ -3943,9 +4721,14 @@ pub struct SCM_REGIONS {
     pub RegionCount: u32,
     pub Regions: [SCM_REGION; 1],
 }
+impl Default for SCM_REGIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SCM_REGION_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SD_CHANGE_MACHINE_SID_INPUT {
     pub CurrentMachineSIDOffset: u16,
     pub CurrentMachineSIDLength: u16,
@@ -3953,7 +4736,7 @@ pub struct SD_CHANGE_MACHINE_SID_INPUT {
     pub NewMachineSIDLength: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SD_CHANGE_MACHINE_SID_OUTPUT {
     pub NumSDChangedSuccess: u64,
     pub NumSDChangedFail: u64,
@@ -3972,8 +4755,13 @@ pub struct SD_ENUM_SDS_ENTRY {
     pub Length: u32,
     pub Descriptor: [u8; 1],
 }
+impl Default for SD_ENUM_SDS_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SD_ENUM_SDS_INPUT {
     pub StartingOffset: u64,
     pub MaxSDEntriesToReturn: u64,
@@ -3986,12 +4774,22 @@ pub struct SD_ENUM_SDS_OUTPUT {
     pub NumSDBytesReturned: u64,
     pub SDEntry: [SD_ENUM_SDS_ENTRY; 1],
 }
+impl Default for SD_ENUM_SDS_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SD_GLOBAL_CHANGE_INPUT {
     pub Flags: u32,
     pub ChangeType: u32,
     pub Anonymous: SD_GLOBAL_CHANGE_INPUT_0,
+}
+impl Default for SD_GLOBAL_CHANGE_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4000,12 +4798,22 @@ pub union SD_GLOBAL_CHANGE_INPUT_0 {
     pub SdQueryStats: SD_QUERY_STATS_INPUT,
     pub SdEnumSds: SD_ENUM_SDS_INPUT,
 }
+impl Default for SD_GLOBAL_CHANGE_INPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SD_GLOBAL_CHANGE_OUTPUT {
     pub Flags: u32,
     pub ChangeType: u32,
     pub Anonymous: SD_GLOBAL_CHANGE_OUTPUT_0,
+}
+impl Default for SD_GLOBAL_CHANGE_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4014,16 +4822,21 @@ pub union SD_GLOBAL_CHANGE_OUTPUT_0 {
     pub SdQueryStats: SD_QUERY_STATS_OUTPUT,
     pub SdEnumSds: SD_ENUM_SDS_OUTPUT,
 }
+impl Default for SD_GLOBAL_CHANGE_OUTPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SD_GLOBAL_CHANGE_TYPE_ENUM_SDS: u32 = 131072u32;
 pub const SD_GLOBAL_CHANGE_TYPE_MACHINE_SID: u32 = 1u32;
 pub const SD_GLOBAL_CHANGE_TYPE_QUERY_STATS: u32 = 65536u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SD_QUERY_STATS_INPUT {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SD_QUERY_STATS_OUTPUT {
     pub SdsStreamSize: u64,
     pub SdsAllocationSize: u64,
@@ -4050,12 +4863,22 @@ pub struct SENDCMDINPARAMS {
     pub dwReserved: [u32; 4],
     pub bBuffer: [u8; 1],
 }
+impl Default for SENDCMDINPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SENDCMDOUTPARAMS {
     pub cBufferSize: u32,
     pub DriverStatus: DRIVERSTATUS,
     pub bBuffer: [u8; 1],
+}
+impl Default for SENDCMDOUTPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SERIAL_IOC_FCR_DMA_MODE: u32 = 8u32;
 pub const SERIAL_IOC_FCR_FIFO_ENABLE: u32 = 1u32;
@@ -4072,7 +4895,7 @@ pub const SERIAL_IOC_MCR_OUT2: u32 = 8u32;
 pub const SERIAL_IOC_MCR_RTS: u32 = 2u32;
 pub const SERIAL_NUMBER_LENGTH: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     pub Flags: u32,
     pub AlignmentShift: u32,
@@ -4089,8 +4912,13 @@ pub struct SET_DISK_ATTRIBUTES {
     pub AttributesMask: u64,
     pub Reserved2: [u32; 4],
 }
+impl Default for SET_DISK_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SET_PARTITION_INFORMATION {
     pub PartitionType: u8,
 }
@@ -4100,16 +4928,26 @@ pub struct SET_PARTITION_INFORMATION_EX {
     pub PartitionStyle: PARTITION_STYLE,
     pub Anonymous: SET_PARTITION_INFORMATION_EX_0,
 }
+impl Default for SET_PARTITION_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SET_PARTITION_INFORMATION_EX_0 {
     pub Mbr: SET_PARTITION_INFORMATION,
     pub Gpt: PARTITION_INFORMATION_GPT,
 }
+impl Default for SET_PARTITION_INFORMATION_EX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SET_PURGE_FAILURE_MODE_DISABLED: u32 = 2u32;
 pub const SET_PURGE_FAILURE_MODE_ENABLED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SET_PURGE_FAILURE_MODE_INPUT {
     pub Flags: u32,
 }
@@ -4118,7 +4956,7 @@ pub const SET_REPAIR_ENABLED: u32 = 1u32;
 pub const SET_REPAIR_VALID_MASK: u32 = 25u32;
 pub const SET_REPAIR_WARN_ABOUT_DATA_LOSS: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHRINK_VOLUME_INFORMATION {
     pub ShrinkRequestType: SHRINK_VOLUME_REQUEST_TYPES,
     pub Flags: u64,
@@ -4132,6 +4970,11 @@ pub struct SI_COPYFILE {
     pub DestinationFileNameLength: u32,
     pub Flags: u32,
     pub FileNameBuffer: [u16; 1],
+}
+impl Default for SI_COPYFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SMART_ABORT_OFFLINE_SELFTEST: u32 = 127u32;
 pub const SMART_CMD: u32 = 176u32;
@@ -4161,12 +5004,12 @@ pub const SMART_SHORT_SELFTEST_CAPTIVE: u32 = 129u32;
 pub const SMART_SHORT_SELFTEST_OFFLINE: u32 = 1u32;
 pub const SMART_WRITE_LOG: u32 = 214u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SMB_SHARE_FLUSH_AND_PURGE_INPUT {
     pub Version: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
     pub cEntriesPurged: u32,
 }
@@ -4177,18 +5020,18 @@ pub const SPACES_TRACKED_OFFSET_HEADER_FLAG: u32 = 2u32;
 pub const SRB_TYPE_SCSI_REQUEST_BLOCK: u32 = 0u32;
 pub const SRB_TYPE_STORAGE_REQUEST_BLOCK: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STARTING_LCN_INPUT_BUFFER {
     pub StartingLcn: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STARTING_LCN_INPUT_BUFFER_EX {
     pub StartingLcn: i64,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STARTING_VCN_INPUT_BUFFER {
     pub StartingVcn: i64,
 }
@@ -4196,7 +5039,7 @@ pub const STK_9840: STORAGE_MEDIA_TYPE = 85i32;
 pub const STK_9940: STORAGE_MEDIA_TYPE = 92i32;
 pub const STK_DATA_D3: STORAGE_MEDIA_TYPE = 45i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -4207,7 +5050,7 @@ pub struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     pub BytesOffsetForSectorAlignment: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_ADAPTER_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -4231,6 +5074,11 @@ pub struct STORAGE_ADAPTER_SERIAL_NUMBER {
     pub Size: u32,
     pub SerialNumber: [u16; 128],
 }
+impl Default for STORAGE_ADAPTER_SERIAL_NUMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_MAX_LENGTH: u32 = 128u32;
 pub const STORAGE_ADDRESS_TYPE_BTL8: u32 = 0u32;
 #[repr(C)]
@@ -4245,8 +5093,13 @@ pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
     pub AccessType: u32,
     pub AccessMode: u32,
 }
+impl Default for STORAGE_ALLOCATE_BC_STREAM_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     pub RequestSize: u64,
     pub NumOutStandingRequests: u32,
@@ -4257,7 +5110,7 @@ pub const STORAGE_ATTRIBUTE_BLOCK_IO: u32 = 2u32;
 pub const STORAGE_ATTRIBUTE_BYTE_ADDRESSABLE_IO: u32 = 1u32;
 pub const STORAGE_ATTRIBUTE_DYNAMIC_PERSISTENCE: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_ATTRIBUTE_MGMT {
     pub Version: u32,
     pub Size: u32,
@@ -4268,7 +5121,7 @@ pub type STORAGE_ATTRIBUTE_MGMT_ACTION = i32;
 pub const STORAGE_ATTRIBUTE_PERF_SIZE_INDEPENDENT: u32 = 32u32;
 pub const STORAGE_ATTRIBUTE_VOLATILE: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_BREAK_RESERVATION_REQUEST {
     pub Length: u32,
     pub _unused: u8,
@@ -4277,7 +5130,7 @@ pub struct STORAGE_BREAK_RESERVATION_REQUEST {
     pub Lun: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_BUS_RESET_REQUEST {
     pub PathId: u8,
 }
@@ -4291,14 +5144,24 @@ pub struct STORAGE_COUNTER {
     pub Type: STORAGE_COUNTER_TYPE,
     pub Value: STORAGE_COUNTER_0,
 }
+impl Default for STORAGE_COUNTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_COUNTER_0 {
     pub ManufactureDate: STORAGE_COUNTER_0_0,
     pub AsUlonglong: u64,
 }
+impl Default for STORAGE_COUNTER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_COUNTER_0_0 {
     pub Week: u32,
     pub Year: u32,
@@ -4311,11 +5174,16 @@ pub struct STORAGE_COUNTERS {
     pub NumberOfCounters: u32,
     pub Counters: [STORAGE_COUNTER; 1],
 }
+impl Default for STORAGE_COUNTERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type STORAGE_COUNTER_TYPE = i32;
 pub const STORAGE_CRASH_TELEMETRY_REGKEY: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry");
 pub type STORAGE_CRYPTO_ALGORITHM_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_CRYPTO_CAPABILITY {
     pub Version: u32,
     pub Size: u32,
@@ -4334,16 +5202,21 @@ pub struct STORAGE_CRYPTO_DESCRIPTOR {
     pub NumCryptoCapabilities: u32,
     pub CryptoCapabilities: [STORAGE_CRYPTO_CAPABILITY; 1],
 }
+impl Default for STORAGE_CRYPTO_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const STORAGE_CRYPTO_DESCRIPTOR_VERSION_1: u32 = 1u32;
 pub type STORAGE_CRYPTO_KEY_SIZE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DESCRIPTOR_HEADER {
     pub Version: u32,
     pub Size: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -4367,6 +5240,12 @@ pub struct STORAGE_DEVICE_DESCRIPTOR {
     pub RawPropertiesLength: u32,
     pub RawDeviceProperties: [u8; 1],
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for STORAGE_DEVICE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
@@ -4374,6 +5253,11 @@ pub struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     pub Size: u32,
     pub NumberOfFaultDomains: u32,
     pub FaultDomainIds: [windows_sys::core::GUID; 1],
+}
+impl Default for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STORAGE_DEVICE_FLAGS_PAGE_83_DEVICEGUID: u32 = 4u32;
 pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_CONFLICT: u32 = 1u32;
@@ -4387,8 +5271,13 @@ pub struct STORAGE_DEVICE_ID_DESCRIPTOR {
     pub NumberOfIdentifiers: u32,
     pub Identifiers: [u8; 1],
 }
+impl Default for STORAGE_DEVICE_ID_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -4396,7 +5285,7 @@ pub struct STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
     pub AdapterMaxIoCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -4410,6 +5299,11 @@ pub struct STORAGE_DEVICE_LOCATION_DESCRIPTOR {
     pub Location: DEVICE_LOCATION,
     pub StringOffset: u32,
 }
+impl Default for STORAGE_DEVICE_LOCATION_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_DEVICE_MANAGEMENT_STATUS {
@@ -4421,17 +5315,22 @@ pub struct STORAGE_DEVICE_MANAGEMENT_STATUS {
     pub OperationalStatus: [STORAGE_DISK_OPERATIONAL_STATUS; 16],
     pub AdditionalReasons: [STORAGE_OPERATIONAL_REASON; 1],
 }
+impl Default for STORAGE_DEVICE_MANAGEMENT_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const STORAGE_DEVICE_MAX_OPERATIONAL_STATUS: u32 = 16u32;
 pub const STORAGE_DEVICE_NUMA_NODE_UNKNOWN: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_NUMA_PROPERTY {
     pub Version: u32,
     pub Size: u32,
     pub NumaNode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_NUMBER {
     pub DeviceType: u32,
     pub DeviceNumber: u32,
@@ -4445,8 +5344,13 @@ pub struct STORAGE_DEVICE_NUMBERS {
     pub NumberOfDevices: u32,
     pub Devices: [STORAGE_DEVICE_NUMBER; 1],
 }
+impl Default for STORAGE_DEVICE_NUMBERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_NUMBER_EX {
     pub Version: u32,
     pub Size: u32,
@@ -4457,7 +5361,7 @@ pub struct STORAGE_DEVICE_NUMBER_EX {
     pub PartitionNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_POWER_CAP {
     pub Version: u32,
     pub Size: u32,
@@ -4467,7 +5371,7 @@ pub struct STORAGE_DEVICE_POWER_CAP {
 pub type STORAGE_DEVICE_POWER_CAP_UNITS = i32;
 pub const STORAGE_DEVICE_POWER_CAP_VERSION_V1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -4479,14 +5383,14 @@ pub struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     pub Interleave: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     pub Version: u32,
     pub Size: u32,
     pub SupportsSelfEncryption: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     pub Version: u32,
     pub Size: u32,
@@ -4504,8 +5408,13 @@ pub struct STORAGE_DEVICE_TIERING_DESCRIPTOR {
     pub NumberOfTiersReturned: u32,
     pub Tiers: [STORAGE_TIER; 1],
 }
+impl Default for STORAGE_DEVICE_TIERING_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
     pub Version: u32,
     pub Size: u32,
@@ -4521,10 +5430,15 @@ pub struct STORAGE_DIAGNOSTIC_DATA {
     pub Reserved: u32,
     pub DiagnosticDataBuffer: [u8; 1],
 }
+impl Default for STORAGE_DIAGNOSTIC_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: u32 = 1u32;
 pub type STORAGE_DIAGNOSTIC_LEVEL = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DIAGNOSTIC_REQUEST {
     pub Version: u32,
     pub Size: u32,
@@ -4540,7 +5454,7 @@ pub const STORAGE_EVENT_DEVICE_OPERATION: u64 = 4u64;
 pub const STORAGE_EVENT_DEVICE_STATUS: u64 = 2u64;
 pub const STORAGE_EVENT_MEDIA_STATUS: u64 = 1u64;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_EVENT_NOTIFICATION {
     pub Version: u32,
     pub Size: u32,
@@ -4548,7 +5462,7 @@ pub struct STORAGE_EVENT_NOTIFICATION {
 }
 pub const STORAGE_EVENT_NOTIFICATION_VERSION_V1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
     pub Version: u32,
     pub Size: u32,
@@ -4565,8 +5479,13 @@ pub struct STORAGE_FRU_ID_DESCRIPTOR {
     pub IdentifierSize: u32,
     pub Identifier: [u8; 1],
 }
+impl Default for STORAGE_FRU_ID_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_GET_BC_PROPERTIES_OUTPUT {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
@@ -4576,7 +5495,7 @@ pub struct STORAGE_GET_BC_PROPERTIES_OUTPUT {
     pub RequestSize: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_HOTPLUG_INFO {
     pub Size: u32,
     pub MediaRemovable: bool,
@@ -4585,7 +5504,7 @@ pub struct STORAGE_HOTPLUG_INFO {
     pub WriteCacheEnableOverride: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -4601,8 +5520,13 @@ pub struct STORAGE_HW_ENDURANCE_INFO {
     pub BytesReadCount: [u8; 16],
     pub ByteWriteCount: [u8; 16],
 }
+impl Default for STORAGE_HW_ENDURANCE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_HW_ENDURANCE_INFO_0 {
     pub _bitfield: u32,
 }
@@ -4615,6 +5539,11 @@ pub struct STORAGE_HW_FIRMWARE_ACTIVATE {
     pub Slot: u8,
     pub Reserved0: [u8; 3],
 }
+impl Default for STORAGE_HW_FIRMWARE_ACTIVATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_HW_FIRMWARE_DOWNLOAD {
@@ -4626,6 +5555,11 @@ pub struct STORAGE_HW_FIRMWARE_DOWNLOAD {
     pub Offset: u64,
     pub BufferSize: u64,
     pub ImageBuffer: [u8; 1],
+}
+impl Default for STORAGE_HW_FIRMWARE_DOWNLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4640,6 +5574,11 @@ pub struct STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     pub ImageSize: u32,
     pub Reserved2: u32,
     pub ImageBuffer: [u8; 1],
+}
+impl Default for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4656,8 +5595,13 @@ pub struct STORAGE_HW_FIRMWARE_INFO {
     pub ImagePayloadMaxSize: u32,
     pub Slot: [STORAGE_HW_FIRMWARE_SLOT_INFO; 1],
 }
+impl Default for STORAGE_HW_FIRMWARE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_HW_FIRMWARE_INFO_QUERY {
     pub Version: u32,
     pub Size: u32,
@@ -4681,6 +5625,11 @@ pub struct STORAGE_HW_FIRMWARE_SLOT_INFO {
     pub Reserved1: [u8; 6],
     pub Revision: [u8; 16],
 }
+impl Default for STORAGE_HW_FIRMWARE_SLOT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_IDENTIFIER {
@@ -4691,10 +5640,15 @@ pub struct STORAGE_IDENTIFIER {
     pub Association: STORAGE_ASSOCIATION_TYPE,
     pub Identifier: [u8; 1],
 }
+impl Default for STORAGE_IDENTIFIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type STORAGE_IDENTIFIER_CODE_SET = i32;
 pub type STORAGE_IDENTIFIER_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_IDLE_POWER {
     pub Version: u32,
     pub Size: u32,
@@ -4702,7 +5656,7 @@ pub struct STORAGE_IDLE_POWER {
     pub D3IdleTimeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_IDLE_POWERUP_REASON {
     pub Version: u32,
     pub Size: u32,
@@ -4722,6 +5676,11 @@ pub struct STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     pub AvailableMappingResources: u64,
     pub UsedMappingResources: u64,
 }
+impl Default for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_MEDIA_SERIAL_NUMBER_DATA {
@@ -4729,9 +5688,14 @@ pub struct STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     pub SerialNumberLength: u16,
     pub SerialNumber: [u8; 1],
 }
+impl Default for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type STORAGE_MEDIA_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -4751,14 +5715,24 @@ pub struct STORAGE_MINIPORT_DESCRIPTOR {
     pub Reserved0: [u8; 2],
     pub Reserved1: u32,
 }
+impl Default for STORAGE_MINIPORT_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_MINIPORT_DESCRIPTOR_0 {
     pub Anonymous: STORAGE_MINIPORT_DESCRIPTOR_0_0,
     pub AsBYTE: u8,
 }
+impl Default for STORAGE_MINIPORT_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
@@ -4772,6 +5746,11 @@ pub struct STORAGE_OFFLOAD_READ_OUTPUT {
     pub TokenLength: u32,
     pub Token: STORAGE_OFFLOAD_TOKEN,
 }
+impl Default for STORAGE_OFFLOAD_READ_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const STORAGE_OFFLOAD_READ_RANGE_TRUNCATED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4781,22 +5760,37 @@ pub struct STORAGE_OFFLOAD_TOKEN {
     pub TokenIdLength: [u8; 2],
     pub Anonymous: STORAGE_OFFLOAD_TOKEN_0,
 }
+impl Default for STORAGE_OFFLOAD_TOKEN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_OFFLOAD_TOKEN_0 {
     pub StorageOffloadZeroDataToken: STORAGE_OFFLOAD_TOKEN_0_0,
     pub Token: [u8; 504],
 }
+impl Default for STORAGE_OFFLOAD_TOKEN_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_OFFLOAD_TOKEN_0_0 {
     pub Reserved2: [u8; 504],
 }
+impl Default for STORAGE_OFFLOAD_TOKEN_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const STORAGE_OFFLOAD_TOKEN_ID_LENGTH: u32 = 504u32;
 pub const STORAGE_OFFLOAD_TOKEN_INVALID: u32 = 2u32;
 pub const STORAGE_OFFLOAD_TOKEN_TYPE_ZERO_DATA: u32 = 4294901761u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_OFFLOAD_WRITE_OUTPUT {
     pub OffloadWriteFlags: u32,
     pub Reserved: u32,
@@ -4811,12 +5805,22 @@ pub struct STORAGE_OPERATIONAL_REASON {
     pub Reason: STORAGE_OPERATIONAL_STATUS_REASON,
     pub RawBytes: STORAGE_OPERATIONAL_REASON_0,
 }
+impl Default for STORAGE_OPERATIONAL_REASON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_OPERATIONAL_REASON_0 {
     pub ScsiSenseKey: STORAGE_OPERATIONAL_REASON_0_0,
     pub NVDIMM_N: STORAGE_OPERATIONAL_REASON_0_1,
     pub AsUlong: u32,
+}
+impl Default for STORAGE_OPERATIONAL_REASON_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4825,8 +5829,13 @@ pub struct STORAGE_OPERATIONAL_REASON_0_1 {
     pub ModuleHealth: [u8; 2],
     pub ErrorThresholdStatus: u8,
 }
+impl Default for STORAGE_OPERATIONAL_REASON_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_OPERATIONAL_REASON_0_0 {
     pub SenseKey: u8,
     pub ASC: u8,
@@ -4849,6 +5858,11 @@ pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub Reserved0: [u8; 3],
     pub Reserved1: [u32; 3],
 }
+impl Default for STORAGE_PHYSICAL_ADAPTER_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_PHYSICAL_DEVICE_DATA {
@@ -4865,6 +5879,11 @@ pub struct STORAGE_PHYSICAL_DEVICE_DATA {
     pub PhysicalLocation: [u8; 32],
     pub Reserved: [u32; 2],
 }
+impl Default for STORAGE_PHYSICAL_DEVICE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_PHYSICAL_NODE_DATA {
@@ -4877,6 +5896,11 @@ pub struct STORAGE_PHYSICAL_NODE_DATA {
     pub DeviceDataOffset: u32,
     pub Reserved: [u32; 3],
 }
+impl Default for STORAGE_PHYSICAL_NODE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
@@ -4886,6 +5910,11 @@ pub struct STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     pub Reserved: u32,
     pub Node: [STORAGE_PHYSICAL_NODE_DATA; 1],
 }
+impl Default for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type STORAGE_PORT_CODE_SET = i32;
 pub type STORAGE_POWERUP_REASON_TYPE = i32;
 #[repr(C)]
@@ -4894,8 +5923,13 @@ pub struct STORAGE_PREDICT_FAILURE {
     pub PredictFailure: u32,
     pub VendorSpecific: [u8; 512],
 }
+impl Default for STORAGE_PREDICT_FAILURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_PRIORITY_HINT_SUPPORT {
     pub SupportFlags: u32,
 }
@@ -4908,12 +5942,22 @@ pub struct STORAGE_PROPERTY_QUERY {
     pub QueryType: STORAGE_QUERY_TYPE,
     pub AdditionalParameters: [u8; 1],
 }
+impl Default for STORAGE_PROPERTY_QUERY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_PROPERTY_SET {
     pub PropertyId: STORAGE_PROPERTY_ID,
     pub SetType: STORAGE_SET_TYPE,
     pub AdditionalParameters: [u8; 1],
+}
+impl Default for STORAGE_PROPERTY_SET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type STORAGE_PROTOCOL_ATA_DATA_TYPE = i32;
 #[repr(C)]
@@ -4939,17 +5983,22 @@ pub struct STORAGE_PROTOCOL_COMMAND {
     pub Reserved1: [u32; 3],
     pub Command: [u8; 1],
 }
+impl Default for STORAGE_PROTOCOL_COMMAND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const STORAGE_PROTOCOL_COMMAND_FLAG_ADAPTER_REQUEST: u32 = 2147483648u32;
 pub const STORAGE_PROTOCOL_COMMAND_LENGTH_NVME: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_PROTOCOL_DATA_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub ProtocolSpecificData: STORAGE_PROTOCOL_SPECIFIC_DATA,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
     pub Version: u32,
     pub Size: u32,
@@ -4961,14 +6010,19 @@ pub union STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
     pub Anonymous: STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0,
     pub AsUlong: u32,
 }
+impl Default for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
 pub type STORAGE_PROTOCOL_NVME_DATA_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_PROTOCOL_SPECIFIC_DATA {
     pub ProtocolType: STORAGE_PROTOCOL_TYPE,
     pub DataType: u32,
@@ -4997,6 +6051,11 @@ pub struct STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     pub ProtocolDataSubValue5: u32,
     pub Reserved: [u32; 5],
 }
+impl Default for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const STORAGE_PROTOCOL_SPECIFIC_NVME_ADMIN_COMMAND: u32 = 1u32;
 pub const STORAGE_PROTOCOL_SPECIFIC_NVME_NVM_COMMAND: u32 = 2u32;
 pub const STORAGE_PROTOCOL_STATUS_BUSY: u32 = 5u32;
@@ -5014,7 +6073,7 @@ pub type STORAGE_PROTOCOL_TYPE = i32;
 pub type STORAGE_PROTOCOL_UFS_DATA_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
     pub EntryLength: u32,
     pub DependencyTypeFlags: u32,
@@ -5023,7 +6082,7 @@ pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
     pub EntryLength: u32,
     pub DependencyTypeFlags: u32,
@@ -5040,7 +6099,7 @@ pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
     pub DependentDeviceNameSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
     pub RequestLevel: u32,
     pub RequestFlags: u32,
@@ -5053,6 +6112,12 @@ pub struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
     pub NumberEntries: u32,
     pub Anonymous: STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0,
 }
+#[cfg(feature = "Win32_Storage_Vhd")]
+impl Default for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
 #[derive(Clone, Copy)]
@@ -5060,9 +6125,15 @@ pub union STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
     pub Lev1Depends: [STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY; 1],
     pub Lev2Depends: [STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY; 1],
 }
+#[cfg(feature = "Win32_Storage_Vhd")]
+impl Default for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type STORAGE_QUERY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_READ_CAPACITY {
     pub Version: u32,
     pub Size: u32,
@@ -5071,7 +6142,7 @@ pub struct STORAGE_READ_CAPACITY {
     pub DiskLength: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_REINITIALIZE_MEDIA {
     pub Version: u32,
     pub Size: u32,
@@ -5079,7 +6150,7 @@ pub struct STORAGE_REINITIALIZE_MEDIA {
     pub SanitizeOption: STORAGE_REINITIALIZE_MEDIA_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_REINITIALIZE_MEDIA_0 {
     pub _bitfield: u32,
 }
@@ -5098,8 +6169,13 @@ pub struct STORAGE_RPMB_DATA_FRAME {
     pub OperationResult: [u8; 2],
     pub RequestOrResponseType: [u8; 2],
 }
+impl Default for STORAGE_RPMB_DATA_FRAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_RPMB_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -5118,11 +6194,21 @@ pub union STORAGE_SPEC_VERSION {
     pub Anonymous: STORAGE_SPEC_VERSION_0,
     pub AsUlong: u32,
 }
+impl Default for STORAGE_SPEC_VERSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_SPEC_VERSION_0 {
     pub MinorVersion: STORAGE_SPEC_VERSION_0_0,
     pub MajorVersion: u16,
+}
+impl Default for STORAGE_SPEC_VERSION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5130,8 +6216,13 @@ pub union STORAGE_SPEC_VERSION_0_0 {
     pub Anonymous: STORAGE_SPEC_VERSION_0_0_0,
     pub AsUshort: u16,
 }
+impl Default for STORAGE_SPEC_VERSION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_SPEC_VERSION_0_0_0 {
     pub SubMinor: u8,
     pub Minor: u8,
@@ -5150,8 +6241,13 @@ pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     pub Reserved1: [u32; 2],
     pub TemperatureInfo: [STORAGE_TEMPERATURE_INFO; 1],
 }
+impl Default for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_TEMPERATURE_INFO {
     pub Index: u16,
     pub Temperature: i16,
@@ -5164,7 +6260,7 @@ pub struct STORAGE_TEMPERATURE_INFO {
     pub Reserved1: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_TEMPERATURE_THRESHOLD {
     pub Version: u32,
     pub Size: u32,
@@ -5187,6 +6283,11 @@ pub struct STORAGE_TIER {
     pub MediaType: STORAGE_TIER_MEDIA_TYPE,
     pub Class: STORAGE_TIER_CLASS,
 }
+impl Default for STORAGE_TIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type STORAGE_TIER_CLASS = i32;
 pub const STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
 pub const STORAGE_TIER_FLAG_NO_SEEK_PENALTY: u32 = 131072u32;
@@ -5197,14 +6298,14 @@ pub const STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
 pub type STORAGE_TIER_MEDIA_TYPE = i32;
 pub const STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_TIER_REGION {
     pub TierId: windows_sys::core::GUID,
     pub Offset: u64,
     pub Length: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub Version: u32,
     pub Size: u32,
@@ -5227,14 +6328,24 @@ pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
     pub ZoneGroupCount: u32,
     pub ZoneGroup: [STORAGE_ZONE_GROUP; 1],
 }
+impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     pub SequentialRequiredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0,
     pub SequentialPreferredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1,
 }
+impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     pub OptimalOpenZoneCount: u32,
     pub Reserved: u32,
@@ -5245,6 +6356,11 @@ pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub MaxOpenZoneCount: u32,
     pub UnrestrictedRead: bool,
     pub Reserved: [u8; 3],
+}
+impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type STORAGE_ZONED_DEVICE_TYPES = i32;
 pub type STORAGE_ZONES_ATTRIBUTES = i32;
@@ -5260,8 +6376,13 @@ pub struct STORAGE_ZONE_DESCRIPTOR {
     pub ZoneSize: u64,
     pub WritePointerOffset: u64,
 }
+impl Default for STORAGE_ZONE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_ZONE_GROUP {
     pub ZoneCount: u32,
     pub ZoneType: STORAGE_ZONE_TYPES,
@@ -5272,7 +6393,7 @@ pub const STORATTRIBUTE_MANAGEMENT_STATE: u32 = 1u32;
 pub const STORATTRIBUTE_NONE: u32 = 0u32;
 pub const STREAMS_ASSOCIATE_ID_CLEAR: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
     pub Flags: u32,
     pub StreamId: u32,
@@ -5281,12 +6402,12 @@ pub const STREAMS_ASSOCIATE_ID_SET: u32 = 2u32;
 pub const STREAMS_INVALID_ID: u32 = 0u32;
 pub const STREAMS_MAX_ID: u32 = 65535u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STREAMS_QUERY_ID_OUTPUT_BUFFER {
     pub StreamId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
     pub OptimalWriteSize: u32,
     pub StreamGranularitySize: u32,
@@ -5300,10 +6421,20 @@ pub struct STREAM_EXTENT_ENTRY {
     pub Flags: u32,
     pub ExtentInformation: STREAM_EXTENT_ENTRY_0,
 }
+impl Default for STREAM_EXTENT_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STREAM_EXTENT_ENTRY_0 {
     pub RetrievalPointers: RETRIEVAL_POINTERS_BUFFER,
+}
+impl Default for STREAM_EXTENT_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STREAM_EXTENT_ENTRY_ALL_EXTENTS: u32 = 2u32;
 pub const STREAM_EXTENT_ENTRY_AS_RETRIEVAL_POINTERS: u32 = 1u32;
@@ -5314,6 +6445,11 @@ pub struct STREAM_INFORMATION_ENTRY {
     pub Flags: u32,
     pub StreamInformation: STREAM_INFORMATION_ENTRY_0,
 }
+impl Default for STREAM_INFORMATION_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STREAM_INFORMATION_ENTRY_0 {
@@ -5322,8 +6458,13 @@ pub union STREAM_INFORMATION_ENTRY_0 {
     pub Reparse: STREAM_INFORMATION_ENTRY_0_2,
     pub Ea: STREAM_INFORMATION_ENTRY_0_3,
 }
+impl Default for STREAM_INFORMATION_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STREAM_INFORMATION_ENTRY_0_1 {
     pub Length: u16,
     pub Flags: u16,
@@ -5331,13 +6472,13 @@ pub struct STREAM_INFORMATION_ENTRY_0_1 {
     pub Vdl: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STREAM_INFORMATION_ENTRY_0_0 {
     pub Class: FILE_STORAGE_TIER_CLASS,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STREAM_INFORMATION_ENTRY_0_3 {
     pub Length: u16,
     pub Flags: u16,
@@ -5345,7 +6486,7 @@ pub struct STREAM_INFORMATION_ENTRY_0_3 {
     pub EaInformationOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STREAM_INFORMATION_ENTRY_0_2 {
     pub Length: u16,
     pub Flags: u16,
@@ -5366,6 +6507,11 @@ pub struct STREAM_LAYOUT_ENTRY {
     pub AttributeFlags: u32,
     pub StreamIdentifierLength: u32,
     pub StreamIdentifier: [u16; 1],
+}
+impl Default for STREAM_LAYOUT_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STREAM_LAYOUT_ENTRY_HAS_INFORMATION: u32 = 16u32;
 pub const STREAM_LAYOUT_ENTRY_IMMOVABLE: u32 = 1u32;
@@ -5616,7 +6762,7 @@ pub const StorageTierMediaTypeScm: STORAGE_TIER_MEDIA_TYPE = 4i32;
 pub const StorageTierMediaTypeSsd: STORAGE_TIER_MEDIA_TYPE = 2i32;
 pub const StorageTierMediaTypeUnspecified: STORAGE_TIER_MEDIA_TYPE = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TAPE_GET_STATISTICS {
     pub Operation: u32,
 }
@@ -5624,7 +6770,7 @@ pub const TAPE_RESET_STATISTICS: i32 = 2i32;
 pub const TAPE_RETURN_ENV_INFO: i32 = 1i32;
 pub const TAPE_RETURN_STATISTICS: i32 = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TAPE_STATISTICS {
     pub Version: u32,
     pub Flags: u32,
@@ -5646,7 +6792,7 @@ pub const TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG_MAX: u32 = 16u32;
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_SMART: u32 = 1u32;
 pub const TELEMETRY_COMMAND_SIZE: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_CREATE_MINIVERSION_INFO {
     pub StructureVersion: u16,
     pub StructureLength: u16,
@@ -5654,7 +6800,7 @@ pub struct TXFS_CREATE_MINIVERSION_INFO {
     pub MiniVersion: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_GET_METADATA_INFO_OUT {
     pub TxfFileId: TXFS_GET_METADATA_INFO_OUT_0,
     pub LockingTransaction: windows_sys::core::GUID,
@@ -5662,13 +6808,13 @@ pub struct TXFS_GET_METADATA_INFO_OUT {
     pub TransactionState: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_GET_METADATA_INFO_OUT_0 {
     pub LowPart: i64,
     pub HighPart: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_GET_TRANSACTED_VERSION {
     pub ThisBaseVersion: u32,
     pub LatestVersion: u32,
@@ -5677,13 +6823,13 @@ pub struct TXFS_GET_TRANSACTED_VERSION {
     pub LatestMiniVersion: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_LIST_TRANSACTIONS {
     pub NumberOfTransactions: u64,
     pub BufferSizeRequired: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_LIST_TRANSACTIONS_ENTRY {
     pub TransactionId: windows_sys::core::GUID,
     pub TransactionState: u32,
@@ -5692,7 +6838,7 @@ pub struct TXFS_LIST_TRANSACTIONS_ENTRY {
     pub Reserved3: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES {
     pub KtmTransaction: windows_sys::core::GUID,
     pub NumberOfFiles: u64,
@@ -5710,12 +6856,17 @@ pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     pub Reserved3: i64,
     pub FileName: [u16; 1],
 }
+impl Default for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_CREATED: u32 = 1u32;
 pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_DELETED: u32 = 2u32;
 pub const TXFS_LOGGING_MODE_FULL: u32 = 2u32;
 pub const TXFS_LOGGING_MODE_SIMPLE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_MODIFY_RM {
     pub Flags: TXFS_RMF_LAGS,
     pub LogContainerCountMax: u32,
@@ -5727,7 +6878,7 @@ pub struct TXFS_MODIFY_RM {
     pub LoggingMode: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_QUERY_RM_INFORMATION {
     pub BytesRequired: u32,
     pub TailLsn: u64,
@@ -5761,11 +6912,21 @@ pub struct TXFS_QUERY_RM_INFORMATION {
 pub struct TXFS_READ_BACKUP_INFORMATION_OUT {
     pub Anonymous: TXFS_READ_BACKUP_INFORMATION_OUT_0,
 }
+impl Default for TXFS_READ_BACKUP_INFORMATION_OUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TXFS_READ_BACKUP_INFORMATION_OUT_0 {
     pub BufferLength: u32,
     pub Buffer: [u8; 1],
+}
+impl Default for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type TXFS_RMF_LAGS = u32;
 pub const TXFS_RM_FLAG_DO_NOT_RESET_RM_AT_NEXT_START: TXFS_RMF_LAGS = 32768u32;
@@ -5792,7 +6953,7 @@ pub const TXFS_RM_STATE_STARTING: u32 = 1u32;
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_REDO_LSN: u32 = 1u32;
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_VIRTUAL_CLOCK: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_ROLLFORWARD_REDO_INFORMATION {
     pub LastVirtualClock: i64,
     pub LastRedoLsn: u64,
@@ -5807,6 +6968,11 @@ pub struct TXFS_SAVEPOINT_INFORMATION {
     pub KtmTransaction: super::super::Foundation::HANDLE,
     pub ActionCode: u32,
     pub SavepointId: u32,
+}
+impl Default for TXFS_SAVEPOINT_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TXFS_SAVEPOINT_ROLLBACK: u32 = 2u32;
 pub const TXFS_SAVEPOINT_SET: u32 = 1u32;
@@ -5839,10 +7005,15 @@ pub struct TXFS_START_RM_INFORMATION {
     pub Reserved: u16,
     pub LogPath: [u16; 1],
 }
+impl Default for TXFS_START_RM_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const TXFS_TRANSACTED_VERSION_NONTRANSACTED: u32 = 4294967294u32;
 pub const TXFS_TRANSACTED_VERSION_UNCOMMITTED: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_TRANSACTION_ACTIVE_INFO {
     pub TransactionsActiveAtSnapshot: bool,
 }
@@ -5855,6 +7026,11 @@ pub const TXFS_TRANSACTION_STATE_PREPARED: u32 = 2u32;
 pub struct TXFS_WRITE_BACKUP_INFORMATION {
     pub Buffer: [u8; 1],
 }
+impl Default for TXFS_WRITE_BACKUP_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const Travan: STORAGE_MEDIA_TYPE = 34i32;
 pub const UNDEFINE_ALTERNATE: u32 = 13u32;
 pub const UNDEFINE_PRIMARY: u32 = 12u32;
@@ -5866,7 +7042,7 @@ pub const USN_DELETE_FLAG_DELETE: USN_DELETE_FLAGS = 1u32;
 pub const USN_DELETE_FLAG_NOTIFY: USN_DELETE_FLAGS = 2u32;
 pub const USN_DELETE_VALID_FLAGS: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USN_JOURNAL_DATA_V0 {
     pub UsnJournalID: u64,
     pub FirstUsn: i64,
@@ -5877,7 +7053,7 @@ pub struct USN_JOURNAL_DATA_V0 {
     pub AllocationDelta: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USN_JOURNAL_DATA_V1 {
     pub UsnJournalID: u64,
     pub FirstUsn: i64,
@@ -5890,7 +7066,7 @@ pub struct USN_JOURNAL_DATA_V1 {
     pub MaxSupportedMajorVersion: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USN_JOURNAL_DATA_V2 {
     pub UsnJournalID: u64,
     pub FirstUsn: i64,
@@ -5907,7 +7083,7 @@ pub struct USN_JOURNAL_DATA_V2 {
 }
 pub const USN_PAGE_SIZE: u32 = 4096u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USN_RANGE_TRACK_OUTPUT {
     pub Usn: i64,
 }
@@ -5936,14 +7112,14 @@ pub const USN_REASON_SECURITY_CHANGE: u32 = 2048u32;
 pub const USN_REASON_STREAM_CHANGE: u32 = 2097152u32;
 pub const USN_REASON_TRANSACTED_CHANGE: u32 = 4194304u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USN_RECORD_COMMON_HEADER {
     pub RecordLength: u32,
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USN_RECORD_EXTENT {
     pub Offset: i64,
     pub Length: i64,
@@ -5956,6 +7132,12 @@ pub union USN_RECORD_UNION {
     pub V2: USN_RECORD_V2,
     pub V3: USN_RECORD_V3,
     pub V4: USN_RECORD_V4,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for USN_RECORD_UNION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5974,6 +7156,11 @@ pub struct USN_RECORD_V2 {
     pub FileNameLength: u16,
     pub FileNameOffset: u16,
     pub FileName: [u16; 1],
+}
+impl Default for USN_RECORD_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -5994,6 +7181,12 @@ pub struct USN_RECORD_V3 {
     pub FileNameOffset: u16,
     pub FileName: [u16; 1],
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for USN_RECORD_V3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
@@ -6009,13 +7202,19 @@ pub struct USN_RECORD_V4 {
     pub ExtentSize: u16,
     pub Extents: [USN_RECORD_EXTENT; 1],
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for USN_RECORD_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const USN_SOURCE_AUXILIARY_DATA: USN_SOURCE_INFO_ID = 2u32;
 pub const USN_SOURCE_CLIENT_REPLICATION_MANAGEMENT: USN_SOURCE_INFO_ID = 8u32;
 pub const USN_SOURCE_DATA_MANAGEMENT: USN_SOURCE_INFO_ID = 1u32;
 pub type USN_SOURCE_INFO_ID = u32;
 pub const USN_SOURCE_REPLICATION_MANAGEMENT: USN_SOURCE_INFO_ID = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USN_TRACK_MODIFIED_RANGES {
     pub Flags: u32,
     pub Unused: u32,
@@ -6033,19 +7232,19 @@ pub const Unknown: MEDIA_TYPE = 0i32;
 pub const VALID_NTFT: u32 = 192u32;
 pub const VENDOR_ID_LENGTH: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VERIFY_INFORMATION {
     pub StartingOffset: i64,
     pub Length: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT {
     pub NumberOfWorkerThreads: u32,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
     pub HeaderSize: u16,
     pub Flags: u32,
@@ -6054,13 +7253,13 @@ pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
     pub ProviderMajorVersion: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
     pub VirtualizationInstanceID: windows_sys::core::GUID,
 }
 pub type VIRTUAL_STORAGE_BEHAVIOR_CODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
     pub Size: u32,
     pub BehaviorCode: VIRTUAL_STORAGE_BEHAVIOR_CODE,
@@ -6072,14 +7271,24 @@ pub struct VOLUME_BITMAP_BUFFER {
     pub BitmapSize: i64,
     pub Buffer: [u8; 1],
 }
+impl Default for VOLUME_BITMAP_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VOLUME_DISK_EXTENTS {
     pub NumberOfDiskExtents: u32,
     pub Extents: [DISK_EXTENT; 1],
 }
+impl Default for VOLUME_DISK_EXTENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: u64,
 }
@@ -6095,7 +7304,7 @@ pub const VirtualStorageBehaviorRestartIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CO
 pub const VirtualStorageBehaviorStopIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CODE = 3i32;
 pub const VirtualStorageBehaviorUndefined: VIRTUAL_STORAGE_BEHAVIOR_CODE = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WIM_PROVIDER_ADD_OVERLAY_INPUT {
     pub WimType: u32,
     pub WimIndex: u32,
@@ -6113,8 +7322,13 @@ pub struct WIM_PROVIDER_EXTERNAL_INFO {
     pub DataSourceId: i64,
     pub ResourceHash: [u8; 20],
 }
+impl Default for WIM_PROVIDER_EXTERNAL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WIM_PROVIDER_OVERLAY_ENTRY {
     pub NextEntryOffset: u32,
     pub DataSourceId: i64,
@@ -6125,17 +7339,17 @@ pub struct WIM_PROVIDER_OVERLAY_ENTRY {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
     pub DataSourceId: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
     pub DataSourceId: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     pub DataSourceId: i64,
     pub WimFileNameOffset: u32,
@@ -6145,19 +7359,19 @@ pub const WMI_DISK_GEOMETRY_GUID: windows_sys::core::GUID = windows_sys::core::G
 pub const WOF_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WOF_EXTERNAL_FILE_ID {
     pub FileId: super::super::Storage::FileSystem::FILE_ID_128,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WOF_EXTERNAL_INFO {
     pub Version: u32,
     pub Provider: u32,
 }
 pub const WOF_PROVIDER_CLOUD: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WOF_VERSION_INFO {
     pub WofVersion: u32,
 }
@@ -6167,7 +7381,7 @@ pub type WRITE_CACHE_TYPE = i32;
 pub const WRITE_COMPRESSION_INFO_VALID: u32 = 16u32;
 pub type WRITE_THROUGH = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WRITE_USN_REASON_INPUT {
     pub Flags: u32,
     pub UsnReasonToWrite: u32,

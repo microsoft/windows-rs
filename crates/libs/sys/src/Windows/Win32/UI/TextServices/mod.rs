@@ -231,11 +231,21 @@ pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,
     pub Anonymous: TF_DA_COLOR_0,
 }
+impl Default for TF_DA_COLOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TF_DA_COLOR_0 {
     pub nIndex: i32,
     pub cr: super::super::Foundation::COLORREF,
+}
+impl Default for TF_DA_COLOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type TF_DA_COLORTYPE = i32;
 pub type TF_DA_LINESTYLE = i32;
@@ -255,6 +265,11 @@ pub struct TF_DISPLAYATTRIBUTE {
     pub fBoldLine: windows_sys::core::BOOL,
     pub crLine: TF_DA_COLOR,
     pub bAttr: TF_DA_ATTR_INFO,
+}
+impl Default for TF_DISPLAYATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = 0u32;
 pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = 1u32;
@@ -300,6 +315,11 @@ pub struct TF_HALTCOND {
     pub aHaltPos: TfAnchor,
     pub dwFlags: u32,
 }
+impl Default for TF_HALTCOND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const TF_HF_OBJECT: u32 = 1u32;
 pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = 1u32;
 pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = 2147483648u32;
@@ -318,6 +338,12 @@ pub struct TF_INPUTPROCESSORPROFILE {
     pub dwCaps: u32,
     pub hkl: super::Input::KeyboardAndMouse::HKL,
     pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+impl Default for TF_INPUTPROCESSORPROFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
 pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
@@ -347,8 +373,13 @@ pub struct TF_LANGBARITEMINFO {
     pub ulSort: u32,
     pub szDescription: [u16; 32],
 }
+impl Default for TF_LANGBARITEMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: windows_sys::core::GUID,
     pub langid: u16,
@@ -361,6 +392,11 @@ pub struct TF_LANGUAGEPROFILE {
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
     pub bstrText: windows_sys::core::BSTR,
+}
+impl Default for TF_LBBALLOONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TF_LBI_BALLOON: u32 = 16u32;
 pub const TF_LBI_BITMAP: u32 = 8u32;
@@ -405,10 +441,20 @@ pub struct TF_LMLATTELEMENT {
     pub Anonymous: TF_LMLATTELEMENT_0,
     pub bstrText: windows_sys::core::BSTR,
 }
+impl Default for TF_LMLATTELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TF_LMLATTELEMENT_0 {
     pub iCost: i32,
+}
+impl Default for TF_LMLATTELEMENT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TF_LS_DASH: TF_DA_LINESTYLE = 3i32;
 pub const TF_LS_DOT: TF_DA_LINESTYLE = 2i32;
@@ -428,7 +474,7 @@ pub const TF_MOD_RCONTROL: u32 = 16u32;
 pub const TF_MOD_RSHIFT: u32 = 32u32;
 pub const TF_MOD_SHIFT: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub guidType: windows_sys::core::GUID,
     pub ichStart: i32,
@@ -439,7 +485,7 @@ pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
 }
 pub const TF_POPF_ALL: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TF_PRESERVEDKEY {
     pub uVKey: u32,
     pub uModifiers: u32,
@@ -468,6 +514,12 @@ pub struct TF_PROPERTYVAL {
     pub guidId: windows_sys::core::GUID,
     pub varValue: super::super::System::Variant::VARIANT,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for TF_PROPERTYVAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
 pub const TF_RCM_COMLESS: u32 = 1u32;
 pub const TF_RCM_HINT_COLLISION: u32 = 8u32;
@@ -493,8 +545,13 @@ pub struct TF_SELECTION {
     pub range: *mut core::ffi::c_void,
     pub style: TF_SELECTIONSTYLE,
 }
+impl Default for TF_SELECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
     pub fInterimChar: windows_sys::core::BOOL,
@@ -667,6 +724,12 @@ pub struct TS_ATTRVAL {
     pub dwOverlapId: u32,
     pub varValue: super::super::System::Variant::VARIANT,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for TS_ATTRVAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
 pub const TS_ATTR_FIND_HIDDEN: u32 = 32u32;
 pub const TS_ATTR_FIND_UPDATESTART: u32 = 4u32;
@@ -708,7 +771,7 @@ pub const TS_RT_HIDDEN: TsRunType = 1i32;
 pub const TS_RT_OPAQUE: TsRunType = 2i32;
 pub const TS_RT_PLAIN: TsRunType = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TS_RUNINFO {
     pub uCount: u32,
     pub r#type: TsRunType,
@@ -725,13 +788,13 @@ pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TS_SELECTIONSTYLE {
     pub ase: TsActiveSelEnd,
     pub fInterimChar: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TS_SELECTION_ACP {
     pub acpStart: i32,
     pub acpEnd: i32,
@@ -743,6 +806,11 @@ pub struct TS_SELECTION_ANCHOR {
     pub paStart: *mut core::ffi::c_void,
     pub paEnd: *mut core::ffi::c_void,
     pub style: TS_SELECTIONSTYLE,
+}
+impl Default for TS_SELECTION_ANCHOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
 pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
@@ -756,7 +824,7 @@ pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
 pub const TS_SS_TRANSITORY: u32 = 4u32;
 pub const TS_SS_UWPCONTROL: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
@@ -770,7 +838,7 @@ pub const TS_S_ASYNC: windows_sys::core::HRESULT = 0x40300_u32 as _;
 pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = 1u32;
 pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,
     pub acpOldEnd: i32,

@@ -9,6 +9,11 @@ pub type AUTHENTICATION_LEVEL = i32;
 pub struct BOID {
     pub rgb: [u8; 16],
 }
+impl Default for BOID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CLSID_MSDtcTransaction: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x39f8d76b_0928_11d1_97df_00c04fb9618a);
 pub const CLSID_MSDtcTransactionManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5b18ab61_091d_11d1_97df_00c04fb9618a);
 pub const CLUSTERRESOURCE_APPLICATIONTYPE: APPLICATIONTYPE = 1i32;
@@ -98,13 +103,13 @@ pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = 40i32;
 pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 2i32;
 pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OLE_TM_CONFIG_PARAMS_V1 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OLE_TM_CONFIG_PARAMS_V2 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
@@ -119,7 +124,7 @@ pub const OLE_TM_FLAG_NODEMANDSTART: u32 = 1u32;
 pub const OLE_TM_FLAG_NONE: u32 = 0u32;
 pub const OLE_TM_FLAG_QUERY_SERVICE_LOCKSTATUS: u32 = 2147483648u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROXY_CONFIG_PARAMS {
     pub wcThreadsMax: u16,
 }
@@ -160,12 +165,17 @@ pub struct XACTOPT {
     pub ulTimeout: u32,
     pub szDescription: [u8; 40],
 }
+impl Default for XACTOPT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type XACTRM = i32;
 pub const XACTRM_NOREADONLYPREPARES: XACTRM = 2i32;
 pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = 1i32;
 pub type XACTSTAT = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XACTSTATS {
     pub cOpen: u32,
     pub cCommitting: u32,
@@ -207,7 +217,7 @@ pub const XACTTC_SYNC: XACTTC = 2i32;
 pub const XACTTC_SYNC_PHASEONE: XACTTC = 1i32;
 pub const XACTTC_SYNC_PHASETWO: XACTTC = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XACTTRANSINFO {
     pub uow: BOID,
     pub isoLevel: i32,
@@ -287,6 +297,11 @@ pub struct XID {
     pub bqual_length: i32,
     pub data: [i8; 128],
 }
+impl Default for XID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const XIDDATASIZE: u32 = 128u32;
 pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = 65535i32;
 #[repr(C)]
@@ -305,4 +320,9 @@ pub struct xa_switch_t {
     pub xa_recover_entry: isize,
     pub xa_forget_entry: isize,
     pub xa_complete_entry: isize,
+}
+impl Default for xa_switch_t {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

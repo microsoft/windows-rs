@@ -27,8 +27,13 @@ pub struct MI_Application {
     pub reserved2: isize,
     pub ft: *const MI_ApplicationFT,
 }
+impl Default for MI_Application {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ApplicationFT {
     pub Close: isize,
     pub NewSession: isize,
@@ -48,8 +53,13 @@ pub struct MI_Array {
     pub data: *mut core::ffi::c_void,
     pub size: u32,
 }
+impl Default for MI_Array {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ArrayField {
     pub value: MI_Array,
     pub exists: u8,
@@ -63,15 +73,20 @@ pub struct MI_BooleanA {
     pub data: *mut u8,
     pub size: u32,
 }
+impl Default for MI_BooleanA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_BooleanAField {
     pub value: MI_BooleanA,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_BooleanField {
     pub value: u8,
     pub exists: u8,
@@ -93,15 +108,20 @@ pub struct MI_Char16A {
     pub data: *mut u16,
     pub size: u32,
 }
+impl Default for MI_Char16A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Char16AField {
     pub value: MI_Char16A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Char16Field {
     pub value: u16,
     pub exists: u8,
@@ -115,6 +135,11 @@ pub struct MI_Class {
     pub namespaceName: *const u16,
     pub serverName: *const u16,
     pub reserved: [isize; 4],
+}
+impl Default for MI_Class {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -135,8 +160,13 @@ pub struct MI_ClassDecl {
     pub providerFT: *const MI_ProviderFT,
     pub owningClass: *mut MI_Class,
 }
+impl Default for MI_ClassDecl {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ClassFT {
     pub GetClassNameA: isize,
     pub GetNameSpace: isize,
@@ -167,21 +197,31 @@ pub struct MI_ClientFT_V1 {
     pub operationOptionsFT: *const MI_OperationOptionsFT,
     pub utilitiesFT: *const MI_UtilitiesFT,
 }
+impl Default for MI_ClientFT_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_ConstBooleanA {
     pub data: *const u8,
     pub size: u32,
 }
+impl Default for MI_ConstBooleanA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstBooleanAField {
     pub value: MI_ConstBooleanA,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstBooleanField {
     pub value: u8,
     pub exists: u8,
@@ -193,15 +233,20 @@ pub struct MI_ConstChar16A {
     pub data: *const u16,
     pub size: u32,
 }
+impl Default for MI_ConstChar16A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstChar16AField {
     pub value: MI_ConstChar16A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstChar16Field {
     pub value: u16,
     pub exists: u8,
@@ -213,8 +258,13 @@ pub struct MI_ConstDatetimeA {
     pub data: *const MI_Datetime,
     pub size: u32,
 }
+impl Default for MI_ConstDatetimeA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstDatetimeAField {
     pub value: MI_ConstDatetimeA,
     pub exists: u8,
@@ -227,14 +277,24 @@ pub struct MI_ConstDatetimeField {
     pub exists: u8,
     pub flags: u8,
 }
+impl Default for MI_ConstDatetimeField {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_ConstInstanceA {
     pub data: *const *const MI_Instance,
     pub size: u32,
 }
+impl Default for MI_ConstInstanceA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstInstanceAField {
     pub value: MI_ConstInstanceA,
     pub exists: u8,
@@ -247,21 +307,31 @@ pub struct MI_ConstInstanceField {
     pub exists: u8,
     pub flags: u8,
 }
+impl Default for MI_ConstInstanceField {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_ConstReal32A {
     pub data: *const f32,
     pub size: u32,
 }
+impl Default for MI_ConstReal32A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstReal32AField {
     pub value: MI_ConstReal32A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstReal32Field {
     pub value: f32,
     pub exists: u8,
@@ -273,15 +343,20 @@ pub struct MI_ConstReal64A {
     pub data: *const f64,
     pub size: u32,
 }
+impl Default for MI_ConstReal64A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstReal64AField {
     pub value: MI_ConstReal64A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstReal64Field {
     pub value: f64,
     pub exists: u8,
@@ -293,8 +368,13 @@ pub struct MI_ConstReferenceA {
     pub data: *const *const MI_Instance,
     pub size: u32,
 }
+impl Default for MI_ConstReferenceA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstReferenceAField {
     pub value: MI_ConstReferenceA,
     pub exists: u8,
@@ -307,21 +387,31 @@ pub struct MI_ConstReferenceField {
     pub exists: u8,
     pub flags: u8,
 }
+impl Default for MI_ConstReferenceField {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_ConstSint16A {
     pub data: *const i16,
     pub size: u32,
 }
+impl Default for MI_ConstSint16A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstSint16AField {
     pub value: MI_ConstSint16A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstSint16Field {
     pub value: i16,
     pub exists: u8,
@@ -333,15 +423,20 @@ pub struct MI_ConstSint32A {
     pub data: *const i32,
     pub size: u32,
 }
+impl Default for MI_ConstSint32A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstSint32AField {
     pub value: MI_ConstSint32A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstSint32Field {
     pub value: i32,
     pub exists: u8,
@@ -353,15 +448,20 @@ pub struct MI_ConstSint64A {
     pub data: *const i64,
     pub size: u32,
 }
+impl Default for MI_ConstSint64A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstSint64AField {
     pub value: MI_ConstSint64A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstSint64Field {
     pub value: i64,
     pub exists: u8,
@@ -373,15 +473,20 @@ pub struct MI_ConstSint8A {
     pub data: *const i8,
     pub size: u32,
 }
+impl Default for MI_ConstSint8A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstSint8AField {
     pub value: MI_ConstSint8A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstSint8Field {
     pub value: i8,
     pub exists: u8,
@@ -393,8 +498,13 @@ pub struct MI_ConstStringA {
     pub data: *const *const u16,
     pub size: u32,
 }
+impl Default for MI_ConstStringA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstStringAField {
     pub value: MI_ConstStringA,
     pub exists: u8,
@@ -407,21 +517,31 @@ pub struct MI_ConstStringField {
     pub exists: u8,
     pub flags: u8,
 }
+impl Default for MI_ConstStringField {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_ConstUint16A {
     pub data: *const u16,
     pub size: u32,
 }
+impl Default for MI_ConstUint16A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstUint16AField {
     pub value: MI_ConstUint16A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstUint16Field {
     pub value: u16,
     pub exists: u8,
@@ -433,15 +553,20 @@ pub struct MI_ConstUint32A {
     pub data: *const u32,
     pub size: u32,
 }
+impl Default for MI_ConstUint32A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstUint32AField {
     pub value: MI_ConstUint32A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstUint32Field {
     pub value: u32,
     pub exists: u8,
@@ -453,15 +578,20 @@ pub struct MI_ConstUint64A {
     pub data: *const u64,
     pub size: u32,
 }
+impl Default for MI_ConstUint64A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstUint64AField {
     pub value: MI_ConstUint64A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstUint64Field {
     pub value: u64,
     pub exists: u8,
@@ -473,15 +603,20 @@ pub struct MI_ConstUint8A {
     pub data: *const u8,
     pub size: u32,
 }
+impl Default for MI_ConstUint8A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstUint8AField {
     pub value: MI_ConstUint8A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ConstUint8Field {
     pub value: u8,
     pub exists: u8,
@@ -493,8 +628,13 @@ pub struct MI_Context {
     pub ft: *const MI_ContextFT,
     pub reserved: [isize; 3],
 }
+impl Default for MI_Context {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ContextFT {
     pub PostResult: isize,
     pub PostInstance: isize,
@@ -535,11 +675,21 @@ pub struct MI_Datetime {
     pub isTimestamp: u32,
     pub u: MI_Datetime_0,
 }
+impl Default for MI_Datetime {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MI_Datetime_0 {
     pub timestamp: MI_Timestamp,
     pub interval: MI_Interval,
+}
+impl Default for MI_Datetime_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -547,8 +697,13 @@ pub struct MI_DatetimeA {
     pub data: *mut MI_Datetime,
     pub size: u32,
 }
+impl Default for MI_DatetimeA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_DatetimeAField {
     pub value: MI_DatetimeA,
     pub exists: u8,
@@ -561,14 +716,19 @@ pub struct MI_DatetimeField {
     pub exists: u8,
     pub flags: u8,
 }
+impl Default for MI_DatetimeField {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Deserializer {
     pub reserved1: u64,
     pub reserved2: isize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_DeserializerFT {
     pub Close: isize,
     pub DeserializeClass: isize,
@@ -585,8 +745,13 @@ pub struct MI_DestinationOptions {
     pub reserved2: isize,
     pub ft: *const MI_DestinationOptionsFT,
 }
+impl Default for MI_DestinationOptions {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_DestinationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -681,14 +846,24 @@ pub struct MI_FeatureDecl {
     pub qualifiers: *const *const MI_Qualifier,
     pub numQualifiers: u32,
 }
+impl Default for MI_FeatureDecl {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_Filter {
     pub ft: *const MI_FilterFT,
     pub reserved: [isize; 3],
 }
+impl Default for MI_Filter {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_FilterFT {
     pub Evaluate: isize,
     pub GetExpression: isize,
@@ -700,8 +875,13 @@ pub struct MI_HostedProvider {
     pub reserved2: isize,
     pub ft: *const MI_HostedProviderFT,
 }
+impl Default for MI_HostedProvider {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_HostedProviderFT {
     pub Close: isize,
     pub GetApplication: isize,
@@ -717,27 +897,37 @@ pub struct MI_Instance {
     pub nameSpace: *const u16,
     pub reserved: [isize; 4],
 }
+impl Default for MI_Instance {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_InstanceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
 }
+impl Default for MI_InstanceA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_InstanceAField {
     pub value: MI_InstanceA,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_InstanceExFT {
     pub parent: MI_InstanceFT,
     pub Normalize: isize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_InstanceFT {
     pub Clone: isize,
     pub Destruct: isize,
@@ -765,8 +955,13 @@ pub struct MI_InstanceField {
     pub exists: u8,
     pub flags: u8,
 }
+impl Default for MI_InstanceField {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Interval {
     pub days: u32,
     pub hours: u32,
@@ -809,6 +1004,11 @@ pub struct MI_MethodDecl {
     pub schema: *const MI_SchemaDecl,
     pub function: MI_MethodDecl_Invoke,
 }
+impl Default for MI_MethodDecl {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type MI_MethodDecl_Invoke = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, parameters: *const MI_Instance)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -821,6 +1021,11 @@ pub struct MI_Module {
     pub Load: MI_Module_Load,
     pub Unload: MI_Module_Unload,
     pub dynamicProviderFT: *const MI_ProviderFT,
+}
+impl Default for MI_Module {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MI_Module_Load = Option<unsafe extern "system" fn(self_: *mut *mut MI_Module_Self, context: *const MI_Context)>;
 pub type MI_Module_Self = isize;
@@ -848,12 +1053,22 @@ pub struct MI_ObjectDecl {
     pub numProperties: u32,
     pub size: u32,
 }
+impl Default for MI_ObjectDecl {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_Operation {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_OperationFT,
+}
+impl Default for MI_Operation {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MI_OperationCallback_Class = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, classresult: *const MI_Class, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
 pub type MI_OperationCallback_Indication = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, instance: *const MI_Instance, bookmark: *const u16, machineid: *const u16, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
@@ -881,8 +1096,13 @@ pub struct MI_OperationCallbacks {
     pub classResult: MI_OperationCallback_Class,
     pub streamedParameterResult: MI_OperationCallback_StreamedParameter,
 }
+impl Default for MI_OperationCallbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_OperationFT {
     pub Close: isize,
     pub Cancel: isize,
@@ -898,8 +1118,13 @@ pub struct MI_OperationOptions {
     pub reserved2: isize,
     pub ft: *const MI_OperationOptionsFT,
 }
+impl Default for MI_OperationOptions {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_OperationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -932,6 +1157,11 @@ pub struct MI_ParameterDecl {
     pub subscript: u32,
     pub offset: u32,
 }
+impl Default for MI_ParameterDecl {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_ParameterSet {
@@ -939,8 +1169,13 @@ pub struct MI_ParameterSet {
     pub reserved2: isize,
     pub ft: *const MI_ParameterSetFT,
 }
+impl Default for MI_ParameterSet {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ParameterSetFT {
     pub GetMethodReturnType: isize,
     pub GetParameterCount: isize,
@@ -964,14 +1199,24 @@ pub struct MI_PropertyDecl {
     pub propagator: *const u16,
     pub value: *const core::ffi::c_void,
 }
+impl Default for MI_PropertyDecl {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_PropertySet {
     pub ft: *const MI_PropertySetFT,
     pub reserved: [isize; 3],
 }
+impl Default for MI_PropertySet {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_PropertySetFT {
     pub GetElementCount: isize,
     pub ContainsElement: isize,
@@ -984,7 +1229,7 @@ pub struct MI_PropertySetFT {
 }
 pub type MI_ProviderArchitecture = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ProviderFT {
     pub Load: MI_ProviderFT_Load,
     pub Unload: MI_ProviderFT_Unload,
@@ -1023,6 +1268,11 @@ pub struct MI_Qualifier {
     pub flavor: u32,
     pub value: *const core::ffi::c_void,
 }
+impl Default for MI_Qualifier {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_QualifierDecl {
@@ -1033,6 +1283,11 @@ pub struct MI_QualifierDecl {
     pub subscript: u32,
     pub value: *const core::ffi::c_void,
 }
+impl Default for MI_QualifierDecl {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_QualifierSet {
@@ -1040,8 +1295,13 @@ pub struct MI_QualifierSet {
     pub reserved2: isize,
     pub ft: *const MI_QualifierSetFT,
 }
+impl Default for MI_QualifierSet {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_QualifierSetFT {
     pub GetQualifierCount: isize,
     pub GetQualifierAt: isize,
@@ -1090,15 +1350,20 @@ pub struct MI_Real32A {
     pub data: *mut f32,
     pub size: u32,
 }
+impl Default for MI_Real32A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Real32AField {
     pub value: MI_Real32A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Real32Field {
     pub value: f32,
     pub exists: u8,
@@ -1110,15 +1375,20 @@ pub struct MI_Real64A {
     pub data: *mut f64,
     pub size: u32,
 }
+impl Default for MI_Real64A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Real64AField {
     pub value: MI_Real64A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Real64Field {
     pub value: f64,
     pub exists: u8,
@@ -1130,8 +1400,13 @@ pub struct MI_ReferenceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
 }
+impl Default for MI_ReferenceA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ReferenceAField {
     pub value: MI_ReferenceA,
     pub exists: u8,
@@ -1143,6 +1418,11 @@ pub struct MI_ReferenceField {
     pub value: *mut MI_Instance,
     pub exists: u8,
     pub flags: u8,
+}
+impl Default for MI_ReferenceField {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MI_Result = i32;
 pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
@@ -1167,14 +1447,19 @@ pub struct MI_SchemaDecl {
     pub classDecls: *const *const MI_ClassDecl,
     pub numClassDecls: u32,
 }
+impl Default for MI_SchemaDecl {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Serializer {
     pub reserved1: u64,
     pub reserved2: isize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_SerializerFT {
     pub Close: isize,
     pub SerializeClass: isize,
@@ -1189,8 +1474,13 @@ pub struct MI_Server {
     pub propertySetFT: *const MI_PropertySetFT,
     pub filterFT: *const MI_FilterFT,
 }
+impl Default for MI_Server {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_ServerFT {
     pub GetVersion: isize,
     pub GetSystemName: isize,
@@ -1202,6 +1492,11 @@ pub struct MI_Session {
     pub reserved2: isize,
     pub ft: *const MI_SessionFT,
 }
+impl Default for MI_Session {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_SessionCallbacks {
@@ -1209,8 +1504,13 @@ pub struct MI_SessionCallbacks {
     pub writeMessage: isize,
     pub writeError: isize,
 }
+impl Default for MI_SessionCallbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_SessionFT {
     pub Close: isize,
     pub GetApplication: isize,
@@ -1234,15 +1534,20 @@ pub struct MI_Sint16A {
     pub data: *mut i16,
     pub size: u32,
 }
+impl Default for MI_Sint16A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Sint16AField {
     pub value: MI_Sint16A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Sint16Field {
     pub value: i16,
     pub exists: u8,
@@ -1254,15 +1559,20 @@ pub struct MI_Sint32A {
     pub data: *mut i32,
     pub size: u32,
 }
+impl Default for MI_Sint32A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Sint32AField {
     pub value: MI_Sint32A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Sint32Field {
     pub value: i32,
     pub exists: u8,
@@ -1274,15 +1584,20 @@ pub struct MI_Sint64A {
     pub data: *mut i64,
     pub size: u32,
 }
+impl Default for MI_Sint64A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Sint64AField {
     pub value: MI_Sint64A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Sint64Field {
     pub value: i64,
     pub exists: u8,
@@ -1294,15 +1609,20 @@ pub struct MI_Sint8A {
     pub data: *mut i8,
     pub size: u32,
 }
+impl Default for MI_Sint8A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Sint8AField {
     pub value: MI_Sint8A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Sint8Field {
     pub value: i8,
     pub exists: u8,
@@ -1314,8 +1634,13 @@ pub struct MI_StringA {
     pub data: *mut *mut u16,
     pub size: u32,
 }
+impl Default for MI_StringA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_StringAField {
     pub value: MI_StringA,
     pub exists: u8,
@@ -1328,6 +1653,11 @@ pub struct MI_StringField {
     pub exists: u8,
     pub flags: u8,
 }
+impl Default for MI_StringField {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_SubscriptionDeliveryOptions {
@@ -1335,8 +1665,13 @@ pub struct MI_SubscriptionDeliveryOptions {
     pub reserved2: isize,
     pub ft: *const MI_SubscriptionDeliveryOptionsFT,
 }
+impl Default for MI_SubscriptionDeliveryOptions {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_SubscriptionDeliveryOptionsFT {
     pub SetString: isize,
     pub SetNumber: isize,
@@ -1360,7 +1695,7 @@ pub type MI_SubscriptionDeliveryType = i32;
 pub const MI_SubscriptionDeliveryType_Pull: MI_SubscriptionDeliveryType = 1i32;
 pub const MI_SubscriptionDeliveryType_Push: MI_SubscriptionDeliveryType = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Timestamp {
     pub year: u32,
     pub month: u32,
@@ -1386,15 +1721,20 @@ pub struct MI_Uint16A {
     pub data: *mut u16,
     pub size: u32,
 }
+impl Default for MI_Uint16A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Uint16AField {
     pub value: MI_Uint16A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Uint16Field {
     pub value: u16,
     pub exists: u8,
@@ -1406,15 +1746,20 @@ pub struct MI_Uint32A {
     pub data: *mut u32,
     pub size: u32,
 }
+impl Default for MI_Uint32A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Uint32AField {
     pub value: MI_Uint32A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Uint32Field {
     pub value: u32,
     pub exists: u8,
@@ -1426,15 +1771,20 @@ pub struct MI_Uint64A {
     pub data: *mut u64,
     pub size: u32,
 }
+impl Default for MI_Uint64A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Uint64AField {
     pub value: MI_Uint64A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Uint64Field {
     pub value: u64,
     pub exists: u8,
@@ -1446,15 +1796,20 @@ pub struct MI_Uint8A {
     pub data: *mut u8,
     pub size: u32,
 }
+impl Default for MI_Uint8A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Uint8AField {
     pub value: MI_Uint8A,
     pub exists: u8,
     pub flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_Uint8Field {
     pub value: u8,
     pub exists: u8,
@@ -1466,11 +1821,21 @@ pub struct MI_UserCredentials {
     pub authenticationType: *const u16,
     pub credentials: MI_UserCredentials_0,
 }
+impl Default for MI_UserCredentials {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MI_UserCredentials_0 {
     pub usernamePassword: MI_UsernamePasswordCreds,
     pub certificateThumbprint: *const u16,
+}
+impl Default for MI_UserCredentials_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1479,8 +1844,13 @@ pub struct MI_UsernamePasswordCreds {
     pub username: *const u16,
     pub password: *const u16,
 }
+impl Default for MI_UsernamePasswordCreds {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MI_UtilitiesFT {
     pub MapErrorToMiErrorCategory: isize,
     pub CimErrorFromErrorCode: isize,
@@ -1522,6 +1892,11 @@ pub union MI_Value {
     pub instancea: MI_InstanceA,
     pub array: MI_Array,
 }
+impl Default for MI_Value {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
 pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
 pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
@@ -1537,6 +1912,11 @@ pub struct SWbemAnalysisMatrix {
     pub m_pValues: *mut *mut core::ffi::c_void,
     pub m_pbTruthTable: *mut windows_sys::core::BOOL,
 }
+impl Default for SWbemAnalysisMatrix {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SWbemAnalysisMatrixList {
@@ -1544,6 +1924,11 @@ pub struct SWbemAnalysisMatrixList {
     pub m_uMatrixType: u32,
     pub m_uNumMatrices: u32,
     pub m_pMatrices: *mut SWbemAnalysisMatrix,
+}
+impl Default for SWbemAnalysisMatrixList {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1560,6 +1945,11 @@ pub struct SWbemAssocQueryInf {
     pub m_pszResultRole: windows_sys::core::PWSTR,
     pub m_pszRequiredQualifier: windows_sys::core::PWSTR,
     pub m_pszRequiredAssocQualifier: windows_sys::core::PWSTR,
+}
+impl Default for SWbemAssocQueryInf {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SWbemDateTime: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x47dfbe54_cf76_11d3_b38f_00105a1f473a);
 pub const SWbemEventSource: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x04b83d58_21ae_11d2_8b33_00600806d9b6);
@@ -1590,6 +1980,11 @@ pub struct SWbemQueryQualifiedName {
     pub m_pbArrayElUsed: *mut windows_sys::core::BOOL,
     pub m_puArrayIndex: *mut u32,
 }
+impl Default for SWbemQueryQualifiedName {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SWbemRefreshableItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c6854bc_de4b_11d3_b390_00105a1f473a);
 pub const SWbemRefresher: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd269bf5c_d9c1_11d3_b38f_00105a1f473a);
 #[repr(C)]
@@ -1602,6 +1997,11 @@ pub union SWbemRpnConst {
     pub m_dblVal: f64,
     pub m_lVal64: i64,
     pub m_uVal64: i64,
+}
+impl Default for SWbemRpnConst {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1625,6 +2025,11 @@ pub struct SWbemRpnEncodedQuery {
     pub m_ppszOrderByList: *const windows_sys::core::PCWSTR,
     pub m_uOrderDirectionEl: *mut u32,
 }
+impl Default for SWbemRpnEncodedQuery {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SWbemRpnQueryToken {
@@ -1641,8 +2046,13 @@ pub struct SWbemRpnQueryToken {
     pub m_pszRightFunc: windows_sys::core::PCWSTR,
     pub m_pszLeftFunc: windows_sys::core::PCWSTR,
 }
+impl Default for SWbemRpnQueryToken {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SWbemRpnTokenList {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -1753,7 +2163,7 @@ pub type WBEM_COMPARISON_FLAG = i32;
 pub const WBEM_COMPARISON_INCLUDE_ALL: WBEM_COMPARISON_FLAG = 0i32;
 pub type WBEM_COMPILER_OPTIONS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WBEM_COMPILE_STATUS_INFO {
     pub lPhaseError: i32,
     pub hRes: windows_sys::core::HRESULT,

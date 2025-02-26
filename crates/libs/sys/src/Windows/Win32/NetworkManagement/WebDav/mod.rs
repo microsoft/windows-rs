@@ -25,6 +25,11 @@ pub struct DAV_CALLBACK_AUTH_BLOB {
     pub ulSize: u32,
     pub ulType: u32,
 }
+impl Default for DAV_CALLBACK_AUTH_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DAV_CALLBACK_AUTH_UNP {
@@ -33,8 +38,13 @@ pub struct DAV_CALLBACK_AUTH_UNP {
     pub pszPassword: windows_sys::core::PWSTR,
     pub ulPasswordLength: u32,
 }
+impl Default for DAV_CALLBACK_AUTH_UNP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DAV_CALLBACK_CRED {
     pub AuthBlob: DAV_CALLBACK_AUTH_BLOB,
     pub UNPBlob: DAV_CALLBACK_AUTH_UNP,

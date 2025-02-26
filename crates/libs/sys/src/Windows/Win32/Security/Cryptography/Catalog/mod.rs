@@ -52,6 +52,11 @@ pub struct CATALOG_INFO {
     pub cbStruct: u32,
     pub wszCatalogFile: [u16; 260],
 }
+impl Default for CATALOG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CRYPTCATATTRIBUTE {
@@ -61,6 +66,11 @@ pub struct CRYPTCATATTRIBUTE {
     pub cbValue: u32,
     pub pbValue: *mut u8,
     pub dwReserved: u32,
+}
+impl Default for CRYPTCATATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CRYPTCATATTRIBUTE_FLAGS = u32;
 #[repr(C)]
@@ -73,6 +83,11 @@ pub struct CRYPTCATCDF {
     pub fEOF: windows_sys::core::BOOL,
     pub pwszResultDir: windows_sys::core::PWSTR,
     pub hCATStore: super::super::super::Foundation::HANDLE,
+}
+impl Default for CRYPTCATCDF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
@@ -90,6 +105,12 @@ pub struct CRYPTCATMEMBER {
     pub sEncodedIndirectData: super::CRYPT_INTEGER_BLOB,
     pub sEncodedMemberInfo: super::CRYPT_INTEGER_BLOB,
 }
+#[cfg(feature = "Win32_Security_Cryptography_Sip")]
+impl Default for CRYPTCATMEMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CRYPTCATSTORE {
@@ -103,6 +124,11 @@ pub struct CRYPTCATSTORE {
     pub hAttrs: super::super::super::Foundation::HANDLE,
     pub hCryptMsg: *mut core::ffi::c_void,
     pub hSorted: super::super::super::Foundation::HANDLE,
+}
+impl Default for CRYPTCATSTORE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
 pub const CRYPTCAT_ADDCATALOG_NONE: u32 = 0u32;
@@ -149,6 +175,12 @@ pub struct MS_ADDINFO_CATALOGMEMBER {
     pub cbStruct: u32,
     pub pStore: *mut CRYPTCATSTORE,
     pub pMember: *mut CRYPTCATMEMBER,
+}
+#[cfg(feature = "Win32_Security_Cryptography_Sip")]
+impl Default for MS_ADDINFO_CATALOGMEMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PFN_CDF_PARSE_ERROR_CALLBACK = Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: windows_sys::core::PCWSTR)>;
 pub const szOID_CATALOG_LIST: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.12.1.1");

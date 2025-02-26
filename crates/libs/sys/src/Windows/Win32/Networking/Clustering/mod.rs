@@ -669,7 +669,7 @@ pub const CLCTL_VALIDATE_PATH: CLCTL_CODES = 561i32;
 pub const CLCTL_VALIDATE_PRIVATE_PROPERTIES: CLCTL_CODES = 137i32;
 pub const CLOUD_WITNESS_CONTAINER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("msft-cloud-witness");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLRES_CALLBACK_FUNCTION_TABLE {
     pub LogEvent: PLOG_EVENT_ROUTINE,
     pub SetResourceStatusEx: PSET_RESOURCE_STATUS_ROUTINE_EX,
@@ -697,6 +697,12 @@ pub struct CLRES_FUNCTION_TABLE {
     pub Version: u32,
     pub Anonymous: CLRES_FUNCTION_TABLE_0,
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for CLRES_FUNCTION_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
 #[derive(Clone, Copy)]
@@ -706,9 +712,15 @@ pub union CLRES_FUNCTION_TABLE_0 {
     pub V3Functions: CLRES_V3_FUNCTIONS,
     pub V4Functions: CLRES_V4_FUNCTIONS,
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for CLRES_FUNCTION_TABLE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLRES_V1_FUNCTIONS {
     pub Open: POPEN_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -724,7 +736,7 @@ pub struct CLRES_V1_FUNCTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLRES_V2_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -741,7 +753,7 @@ pub struct CLRES_V2_FUNCTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLRES_V3_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -758,7 +770,7 @@ pub struct CLRES_V3_FUNCTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLRES_V4_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -814,6 +826,11 @@ pub const CLUSAPI_READ_ACCESS: i32 = 1i32;
 pub struct CLUSAPI_REASON_HANDLER {
     pub lpParameter: *mut core::ffi::c_void,
     pub pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,
+}
+impl Default for CLUSAPI_REASON_HANDLER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLUSAPI_RESOURCE_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 4u32;
 pub const CLUSAPI_RESOURCE_OFFLINE_FORCE_WITH_TERMINATION: u32 = 2u32;
@@ -915,7 +932,7 @@ pub const CLUSCTL_GROUP_GET_FLAGS: CLUSCTL_GROUP_CODES = 50331657i32;
 pub const CLUSCTL_GROUP_GET_ID: CLUSCTL_GROUP_CODES = 50331705i32;
 pub const CLUSCTL_GROUP_GET_LAST_MOVE_TIME: CLUSCTL_GROUP_CODES = 50332377i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     pub GetTickCount64: u64,
     pub GetSystemTime: super::super::Foundation::SYSTEMTIME,
@@ -1088,7 +1105,7 @@ pub const CLUSCTL_RESOURCE_SET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = 2097
 pub const CLUSCTL_RESOURCE_SET_SHARED_VOLUME_BACKUP_MODE: CLUSCTL_RESOURCE_CODES = 20972186i32;
 pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON: CLUSCTL_RESOURCE_CODES = 22020174i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -1164,7 +1181,7 @@ pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_FILTER_BY_POOL: u32 = 2u32;
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_INCLUDE_NON_SHARED_DISKS: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     pub dwFlags: u32,
     pub guidPoolFilter: windows_sys::core::GUID,
@@ -1214,6 +1231,11 @@ pub struct CLUSPROP_BINARY {
     pub Base: CLUSPROP_VALUE,
     pub rgb: [u8; 1],
 }
+impl Default for CLUSPROP_BINARY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1247,17 +1269,33 @@ pub union CLUSPROP_BUFFER_HELPER {
     pub pPartitionInfoValueEx2: *mut CLUSPROP_PARTITION_INFO_EX2,
     pub pFileTimeValue: *mut CLUSPROP_FILETIME,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for CLUSPROP_BUFFER_HELPER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_DWORD {
     pub Base: CLUSPROP_VALUE,
     pub dw: u32,
 }
+impl Default for CLUSPROP_DWORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_FILETIME {
     pub Base: CLUSPROP_VALUE,
     pub ft: super::super::Foundation::FILETIME,
+}
+impl Default for CLUSPROP_FILETIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLUSPROP_FORMAT_BINARY: CLUSTER_PROPERTY_FORMAT = 1i32;
 pub const CLUSPROP_FORMAT_DWORD: CLUSTER_PROPERTY_FORMAT = 2i32;
@@ -1281,6 +1319,11 @@ pub struct CLUSPROP_FTSET_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_FTSET_INFO,
 }
+impl Default for CLUSPROP_FTSET_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CLUSPROP_IPADDR_ENABLENETBIOS = i32;
 pub const CLUSPROP_IPADDR_ENABLENETBIOS_DISABLED: CLUSPROP_IPADDR_ENABLENETBIOS = 0i32;
 pub const CLUSPROP_IPADDR_ENABLENETBIOS_ENABLED: CLUSPROP_IPADDR_ENABLENETBIOS = 1i32;
@@ -1291,11 +1334,21 @@ pub struct CLUSPROP_LARGE_INTEGER {
     pub Base: CLUSPROP_VALUE,
     pub li: i64,
 }
+impl Default for CLUSPROP_LARGE_INTEGER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_LIST {
     pub nPropertyCount: u32,
     pub PropertyName: CLUSPROP_SZ,
+}
+impl Default for CLUSPROP_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1303,11 +1356,21 @@ pub struct CLUSPROP_LONG {
     pub Base: CLUSPROP_VALUE,
     pub l: i32,
 }
+impl Default for CLUSPROP_LONG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_PARTITION_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_PARTITION_INFO,
+}
+impl Default for CLUSPROP_PARTITION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1315,11 +1378,21 @@ pub struct CLUSPROP_PARTITION_INFO_EX {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_PARTITION_INFO_EX,
 }
+impl Default for CLUSPROP_PARTITION_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_PARTITION_INFO_EX2 {
     pub Base: CLUSPROP_PARTITION_INFO_EX,
     pub Base2: CLUS_PARTITION_INFO_EX2,
+}
+impl Default for CLUSPROP_PARTITION_INFO_EX2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CLUSPROP_PIFLAGS = i32;
 pub const CLUSPROP_PIFLAG_DEFAULT_QUORUM: CLUSPROP_PIFLAGS = 8i32;
@@ -1337,11 +1410,21 @@ pub union CLUSPROP_REQUIRED_DEPENDENCY {
     pub ResClass: CLUSPROP_RESOURCE_CLASS,
     pub ResTypeName: CLUSPROP_SZ,
 }
+impl Default for CLUSPROP_REQUIRED_DEPENDENCY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_RESOURCE_CLASS {
     pub Base: CLUSPROP_VALUE,
     pub rc: CLUSTER_RESOURCE_CLASS,
+}
+impl Default for CLUSPROP_RESOURCE_CLASS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1349,11 +1432,21 @@ pub struct CLUSPROP_RESOURCE_CLASS_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_RESOURCE_CLASS_INFO,
 }
+impl Default for CLUSPROP_RESOURCE_CLASS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_SCSI_ADDRESS {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_SCSI_ADDRESS,
+}
+impl Default for CLUSPROP_SCSI_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1362,6 +1455,12 @@ pub struct CLUSPROP_SECURITY_DESCRIPTOR {
     pub Base: CLUSPROP_VALUE,
     pub Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for CLUSPROP_SECURITY_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1369,14 +1468,25 @@ pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
     pub sd: super::super::Security::SECURITY_DESCRIPTOR_RELATIVE,
     pub rgbSecurityDescriptor: [u8; 1],
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for CLUSPROP_SECURITY_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLUSPROP_SYNTAX {
     pub dw: u32,
     pub Anonymous: CLUSPROP_SYNTAX_0,
 }
+impl Default for CLUSPROP_SYNTAX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUSPROP_SYNTAX_0 {
     pub wFormat: u16,
     pub wType: u16,
@@ -1414,6 +1524,11 @@ pub struct CLUSPROP_SZ {
     pub Base: CLUSPROP_VALUE,
     pub sz: [u16; 1],
 }
+impl Default for CLUSPROP_SZ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CLUSPROP_TYPE_DISK_GUID: CLUSTER_PROPERTY_TYPE = 11i32;
 pub const CLUSPROP_TYPE_DISK_NUMBER: CLUSTER_PROPERTY_TYPE = 7i32;
 pub const CLUSPROP_TYPE_DISK_SERIALNUMBER: CLUSTER_PROPERTY_TYPE = 10i32;
@@ -1438,17 +1553,32 @@ pub struct CLUSPROP_ULARGE_INTEGER {
     pub Base: CLUSPROP_VALUE,
     pub li: u64,
 }
+impl Default for CLUSPROP_ULARGE_INTEGER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_VALUE {
     pub Syntax: CLUSPROP_SYNTAX,
     pub cbLength: u32,
 }
+impl Default for CLUSPROP_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_WORD {
     pub Base: CLUSPROP_VALUE,
     pub w: u16,
+}
+impl Default for CLUSPROP_WORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLUSREG_COMMAND_NONE: CLUSTER_REG_COMMAND = 0i32;
 pub const CLUSREG_CONDITION_EXISTS: CLUSTER_REG_COMMAND = 11i32;
@@ -1804,6 +1934,11 @@ pub struct CLUSTERVERSIONINFO {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
+impl Default for CLUSTERVERSIONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSTERVERSIONINFO_NT4 {
@@ -1814,9 +1949,14 @@ pub struct CLUSTERVERSIONINFO_NT4 {
     pub szVendorId: [u16; 64],
     pub szCSDVersion: [u16; 64],
 }
+impl Default for CLUSTERVERSIONINFO_NT4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CLUSTER_ADD_EVICT_DELAY: windows_sys::core::PCWSTR = windows_sys::core::w!("AddEvictDelay");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
     pub dwVersion: u32,
     pub dwUpdateDomains: u32,
@@ -1832,6 +1972,11 @@ pub struct CLUSTER_BATCH_COMMAND {
     pub wzName: windows_sys::core::PCWSTR,
     pub lpData: *const u8,
     pub cbData: u32,
+}
+impl Default for CLUSTER_BATCH_COMMAND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CLUSTER_CHANGE = i32;
 pub const CLUSTER_CHANGE_ALL: CLUSTER_CHANGE = -1i32;
@@ -1979,7 +2124,7 @@ pub const CLUSTER_CLOUD_TYPE_UNKNOWN: CLUSTER_CLOUD_TYPE = -1i32;
 pub const CLUSTER_CONFIGURED: u32 = 2u32;
 pub type CLUSTER_CONTROL_OBJECT = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUSTER_CREATE_GROUP_INFO {
     pub dwVersion: u32,
     pub groupType: CLUSGROUP_TYPE,
@@ -2005,6 +2150,11 @@ pub struct CLUSTER_ENUM_ITEM {
     pub lpszId: windows_sys::core::PWSTR,
     pub cbName: u32,
     pub lpszName: windows_sys::core::PWSTR,
+}
+impl Default for CLUSTER_ENUM_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_ENUM_ITEM_VERSION_1: u32 = 1u32;
@@ -2036,6 +2186,11 @@ pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub cbRoProperties: u32,
     pub pRoProperties: *mut core::ffi::c_void,
 }
+impl Default for CLUSTER_GROUP_ENUM_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: u32 = 1u32;
 pub const CLUSTER_GROUP_ENUM_NODES: CLUSTER_GROUP_ENUM = 2i32;
@@ -2055,12 +2210,22 @@ pub struct CLUSTER_HEALTH_FAULT {
     pub Flags: u32,
     pub Reserved: u32,
 }
+impl Default for CLUSTER_HEALTH_FAULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CLUSTER_HEALTH_FAULT_ARGS: u32 = 7u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSTER_HEALTH_FAULT_ARRAY {
     pub numFaults: u32,
     pub faults: *mut CLUSTER_HEALTH_FAULT,
+}
+impl Default for CLUSTER_HEALTH_FAULT_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLUSTER_HEALTH_FAULT_DESCRIPTION: u32 = 3u32;
 pub const CLUSTER_HEALTH_FAULT_DESCRIPTION_LABEL: windows_sys::core::PCWSTR = windows_sys::core::w!("Description");
@@ -2084,12 +2249,22 @@ pub struct CLUSTER_IP_ENTRY {
     pub lpszIpAddress: windows_sys::core::PCWSTR,
     pub dwPrefixLength: u32,
 }
+impl Default for CLUSTER_IP_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSTER_MEMBERSHIP_INFO {
     pub HasQuorum: windows_sys::core::BOOL,
     pub UpnodesSize: u32,
     pub Upnodes: [u8; 1],
+}
+impl Default for CLUSTER_MEMBERSHIP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CLUSTER_MGMT_POINT_RESTYPE = i32;
 pub const CLUSTER_MGMT_POINT_RESTYPE_AUTO: CLUSTER_MGMT_POINT_RESTYPE = 0i32;
@@ -2153,6 +2328,11 @@ pub struct CLUSTER_READ_BATCH_COMMAND {
     pub lpData: *const u8,
     pub cbData: u32,
 }
+impl Default for CLUSTER_READ_BATCH_COMMAND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CLUSTER_REG_COMMAND = i32;
 pub const CLUSTER_REQUEST_REPLY_TIMEOUT: windows_sys::core::PCWSTR = windows_sys::core::w!("RequestReplyTimeout");
 pub type CLUSTER_RESOURCE_APPLICATION_STATE = i32;
@@ -2179,6 +2359,11 @@ pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub pProperties: *mut core::ffi::c_void,
     pub cbRoProperties: u32,
     pub pRoProperties: *mut core::ffi::c_void,
+}
+impl Default for CLUSTER_RESOURCE_ENUM_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: u32 = 1u32;
@@ -2212,7 +2397,7 @@ pub type CLUSTER_SETUP_PHASE_TYPE = i32;
 pub const CLUSTER_SET_ACCESS_TYPE_ALLOWED: u32 = 0u32;
 pub const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUSTER_SET_PASSWORD_STATUS {
     pub NodeId: u32,
     pub SetAttempted: bool,
@@ -2226,11 +2411,21 @@ pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
     pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
 }
+impl Default for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
     pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
+}
+impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2238,10 +2433,20 @@ pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     pub NewVolumeName: [u16; 260],
     pub NewVolumeGuid: [u16; 50],
 }
+impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     pub NewVolumeName: [u16; 260],
+}
+impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = i32;
 #[repr(C)]
@@ -2249,6 +2454,11 @@ pub type CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = i32;
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     pub InputType: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE,
     pub Anonymous: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0,
+}
+impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2258,6 +2468,11 @@ pub union CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     pub VolumeName: [u16; 260],
     pub VolumeGuid: [u16; 50],
 }
+impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = i32;
 pub type CLUSTER_SHARED_VOLUME_STATE = i32;
 #[repr(C)]
@@ -2266,6 +2481,11 @@ pub struct CLUSTER_SHARED_VOLUME_STATE_INFO {
     pub szVolumeName: [u16; 260],
     pub szNodeName: [u16; 260],
     pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
+}
+impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2277,6 +2497,11 @@ pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     pub RedirectedIOReason: u64,
     pub VolumeRedirectedIOReason: u64,
 }
+impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CLUSTER_SHARED_VOLUME_VSS_WRITER_OPERATION_TIMEOUT: windows_sys::core::PCWSTR = windows_sys::core::w!("SharedVolumeVssWriterOperationTimeout");
 pub type CLUSTER_STORAGENODE_STATE = i32;
 pub type CLUSTER_UPGRADE_PHASE = i32;
@@ -2285,20 +2510,40 @@ pub type CLUSTER_UPGRADE_PHASE = i32;
 pub struct CLUSTER_VALIDATE_CSV_FILENAME {
     pub szFileName: [u16; 1],
 }
+impl Default for CLUSTER_VALIDATE_CSV_FILENAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSTER_VALIDATE_DIRECTORY {
     pub szPath: [u16; 1],
+}
+impl Default for CLUSTER_VALIDATE_DIRECTORY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSTER_VALIDATE_NETNAME {
     pub szNetworkName: [u16; 1],
 }
+impl Default for CLUSTER_VALIDATE_NETNAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSTER_VALIDATE_PATH {
     pub szPath: [u16; 1],
+}
+impl Default for CLUSTER_VALIDATE_PATH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLUSTER_VERSION_FLAG_MIXED_MODE: u32 = 1u32;
 pub const CLUSTER_VERSION_UNKNOWN: u32 = 4294967295u32;
@@ -2345,22 +2590,42 @@ pub struct CLUS_CHKDSK_INFO {
     pub FileIdCount: u32,
     pub FileIdList: [u64; 1],
 }
+impl Default for CLUS_CHKDSK_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CLUS_CREATE_CRYPT_CONTAINER_NOT_FOUND: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     pub FileServerName: [u16; 16],
 }
+impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     pub FileServerName: [u16; 260],
+}
+impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUS_CSV_MAINTENANCE_MODE_INFO {
     pub InMaintenance: windows_sys::core::BOOL,
     pub VolumeName: [u16; 260],
+}
+impl Default for CLUS_CSV_MAINTENANCE_MODE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2372,6 +2637,11 @@ pub struct CLUS_CSV_VOLUME_INFO {
     pub szVolumeFriendlyName: [u16; 260],
     pub szVolumeName: [u16; 50],
 }
+impl Default for CLUS_CSV_VOLUME_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUS_CSV_VOLUME_NAME {
@@ -2379,20 +2649,25 @@ pub struct CLUS_CSV_VOLUME_NAME {
     pub szVolumeName: [u16; 260],
     pub szRootPath: [u16; 263],
 }
+impl Default for CLUS_CSV_VOLUME_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_DISK_NUMBER_INFO {
     pub DiskNumber: u32,
     pub BytesPerSector: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_DNN_LEADER_STATUS {
     pub IsOnline: windows_sys::core::BOOL,
     pub IsFileServerPresent: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
     pub NodeId: u32,
     pub Status: CLUSTER_RESOURCE_STATE,
@@ -2407,8 +2682,13 @@ pub struct CLUS_FORCE_QUORUM_INFO {
     pub dwMaxNumberofNodes: u32,
     pub multiszNodeList: [u16; 1],
 }
+impl Default for CLUS_FORCE_QUORUM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_FTSET_INFO {
     pub dwRootSignature: u32,
     pub dwFtType: u32,
@@ -2422,12 +2702,12 @@ pub const CLUS_GRP_MOVE_ALLOWED: u32 = 0u32;
 pub const CLUS_GRP_MOVE_LOCKED: u32 = 1u32;
 pub const CLUS_HYBRID_QUORUM: u32 = 1024u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_MAINTENANCE_MODE_INFO {
     pub InMaintenance: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_MAINTENANCE_MODE_INFOEX {
     pub InMaintenance: windows_sys::core::BOOL,
     pub MaintainenceModeType: MAINTENANCE_MODE_TYPE_ENUM,
@@ -2455,12 +2735,22 @@ pub struct CLUS_NETNAME_IP_INFO_ENTRY {
     pub AddressSize: u32,
     pub Address: [u8; 1],
 }
+impl Default for CLUS_NETNAME_IP_INFO_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     pub szName: [u16; 64],
     pub NumEntries: u32,
     pub IpInfo: [CLUS_NETNAME_IP_INFO_ENTRY; 1],
+}
+impl Default for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2470,6 +2760,11 @@ pub struct CLUS_NETNAME_PWD_INFO {
     pub CreatingDC: [u16; 258],
     pub ObjectGuid: [u16; 64],
 }
+impl Default for CLUS_NETNAME_PWD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUS_NETNAME_PWD_INFOEX {
@@ -2478,8 +2773,13 @@ pub struct CLUS_NETNAME_PWD_INFOEX {
     pub CreatingDC: [u16; 258],
     pub ObjectGuid: [u16; 64],
 }
+impl Default for CLUS_NETNAME_PWD_INFOEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_NETNAME_VS_TOKEN_INFO {
     pub ProcessID: u32,
     pub DesiredAccess: u32,
@@ -2510,6 +2810,11 @@ pub struct CLUS_PARTITION_INFO {
     pub dwFileSystemFlags: u32,
     pub szFileSystem: [u16; 32],
 }
+impl Default for CLUS_PARTITION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUS_PARTITION_INFO_EX {
@@ -2526,6 +2831,11 @@ pub struct CLUS_PARTITION_INFO_EX {
     pub PartitionNumber: u32,
     pub VolumeGuid: windows_sys::core::GUID,
 }
+impl Default for CLUS_PARTITION_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUS_PARTITION_INFO_EX2 {
@@ -2533,12 +2843,22 @@ pub struct CLUS_PARTITION_INFO_EX2 {
     pub szPartitionName: [u16; 260],
     pub EncryptionFlags: u32,
 }
+impl Default for CLUS_PARTITION_INFO_EX2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUS_PROVIDER_STATE_CHANGE_INFO {
     pub dwSize: u32,
     pub resourceState: CLUSTER_RESOURCE_STATE,
     pub szProviderId: [u16; 1],
+}
+impl Default for CLUS_PROVIDER_STATE_CHANGE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLUS_RESCLASS_NETWORK: CLUSTER_RESOURCE_CLASS = 2i32;
 pub const CLUS_RESCLASS_STORAGE: CLUSTER_RESOURCE_CLASS = 1i32;
@@ -2563,11 +2883,21 @@ pub const CLUS_RESDLL_OPEN_RECOVER_MONITOR_STATE: u32 = 1u32;
 pub struct CLUS_RESOURCE_CLASS_INFO {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0,
 }
+impl Default for CLUS_RESOURCE_CLASS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLUS_RESOURCE_CLASS_INFO_0 {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0,
     pub li: u64,
+}
+impl Default for CLUS_RESOURCE_CLASS_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2575,11 +2905,21 @@ pub struct CLUS_RESOURCE_CLASS_INFO_0_0 {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0_0,
     pub SubClass: u32,
 }
+impl Default for CLUS_RESOURCE_CLASS_INFO_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     pub dw: u32,
     pub rc: CLUSTER_RESOURCE_CLASS,
+}
+impl Default for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CLUS_RESSUBCLASS = i32;
 pub type CLUS_RESSUBCLASS_NETWORK = i32;
@@ -2649,14 +2989,24 @@ pub const CLUS_RES_NAME_SCALEOUT_WORKER: windows_sys::core::PCWSTR = windows_sys
 pub struct CLUS_SCSI_ADDRESS {
     pub Anonymous: CLUS_SCSI_ADDRESS_0,
 }
+impl Default for CLUS_SCSI_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLUS_SCSI_ADDRESS_0 {
     pub Anonymous: CLUS_SCSI_ADDRESS_0_0,
     pub dw: u32,
 }
+impl Default for CLUS_SCSI_ADDRESS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_SCSI_ADDRESS_0_0 {
     pub PortNumber: u8,
     pub PathId: u8,
@@ -2670,6 +3020,11 @@ pub struct CLUS_SET_MAINTENANCE_MODE_INPUT {
     pub ExtraParameterSize: u32,
     pub ExtraParameter: [u8; 1],
 }
+impl Default for CLUS_SET_MAINTENANCE_MODE_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUS_SHARED_VOLUME_BACKUP_MODE {
@@ -2677,26 +3032,31 @@ pub struct CLUS_SHARED_VOLUME_BACKUP_MODE {
     pub DelayTimerInSecs: u32,
     pub VolumeName: [u16; 260],
 }
+impl Default for CLUS_SHARED_VOLUME_BACKUP_MODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_STARTING_PARAMS {
     pub dwSize: u32,
     pub bForm: windows_sys::core::BOOL,
     pub bFirst: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     pub AvailDrivelettersMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_STORAGE_REMAP_DRIVELETTER {
     pub CurrentDriveLetterMask: u32,
     pub TargetDriveLetterMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLUS_STORAGE_SET_DRIVELETTER {
     pub PartitionNumber: u32,
     pub DriveLetterMask: u32,
@@ -2706,6 +3066,11 @@ pub struct CLUS_STORAGE_SET_DRIVELETTER {
 pub struct CLUS_WORKER {
     pub hThread: super::super::Foundation::HANDLE,
     pub Terminate: windows_sys::core::BOOL,
+}
+impl Default for CLUS_WORKER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CREATEDC_PRESENT: u32 = 2u32;
 #[repr(C)]
@@ -2721,6 +3086,11 @@ pub struct CREATE_CLUSTER_CONFIG {
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
 }
+impl Default for CREATE_CLUSTER_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2734,6 +3104,11 @@ pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
     pub bUpgradeVCOs: bool,
+}
+impl Default for CREATE_CLUSTER_NAME_ACCOUNT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
 pub const CTCTL_GET_FAULT_DOMAIN_STATE: CLCTL_CODES = 789i32;
@@ -2966,6 +3341,11 @@ pub struct FILESHARE_CHANGE {
     pub Change: FILESHARE_CHANGE_ENUM,
     pub ShareName: [u16; 84],
 }
+impl Default for FILESHARE_CHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FILESHARE_CHANGE_ADD: FILESHARE_CHANGE_ENUM = 1i32;
 pub const FILESHARE_CHANGE_DEL: FILESHARE_CHANGE_ENUM = 2i32;
 pub type FILESHARE_CHANGE_ENUM = i32;
@@ -2975,12 +3355,17 @@ pub struct FILESHARE_CHANGE_LIST {
     pub NumEntries: u32,
     pub ChangeEntry: [FILESHARE_CHANGE; 1],
 }
+impl Default for FILESHARE_CHANGE_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FILESHARE_CHANGE_MODIFY: FILESHARE_CHANGE_ENUM = 3i32;
 pub const FILESHARE_CHANGE_NONE: FILESHARE_CHANGE_ENUM = 0i32;
 pub const FailbackGroupsImmediately: CLUSTER_NODE_RESUME_FAILBACK_TYPE = 1i32;
 pub const FailbackGroupsPerPolicy: CLUSTER_NODE_RESUME_FAILBACK_TYPE = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GET_OPERATION_CONTEXT_PARAMS {
     pub Size: u32,
     pub Version: u32,
@@ -2992,13 +3377,13 @@ pub const GROUPSET_READY_SETTING_DELAY: u32 = 1u32;
 pub const GROUPSET_READY_SETTING_ONLINE: u32 = 2u32;
 pub const GROUPSET_READY_SETTING_OS_HEARTBEAT: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GROUP_FAILURE_INFO {
     pub dwFailoverAttemptsRemaining: u32,
     pub dwFailoverPeriodRemaining: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GROUP_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: GROUP_FAILURE_INFO,
@@ -3066,6 +3451,11 @@ pub struct MONITOR_STATE {
     pub ActiveResource: super::super::Foundation::HANDLE,
     pub ResmonStop: windows_sys::core::BOOL,
 }
+impl Default for MONITOR_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MaintenanceModeTypeDisableIsAliveCheck: MAINTENANCE_MODE_TYPE_ENUM = 1i32;
 pub const MaintenanceModeTypeOfflineResource: MAINTENANCE_MODE_TYPE_ENUM = 2i32;
 pub const MaintenanceModeTypeUnclusterResource: MAINTENANCE_MODE_TYPE_ENUM = 3i32;
@@ -3076,7 +3466,7 @@ pub const NI_UPGRADE_VERSION: u32 = 2u32;
 pub const NNLEN: u32 = 80u32;
 pub type NODE_CLUSTER_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NOTIFY_FILTER_AND_TYPE {
     pub dwObjectType: u32,
     pub FilterFlags: i64,
@@ -3106,7 +3496,7 @@ pub const NodeStatusMax: CLUSTER_NODE_STATUS = 51i32;
 pub const NodeStatusNormal: CLUSTER_NODE_STATUS = 0i32;
 pub const NodeStatusQuarantined: CLUSTER_NODE_STATUS = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NodeUtilizationInfoElement {
     pub Id: u64,
     pub AvailableMemory: u64,
@@ -3448,7 +3838,7 @@ pub type POPEN_ROUTINE = Option<unsafe extern "system" fn(resourcename: windows_
 #[cfg(feature = "Win32_System_Registry")]
 pub type POPEN_V2_ROUTINE = Option<unsafe extern "system" fn(resourcename: windows_sys::core::PCWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize, openflags: u32) -> *mut core::ffi::c_void>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POST_UPGRADE_VERSION_INFO {
     pub newMajorVersion: u32,
     pub newUpgradeVersion: u32,
@@ -3594,7 +3984,7 @@ pub type PSTARTUP_ROUTINE = Option<unsafe extern "system" fn(resourcetype: windo
 pub type PTERMINATE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void)>;
 pub type PWORKER_START_ROUTINE = Option<unsafe extern "system" fn(pworker: *mut CLUS_WORKER, lpthreadparameter: *mut core::ffi::c_void) -> u32>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PaxosTagCStruct {
     pub __padding__PaxosTagVtable: u64,
     pub __padding__NextEpochVtable: u64,
@@ -3617,13 +4007,13 @@ pub const PriorityMedium: CLUSTER_GROUP_PRIORITY = 2000i32;
 pub type RESDLL_CONTEXT_OPERATION_TYPE = i32;
 pub type RESOURCE_EXIT_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RESOURCE_FAILURE_INFO {
     pub dwRestartAttemptsRemaining: u32,
     pub dwRestartPeriodRemaining: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RESOURCE_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: RESOURCE_FAILURE_INFO,
@@ -3638,6 +4028,11 @@ pub struct RESOURCE_STATUS {
     pub WaitHint: u32,
     pub EventHandle: super::super::Foundation::HANDLE,
 }
+impl Default for RESOURCE_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RESOURCE_STATUS_EX {
@@ -3648,8 +4043,13 @@ pub struct RESOURCE_STATUS_EX {
     pub Flags: u32,
     pub WaitHint: u32,
 }
+impl Default for RESOURCE_STATUS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     pub isTerminalFailure: windows_sys::core::BOOL,
     pub restartPeriodRemaining: u32,
@@ -3657,14 +4057,14 @@ pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
 pub const RESTYPE_MONITOR_SHUTTING_DOWN_CLUSSVC_CRASH: u32 = 2u32;
 pub const RESTYPE_MONITOR_SHUTTING_DOWN_NODE_STOP: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RESUTIL_FILETIME_DATA {
     pub Default: super::super::Foundation::FILETIME,
     pub Minimum: super::super::Foundation::FILETIME,
     pub Maximum: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RESUTIL_LARGEINT_DATA {
     pub Default: i64,
     pub Minimum: i64,
@@ -3682,6 +4082,11 @@ pub struct RESUTIL_PROPERTY_ITEM {
     pub Flags: u32,
     pub Offset: u32,
 }
+impl Default for RESUTIL_PROPERTY_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RESUTIL_PROPERTY_ITEM_0 {
@@ -3692,12 +4097,17 @@ pub union RESUTIL_PROPERTY_ITEM_0 {
     pub ULargeIntData: *mut RESUTIL_ULARGEINT_DATA,
     pub FileTimeData: *mut RESUTIL_FILETIME_DATA,
 }
+impl Default for RESUTIL_PROPERTY_ITEM_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RESUTIL_PROPITEM_IN_MEMORY: u32 = 8u32;
 pub const RESUTIL_PROPITEM_READ_ONLY: u32 = 1u32;
 pub const RESUTIL_PROPITEM_REQUIRED: u32 = 2u32;
 pub const RESUTIL_PROPITEM_SIGNED: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RESUTIL_ULARGEINT_DATA {
     pub Default: u64,
     pub Minimum: u64,
@@ -3724,7 +4134,7 @@ pub const ResourceExitStateContinue: RESOURCE_EXIT_STATE = 0i32;
 pub const ResourceExitStateMax: RESOURCE_EXIT_STATE = 2i32;
 pub const ResourceExitStateTerminate: RESOURCE_EXIT_STATE = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ResourceUtilizationInfoElement {
     pub PhysicalNumaId: u64,
     pub CurrentMemory: u64,
@@ -3767,14 +4177,24 @@ pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub VolumeNameCount: u32,
     pub VolumeNames: [u16; 260],
 }
+impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     pub Result: u32,
     pub ErrorString: [u16; 260],
 }
+impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SR_RESOURCE_TYPE_DISK_INFO {
     pub Reason: SR_DISK_REPLICATION_ELIGIBLE,
     pub DiskGuid: windows_sys::core::GUID,
@@ -3785,20 +4205,25 @@ pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     pub Count: u16,
     pub DiskInfo: [SR_RESOURCE_TYPE_DISK_INFO; 1],
 }
+impl Default for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     pub DataDiskGuid: windows_sys::core::GUID,
     pub IncludeOfflineDisks: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     pub DataDiskGuid: windows_sys::core::GUID,
     pub IncludeAvailableStoargeDisks: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     pub SourceDataDiskGuid: windows_sys::core::GUID,
     pub TargetReplicationGroupGuid: windows_sys::core::GUID,
@@ -3813,11 +4238,21 @@ pub struct SR_RESOURCE_TYPE_REPLICATED_DISK {
     pub ReplicationGroupId: windows_sys::core::GUID,
     pub ReplicationGroupName: [u16; 260],
 }
+impl Default for SR_RESOURCE_TYPE_REPLICATED_DISK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     pub Count: u16,
     pub ReplicatedDisks: [SR_RESOURCE_TYPE_REPLICATED_DISK; 1],
+}
+impl Default for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3825,8 +4260,13 @@ pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     pub Count: u32,
     pub PartitionArray: [SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO; 1],
 }
+impl Default for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     pub PartitionOffset: u64,
     pub Capabilities: u32,
@@ -3880,13 +4320,13 @@ pub const WS2016_RTM_UPGRADE_VERSION: u32 = 8u32;
 pub const WS2016_TP4_UPGRADE_VERSION: u32 = 6u32;
 pub const WS2016_TP5_UPGRADE_VERSION: u32 = 7u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WitnessTagHelper {
     pub Version: i32,
     pub paxosToValidate: PaxosTagCStruct,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WitnessTagUpdateHelper {
     pub Version: i32,
     pub paxosToSet: PaxosTagCStruct,

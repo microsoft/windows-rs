@@ -65,7 +65,7 @@ windows_targets::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCWSTR, lprawdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EVENTLOGRECORD {
     pub Length: u32,
     pub Reserved: u32,
@@ -88,7 +88,7 @@ pub const EVENTLOG_AUDIT_FAILURE: REPORT_EVENT_TYPE = 16u16;
 pub const EVENTLOG_AUDIT_SUCCESS: REPORT_EVENT_TYPE = 8u16;
 pub const EVENTLOG_ERROR_TYPE: REPORT_EVENT_TYPE = 1u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EVENTLOG_FULL_INFORMATION {
     pub dwFull: u32,
 }
@@ -104,6 +104,11 @@ pub struct EVENTSFORLOGFILE {
     pub szLogicalLogFile: [u16; 256],
     pub ulNumRecords: u32,
     pub pEventLogRecords: [EVENTLOGRECORD; 1],
+}
+impl Default for EVENTSFORLOGFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EVT_ALL_ACCESS: u32 = 7u32;
 pub type EVT_CHANNEL_CLOCK_TYPE = i32;
@@ -136,6 +141,11 @@ pub struct EVT_RPC_LOGIN {
     pub Password: windows_sys::core::PWSTR,
     pub Flags: u32,
 }
+impl Default for EVT_RPC_LOGIN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type EVT_RPC_LOGIN_FLAGS = u32;
 pub type EVT_SEEK_FLAGS = u32;
 pub type EVT_SUBSCRIBE_CALLBACK = Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const core::ffi::c_void, event: EVT_HANDLE) -> u32>;
@@ -149,6 +159,12 @@ pub struct EVT_VARIANT {
     pub Anonymous: EVT_VARIANT_0,
     pub Count: u32,
     pub Type: u32,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for EVT_VARIANT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -194,6 +210,12 @@ pub union EVT_VARIANT_0 {
     pub EvtHandleVal: EVT_HANDLE,
     pub XmlVal: windows_sys::core::PCWSTR,
     pub XmlValArr: *const windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for EVT_VARIANT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type EVT_VARIANT_TYPE = i32;
 pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;

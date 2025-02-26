@@ -690,26 +690,31 @@ pub struct BitmapData {
     pub Scan0: *mut core::ffi::c_void,
     pub Reserved: usize,
 }
+impl Default for BitmapData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct Blur {
     pub Base: Effect,
 }
 pub const BlurEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x633c80a4_1843_482b_9ef2_be2834c5fdd4);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BlurParams {
     pub radius: f32,
     pub expandEdge: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BrightnessContrast {
     pub Base: Effect,
 }
 pub const BrightnessContrastEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd3a1dbe1_8ec4_4c17_9f4c_ea97ad1c343d);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BrightnessContrastParams {
     pub brightnessLevel: i32,
     pub contrastLevel: i32,
@@ -723,14 +728,14 @@ pub const BrushTypeTextureFill: BrushType = 2i32;
 pub type CGpEffect = isize;
 pub type CachedBitmap = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CharacterRange {
     pub First: i32,
     pub Length: i32,
 }
 pub const CodecIImageBytes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct Color {
     pub Argb: u32,
 }
@@ -894,13 +899,13 @@ pub const ColorAdjustTypeDefault: ColorAdjustType = 0i32;
 pub const ColorAdjustTypePen: ColorAdjustType = 3i32;
 pub const ColorAdjustTypeText: ColorAdjustType = 4i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ColorBalance {
     pub Base: Effect,
 }
 pub const ColorBalanceEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x537e597d_251e_48da_9664_29ca496b70f8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ColorBalanceParams {
     pub cyanRed: i32,
     pub magentaGreen: i32,
@@ -913,20 +918,20 @@ pub const ColorChannelFlagsLast: ColorChannelFlags = 4i32;
 pub const ColorChannelFlagsM: ColorChannelFlags = 1i32;
 pub const ColorChannelFlagsY: ColorChannelFlags = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ColorCurve {
     pub Base: Effect,
 }
 pub const ColorCurveEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd6a0022_58e4_4a67_9d9b_d48eb881a53d);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ColorCurveParams {
     pub adjustment: CurveAdjustments,
     pub channel: CurveChannel,
     pub adjustValue: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ColorLUT {
     pub Base: Effect,
 }
@@ -939,8 +944,13 @@ pub struct ColorLUTParams {
     pub lutR: [u8; 256],
     pub lutA: [u8; 256],
 }
+impl Default for ColorLUTParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ColorMap {
     pub oldColor: Color,
     pub newColor: Color,
@@ -950,8 +960,13 @@ pub struct ColorMap {
 pub struct ColorMatrix {
     pub m: [f32; 25],
 }
+impl Default for ColorMatrix {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ColorMatrixEffect {
     pub Base: Effect,
 }
@@ -969,6 +984,11 @@ pub struct ColorPalette {
     pub Flags: u32,
     pub Count: u32,
     pub Entries: [u32; 1],
+}
+impl Default for ColorPalette {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CombineMode = i32;
 pub const CombineModeComplement: CombineMode = 5i32;
@@ -1040,7 +1060,7 @@ pub const DriverStringOptionsLimitSubpixel: DriverStringOptions = 8i32;
 pub const DriverStringOptionsRealizedAdvance: DriverStringOptions = 4i32;
 pub const DriverStringOptionsVertical: DriverStringOptions = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENHMETAHEADER3 {
     pub iType: u32,
     pub nSize: u32,
@@ -1066,6 +1086,11 @@ pub struct Effect {
     pub auxDataSize: i32,
     pub auxData: *mut core::ffi::c_void,
     pub useAuxData: windows_sys::core::BOOL,
+}
+impl Default for Effect {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EmfPlusRecordTotal: EmfPlusRecordType = 16443i32;
 pub type EmfPlusRecordType = i32;
@@ -1277,6 +1302,11 @@ pub struct EncoderParameter {
     pub Type: u32,
     pub Value: *mut core::ffi::c_void,
 }
+impl Default for EncoderParameter {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type EncoderParameterValueType = i32;
 pub const EncoderParameterValueTypeASCII: EncoderParameterValueType = 2i32;
 pub const EncoderParameterValueTypeByte: EncoderParameterValueType = 1i32;
@@ -1292,6 +1322,11 @@ pub const EncoderParameterValueTypeUndefined: EncoderParameterValueType = 7i32;
 pub struct EncoderParameters {
     pub Count: u32,
     pub Parameter: [EncoderParameter; 1],
+}
+impl Default for EncoderParameters {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EncoderQuality: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1d5be4b5_fa4a_452d_9cdd_5db35105e7eb);
 pub const EncoderRenderMethod: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6d42c53a_229a_4825_8bb7_5c99e2b9a8b8);
@@ -1360,7 +1395,7 @@ pub const GREEN_SHIFT: u32 = 8u32;
 pub const GdiplusNotInitialized: Status = 18i32;
 pub const GdiplusStartupDefault: GdiplusStartupParams = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GdiplusStartupInput {
     pub GdiplusVersion: u32,
     pub DebugEventCallback: isize,
@@ -1368,14 +1403,14 @@ pub struct GdiplusStartupInput {
     pub SuppressExternalCodecs: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GdiplusStartupInputEx {
     pub Base: GdiplusStartupInput,
     pub StartupParameters: i32,
 }
 pub const GdiplusStartupNoSetRound: GdiplusStartupParams = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GdiplusStartupOutput {
     pub NotificationHook: isize,
     pub NotificationUnhook: isize,
@@ -1390,77 +1425,77 @@ pub const GenericFontFamilySansSerif: GenericFontFamily = 1i32;
 pub const GenericFontFamilySerif: GenericFontFamily = 0i32;
 pub type GetThumbnailImageAbort = Option<unsafe extern "system" fn() -> windows_sys::core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpAdjustableArrowCap(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpBitmap(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpBrush(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpCachedBitmap(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpCustomLineCap(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpFont(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpFontCollection(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpFontFamily(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpGraphics(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpHatch(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpImage(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpImageAttributes(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpInstalledFontCollection(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpLineGradient(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpMetafile(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpPath(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpPathGradient(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpPathIterator(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpPen(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpPrivateFontCollection(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpRegion(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpSolidFill(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpStringFormat(pub u8);
 pub type GpTestControlEnum = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GpTexture(pub u8);
 pub type HatchStyle = i32;
 pub const HatchStyle05Percent: HatchStyle = 6i32;
@@ -1534,13 +1569,13 @@ pub const HotkeyPrefixHide: HotkeyPrefix = 2i32;
 pub const HotkeyPrefixNone: HotkeyPrefix = 0i32;
 pub const HotkeyPrefixShow: HotkeyPrefix = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HueSaturationLightness {
     pub Base: Effect,
 }
 pub const HueSaturationLightnessEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8b2dd6c3_eb07_4d87_a5f0_7108e26a9c5f);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HueSaturationLightnessParams {
     pub hueLevel: i32,
     pub saturationLevel: i32,
@@ -1574,6 +1609,11 @@ pub struct ImageCodecInfo {
     pub SigSize: u32,
     pub SigPattern: *const u8,
     pub SigMask: *const u8,
+}
+impl Default for ImageCodecInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ImageFlags = i32;
 pub const ImageFlagsCaching: ImageFlags = 131072i32;
@@ -1614,6 +1654,11 @@ pub struct ImageItemData {
     pub DataSize: u32,
     pub Cookie: u32,
 }
+impl Default for ImageItemData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type ImageLockMode = i32;
 pub const ImageLockModeRead: ImageLockMode = 1i32;
 pub const ImageLockModeUserInputBuf: ImageLockMode = 4i32;
@@ -1640,13 +1685,13 @@ pub const ItemDataPositionAfterBits: ItemDataPosition = 2i32;
 pub const ItemDataPositionAfterHeader: ItemDataPosition = 0i32;
 pub const ItemDataPositionAfterPalette: ItemDataPosition = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct Levels {
     pub Base: Effect,
 }
 pub const LevelsEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x99c354ec_2a31_4f3a_8c34_17a803b33a25);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LevelsParams {
     pub highlight: i32,
     pub midtone: i32,
@@ -1705,12 +1750,24 @@ pub struct MetafileHeader {
     pub LogicalDpiX: i32,
     pub LogicalDpiY: i32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for MetafileHeader {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub union MetafileHeader_0 {
     pub WmfHeader: super::Gdi::METAHEADER,
     pub EmfHeader: ENHMETAHEADER3,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for MetafileHeader_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MetafileType = i32;
 pub const MetafileTypeEmf: MetafileType = 3i32;
@@ -1741,7 +1798,7 @@ pub const ObjectTypeStringFormat: ObjectType = 7i32;
 pub const Ok: Status = 0i32;
 pub const OutOfMemory: Status = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PWMFRect16 {
     pub Left: i16,
     pub Top: i16,
@@ -1800,13 +1857,13 @@ pub const PixelOffsetModeHighSpeed: PixelOffsetMode = 1i32;
 pub const PixelOffsetModeInvalid: PixelOffsetMode = -1i32;
 pub const PixelOffsetModeNone: PixelOffsetMode = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct Point {
     pub X: i32,
     pub Y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PointF {
     pub X: f32,
     pub Y: f32,
@@ -1820,6 +1877,11 @@ pub struct PropertyItem {
     pub length: u32,
     pub r#type: u16,
     pub value: *mut core::ffi::c_void,
+}
+impl Default for PropertyItem {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PropertyNotFound: Status = 19i32;
 pub const PropertyNotSupported: Status = 20i32;
@@ -2073,7 +2135,7 @@ pub const QualityModeInvalid: QualityMode = -1i32;
 pub const QualityModeLow: QualityMode = 1i32;
 pub const RED_SHIFT: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct Rect {
     pub X: i32,
     pub Y: i32,
@@ -2081,7 +2143,7 @@ pub struct Rect {
     pub Height: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RectF {
     pub X: f32,
     pub Y: f32,
@@ -2089,7 +2151,7 @@ pub struct RectF {
     pub Height: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RedEyeCorrection {
     pub Base: Effect,
 }
@@ -2099,6 +2161,11 @@ pub const RedEyeCorrectionEffectGuid: windows_sys::core::GUID = windows_sys::cor
 pub struct RedEyeCorrectionParams {
     pub numberOfAreas: u32,
     pub areas: *mut super::super::Foundation::RECT,
+}
+impl Default for RedEyeCorrectionParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type Region = isize;
 pub const Rotate180FlipNone: RotateFlipType = 2i32;
@@ -2119,25 +2186,25 @@ pub const RotateNoneFlipX: RotateFlipType = 4i32;
 pub const RotateNoneFlipXY: RotateFlipType = 2i32;
 pub const RotateNoneFlipY: RotateFlipType = 6i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct Sharpen {
     pub Base: Effect,
 }
 pub const SharpenEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x63cbf3ee_c526_402c_8f71_62c540bf5142);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SharpenParams {
     pub radius: f32,
     pub amount: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct Size {
     pub Width: i32,
     pub Height: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SizeF {
     pub Width: f32,
     pub Height: f32,
@@ -2190,13 +2257,13 @@ pub const TextRenderingHintSingleBitPerPixel: TextRenderingHint = 2i32;
 pub const TextRenderingHintSingleBitPerPixelGridFit: TextRenderingHint = 1i32;
 pub const TextRenderingHintSystemDefault: TextRenderingHint = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct Tint {
     pub Base: Effect,
 }
 pub const TintEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1077af00_2848_4441_9489_44ad4c2d7a2c);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TintParams {
     pub hue: i32,
     pub amount: i32,
@@ -2217,7 +2284,7 @@ pub const WarpModeBilinear: WarpMode = 1i32;
 pub const WarpModePerspective: WarpMode = 0i32;
 pub const Win32Error: Status = 7i32;
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WmfPlaceableFileHeader {
     pub Key: u32,
     pub Hmf: i16,

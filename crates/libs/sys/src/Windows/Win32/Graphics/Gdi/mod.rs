@@ -395,14 +395,14 @@ windows_targets::link!("gdi32.dll" "system" fn WidenPath(hdc : HDC) -> windows_s
 windows_targets::link!("user32.dll" "system" fn WindowFromDC(hdc : HDC) -> super::super::Foundation:: HWND);
 windows_targets::link!("opengl32.dll" "system" fn wglSwapMultipleBuffers(param0 : u32, param1 : *const WGLSWAP) -> u32);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ABC {
     pub abcA: i32,
     pub abcB: u32,
     pub abcC: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ABCFLOAT {
     pub abcfA: f32,
     pub abcfB: f32,
@@ -410,7 +410,7 @@ pub struct ABCFLOAT {
 }
 pub const ABORTDOC: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ABORTPATH {
     pub emr: EMR,
 }
@@ -437,12 +437,22 @@ pub struct AXESLISTA {
     pub axlNumAxes: u32,
     pub axlAxisInfo: [AXISINFOA; 16],
 }
+impl Default for AXESLISTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AXESLISTW {
     pub axlReserved: u32,
     pub axlNumAxes: u32,
     pub axlAxisInfo: [AXISINFOW; 16],
+}
+impl Default for AXESLISTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -451,12 +461,22 @@ pub struct AXISINFOA {
     pub axMaxValue: i32,
     pub axAxisName: [u8; 16],
 }
+impl Default for AXISINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AXISINFOW {
     pub axMinValue: i32,
     pub axMaxValue: i32,
     pub axAxisName: [u16; 16],
+}
+impl Default for AXISINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type BACKGROUND_MODE = u32;
 pub const BALTIC_CHARSET: FONT_CHARSET = 186u8;
@@ -500,8 +520,13 @@ pub struct BITMAP {
     pub bmBitsPixel: u16,
     pub bmBits: *mut core::ffi::c_void,
 }
+impl Default for BITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BITMAPCOREHEADER {
     pub bcSize: u32,
     pub bcWidth: u16,
@@ -515,8 +540,13 @@ pub struct BITMAPCOREINFO {
     pub bmciHeader: BITMAPCOREHEADER,
     pub bmciColors: [RGBTRIPLE; 1],
 }
+impl Default for BITMAPCOREINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BITMAPFILEHEADER {
     pub bfType: u16,
     pub bfSize: u32,
@@ -530,8 +560,13 @@ pub struct BITMAPINFO {
     pub bmiHeader: BITMAPINFOHEADER,
     pub bmiColors: [RGBQUAD; 1],
 }
+impl Default for BITMAPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BITMAPINFOHEADER {
     pub biSize: u32,
     pub biWidth: i32,
@@ -546,7 +581,7 @@ pub struct BITMAPINFOHEADER {
     pub biClrImportant: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BITMAPV4HEADER {
     pub bV4Size: u32,
     pub bV4Width: i32,
@@ -570,7 +605,7 @@ pub struct BITMAPV4HEADER {
     pub bV4GammaBlue: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BITMAPV5HEADER {
     pub bV5Size: u32,
     pub bV5Width: i32,
@@ -611,7 +646,7 @@ pub const BLACKONWHITE: STRETCH_BLT_MODE = 1i32;
 pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = 4i32;
 pub const BLACK_PEN: GET_STOCK_OBJECT_FLAGS = 7i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BLENDFUNCTION {
     pub BlendOp: u8,
     pub BlendFlags: u8,
@@ -669,14 +704,14 @@ pub const CHECKJPEGFORMAT: u32 = 4119u32;
 pub const CHECKPNGFORMAT: u32 = 4120u32;
 pub const CHINESEBIG5_CHARSET: FONT_CHARSET = 136u8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CIEXYZ {
     pub ciexyzX: i32,
     pub ciexyzY: i32,
     pub ciexyzZ: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CIEXYZTRIPLE {
     pub ciexyzRed: CIEXYZ,
     pub ciexyzGreen: CIEXYZ,
@@ -704,7 +739,7 @@ pub const CM_IN_GAMUT: u32 = 0u32;
 pub const CM_NONE: u32 = 0u32;
 pub const CM_OUT_OF_GAMUT: u32 = 255u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COLORADJUSTMENT {
     pub caSize: u16,
     pub caFlags: u16,
@@ -822,6 +857,11 @@ pub struct DESIGNVECTOR {
     pub dvNumAxes: u32,
     pub dvValues: [i32; 16],
 }
+impl Default for DESIGNVECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DESKTOPHORZRES: GET_DEVICE_CAPS_INDEX = 118u32;
 pub const DESKTOPVERTRES: GET_DEVICE_CAPS_INDEX = 117u32;
 pub const DEVICEDATA: u32 = 19u32;
@@ -858,14 +898,24 @@ pub struct DEVMODEA {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
+impl Default for DEVMODEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVMODEA_0 {
     pub Anonymous1: DEVMODEA_0_0,
     pub Anonymous2: DEVMODEA_0_1,
 }
+impl Default for DEVMODEA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVMODEA_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -877,7 +927,7 @@ pub struct DEVMODEA_0_0 {
     pub dmPrintQuality: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVMODEA_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
     pub dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION,
@@ -888,6 +938,11 @@ pub struct DEVMODEA_0_1 {
 pub union DEVMODEA_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
+}
+impl Default for DEVMODEA_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -920,14 +975,24 @@ pub struct DEVMODEW {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
+impl Default for DEVMODEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
     pub Anonymous2: DEVMODEW_0_1,
 }
+impl Default for DEVMODEW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -939,7 +1004,7 @@ pub struct DEVMODEW_0_0 {
     pub dmPrintQuality: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVMODEW_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
     pub dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION,
@@ -950,6 +1015,11 @@ pub struct DEVMODEW_0_1 {
 pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
+}
+impl Default for DEVMODEW_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DEVMODE_COLLATE = i16;
 pub type DEVMODE_COLOR = i16;
@@ -1004,6 +1074,11 @@ pub struct DIBSECTION {
     pub dshSection: super::super::Foundation::HANDLE,
     pub dsOffset: u32,
 }
+impl Default for DIBSECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DIB_PAL_COLORS: DIB_USAGE = 1u32;
 pub const DIB_RGB_COLORS: DIB_USAGE = 0u32;
 pub type DIB_USAGE = u32;
@@ -1040,6 +1115,11 @@ pub struct DISPLAY_DEVICEA {
     pub DeviceID: [i8; 128],
     pub DeviceKey: [i8; 128],
 }
+impl Default for DISPLAY_DEVICEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAY_DEVICEW {
@@ -1049,6 +1129,11 @@ pub struct DISPLAY_DEVICEW {
     pub StateFlags: DISPLAY_DEVICE_STATE_FLAGS,
     pub DeviceID: [u16; 128],
     pub DeviceKey: [u16; 128],
+}
+impl Default for DISPLAY_DEVICEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DISPLAY_DEVICE_ACC_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = 64u32;
 pub const DISPLAY_DEVICE_ACTIVE: DISPLAY_DEVICE_STATE_FLAGS = 1u32;
@@ -1315,7 +1400,7 @@ pub const DRAWPATTERNRECT: u32 = 25u32;
 pub type DRAWSTATEPROC = Option<unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> windows_sys::core::BOOL>;
 pub type DRAWSTATE_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRAWTEXTPARAMS {
     pub cbSize: u32,
     pub iTabLength: i32,
@@ -1388,13 +1473,13 @@ pub const EMBED_INSTALLABLE: EMBEDDED_FONT_PRIV_STATUS = 3u32;
 pub const EMBED_NOEMBEDDING: EMBEDDED_FONT_PRIV_STATUS = 4u32;
 pub const EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMR {
     pub iType: ENHANCED_METAFILE_RECORD_TYPE,
     pub nSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRALPHABLEND {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -1416,7 +1501,7 @@ pub struct EMRALPHABLEND {
     pub cySrc: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRANGLEARC {
     pub emr: EMR,
     pub ptlCenter: super::super::Foundation::POINTL,
@@ -1425,7 +1510,7 @@ pub struct EMRANGLEARC {
     pub eSweepAngle: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRARC {
     pub emr: EMR,
     pub rclBox: super::super::Foundation::RECTL,
@@ -1433,7 +1518,7 @@ pub struct EMRARC {
     pub ptlEnd: super::super::Foundation::POINTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRBITBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -1453,7 +1538,7 @@ pub struct EMRBITBLT {
     pub cbBitsSrc: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRCOLORCORRECTPALETTE {
     pub emr: EMR,
     pub ihPalette: u32,
@@ -1471,15 +1556,20 @@ pub struct EMRCOLORMATCHTOTARGET {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
+impl Default for EMRCOLORMATCHTOTARGET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRCREATEBRUSHINDIRECT {
     pub emr: EMR,
     pub ihBrush: u32,
     pub lb: LOGBRUSH32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRCREATEDIBPATTERNBRUSHPT {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -1490,7 +1580,7 @@ pub struct EMRCREATEDIBPATTERNBRUSHPT {
     pub cbBits: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRCREATEMONOBRUSH {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -1501,27 +1591,27 @@ pub struct EMRCREATEMONOBRUSH {
     pub cbBits: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRCREATEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
     pub lgpl: LOGPALETTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRCREATEPEN {
     pub emr: EMR,
     pub ihPen: u32,
     pub lopn: LOGPEN,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRELLIPSE {
     pub emr: EMR,
     pub rclBox: super::super::Foundation::RECTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMREOF {
     pub emr: EMR,
     pub nPalEntries: u32,
@@ -1529,20 +1619,20 @@ pub struct EMREOF {
     pub nSizeLast: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMREXCLUDECLIPRECT {
     pub emr: EMR,
     pub rclClip: super::super::Foundation::RECTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMREXTCREATEFONTINDIRECTW {
     pub emr: EMR,
     pub ihFont: u32,
     pub elfw: EXTLOGFONTW,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMREXTCREATEPEN {
     pub emr: EMR,
     pub ihPen: u32,
@@ -1560,8 +1650,13 @@ pub struct EMREXTESCAPE {
     pub cbEscData: i32,
     pub EscData: [u8; 1],
 }
+impl Default for EMREXTESCAPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMREXTFLOODFILL {
     pub emr: EMR,
     pub ptlStart: super::super::Foundation::POINTL,
@@ -1576,8 +1671,13 @@ pub struct EMREXTSELECTCLIPRGN {
     pub iMode: u32,
     pub RgnData: [u8; 1],
 }
+impl Default for EMREXTSELECTCLIPRGN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMREXTTEXTOUTA {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -1587,7 +1687,7 @@ pub struct EMREXTTEXTOUTA {
     pub emrtext: EMRTEXT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRFILLPATH {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -1601,8 +1701,13 @@ pub struct EMRFILLRGN {
     pub ihBrush: u32,
     pub RgnData: [u8; 1],
 }
+impl Default for EMRFILLRGN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRFORMAT {
     pub dSignature: u32,
     pub nVersion: u32,
@@ -1619,12 +1724,22 @@ pub struct EMRFRAMERGN {
     pub szlStroke: super::super::Foundation::SIZE,
     pub RgnData: [u8; 1],
 }
+impl Default for EMRFRAMERGN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EMRGDICOMMENT {
     pub emr: EMR,
     pub cbData: u32,
     pub Data: [u8; 1],
+}
+impl Default for EMRGDICOMMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1634,12 +1749,22 @@ pub struct EMRGLSBOUNDEDRECORD {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
+impl Default for EMRGLSBOUNDEDRECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EMRGLSRECORD {
     pub emr: EMR,
     pub cbData: u32,
     pub Data: [u8; 1],
+}
+impl Default for EMRGLSRECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1651,6 +1776,11 @@ pub struct EMRGRADIENTFILL {
     pub ulMode: GRADIENT_FILL,
     pub Ver: [TRIVERTEX; 1],
 }
+impl Default for EMRGRADIENTFILL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EMRINVERTRGN {
@@ -1659,14 +1789,19 @@ pub struct EMRINVERTRGN {
     pub cbRgnData: u32,
     pub RgnData: [u8; 1],
 }
+impl Default for EMRINVERTRGN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRLINETO {
     pub emr: EMR,
     pub ptl: super::super::Foundation::POINTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRMASKBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -1693,7 +1828,7 @@ pub struct EMRMASKBLT {
     pub cbBitsMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRMODIFYWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
@@ -1708,8 +1843,13 @@ pub struct EMRNAMEDESCAPE {
     pub cbEscData: i32,
     pub EscData: [u8; 1],
 }
+impl Default for EMRNAMEDESCAPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMROFFSETCLIPRGN {
     pub emr: EMR,
     pub ptlOffset: super::super::Foundation::POINTL,
@@ -1739,6 +1879,11 @@ pub struct EMRPLGBLT {
     pub offBitsMask: u32,
     pub cbBitsMask: u32,
 }
+impl Default for EMRPLGBLT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EMRPOLYDRAW {
@@ -1747,6 +1892,11 @@ pub struct EMRPOLYDRAW {
     pub cptl: u32,
     pub aptl: [super::super::Foundation::POINTL; 1],
     pub abTypes: [u8; 1],
+}
+impl Default for EMRPOLYDRAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1757,6 +1907,11 @@ pub struct EMRPOLYDRAW16 {
     pub apts: [super::super::Foundation::POINTS; 1],
     pub abTypes: [u8; 1],
 }
+impl Default for EMRPOLYDRAW16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EMRPOLYLINE {
@@ -1765,6 +1920,11 @@ pub struct EMRPOLYLINE {
     pub cptl: u32,
     pub aptl: [super::super::Foundation::POINTL; 1],
 }
+impl Default for EMRPOLYLINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EMRPOLYLINE16 {
@@ -1772,6 +1932,11 @@ pub struct EMRPOLYLINE16 {
     pub rclBounds: super::super::Foundation::RECTL,
     pub cpts: u32,
     pub apts: [super::super::Foundation::POINTS; 1],
+}
+impl Default for EMRPOLYLINE16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1783,6 +1948,11 @@ pub struct EMRPOLYPOLYLINE {
     pub aPolyCounts: [u32; 1],
     pub aptl: [super::super::Foundation::POINTL; 1],
 }
+impl Default for EMRPOLYPOLYLINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EMRPOLYPOLYLINE16 {
@@ -1792,6 +1962,11 @@ pub struct EMRPOLYPOLYLINE16 {
     pub cpts: u32,
     pub aPolyCounts: [u32; 1],
     pub apts: [super::super::Foundation::POINTS; 1],
+}
+impl Default for EMRPOLYPOLYLINE16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1804,28 +1979,33 @@ pub struct EMRPOLYTEXTOUTA {
     pub cStrings: i32,
     pub aemrtext: [EMRTEXT; 1],
 }
+impl Default for EMRPOLYTEXTOUTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRRESIZEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
     pub cEntries: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRRESTOREDC {
     pub emr: EMR,
     pub iRelative: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRROUNDRECT {
     pub emr: EMR,
     pub rclBox: super::super::Foundation::RECTL,
     pub szlCorner: super::super::Foundation::SIZE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSCALEVIEWPORTEXTEX {
     pub emr: EMR,
     pub xNum: i32,
@@ -1834,43 +2014,43 @@ pub struct EMRSCALEVIEWPORTEXTEX {
     pub yDenom: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSELECTCLIPPATH {
     pub emr: EMR,
     pub iMode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSELECTOBJECT {
     pub emr: EMR,
     pub ihObject: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSELECTPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSETARCDIRECTION {
     pub emr: EMR,
     pub iArcDirection: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSETCOLORADJUSTMENT {
     pub emr: EMR,
     pub ColorAdjustment: COLORADJUSTMENT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSETCOLORSPACE {
     pub emr: EMR,
     pub ihCS: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSETDIBITSTODEVICE {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -1897,14 +2077,19 @@ pub struct EMRSETICMPROFILE {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
+impl Default for EMRSETICMPROFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSETMAPPERFLAGS {
     pub emr: EMR,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSETMITERLIMIT {
     pub emr: EMR,
     pub eMiterLimit: f32,
@@ -1918,39 +2103,44 @@ pub struct EMRSETPALETTEENTRIES {
     pub cEntries: u32,
     pub aPalEntries: [PALETTEENTRY; 1],
 }
+impl Default for EMRSETPALETTEENTRIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSETPIXELV {
     pub emr: EMR,
     pub ptlPixel: super::super::Foundation::POINTL,
     pub crColor: super::super::Foundation::COLORREF,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSETTEXTCOLOR {
     pub emr: EMR,
     pub crColor: super::super::Foundation::COLORREF,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSETVIEWPORTEXTEX {
     pub emr: EMR,
     pub szlExtent: super::super::Foundation::SIZE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSETVIEWPORTORGEX {
     pub emr: EMR,
     pub ptlOrigin: super::super::Foundation::POINTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSETWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSTRETCHBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -1972,7 +2162,7 @@ pub struct EMRSTRETCHBLT {
     pub cySrc: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRSTRETCHDIBITS {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -1992,7 +2182,7 @@ pub struct EMRSTRETCHDIBITS {
     pub cyDest: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRTEXT {
     pub ptlReference: super::super::Foundation::POINTL,
     pub nChars: u32,
@@ -2002,7 +2192,7 @@ pub struct EMRTEXT {
     pub offDx: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EMRTRANSPARENTBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2154,7 +2344,7 @@ pub const ENDDOC: u32 = 11u32;
 pub const END_PATH: u32 = 4098u32;
 pub type ENHANCED_METAFILE_RECORD_TYPE = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENHMETAHEADER {
     pub iType: u32,
     pub nSize: u32,
@@ -2183,6 +2373,11 @@ pub struct ENHMETARECORD {
     pub nSize: u32,
     pub dParm: [u32; 1],
 }
+impl Default for ENHMETARECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ENHMETA_SIGNATURE: u32 = 1179469088u32;
 pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648u32;
 pub type ENHMFENUMPROC = Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::super::Foundation::LPARAM) -> i32>;
@@ -2193,6 +2388,11 @@ pub struct ENUMLOGFONTA {
     pub elfFullName: [u8; 64],
     pub elfStyle: [u8; 32],
 }
+impl Default for ENUMLOGFONTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ENUMLOGFONTEXA {
@@ -2201,14 +2401,19 @@ pub struct ENUMLOGFONTEXA {
     pub elfStyle: [u8; 32],
     pub elfScript: [u8; 32],
 }
+impl Default for ENUMLOGFONTEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENUMLOGFONTEXDVA {
     pub elfEnumLogfontEx: ENUMLOGFONTEXA,
     pub elfDesignVector: DESIGNVECTOR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENUMLOGFONTEXDVW {
     pub elfEnumLogfontEx: ENUMLOGFONTEXW,
     pub elfDesignVector: DESIGNVECTOR,
@@ -2221,12 +2426,22 @@ pub struct ENUMLOGFONTEXW {
     pub elfStyle: [u16; 32],
     pub elfScript: [u16; 32],
 }
+impl Default for ENUMLOGFONTEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ENUMLOGFONTW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
     pub elfStyle: [u16; 32],
+}
+impl Default for ENUMLOGFONTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ENUMPAPERBINS: u32 = 31u32;
 pub const ENUMPAPERMETRICS: u32 = 34u32;
@@ -2333,6 +2548,11 @@ pub struct EXTLOGFONTA {
     pub elfCulture: u32,
     pub elfPanose: PANOSE,
 }
+impl Default for EXTLOGFONTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EXTLOGFONTW {
@@ -2347,6 +2567,11 @@ pub struct EXTLOGFONTW {
     pub elfCulture: u32,
     pub elfPanose: PANOSE,
 }
+impl Default for EXTLOGFONTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EXTLOGPEN {
@@ -2358,6 +2583,11 @@ pub struct EXTLOGPEN {
     pub elpNumEntries: u32,
     pub elpStyleEntry: [u32; 1],
 }
+impl Default for EXTLOGPEN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EXTLOGPEN32 {
@@ -2368,6 +2598,11 @@ pub struct EXTLOGPEN32 {
     pub elpHatch: u32,
     pub elpNumEntries: u32,
     pub elpStyleEntry: [u32; 1],
+}
+impl Default for EXTLOGPEN32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EXTTEXTOUT: u32 = 512u32;
 pub const EXT_DEVICE_CAPS: u32 = 4099u32;
@@ -2445,7 +2680,7 @@ pub const FF_ROMAN: FONT_FAMILY = 16u8;
 pub const FF_SCRIPT: FONT_FAMILY = 64u8;
 pub const FF_SWISS: FONT_FAMILY = 32u8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FIXED {
     pub fract: u16,
     pub value: i16,
@@ -2546,6 +2781,11 @@ pub struct GCP_RESULTSA {
     pub nGlyphs: u32,
     pub nMaxFit: i32,
 }
+impl Default for GCP_RESULTSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GCP_RESULTSW {
@@ -2558,6 +2798,11 @@ pub struct GCP_RESULTSW {
     pub lpGlyphs: windows_sys::core::PWSTR,
     pub nGlyphs: u32,
     pub nMaxFit: i32,
+}
+impl Default for GCP_RESULTSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GCP_SYMSWAPOFF: GET_CHARACTER_PLACEMENT_FLAGS = 8388608u32;
 pub const GCP_USEKERNING: GET_CHARACTER_PLACEMENT_FLAGS = 8u32;
@@ -2609,7 +2854,7 @@ pub const GGO_METRICS: GET_GLYPH_OUTLINE_FORMAT = 0u32;
 pub const GGO_NATIVE: GET_GLYPH_OUTLINE_FORMAT = 2u32;
 pub const GGO_UNHINTED: GET_GLYPH_OUTLINE_FORMAT = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GLYPHMETRICS {
     pub gmBlackBoxX: u32,
     pub gmBlackBoxY: u32,
@@ -2626,6 +2871,11 @@ pub struct GLYPHSET {
     pub cRanges: u32,
     pub ranges: [WCRANGE; 1],
 }
+impl Default for GLYPHSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const GM_ADVANCED: GRAPHICS_MODE = 2i32;
 pub const GM_COMPATIBLE: GRAPHICS_MODE = 1i32;
 pub const GM_LAST: u32 = 2u32;
@@ -2636,13 +2886,13 @@ pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = 0u32;
 pub const GRADIENT_FILL_RECT_V: GRADIENT_FILL = 1u32;
 pub const GRADIENT_FILL_TRIANGLE: GRADIENT_FILL = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GRADIENT_RECT {
     pub UpperLeft: u32,
     pub LowerRight: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GRADIENT_TRIANGLE {
     pub Vertex1: u32,
     pub Vertex2: u32,
@@ -2658,6 +2908,11 @@ pub const HALFTONE: STRETCH_BLT_MODE = 4i32;
 #[derive(Clone, Copy)]
 pub struct HANDLETABLE {
     pub objectHandle: [HGDIOBJ; 1],
+}
+impl Default for HANDLETABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HANGEUL_CHARSET: FONT_CHARSET = 129u8;
 pub const HANGUL_CHARSET: FONT_CHARSET = 129u8;
@@ -2701,7 +2956,7 @@ pub const ILLUMINANT_NTSC: u32 = 3u32;
 pub const ILLUMINANT_TUNGSTEN: u32 = 1u32;
 pub const JOHAB_CHARSET: FONT_CHARSET = 130u8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KERNINGPAIR {
     pub wFirst: u16,
     pub wSecond: u16,
@@ -2733,14 +2988,14 @@ pub const LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = 4u32;
 pub const LINECAPS: GET_DEVICE_CAPS_INDEX = 30u32;
 pub type LINEDDAPROC = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LOGBRUSH {
     pub lbStyle: BRUSH_STYLE,
     pub lbColor: super::super::Foundation::COLORREF,
     pub lbHatch: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LOGBRUSH32 {
     pub lbStyle: BRUSH_STYLE,
     pub lbColor: super::super::Foundation::COLORREF,
@@ -2764,6 +3019,11 @@ pub struct LOGFONTA {
     pub lfPitchAndFamily: u8,
     pub lfFaceName: [i8; 32],
 }
+impl Default for LOGFONTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LOGFONTW {
@@ -2782,6 +3042,11 @@ pub struct LOGFONTW {
     pub lfPitchAndFamily: u8,
     pub lfFaceName: [u16; 32],
 }
+impl Default for LOGFONTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LOGPALETTE {
@@ -2789,8 +3054,13 @@ pub struct LOGPALETTE {
     pub palNumEntries: u16,
     pub palPalEntry: [PALETTEENTRY; 1],
 }
+impl Default for LOGPALETTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LOGPEN {
     pub lopnStyle: u32,
     pub lopnWidth: super::super::Foundation::POINT,
@@ -2815,7 +3085,7 @@ pub type LPFNDEVMODE = Option<unsafe extern "system" fn(param0: super::super::Fo
 pub const LTGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = 1i32;
 pub const MAC_CHARSET: FONT_CHARSET = 77u8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MAT2 {
     pub eM11: FIXED,
     pub eM12: FIXED,
@@ -2827,7 +3097,7 @@ pub const MERGECOPY: ROP_CODE = 12583114u32;
 pub const MERGEPAINT: ROP_CODE = 12255782u32;
 pub const METAFILE_DRIVER: u32 = 2049u32;
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct METAHEADER {
     pub mtType: u16,
     pub mtHeaderSize: u16,
@@ -2843,6 +3113,11 @@ pub struct METARECORD {
     pub rdSize: u32,
     pub rdFunction: u16,
     pub rdParm: [u16; 1],
+}
+impl Default for METARECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const META_ANIMATEPALETTE: u32 = 1078u32;
 pub const META_ARC: u32 = 2071u32;
@@ -2930,7 +3205,7 @@ pub const MM_TWIPS: HDC_MAP_MODE = 6i32;
 pub type MODIFY_WORLD_TRANSFORM_MODE = u32;
 pub type MONITORENUMPROC = Option<unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> windows_sys::core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MONITORINFO {
     pub cbSize: u32,
     pub rcMonitor: super::super::Foundation::RECT,
@@ -2943,11 +3218,21 @@ pub struct MONITORINFOEXA {
     pub monitorInfo: MONITORINFO,
     pub szDevice: [i8; 32],
 }
+impl Default for MONITORINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MONITORINFOEXW {
     pub monitorInfo: MONITORINFO,
     pub szDevice: [u16; 32],
+}
+impl Default for MONITORINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = 2u32;
 pub const MONITOR_DEFAULTTONULL: MONITOR_FROM_FLAGS = 0u32;
@@ -2960,7 +3245,7 @@ pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = 2u32;
 pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = 3u32;
 pub const NEWFRAME: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NEWTEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -2988,7 +3273,7 @@ pub struct NEWTEXTMETRICA {
     pub ntmAvgWidth: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NEWTEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -3094,6 +3379,11 @@ pub struct OUTLINETEXTMETRICA {
     pub otmpStyleName: windows_sys::core::PSTR,
     pub otmpFullName: windows_sys::core::PSTR,
 }
+impl Default for OUTLINETEXTMETRICA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OUTLINETEXTMETRICW {
@@ -3130,6 +3420,11 @@ pub struct OUTLINETEXTMETRICW {
     pub otmpStyleName: windows_sys::core::PSTR,
     pub otmpFullName: windows_sys::core::PSTR,
 }
+impl Default for OUTLINETEXTMETRICW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = 2u8;
 pub const OUT_DEFAULT_PRECIS: FONT_OUTPUT_PRECISION = 0u8;
 pub const OUT_DEVICE_PRECIS: FONT_OUTPUT_PRECISION = 5u8;
@@ -3151,8 +3446,13 @@ pub struct PAINTSTRUCT {
     pub fIncUpdate: windows_sys::core::BOOL,
     pub rgbReserved: [u8; 32],
 }
+impl Default for PAINTSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PALETTEENTRY {
     pub peRed: u8,
     pub peGreen: u8,
@@ -3160,7 +3460,7 @@ pub struct PALETTEENTRY {
     pub peFlags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PANOSE {
     pub bFamilyType: PAN_FAMILY_TYPE,
     pub bSerifStyle: PAN_SERIF_STYLE,
@@ -3331,7 +3631,7 @@ pub const PC_WIDESTYLED: u32 = 64u32;
 pub const PC_WINDPOLYGON: u32 = 4u32;
 pub const PDEVICESIZE: GET_DEVICE_CAPS_INDEX = 26u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PELARRAY {
     pub paXCount: i32,
     pub paYCount: i32,
@@ -3346,7 +3646,7 @@ pub const PHYSICALOFFSETY: GET_DEVICE_CAPS_INDEX = 113u32;
 pub const PHYSICALWIDTH: GET_DEVICE_CAPS_INDEX = 110u32;
 pub const PLANES: GET_DEVICE_CAPS_INDEX = 14u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POINTFX {
     pub x: FIXED,
     pub y: FIXED,
@@ -3364,6 +3664,11 @@ pub struct POLYTEXTA {
     pub rcl: super::super::Foundation::RECT,
     pub pdx: *mut i32,
 }
+impl Default for POLYTEXTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POLYTEXTW {
@@ -3374,6 +3679,11 @@ pub struct POLYTEXTW {
     pub uiFlags: u32,
     pub rcl: super::super::Foundation::RECT,
     pub pdx: *mut i32,
+}
+impl Default for POLYTEXTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const POSTSCRIPT_DATA: u32 = 37u32;
 pub const POSTSCRIPT_IDENTIFY: u32 = 4117u32;
@@ -3445,7 +3755,7 @@ pub const R2_WHITE: R2_MODE = 16i32;
 pub const R2_XORPEN: R2_MODE = 7i32;
 pub const RASTERCAPS: GET_DEVICE_CAPS_INDEX = 38u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RASTERIZER_STATUS {
     pub nSize: i16,
     pub wFlags: i16,
@@ -3486,7 +3796,7 @@ pub type REDRAW_WINDOW_FLAGS = u32;
 pub const RELATIVE: u32 = 2u32;
 pub const RESTORE_CTM: u32 = 4100u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RGBQUAD {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
@@ -3494,7 +3804,7 @@ pub struct RGBQUAD {
     pub rgbReserved: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RGBTRIPLE {
     pub rgbtBlue: u8,
     pub rgbtGreen: u8,
@@ -3506,8 +3816,13 @@ pub struct RGNDATA {
     pub rdh: RGNDATAHEADER,
     pub Buffer: [i8; 1],
 }
+impl Default for RGNDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RGNDATAHEADER {
     pub dwSize: u32,
     pub iType: u32,
@@ -3622,7 +3937,7 @@ pub const TC_VA_ABLE: u32 = 16384u32;
 pub const TECHNOLOGY: GET_DEVICE_CAPS_INDEX = 2u32;
 pub const TEXTCAPS: GET_DEVICE_CAPS_INDEX = 34u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -3646,7 +3961,7 @@ pub struct TEXTMETRICA {
     pub tmCharSet: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -3679,7 +3994,7 @@ pub const TMPF_VECTOR: TMPF_FLAGS = 2u8;
 pub const TRANSFORM_CTM: u32 = 4107u32;
 pub const TRANSPARENT: BACKGROUND_MODE = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRIVERTEX {
     pub x: i32,
     pub y: i32,
@@ -3696,6 +4011,11 @@ pub struct TTEMBEDINFO {
     pub usStructSize: u16,
     pub usRootStrSize: u16,
     pub pusRootStr: *mut u16,
+}
+impl Default for TTEMBEDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TTEMBED_EMBEDEUDC: TTEMBED_FLAGS = 32u32;
 pub const TTEMBED_EUDCEMBEDDED: u32 = 2u32;
@@ -3734,6 +4054,11 @@ pub struct TTLOADINFO {
     pub usRefStrSize: u16,
     pub pusRefStr: *mut u16,
 }
+impl Default for TTLOADINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type TTLOAD_EMBEDDED_FONT_STATUS = u32;
 pub const TTLOAD_EUDC_OVERWRITE: u32 = 2u32;
 pub const TTLOAD_EUDC_SET: u32 = 4u32;
@@ -3747,8 +4072,13 @@ pub struct TTPOLYCURVE {
     pub cpfx: u16,
     pub apfx: [POINTFX; 1],
 }
+impl Default for TTPOLYCURVE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TTPOLYGONHEADER {
     pub cb: u32,
     pub dwType: u32,
@@ -3765,6 +4095,11 @@ pub struct TTVALIDATIONTESTSPARAMS {
     pub usCharCodeCount: u16,
     pub pusCharCodeSet: *mut u16,
 }
+impl Default for TTVALIDATIONTESTSPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TTVALIDATIONTESTSPARAMSEX {
@@ -3775,6 +4110,11 @@ pub struct TTVALIDATIONTESTSPARAMSEX {
     pub usReserved1: u16,
     pub usCharCodeCount: u16,
     pub pulCharCodeSet: *mut u32,
+}
+impl Default for TTVALIDATIONTESTSPARAMSEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TT_AVAILABLE: u32 = 1u32;
 pub const TT_ENABLED: u32 = 2u32;
@@ -3795,7 +4135,7 @@ pub const VTA_LEFT: TEXT_ALIGN_OPTIONS = 8u32;
 pub const VTA_RIGHT: TEXT_ALIGN_OPTIONS = 0u32;
 pub const VTA_TOP: TEXT_ALIGN_OPTIONS = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WCRANGE {
     pub wcLow: u16,
     pub cGlyphs: u16,
@@ -3805,6 +4145,11 @@ pub struct WCRANGE {
 pub struct WGLSWAP {
     pub hdc: HDC,
     pub uiFlags: u32,
+}
+impl Default for WGLSWAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WGL_FONT_LINES: u32 = 0u32;
 pub const WGL_FONT_POLYGONS: u32 = 1u32;
@@ -3847,7 +4192,7 @@ pub const WHITE_PEN: GET_STOCK_OBJECT_FLAGS = 6i32;
 pub const WINDING: CREATE_POLYGON_RGN_MODE = 2i32;
 pub type WRITEEMBEDPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *const core::ffi::c_void, param2: u32) -> u32>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XFORM {
     pub eM11: f32,
     pub eM12: f32,

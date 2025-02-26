@@ -53,6 +53,11 @@ pub struct ENCLAVE_IDENTITY {
     pub SigningLevel: u32,
     pub EnclaveType: u32,
 }
+impl Default for ENCLAVE_IDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = 1i32;
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: ENCLAVE_SEALING_IDENTITY_POLICY = 0i32;
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: ENCLAVE_SEALING_IDENTITY_POLICY = 5i32;
@@ -68,6 +73,11 @@ pub struct ENCLAVE_INFORMATION {
     pub Size: usize,
     pub Identity: ENCLAVE_IDENTITY,
 }
+impl Default for ENCLAVE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64u32;
 pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2u32;
 pub const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1u32;
@@ -78,7 +88,7 @@ pub const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2u32;
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4u32;
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub RequestSize: u32,
     pub Flags: u32,
@@ -123,8 +133,13 @@ pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     pub ExceptionRFLAGS: usize,
     pub ExceptionRSP: usize,
 }
+impl Default for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub ReturnFromEnclave: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
     pub ReturnFromException: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
@@ -150,6 +165,11 @@ pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     pub ExceptionStack: u32,
     pub ExceptionActive: u32,
 }
+impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
@@ -160,6 +180,11 @@ pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     pub ExceptionStack: u64,
     pub ExceptionActive: u32,
 }
+impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct VBS_ENCLAVE_REPORT {
@@ -167,6 +192,11 @@ pub struct VBS_ENCLAVE_REPORT {
     pub ReportVersion: u32,
     pub EnclaveData: [u8; 64],
     pub EnclaveIdentity: ENCLAVE_IDENTITY,
+}
+impl Default for VBS_ENCLAVE_REPORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -179,8 +209,13 @@ pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub Svn: u32,
     pub ModuleName: [u16; 1],
 }
+impl Default for VBS_ENCLAVE_REPORT_MODULE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub PackageSize: u32,
     pub Version: u32,
@@ -192,7 +227,7 @@ pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
 pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
 pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     pub DataType: u32,
     pub Size: u32,

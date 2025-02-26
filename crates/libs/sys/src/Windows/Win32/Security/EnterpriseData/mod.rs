@@ -18,7 +18,7 @@ pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = 2i32;
 pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = 4i32;
 pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_UNPROTECT_OPTIONS {
     pub audit: u8,
 }
@@ -27,6 +27,11 @@ pub struct FILE_UNPROTECT_OPTIONS {
 pub struct HTHREAD_NETWORK_CONTEXT {
     pub ThreadId: u32,
     pub ThreadContext: super::super::Foundation::HANDLE,
+}
+impl Default for HTHREAD_NETWORK_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SRPHOSTING_TYPE = i32;
 pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = 0i32;

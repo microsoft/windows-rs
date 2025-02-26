@@ -155,7 +155,7 @@ windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_Close(ho
 windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_SetWindowVisualState(hobj : HUIAPATTERNOBJECT, state : WindowVisualState) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACCESSTIMEOUT {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -397,8 +397,13 @@ pub struct ExtendedProperty {
     pub PropertyName: windows_sys::core::BSTR,
     pub PropertyValue: windows_sys::core::BSTR,
 }
+impl Default for ExtendedProperty {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILTERKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -449,12 +454,22 @@ pub struct HIGHCONTRASTA {
     pub dwFlags: HIGHCONTRASTW_FLAGS,
     pub lpszDefaultScheme: windows_sys::core::PSTR,
 }
+impl Default for HIGHCONTRASTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HIGHCONTRASTW {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
     pub lpszDefaultScheme: windows_sys::core::PWSTR,
+}
+impl Default for HIGHCONTRASTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HIGHCONTRASTW_FLAGS = u32;
 pub type HUIAEVENT = *mut core::ffi::c_void;
@@ -573,7 +588,7 @@ pub const LiveSetting_Property_GUID: windows_sys::core::GUID = windows_sys::core
 pub const LocalizedControlType_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8763404f_a1bd_452a_89c4_3f01d3833806);
 pub const LocalizedLandmarkType_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ac81980_eafb_4fb2_bf91_f485bef5e8e1);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MOUSEKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -589,6 +604,11 @@ pub struct MSAAMENUINFO {
     pub dwMSAASignature: u32,
     pub cchWText: u32,
     pub pszWText: windows_sys::core::PWSTR,
+}
+impl Default for MSAAMENUINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
 pub const MenuBar_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc384250_0e7b_4ae8_95ae_a08f261b52ee);
@@ -797,6 +817,11 @@ pub struct SERIALKEYSA {
     pub iPortState: u32,
     pub iActive: u32,
 }
+impl Default for SERIALKEYSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERIALKEYSW {
@@ -807,6 +832,11 @@ pub struct SERIALKEYSW {
     pub iBaudRate: u32,
     pub iPortState: u32,
     pub iActive: u32,
+}
+impl Default for SERIALKEYSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SERIALKEYS_FLAGS = u32;
 pub const SERKF_AVAILABLE: SERIALKEYS_FLAGS = 2u32;
@@ -855,6 +885,11 @@ pub struct SOUNDSENTRYA {
     pub lpszWindowsEffectDLL: windows_sys::core::PSTR,
     pub iWindowsEffectOrdinal: u32,
 }
+impl Default for SOUNDSENTRYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOUNDSENTRYW {
@@ -870,6 +905,11 @@ pub struct SOUNDSENTRYW {
     pub iWindowsEffectMSec: u32,
     pub lpszWindowsEffectDLL: windows_sys::core::PWSTR,
     pub iWindowsEffectOrdinal: u32,
+}
+impl Default for SOUNDSENTRYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SOUNDSENTRY_FLAGS = u32;
 pub type SOUNDSENTRY_TEXT_EFFECT = u32;
@@ -892,7 +932,7 @@ pub const SSWF_WINDOW: SOUNDSENTRY_WINDOWS_EFFECT = 2u32;
 pub const STATE_SYSTEM_HASPOPUP: u32 = 1073741824u32;
 pub const STATE_SYSTEM_NORMAL: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STICKYKEYS {
     pub cbSize: u32,
     pub dwFlags: STICKYKEYS_FLAGS,
@@ -1038,7 +1078,7 @@ pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = 16i32;
 pub const SynchronizedInput_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x05c288a6_c47b_488b_b653_33977a551b8b);
 pub const SystemAlert_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd271545d_7a3a_47a7_8474_81d29a2451c9);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TOGGLEKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1548,6 +1588,11 @@ pub struct UIAutomationEventInfo {
     pub guid: windows_sys::core::GUID,
     pub pProgrammaticName: windows_sys::core::PCWSTR,
 }
+impl Default for UIAutomationEventInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UIAutomationMethodInfo {
@@ -1558,11 +1603,21 @@ pub struct UIAutomationMethodInfo {
     pub pParameterTypes: *mut UIAutomationType,
     pub pParameterNames: *const windows_sys::core::PCWSTR,
 }
+impl Default for UIAutomationMethodInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UIAutomationParameter {
     pub r#type: UIAutomationType,
     pub pData: *mut core::ffi::c_void,
+}
+impl Default for UIAutomationParameter {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1579,12 +1634,22 @@ pub struct UIAutomationPatternInfo {
     pub pEvents: *mut UIAutomationEventInfo,
     pub pPatternHandler: *mut core::ffi::c_void,
 }
+impl Default for UIAutomationPatternInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UIAutomationPropertyInfo {
     pub guid: windows_sys::core::GUID,
     pub pProgrammaticName: windows_sys::core::PCWSTR,
     pub r#type: UIAutomationType,
+}
+impl Default for UIAutomationPropertyInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type UIAutomationType = i32;
 pub const UIAutomationType_Array: UIAutomationType = 65536i32;
@@ -1624,9 +1689,14 @@ pub struct UiaAndOrCondition {
     pub ppConditions: *mut *mut UiaCondition,
     pub cConditions: i32,
 }
+impl Default for UiaAndOrCondition {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const UiaAppendRuntimeId: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UiaAsyncContentLoadedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
@@ -1644,6 +1714,11 @@ pub struct UiaCacheRequest {
     pub cPatterns: i32,
     pub automationElementMode: AutomationElementMode,
 }
+impl Default for UiaCacheRequest {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -1651,6 +1726,12 @@ pub struct UiaChangeInfo {
     pub uiaId: i32,
     pub payload: super::super::System::Variant::VARIANT,
     pub extraInfo: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for UiaChangeInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1661,13 +1742,19 @@ pub struct UiaChangesEventArgs {
     pub EventIdCount: i32,
     pub pUiaChanges: *mut UiaChangeInfo,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for UiaChangesEventArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UiaCondition {
     pub ConditionType: ConditionType,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UiaEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
@@ -1682,14 +1769,24 @@ pub struct UiaFindParams {
     pub ExcludeRoot: windows_sys::core::BOOL,
     pub pFindCondition: *mut UiaCondition,
 }
+impl Default for UiaFindParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UiaNotCondition {
     pub ConditionType: ConditionType,
     pub pCondition: *mut UiaCondition,
 }
+impl Default for UiaNotCondition {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UiaPoint {
     pub x: f64,
     pub y: f64,
@@ -1704,6 +1801,12 @@ pub struct UiaPropertyChangedEventArgs {
     pub OldValue: super::super::System::Variant::VARIANT,
     pub NewValue: super::super::System::Variant::VARIANT,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for UiaPropertyChangedEventArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -1713,10 +1816,16 @@ pub struct UiaPropertyCondition {
     pub Value: super::super::System::Variant::VARIANT,
     pub Flags: PropertyConditionFlags,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for UiaPropertyCondition {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 pub type UiaProviderCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UiaRect {
     pub left: f64,
     pub top: f64,
@@ -1733,6 +1842,11 @@ pub struct UiaStructureChangedEventArgs {
     pub pRuntimeId: *mut i32,
     pub cRuntimeIdLen: i32,
 }
+impl Default for UiaStructureChangedEventArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -1742,6 +1856,12 @@ pub struct UiaTextEditTextChangedEventArgs {
     pub TextEditChangeType: TextEditChangeType,
     pub pTextChange: *mut super::super::System::Com::SAFEARRAY,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for UiaTextEditTextChangedEventArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UiaWindowClosedEventArgs {
@@ -1749,6 +1869,11 @@ pub struct UiaWindowClosedEventArgs {
     pub EventId: i32,
     pub pRuntimeId: *mut i32,
     pub cRuntimeIdLen: i32,
+}
+impl Default for UiaWindowClosedEventArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const Value_IsReadOnly_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb090f30_e24c_4799_a705_0d247bc037f8);
 pub const Value_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17faad9e_c877_475b_b933_77332779b637);

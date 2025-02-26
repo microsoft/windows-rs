@@ -25,7 +25,7 @@ pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = 2147483648u32;
 pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = 200u32;
 pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = 400u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TBS_CONTEXT_PARAMS {
     pub version: u32,
 }
@@ -35,14 +35,24 @@ pub struct TBS_CONTEXT_PARAMS2 {
     pub version: u32,
     pub Anonymous: TBS_CONTEXT_PARAMS2_0,
 }
+impl Default for TBS_CONTEXT_PARAMS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TBS_CONTEXT_PARAMS2_0 {
     pub Anonymous: TBS_CONTEXT_PARAMS2_0_0,
     pub asUINT32: u32,
 }
+impl Default for TBS_CONTEXT_PARAMS2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
     pub _bitfield: u32,
 }
@@ -62,7 +72,7 @@ pub const TBS_TCGLOG_SRTM_BOOT: u32 = 2u32;
 pub const TBS_TCGLOG_SRTM_CURRENT: u32 = 0u32;
 pub const TBS_TCGLOG_SRTM_RESUME: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TPM_DEVICE_INFO {
     pub structVersion: u32,
     pub tpmVersion: u32,
@@ -86,4 +96,9 @@ pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
 pub struct TPM_WNF_PROVISIONING {
     pub status: u32,
     pub message: [u8; 28],
+}
+impl Default for TPM_WNF_PROVISIONING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
