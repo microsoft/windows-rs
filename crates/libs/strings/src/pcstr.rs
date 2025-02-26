@@ -56,3 +56,9 @@ impl PCSTR {
         unsafe { Decode(move || decode_utf8(self.as_bytes())) }
     }
 }
+
+impl Default for PCSTR {
+    fn default() -> Self {
+        Self::null()
+    }
+}
