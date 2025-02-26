@@ -149,9 +149,7 @@ impl CppStruct {
             derive.extend(["Debug", "PartialEq"]);
         }
 
-        let default = if writer.config.sys {
-            quote! {}
-        } else if self.can_derive_default() {
+        let default = if self.can_derive_default(writer.config) {
             derive.extend(["Default"]);
             quote! {}
         } else {
@@ -227,13 +225,41 @@ impl CppStruct {
         tokens
     }
 
-    fn can_derive_default(&self) -> bool {
+    fn can_derive_default(&self, config: &Config) -> bool {
         !self.has_explicit_layout()
-            && self.def.fields().all(|field| {
-                !matches!(
-                    field.ty(Some(self)),
-                    Type::ArrayFixed(..) | Type::PtrConst(..) | Type::PtrMut(..)
-                )
+            && !self.def.fields().any(|field| {
+                let ty = field.ty(Some(self));
+
+                if config.sys {
+                    if let Type::CppStruct(ty) = &ty {
+                        if ty.is_handle() && ty.def.underlying_type().is_pointer() {
+                            return true;
+                        }
+                    }
+
+                    matches!(
+                        &ty,
+                        Type::ArrayFixed(..)
+                            | Type::BSTR
+                            | Type::Class(..)
+                            | Type::CppInterface(..)
+                            | Type::Delegate(..)
+                            | Type::Interface(..)
+                            | Type::IUnknown
+                            | Type::Object
+                            | Type::PCSTR
+                            | Type::PCWSTR
+                            | Type::PSTR
+                            | Type::PtrConst(..)
+                            | Type::PtrMut(..)
+                            | Type::PWSTR
+                    )
+                } else {
+                    matches!(
+                        &ty,
+                        Type::ArrayFixed(..) | Type::PtrConst(..) | Type::PtrMut(..)
+                    )
+                }
             })
     }
 
