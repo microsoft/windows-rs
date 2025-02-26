@@ -7,7 +7,7 @@
 )]
 
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,

@@ -12,4 +12,9 @@ pub struct CALPOLESTR {
     pub cElems: u32,
     pub pElems: *mut PWSTR,
 }
+impl Default for CALPOLESTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PWSTR = *mut u16;

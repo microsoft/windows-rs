@@ -37,14 +37,24 @@ pub struct DEVMODEW {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
+impl Default for DEVMODEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
     pub Anonymous2: DEVMODEW_0_1,
 }
+impl Default for DEVMODEW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -56,7 +66,7 @@ pub struct DEVMODEW_0_0 {
     pub dmPrintQuality: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVMODEW_0_1 {
     pub dmPosition: POINTL,
     pub dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION,
@@ -67,6 +77,11 @@ pub struct DEVMODEW_0_1 {
 pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
+}
+impl Default for DEVMODEW_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DEVMODE_COLLATE = i16;
 pub type DEVMODE_COLOR = i16;
@@ -175,7 +190,7 @@ pub struct IUnknown_Vtbl {
 }
 pub type PCWSTR = *const u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POINTL {
     pub x: i32,
     pub y: i32,
@@ -188,6 +203,11 @@ pub struct STGMEDIUM {
     pub u: STGMEDIUM_0,
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
+impl Default for STGMEDIUM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STGMEDIUM_0 {
@@ -198,4 +218,9 @@ pub union STGMEDIUM_0 {
     pub lpszFileName: PWSTR,
     pub pstm: *mut core::ffi::c_void,
     pub pstg: *mut core::ffi::c_void,
+}
+impl Default for STGMEDIUM_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
