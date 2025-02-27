@@ -65,6 +65,10 @@ fn main() {
     test("--out struct_with_generic.rs --filter HttpProgress");
     test("--out struct_with_cpp_interface.rs --filter D3D12_RESOURCE_UAV_BARRIER");
     test("--out struct_with_cpp_interface_sys.rs --filter D3D12_RESOURCE_UAV_BARRIER --sys");
+    test("--out struct_arch_a.rs --filter SP_POWERMESSAGEWAKE_PARAMS_A");
+    test("--out struct_arch_w.rs --filter SP_POWERMESSAGEWAKE_PARAMS_W");
+    test("--out struct_arch_a_sys.rs --sys --filter SP_POWERMESSAGEWAKE_PARAMS_A");
+    test("--out struct_arch_w_sys.rs --sys --filter SP_POWERMESSAGEWAKE_PARAMS_W");
 
     // Tests for interfaces
     test("--out interface.rs --filter IStringable");

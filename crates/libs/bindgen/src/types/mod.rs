@@ -717,22 +717,6 @@ impl Type {
         matches!(self, Self::PtrConst(_, _) | Self::PtrMut(_, _))
     }
 
-    pub fn has_explicit_layout(&self) -> bool {
-        match self {
-            Self::CppStruct(ty) => ty.has_explicit_layout(),
-            Self::ArrayFixed(ty, _) => ty.has_explicit_layout(),
-            _ => false,
-        }
-    }
-
-    pub fn has_packing(&self) -> bool {
-        match self {
-            Self::CppStruct(ty) => ty.has_packing(),
-            Self::ArrayFixed(ty, _) => ty.has_packing(),
-            _ => false,
-        }
-    }
-
     pub fn is_byte_size(&self) -> bool {
         match self {
             Self::PtrConst(ty, _) | Self::PtrMut(ty, _) => ty.is_byte_size(),

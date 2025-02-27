@@ -21618,7 +21618,7 @@ impl Default for SSVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Default)]
 pub struct SSVARIANT_0_4 {
     pub dbobj: DBOBJECT,
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,

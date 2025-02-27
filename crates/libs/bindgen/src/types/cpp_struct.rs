@@ -279,17 +279,45 @@ impl CppStruct {
     pub fn has_explicit_layout(&self) -> bool {
         self.def.flags().contains(TypeAttributes::ExplicitLayout)
             || self
-                .def
-                .fields()
-                .any(|field| field.ty(Some(self)).has_explicit_layout())
+                .multi_struct_fields()
+                .any(|ty| ty.has_explicit_layout())
     }
 
     pub fn has_packing(&self) -> bool {
-        self.def.class_layout().is_some()
-            || self
-                .def
-                .fields()
-                .any(|field| field.ty(Some(self)).has_packing())
+        self.def.class_layout().is_some() || self.multi_struct_fields().any(|ty| ty.has_packing())
+    }
+
+    // Returns all possible struct field types including arch-specific overloads.
+    // This avoids skipping arch-specific definitions of structs that may have
+    // different layout or packing requirements.
+    fn multi_struct_fields(&self) -> impl Iterator<Item = CppStruct> + '_ {
+        self.def
+            .fields()
+            .map(|field| field.ty(Some(self)))
+            .filter_map(|ty| match ty {
+                Type::CppStruct(ty) => Some(ty),
+                Type::ArrayFixed(ty, _) => {
+                    if let Type::CppStruct(ty) = *ty {
+                        Some(ty)
+                    } else {
+                        None
+                    }
+                }
+                _ => None,
+            })
+            .flat_map(|ty| {
+                ty.def
+                    .reader()
+                    .with_full_name(ty.def.namespace(), ty.def.name())
+            })
+            .filter_map(|ty| {
+                if let Type::CppStruct(ty) = ty {
+                    Some(ty)
+                } else {
+                    None
+                }
+            })
+            .chain(self.nested.values().cloned())
     }
 
     pub fn size(&self) -> usize {
