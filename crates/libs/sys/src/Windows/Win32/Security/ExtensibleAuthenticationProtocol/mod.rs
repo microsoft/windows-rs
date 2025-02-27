@@ -42,7 +42,7 @@ pub const EAPCODE_Request: u32 = 1u32;
 pub const EAPCODE_Response: u32 = 2u32;
 pub const EAPCODE_Success: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EAPHOST_AUTH_INFO {
     pub status: EAPHOST_AUTH_STATUS,
     pub dwErrorCode: u32,
@@ -64,6 +64,11 @@ pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub dwError: u32,
     pub pEapError: *mut EAP_ERROR,
 }
+impl Default for EAPHOST_IDENTITY_UI_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
@@ -74,6 +79,11 @@ pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwError: u32,
     pub pEapError: *mut EAP_ERROR,
 }
+impl Default for EAPHOST_INTERACTIVE_UI_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EAPHOST_METHOD_API_VERSION: u32 = 1u32;
 pub const EAPHOST_PEER_API_VERSION: u32 = 1u32;
 #[repr(C)]
@@ -83,11 +93,21 @@ pub struct EAP_ATTRIBUTE {
     pub dwLength: u32,
     pub pValue: *mut u8,
 }
+impl Default for EAP_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EAP_ATTRIBUTES {
     pub dwNumberOfAttributes: u32,
     pub pAttribs: *mut EAP_ATTRIBUTE,
+}
+impl Default for EAP_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type EAP_ATTRIBUTE_TYPE = i32;
 #[repr(C)]
@@ -106,6 +126,11 @@ pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
     pub EapMethodAuthenticatorEndSession: isize,
     pub EapMethodAuthenticatorShutdown: isize,
 }
+impl Default for EAP_AUTHENTICATOR_METHOD_ROUTINES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type EAP_AUTHENTICATOR_SEND_TIMEOUT = i32;
 pub const EAP_AUTHENTICATOR_SEND_TIMEOUT_BASIC: EAP_AUTHENTICATOR_SEND_TIMEOUT = 1i32;
 pub const EAP_AUTHENTICATOR_SEND_TIMEOUT_INTERACTIVE: EAP_AUTHENTICATOR_SEND_TIMEOUT = 2i32;
@@ -122,6 +147,11 @@ pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
     pub dwNumberOfFields: u32,
     pub pFields: *mut EAP_CONFIG_INPUT_FIELD_DATA,
 }
+impl Default for EAP_CONFIG_INPUT_FIELD_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA {
@@ -133,13 +163,18 @@ pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwMinDataLength: u32,
     pub dwMaxDataLength: u32,
 }
+impl Default for EAP_CONFIG_INPUT_FIELD_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1u32;
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2u32;
 pub type EAP_CONFIG_INPUT_FIELD_TYPE = i32;
 pub const EAP_CREDENTIAL_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EAP_CRED_EXPIRY_REQ {
     pub curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
@@ -156,6 +191,11 @@ pub struct EAP_ERROR {
     pub helpLinkGuid: windows_sys::core::GUID,
     pub pRootCauseString: windows_sys::core::PWSTR,
     pub pRepairString: windows_sys::core::PWSTR,
+}
+impl Default for EAP_ERROR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EAP_E_AUTHENTICATION_FAILED: u32 = 2151809045u32;
 pub const EAP_E_CERT_STORE_INACCESSIBLE: u32 = 2151809040u32;
@@ -233,6 +273,11 @@ pub struct EAP_INTERACTIVE_UI_DATA {
     pub cbUiData: u32,
     pub pbUiData: EAP_UI_DATA_FORMAT,
 }
+impl Default for EAP_INTERACTIVE_UI_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type EAP_INTERACTIVE_UI_DATA_TYPE = i32;
 pub const EAP_INTERACTIVE_UI_DATA_VERSION: u32 = 1u32;
 pub const EAP_INVALID_PACKET: u32 = 2151809048u32;
@@ -257,6 +302,11 @@ pub struct EAP_METHOD_AUTHENTICATOR_RESULT {
     pub dwFailureReason: u32,
     pub pAuthAttribs: *mut EAP_ATTRIBUTES,
 }
+impl Default for EAP_METHOD_AUTHENTICATOR_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EAP_METHOD_INFO {
@@ -266,17 +316,32 @@ pub struct EAP_METHOD_INFO {
     pub eapProperties: u32,
     pub pInnerMethodInfo: *mut EAP_METHOD_INFO,
 }
+impl Default for EAP_METHOD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EAP_METHOD_INFO_ARRAY {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO,
 }
+impl Default for EAP_METHOD_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO_EX,
+}
+impl Default for EAP_METHOD_INFO_ARRAY_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -287,6 +352,11 @@ pub struct EAP_METHOD_INFO_EX {
     pub eapProperties: u32,
     pub pInnerMethodInfoArray: *mut EAP_METHOD_INFO_ARRAY_EX,
 }
+impl Default for EAP_METHOD_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EAP_METHOD_INVALID_PACKET: u32 = 2151809047u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -295,11 +365,21 @@ pub struct EAP_METHOD_PROPERTY {
     pub eapMethodPropertyValueType: EAP_METHOD_PROPERTY_VALUE_TYPE,
     pub eapMethodPropertyValue: EAP_METHOD_PROPERTY_VALUE,
 }
+impl Default for EAP_METHOD_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
     pub dwNumberOfProperties: u32,
     pub pMethodProperty: *mut EAP_METHOD_PROPERTY,
+}
+impl Default for EAP_METHOD_PROPERTY_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type EAP_METHOD_PROPERTY_TYPE = i32;
 #[repr(C)]
@@ -309,14 +389,19 @@ pub union EAP_METHOD_PROPERTY_VALUE {
     pub empvDword: EAP_METHOD_PROPERTY_VALUE_DWORD,
     pub empvString: EAP_METHOD_PROPERTY_VALUE_STRING,
 }
+impl Default for EAP_METHOD_PROPERTY_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
     pub length: u32,
     pub value: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EAP_METHOD_PROPERTY_VALUE_DWORD {
     pub length: u32,
     pub value: u32,
@@ -327,9 +412,14 @@ pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
     pub length: u32,
     pub value: *mut u8,
 }
+impl Default for EAP_METHOD_PROPERTY_VALUE_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type EAP_METHOD_PROPERTY_VALUE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EAP_METHOD_TYPE {
     pub eapType: EAP_TYPE,
     pub dwAuthorId: u32,
@@ -355,6 +445,11 @@ pub struct EAP_PEER_METHOD_ROUTINES {
     pub EapPeerEndSession: isize,
     pub EapPeerShutdown: isize,
 }
+impl Default for EAP_PEER_METHOD_ROUTINES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EAP_PEER_VALUENAME_CONFIGUI: windows_sys::core::PCWSTR = windows_sys::core::w!("PeerConfigUIPath");
 pub const EAP_PEER_VALUENAME_DLL_PATH: windows_sys::core::PCWSTR = windows_sys::core::w!("PeerDllPath");
 pub const EAP_PEER_VALUENAME_FRIENDLY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("PeerFriendlyName");
@@ -367,7 +462,7 @@ pub const EAP_PEER_VALUENAME_REQUIRE_CONFIGUI: windows_sys::core::PCWSTR = windo
 pub const EAP_REGISTRY_LOCATION: windows_sys::core::PCWSTR = windows_sys::core::w!("System\\CurrentControlSet\\Services\\EapHost\\Methods");
 pub const EAP_SIM_CREDENTIAL: EapCredentialType = 4i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EAP_TYPE {
     pub r#type: u8,
     pub dwVendorId: u32,
@@ -379,6 +474,11 @@ pub union EAP_UI_DATA_FORMAT {
     pub credData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub credExpiryData: *mut EAP_CRED_EXPIRY_REQ,
     pub credLogonData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
+}
+impl Default for EAP_UI_DATA_FORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EAP_UI_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
 pub const EAP_UI_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1u32;
@@ -392,6 +492,11 @@ pub const EAP_WINLOGON_CREDENTIAL: EapCredentialType = 2i32;
 pub struct EapCertificateCredential {
     pub certHash: [u8; 20],
     pub password: windows_sys::core::PWSTR,
+}
+impl Default for EapCertificateCredential {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type EapCode = i32;
 pub const EapCodeFailure: EapCode = 4i32;
@@ -421,6 +526,11 @@ pub struct EapCredential {
     pub credType: EapCredentialType,
     pub credData: EapCredentialTypeData,
 }
+impl Default for EapCredential {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type EapCredentialType = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -428,6 +538,11 @@ pub union EapCredentialTypeData {
     pub username_password: EapUsernamePasswordCredential,
     pub certificate: EapCertificateCredential,
     pub sim: EapSimCredential,
+}
+impl Default for EapCredentialTypeData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EapHostAuthFailed: EAPHOST_AUTH_STATUS = 6i32;
 pub const EapHostAuthIdentityExchange: EAPHOST_AUTH_STATUS = 2i32;
@@ -457,6 +572,11 @@ pub struct EapHostPeerMethodResult {
     pub pEapMethodInfo: *mut EAP_METHOD_INFO,
     pub pEapError: *mut EAP_ERROR,
 }
+impl Default for EapHostPeerMethodResult {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EapHostPeerMethodResultAltSuccessReceived: EapHostPeerMethodResultReason = 1i32;
 pub const EapHostPeerMethodResultFromMethod: EapHostPeerMethodResultReason = 3i32;
 pub type EapHostPeerMethodResultReason = i32;
@@ -477,8 +597,13 @@ pub struct EapPacket {
     pub Length: [u8; 2],
     pub Data: [u8; 1],
 }
+impl Default for EapPacket {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EapPeerMethodOutput {
     pub action: EapPeerMethodResponseAction,
     pub fAllowNotifications: windows_sys::core::BOOL,
@@ -507,6 +632,12 @@ pub struct EapPeerMethodResult {
     pub pNgcKerbTicket: *mut NgcTicketContext,
     pub fSaveToCredMan: windows_sys::core::BOOL,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for EapPeerMethodResult {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EapPeerMethodResultFailure: EapPeerMethodResultReason = 3i32;
 pub type EapPeerMethodResultReason = i32;
 pub const EapPeerMethodResultSuccess: EapPeerMethodResultReason = 2i32;
@@ -516,11 +647,21 @@ pub const EapPeerMethodResultUnknown: EapPeerMethodResultReason = 1i32;
 pub struct EapSimCredential {
     pub iccID: windows_sys::core::PWSTR,
 }
+impl Default for EapSimCredential {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EapUsernamePasswordCredential {
     pub username: windows_sys::core::PWSTR,
     pub password: windows_sys::core::PWSTR,
+}
+impl Default for EapUsernamePasswordCredential {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FACILITY_EAP_MESSAGE: u32 = 2114u32;
 pub const GUID_EapHost_Cause_CertStoreInaccessible: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000004);
@@ -596,6 +737,11 @@ pub struct LEGACY_IDENTITY_UI_PARAMS {
     pub pwszIdentity: windows_sys::core::PWSTR,
     pub dwError: u32,
 }
+impl Default for LEGACY_IDENTITY_UI_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LEGACY_INTERACTIVE_UI_PARAMS {
@@ -605,6 +751,11 @@ pub struct LEGACY_INTERACTIVE_UI_PARAMS {
     pub dwSizeofInteractiveUIData: u32,
     pub pInteractiveUIData: *mut u8,
     pub dwError: u32,
+}
+impl Default for LEGACY_INTERACTIVE_UI_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MAXEAPCODE: u32 = 4u32;
 pub const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: u32 = 256u32;
@@ -618,10 +769,16 @@ pub struct NgcTicketContext {
     pub hKey: super::Cryptography::NCRYPT_KEY_HANDLE,
     pub hImpersonateToken: super::super::Foundation::HANDLE,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for NgcTicketContext {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type NotificationHandler = Option<unsafe extern "system" fn(connectionid: windows_sys::core::GUID, pcontextdata: *mut core::ffi::c_void)>;
 pub type PPP_EAP_ACTION = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PPP_EAP_INFO {
     pub dwSizeInBytes: u32,
     pub dwEapTypeId: u32,
@@ -655,6 +812,11 @@ pub struct PPP_EAP_INPUT {
     pub guidConnectionId: windows_sys::core::GUID,
     pub isVpn: windows_sys::core::BOOL,
 }
+impl Default for PPP_EAP_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -675,6 +837,12 @@ pub struct PPP_EAP_OUTPUT {
     pub pNgcKerbTicket: *mut NgcTicketContext,
     pub fSaveToCredMan: windows_sys::core::BOOL,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for PPP_EAP_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPP_EAP_PACKET {
@@ -683,12 +851,22 @@ pub struct PPP_EAP_PACKET {
     pub Length: [u8; 2],
     pub Data: [u8; 1],
 }
+impl Default for PPP_EAP_PACKET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAS_AUTH_ATTRIBUTE {
     pub raaType: RAS_AUTH_ATTRIBUTE_TYPE,
     pub dwLength: u32,
     pub Value: *mut core::ffi::c_void,
+}
+impl Default for RAS_AUTH_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RAS_AUTH_ATTRIBUTE_TYPE = i32;
 pub const RAS_EAP_FLAG_8021X_AUTH: u32 = 128u32;

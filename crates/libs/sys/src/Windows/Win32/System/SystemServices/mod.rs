@@ -62,7 +62,7 @@ pub type ALERT_SYSTEM_SEV = u32;
 pub const ALERT_SYSTEM_WARNING: ALERT_SYSTEM_SEV = 2u32;
 pub const ALL_POWERSCHEMES_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ANON_OBJECT_HEADER {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -73,7 +73,7 @@ pub struct ANON_OBJECT_HEADER {
     pub SizeOfData: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ANON_OBJECT_HEADER_BIGOBJ {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -90,7 +90,7 @@ pub struct ANON_OBJECT_HEADER_BIGOBJ {
     pub NumberOfSymbols: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ANON_OBJECT_HEADER_V2 {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -160,7 +160,7 @@ pub const APPCOMMAND_VOLUME_DOWN: APPCOMMAND_ID = 9u32;
 pub const APPCOMMAND_VOLUME_MUTE: APPCOMMAND_ID = 8u32;
 pub const APPCOMMAND_VOLUME_UP: APPCOMMAND_ID = 10u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APPLICATIONLAUNCH_SETTING_VALUE {
     pub ActivationTime: i64,
     pub Flags: u32,
@@ -266,7 +266,7 @@ pub const COMIMAGE_FLAGS_NATIVE_ENTRYPOINT: ReplacesCorHdrNumericDefines = 16i32
 pub const COMIMAGE_FLAGS_STRONGNAMESIGNED: ReplacesCorHdrNumericDefines = 8i32;
 pub const COMIMAGE_FLAGS_TRACKDEBUGDATA: ReplacesCorHdrNumericDefines = 65536i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COMPONENT_FILTER {
     pub ComponentFlags: u32,
 }
@@ -313,11 +313,21 @@ pub union DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     pub Buffer: [u8; 152],
     pub Anonymous: DISPATCHER_CONTEXT_NONVOLREG_ARM64_0,
 }
+impl Default for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     pub GpNvRegs: [u64; 11],
     pub FpNvRegs: [f64; 8],
+}
+impl Default for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DLL_PROCESS_ATTACH: u32 = 1u32;
 pub const DLL_PROCESS_DETACH: u32 = 0u32;
@@ -428,14 +438,14 @@ pub const ENCLAVE_TYPE_VBS: u32 = 16u32;
 pub const ENCLAVE_TYPE_VBS_BASIC: u32 = 17u32;
 pub const ENCLAVE_VBS_FLAG_DEBUG: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENLISTMENT_BASIC_INFORMATION {
     pub EnlistmentId: windows_sys::core::GUID,
     pub TransactionId: windows_sys::core::GUID,
     pub ResourceManagerId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENLISTMENT_CRM_INFORMATION {
     pub CrmTransactionManagerId: windows_sys::core::GUID,
     pub CrmResourceManagerId: windows_sys::core::GUID,
@@ -574,11 +584,21 @@ pub struct FILE_NOTIFY_FULL_INFORMATION {
     pub Reserved: u8,
     pub FileName: [u16; 1],
 }
+impl Default for FILE_NOTIFY_FULL_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FILE_NOTIFY_FULL_INFORMATION_0 {
     pub ReparsePointTag: u32,
     pub EaSize: u32,
+}
+impl Default for FILE_NOTIFY_FULL_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FILE_PERSISTENT_ACLS: u32 = 8u32;
 pub const FILE_READ_ONLY_VOLUME: u32 = 524288u32;
@@ -639,12 +659,24 @@ pub struct GDI_NONREMOTE {
     pub fContext: i32,
     pub u: GDI_NONREMOTE_0,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for GDI_NONREMOTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union GDI_NONREMOTE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::DWORD_BLOB,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for GDI_NONREMOTE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type GESTURECONFIG_FLAGS = u32;
 pub const GUID_ACDC_POWER_SOURCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
@@ -862,7 +894,7 @@ pub const GUID_VIDEO_POWERDOWN_TIMEOUT: windows_sys::core::GUID = windows_sys::c
 pub const GUID_VIDEO_SUBGROUP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7516b95f_f776_4464_8c53_06167f40cc99);
 pub const HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     pub Version: u32,
     pub Flags: u32,
@@ -872,6 +904,11 @@ pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION {
 pub struct HIBERFILE_BUCKET {
     pub MaxPhysicalMemory: u64,
     pub PhysicalMemoryPercent: [u32; 3],
+}
+impl Default for HIBERFILE_BUCKET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HIBERFILE_BUCKET_SIZE = i32;
 pub const HIBERFILE_TYPE_FULL: u32 = 2u32;
@@ -895,7 +932,7 @@ pub const IGP_SENTENCE: IGP_ID = 12u32;
 pub const IGP_SETCOMPSTR: IGP_ID = 20u32;
 pub const IGP_UI: IGP_ID = 16u32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u64,
     pub EndAddress: u64,
@@ -904,7 +941,7 @@ pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub PrologEndAddress: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -913,13 +950,13 @@ pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     pub PrologEndAddress: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARCHITECTURE_ENTRY {
     pub FixupInstRVA: u32,
     pub NewInst: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARCHITECTURE_HEADER {
     pub _bitfield: u32,
     pub FirstEntryRVA: u32,
@@ -939,6 +976,11 @@ pub struct IMAGE_ARCHIVE_MEMBER_HEADER {
     pub Size: [u8; 10],
     pub EndHeader: [u8; 2],
 }
+impl Default for IMAGE_ARCHIVE_MEMBER_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IMAGE_ARCHIVE_PAD: windows_sys::core::PCSTR = windows_sys::core::s!("\n");
 pub const IMAGE_ARCHIVE_START: windows_sys::core::PCSTR = windows_sys::core::s!("!<arch>\n");
 pub const IMAGE_ARCHIVE_START_SIZE: u32 = 8u32;
@@ -948,8 +990,13 @@ pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     pub HeaderData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0,
 }
+impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     pub _bitfield: u32,
 }
@@ -959,14 +1006,24 @@ pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0,
 }
+impl Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0,
 }
+impl Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -979,19 +1036,34 @@ pub union IMAGE_AUX_SYMBOL {
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub CRC: IMAGE_AUX_SYMBOL_3,
 }
+impl Default for IMAGE_AUX_SYMBOL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_3 {
     pub crc: u32,
     pub rgbReserved: [u8; 14],
 }
+impl Default for IMAGE_AUX_SYMBOL_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_1 {
     pub Name: [u8; 18],
 }
+impl Default for IMAGE_AUX_SYMBOL_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_AUX_SYMBOL_2 {
     pub Length: u32,
     pub NumberOfRelocations: u16,
@@ -1010,19 +1082,34 @@ pub struct IMAGE_AUX_SYMBOL_0 {
     pub FcnAry: IMAGE_AUX_SYMBOL_0_1,
     pub TvIndex: u16,
 }
+impl Default for IMAGE_AUX_SYMBOL_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL_0_1 {
     pub Function: IMAGE_AUX_SYMBOL_0_1_0,
     pub Array: IMAGE_AUX_SYMBOL_0_1_1,
 }
+impl Default for IMAGE_AUX_SYMBOL_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_0_1_1 {
     pub Dimension: [u16; 4],
 }
+impl Default for IMAGE_AUX_SYMBOL_0_1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_AUX_SYMBOL_0_1_0 {
     pub PointerToLinenumber: u32,
     pub PointerToNextFunction: u32,
@@ -1033,8 +1120,13 @@ pub union IMAGE_AUX_SYMBOL_0_0 {
     pub LnSz: IMAGE_AUX_SYMBOL_0_0_0,
     pub TotalSize: u32,
 }
+impl Default for IMAGE_AUX_SYMBOL_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_AUX_SYMBOL_0_0_0 {
     pub Linenumber: u16,
     pub Size: u16,
@@ -1048,11 +1140,21 @@ pub union IMAGE_AUX_SYMBOL_EX {
     pub Anonymous: IMAGE_AUX_SYMBOL_EX_3,
     pub CRC: IMAGE_AUX_SYMBOL_EX_4,
 }
+impl Default for IMAGE_AUX_SYMBOL_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_3 {
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub rgbReserved: [u8; 2],
+}
+impl Default for IMAGE_AUX_SYMBOL_EX_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -1060,10 +1162,20 @@ pub struct IMAGE_AUX_SYMBOL_EX_4 {
     pub crc: u32,
     pub rgbReserved: [u8; 16],
 }
+impl Default for IMAGE_AUX_SYMBOL_EX_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_1 {
     pub Name: [u8; 20],
+}
+impl Default for IMAGE_AUX_SYMBOL_EX_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -1078,12 +1190,22 @@ pub struct IMAGE_AUX_SYMBOL_EX_2 {
     pub HighNumber: i16,
     pub rgbReserved: [u8; 2],
 }
+impl Default for IMAGE_AUX_SYMBOL_EX_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_0 {
     pub WeakDefaultSymIndex: u32,
     pub WeakSearchType: u32,
     pub rgbReserved: [u8; 12],
+}
+impl Default for IMAGE_AUX_SYMBOL_EX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -1093,43 +1215,48 @@ pub struct IMAGE_AUX_SYMBOL_TOKEN_DEF {
     pub SymbolTableIndex: u32,
     pub rgbReserved: [u8; 12],
 }
+impl Default for IMAGE_AUX_SYMBOL_TOKEN_DEF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type IMAGE_AUX_SYMBOL_TYPE = i32;
 pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_BASE_RELOCATION {
     pub VirtualAddress: u32,
     pub SizeOfBlock: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_BDD_DYNAMIC_RELOCATION {
     pub Left: u16,
     pub Right: u16,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_BDD_INFO {
     pub Version: u32,
     pub BDDSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_BOUND_FORWARDER_REF {
     pub TimeDateStamp: u32,
     pub OffsetModuleName: u16,
     pub Reserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_BOUND_IMPORT_DESCRIPTOR {
     pub TimeDateStamp: u32,
     pub OffsetModuleName: u16,
     pub NumberOfModuleForwarderRefs: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     pub FuncStart: u32,
     pub _bitfield: u32,
@@ -1153,6 +1280,11 @@ pub struct IMAGE_DEBUG_MISC {
     pub Unicode: bool,
     pub Reserved: [u8; 3],
     pub Data: [u8; 1],
+}
+impl Default for IMAGE_DEBUG_MISC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IMAGE_DEBUG_MISC_EXENAME: u32 = 1u32;
 pub const IMAGE_DEBUG_TYPE_BBT: u32 = 10u32;
@@ -1190,15 +1322,20 @@ pub struct IMAGE_DOS_HEADER {
     pub e_res2: [u16; 10],
     pub e_lfanew: i32,
 }
+impl Default for IMAGE_DOS_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IMAGE_DOS_SIGNATURE: u16 = 23117u16;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION32 {
     pub Symbol: u32,
     pub BaseRelocSize: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
     pub HeaderSize: u32,
     pub FixupInfoSize: u32,
@@ -1207,13 +1344,13 @@ pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
     pub Flags: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION64 {
     pub Symbol: u64,
     pub BaseRelocSize: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION64_V2 {
     pub HeaderSize: u32,
     pub FixupInfoSize: u32,
@@ -1228,7 +1365,7 @@ pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_EPILOGUE: u32 = 2u32;
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_PROLOGUE: u32 = 1u32;
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_SWITCHTABLE_BRANCH: u32 = 5u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION_TABLE {
     pub Version: u32,
     pub Size: u32,
@@ -1243,7 +1380,7 @@ pub const IMAGE_ENCLAVE_LONG_ID_LENGTH: u32 = 32u32;
 pub const IMAGE_ENCLAVE_POLICY_DEBUGGABLE: u32 = 1u32;
 pub const IMAGE_ENCLAVE_SHORT_ID_LENGTH: u32 = 16u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     pub EpilogueCount: u32,
     pub EpilogueByteCount: u8,
@@ -1251,7 +1388,7 @@ pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     pub BranchDescriptorCount: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_EXPORT_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -1268,7 +1405,7 @@ pub struct IMAGE_EXPORT_DIRECTORY {
 pub const IMAGE_FUNCTION_OVERRIDE_ARM64_BRANCH26: u32 = 2u32;
 pub const IMAGE_FUNCTION_OVERRIDE_ARM64_THUNK: u32 = 3u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
     pub OriginalRva: u32,
     pub BDDOffset: u32,
@@ -1276,7 +1413,7 @@ pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
     pub BaseRelocSize: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_FUNCTION_OVERRIDE_HEADER {
     pub FuncOverrideSize: u32,
 }
@@ -1307,7 +1444,7 @@ pub const IMAGE_GUARD_SECURITY_COOKIE_UNUSED: u32 = 2048u32;
 pub const IMAGE_GUARD_XFG_ENABLED: u32 = 8388608u32;
 pub const IMAGE_HOT_PATCH_ABSOLUTE: u32 = 180224u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_HOT_PATCH_BASE {
     pub SequenceNumber: u32,
     pub Flags: u32,
@@ -1336,9 +1473,14 @@ pub struct IMAGE_HOT_PATCH_HASHES {
     pub SHA256: [u8; 32],
     pub SHA1: [u8; 20],
 }
+impl Default for IMAGE_HOT_PATCH_HASHES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IMAGE_HOT_PATCH_INDIRECT: u32 = 376832u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_HOT_PATCH_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -1357,8 +1499,13 @@ pub struct IMAGE_IMPORT_BY_NAME {
     pub Hint: u16,
     pub Name: [i8; 1],
 }
+impl Default for IMAGE_IMPORT_BY_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u32,
 }
@@ -1371,14 +1518,24 @@ pub struct IMAGE_IMPORT_DESCRIPTOR {
     pub Name: u32,
     pub FirstThunk: u32,
 }
+impl Default for IMAGE_IMPORT_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_IMPORT_DESCRIPTOR_0 {
     pub Characteristics: u32,
     pub OriginalFirstThunk: u32,
 }
+impl Default for IMAGE_IMPORT_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
@@ -1388,18 +1545,28 @@ pub struct IMAGE_LINENUMBER {
     pub Type: IMAGE_LINENUMBER_0,
     pub Linenumber: u16,
 }
+impl Default for IMAGE_LINENUMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub union IMAGE_LINENUMBER_0 {
     pub SymbolTableIndex: u32,
     pub VirtualAddress: u32,
 }
+impl Default for IMAGE_LINENUMBER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IMAGE_NT_SIGNATURE: u32 = 17744u32;
 pub const IMAGE_NUMBEROF_DIRECTORY_ENTRIES: u32 = 16u32;
 pub const IMAGE_ORDINAL_FLAG32: u32 = 2147483648u32;
 pub const IMAGE_ORDINAL_FLAG64: u64 = 9223372036854775808u64;
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_OS2_HEADER {
     pub ne_magic: u16,
     pub ne_ver: i8,
@@ -1441,6 +1608,11 @@ pub struct IMAGE_POLICY_ENTRY {
     pub PolicyId: IMAGE_POLICY_ID,
     pub u: IMAGE_POLICY_ENTRY_0,
 }
+impl Default for IMAGE_POLICY_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_POLICY_ENTRY_0 {
@@ -1457,6 +1629,11 @@ pub union IMAGE_POLICY_ENTRY_0 {
     pub AnsiStringValue: windows_sys::core::PCSTR,
     pub UnicodeStringValue: windows_sys::core::PCWSTR,
 }
+impl Default for IMAGE_POLICY_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type IMAGE_POLICY_ENTRY_TYPE = i32;
 pub type IMAGE_POLICY_ID = i32;
 #[repr(C)]
@@ -1467,10 +1644,15 @@ pub struct IMAGE_POLICY_METADATA {
     pub ApplicationId: u64,
     pub Policies: [IMAGE_POLICY_ENTRY; 1],
 }
+impl Default for IMAGE_POLICY_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IMAGE_POLICY_METADATA_VERSION: u32 = 1u32;
 pub const IMAGE_POLICY_SECTION_NAME: windows_sys::core::PCSTR = windows_sys::core::s!(".tPolicy");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     pub PrologueByteCount: u8,
 }
@@ -1481,11 +1663,21 @@ pub struct IMAGE_RELOCATION {
     pub SymbolTableIndex: u32,
     pub Type: u16,
 }
+impl Default for IMAGE_RELOCATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub union IMAGE_RELOCATION_0 {
     pub VirtualAddress: u32,
     pub RelocCount: u32,
+}
+impl Default for IMAGE_RELOCATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IMAGE_REL_ALPHA_ABSOLUTE: u32 = 0u32;
 pub const IMAGE_REL_ALPHA_BRADDR: u32 = 7u32;
@@ -1748,7 +1940,7 @@ pub const IMAGE_REL_THUMB_BRANCH20: u32 = 18u32;
 pub const IMAGE_REL_THUMB_BRANCH24: u32 = 20u32;
 pub const IMAGE_REL_THUMB_MOV32: u32 = 17u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_RESOURCE_DATA_ENTRY {
     pub OffsetToData: u32,
     pub Size: u32,
@@ -1757,7 +1949,7 @@ pub struct IMAGE_RESOURCE_DATA_ENTRY {
 }
 pub const IMAGE_RESOURCE_DATA_IS_DIRECTORY: u32 = 2147483648u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_RESOURCE_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -1772,6 +1964,11 @@ pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY {
     pub Anonymous1: IMAGE_RESOURCE_DIRECTORY_ENTRY_0,
     pub Anonymous2: IMAGE_RESOURCE_DIRECTORY_ENTRY_1,
 }
+impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
@@ -1779,8 +1976,13 @@ pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     pub Name: u32,
     pub Id: u16,
 }
+impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -1790,8 +1992,13 @@ pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     pub OffsetToData: u32,
     pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0,
 }
+impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     pub _bitfield: u32,
 }
@@ -1801,11 +2008,21 @@ pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
     pub Length: u16,
     pub NameString: [i8; 1],
 }
+impl Default for IMAGE_RESOURCE_DIRECTORY_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_RESOURCE_DIR_STRING_U {
     pub Length: u16,
     pub NameString: [u16; 1],
+}
+impl Default for IMAGE_RESOURCE_DIR_STRING_U {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IMAGE_RESOURCE_NAME_IS_STRING: u32 = 2147483648u32;
 pub const IMAGE_SEPARATE_DEBUG_FLAGS_MASK: u32 = 32768u32;
@@ -1826,6 +2043,11 @@ pub struct IMAGE_SEPARATE_DEBUG_HEADER {
     pub SectionAlignment: u32,
     pub Reserved: [u32; 2],
 }
+impl Default for IMAGE_SEPARATE_DEBUG_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IMAGE_SEPARATE_DEBUG_MISMATCH: u32 = 32768u32;
 pub const IMAGE_SEPARATE_DEBUG_SIGNATURE: u32 = 18756u32;
 pub const IMAGE_SIZEOF_ARCHIVE_MEMBER_HDR: u32 = 60u32;
@@ -1834,7 +2056,7 @@ pub const IMAGE_SIZEOF_SECTION_HEADER: u32 = 40u32;
 pub const IMAGE_SIZEOF_SHORT_NAME: u32 = 8u32;
 pub const IMAGE_SIZEOF_SYMBOL: u32 = 18u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
@@ -1848,6 +2070,11 @@ pub struct IMAGE_SYMBOL {
     pub StorageClass: u8,
     pub NumberOfAuxSymbols: u8,
 }
+impl Default for IMAGE_SYMBOL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub union IMAGE_SYMBOL_0 {
@@ -1855,8 +2082,13 @@ pub union IMAGE_SYMBOL_0 {
     pub Name: IMAGE_SYMBOL_0_0,
     pub LongName: [u32; 2],
 }
+impl Default for IMAGE_SYMBOL_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_SYMBOL_0_0 {
     pub Short: u32,
     pub Long: u32,
@@ -1871,6 +2103,11 @@ pub struct IMAGE_SYMBOL_EX {
     pub StorageClass: u8,
     pub NumberOfAuxSymbols: u8,
 }
+impl Default for IMAGE_SYMBOL_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub union IMAGE_SYMBOL_EX_0 {
@@ -1878,8 +2115,13 @@ pub union IMAGE_SYMBOL_EX_0 {
     pub Name: IMAGE_SYMBOL_EX_0_0,
     pub LongName: [u32; 2],
 }
+impl Default for IMAGE_SYMBOL_EX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_SYMBOL_EX_0_0 {
     pub Short: u32,
     pub Long: u32,
@@ -1944,14 +2186,24 @@ pub struct IMAGE_TLS_DIRECTORY32 {
     pub SizeOfZeroFill: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY32_0,
 }
+impl Default for IMAGE_TLS_DIRECTORY32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_TLS_DIRECTORY32_0 {
     pub Characteristics: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY32_0_0,
 }
+impl Default for IMAGE_TLS_DIRECTORY32_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_TLS_DIRECTORY32_0_0 {
     pub _bitfield: u32,
 }
@@ -1965,14 +2217,24 @@ pub struct IMAGE_TLS_DIRECTORY64 {
     pub SizeOfZeroFill: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY64_0,
 }
+impl Default for IMAGE_TLS_DIRECTORY64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_TLS_DIRECTORY64_0 {
     pub Characteristics: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY64_0_0,
 }
+impl Default for IMAGE_TLS_DIRECTORY64_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_TLS_DIRECTORY64_0_0 {
     pub _bitfield: u32,
 }
@@ -2031,6 +2293,11 @@ pub struct IMAGE_VXD_HEADER {
     pub e32_devid: u16,
     pub e32_ddkver: u16,
 }
+impl Default for IMAGE_VXD_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IMAGE_VXD_SIGNATURE: u16 = 17740u16;
 pub const IMAGE_WEAK_EXTERN_ANTI_DEPENDENCY: u32 = 4u32;
 pub const IMAGE_WEAK_EXTERN_SEARCH_ALIAS: u32 = 3u32;
@@ -2052,11 +2319,21 @@ pub struct IMPORT_OBJECT_HEADER {
     pub Anonymous: IMPORT_OBJECT_HEADER_0,
     pub _bitfield: u16,
 }
+impl Default for IMPORT_OBJECT_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMPORT_OBJECT_HEADER_0 {
     pub Ordinal: u16,
     pub Hint: u16,
+}
+impl Default for IMPORT_OBJECT_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IMPORT_OBJECT_NAME: IMPORT_OBJECT_NAME_TYPE = 1i32;
 pub const IMPORT_OBJECT_NAME_EXPORTAS: IMPORT_OBJECT_NAME_TYPE = 4i32;
@@ -2183,14 +2460,24 @@ pub struct KERNEL_CET_CONTEXT {
     pub Anonymous: KERNEL_CET_CONTEXT_0,
     pub Fill: [u16; 2],
 }
+impl Default for KERNEL_CET_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KERNEL_CET_CONTEXT_0 {
     pub AllFlags: u16,
     pub Anonymous: KERNEL_CET_CONTEXT_0_0,
 }
+impl Default for KERNEL_CET_CONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KERNEL_CET_CONTEXT_0_0 {
     pub _bitfield: u16,
 }
@@ -2200,6 +2487,11 @@ pub struct KTMOBJECT_CURSOR {
     pub LastQuery: windows_sys::core::GUID,
     pub ObjectIdCount: u32,
     pub ObjectIds: [windows_sys::core::GUID; 1],
+}
+impl Default for KTMOBJECT_CURSOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const KTMOBJECT_ENLISTMENT: KTMOBJECT_TYPE = 3i32;
 pub const KTMOBJECT_INVALID: KTMOBJECT_TYPE = 4i32;
@@ -2378,7 +2670,7 @@ pub const MAXLONG: u32 = 2147483647u32;
 pub const MAXLONGLONG: u64 = 9223372036854775807u64;
 pub const MAXSHORT: u32 = 32767u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MAXVERSIONTESTED_INFO {
     pub MaxVersionTested: u64,
 }
@@ -2429,7 +2721,7 @@ pub const MaxActivationContextInfoClass: ACTIVATION_CONTEXT_INFO_CLASS = 8i32;
 pub const NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = 1i32;
 pub const NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NETWORK_APP_INSTANCE_EA {
     pub AppInstanceID: windows_sys::core::GUID,
     pub CsvFlags: u32,
@@ -2438,7 +2730,7 @@ pub const NLS_VALID_LOCALE_MASK: u32 = 1048575u32;
 pub const NONVOL_FP_NUMREG_ARM64: u32 = 8u32;
 pub const NONVOL_INT_NUMREG_ARM64: u32 = 11u32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NON_PAGED_DEBUG_INFO {
     pub Signature: u16,
     pub Flags: u16,
@@ -2452,7 +2744,7 @@ pub struct NON_PAGED_DEBUG_INFO {
 }
 pub const NON_PAGED_DEBUG_SIGNATURE: u32 = 18766u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NOTIFY_USER_POWER_SETTING {
     pub Guid: windows_sys::core::GUID,
 }
@@ -2468,11 +2760,21 @@ pub struct NT_TIB32 {
     pub ArbitraryUserPointer: u32,
     pub Self_: u32,
 }
+impl Default for NT_TIB32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NT_TIB32_0 {
     pub FiberData: u32,
     pub Version: u32,
+}
+impl Default for NT_TIB32_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2485,11 +2787,21 @@ pub struct NT_TIB64 {
     pub ArbitraryUserPointer: u64,
     pub Self_: u64,
 }
+impl Default for NT_TIB64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NT_TIB64_0 {
     pub FiberData: u64,
     pub Version: u32,
+}
+impl Default for NT_TIB64_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NUMA_NO_PREFERRED_NODE: u32 = 4294967295u32;
 pub const NUM_DISCHARGE_POLICIES: u32 = 4u32;
@@ -2507,6 +2819,11 @@ pub struct PACKEDEVENTINFO {
     pub ulSize: u32,
     pub ulNumEventsForLogFile: u32,
     pub ulOffsets: [u32; 1],
+}
+impl Default for PACKEDEVENTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PARKING_TOPOLOGY_POLICY_DISABLED: u32 = 0u32;
 pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN: u32 = 1u32;
@@ -2594,6 +2911,11 @@ pub struct PROCESSOR_IDLESTATE_INFO {
     pub PromotePercent: u8,
     pub Spare: [u8; 2],
 }
+impl Default for PROCESSOR_IDLESTATE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESSOR_IDLESTATE_POLICY {
@@ -2602,14 +2924,24 @@ pub struct PROCESSOR_IDLESTATE_POLICY {
     pub PolicyCount: u32,
     pub Policy: [PROCESSOR_IDLESTATE_INFO; 3],
 }
+impl Default for PROCESSOR_IDLESTATE_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESSOR_IDLESTATE_POLICY_0 {
     pub AsWORD: u16,
     pub Anonymous: PROCESSOR_IDLESTATE_POLICY_0_0,
 }
+impl Default for PROCESSOR_IDLESTATE_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESSOR_IDLESTATE_POLICY_0_0 {
     pub _bitfield: u16,
 }
@@ -2635,11 +2967,21 @@ pub struct PROCESSOR_PERFSTATE_POLICY {
     pub IncreasePercent: u32,
     pub DecreasePercent: u32,
 }
+impl Default for PROCESSOR_PERFSTATE_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESSOR_PERFSTATE_POLICY_0 {
     pub Spare: u8,
     pub Flags: PROCESSOR_PERFSTATE_POLICY_0_0,
+}
+impl Default for PROCESSOR_PERFSTATE_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2647,8 +2989,13 @@ pub union PROCESSOR_PERFSTATE_POLICY_0_0 {
     pub AsBYTE: u8,
     pub Anonymous: PROCESSOR_PERFSTATE_POLICY_0_0_0,
 }
+impl Default for PROCESSOR_PERFSTATE_POLICY_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     pub _bitfield: u8,
 }
@@ -2689,14 +3036,24 @@ pub const PROCESS_HEAP_UNCOMMITTED_RANGE: u32 = 2u32;
 pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
     pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2705,14 +3062,24 @@ pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_ASLR_POLICY {
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_ASLR_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_ASLR_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_ASLR_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2721,14 +3088,24 @@ pub struct PROCESS_MITIGATION_ASLR_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2737,14 +3114,24 @@ pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2753,14 +3140,24 @@ pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2770,14 +3167,24 @@ pub struct PROCESS_MITIGATION_DEP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0,
     pub Permanent: bool,
 }
+impl Default for PROCESS_MITIGATION_DEP_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_DEP_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_DEP_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2786,14 +3193,24 @@ pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2802,14 +3219,24 @@ pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2818,14 +3245,24 @@ pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2834,14 +3271,24 @@ pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2850,14 +3297,24 @@ pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2866,14 +3323,24 @@ pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2882,14 +3349,24 @@ pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_SEHOP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_SEHOP_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SEHOP_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_SEHOP_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2898,14 +3375,24 @@ pub struct PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2914,14 +3401,24 @@ pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2930,14 +3427,24 @@ pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2946,14 +3453,24 @@ pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2962,14 +3479,24 @@ pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
     pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -2978,14 +3505,24 @@ pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0,
 }
+impl Default for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0,
 }
+impl Default for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -3101,6 +3638,11 @@ pub struct QUOTA_LIMITS_EX {
     pub Flags: u32,
     pub CpuRateLimit: RATE_QUOTA_LIMIT,
 }
+impl Default for QUOTA_LIMITS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const QUOTA_LIMITS_USE_DEFAULT_LIMITS: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3108,8 +3650,13 @@ pub union RATE_QUOTA_LIMIT {
     pub RateData: u32,
     pub Anonymous: RATE_QUOTA_LIMIT_0,
 }
+impl Default for RATE_QUOTA_LIMIT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RATE_QUOTA_LIMIT_0 {
     pub _bitfield: u32,
 }
@@ -3124,9 +3671,14 @@ pub struct REARRANGE_FILE_DATA {
     pub Length: u32,
     pub Flags: u32,
 }
+impl Default for REARRANGE_FILE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REARRANGE_FILE_DATA32 {
     pub SourceStartingOffset: u64,
     pub TargetOffset: u64,
@@ -3141,7 +3693,7 @@ pub const RECO_DROP: RECO_FLAGS = 1u32;
 pub type RECO_FLAGS = u32;
 pub const RECO_PASTE: RECO_FLAGS = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     pub Version: u32,
     pub Accurate: u32,
@@ -3173,12 +3725,22 @@ pub struct RESOURCEMANAGER_BASIC_INFORMATION {
     pub DescriptionLength: u32,
     pub Description: [u16; 1],
 }
+impl Default for RESOURCEMANAGER_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RESOURCEMANAGER_COMPLETE_PROPAGATION: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RESOURCEMANAGER_COMPLETION_INFORMATION {
     pub IoCompletionPortHandle: super::super::Foundation::HANDLE,
     pub CompletionKey: usize,
+}
+impl Default for RESOURCEMANAGER_COMPLETION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RESOURCEMANAGER_ENLIST: u32 = 8u32;
 pub const RESOURCEMANAGER_GET_NOTIFICATION: u32 = 16u32;
@@ -3199,11 +3761,21 @@ pub struct RemHBITMAP {
     pub cbData: u32,
     pub data: [u8; 1],
 }
+impl Default for RemHBITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RemHBRUSH {
     pub cbData: u32,
     pub data: [u8; 1],
+}
+impl Default for RemHBRUSH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3211,12 +3783,22 @@ pub struct RemHENHMETAFILE {
     pub cbData: u32,
     pub data: [u8; 1],
 }
+impl Default for RemHENHMETAFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RemHGLOBAL {
     pub fNullHGlobal: i32,
     pub cbData: u32,
     pub data: [u8; 1],
+}
+impl Default for RemHGLOBAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3227,11 +3809,21 @@ pub struct RemHMETAFILEPICT {
     pub cbData: u32,
     pub data: [u8; 1],
 }
+impl Default for RemHMETAFILEPICT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RemHPALETTE {
     pub cbData: u32,
     pub data: [u8; 1],
+}
+impl Default for RemHPALETTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3239,11 +3831,21 @@ pub struct RemotableHandle {
     pub fContext: i32,
     pub u: RemotableHandle_0,
 }
+impl Default for RemotableHandle {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RemotableHandle_0 {
     pub hInproc: i32,
     pub hRemote: i32,
+}
+impl Default for RemotableHandle_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ReplacesCorHdrNumericDefines = i32;
 pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = 0i32;
@@ -3255,8 +3857,13 @@ pub struct SCOPE_TABLE_AMD64 {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_AMD64_0; 1],
 }
+impl Default for SCOPE_TABLE_AMD64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCOPE_TABLE_AMD64_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -3269,8 +3876,13 @@ pub struct SCOPE_TABLE_ARM {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_ARM_0; 1],
 }
+impl Default for SCOPE_TABLE_ARM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCOPE_TABLE_ARM_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -3283,8 +3895,13 @@ pub struct SCOPE_TABLE_ARM64 {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_ARM64_0; 1],
 }
+impl Default for SCOPE_TABLE_ARM64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCOPE_TABLE_ARM64_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -3300,6 +3917,11 @@ pub struct SCRUB_DATA_INPUT {
     pub ObjectId: [u32; 4],
     pub Reserved: [u32; 41],
     pub ResumeContext: [u8; 1040],
+}
+impl Default for SCRUB_DATA_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SCRUB_DATA_INPUT_FLAG_IGNORE_REDUNDANCY: u32 = 8u32;
 pub const SCRUB_DATA_INPUT_FLAG_OPLOCK_NOT_ACQUIRED: u32 = 64u32;
@@ -3336,12 +3958,17 @@ pub struct SCRUB_DATA_OUTPUT {
     pub DataBytesScrubbed: u64,
     pub ResumeContext: [u8; 1040],
 }
+impl Default for SCRUB_DATA_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SCRUB_DATA_OUTPUT_FLAG_INCOMPLETE: u32 = 1u32;
 pub const SCRUB_DATA_OUTPUT_FLAG_NON_USER_DATA_RANGE: u32 = 65536u32;
 pub const SCRUB_DATA_OUTPUT_FLAG_PARITY_EXTENT_DATA_RETURNED: u32 = 131072u32;
 pub const SCRUB_DATA_OUTPUT_FLAG_RESUME_CONTEXT_LENGTH_SPECIFIED: u32 = 262144u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRUB_PARITY_EXTENT {
     pub Offset: i64,
     pub Length: u64,
@@ -3354,6 +3981,11 @@ pub struct SCRUB_PARITY_EXTENT_DATA {
     pub NumberOfParityExtents: u16,
     pub MaximumNumberOfParityExtents: u16,
     pub ParityExtents: [SCRUB_PARITY_EXTENT; 1],
+}
+impl Default for SCRUB_PARITY_EXTENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SECURITY_ANONYMOUS_LOGON_RID: i32 = 7i32;
 pub const SECURITY_APPPOOL_ID_BASE_RID: i32 = 82i32;
@@ -3443,7 +4075,7 @@ pub const SECURITY_NT_NON_UNIQUE: i32 = 21i32;
 pub const SECURITY_NT_NON_UNIQUE_SUB_AUTH_COUNT: i32 = 3i32;
 pub const SECURITY_NULL_RID: i32 = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECURITY_OBJECT_AI_PARAMS {
     pub Size: u32,
     pub ConstraintMask: u32,
@@ -3513,6 +4145,11 @@ pub struct SERVERSILO_BASIC_INFORMATION {
     pub ApiSetSchema: *mut core::ffi::c_void,
     pub HostApiSetSchema: *mut core::ffi::c_void,
 }
+impl Default for SERVERSILO_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SERVERSILO_INITING: SERVERSILO_STATE = 0i32;
 pub const SERVERSILO_SHUTTING_DOWN: SERVERSILO_STATE = 2i32;
 pub const SERVERSILO_STARTED: SERVERSILO_STATE = 1i32;
@@ -3580,6 +4217,12 @@ pub struct SE_TOKEN_USER {
     pub Anonymous1: SE_TOKEN_USER_0,
     pub Anonymous2: SE_TOKEN_USER_1,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for SE_TOKEN_USER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -3587,12 +4230,24 @@ pub union SE_TOKEN_USER_0 {
     pub TokenUser: super::super::Security::TOKEN_USER,
     pub User: super::super::Security::SID_AND_ATTRIBUTES,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for SE_TOKEN_USER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union SE_TOKEN_USER_1 {
     pub Sid: super::super::Security::SID,
     pub Buffer: [u8; 68],
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for SE_TOKEN_USER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SFGAO_BROWSABLE: SFGAO_FLAGS = 134217728u32;
 pub const SFGAO_CANCOPY: SFGAO_FLAGS = 1u32;
@@ -3632,13 +4287,13 @@ pub const SFGAO_STREAM: SFGAO_FLAGS = 4194304u32;
 pub const SFGAO_SYSTEM: SFGAO_FLAGS = 4096u32;
 pub const SFGAO_VALIDATE: SFGAO_FLAGS = 16777216u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHARED_VIRTUAL_DISK_SUPPORT {
     pub SharedVirtualDiskSupport: SharedVirtualDiskSupportType,
     pub HandleState: SharedVirtualDiskHandleState,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHUFFLE_FILE_DATA {
     pub StartingOffset: i64,
     pub Length: i64,
@@ -3657,6 +4312,11 @@ pub struct SILOOBJECT_BASIC_INFORMATION {
     pub NumberOfProcesses: u32,
     pub IsInServerSilo: bool,
     pub Reserved: [u8; 3],
+}
+impl Default for SILOOBJECT_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SIZEOF_RFPO_DATA: u32 = 16u32;
 pub const SIZE_OF_80387_REGISTERS: u32 = 80u32;
@@ -3961,7 +4621,7 @@ pub const SUBLANG_YI_PRC: u32 = 1u32;
 pub const SUBLANG_YORUBA_NIGERIA: u32 = 1u32;
 pub const SUBLANG_ZULU_SOUTH_AFRICA: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SUPPORTED_OS_INFO {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -4008,7 +4668,7 @@ pub const SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = 0i32;
 pub const SystemLoad: SERVICE_LOAD_TYPE = 1i32;
 pub const TAPE_CHECK_FOR_DRIVE_PROBLEM: i32 = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TAPE_CREATE_PARTITION {
     pub Method: u32,
     pub Count: u32,
@@ -4072,7 +4732,7 @@ pub const TAPE_DRIVE_WRITE_PROTECT: u32 = 4096u32;
 pub const TAPE_DRIVE_WRITE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2164260864u32;
 pub const TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2214592512u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TAPE_GET_DRIVE_PARAMETERS {
     pub ECC: bool,
     pub Compression: bool,
@@ -4088,7 +4748,7 @@ pub struct TAPE_GET_DRIVE_PARAMETERS {
 }
 pub type TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TAPE_GET_MEDIA_PARAMETERS {
     pub Capacity: i64,
     pub Remaining: i64,
@@ -4103,7 +4763,7 @@ pub const TAPE_QUERY_DRIVE_PARAMETERS: i32 = 0i32;
 pub const TAPE_QUERY_IO_ERROR_DATA: i32 = 3i32;
 pub const TAPE_QUERY_MEDIA_CAPACITY: i32 = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TAPE_SET_DRIVE_PARAMETERS {
     pub ECC: bool,
     pub Compression: bool,
@@ -4112,7 +4772,7 @@ pub struct TAPE_SET_DRIVE_PARAMETERS {
     pub EOTWarningZoneSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TAPE_SET_MEDIA_PARAMETERS {
     pub BlockSize: u32,
 }
@@ -4122,6 +4782,11 @@ pub struct TAPE_WMI_OPERATIONS {
     pub Method: u32,
     pub DataBufferSize: u32,
     pub DataBuffer: *mut core::ffi::c_void,
+}
+impl Default for TAPE_WMI_OPERATIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const THREAD_BASE_PRIORITY_IDLE: i32 = -15i32;
 pub const THREAD_BASE_PRIORITY_LOWRT: u32 = 15u32;
@@ -4139,15 +4804,26 @@ pub struct TOKEN_BNO_ISOLATION_INFORMATION {
     pub IsolationPrefix: windows_sys::core::PWSTR,
     pub IsolationEnabled: bool,
 }
+impl Default for TOKEN_BNO_ISOLATION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct TOKEN_SID_INFORMATION {
     pub Sid: super::super::Security::PSID,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for TOKEN_SID_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const TOKEN_SOURCE_LENGTH: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
     pub TmIdentity: windows_sys::core::GUID,
     pub VirtualClock: i64,
@@ -4161,27 +4837,32 @@ pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     pub LogPathLength: u32,
     pub LogPath: [u16; 1],
 }
+impl Default for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSACTIONMANAGER_LOG_INFORMATION {
     pub LogIdentity: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSACTIONMANAGER_OLDEST_INFORMATION {
     pub OldestTransactionGuid: windows_sys::core::GUID,
 }
 pub const TRANSACTIONMANAGER_QUERY_INFORMATION: u32 = 1u32;
 pub const TRANSACTIONMANAGER_RECOVER: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     pub LastRecoveredLsn: u64,
 }
 pub const TRANSACTIONMANAGER_RENAME: u32 = 8u32;
 pub const TRANSACTIONMANAGER_SET_INFORMATION: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSACTION_BASIC_INFORMATION {
     pub TransactionId: windows_sys::core::GUID,
     pub State: u32,
@@ -4192,6 +4873,11 @@ pub struct TRANSACTION_BASIC_INFORMATION {
 pub struct TRANSACTION_BIND_INFORMATION {
     pub TmHandle: super::super::Foundation::HANDLE,
 }
+impl Default for TRANSACTION_BIND_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const TRANSACTION_COMMIT: u32 = 8u32;
 pub const TRANSACTION_ENLIST: u32 = 4u32;
 #[repr(C)]
@@ -4200,15 +4886,20 @@ pub struct TRANSACTION_ENLISTMENTS_INFORMATION {
     pub NumberOfEnlistments: u32,
     pub EnlistmentPair: [TRANSACTION_ENLISTMENT_PAIR; 1],
 }
+impl Default for TRANSACTION_ENLISTMENTS_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSACTION_ENLISTMENT_PAIR {
     pub EnlistmentId: windows_sys::core::GUID,
     pub ResourceManagerId: windows_sys::core::GUID,
 }
 pub type TRANSACTION_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSACTION_LIST_ENTRY {
     pub UOW: windows_sys::core::GUID,
 }
@@ -4217,6 +4908,11 @@ pub struct TRANSACTION_LIST_ENTRY {
 pub struct TRANSACTION_LIST_INFORMATION {
     pub NumberOfTransactions: u32,
     pub TransactionInformation: [TRANSACTION_LIST_ENTRY; 1],
+}
+impl Default for TRANSACTION_LIST_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TRANSACTION_PROPAGATE: u32 = 32u32;
 #[repr(C)]
@@ -4229,13 +4925,18 @@ pub struct TRANSACTION_PROPERTIES_INFORMATION {
     pub DescriptionLength: u32,
     pub Description: [u16; 1],
 }
+impl Default for TRANSACTION_PROPERTIES_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const TRANSACTION_QUERY_INFORMATION: u32 = 1u32;
 pub const TRANSACTION_RIGHT_RESERVED1: u32 = 64u32;
 pub const TRANSACTION_ROLLBACK: u32 = 16u32;
 pub const TRANSACTION_SET_INFORMATION: u32 = 2u32;
 pub type TRANSACTION_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     pub SuperiorEnlistmentPair: TRANSACTION_ENLISTMENT_PAIR,
 }
@@ -4280,6 +4981,11 @@ pub struct UMS_CREATE_THREAD_ATTRIBUTES {
     pub UmsVersion: u32,
     pub UmsContext: *mut core::ffi::c_void,
     pub UmsCompletionList: *mut core::ffi::c_void,
+}
+impl Default for UMS_CREATE_THREAD_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const UNICODE_STRING_MAX_CHARS: u32 = 32767u32;
 pub const UNIFIEDBUILDREVISION_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion");
@@ -4387,7 +5093,7 @@ pub const X3_TMPLT_SIGN_VAL_POS_X: u32 = 0u32;
 pub const X3_TMPLT_SIZE_X: u32 = 4u32;
 pub const X86_CACHE_ALIGNMENT_SIZE: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XSAVE_CET_U_FORMAT {
     pub Ia32CetUMsr: u64,
     pub Ia32Pl3SspMsr: u64,
@@ -4427,6 +5133,12 @@ pub struct remoteMETAFILEPICT {
     pub yExt: i32,
     pub hMF: *mut userHMETAFILE,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for remoteMETAFILEPICT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct userBITMAP {
@@ -4439,11 +5151,21 @@ pub struct userBITMAP {
     pub cbSize: u32,
     pub pBuffer: [u8; 1],
 }
+impl Default for userBITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct userCLIPFORMAT {
     pub fContext: i32,
     pub u: userCLIPFORMAT_0,
+}
+impl Default for userCLIPFORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4451,11 +5173,21 @@ pub union userCLIPFORMAT_0 {
     pub dwValue: u32,
     pub pwszName: windows_sys::core::PWSTR,
 }
+impl Default for userCLIPFORMAT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct userHBITMAP {
     pub fContext: i32,
     pub u: userHBITMAP_0,
+}
+impl Default for userHBITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4464,12 +5196,23 @@ pub union userHBITMAP_0 {
     pub hRemote: *mut userBITMAP,
     pub hInproc64: i64,
 }
+impl Default for userHBITMAP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct userHENHMETAFILE {
     pub fContext: i32,
     pub u: userHENHMETAFILE_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for userHENHMETAFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -4479,12 +5222,24 @@ pub union userHENHMETAFILE_0 {
     pub hRemote: *mut super::Com::BYTE_BLOB,
     pub hInproc64: i64,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for userHENHMETAFILE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct userHGLOBAL {
     pub fContext: i32,
     pub u: userHGLOBAL_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for userHGLOBAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -4494,12 +5249,24 @@ pub union userHGLOBAL_0 {
     pub hRemote: *mut super::Com::FLAGGED_BYTE_BLOB,
     pub hInproc64: i64,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for userHGLOBAL_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct userHMETAFILE {
     pub fContext: i32,
     pub u: userHMETAFILE_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for userHMETAFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -4509,12 +5276,24 @@ pub union userHMETAFILE_0 {
     pub hRemote: *mut super::Com::BYTE_BLOB,
     pub hInproc64: i64,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for userHMETAFILE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct userHMETAFILEPICT {
     pub fContext: i32,
     pub u: userHMETAFILEPICT_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for userHMETAFILEPICT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -4524,12 +5303,24 @@ pub union userHMETAFILEPICT_0 {
     pub hRemote: *mut remoteMETAFILEPICT,
     pub hInproc64: i64,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for userHMETAFILEPICT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub struct userHPALETTE {
     pub fContext: i32,
     pub u: userHPALETTE_0,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for userHPALETTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4538,4 +5329,10 @@ pub union userHPALETTE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::super::Graphics::Gdi::LOGPALETTE,
     pub hInproc64: i64,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for userHPALETTE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

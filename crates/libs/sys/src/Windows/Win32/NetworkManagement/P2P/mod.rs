@@ -244,7 +244,7 @@ windows_targets::link!("p2p.dll" "system" fn PeerPnrpUpdateRegistration(hregistr
 pub const DRT_ACTIVE: DRT_STATUS = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRT_ADDRESS {
     pub socketAddress: super::super::Networking::WinSock::SOCKADDR_STORAGE,
     pub flags: u32,
@@ -267,6 +267,12 @@ pub struct DRT_ADDRESS_LIST {
     pub AddressCount: u32,
     pub AddressList: [DRT_ADDRESS; 1],
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for DRT_ADDRESS_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DRT_ALONE: DRT_STATUS = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -280,6 +286,11 @@ pub struct DRT_BOOTSTRAP_PROVIDER {
     pub Register: isize,
     pub Unregister: isize,
 }
+impl Default for DRT_BOOTSTRAP_PROVIDER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = Option<unsafe extern "system" fn(hr: windows_sys::core::HRESULT, pvcontext: *mut core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: windows_sys::core::BOOL)>;
 #[repr(C)]
@@ -287,6 +298,11 @@ pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = Option<unsafe extern "system" fn(hr: w
 pub struct DRT_DATA {
     pub cb: u32,
     pub pb: *mut u8,
+}
+impl Default for DRT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -297,6 +313,12 @@ pub struct DRT_EVENT_DATA {
     pub pvContext: *mut core::ffi::c_void,
     pub Anonymous: DRT_EVENT_DATA_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for DRT_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -305,9 +327,15 @@ pub union DRT_EVENT_DATA_0 {
     pub registrationStateChange: DRT_EVENT_DATA_0_1,
     pub statusChange: DRT_EVENT_DATA_0_2,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for DRT_EVENT_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRT_EVENT_DATA_0_0 {
     pub change: DRT_LEAFSET_KEY_CHANGE_TYPE,
     pub localKey: DRT_DATA,
@@ -315,14 +343,14 @@ pub struct DRT_EVENT_DATA_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRT_EVENT_DATA_0_1 {
     pub state: DRT_REGISTRATION_STATE,
     pub localKey: DRT_DATA,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRT_EVENT_DATA_0_2 {
     pub status: DRT_STATUS,
     pub bootstrapAddresses: DRT_EVENT_DATA_0_2_0,
@@ -333,6 +361,12 @@ pub struct DRT_EVENT_DATA_0_2 {
 pub struct DRT_EVENT_DATA_0_2_0 {
     pub cntAddress: u32,
     pub pAddresses: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for DRT_EVENT_DATA_0_2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DRT_EVENT_LEAFSET_KEY_CHANGED: DRT_EVENT_TYPE = 1i32;
 pub const DRT_EVENT_REGISTRATION_STATE_CHANGED: DRT_EVENT_TYPE = 2i32;
@@ -397,7 +431,7 @@ pub const DRT_MIN_ROUTING_ADDRESSES: u32 = 1u32;
 pub const DRT_NO_NETWORK: DRT_STATUS = 10i32;
 pub const DRT_PAYLOAD_REVOKED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRT_REGISTRATION {
     pub key: DRT_DATA,
     pub appData: DRT_DATA,
@@ -416,6 +450,11 @@ pub struct DRT_SEARCH_INFO {
     pub pMaximumKey: *mut DRT_DATA,
     pub pMinimumKey: *mut DRT_DATA,
 }
+impl Default for DRT_SEARCH_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRT_SEARCH_RESULT {
@@ -423,6 +462,11 @@ pub struct DRT_SEARCH_RESULT {
     pub r#type: DRT_MATCH_TYPE,
     pub pvContext: *mut core::ffi::c_void,
     pub registration: DRT_REGISTRATION,
+}
+impl Default for DRT_SEARCH_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DRT_SECURE_CONFIDENTIALPAYLOAD: DRT_SECURITY_MODE = 2i32;
 pub const DRT_SECURE_MEMBERSHIP: DRT_SECURITY_MODE = 1i32;
@@ -446,6 +490,11 @@ pub struct DRT_SECURITY_PROVIDER {
     pub SignData: isize,
     pub VerifyData: isize,
 }
+impl Default for DRT_SECURITY_PROVIDER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRT_SETTINGS {
@@ -460,6 +509,11 @@ pub struct DRT_SETTINGS {
     pub pBootstrapProvider: *mut DRT_BOOTSTRAP_PROVIDER,
     pub eSecurityMode: DRT_SECURITY_MODE,
 }
+impl Default for DRT_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DRT_SITE_LOCAL_SCOPE: DRT_SCOPE = 2i32;
 pub type DRT_STATUS = i32;
 pub const DRT_S_RETRY: windows_sys::core::HRESULT = 0x621010_u32 as _;
@@ -470,7 +524,7 @@ pub const NS_PNRPNAME: u32 = 38u32;
 pub const NS_PROVIDER_PNRPCLOUD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03fe89ce_766d_4976_b9c1_bb9bc42c7b4d);
 pub const NS_PROVIDER_PNRPNAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03fe89cd_766d_4976_b9c1_bb9bc42c7b4d);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PEERDIST_CLIENT_BASIC_INFO {
     pub fFlashCrowd: windows_sys::core::BOOL,
 }
@@ -480,8 +534,13 @@ pub type PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = i32;
 pub struct PEERDIST_CONTENT_TAG {
     pub Data: [u8; 16],
 }
+impl Default for PEERDIST_CONTENT_TAG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PEERDIST_PUBLICATION_OPTIONS {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -492,7 +551,7 @@ pub const PEERDIST_PUBLICATION_OPTIONS_VERSION_2: i32 = 2i32;
 pub const PEERDIST_READ_TIMEOUT_DEFAULT: u32 = 4294967294u32;
 pub const PEERDIST_READ_TIMEOUT_LOCAL_CACHE_ONLY: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PEERDIST_RETRIEVAL_OPTIONS {
     pub cbSize: u32,
     pub dwContentInfoMinVersion: u32,
@@ -507,7 +566,7 @@ pub type PEERDIST_STATUS = i32;
 pub const PEERDIST_STATUS_AVAILABLE: PEERDIST_STATUS = 2i32;
 pub const PEERDIST_STATUS_DISABLED: PEERDIST_STATUS = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PEERDIST_STATUS_INFO {
     pub cbSize: u32,
     pub status: PEERDIST_STATUS,
@@ -522,12 +581,23 @@ pub struct PEER_ADDRESS {
     pub dwSize: u32,
     pub sin6: super::super::Networking::WinSock::SOCKADDR_IN6,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PEER_APPLICATION {
     pub id: windows_sys::core::GUID,
     pub data: PEER_DATA,
     pub pwzDescription: windows_sys::core::PWSTR,
+}
+impl Default for PEER_APPLICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PEER_APPLICATION_ALL_USERS: PEER_APPLICATION_REGISTRATION_TYPE = 1i32;
 pub const PEER_APPLICATION_CURRENT_USER: PEER_APPLICATION_REGISTRATION_TYPE = 0i32;
@@ -539,6 +609,11 @@ pub struct PEER_APPLICATION_REGISTRATION_INFO {
     pub pwzApplicationArguments: windows_sys::core::PWSTR,
     pub dwPublicationScope: u32,
 }
+impl Default for PEER_APPLICATION_REGISTRATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PEER_APPLICATION_REGISTRATION_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -547,6 +622,12 @@ pub struct PEER_APP_LAUNCH_INFO {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub pInvitation: *mut PEER_INVITATION,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_APP_LAUNCH_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PEER_CHANGE_ADDED: PEER_CHANGE_TYPE = 0i32;
 pub const PEER_CHANGE_DELETED: PEER_CHANGE_TYPE = 1i32;
@@ -558,6 +639,12 @@ pub const PEER_CHANGE_UPDATED: PEER_CHANGE_TYPE = 2i32;
 pub struct PEER_COLLAB_EVENT_DATA {
     pub eventType: PEER_COLLAB_EVENT_TYPE,
     pub Anonymous: PEER_COLLAB_EVENT_DATA_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_COLLAB_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -571,11 +658,22 @@ pub union PEER_COLLAB_EVENT_DATA_0 {
     pub peopleNearMeChangedData: PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA,
     pub requestStatusChangedData: PEER_EVENT_REQUEST_STATUS_CHANGED_DATA,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_COLLAB_EVENT_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PEER_COLLAB_EVENT_REGISTRATION {
     pub eventType: PEER_COLLAB_EVENT_TYPE,
     pub pInstance: *mut windows_sys::core::GUID,
+}
+impl Default for PEER_COLLAB_EVENT_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PEER_COLLAB_EVENT_TYPE = i32;
 pub const PEER_COLLAB_OBJECTID_USER_PICTURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd15f41f_fc4e_4922_b035_4c06a754d01d);
@@ -594,6 +692,12 @@ pub struct PEER_CONNECTION_INFO {
     pub pwzPeerId: windows_sys::core::PWSTR,
     pub address: PEER_ADDRESS,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_CONNECTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PEER_CONNECTION_NEIGHBOR: PEER_CONNECTION_FLAGS = 1i32;
 pub type PEER_CONNECTION_STATUS = i32;
 #[repr(C)]
@@ -606,6 +710,11 @@ pub struct PEER_CONTACT {
     pub fWatch: windows_sys::core::BOOL,
     pub WatcherPermissions: PEER_WATCH_PERMISSION,
     pub credentials: PEER_DATA,
+}
+impl Default for PEER_CONTACT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -622,11 +731,22 @@ pub struct PEER_CREDENTIAL_INFO {
     pub cRoles: u32,
     pub pRoles: *mut windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for PEER_CREDENTIAL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PEER_DATA {
     pub cbData: u32,
     pub pbData: *mut u8,
+}
+impl Default for PEER_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PEER_DEFER_EXPIRATION: PEER_GROUP_PROPERTY_FLAGS = 4i32;
 pub const PEER_DISABLE_PRESENCE: PEER_GROUP_PROPERTY_FLAGS = 2i32;
@@ -638,6 +758,12 @@ pub struct PEER_ENDPOINT {
     pub address: PEER_ADDRESS,
     pub pwzEndpointName: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_ENDPOINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -647,8 +773,14 @@ pub struct PEER_EVENT_APPLICATION_CHANGED_DATA {
     pub changeType: PEER_CHANGE_TYPE,
     pub pApplication: *mut PEER_APPLICATION,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_EVENT_APPLICATION_CHANGED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PEER_EVENT_CONNECTION_CHANGE_DATA {
     pub dwSize: u32,
     pub status: PEER_CONNECTION_STATUS,
@@ -666,10 +798,16 @@ pub struct PEER_EVENT_ENDPOINT_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_EVENT_ENDPOINT_CHANGED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PEER_EVENT_ENDPOINT_OBJECT_CHANGED: PEER_COLLAB_EVENT_TYPE = 5i32;
 pub const PEER_EVENT_ENDPOINT_PRESENCE_CHANGED: PEER_COLLAB_EVENT_TYPE = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PEER_EVENT_INCOMING_DATA {
     pub dwSize: u32,
     pub ullConnectionId: u64,
@@ -683,6 +821,11 @@ pub struct PEER_EVENT_MEMBER_CHANGE_DATA {
     pub changeType: PEER_MEMBER_CHANGE_TYPE,
     pub pwzIdentity: windows_sys::core::PWSTR,
 }
+impl Default for PEER_EVENT_MEMBER_CHANGE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PEER_EVENT_MY_APPLICATION_CHANGED: PEER_COLLAB_EVENT_TYPE = 8i32;
 pub const PEER_EVENT_MY_ENDPOINT_CHANGED: PEER_COLLAB_EVENT_TYPE = 6i32;
 pub const PEER_EVENT_MY_OBJECT_CHANGED: PEER_COLLAB_EVENT_TYPE = 9i32;
@@ -695,6 +838,11 @@ pub struct PEER_EVENT_NODE_CHANGE_DATA {
     pub ullNodeId: u64,
     pub pwzPeerId: windows_sys::core::PWSTR,
 }
+impl Default for PEER_EVENT_NODE_CHANGE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -704,6 +852,12 @@ pub struct PEER_EVENT_OBJECT_CHANGED_DATA {
     pub changeType: PEER_CHANGE_TYPE,
     pub pObject: *mut PEER_OBJECT,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_EVENT_OBJECT_CHANGED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PEER_EVENT_PEOPLE_NEAR_ME_CHANGED: PEER_COLLAB_EVENT_TYPE = 10i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -711,6 +865,12 @@ pub const PEER_EVENT_PEOPLE_NEAR_ME_CHANGED: PEER_COLLAB_EVENT_TYPE = 10i32;
 pub struct PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     pub changeType: PEER_CHANGE_TYPE,
     pub pPeopleNearMe: *mut PEER_PEOPLE_NEAR_ME,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -721,8 +881,14 @@ pub struct PEER_EVENT_PRESENCE_CHANGED_DATA {
     pub changeType: PEER_CHANGE_TYPE,
     pub pPresenceInfo: *mut PEER_PRESENCE_INFO,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_EVENT_PRESENCE_CHANGED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PEER_EVENT_RECORD_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_RECORD_CHANGE_TYPE,
@@ -737,8 +903,14 @@ pub struct PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub hrChange: windows_sys::core::HRESULT,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PEER_EVENT_SYNCHRONIZED_DATA {
     pub dwSize: u32,
     pub recordType: windows_sys::core::GUID,
@@ -749,6 +921,11 @@ pub const PEER_EVENT_WATCHLIST_CHANGED: PEER_COLLAB_EVENT_TYPE = 1i32;
 pub struct PEER_EVENT_WATCHLIST_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub changeType: PEER_CHANGE_TYPE,
+}
+impl Default for PEER_EVENT_WATCHLIST_CHANGED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PEER_E_ALREADY_EXISTS: windows_sys::core::HRESULT = 0x800700B7_u32 as _;
 pub const PEER_E_CLIENT_INVALID_COMPARTMENT_ID: windows_sys::core::HRESULT = 0x80072CF2_u32 as _;
@@ -768,6 +945,11 @@ pub struct PEER_GRAPH_EVENT_DATA {
     pub eventType: PEER_GRAPH_EVENT_TYPE,
     pub Anonymous: PEER_GRAPH_EVENT_DATA_0,
 }
+impl Default for PEER_GRAPH_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PEER_GRAPH_EVENT_DATA_0 {
@@ -777,6 +959,11 @@ pub union PEER_GRAPH_EVENT_DATA_0 {
     pub connectionChangeData: PEER_EVENT_CONNECTION_CHANGE_DATA,
     pub nodeChangeData: PEER_EVENT_NODE_CHANGE_DATA,
     pub synchronizedData: PEER_EVENT_SYNCHRONIZED_DATA,
+}
+impl Default for PEER_GRAPH_EVENT_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PEER_GRAPH_EVENT_DIRECT_CONNECTION: PEER_GRAPH_EVENT_TYPE = 4i32;
 pub const PEER_GRAPH_EVENT_INCOMING_DATA: PEER_GRAPH_EVENT_TYPE = 6i32;
@@ -789,6 +976,11 @@ pub const PEER_GRAPH_EVENT_RECORD_CHANGED: PEER_GRAPH_EVENT_TYPE = 3i32;
 pub struct PEER_GRAPH_EVENT_REGISTRATION {
     pub eventType: PEER_GRAPH_EVENT_TYPE,
     pub pType: *mut windows_sys::core::GUID,
+}
+impl Default for PEER_GRAPH_EVENT_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PEER_GRAPH_EVENT_STATUS_CHANGED: PEER_GRAPH_EVENT_TYPE = 1i32;
 pub const PEER_GRAPH_EVENT_SYNCHRONIZED: PEER_GRAPH_EVENT_TYPE = 9i32;
@@ -806,6 +998,11 @@ pub struct PEER_GRAPH_PROPERTIES {
     pub pwzComment: windows_sys::core::PWSTR,
     pub ulPresenceLifetime: u32,
     pub cPresenceMax: u32,
+}
+impl Default for PEER_GRAPH_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PEER_GRAPH_PROPERTY_DEFER_EXPIRATION: PEER_GRAPH_PROPERTY_FLAGS = 2i32;
 pub type PEER_GRAPH_PROPERTY_FLAGS = i32;
@@ -829,6 +1026,11 @@ pub struct PEER_GROUP_EVENT_DATA {
     pub eventType: PEER_GROUP_EVENT_TYPE,
     pub Anonymous: PEER_GROUP_EVENT_DATA_0,
 }
+impl Default for PEER_GROUP_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PEER_GROUP_EVENT_DATA_0 {
@@ -838,6 +1040,11 @@ pub union PEER_GROUP_EVENT_DATA_0 {
     pub connectionChangeData: PEER_EVENT_CONNECTION_CHANGE_DATA,
     pub memberChangeData: PEER_EVENT_MEMBER_CHANGE_DATA,
     pub hrConnectionFailedReason: windows_sys::core::HRESULT,
+}
+impl Default for PEER_GROUP_EVENT_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PEER_GROUP_EVENT_DIRECT_CONNECTION: PEER_GROUP_EVENT_TYPE = 4i32;
 pub const PEER_GROUP_EVENT_INCOMING_DATA: PEER_GROUP_EVENT_TYPE = 6i32;
@@ -850,6 +1057,11 @@ pub const PEER_GROUP_EVENT_RECORD_CHANGED: PEER_GROUP_EVENT_TYPE = 3i32;
 pub struct PEER_GROUP_EVENT_REGISTRATION {
     pub eventType: PEER_GROUP_EVENT_TYPE,
     pub pType: *mut windows_sys::core::GUID,
+}
+impl Default for PEER_GROUP_EVENT_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PEER_GROUP_EVENT_STATUS_CHANGED: PEER_GROUP_EVENT_TYPE = 1i32;
 pub type PEER_GROUP_EVENT_TYPE = i32;
@@ -873,6 +1085,11 @@ pub struct PEER_GROUP_PROPERTIES {
     pub pwzGroupPassword: windows_sys::core::PWSTR,
     pub groupPasswordRole: windows_sys::core::GUID,
 }
+impl Default for PEER_GROUP_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PEER_GROUP_PROPERTY_FLAGS = i32;
 pub const PEER_GROUP_ROLE_ADMIN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x04387127_aa56_450a_8ce5_4f565c6790f4);
 pub const PEER_GROUP_ROLE_INVITING_MEMBER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4370fd89_dc18_4cfb_8dbf_9853a8a9f905);
@@ -887,6 +1104,11 @@ pub struct PEER_INVITATION {
     pub applicationId: windows_sys::core::GUID,
     pub applicationData: PEER_DATA,
     pub pwzMessage: windows_sys::core::PWSTR,
+}
+impl Default for PEER_INVITATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -912,12 +1134,23 @@ pub struct PEER_INVITATION_INFO {
     pub pSubjectPublicKey: *mut super::super::Security::Cryptography::CERT_PUBLIC_KEY_INFO,
     pub authScheme: PEER_GROUP_AUTHENTICATION_SCHEME,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for PEER_INVITATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PEER_INVITATION_RESPONSE {
     pub action: PEER_INVITATION_RESPONSE_TYPE,
     pub pwzMessage: windows_sys::core::PWSTR,
     pub hrExtendedInfo: windows_sys::core::HRESULT,
+}
+impl Default for PEER_INVITATION_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PEER_INVITATION_RESPONSE_ACCEPTED: PEER_INVITATION_RESPONSE_TYPE = 1i32;
 pub const PEER_INVITATION_RESPONSE_DECLINED: PEER_INVITATION_RESPONSE_TYPE = 0i32;
@@ -937,6 +1170,12 @@ pub struct PEER_MEMBER {
     pub pAddresses: *mut PEER_ADDRESS,
     pub pCredentialInfo: *mut PEER_CREDENTIAL_INFO,
 }
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl Default for PEER_MEMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PEER_MEMBER_CHANGE_TYPE = i32;
 pub const PEER_MEMBER_CONNECTED: PEER_MEMBER_CHANGE_TYPE = 1i32;
 pub const PEER_MEMBER_DATA_OPTIONAL: PEER_GROUP_PROPERTY_FLAGS = 1i32;
@@ -953,6 +1192,11 @@ pub struct PEER_NAME_PAIR {
     pub pwzPeerName: windows_sys::core::PWSTR,
     pub pwzFriendlyName: windows_sys::core::PWSTR,
 }
+impl Default for PEER_NAME_PAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PEER_NODE_CHANGE_CONNECTED: PEER_NODE_CHANGE_TYPE = 1i32;
 pub const PEER_NODE_CHANGE_DISCONNECTED: PEER_NODE_CHANGE_TYPE = 2i32;
 pub type PEER_NODE_CHANGE_TYPE = i32;
@@ -968,8 +1212,14 @@ pub struct PEER_NODE_INFO {
     pub pAddresses: *mut PEER_ADDRESS,
     pub pwzAttributes: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_NODE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PEER_OBJECT {
     pub id: windows_sys::core::GUID,
     pub data: PEER_DATA,
@@ -983,6 +1233,12 @@ pub struct PEER_PEOPLE_NEAR_ME {
     pub endpoint: PEER_ENDPOINT,
     pub id: windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_PEOPLE_NEAR_ME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PEER_PNRP_ALL_LINK_CLOUDS: windows_sys::core::PCWSTR = windows_sys::core::w!("PEER_PNRP_ALL_LINKS");
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -990,6 +1246,11 @@ pub struct PEER_PNRP_CLOUD_INFO {
     pub pwzCloudName: windows_sys::core::PWSTR,
     pub dwScope: PNRP_SCOPE,
     pub dwScopeId: u32,
+}
+impl Default for PEER_PNRP_CLOUD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1000,6 +1261,12 @@ pub struct PEER_PNRP_ENDPOINT_INFO {
     pub ppAddresses: *mut *mut super::super::Networking::WinSock::SOCKADDR,
     pub pwzComment: windows_sys::core::PWSTR,
     pub payload: PEER_DATA,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_PNRP_ENDPOINT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1013,6 +1280,12 @@ pub struct PEER_PNRP_REGISTRATION_INFO {
     pub pwzComment: windows_sys::core::PWSTR,
     pub payload: PEER_DATA,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PEER_PNRP_REGISTRATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PEER_PRESENCE_AWAY: PEER_PRESENCE_STATUS = 2i32;
 pub const PEER_PRESENCE_BE_RIGHT_BACK: PEER_PRESENCE_STATUS = 3i32;
 pub const PEER_PRESENCE_BUSY: PEER_PRESENCE_STATUS = 5i32;
@@ -1022,6 +1295,11 @@ pub const PEER_PRESENCE_IDLE: PEER_PRESENCE_STATUS = 4i32;
 pub struct PEER_PRESENCE_INFO {
     pub status: PEER_PRESENCE_STATUS,
     pub pwzDescriptiveText: windows_sys::core::PWSTR,
+}
+impl Default for PEER_PRESENCE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PEER_PRESENCE_OFFLINE: PEER_PRESENCE_STATUS = 0i32;
 pub const PEER_PRESENCE_ONLINE: PEER_PRESENCE_STATUS = 7i32;
@@ -1050,6 +1328,11 @@ pub struct PEER_RECORD {
     pub securityData: PEER_DATA,
     pub data: PEER_DATA,
 }
+impl Default for PEER_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PEER_RECORD_ADDED: PEER_RECORD_CHANGE_TYPE = 1i32;
 pub type PEER_RECORD_CHANGE_TYPE = i32;
 pub const PEER_RECORD_DELETED: PEER_RECORD_CHANGE_TYPE = 3i32;
@@ -1072,13 +1355,18 @@ pub struct PEER_SECURITY_INTERFACE {
     pub pfnFreeSecurityData: PFNPEER_FREE_SECURITY_DATA,
     pub pfnAuthFailed: PFNPEER_ON_PASSWORD_AUTH_FAILED,
 }
+impl Default for PEER_SECURITY_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PEER_SIGNIN_ALL: PEER_SIGNIN_FLAGS = 3i32;
 pub type PEER_SIGNIN_FLAGS = i32;
 pub const PEER_SIGNIN_INTERNET: PEER_SIGNIN_FLAGS = 2i32;
 pub const PEER_SIGNIN_NEAR_ME: PEER_SIGNIN_FLAGS = 1i32;
 pub const PEER_SIGNIN_NONE: PEER_SIGNIN_FLAGS = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PEER_VERSION_DATA {
     pub wVersion: u16,
     pub wHighestVersion: u16,
@@ -1091,7 +1379,7 @@ pub type PFNPEER_ON_PASSWORD_AUTH_FAILED = Option<unsafe extern "system" fn(hgra
 pub type PFNPEER_SECURE_RECORD = Option<unsafe extern "system" fn(hgraph: *const core::ffi::c_void, pvcontext: *const core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE, ppsecuritydata: *mut *mut PEER_DATA) -> windows_sys::core::HRESULT>;
 pub type PFNPEER_VALIDATE_RECORD = Option<unsafe extern "system" fn(hgraph: *const core::ffi::c_void, pvcontext: *const core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PNRPCLOUDINFO {
     pub dwSize: u32,
     pub Cloud: PNRP_CLOUD_ID,
@@ -1113,6 +1401,12 @@ pub struct PNRPINFO_V1 {
     pub saHint: super::super::Networking::WinSock::SOCKET_ADDRESS,
     pub enNameState: PNRP_REGISTERED_ID_STATE,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for PNRPINFO_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 #[derive(Clone, Copy)]
@@ -1129,6 +1423,12 @@ pub struct PNRPINFO_V2 {
     pub enExtendedPayloadType: PNRP_EXTENDED_PAYLOAD_TYPE,
     pub Anonymous: PNRPINFO_V2_0,
 }
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl Default for PNRPINFO_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 #[derive(Clone, Copy)]
@@ -1136,10 +1436,16 @@ pub union PNRPINFO_V2_0 {
     pub blobPayload: super::super::System::Com::BLOB,
     pub pwszPayload: windows_sys::core::PWSTR,
 }
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl Default for PNRPINFO_V2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PNRP_CLOUD_FLAGS = i32;
 pub const PNRP_CLOUD_FULL_PARTICIPANT: PNRP_CLOUD_FLAGS = 4i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PNRP_CLOUD_ID {
     pub AddressFamily: i32,
     pub Scope: PNRP_SCOPE,

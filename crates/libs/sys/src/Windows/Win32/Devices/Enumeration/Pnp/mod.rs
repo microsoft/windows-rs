@@ -45,6 +45,12 @@ pub struct SW_DEVICE_CREATE_INFO {
     pub pszDeviceLocation: windows_sys::core::PCWSTR,
     pub pSecurityDescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for SW_DEVICE_CREATE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SW_DEVICE_LIFETIME = i32;
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
 pub const UPNP_ADDRESSFAMILY_IPv4: u32 = 1u32;

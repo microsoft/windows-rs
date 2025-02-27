@@ -230,6 +230,11 @@ pub struct ADSPROPERROR {
     pub hr: windows_sys::core::HRESULT,
     pub pszError: windows_sys::core::PWSTR,
 }
+impl Default for ADSPROPERROR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADSPROPINITPARAMS {
@@ -239,6 +244,11 @@ pub struct ADSPROPINITPARAMS {
     pub pDsObj: *mut core::ffi::c_void,
     pub pwzCN: windows_sys::core::PWSTR,
     pub pWritableAttrs: *mut ADS_ATTR_INFO,
+}
+impl Default for ADSPROPINITPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ADSTYPE = i32;
 pub const ADSTYPE_BACKLINK: ADSTYPE = 18i32;
@@ -276,6 +286,11 @@ pub struct ADSVALUE {
     pub dwType: ADSTYPE,
     pub Anonymous: ADSVALUE_0,
 }
+impl Default for ADSVALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ADSVALUE_0 {
@@ -306,6 +321,11 @@ pub union ADSVALUE_0 {
     pub SecurityDescriptor: ADS_NT_SECURITY_DESCRIPTOR,
     pub pDNWithBinary: *mut ADS_DN_WITH_BINARY,
     pub pDNWithString: *mut ADS_DN_WITH_STRING,
+}
+impl Default for ADSVALUE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ADS_ACEFLAG_ENUM = i32;
 pub const ADS_ACEFLAG_FAILED_ACCESS: ADS_ACEFLAG_ENUM = 128i32;
@@ -342,6 +362,11 @@ pub struct ADS_ATTR_DEF {
     pub dwMaxRange: u32,
     pub fMultiValued: windows_sys::core::BOOL,
 }
+impl Default for ADS_ATTR_DEF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ADS_ATTR_DELETE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -352,6 +377,11 @@ pub struct ADS_ATTR_INFO {
     pub pADsValues: *mut ADSVALUE,
     pub dwNumValues: u32,
 }
+impl Default for ADS_ATTR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ADS_ATTR_UPDATE: u32 = 2u32;
 pub type ADS_AUTHENTICATION_ENUM = u32;
 pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = 2147483648u32;
@@ -361,11 +391,21 @@ pub struct ADS_BACKLINK {
     pub RemoteID: u32,
     pub ObjectName: windows_sys::core::PWSTR,
 }
+impl Default for ADS_BACKLINK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_CASEIGNORE_LIST {
     pub Next: *mut ADS_CASEIGNORE_LIST,
     pub String: windows_sys::core::PWSTR,
+}
+impl Default for ADS_CASEIGNORE_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ADS_CHASE_REFERRALS_ALWAYS: ADS_CHASE_REFERRALS_ENUM = 96i32;
 pub type ADS_CHASE_REFERRALS_ENUM = i32;
@@ -386,6 +426,11 @@ pub struct ADS_CLASS_DEF {
     pub ppszSuperClasses: *mut *mut windows_sys::core::PWSTR,
     pub fIsContainer: windows_sys::core::BOOL,
 }
+impl Default for ADS_CLASS_DEF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type ADS_DEREFENUM = i32;
 pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = 3i32;
 pub const ADS_DEREF_FINDING: ADS_DEREFENUM = 2i32;
@@ -401,17 +446,32 @@ pub struct ADS_DN_WITH_BINARY {
     pub lpBinaryValue: *mut u8,
     pub pszDNString: windows_sys::core::PWSTR,
 }
+impl Default for ADS_DN_WITH_BINARY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_DN_WITH_STRING {
     pub pszStringValue: windows_sys::core::PWSTR,
     pub pszDNString: windows_sys::core::PWSTR,
 }
+impl Default for ADS_DN_WITH_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_EMAIL {
     pub Address: windows_sys::core::PWSTR,
     pub Type: u32,
+}
+impl Default for ADS_EMAIL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = 1i32;
 pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = 3i32;
@@ -429,6 +489,11 @@ pub struct ADS_FAXNUMBER {
     pub TelephoneNumber: windows_sys::core::PWSTR,
     pub NumberOfBits: u32,
     pub Parameters: *mut u8,
+}
+impl Default for ADS_FAXNUMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ADS_FLAGTYPE_ENUM = i32;
 pub const ADS_FLAG_INHERITED_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = 2i32;
@@ -457,6 +522,11 @@ pub struct ADS_HOLD {
     pub ObjectName: windows_sys::core::PWSTR,
     pub Amount: u32,
 }
+impl Default for ADS_HOLD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = 1i32;
 pub type ADS_NAME_INITTYPE_ENUM = i32;
 pub const ADS_NAME_INITTYPE_GC: ADS_NAME_INITTYPE_ENUM = 3i32;
@@ -481,6 +551,11 @@ pub struct ADS_NETADDRESS {
     pub AddressLength: u32,
     pub Address: *mut u8,
 }
+impl Default for ADS_NETADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 16u32;
 pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = 1024u32;
 #[repr(C)]
@@ -488,6 +563,11 @@ pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = 1024u32;
 pub struct ADS_NT_SECURITY_DESCRIPTOR {
     pub dwLength: u32,
     pub lpValue: *mut u8,
+}
+impl Default for ADS_NT_SECURITY_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -498,6 +578,11 @@ pub struct ADS_OBJECT_INFO {
     pub pszSchemaDN: windows_sys::core::PWSTR,
     pub pszClassName: windows_sys::core::PWSTR,
 }
+impl Default for ADS_OBJECT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_OCTET_LIST {
@@ -505,11 +590,21 @@ pub struct ADS_OCTET_LIST {
     pub Length: u32,
     pub Data: *mut u8,
 }
+impl Default for ADS_OCTET_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
+}
+impl Default for ADS_OCTET_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ADS_OPTION_ACCUMULATIVE_MODIFICATION: ADS_OPTION_ENUM = 8i32;
 pub type ADS_OPTION_ENUM = i32;
@@ -532,6 +627,11 @@ pub struct ADS_PATH {
     pub VolumeName: windows_sys::core::PWSTR,
     pub Path: windows_sys::core::PWSTR,
 }
+impl Default for ADS_PATH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type ADS_PATHTYPE_ENUM = i32;
 pub const ADS_PATH_FILE: ADS_PATHTYPE_ENUM = 1i32;
 pub const ADS_PATH_FILESHARE: ADS_PATHTYPE_ENUM = 2i32;
@@ -540,6 +640,11 @@ pub const ADS_PATH_REGISTRY: ADS_PATHTYPE_ENUM = 3i32;
 #[derive(Clone, Copy)]
 pub struct ADS_POSTALADDRESS {
     pub PostalAddress: [windows_sys::core::PWSTR; 6],
+}
+impl Default for ADS_POSTALADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ADS_PREFERENCES_ENUM = i32;
 pub const ADS_PROMPT_CREDENTIALS: ADS_AUTHENTICATION_ENUM = 8u32;
@@ -554,6 +659,11 @@ pub struct ADS_PROV_SPECIFIC {
     pub dwLength: u32,
     pub lpValue: *mut u8,
 }
+impl Default for ADS_PROV_SPECIFIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ADS_READONLY_SERVER: ADS_AUTHENTICATION_ENUM = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -563,6 +673,11 @@ pub struct ADS_REPLICAPOINTER {
     pub ReplicaNumber: u32,
     pub Count: u32,
     pub ReplicaAddressHints: *mut ADS_NETADDRESS,
+}
+impl Default for ADS_REPLICAPOINTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ADS_RIGHTS_ENUM = i32;
 pub const ADS_RIGHT_ACCESS_SYSTEM_SECURITY: ADS_RIGHTS_ENUM = 16777216i32;
@@ -625,6 +740,11 @@ pub struct ADS_SEARCHPREF_INFO {
     pub vValue: ADSVALUE,
     pub dwStatus: ADS_STATUSENUM,
 }
+impl Default for ADS_SEARCHPREF_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ADS_SEARCHPREF_PAGED_TIME_LIMIT: ADS_SEARCHPREF_ENUM = 8i32;
 pub const ADS_SEARCHPREF_PAGESIZE: ADS_SEARCHPREF_ENUM = 7i32;
 pub const ADS_SEARCHPREF_SEARCH_SCOPE: ADS_SEARCHPREF_ENUM = 5i32;
@@ -643,6 +763,11 @@ pub struct ADS_SEARCH_COLUMN {
     pub pADsValues: *mut ADSVALUE,
     pub dwNumValues: u32,
     pub hReserved: super::super::Foundation::HANDLE,
+}
+impl Default for ADS_SEARCH_COLUMN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ADS_SEARCH_HANDLE = isize;
 pub const ADS_SECURE_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 1u32;
@@ -664,6 +789,11 @@ pub struct ADS_SORTKEY {
     pub pszReserved: windows_sys::core::PWSTR,
     pub fReverseorder: bool,
 }
+impl Default for ADS_SORTKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type ADS_STATUSENUM = i32;
 pub const ADS_STATUS_INVALID_SEARCHPREF: ADS_STATUSENUM = 1i32;
 pub const ADS_STATUS_INVALID_SEARCHPREFVALUE: ADS_STATUSENUM = 2i32;
@@ -680,7 +810,7 @@ pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = 67108864i32
 pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = 134217728i32;
 pub type ADS_SYSTEMFLAG_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_TIMESTAMP {
     pub WholeSeconds: u32,
     pub EventID: u32,
@@ -691,6 +821,11 @@ pub struct ADS_TYPEDNAME {
     pub ObjectName: windows_sys::core::PWSTR,
     pub Level: u32,
     pub Interval: u32,
+}
+impl Default for ADS_TYPEDNAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ADS_UF_ACCOUNTDISABLE: ADS_USER_FLAG_ENUM = 2i32;
 pub const ADS_UF_DONT_EXPIRE_PASSWD: ADS_USER_FLAG_ENUM = 65536i32;
@@ -729,6 +864,11 @@ pub struct ADS_VLV {
     pub pszTarget: windows_sys::core::PWSTR,
     pub dwContextIDLength: u32,
     pub lpContextID: *mut u8,
+}
+impl Default for ADS_VLV {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ADSystemInfo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50b6327f_afd1_11d2_9cb9_0000f87a369e);
 pub const ADsSecurityUtility: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf270c64a_ffb8_4ae4_85fe_3a75e5347966);
@@ -773,6 +913,12 @@ pub struct CQFORM {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub pszTitle: windows_sys::core::PCWSTR,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for CQFORM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -785,6 +931,12 @@ pub struct CQPAGE {
     pub idPageTemplate: i32,
     pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for CQPAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CQPM_CLEARFORM: u32 = 6u32;
 pub const CQPM_ENABLE: u32 = 3u32;
@@ -816,6 +968,11 @@ pub struct DOMAINDESC {
     pub pdChildList: *mut DOMAINDESC,
     pub pdNextSibling: *mut DOMAINDESC,
 }
+impl Default for DOMAINDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DOMAIN_CONTROLLER_INFOA {
@@ -828,6 +985,11 @@ pub struct DOMAIN_CONTROLLER_INFOA {
     pub Flags: u32,
     pub DcSiteName: windows_sys::core::PSTR,
     pub ClientSiteName: windows_sys::core::PSTR,
+}
+impl Default for DOMAIN_CONTROLLER_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -842,12 +1004,22 @@ pub struct DOMAIN_CONTROLLER_INFOW {
     pub DcSiteName: windows_sys::core::PWSTR,
     pub ClientSiteName: windows_sys::core::PWSTR,
 }
+impl Default for DOMAIN_CONTROLLER_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DOMAIN_TREE {
     pub dsSize: u32,
     pub dwCount: u32,
     pub aDomains: [DOMAINDESC; 1],
+}
+impl Default for DOMAIN_TREE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
 pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
@@ -861,6 +1033,12 @@ pub struct DSA_NEWOBJ_DISPINFO {
     pub hObjClassIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub lpszWizTitle: windows_sys::core::PWSTR,
     pub lpszContDisplayName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for DSA_NEWOBJ_DISPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DSA_NOTIFY_DEL: u32 = 1u32;
 pub const DSA_NOTIFY_FLAG_ADDITIONAL_DATA: u32 = 2u32;
@@ -886,6 +1064,11 @@ pub struct DSBITEMA {
     pub szIconLocation: [i8; 260],
     pub iIconResID: i32,
 }
+impl Default for DSBITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSBITEMW {
@@ -898,6 +1081,11 @@ pub struct DSBITEMW {
     pub szDisplayName: [u16; 64],
     pub szIconLocation: [u16; 260],
     pub iIconResID: i32,
+}
+impl Default for DSBITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DSBI_CHECKBOXES: u32 = 256u32;
 pub const DSBI_DONTSIGNSEAL: u32 = 33554432u32;
@@ -939,6 +1127,12 @@ pub struct DSBROWSEINFOA {
     pub pszObjectClass: windows_sys::core::PWSTR,
     pub cchObjectClass: u32,
 }
+#[cfg(feature = "Win32_UI_Shell")]
+impl Default for DSBROWSEINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
 #[derive(Clone, Copy)]
@@ -959,6 +1153,12 @@ pub struct DSBROWSEINFOW {
     pub pszObjectClass: windows_sys::core::PWSTR,
     pub cchObjectClass: u32,
 }
+#[cfg(feature = "Win32_UI_Shell")]
+impl Default for DSBROWSEINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DSBS_CHECKED: u32 = 1u32;
 pub const DSBS_HIDDEN: u32 = 2u32;
 pub const DSBS_ROOT: u32 = 4u32;
@@ -974,8 +1174,13 @@ pub struct DSCLASSCREATIONINFO {
     pub cWizardExtensions: u32,
     pub aWizardExtensions: [windows_sys::core::GUID; 1],
 }
+impl Default for DSCLASSCREATIONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSCOLUMN {
     pub dwFlags: u32,
     pub fmt: i32,
@@ -985,7 +1190,7 @@ pub struct DSCOLUMN {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSDISPLAYSPECOPTIONS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1008,7 +1213,7 @@ pub const DSGIF_ISNORMAL: u32 = 0u32;
 pub const DSGIF_ISOPEN: u32 = 1u32;
 pub const DSICCF_IGNORETREATASLEAF: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSOBJECT {
     pub dwFlags: u32,
     pub dwProviderFlags: u32,
@@ -1021,6 +1226,11 @@ pub struct DSOBJECTNAMES {
     pub clsidNamespace: windows_sys::core::GUID,
     pub cItems: u32,
     pub aObjects: [DSOBJECT; 1],
+}
+impl Default for DSOBJECTNAMES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
 pub const DSOBJECT_READONLYPAGES: u32 = 2147483648u32;
@@ -1059,7 +1269,7 @@ pub const DSOP_FILTER_CONTACTS: u32 = 1024u32;
 pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL: u32 = 256u32;
 pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE: u32 = 512u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSOP_FILTER_FLAGS {
     pub Uplevel: DSOP_UPLEVEL_FILTER_FLAGS,
     pub flDownlevel: u32,
@@ -1086,6 +1296,11 @@ pub struct DSOP_INIT_INFO {
     pub cAttributesToFetch: u32,
     pub apwzAttributeNames: *const windows_sys::core::PCWSTR,
 }
+impl Default for DSOP_INIT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS: u32 = 512u32;
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS: u32 = 128u32;
@@ -1109,6 +1324,11 @@ pub struct DSOP_SCOPE_INIT_INFO {
     pub pwzADsPath: windows_sys::core::PCWSTR,
     pub hr: windows_sys::core::HRESULT,
 }
+impl Default for DSOP_SCOPE_INIT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
 pub const DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN: u32 = 8u32;
 pub const DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN: u32 = 64u32;
@@ -1120,14 +1340,14 @@ pub const DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE: u32 = 512u32;
 pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256u32;
 pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSOP_UPLEVEL_FILTER_FLAGS {
     pub flBothModes: u32,
     pub flMixedModeOnly: u32,
     pub flNativeModeOnly: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSPROPERTYPAGEINFO {
     pub offsetString: u32,
 }
@@ -1154,6 +1374,11 @@ pub struct DSQUERYCLASSLIST {
     pub cClasses: i32,
     pub offsetClass: [u32; 1],
 }
+impl Default for DSQUERYCLASSLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSQUERYINITPARAMS {
@@ -1164,6 +1389,11 @@ pub struct DSQUERYINITPARAMS {
     pub pUserName: windows_sys::core::PWSTR,
     pub pPassword: windows_sys::core::PWSTR,
     pub pServer: windows_sys::core::PWSTR,
+}
+impl Default for DSQUERYINITPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1176,10 +1406,15 @@ pub struct DSQUERYPARAMS {
     pub dwReserved: u32,
     pub aColumns: [DSCOLUMN; 1],
 }
+impl Default for DSQUERYPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DSROLE_MACHINE_ROLE = i32;
 pub type DSROLE_OPERATION_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSROLE_OPERATION_STATE_INFO {
     pub OperationState: DSROLE_OPERATION_STATE,
 }
@@ -1194,6 +1429,11 @@ pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     pub DomainForestName: windows_sys::core::PWSTR,
     pub DomainGuid: windows_sys::core::GUID,
 }
+impl Default for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = i32;
 pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2u32;
 pub const DSROLE_PRIMARY_DS_READONLY: u32 = 8u32;
@@ -1201,7 +1441,7 @@ pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1u32;
 pub type DSROLE_SERVER_STATE = i32;
 pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSROLE_UPGRADE_STATUS_INFO {
     pub OperationState: u32,
     pub PreviousServerState: DSROLE_SERVER_STATE,
@@ -1249,6 +1489,11 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
     pub fIsPdc: windows_sys::core::BOOL,
     pub fDsEnabled: windows_sys::core::BOOL,
 }
+impl Default for DS_DOMAIN_CONTROLLER_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
@@ -1259,6 +1504,11 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
     pub ServerObjectName: windows_sys::core::PWSTR,
     pub fIsPdc: windows_sys::core::BOOL,
     pub fDsEnabled: windows_sys::core::BOOL,
+}
+impl Default for DS_DOMAIN_CONTROLLER_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1278,6 +1528,11 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
     pub ServerObjectGuid: windows_sys::core::GUID,
     pub NtdsDsaObjectGuid: windows_sys::core::GUID,
 }
+impl Default for DS_DOMAIN_CONTROLLER_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
@@ -1295,6 +1550,11 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
     pub ComputerObjectGuid: windows_sys::core::GUID,
     pub ServerObjectGuid: windows_sys::core::GUID,
     pub NtdsDsaObjectGuid: windows_sys::core::GUID,
+}
+impl Default for DS_DOMAIN_CONTROLLER_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1315,6 +1575,11 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
     pub ServerObjectGuid: windows_sys::core::GUID,
     pub NtdsDsaObjectGuid: windows_sys::core::GUID,
 }
+impl Default for DS_DOMAIN_CONTROLLER_INFO_3A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
@@ -1333,6 +1598,11 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub ComputerObjectGuid: windows_sys::core::GUID,
     pub ServerObjectGuid: windows_sys::core::GUID,
     pub NtdsDsaObjectGuid: windows_sys::core::GUID,
+}
+impl Default for DS_DOMAIN_CONTROLLER_INFO_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
 pub const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2u32;
@@ -1353,6 +1623,12 @@ pub struct DS_DOMAIN_TRUSTSA {
     pub DomainSid: super::super::Security::PSID,
     pub DomainGuid: windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for DS_DOMAIN_TRUSTSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1365,6 +1641,12 @@ pub struct DS_DOMAIN_TRUSTSW {
     pub TrustAttributes: u32,
     pub DomainSid: super::super::Security::PSID,
     pub DomainGuid: windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for DS_DOMAIN_TRUSTSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DS_DS_10_FLAG: u32 = 65536u32;
 pub const DS_DS_8_FLAG: u32 = 16384u32;
@@ -1425,11 +1707,21 @@ pub struct DS_NAME_RESULTA {
     pub cItems: u32,
     pub rItems: *mut DS_NAME_RESULT_ITEMA,
 }
+impl Default for DS_NAME_RESULTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_NAME_RESULTW {
     pub cItems: u32,
     pub rItems: *mut DS_NAME_RESULT_ITEMW,
+}
+impl Default for DS_NAME_RESULTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1438,12 +1730,22 @@ pub struct DS_NAME_RESULT_ITEMA {
     pub pDomain: windows_sys::core::PSTR,
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for DS_NAME_RESULT_ITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_NAME_RESULT_ITEMW {
     pub status: u32,
     pub pDomain: windows_sys::core::PWSTR,
     pub pName: windows_sys::core::PWSTR,
+}
+impl Default for DS_NAME_RESULT_ITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DS_NDNC_FLAG: u32 = 1024u32;
 pub const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2u32;
@@ -1486,6 +1788,11 @@ pub struct DS_REPL_ATTR_META_DATA {
     pub usnOriginatingChange: i64,
     pub usnLocalChange: i64,
 }
+impl Default for DS_REPL_ATTR_META_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_ATTR_META_DATA_2 {
@@ -1497,8 +1804,13 @@ pub struct DS_REPL_ATTR_META_DATA_2 {
     pub usnLocalChange: i64,
     pub pszLastOriginatingDsaDN: windows_sys::core::PWSTR,
 }
+impl Default for DS_REPL_ATTR_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_ATTR_META_DATA_BLOB {
     pub oszAttributeName: u32,
     pub dwVersion: u32,
@@ -1515,12 +1827,22 @@ pub struct DS_REPL_ATTR_VALUE_META_DATA {
     pub dwEnumerationContext: u32,
     pub rgMetaData: [DS_REPL_VALUE_META_DATA; 1],
 }
+impl Default for DS_REPL_ATTR_VALUE_META_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
     pub rgMetaData: [DS_REPL_VALUE_META_DATA_2; 1],
+}
+impl Default for DS_REPL_ATTR_VALUE_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1529,8 +1851,13 @@ pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
     pub dwEnumerationContext: u32,
     pub rgMetaData: [DS_REPL_VALUE_META_DATA_EXT; 1],
 }
+impl Default for DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_CURSOR {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
     pub usnAttributeFilter: i64,
@@ -1542,12 +1869,22 @@ pub struct DS_REPL_CURSORS {
     pub dwReserved: u32,
     pub rgCursor: [DS_REPL_CURSOR; 1],
 }
+impl Default for DS_REPL_CURSORS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_CURSORS_2 {
     pub cNumCursors: u32,
     pub dwEnumerationContext: u32,
     pub rgCursor: [DS_REPL_CURSOR_2; 1],
+}
+impl Default for DS_REPL_CURSORS_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1556,8 +1893,13 @@ pub struct DS_REPL_CURSORS_3W {
     pub dwEnumerationContext: u32,
     pub rgCursor: [DS_REPL_CURSOR_3W; 1],
 }
+impl Default for DS_REPL_CURSORS_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_CURSOR_2 {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
     pub usnAttributeFilter: i64,
@@ -1571,8 +1913,13 @@ pub struct DS_REPL_CURSOR_3W {
     pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
     pub pszSourceDsaDN: windows_sys::core::PWSTR,
 }
+impl Default for DS_REPL_CURSOR_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_CURSOR_BLOB {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
     pub usnAttributeFilter: i64,
@@ -1601,6 +1948,11 @@ pub struct DS_REPL_KCC_DSA_FAILURESW {
     pub dwReserved: u32,
     pub rgDsaFailure: [DS_REPL_KCC_DSA_FAILUREW; 1],
 }
+impl Default for DS_REPL_KCC_DSA_FAILURESW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_KCC_DSA_FAILUREW {
@@ -1610,8 +1962,13 @@ pub struct DS_REPL_KCC_DSA_FAILUREW {
     pub cNumFailures: u32,
     pub dwLastResult: u32,
 }
+impl Default for DS_REPL_KCC_DSA_FAILUREW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
     pub oszDsaDN: u32,
     pub uuidDsaObjGuid: windows_sys::core::GUID,
@@ -1644,6 +2001,11 @@ pub struct DS_REPL_NEIGHBORSW {
     pub dwReserved: u32,
     pub rgNeighbor: [DS_REPL_NEIGHBORW; 1],
 }
+impl Default for DS_REPL_NEIGHBORSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_NEIGHBORW {
@@ -1664,8 +2026,13 @@ pub struct DS_REPL_NEIGHBORW {
     pub dwLastSyncResult: u32,
     pub cNumConsecutiveSyncFailures: u32,
 }
+impl Default for DS_REPL_NEIGHBORW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_NEIGHBORW_BLOB {
     pub oszNamingContext: u32,
     pub oszSourceDsaDN: u32,
@@ -1691,12 +2058,22 @@ pub struct DS_REPL_OBJ_META_DATA {
     pub dwReserved: u32,
     pub rgMetaData: [DS_REPL_ATTR_META_DATA; 1],
 }
+impl Default for DS_REPL_OBJ_META_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_OBJ_META_DATA_2 {
     pub cNumEntries: u32,
     pub dwReserved: u32,
     pub rgMetaData: [DS_REPL_ATTR_META_DATA_2; 1],
+}
+impl Default for DS_REPL_OBJ_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1712,8 +2089,13 @@ pub struct DS_REPL_OPW {
     pub uuidNamingContextObjGuid: windows_sys::core::GUID,
     pub uuidDsaObjGuid: windows_sys::core::GUID,
 }
+impl Default for DS_REPL_OPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_OPW_BLOB {
     pub ftimeEnqueued: super::super::Foundation::FILETIME,
     pub ulSerialNumber: u32,
@@ -1739,8 +2121,13 @@ pub struct DS_REPL_PENDING_OPSW {
     pub cNumPendingOps: u32,
     pub rgPendingOp: [DS_REPL_OPW; 1],
 }
+impl Default for DS_REPL_PENDING_OPSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_QUEUE_STATISTICSW {
     pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
     pub cNumPendingOps: u32,
@@ -1765,6 +2152,11 @@ pub struct DS_REPL_VALUE_META_DATA {
     pub usnOriginatingChange: i64,
     pub usnLocalChange: i64,
 }
+impl Default for DS_REPL_VALUE_META_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_VALUE_META_DATA_2 {
@@ -1781,8 +2173,13 @@ pub struct DS_REPL_VALUE_META_DATA_2 {
     pub usnLocalChange: i64,
     pub pszLastOriginatingDsaDN: windows_sys::core::PWSTR,
 }
+impl Default for DS_REPL_VALUE_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB {
     pub oszAttributeName: u32,
     pub oszObjectDn: u32,
@@ -1798,7 +2195,7 @@ pub struct DS_REPL_VALUE_META_DATA_BLOB {
     pub oszLastOriginatingDsaDN: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
     pub oszAttributeName: u32,
     pub oszObjectDn: u32,
@@ -1835,6 +2232,11 @@ pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub dwPriorLinkState: u32,
     pub dwCurrentLinkState: u32,
 }
+impl Default for DS_REPL_VALUE_META_DATA_EXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
 pub const DS_REPMOD_UPDATE_ADDRESS: u32 = 2u32;
 pub const DS_REPMOD_UPDATE_FLAGS: u32 = 1u32;
@@ -1854,6 +2256,11 @@ pub struct DS_REPSYNCALL_ERRINFOA {
     pub dwWin32Err: u32,
     pub pszSrcId: windows_sys::core::PSTR,
 }
+impl Default for DS_REPSYNCALL_ERRINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPSYNCALL_ERRINFOW {
@@ -1861,6 +2268,11 @@ pub struct DS_REPSYNCALL_ERRINFOW {
     pub error: DS_REPSYNCALL_ERROR,
     pub dwWin32Err: u32,
     pub pszSrcId: windows_sys::core::PWSTR,
+}
+impl Default for DS_REPSYNCALL_ERRINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DS_REPSYNCALL_ERROR = i32;
 pub type DS_REPSYNCALL_EVENT = i32;
@@ -1882,6 +2294,11 @@ pub struct DS_REPSYNCALL_SYNCA {
     pub pguidSrc: *mut windows_sys::core::GUID,
     pub pguidDst: *mut windows_sys::core::GUID,
 }
+impl Default for DS_REPSYNCALL_SYNCA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPSYNCALL_SYNCW {
@@ -1891,6 +2308,11 @@ pub struct DS_REPSYNCALL_SYNCW {
     pub pguidSrc: *mut windows_sys::core::GUID,
     pub pguidDst: *mut windows_sys::core::GUID,
 }
+impl Default for DS_REPSYNCALL_SYNCW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1899,12 +2321,22 @@ pub struct DS_REPSYNCALL_UPDATEA {
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
     pub pSync: *mut DS_REPSYNCALL_SYNCA,
 }
+impl Default for DS_REPSYNCALL_UPDATEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPSYNCALL_UPDATEW {
     pub event: DS_REPSYNCALL_EVENT,
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
     pub pSync: *mut DS_REPSYNCALL_SYNCW,
+}
+impl Default for DS_REPSYNCALL_UPDATEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER: DS_REPSYNCALL_ERROR = 0i32;
 pub const DS_REPSYNCALL_WIN32_ERROR_REPLICATING: DS_REPSYNCALL_ERROR = 1i32;
@@ -1956,12 +2388,22 @@ pub struct DS_SCHEMA_GUID_MAPA {
     pub guidType: u32,
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for DS_SCHEMA_GUID_MAPA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_SCHEMA_GUID_MAPW {
     pub guid: windows_sys::core::GUID,
     pub guidType: u32,
     pub pName: windows_sys::core::PWSTR,
+}
+impl Default for DS_SCHEMA_GUID_MAPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
 #[repr(C)]
@@ -1975,6 +2417,12 @@ pub struct DS_SELECTION {
     pub pvarFetchedAttributes: *mut super::super::System::Variant::VARIANT,
     pub flScopeType: u32,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DS_SELECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -1983,11 +2431,17 @@ pub struct DS_SELECTION_LIST {
     pub cFetchedAttributes: u32,
     pub aDsSelection: [DS_SELECTION; 1],
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DS_SELECTION_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
 pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = 10i32;
 pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = 11i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_SITE_COST_INFO {
     pub errorCode: u32,
     pub cost: u32,
@@ -2143,12 +2597,24 @@ pub struct OPENQUERYWINDOW {
     pub pPersistQuery: *mut core::ffi::c_void,
     pub Anonymous: OPENQUERYWINDOW_0,
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Default for OPENQUERYWINDOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[derive(Clone, Copy)]
 pub union OPENQUERYWINDOW_0 {
     pub pFormParameters: *mut core::ffi::c_void,
     pub ppbFormParameters: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Default for OPENQUERYWINDOW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OQWF_DEFAULTFORM: u32 = 2u32;
 pub const OQWF_HIDEMENUS: u32 = 1024u32;
@@ -2179,9 +2645,14 @@ pub struct SCHEDULE {
     pub NumberOfSchedules: u32,
     pub Schedules: [SCHEDULE_HEADER; 1],
 }
+impl Default for SCHEDULE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SCHEDULE_BANDWIDTH: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCHEDULE_HEADER {
     pub Type: u32,
     pub Offset: u32,

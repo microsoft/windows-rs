@@ -26,6 +26,12 @@ pub struct SAFER_CODE_PROPERTIES_V1 {
     pub hWndParent: super::super::Foundation::HWND,
     pub dwWVTUIChoice: u32,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for SAFER_CODE_PROPERTIES_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -48,6 +54,12 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
     pub PackageVersion: u64,
     pub PackageIsFramework: windows_sys::core::BOOL,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for SAFER_CODE_PROPERTIES_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = u32;
 pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
 pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
@@ -69,6 +81,12 @@ pub struct SAFER_HASH_IDENTIFICATION {
     pub ImageSize: i64,
     pub dwSaferFlags: u32,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for SAFER_HASH_IDENTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -78,8 +96,14 @@ pub struct SAFER_HASH_IDENTIFICATION2 {
     pub ImageHash: [u8; 64],
     pub HashAlgorithm: super::Cryptography::ALG_ID,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for SAFER_HASH_IDENTIFICATION2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
     pub cbStructSize: u32,
@@ -105,6 +129,11 @@ pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub ImageName: windows_sys::core::PWSTR,
     pub dwSaferFlags: u32,
 }
+impl Default for SAFER_PATHNAME_IDENTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
 pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
 pub type SAFER_POLICY_INFO_CLASS = i32;
@@ -125,7 +154,7 @@ pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 4u32;
 pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 1u32;
 pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SAFER_URLZONE_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub UrlZoneId: u32,

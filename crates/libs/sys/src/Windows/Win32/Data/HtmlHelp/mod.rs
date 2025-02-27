@@ -15,7 +15,7 @@ pub const CLSID_IITWordWheelUpdate: windows_sys::core::GUID = windows_sys::core:
 pub const CLSID_ITEngStemmer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fa0d5a8_dedf_11d0_9a61_00c04fb68bf7);
 pub const CLSID_ITStdBreaker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4662daaf_d393_11d0_9a56_00c04fb68bf7);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COLUMNSTATUS {
     pub cPropCount: i32,
     pub cPropsLoaded: i32,
@@ -29,12 +29,22 @@ pub struct CProperty {
     pub Anonymous: CProperty_0,
     pub fPersist: windows_sys::core::BOOL,
 }
+impl Default for CProperty {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CProperty_0 {
     pub lpszwData: windows_sys::core::PWSTR,
     pub lpvData: *mut core::ffi::c_void,
     pub dwValue: u32,
+}
+impl Default for CProperty_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const E_ALL_WILD: windows_sys::core::HRESULT = 0x80001055_u32 as _;
 pub const E_ALREADYINIT: windows_sys::core::HRESULT = 0x80001083_u32 as _;
@@ -131,6 +141,12 @@ pub struct HHNTRACK {
     pub idAction: i32,
     pub phhWinType: *mut HH_WINTYPE,
 }
+#[cfg(feature = "Win32_UI_Controls")]
+impl Default for HHNTRACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HHN_FIRST: u32 = 4294966436u32;
 pub const HHN_LAST: u32 = 4294966417u32;
 pub const HHN_NAVCOMPLETE: u32 = 4294966436u32;
@@ -140,6 +156,12 @@ pub const HHN_NAVCOMPLETE: u32 = 4294966436u32;
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszUrl: windows_sys::core::PCSTR,
+}
+#[cfg(feature = "Win32_UI_Controls")]
+impl Default for HHN_NOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HHN_TRACK: u32 = 4294966435u32;
 pub const HHN_WINDOW_CREATE: u32 = 4294966434u32;
@@ -229,6 +251,11 @@ pub struct HH_AKLINK {
     pub pszWindow: *mut i8,
     pub fIndexOnFail: windows_sys::core::BOOL,
 }
+impl Default for HH_AKLINK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HH_ALINK_LOOKUP: HTML_HELP_COMMAND = 19i32;
 pub const HH_CLOSE_ALL: HTML_HELP_COMMAND = 18i32;
 pub const HH_DISPLAY_INDEX: HTML_HELP_COMMAND = 2i32;
@@ -243,6 +270,11 @@ pub struct HH_ENUM_CAT {
     pub pszCatName: windows_sys::core::PCSTR,
     pub pszCatDescription: windows_sys::core::PCSTR,
 }
+impl Default for HH_ENUM_CAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HH_ENUM_CATEGORY: HTML_HELP_COMMAND = 21i32;
 pub const HH_ENUM_CATEGORY_IT: HTML_HELP_COMMAND = 22i32;
 pub const HH_ENUM_INFO_TYPE: HTML_HELP_COMMAND = 7i32;
@@ -254,6 +286,11 @@ pub struct HH_ENUM_IT {
     pub pszCatName: windows_sys::core::PCSTR,
     pub pszITName: windows_sys::core::PCSTR,
     pub pszITDescription: windows_sys::core::PCSTR,
+}
+impl Default for HH_ENUM_IT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HH_FTS_DEFAULT_PROXIMITY: HTML_HELP_COMMAND = -1i32;
 #[repr(C)]
@@ -268,6 +305,11 @@ pub struct HH_FTS_QUERY {
     pub fExecute: windows_sys::core::BOOL,
     pub pszWindow: *mut i8,
 }
+impl Default for HH_FTS_QUERY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HH_GET_LAST_ERROR: HTML_HELP_COMMAND = 20i32;
 pub const HH_GET_WIN_HANDLE: HTML_HELP_COMMAND = 6i32;
 pub const HH_GET_WIN_TYPE: HTML_HELP_COMMAND = 5i32;
@@ -277,6 +319,12 @@ pub const HH_GET_WIN_TYPE: HTML_HELP_COMMAND = 5i32;
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
     pub var: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for HH_GLOBAL_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HH_GPROPID = i32;
 pub const HH_GPROPID_CONTENT_LANGUAGE: HH_GPROPID = 5i32;
@@ -303,6 +351,11 @@ pub struct HH_POPUP {
     pub rcMargins: super::super::Foundation::RECT,
     pub pszFont: *mut i8,
 }
+impl Default for HH_POPUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HH_PRETRANSLATEMESSAGE: HTML_HELP_COMMAND = 253i32;
 pub const HH_RESERVED1: HTML_HELP_COMMAND = 10i32;
 pub const HH_RESERVED2: HTML_HELP_COMMAND = 11i32;
@@ -318,6 +371,11 @@ pub struct HH_SET_INFOTYPE {
     pub cbStruct: i32,
     pub pszCatName: windows_sys::core::PCSTR,
     pub pszInfoTypeName: windows_sys::core::PCSTR,
+}
+impl Default for HH_SET_INFOTYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HH_SET_INFO_TYPE: HTML_HELP_COMMAND = 8i32;
 pub const HH_SET_QUERYSERVICE: HTML_HELP_COMMAND = 30i32;
@@ -374,6 +432,11 @@ pub struct HH_WINTYPE {
     pub cbInfoTypes: i32,
     pub pszCustomTabs: *mut i8,
 }
+impl Default for HH_WINTYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTML_HELP_COMMAND = i32;
 pub const IDTB_BACK: u32 = 204u32;
 pub const IDTB_BROWSE_BACK: u32 = 212u32;
@@ -416,7 +479,7 @@ pub const PROP_ADD: u32 = 0u32;
 pub const PROP_DELETE: u32 = 1u32;
 pub const PROP_UPDATE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ROWSTATUS {
     pub lRowFirst: i32,
     pub cRows: i32,

@@ -30,11 +30,21 @@ pub struct MANAGEMENT_REGISTRATION_INFO {
     pub pszUPN: windows_sys::core::PWSTR,
     pub pszMDMServiceUri: windows_sys::core::PWSTR,
 }
+impl Default for MANAGEMENT_REGISTRATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MANAGEMENT_SERVICE_INFO {
     pub pszMDMServiceUri: windows_sys::core::PWSTR,
     pub pszAuthenticationUri: windows_sys::core::PWSTR,
+}
+impl Default for MANAGEMENT_SERVICE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: windows_sys::core::HRESULT = 0x80180028_u32 as _;

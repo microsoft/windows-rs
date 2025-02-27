@@ -658,6 +658,12 @@ pub struct ARRAYDESC {
     pub cDims: u16,
     pub rgbounds: [super::Com::SAFEARRAYBOUND; 1],
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl Default for ARRAYDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type BINDSPEED = i32;
 pub const BINDSPEED_IMMEDIATE: BINDSPEED = 3i32;
 pub const BINDSPEED_INDEFINITE: BINDSPEED = 1i32;
@@ -673,17 +679,32 @@ pub struct CADWORD {
     pub cElems: u32,
     pub pElems: *mut u32,
 }
+impl Default for CADWORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CALPOLESTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::PWSTR,
 }
+impl Default for CALPOLESTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CAUUID {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::GUID,
+}
+impl Default for CAUUID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CF_BITMAP: CLIPBOARD_FORMAT = 2u16;
 pub const CF_CONVERTONLY: UI_CONVERT_FLAGS = 256u32;
@@ -744,6 +765,11 @@ pub struct CLEANLOCALSTORAGE {
     pub pStorage: *mut core::ffi::c_void,
     pub flags: u32,
 }
+impl Default for CLEANLOCALSTORAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CLIPBOARD_FORMAT = u16;
 pub const CLSID_CColorPropPage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0be35201_8f91_11ce_9de3_00aa004bb851);
 pub const CLSID_CFontPropPage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0be35200_8f91_11ce_9de3_00aa004bb851);
@@ -768,6 +794,12 @@ pub struct CONTROLINFO {
     pub hAccel: super::super::UI::WindowsAndMessaging::HACCEL,
     pub cAccel: u16,
     pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for CONTROLINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CSF_EXPLORER: CHANGE_SOURCE_FLAGS = 8u32;
 pub const CSF_ONLYGETSOURCE: CHANGE_SOURCE_FLAGS = 4u32;
@@ -915,7 +947,7 @@ pub const DROPEFFECT_MOVE: DROPEFFECT = 2u32;
 pub const DROPEFFECT_NONE: DROPEFFECT = 0u32;
 pub const DROPEFFECT_SCROLL: DROPEFFECT = 2147483648u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DVASPECTINFO {
     pub cb: u32,
     pub dwFlags: u32,
@@ -923,7 +955,7 @@ pub struct DVASPECTINFO {
 pub type DVASPECTINFOFLAG = i32;
 pub const DVASPECTINFOFLAG_CANOPTIMIZE: DVASPECTINFOFLAG = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DVEXTENTINFO {
     pub cb: u32,
     pub dwExtentMode: u32,
@@ -957,6 +989,12 @@ pub struct FONTDESC {
     pub fItalic: windows_sys::core::BOOL,
     pub fUnderline: windows_sys::core::BOOL,
     pub fStrikethrough: windows_sys::core::BOOL,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for FONTDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GCW_WCH_SIBLING: ENUM_CONTROLS_WHICH_FLAGS = 1u32;
 pub const GC_WCH_ALL: ENUM_CONTROLS_WHICH_FLAGS = 4u32;
@@ -1142,6 +1180,12 @@ pub struct INTERFACEDATA {
     pub pmethdata: *mut METHODDATA,
     pub cMembers: u32,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl Default for INTERFACEDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IOF_CHECKDISPLAYASICON: INSERT_OBJECT_FLAGS = 16u32;
 pub const IOF_CHECKLINK: INSERT_OBJECT_FLAGS = 8u32;
 pub const IOF_CREATEFILEOBJECT: INSERT_OBJECT_FLAGS = 64u32;
@@ -1166,7 +1210,7 @@ pub const LIBFLAG_FHASDISKIMAGE: LIBFLAGS = 8i32;
 pub const LIBFLAG_FHIDDEN: LIBFLAGS = 4i32;
 pub const LIBFLAG_FRESTRICTED: LIBFLAGS = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LICINFO {
     pub cbLicInfo: i32,
     pub fRuntimeKeyAvail: windows_sys::core::BOOL,
@@ -1200,6 +1244,12 @@ pub struct METHODDATA {
     pub wFlags: u16,
     pub vtReturn: super::Variant::VARENUM,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl Default for METHODDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MK_ALT: u32 = 32u32;
 pub const MSOCMDERR_E_CANCELED: i32 = -2147221245i32;
 pub const MSOCMDERR_E_DISABLED: i32 = -2147221247i32;
@@ -1213,7 +1263,7 @@ pub const MULTICLASSINFO_GETIIDSOURCE: MULTICLASSINFO_FLAGS = 8u32;
 pub const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: MULTICLASSINFO_FLAGS = 2u32;
 pub const MULTICLASSINFO_GETTYPEINFO: MULTICLASSINFO_FLAGS = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NUMPARSE {
     pub cDig: i32,
     pub dwInFlags: NUMPARSE_FLAGS,
@@ -1240,7 +1290,7 @@ pub const NUMPRS_TRAILING_PLUS: NUMPARSE_FLAGS = 8u32;
 pub const NUMPRS_TRAILING_WHITE: NUMPARSE_FLAGS = 2u32;
 pub const NUMPRS_USE_ALL: NUMPARSE_FLAGS = 4096u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OBJECTDESCRIPTOR {
     pub cbSize: u32,
     pub clsid: windows_sys::core::GUID,
@@ -1268,6 +1318,11 @@ pub struct OCPFIPARAMS {
     pub lcid: u32,
     pub dispidInitialProperty: i32,
 }
+impl Default for OCPFIPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const OF_GET: u32 = 2u32;
 pub const OF_HANDLER: u32 = 4u32;
 pub const OF_SET: u32 = 1u32;
@@ -1276,7 +1331,7 @@ pub const OLECLOSE_NOSAVE: OLECLOSE = 1i32;
 pub const OLECLOSE_PROMPTSAVE: OLECLOSE = 2i32;
 pub const OLECLOSE_SAVEIFDIRTY: OLECLOSE = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OLECMD {
     pub cmdID: u32,
     pub cmdf: u32,
@@ -1480,6 +1535,11 @@ pub struct OLECMDTEXT {
     pub cwBuf: u32,
     pub rgwz: [u16; 1],
 }
+impl Default for OLECMDTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type OLECMDTEXTF = i32;
 pub const OLECMDTEXTF_NAME: OLECMDTEXTF = 1i32;
 pub const OLECMDTEXTF_NONE: OLECMDTEXTF = 0i32;
@@ -1513,6 +1573,12 @@ pub struct OLEINPLACEFRAMEINFO {
     pub haccel: super::super::UI::WindowsAndMessaging::HACCEL,
     pub cAccelEntries: u32,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for OLEINPLACEFRAMEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type OLEIVERB = i32;
 pub const OLEIVERB_DISCARDUNDOSTATE: OLEIVERB = -6i32;
 pub const OLEIVERB_HIDE: OLEIVERB = -3i32;
@@ -1528,6 +1594,11 @@ pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = 1i32;
 #[derive(Clone, Copy)]
 pub struct OLEMENUGROUPWIDTHS {
     pub width: [i32; 6],
+}
+impl Default for OLEMENUGROUPWIDTHS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type OLEMISC = i32;
 pub const OLEMISC_ACTIVATEWHENVISIBLE: OLEMISC = 256i32;
@@ -1577,6 +1648,12 @@ pub struct OLEUIBUSYA {
     pub hTask: super::super::Media::HTASK,
     pub lphWndDialog: *mut super::super::Foundation::HWND,
 }
+#[cfg(feature = "Win32_Media")]
+impl Default for OLEUIBUSYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Media")]
 #[derive(Clone, Copy)]
@@ -1592,6 +1669,12 @@ pub struct OLEUIBUSYW {
     pub hResource: super::super::Foundation::HRSRC,
     pub hTask: super::super::Media::HTASK,
     pub lphWndDialog: *mut super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Media")]
+impl Default for OLEUIBUSYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1610,6 +1693,11 @@ pub struct OLEUICHANGEICONA {
     pub szIconExe: [i8; 260],
     pub cchIconExe: i32,
 }
+impl Default for OLEUICHANGEICONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OLEUICHANGEICONW {
@@ -1626,6 +1714,11 @@ pub struct OLEUICHANGEICONW {
     pub clsid: windows_sys::core::GUID,
     pub szIconExe: [u16; 260],
     pub cchIconExe: i32,
+}
+impl Default for OLEUICHANGEICONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
@@ -1649,6 +1742,12 @@ pub struct OLEUICHANGESOURCEA {
     pub lpszFrom: windows_sys::core::PSTR,
     pub lpszTo: windows_sys::core::PSTR,
 }
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
+impl Default for OLEUICHANGESOURCEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 #[derive(Clone, Copy)]
@@ -1670,6 +1769,12 @@ pub struct OLEUICHANGESOURCEW {
     pub nFileLength: u32,
     pub lpszFrom: windows_sys::core::PWSTR,
     pub lpszTo: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
+impl Default for OLEUICHANGESOURCEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1697,6 +1802,11 @@ pub struct OLEUICONVERTA {
     pub cClsidExclude: u32,
     pub lpClsidExclude: *mut windows_sys::core::GUID,
 }
+impl Default for OLEUICONVERTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OLEUICONVERTW {
@@ -1723,6 +1833,11 @@ pub struct OLEUICONVERTW {
     pub cClsidExclude: u32,
     pub lpClsidExclude: *mut windows_sys::core::GUID,
 }
+impl Default for OLEUICONVERTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OLEUIEDITLINKSA {
@@ -1736,6 +1851,11 @@ pub struct OLEUIEDITLINKSA {
     pub lpszTemplate: windows_sys::core::PCSTR,
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOleUILinkContainer: *mut core::ffi::c_void,
+}
+impl Default for OLEUIEDITLINKSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1751,6 +1871,11 @@ pub struct OLEUIEDITLINKSW {
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOleUILinkContainer: *mut core::ffi::c_void,
 }
+impl Default for OLEUIEDITLINKSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -1763,6 +1888,12 @@ pub struct OLEUIGNRLPROPSA {
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for OLEUIGNRLPROPSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -1774,6 +1905,12 @@ pub struct OLEUIGNRLPROPSW {
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for OLEUIGNRLPROPSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1802,6 +1939,12 @@ pub struct OLEUIINSERTOBJECTA {
     pub sc: i32,
     pub hMetaPict: super::super::Foundation::HGLOBAL,
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Default for OLEUIINSERTOBJECTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[derive(Clone, Copy)]
@@ -1829,6 +1972,12 @@ pub struct OLEUIINSERTOBJECTW {
     pub sc: i32,
     pub hMetaPict: super::super::Foundation::HGLOBAL,
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Default for OLEUIINSERTOBJECTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -1841,6 +1990,12 @@ pub struct OLEUILINKPROPSA {
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for OLEUILINKPROPSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -1852,6 +2007,12 @@ pub struct OLEUILINKPROPSW {
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for OLEUILINKPROPSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1868,6 +2029,12 @@ pub struct OLEUIOBJECTPROPSA {
     pub lpVP: *mut OLEUIVIEWPROPSA,
     pub lpLP: *mut OLEUILINKPROPSA,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for OLEUIOBJECTPROPSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -1883,6 +2050,12 @@ pub struct OLEUIOBJECTPROPSW {
     pub lpVP: *mut OLEUIVIEWPROPSW,
     pub lpLP: *mut OLEUILINKPROPSW,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for OLEUIOBJECTPROPSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -1893,6 +2066,12 @@ pub struct OLEUIPASTEENTRYA {
     pub dwFlags: u32,
     pub dwScratchSpace: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for OLEUIPASTEENTRYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -1902,6 +2081,12 @@ pub struct OLEUIPASTEENTRYW {
     pub lpstrResultText: windows_sys::core::PCWSTR,
     pub dwFlags: u32,
     pub dwScratchSpace: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for OLEUIPASTEENTRYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type OLEUIPASTEFLAG = i32;
 #[repr(C)]
@@ -1929,6 +2114,12 @@ pub struct OLEUIPASTESPECIALA {
     pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub sizel: super::super::Foundation::SIZE,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for OLEUIPASTESPECIALA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -1953,6 +2144,12 @@ pub struct OLEUIPASTESPECIALW {
     pub fLink: windows_sys::core::BOOL,
     pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub sizel: super::super::Foundation::SIZE,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for OLEUIPASTESPECIALW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OLEUIPASTE_ENABLEICON: OLEUIPASTEFLAG = 2048i32;
 pub const OLEUIPASTE_LINKANYTYPE: OLEUIPASTEFLAG = 1024i32;
@@ -1980,6 +2177,12 @@ pub struct OLEUIVIEWPROPSA {
     pub nScaleMin: i32,
     pub nScaleMax: i32,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for OLEUIVIEWPROPSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -1993,6 +2196,12 @@ pub struct OLEUIVIEWPROPSW {
     pub lpOP: *mut OLEUIOBJECTPROPSW,
     pub nScaleMin: i32,
     pub nScaleMax: i32,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for OLEUIVIEWPROPSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OLEUI_BZERR_HTASKINVALID: u32 = 116u32;
 pub const OLEUI_BZ_CALLUNBLOCKED: u32 = 119u32;
@@ -2089,6 +2298,12 @@ pub struct OLEVERB {
     pub fuFlags: super::super::UI::WindowsAndMessaging::MENU_ITEM_FLAGS,
     pub grfAttribs: u32,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for OLEVERB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type OLEVERBATTRIB = i32;
 pub const OLEVERBATTRIB_NEVERDIRTIES: OLEVERBATTRIB = 1i32;
 pub const OLEVERBATTRIB_ONCONTAINERMENU: OLEVERBATTRIB = 2i32;
@@ -2112,7 +2327,7 @@ pub const PAGEACTION_UI_MODAL: PAGEACTION_UI = 1i32;
 pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = 2i32;
 pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PAGERANGE {
     pub nFromPage: i32,
     pub nToPage: i32,
@@ -2126,12 +2341,23 @@ pub struct PAGESET {
     pub cPageRange: u32,
     pub rgPages: [PAGERANGE; 1],
 }
+impl Default for PAGESET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy)]
 pub struct PARAMDATA {
     pub szName: windows_sys::core::PWSTR,
     pub vt: super::Variant::VARENUM,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Default for PARAMDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
@@ -2140,12 +2366,24 @@ pub struct PARAMDESC {
     pub pparamdescex: *mut PARAMDESCEX,
     pub wParamFlags: PARAMFLAGS,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl Default for PARAMDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
     pub varDefaultValue: super::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl Default for PARAMDESCEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PARAMFLAGS = u16;
 pub const PARAMFLAG_FHASCUSTDATA: PARAMFLAGS = 64u16;
@@ -2170,6 +2408,12 @@ pub struct PICTDESC {
     pub picType: u32,
     pub Anonymous: PICTDESC_0,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PICTDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -2179,6 +2423,12 @@ pub union PICTDESC_0 {
     pub icon: PICTDESC_0_2,
     pub emf: PICTDESC_0_3,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PICTDESC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -2186,17 +2436,35 @@ pub struct PICTDESC_0_0 {
     pub hbitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PICTDESC_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub struct PICTDESC_0_3 {
     pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PICTDESC_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub struct PICTDESC_0_2 {
     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PICTDESC_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2205,6 +2473,12 @@ pub struct PICTDESC_0_1 {
     pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
     pub xExt: i32,
     pub yExt: i32,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PICTDESC_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PICTUREATTRIBUTES = i32;
 pub const PICTURE_SCALABLE: PICTUREATTRIBUTES = 1i32;
@@ -2221,7 +2495,7 @@ pub const POINTERINACTIVE_ACTIVATEONDRAG: POINTERINACTIVE = 4i32;
 pub const POINTERINACTIVE_ACTIVATEONENTRY: POINTERINACTIVE = 1i32;
 pub const POINTERINACTIVE_DEACTIVATEONLEAVE: POINTERINACTIVE = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POINTF {
     pub x: f32,
     pub y: f32,
@@ -2251,6 +2525,11 @@ pub struct PROPPAGEINFO {
     pub pszDocString: windows_sys::core::PWSTR,
     pub pszHelpFile: windows_sys::core::PWSTR,
     pub dwHelpContext: u32,
+}
+impl Default for PROPPAGEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PROPPAGESTATUS = i32;
 pub const PROPPAGESTATUS_CLEAN: PROPPAGESTATUS = 4i32;
@@ -2287,6 +2566,12 @@ pub struct QACONTAINER {
     pub pOleControlSite: *mut core::ffi::c_void,
     pub pServiceProvider: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl Default for QACONTAINER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type QACONTAINERFLAGS = i32;
 pub const QACONTAINER_AUTOCLIP: QACONTAINERFLAGS = 32i32;
 pub const QACONTAINER_DISPLAYASDEFAULT: QACONTAINERFLAGS = 8i32;
@@ -2297,7 +2582,7 @@ pub const QACONTAINER_SUPPORTSMNEMONICS: QACONTAINERFLAGS = 128i32;
 pub const QACONTAINER_UIDEAD: QACONTAINERFLAGS = 16i32;
 pub const QACONTAINER_USERMODE: QACONTAINERFLAGS = 4i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QACONTROL {
     pub cbSize: u32,
     pub dwMiscStatus: u32,
@@ -2323,6 +2608,12 @@ pub struct SAFEARRAYUNION {
     pub sfType: u32,
     pub u: SAFEARRAYUNION_0,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SAFEARRAYUNION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -2338,11 +2629,22 @@ pub union SAFEARRAYUNION_0 {
     pub LongStr: super::Com::DWORD_SIZEDARR,
     pub HyperStr: super::Com::HYPER_SIZEDARR,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SAFEARRAYUNION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SAFEARR_BRECORD {
     pub Size: u32,
     pub aRecord: *mut *mut _wireBRECORD,
+}
+impl Default for SAFEARR_BRECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -2351,12 +2653,24 @@ pub struct SAFEARR_BSTR {
     pub Size: u32,
     pub aBstr: *mut *mut super::Com::FLAGGED_WORD_BLOB,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SAFEARR_BSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct SAFEARR_DISPATCH {
     pub Size: u32,
     pub apDispatch: *mut *mut core::ffi::c_void,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SAFEARR_DISPATCH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2365,11 +2679,21 @@ pub struct SAFEARR_HAVEIID {
     pub apUnknown: *mut *mut core::ffi::c_void,
     pub iid: windows_sys::core::GUID,
 }
+impl Default for SAFEARR_HAVEIID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SAFEARR_UNKNOWN {
     pub Size: u32,
     pub apUnknown: *mut *mut core::ffi::c_void,
+}
+impl Default for SAFEARR_UNKNOWN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -2377,6 +2701,12 @@ pub struct SAFEARR_UNKNOWN {
 pub struct SAFEARR_VARIANT {
     pub Size: u32,
     pub aVariant: *mut *mut _wireVARIANT,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SAFEARR_VARIANT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SELFREG_E_CLASS: windows_sys::core::HRESULT = 0x80040201_u32 as _;
 pub const SELFREG_E_FIRST: i32 = -2147220992i32;
@@ -2439,7 +2769,7 @@ pub const UAS_MASK: UASFLAGS = 3i32;
 pub const UAS_NOPARENTENABLE: UASFLAGS = 2i32;
 pub const UAS_NORMAL: UASFLAGS = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UDATE {
     pub st: super::super::Foundation::SYSTEMTIME,
     pub wDayOfYear: u16,
@@ -2540,6 +2870,11 @@ pub struct _wireBRECORD {
     pub pRecInfo: *mut core::ffi::c_void,
     pub pRecord: *mut u8,
 }
+impl Default for _wireBRECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -2550,6 +2885,12 @@ pub struct _wireSAFEARRAY {
     pub cLocks: u32,
     pub uArrayStructs: SAFEARRAYUNION,
     pub rgsabound: [super::Com::SAFEARRAYBOUND; 1],
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for _wireSAFEARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -2562,6 +2903,12 @@ pub struct _wireVARIANT {
     pub wReserved2: u16,
     pub wReserved3: u16,
     pub Anonymous: _wireVARIANT_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for _wireVARIANT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -2611,6 +2958,12 @@ pub union _wireVARIANT_0 {
     pub pullVal: *mut u64,
     pub pintVal: *mut i32,
     pub puintVal: *mut u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for _wireVARIANT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const fdexEnumAll: i32 = 2i32;
 pub const fdexEnumDefault: i32 = 1i32;

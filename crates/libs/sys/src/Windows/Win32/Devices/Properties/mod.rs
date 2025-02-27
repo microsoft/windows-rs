@@ -203,6 +203,11 @@ pub struct DEVPROPCOMPKEY {
     pub Store: DEVPROPSTORE,
     pub LocaleName: windows_sys::core::PCWSTR,
 }
+impl Default for DEVPROPCOMPKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVPROPERTY {
@@ -210,6 +215,11 @@ pub struct DEVPROPERTY {
     pub Type: DEVPROPTYPE,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
+}
+impl Default for DEVPROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
 pub type DEVPROPSTORE = i32;

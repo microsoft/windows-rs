@@ -18,6 +18,11 @@ pub struct AM_WMT_EVENT_DATA {
     pub hrStatus: windows_sys::core::HRESULT,
     pub pData: *mut core::ffi::c_void,
 }
+impl Default for AM_WMT_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CLSID_ClientNetManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcd12a3ce_9c42_11d2_beed_0060082f2054);
 pub const CLSID_WMBandwidthSharing_Exclusive: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaf6060aa_5197_11d2_b6af_00c04fd908e9);
 pub const CLSID_WMBandwidthSharing_Partial: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaf6060ab_5197_11d2_b6af_00c04fd908e9);
@@ -26,14 +31,14 @@ pub const CLSID_WMMUTEX_Language: windows_sys::core::GUID = windows_sys::core::G
 pub const CLSID_WMMUTEX_Presentation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd6e22a02_35da_11d1_9034_00a0c90349be);
 pub const CLSID_WMMUTEX_Unknown: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd6e22a03_35da_11d1_9034_00a0c90349be);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRM_COPY_OPL {
     pub wMinimumCopyLevel: u16,
     pub oplIdIncludes: DRM_OPL_OUTPUT_IDS,
     pub oplIdExcludes: DRM_OPL_OUTPUT_IDS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     pub wCompressedDigitalVideo: u16,
     pub wUncompressedDigitalVideo: u16,
@@ -47,15 +52,20 @@ pub struct DRM_OPL_OUTPUT_IDS {
     pub cIds: u16,
     pub rgIds: *mut windows_sys::core::GUID,
 }
+impl Default for DRM_OPL_OUTPUT_IDS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DRM_OPL_TYPES: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRM_OUTPUT_PROTECTION {
     pub guidId: windows_sys::core::GUID,
     pub bConfigData: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRM_PLAY_OPL {
     pub minOPL: DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS,
     pub oplIdReserved: DRM_OPL_OUTPUT_IDS,
@@ -66,11 +76,21 @@ pub struct DRM_PLAY_OPL {
 pub struct DRM_VAL16 {
     pub val: [u8; 16],
 }
+impl Default for DRM_VAL16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     pub cEntries: u16,
     pub rgVop: *mut DRM_OUTPUT_PROTECTION,
+}
+impl Default for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type NETSOURCE_URLCREDPOLICY_SETTINGS = i32;
 pub const NETSOURCE_URLCREDPOLICY_SETTING_ANONYMOUSONLY: NETSOURCE_URLCREDPOLICY_SETTINGS = 2i32;
@@ -87,6 +107,11 @@ pub struct WMDRM_IMPORT_INIT_STRUCT {
     pub pbEncryptedSessionKeyMessage: *mut u8,
     pub cbEncryptedKeyMessage: u32,
     pub pbEncryptedKeyMessage: *mut u8,
+}
+impl Default for WMDRM_IMPORT_INIT_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1u32;
 pub const WMFORMAT_MPEG2Video: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
@@ -154,8 +179,14 @@ pub struct WMMPEG2VIDEOINFO {
     pub dwFlags: u32,
     pub dwSequenceHeader: [u32; 1],
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for WMMPEG2VIDEOINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WMSCRIPTFORMAT {
     pub scriptType: windows_sys::core::GUID,
 }
@@ -176,6 +207,11 @@ pub struct WMT_BUFFER_SEGMENT {
     pub cbOffset: u32,
     pub cbLength: u32,
 }
+impl Default for WMT_BUFFER_SEGMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WMT_CLEANPOINT_ONLY: WMT_STREAM_SELECTION = 1i32;
 pub const WMT_CLIENT_CONNECT: WMT_STATUS = 32i32;
 pub const WMT_CLIENT_CONNECT_EX: WMT_STATUS = 37i32;
@@ -188,7 +224,7 @@ pub const WMT_CODECINFO_UNKNOWN: WMT_CODEC_INFO_TYPE = -1i32;
 pub const WMT_CODECINFO_VIDEO: WMT_CODEC_INFO_TYPE = 1i32;
 pub type WMT_CODEC_INFO_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WMT_COLORSPACEINFO_EXTENSION_DATA {
     pub ucColorPrimaries: u8,
     pub ucColorTransferChar: u8,
@@ -222,6 +258,11 @@ pub struct WMT_FILESINK_DATA_UNIT {
     pub pPayloadHeaderBuffers: *mut WMT_BUFFER_SEGMENT,
     pub cPayloadDataFragments: u32,
     pub pPayloadDataFragments: *mut WMT_PAYLOAD_FRAGMENT,
+}
+impl Default for WMT_FILESINK_DATA_UNIT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WMT_FILESINK_MODE = i32;
 pub const WMT_FM_FILESINK_DATA_UNITS: WMT_FILESINK_MODE = 2i32;
@@ -270,7 +311,7 @@ pub const WMT_OFFSET_FORMAT_TIMECODE: WMT_OFFSET_FORMAT = 3i32;
 pub const WMT_ON: WMT_STREAM_SELECTION = 2i32;
 pub const WMT_OPENED: WMT_STATUS = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
     pub segmentData: WMT_BUFFER_SEGMENT,
@@ -318,7 +359,7 @@ pub const WMT_STRIDING: WMT_STATUS = 14i32;
 pub const WMT_Storage_Format_MP3: WMT_STORAGE_FORMAT = 0i32;
 pub const WMT_Storage_Format_V1: WMT_STORAGE_FORMAT = 1i32;
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WMT_TIMECODE_EXTENSION_DATA {
     pub wRange: u16,
     pub dwTimecode: u32,
@@ -354,7 +395,7 @@ pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: i32 = 65536i32;
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834u32;
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WMT_VIDEOIMAGE_SAMPLE {
     pub dwMagic: u32,
     pub cbStruct: u32,
@@ -379,7 +420,7 @@ pub struct WMT_VIDEOIMAGE_SAMPLE {
     pub lPrevBlendCoef2: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub dwMagic: u32,
     pub dwStructSize: u32,
@@ -442,9 +483,14 @@ pub struct WMT_WATERMARK_ENTRY {
     pub cbDisplayName: u32,
     pub pwszDisplayName: windows_sys::core::PWSTR,
 }
+impl Default for WMT_WATERMARK_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WMT_WATERMARK_ENTRY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WMT_WEBSTREAM_FORMAT {
     pub cbSize: u16,
     pub cbSampleHeaderFixedData: u16,
@@ -460,11 +506,16 @@ pub struct WMT_WEBSTREAM_SAMPLE_HEADER {
     pub wSampleType: u16,
     pub wszURL: [u16; 1],
 }
+impl Default for WMT_WEBSTREAM_SAMPLE_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WMT_WMETYPE_AUDIO: WMT_WATERMARK_ENTRY_TYPE = 1i32;
 pub const WMT_WMETYPE_VIDEO: WMT_WATERMARK_ENTRY_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WMVIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -475,7 +526,7 @@ pub struct WMVIDEOINFOHEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WMVIDEOINFOHEADER2 {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -491,7 +542,7 @@ pub struct WMVIDEOINFOHEADER2 {
     pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WM_ADDRESS_ACCESSENTRY {
     pub dwIPAddress: u32,
     pub dwMask: u32,
@@ -500,7 +551,7 @@ pub type WM_AETYPE = i32;
 pub const WM_AETYPE_EXCLUDE: WM_AETYPE = 101i32;
 pub const WM_AETYPE_INCLUDE: WM_AETYPE = 105i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WM_CLIENT_PROPERTIES {
     pub dwIPAddress: u32,
     pub dwPort: u32,
@@ -512,6 +563,11 @@ pub struct WM_CLIENT_PROPERTIES_EX {
     pub pwszIPAddress: windows_sys::core::PCWSTR,
     pub pwszPort: windows_sys::core::PCWSTR,
     pub pwszDNSName: windows_sys::core::PCWSTR,
+}
+impl Default for WM_CLIENT_PROPERTIES_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WM_CL_INTERLACED420: u32 = 0u32;
 pub const WM_CL_PROGRESSIVE420: u32 = 1u32;
@@ -539,7 +595,7 @@ pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERE
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = 5i32;
 pub const WM_DM_NOTINTERLACED: WM_DM_INTERLACED_TYPE = 0i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WM_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
@@ -559,6 +615,11 @@ pub struct WM_MEDIA_TYPE {
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
+impl Default for WM_MEDIA_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WM_PICTURE {
@@ -568,12 +629,17 @@ pub struct WM_PICTURE {
     pub dwDataLen: u32,
     pub pbData: *mut u8,
 }
+impl Default for WM_PICTURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WM_PLAYBACK_DRC_HIGH: WM_PLAYBACK_DRC_LEVEL = 0i32;
 pub type WM_PLAYBACK_DRC_LEVEL = i32;
 pub const WM_PLAYBACK_DRC_LOW: WM_PLAYBACK_DRC_LEVEL = 2i32;
 pub const WM_PLAYBACK_DRC_MEDIUM: WM_PLAYBACK_DRC_LEVEL = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WM_PORT_NUMBER_RANGE {
     pub wPortBegin: u16,
     pub wPortEnd: u16,
@@ -591,8 +657,13 @@ pub struct WM_READER_CLIENTINFO {
     pub qwHostVersion: u64,
     pub wszPlayerUserAgent: windows_sys::core::PWSTR,
 }
+impl Default for WM_READER_CLIENTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WM_READER_STATISTICS {
     pub cbSize: u32,
     pub dwBandwidth: u32,
@@ -609,13 +680,13 @@ pub const WM_SF_DATALOSS: WM_SF_TYPE = 4i32;
 pub const WM_SF_DISCONTINUITY: WM_SF_TYPE = 2i32;
 pub type WM_SF_TYPE = i32;
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WM_STREAM_PRIORITY_RECORD {
     pub wStreamNumber: u16,
     pub fMandatory: windows_sys::core::BOOL,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WM_STREAM_TYPE_INFO {
     pub guidMajorType: windows_sys::core::GUID,
     pub cbFormat: u32,
@@ -628,6 +699,11 @@ pub struct WM_SYNCHRONISED_LYRICS {
     pub pwszContentDescriptor: windows_sys::core::PWSTR,
     pub dwLyricsLen: u32,
     pub pbLyrics: *mut u8,
+}
+impl Default for WM_SYNCHRONISED_LYRICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WM_SampleExtensionGUID_ChromaLocation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4c5acca0_9276_4b2c_9e4c_a0edefdd217e);
 pub const WM_SampleExtensionGUID_ColorSpaceInfo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf79ada56_30eb_4f2b_9f7a_f24b139a1157);
@@ -651,14 +727,24 @@ pub struct WM_USER_TEXT {
     pub pwszDescription: windows_sys::core::PWSTR,
     pub pwszText: windows_sys::core::PWSTR,
 }
+impl Default for WM_USER_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WM_USER_WEB_URL {
     pub pwszDescription: windows_sys::core::PWSTR,
     pub pwszURL: windows_sys::core::PWSTR,
 }
+impl Default for WM_USER_WEB_URL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WM_WRITER_STATISTICS {
     pub qwSampleCount: u64,
     pub qwByteCount: u64,
@@ -672,7 +758,7 @@ pub struct WM_WRITER_STATISTICS {
     pub dwExpectedSampleRate: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WM_WRITER_STATISTICS_EX {
     pub dwBitratePlusOverhead: u32,
     pub dwCurrentSampleDropRateInQueue: u32,

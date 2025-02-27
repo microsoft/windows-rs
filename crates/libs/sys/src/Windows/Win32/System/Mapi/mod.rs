@@ -76,6 +76,11 @@ pub struct MapiFileDesc {
     pub lpszFileName: windows_sys::core::PSTR,
     pub lpFileType: *mut core::ffi::c_void,
 }
+impl Default for MapiFileDesc {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MapiFileDescW {
@@ -86,6 +91,11 @@ pub struct MapiFileDescW {
     pub lpszFileName: windows_sys::core::PWSTR,
     pub lpFileType: *mut core::ffi::c_void,
 }
+impl Default for MapiFileDescW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MapiFileTagExt {
@@ -94,6 +104,11 @@ pub struct MapiFileTagExt {
     pub lpTag: *mut u8,
     pub cbEncoding: u32,
     pub lpEncoding: *mut u8,
+}
+impl Default for MapiFileTagExt {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -111,6 +126,11 @@ pub struct MapiMessage {
     pub nFileCount: u32,
     pub lpFiles: *mut MapiFileDesc,
 }
+impl Default for MapiMessage {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MapiMessageW {
@@ -127,6 +147,11 @@ pub struct MapiMessageW {
     pub nFileCount: u32,
     pub lpFiles: *mut MapiFileDescW,
 }
+impl Default for MapiMessageW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MapiRecipDesc {
@@ -137,6 +162,11 @@ pub struct MapiRecipDesc {
     pub ulEIDSize: u32,
     pub lpEntryID: *mut core::ffi::c_void,
 }
+impl Default for MapiRecipDesc {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MapiRecipDescW {
@@ -146,5 +176,10 @@ pub struct MapiRecipDescW {
     pub lpszAddress: windows_sys::core::PWSTR,
     pub ulEIDSize: u32,
     pub lpEntryID: *mut core::ffi::c_void,
+}
+impl Default for MapiRecipDescW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SUCCESS_SUCCESS: u32 = 0u32;

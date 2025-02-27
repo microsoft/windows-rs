@@ -32,6 +32,11 @@ pub struct EC_VARIANT {
     pub Count: u32,
     pub Type: u32,
 }
+impl Default for EC_VARIANT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union EC_VARIANT_0 {
@@ -44,6 +49,11 @@ pub union EC_VARIANT_0 {
     pub Int32Arr: *mut i32,
     pub StringArr: *mut windows_sys::core::PWSTR,
     pub PropertyHandleVal: isize,
+}
+impl Default for EC_VARIANT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type EC_VARIANT_TYPE = i32;
 pub const EC_VARIANT_TYPE_ARRAY: u32 = 128u32;

@@ -78,6 +78,11 @@ pub struct CONNECTDLGSTRUCTA {
     pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
     pub dwDevNum: u32,
 }
+impl Default for CONNECTDLGSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONNECTDLGSTRUCTW {
@@ -86,6 +91,11 @@ pub struct CONNECTDLGSTRUCTW {
     pub lpConnRes: *mut NETRESOURCEW,
     pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
     pub dwDevNum: u32,
+}
+impl Default for CONNECTDLGSTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CONNECTDLGSTRUCT_FLAGS = u32;
 pub const CONNECT_CMD_SAVECRED: NET_CONNECT_FLAGS = 4096u32;
@@ -116,6 +126,11 @@ pub struct DISCDLGSTRUCTA {
     pub lpRemoteName: windows_sys::core::PSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
+impl Default for DISCDLGSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISCDLGSTRUCTW {
@@ -125,11 +140,16 @@ pub struct DISCDLGSTRUCTW {
     pub lpRemoteName: windows_sys::core::PWSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
+impl Default for DISCDLGSTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DISCDLGSTRUCT_FLAGS = u32;
 pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = 64u32;
 pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NETCONNECTINFOSTRUCT {
     pub cbStructure: u32,
     pub dwFlags: u32,
@@ -138,7 +158,7 @@ pub struct NETCONNECTINFOSTRUCT {
     pub dwOptDataSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NETINFOSTRUCT {
     pub cbStructure: u32,
     pub dwProviderVersion: u32,
@@ -166,6 +186,11 @@ pub struct NETRESOURCEA {
     pub lpComment: windows_sys::core::PSTR,
     pub lpProvider: windows_sys::core::PSTR,
 }
+impl Default for NETRESOURCEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NETRESOURCEW {
@@ -178,6 +203,11 @@ pub struct NETRESOURCEW {
     pub lpComment: windows_sys::core::PWSTR,
     pub lpProvider: windows_sys::core::PWSTR,
 }
+impl Default for NETRESOURCEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type NETWORK_NAME_FORMAT_FLAGS = u32;
 pub type NET_CONNECT_FLAGS = u32;
 pub type NET_RESOURCE_SCOPE = u32;
@@ -189,6 +219,11 @@ pub struct NOTIFYADD {
     pub NetResource: NETRESOURCEA,
     pub dwAddFlags: NET_CONNECT_FLAGS,
 }
+impl Default for NOTIFYADD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NOTIFYCANCEL {
@@ -197,12 +232,22 @@ pub struct NOTIFYCANCEL {
     pub dwFlags: u32,
     pub fForce: windows_sys::core::BOOL,
 }
+impl Default for NOTIFYCANCEL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NOTIFYINFO {
     pub dwNotifyStatus: u32,
     pub dwOperationStatus: u32,
     pub lpContext: *mut core::ffi::c_void,
+}
+impl Default for NOTIFYINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NOTIFY_POST: u32 = 2u32;
 pub const NOTIFY_PRE: u32 = 1u32;
@@ -246,12 +291,22 @@ pub struct REMOTE_NAME_INFOA {
     pub lpConnectionName: windows_sys::core::PSTR,
     pub lpRemainingPath: windows_sys::core::PSTR,
 }
+impl Default for REMOTE_NAME_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REMOTE_NAME_INFOW {
     pub lpUniversalName: windows_sys::core::PWSTR,
     pub lpConnectionName: windows_sys::core::PWSTR,
     pub lpRemainingPath: windows_sys::core::PWSTR,
+}
+impl Default for REMOTE_NAME_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = 2u32;
 pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
@@ -283,10 +338,20 @@ pub type UNC_INFO_LEVEL = u32;
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: windows_sys::core::PSTR,
 }
+impl Default for UNIVERSAL_NAME_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: windows_sys::core::PWSTR,
+}
+impl Default for UNIVERSAL_NAME_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = 1u32;
 pub const WNCON_DYNAMIC: u32 = 8u32;

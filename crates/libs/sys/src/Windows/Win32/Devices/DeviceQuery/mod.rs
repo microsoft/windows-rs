@@ -27,7 +27,7 @@ windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevGetO
 windows_targets::link!("api-ms-win-devices-query-l1-1-1.dll" "system" fn DevGetObjectsEx(objecttype : DEV_OBJECT_TYPE, queryflags : u32, crequestedproperties : u32, prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY, cfilterexpressioncount : u32, pfilter : *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount : u32, pextendedparameters : *const DEV_QUERY_PARAMETER, pcobjectcount : *mut u32, ppobjects : *mut *mut DEV_OBJECT) -> windows_sys::core::HRESULT);
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVPROP_FILTER_EXPRESSION {
     pub Operator: DEVPROP_OPERATOR,
     pub Property: super::Properties::DEVPROPERTY,
@@ -84,6 +84,12 @@ pub struct DEV_OBJECT {
     pub cPropertyCount: u32,
     pub pProperties: *const super::Properties::DEVPROPERTY,
 }
+#[cfg(feature = "Win32_Devices_Properties")]
+impl Default for DEV_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DEV_OBJECT_TYPE = i32;
 pub type DEV_QUERY_FLAGS = i32;
 #[repr(C)]
@@ -95,6 +101,12 @@ pub struct DEV_QUERY_PARAMETER {
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Devices_Properties")]
+impl Default for DEV_QUERY_PARAMETER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DEV_QUERY_RESULT_ACTION = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -103,12 +115,24 @@ pub struct DEV_QUERY_RESULT_ACTION_DATA {
     pub Action: DEV_QUERY_RESULT_ACTION,
     pub Data: DEV_QUERY_RESULT_ACTION_DATA_0,
 }
+#[cfg(feature = "Win32_Devices_Properties")]
+impl Default for DEV_QUERY_RESULT_ACTION_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[derive(Clone, Copy)]
 pub union DEV_QUERY_RESULT_ACTION_DATA_0 {
     pub State: DEV_QUERY_STATE,
     pub DeviceObject: DEV_OBJECT,
+}
+#[cfg(feature = "Win32_Devices_Properties")]
+impl Default for DEV_QUERY_RESULT_ACTION_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DEV_QUERY_STATE = i32;
 pub const DevObjectTypeAEP: DEV_OBJECT_TYPE = 5i32;

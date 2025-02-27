@@ -36,6 +36,11 @@ pub struct RESTOREPOINTINFOA {
     pub llSequenceNumber: i64,
     pub szDescription: [i8; 64],
 }
+impl Default for RESTOREPOINTINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOEX {
@@ -45,6 +50,11 @@ pub struct RESTOREPOINTINFOEX {
     pub dwRPNum: u32,
     pub szDescription: [u16; 256],
 }
+impl Default for RESTOREPOINTINFOEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOW {
@@ -53,10 +63,15 @@ pub struct RESTOREPOINTINFOW {
     pub llSequenceNumber: i64,
     pub szDescription: [u16; 256],
 }
+impl Default for RESTOREPOINTINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type RESTOREPOINTINFO_EVENT_TYPE = u32;
 pub type RESTOREPOINTINFO_TYPE = u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STATEMGRSTATUS {
     pub nStatus: super::super::Foundation::WIN32_ERROR,
     pub llSequenceNumber: i64,

@@ -17,6 +17,11 @@ pub struct CMD_ENTRY {
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
     pub pfnCustomHelpFn: PFN_CUSTOM_HELP,
 }
+impl Default for CMD_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = 32i32;
 pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = 2i32;
 pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = 65535i32;
@@ -33,6 +38,11 @@ pub struct CMD_GROUP_ENTRY {
     pub dwFlags: u32,
     pub pCmdGroup: *mut CMD_ENTRY,
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
+}
+impl Default for CMD_GROUP_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100u32;
 pub const ERROR_CMD_NOT_FOUND: u32 = 15004u32;
@@ -89,14 +99,24 @@ pub struct NS_CONTEXT_ATTRIBUTES {
     pub pReserved: *mut core::ffi::c_void,
     pub pfnOsVersionCheck: PNS_OSVERSIONCHECK,
 }
+impl Default for NS_CONTEXT_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NS_CONTEXT_ATTRIBUTES_0 {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
 }
+impl Default for NS_CONTEXT_ATTRIBUTES_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
@@ -116,14 +136,24 @@ pub struct NS_HELPER_ATTRIBUTES {
     pub pfnStart: PNS_HELPER_START_FN,
     pub pfnStop: PNS_HELPER_STOP_FN,
 }
+impl Default for NS_HELPER_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NS_HELPER_ATTRIBUTES_0 {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
 }
+impl Default for NS_HELPER_ATTRIBUTES_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NS_HELPER_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
@@ -152,9 +182,19 @@ pub struct TAG_TYPE {
     pub dwRequired: u32,
     pub bPresent: windows_sys::core::BOOL,
 }
+impl Default for TAG_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_VALUE {
     pub pwszToken: windows_sys::core::PCWSTR,
     pub dwValue: u32,
+}
+impl Default for TOKEN_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

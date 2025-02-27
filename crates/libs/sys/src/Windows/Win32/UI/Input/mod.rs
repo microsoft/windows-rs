@@ -32,7 +32,7 @@ pub const IMO_UNAVAILABLE: INPUT_MESSAGE_ORIGIN_ID = 0i32;
 pub type INPUT_MESSAGE_DEVICE_TYPE = i32;
 pub type INPUT_MESSAGE_ORIGIN_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INPUT_MESSAGE_SOURCE {
     pub deviceType: INPUT_MESSAGE_DEVICE_TYPE,
     pub originId: INPUT_MESSAGE_ORIGIN_ID,
@@ -50,11 +50,21 @@ pub struct RAWHID {
     pub dwCount: u32,
     pub bRawData: [u8; 1],
 }
+impl Default for RAWHID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAWINPUT {
     pub header: RAWINPUTHEADER,
     pub data: RAWINPUT_0,
+}
+impl Default for RAWINPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -62,6 +72,11 @@ pub union RAWINPUT_0 {
     pub mouse: RAWMOUSE,
     pub keyboard: RAWKEYBOARD,
     pub hid: RAWHID,
+}
+impl Default for RAWINPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -71,11 +86,21 @@ pub struct RAWINPUTDEVICE {
     pub dwFlags: RAWINPUTDEVICE_FLAGS,
     pub hwndTarget: super::super::Foundation::HWND,
 }
+impl Default for RAWINPUTDEVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAWINPUTDEVICELIST {
     pub hDevice: super::super::Foundation::HANDLE,
     pub dwType: RID_DEVICE_INFO_TYPE,
+}
+impl Default for RAWINPUTDEVICELIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RAWINPUTDEVICE_FLAGS = u32;
 #[repr(C)]
@@ -86,8 +111,13 @@ pub struct RAWINPUTHEADER {
     pub hDevice: super::super::Foundation::HANDLE,
     pub wParam: super::super::Foundation::WPARAM,
 }
+impl Default for RAWINPUTHEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RAWKEYBOARD {
     pub MakeCode: u16,
     pub Flags: u16,
@@ -106,14 +136,24 @@ pub struct RAWMOUSE {
     pub lLastY: i32,
     pub ulExtraInformation: u32,
 }
+impl Default for RAWMOUSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RAWMOUSE_0 {
     pub ulButtons: u32,
     pub Anonymous: RAWMOUSE_0_0,
 }
+impl Default for RAWMOUSE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RAWMOUSE_0_0 {
     pub usButtonFlags: u16,
     pub usButtonData: u16,
@@ -140,6 +180,11 @@ pub struct RID_DEVICE_INFO {
     pub dwType: RID_DEVICE_INFO_TYPE,
     pub Anonymous: RID_DEVICE_INFO_0,
 }
+impl Default for RID_DEVICE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RID_DEVICE_INFO_0 {
@@ -147,8 +192,13 @@ pub union RID_DEVICE_INFO_0 {
     pub keyboard: RID_DEVICE_INFO_KEYBOARD,
     pub hid: RID_DEVICE_INFO_HID,
 }
+impl Default for RID_DEVICE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RID_DEVICE_INFO_HID {
     pub dwVendorId: u32,
     pub dwProductId: u32,
@@ -157,7 +207,7 @@ pub struct RID_DEVICE_INFO_HID {
     pub usUsage: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RID_DEVICE_INFO_KEYBOARD {
     pub dwType: u32,
     pub dwSubType: u32,
@@ -167,7 +217,7 @@ pub struct RID_DEVICE_INFO_KEYBOARD {
     pub dwNumberOfKeysTotal: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RID_DEVICE_INFO_MOUSE {
     pub dwId: u32,
     pub dwNumberOfButtons: u32,

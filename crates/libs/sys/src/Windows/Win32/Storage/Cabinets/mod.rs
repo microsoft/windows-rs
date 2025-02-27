@@ -29,8 +29,13 @@ pub struct CCAB {
     pub szCab: [i8; 256],
     pub szCabPath: [i8; 256],
 }
+impl Default for CCAB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ERF {
     pub erfOper: i32,
     pub erfType: i32,
@@ -48,7 +53,7 @@ pub const FCIERR_READ_SRC: FCIERROR = 2i32;
 pub const FCIERR_TEMP_FILE: FCIERROR = 4i32;
 pub const FCIERR_USER_ABORT: FCIERROR = 7i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FDICABINETINFO {
     pub cbCabinet: i32,
     pub cFolders: u16,
@@ -67,12 +72,22 @@ pub struct FDIDECRYPT {
     pub pvUser: *mut core::ffi::c_void,
     pub Anonymous: FDIDECRYPT_0,
 }
+impl Default for FDIDECRYPT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FDIDECRYPT_0 {
     pub cabinet: FDIDECRYPT_0_0,
     pub folder: FDIDECRYPT_0_1,
     pub decrypt: FDIDECRYPT_0_2,
+}
+impl Default for FDIDECRYPT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -81,6 +96,11 @@ pub struct FDIDECRYPT_0_0 {
     pub cbHeaderReserve: u16,
     pub setID: u16,
     pub iCabinet: i32,
+}
+impl Default for FDIDECRYPT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -92,12 +112,22 @@ pub struct FDIDECRYPT_0_2 {
     pub fSplit: windows_sys::core::BOOL,
     pub cbPartial: u16,
 }
+impl Default for FDIDECRYPT_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FDIDECRYPT_0_1 {
     pub pFolderReserve: *mut core::ffi::c_void,
     pub cbFolderReserve: u16,
     pub iFolder: u16,
+}
+impl Default for FDIDECRYPT_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FDIDECRYPTTYPE = i32;
 pub type FDIERROR = i32;
@@ -131,6 +161,11 @@ pub struct FDINOTIFICATION {
     pub iFolder: u16,
     pub fdie: FDIERROR,
 }
+impl Default for FDINOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FDINOTIFICATIONTYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -139,12 +174,24 @@ pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,
 }
+#[cfg(target_arch = "x86")]
+impl Default for FDISPILLFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for FDISPILLFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const INCLUDED_FCI: u32 = 1u32;
 pub const INCLUDED_FDI: u32 = 1u32;

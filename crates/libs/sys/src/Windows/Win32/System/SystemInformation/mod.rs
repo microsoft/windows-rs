@@ -63,7 +63,7 @@ windows_targets::link!("kernel32.dll" "system" fn VerifyVersionInfoA(lpversionin
 windows_targets::link!("kernel32.dll" "system" fn VerifyVersionInfoW(lpversioninformation : *mut OSVERSIONINFOEXW, dwtypemask : VER_FLAGS, dwlconditionmask : u64) -> windows_sys::core::BOOL);
 pub const ACPI: FIRMWARE_TABLE_PROVIDER = 1094930505u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CACHE_DESCRIPTOR {
     pub Level: u8,
     pub Associativity: u8,
@@ -83,11 +83,21 @@ pub struct CACHE_RELATIONSHIP {
     pub GroupCount: u16,
     pub Anonymous: CACHE_RELATIONSHIP_0,
 }
+impl Default for CACHE_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CACHE_RELATIONSHIP_0 {
     pub GroupMask: GROUP_AFFINITY,
     pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+impl Default for CACHE_RELATIONSHIP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type COMPUTER_NAME_FORMAT = i32;
 pub type CPU_SET_INFORMATION_TYPE = i32;
@@ -198,6 +208,11 @@ pub struct GROUP_AFFINITY {
     pub Group: u16,
     pub Reserved: [u16; 3],
 }
+impl Default for GROUP_AFFINITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GROUP_RELATIONSHIP {
@@ -205,6 +220,11 @@ pub struct GROUP_RELATIONSHIP {
     pub ActiveGroupCount: u16,
     pub Reserved: [u8; 20],
     pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
+}
+impl Default for GROUP_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GlobalDataIdConsoleSharedDataFlags: RTL_SYSTEM_GLOBAL_DATA_ID = 14i32;
 pub const GlobalDataIdCyclesPerYield: RTL_SYSTEM_GLOBAL_DATA_ID = 11i32;
@@ -261,7 +281,7 @@ pub const IMAGE_FILE_MACHINE_UNKNOWN: IMAGE_FILE_MACHINE = 0u16;
 pub const IMAGE_FILE_MACHINE_WCEMIPSV2: IMAGE_FILE_MACHINE = 361u16;
 pub type LOGICAL_PROCESSOR_RELATIONSHIP = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MEMORYSTATUS {
     pub dwLength: u32,
     pub dwMemoryLoad: u32,
@@ -273,7 +293,7 @@ pub struct MEMORYSTATUS {
     pub dwAvailVirtual: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MEMORYSTATUSEX {
     pub dwLength: u32,
     pub dwMemoryLoad: u32,
@@ -342,11 +362,21 @@ pub struct NUMA_NODE_RELATIONSHIP {
     pub GroupCount: u16,
     pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
 }
+impl Default for NUMA_NODE_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NUMA_NODE_RELATIONSHIP_0 {
     pub GroupMask: GROUP_AFFINITY,
     pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+impl Default for NUMA_NODE_RELATIONSHIP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -357,6 +387,11 @@ pub struct OSVERSIONINFOA {
     pub dwBuildNumber: u32,
     pub dwPlatformId: u32,
     pub szCSDVersion: [i8; 128],
+}
+impl Default for OSVERSIONINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -373,6 +408,11 @@ pub struct OSVERSIONINFOEXA {
     pub wProductType: u8,
     pub wReserved: u8,
 }
+impl Default for OSVERSIONINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OSVERSIONINFOEXW {
@@ -388,6 +428,11 @@ pub struct OSVERSIONINFOEXW {
     pub wProductType: u8,
     pub wReserved: u8,
 }
+impl Default for OSVERSIONINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OSVERSIONINFOW {
@@ -397,6 +442,11 @@ pub struct OSVERSIONINFOW {
     pub dwBuildNumber: u32,
     pub dwPlatformId: u32,
     pub szCSDVersion: [u16; 128],
+}
+impl Default for OSVERSIONINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OSVERSION_MASK: u32 = 4294901760u32;
 pub type OS_DEPLOYEMENT_STATE_VALUES = i32;
@@ -431,6 +481,11 @@ pub struct PROCESSOR_GROUP_INFO {
     pub Reserved: [u8; 38],
     pub ActiveProcessorMask: usize,
 }
+impl Default for PROCESSOR_GROUP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESSOR_RELATIONSHIP {
@@ -439,6 +494,11 @@ pub struct PROCESSOR_RELATIONSHIP {
     pub Reserved: [u8; 20],
     pub GroupCount: u16,
     pub GroupMask: [GROUP_AFFINITY; 1],
+}
+impl Default for PROCESSOR_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRODUCT_BUSINESS: OS_PRODUCT_TYPE = 6u32;
 pub const PRODUCT_BUSINESS_N: OS_PRODUCT_TYPE = 16u32;
@@ -557,10 +617,20 @@ pub struct SYSTEM_CPU_SET_INFORMATION {
     pub Type: CPU_SET_INFORMATION_TYPE,
     pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0,
 }
+impl Default for SYSTEM_CPU_SET_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYSTEM_CPU_SET_INFORMATION_0 {
     pub CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0,
+}
+impl Default for SYSTEM_CPU_SET_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -576,14 +646,24 @@ pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
     pub Anonymous2: SYSTEM_CPU_SET_INFORMATION_0_0_1,
     pub AllocationTag: u64,
 }
+impl Default for SYSTEM_CPU_SET_INFORMATION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
     pub AllFlags: u8,
     pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
 }
+impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     pub _bitfield: u8,
 }
@@ -592,6 +672,11 @@ pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
 pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     pub Reserved: u32,
     pub SchedulingClass: u8,
+}
+impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2u32;
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4u32;
@@ -611,14 +696,24 @@ pub struct SYSTEM_INFO {
     pub wProcessorLevel: u16,
     pub wProcessorRevision: u16,
 }
+impl Default for SYSTEM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYSTEM_INFO_0 {
     pub dwOemId: u32,
     pub Anonymous: SYSTEM_INFO_0_0,
 }
+impl Default for SYSTEM_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SYSTEM_INFO_0_0 {
     pub wProcessorArchitecture: PROCESSOR_ARCHITECTURE,
     pub wReserved: u16,
@@ -630,6 +725,11 @@ pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
     pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0,
 }
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
@@ -638,13 +738,18 @@ pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     pub Cache: CACHE_DESCRIPTOR,
     pub Reserved: [u64; 2],
 }
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     pub NodeNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     pub Flags: u8,
 }
@@ -655,6 +760,11 @@ pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     pub Size: u32,
     pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
 }
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
@@ -663,18 +773,23 @@ pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     pub Cache: CACHE_RELATIONSHIP,
     pub Group: GROUP_RELATIONSHIP,
 }
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION {
     pub PoolZeroingSupportPresent: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     pub CycleTime: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     pub _bitfield: u32,
 }

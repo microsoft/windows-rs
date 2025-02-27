@@ -59,6 +59,11 @@ pub const APPX_E_RESOURCESPRI_NOT_ALLOWED: windows_sys::core::HRESULT = 0x800802
 pub struct APP_LOCAL_DEVICE_ID {
     pub value: [u8; 32],
 }
+impl Default for APP_LOCAL_DEVICE_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
 pub const BT_E_SPURIOUS_ACTIVATION: windows_sys::core::HRESULT = 0x80080300_u32 as _;
 pub const CACHE_E_FIRST: i32 = -2147221136i32;
@@ -644,14 +649,24 @@ pub struct DECIMAL {
     pub Hi32: u32,
     pub Anonymous2: DECIMAL_1,
 }
+impl Default for DECIMAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DECIMAL_0 {
     pub Anonymous: DECIMAL_0_0,
     pub signscale: u16,
 }
+impl Default for DECIMAL_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DECIMAL_0_0 {
     pub scale: u8,
     pub sign: u8,
@@ -662,14 +677,19 @@ pub union DECIMAL_1 {
     pub Anonymous: DECIMAL_1_0,
     pub Lo64: u64,
 }
+impl Default for DECIMAL_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVPROPKEY {
     pub fmtid: windows_sys::core::GUID,
     pub pid: u32,
@@ -4746,7 +4766,7 @@ pub const FDAEMON_E_WORDLISTCOMMITFAILED: windows_sys::core::HRESULT = 0x8004168
 pub const FDAEMON_W_EMPTYWORDLIST: windows_sys::core::HRESULT = 0x41685_u32 as _;
 pub const FDAEMON_W_WORDLISTFULL: windows_sys::core::HRESULT = 0x41680_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
@@ -4767,7 +4787,7 @@ pub const FILTER_S_NO_PROPSETS: windows_sys::core::HRESULT = 0x4173A_u32 as _;
 pub const FILTER_S_NO_SECURITY_DESCRIPTOR: windows_sys::core::HRESULT = 0x4173C_u32 as _;
 pub const FILTER_S_PARTIAL_CONTENTSCAN_IMMEDIATE: windows_sys::core::HRESULT = 0x41731_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FLOAT128 {
     pub LowPart: i64,
     pub HighPart: i64,
@@ -5374,7 +5394,7 @@ pub const LANGUAGE_S_LARGE_WORD: windows_sys::core::HRESULT = 0x41781_u32 as _;
 pub type LPARAM = isize;
 pub type LRESULT = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LUID {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -5897,19 +5917,19 @@ pub const PLA_E_TASKSCHED_CHANNEL_NOT_ENABLED: windows_sys::core::HRESULT = 0x80
 pub const PLA_E_TOO_MANY_FOLDERS: windows_sys::core::HRESULT = 0x80300045_u32 as _;
 pub const PLA_S_PROPERTY_IGNORED: windows_sys::core::HRESULT = 0x300100_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POINTS {
     pub x: i16,
     pub y: i16,
@@ -5917,7 +5937,7 @@ pub struct POINTS {
 pub const PRESENTATION_ERROR_LOST: windows_sys::core::HRESULT = 0x88810001_u32 as _;
 pub type PROC = Option<unsafe extern "system" fn() -> isize>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROPERTYKEY {
     pub fmtid: windows_sys::core::GUID,
     pub pid: u32,
@@ -5982,7 +6002,7 @@ pub const QUERY_S_NO_QUERY: windows_sys::core::HRESULT = 0x8004160C_u32 as _;
 pub const QUTIL_E_CANT_CONVERT_VROOT: windows_sys::core::HRESULT = 0x80041676_u32 as _;
 pub const QUTIL_E_INVALID_CODEPAGE: windows_sys::core::HRESULT = 0xC0041678_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,
@@ -5990,7 +6010,7 @@ pub struct RECT {
     pub bottom: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RECTL {
     pub left: i32,
     pub top: i32,
@@ -6437,7 +6457,7 @@ pub const SEVERITY_ERROR: u32 = 1u32;
 pub const SEVERITY_SUCCESS: u32 = 0u32;
 pub type SHANDLE_PTR = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SIZE {
     pub cx: i32,
     pub cy: i32,
@@ -9416,7 +9436,7 @@ pub const STORE_ERROR_UNLICENSED_USER: i32 = 15862i32;
 pub const STRICT: u32 = 1u32;
 pub const SUCCESS: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -9887,6 +9907,11 @@ pub struct UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_sys::core::PWSTR,
+}
+impl Default for UNICODE_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const UTC_E_ACTION_NOT_SUPPORTED_IN_DESTINATION: windows_sys::core::HRESULT = 0x87C51044_u32 as _;
 pub const UTC_E_AGENT_DIAGNOSTICS_TOO_LARGE: windows_sys::core::HRESULT = 0x87C51055_u32 as _;

@@ -220,7 +220,7 @@ pub const CLIENT_TYPE_UNSPECIFIED: u32 = 0u32;
 pub const COMMUNICATION_INT: FSM_STATE = 4i32;
 pub const CONFLICT_DONE: FSM_STATE = 7i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DATE_TIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
@@ -235,6 +235,11 @@ pub struct DHCPAPI_PARAMS {
     pub Data: *mut u8,
     pub nBytesData: u32,
 }
+impl Default for DHCPAPI_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCPCAPI_CLASSID {
@@ -242,12 +247,22 @@ pub struct DHCPCAPI_CLASSID {
     pub Data: *mut u8,
     pub nBytesData: u32,
 }
+impl Default for DHCPCAPI_CLASSID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DHCPCAPI_DEREGISTER_HANDLE_EVENT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCPCAPI_PARAMS_ARRAY {
     pub nParams: u32,
     pub Params: *mut DHCPAPI_PARAMS,
+}
+impl Default for DHCPCAPI_PARAMS_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DHCPCAPI_REGISTER_HANDLE_EVENT: u32 = 1u32;
 pub const DHCPCAPI_REQUEST_ASYNCHRONOUS: u32 = 4u32;
@@ -266,12 +281,22 @@ pub struct DHCPDS_SERVER {
     pub DsLocation: windows_sys::core::PWSTR,
     pub DsLocType: u32,
 }
+impl Default for DHCPDS_SERVER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCPDS_SERVERS {
     pub Flags: u32,
     pub NumElements: u32,
     pub Servers: *mut DHCPDS_SERVER,
+}
+impl Default for DHCPDS_SERVERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -298,11 +323,21 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO {
     pub PolicyName: windows_sys::core::PWSTR,
     pub Flags: u8,
 }
+impl Default for DHCPV4_FAILOVER_CLIENT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO,
+}
+impl Default for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -330,12 +365,22 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
     pub Flags: u8,
     pub AddressStateEx: u32,
 }
+impl Default for DHCPV4_FAILOVER_CLIENT_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCPV6CAPI_CLASSID {
     pub Flags: u32,
     pub Data: *mut u8,
     pub nBytesData: u32,
+}
+impl Default for DHCPV6CAPI_CLASSID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -346,11 +391,21 @@ pub struct DHCPV6CAPI_PARAMS {
     pub Data: *mut u8,
     pub nBytesData: u32,
 }
+impl Default for DHCPV6CAPI_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCPV6CAPI_PARAMS_ARRAY {
     pub nParams: u32,
     pub Params: *mut DHCPV6CAPI_PARAMS,
+}
+impl Default for DHCPV6CAPI_PARAMS_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -360,6 +415,11 @@ pub struct DHCPV6Prefix {
     pub preferredLifeTime: u32,
     pub validLifeTime: u32,
     pub status: StatusCode,
+}
+impl Default for DHCPV6Prefix {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -375,6 +435,11 @@ pub struct DHCPV6PrefixLeaseInformation {
     pub ServerId: *mut u8,
     pub ServerIdLen: u32,
 }
+impl Default for DHCPV6PrefixLeaseInformation {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCPV6_BIND_ELEMENT {
@@ -387,17 +452,32 @@ pub struct DHCPV6_BIND_ELEMENT {
     pub IfIdSize: u32,
     pub IfId: *mut u8,
 }
+impl Default for DHCPV6_BIND_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCPV6_BIND_ELEMENT_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCPV6_BIND_ELEMENT,
 }
+impl Default for DHCPV6_BIND_ELEMENT_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCPV6_IP_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_IPV6_ADDRESS,
+}
+impl Default for DHCPV6_IP_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DHCPV6_OPTION_CLIENTID: u32 = 1u32;
 pub const DHCPV6_OPTION_DNS_SERVERS: u32 = 23u32;
@@ -421,14 +501,14 @@ pub const DHCPV6_OPTION_USER_CLASS: u32 = 15u32;
 pub const DHCPV6_OPTION_VENDOR_CLASS: u32 = 16u32;
 pub const DHCPV6_OPTION_VENDOR_OPTS: u32 = 17u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCPV6_STATELESS_PARAMS {
     pub Status: windows_sys::core::BOOL,
     pub PurgeInterval: u32,
 }
 pub type DHCPV6_STATELESS_PARAM_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCPV6_STATELESS_SCOPE_STATS {
     pub SubnetAddress: DHCP_IPV6_ADDRESS,
     pub NumStatelessClientsAdded: u64,
@@ -440,6 +520,11 @@ pub struct DHCPV6_STATELESS_STATS {
     pub NumScopes: u32,
     pub ScopeStats: *mut DHCPV6_STATELESS_SCOPE_STATS,
 }
+impl Default for DHCPV6_STATELESS_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_ADDR_PATTERN {
@@ -449,6 +534,11 @@ pub struct DHCP_ADDR_PATTERN {
     pub Length: u8,
     pub Pattern: [u8; 255],
 }
+impl Default for DHCP_ADDR_PATTERN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTIONS {
@@ -457,6 +547,11 @@ pub struct DHCP_ALL_OPTIONS {
     pub NumVendorOptions: u32,
     pub VendorOptions: *mut DHCP_ALL_OPTIONS_0,
 }
+impl Default for DHCP_ALL_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTIONS_0 {
@@ -464,12 +559,22 @@ pub struct DHCP_ALL_OPTIONS_0 {
     pub VendorName: windows_sys::core::PWSTR,
     pub ClassName: windows_sys::core::PWSTR,
 }
+impl Default for DHCP_ALL_OPTIONS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTION_VALUES {
     pub Flags: u32,
     pub NumElements: u32,
     pub Options: *mut DHCP_ALL_OPTION_VALUES_0,
+}
+impl Default for DHCP_ALL_OPTION_VALUES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -479,12 +584,22 @@ pub struct DHCP_ALL_OPTION_VALUES_0 {
     pub IsVendor: windows_sys::core::BOOL,
     pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
 }
+impl Default for DHCP_ALL_OPTION_VALUES_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTION_VALUES_PB {
     pub Flags: u32,
     pub NumElements: u32,
     pub Options: *mut DHCP_ALL_OPTION_VALUES_PB_0,
+}
+impl Default for DHCP_ALL_OPTION_VALUES_PB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -494,6 +609,11 @@ pub struct DHCP_ALL_OPTION_VALUES_PB_0 {
     pub IsVendor: windows_sys::core::BOOL,
     pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
 }
+impl Default for DHCP_ALL_OPTION_VALUES_PB_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_ATTRIB {
@@ -501,17 +621,32 @@ pub struct DHCP_ATTRIB {
     pub DhcpAttribType: u32,
     pub Anonymous: DHCP_ATTRIB_0,
 }
+impl Default for DHCP_ATTRIB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DHCP_ATTRIB_0 {
     pub DhcpAttribBool: windows_sys::core::BOOL,
     pub DhcpAttribUlong: u32,
 }
+impl Default for DHCP_ATTRIB_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_ATTRIB_ARRAY {
     pub NumElements: u32,
     pub DhcpAttribs: *mut DHCP_ATTRIB,
+}
+impl Default for DHCP_ATTRIB_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DHCP_ATTRIB_BOOL_IS_ADMIN: u32 = 5u32;
 pub const DHCP_ATTRIB_BOOL_IS_BINDING_AWARE: u32 = 4u32;
@@ -527,6 +662,11 @@ pub struct DHCP_BINARY_DATA {
     pub DataLength: u32,
     pub Data: *mut u8,
 }
+impl Default for DHCP_BINARY_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_BIND_ELEMENT {
@@ -538,14 +678,24 @@ pub struct DHCP_BIND_ELEMENT {
     pub IfIdSize: u32,
     pub IfId: *mut u8,
 }
+impl Default for DHCP_BIND_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_BIND_ELEMENT_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_BIND_ELEMENT,
 }
+impl Default for DHCP_BIND_ELEMENT_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_BOOTP_IP_RANGE {
     pub StartAddress: u32,
     pub EndAddress: u32,
@@ -569,6 +719,11 @@ pub struct DHCP_CALLOUT_TABLE {
     pub DhcpExtensionHook: *mut core::ffi::c_void,
     pub DhcpReservedHook: *mut core::ffi::c_void,
 }
+impl Default for DHCP_CALLOUT_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_CLASS_INFO {
@@ -579,17 +734,32 @@ pub struct DHCP_CLASS_INFO {
     pub Flags: u32,
     pub ClassData: *mut u8,
 }
+impl Default for DHCP_CLASS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_CLASS_INFO_ARRAY {
     pub NumElements: u32,
     pub Classes: *mut DHCP_CLASS_INFO,
 }
+impl Default for DHCP_CLASS_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_CLASS_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Classes: *mut DHCP_CLASS_INFO_V6,
+}
+impl Default for DHCP_CLASS_INFO_ARRAY_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -601,6 +771,11 @@ pub struct DHCP_CLASS_INFO_V6 {
     pub EnterpriseNumber: u32,
     pub Flags: u32,
     pub ClassData: *mut u8,
+}
+impl Default for DHCP_CLASS_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DHCP_CLIENT_BOOTP: u32 = 805306371u32;
 pub const DHCP_CLIENT_DHCP: u32 = 805306372u32;
@@ -621,11 +796,21 @@ pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
     pub QuarantineCapable: windows_sys::core::BOOL,
     pub FilterStatus: u32,
 }
+impl Default for DHCP_CLIENT_FILTER_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO,
+}
+impl Default for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -638,11 +823,21 @@ pub struct DHCP_CLIENT_INFO {
     pub ClientLeaseExpires: DATE_TIME,
     pub OwnerHost: DHCP_HOST_INFO,
 }
+impl Default for DHCP_CLIENT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO,
+}
+impl Default for DHCP_CLIENT_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -650,11 +845,21 @@ pub struct DHCP_CLIENT_INFO_ARRAY_V4 {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V4,
 }
+impl Default for DHCP_CLIENT_INFO_ARRAY_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V5 {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V5,
+}
+impl Default for DHCP_CLIENT_INFO_ARRAY_V5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -662,11 +867,21 @@ pub struct DHCP_CLIENT_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V6,
 }
+impl Default for DHCP_CLIENT_INFO_ARRAY_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY_VQ {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_VQ,
+}
+impl Default for DHCP_CLIENT_INFO_ARRAY_VQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -687,11 +902,21 @@ pub struct DHCP_CLIENT_INFO_EX {
     pub PolicyName: windows_sys::core::PWSTR,
     pub Properties: *mut DHCP_PROPERTY_ARRAY,
 }
+impl Default for DHCP_CLIENT_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_EX_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_EX,
+}
+impl Default for DHCP_CLIENT_INFO_EX_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -711,11 +936,21 @@ pub struct DHCP_CLIENT_INFO_PB {
     pub FilterStatus: u32,
     pub PolicyName: windows_sys::core::PWSTR,
 }
+impl Default for DHCP_CLIENT_INFO_PB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_PB_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_PB,
+}
+impl Default for DHCP_CLIENT_INFO_PB_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -728,6 +963,11 @@ pub struct DHCP_CLIENT_INFO_V4 {
     pub ClientLeaseExpires: DATE_TIME,
     pub OwnerHost: DHCP_HOST_INFO,
     pub bClientType: u8,
+}
+impl Default for DHCP_CLIENT_INFO_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -742,6 +982,11 @@ pub struct DHCP_CLIENT_INFO_V5 {
     pub bClientType: u8,
     pub AddressState: u8,
 }
+impl Default for DHCP_CLIENT_INFO_V5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_V6 {
@@ -754,6 +999,11 @@ pub struct DHCP_CLIENT_INFO_V6 {
     pub ClientValidLeaseExpires: DATE_TIME,
     pub ClientPrefLeaseExpires: DATE_TIME,
     pub OwnerHost: DHCP_HOST_INFO_V6,
+}
+impl Default for DHCP_CLIENT_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -770,6 +1020,11 @@ pub struct DHCP_CLIENT_INFO_VQ {
     pub Status: QuarantineStatus,
     pub ProbationEnds: DATE_TIME,
     pub QuarantineCapable: windows_sys::core::BOOL,
+}
+impl Default for DHCP_CLIENT_INFO_VQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DHCP_CONTROL_CONTINUE: u32 = 4u32;
 pub const DHCP_CONTROL_PAUSE: u32 = 3u32;
@@ -810,15 +1065,25 @@ pub struct DHCP_FAILOVER_RELATIONSHIP {
     pub Percentage: u8,
     pub SharedSecret: windows_sys::core::PWSTR,
 }
+impl Default for DHCP_FAILOVER_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     pub NumElements: u32,
     pub pRelationships: *mut DHCP_FAILOVER_RELATIONSHIP,
 }
+impl Default for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DHCP_FAILOVER_SERVER = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_FAILOVER_STATISTICS {
     pub NumAddr: u32,
     pub AddrFree: u32,
@@ -835,14 +1100,24 @@ pub struct DHCP_FILTER_ADD_INFO {
     pub Comment: windows_sys::core::PWSTR,
     pub ListType: DHCP_FILTER_LIST_TYPE,
 }
+impl Default for DHCP_FILTER_ADD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_FILTER_ENUM_INFO {
     pub NumElements: u32,
     pub pEnumRecords: *mut DHCP_FILTER_RECORD,
 }
+impl Default for DHCP_FILTER_ENUM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_FILTER_GLOBAL_INFO {
     pub EnforceAllowList: windows_sys::core::BOOL,
     pub EnforceDenyList: windows_sys::core::BOOL,
@@ -853,6 +1128,11 @@ pub type DHCP_FILTER_LIST_TYPE = i32;
 pub struct DHCP_FILTER_RECORD {
     pub AddrPatt: DHCP_ADDR_PATTERN,
     pub Comment: windows_sys::core::PWSTR,
+}
+impl Default for DHCP_FILTER_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1u32;
 pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2u32;
@@ -867,6 +1147,11 @@ pub struct DHCP_HOST_INFO {
     pub NetBiosName: windows_sys::core::PWSTR,
     pub HostName: windows_sys::core::PWSTR,
 }
+impl Default for DHCP_HOST_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_HOST_INFO_V6 {
@@ -874,8 +1159,13 @@ pub struct DHCP_HOST_INFO_V6 {
     pub NetBiosName: windows_sys::core::PWSTR,
     pub HostName: windows_sys::core::PWSTR,
 }
+impl Default for DHCP_HOST_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_IPV6_ADDRESS {
     pub HighOrderBits: u64,
     pub LowOrderBits: u64,
@@ -886,14 +1176,19 @@ pub struct DHCP_IP_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut u32,
 }
+impl Default for DHCP_IP_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_IP_CLUSTER {
     pub ClusterAddress: u32,
     pub ClusterMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_IP_RANGE {
     pub StartAddress: u32,
     pub EndAddress: u32,
@@ -904,8 +1199,13 @@ pub struct DHCP_IP_RANGE_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_IP_RANGE,
 }
+impl Default for DHCP_IP_RANGE_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_IP_RANGE_V6 {
     pub StartAddress: DHCP_IPV6_ADDRESS,
     pub EndAddress: DHCP_IPV6_ADDRESS,
@@ -915,6 +1215,11 @@ pub struct DHCP_IP_RANGE_V6 {
 pub struct DHCP_IP_RESERVATION {
     pub ReservedIpAddress: u32,
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
+}
+impl Default for DHCP_IP_RESERVATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -926,6 +1231,11 @@ pub struct DHCP_IP_RESERVATION_INFO {
     pub bAllowedClientTypes: u8,
     pub fOptionsPresent: u8,
 }
+impl Default for DHCP_IP_RESERVATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_IP_RESERVATION_V4 {
@@ -933,12 +1243,22 @@ pub struct DHCP_IP_RESERVATION_V4 {
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
     pub bAllowedClientTypes: u8,
 }
+impl Default for DHCP_IP_RESERVATION_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_IP_RESERVATION_V6 {
     pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
     pub InterfaceId: u32,
+}
+impl Default for DHCP_IP_RESERVATION_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DHCP_MAX_DELAY: u32 = 1000u32;
 #[repr(C)]
@@ -954,6 +1274,11 @@ pub struct DHCP_MIB_INFO {
     pub ServerStartTime: DATE_TIME,
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO,
+}
+impl Default for DHCP_MIB_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -978,6 +1303,11 @@ pub struct DHCP_MIB_INFO_V5 {
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO_V5,
 }
+impl Default for DHCP_MIB_INFO_V5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_MIB_INFO_V6 {
@@ -994,6 +1324,11 @@ pub struct DHCP_MIB_INFO_V6 {
     pub ServerStartTime: DATE_TIME,
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO_V6,
+}
+impl Default for DHCP_MIB_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1016,6 +1351,11 @@ pub struct DHCP_MIB_INFO_VQ {
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO_VQ,
 }
+impl Default for DHCP_MIB_INFO_VQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DHCP_MIN_DELAY: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1026,11 +1366,21 @@ pub struct DHCP_OPTION {
     pub DefaultValue: DHCP_OPTION_DATA,
     pub OptionType: DHCP_OPTION_TYPE,
 }
+impl Default for DHCP_OPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_OPTION_ARRAY {
     pub NumElements: u32,
     pub Options: *mut DHCP_OPTION,
+}
+impl Default for DHCP_OPTION_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1038,11 +1388,21 @@ pub struct DHCP_OPTION_DATA {
     pub NumElements: u32,
     pub Elements: *mut DHCP_OPTION_DATA_ELEMENT,
 }
+impl Default for DHCP_OPTION_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_OPTION_DATA_ELEMENT {
     pub OptionType: DHCP_OPTION_DATA_TYPE,
     pub Element: DHCP_OPTION_DATA_ELEMENT_0,
+}
+impl Default for DHCP_OPTION_DATA_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1057,6 +1417,11 @@ pub union DHCP_OPTION_DATA_ELEMENT_0 {
     pub EncapsulatedDataOption: DHCP_BINARY_DATA,
     pub Ipv6AddressDataOption: windows_sys::core::PWSTR,
 }
+impl Default for DHCP_OPTION_DATA_ELEMENT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DHCP_OPTION_DATA_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1064,11 +1429,21 @@ pub struct DHCP_OPTION_LIST {
     pub NumOptions: u32,
     pub Options: *mut DHCP_OPTION_VALUE,
 }
+impl Default for DHCP_OPTION_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_OPTION_SCOPE_INFO {
     pub ScopeType: DHCP_OPTION_SCOPE_TYPE,
     pub ScopeInfo: DHCP_OPTION_SCOPE_INFO_0,
+}
+impl Default for DHCP_OPTION_SCOPE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1079,11 +1454,21 @@ pub union DHCP_OPTION_SCOPE_INFO_0 {
     pub ReservedScopeInfo: DHCP_RESERVED_SCOPE,
     pub MScopeInfo: windows_sys::core::PWSTR,
 }
+impl Default for DHCP_OPTION_SCOPE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_OPTION_SCOPE_INFO6 {
     pub ScopeType: DHCP_OPTION_SCOPE_TYPE6,
     pub ScopeInfo: DHCP_OPTION_SCOPE_INFO6_0,
+}
+impl Default for DHCP_OPTION_SCOPE_INFO6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1092,11 +1477,16 @@ pub union DHCP_OPTION_SCOPE_INFO6_0 {
     pub SubnetScopeInfo: DHCP_IPV6_ADDRESS,
     pub ReservedScopeInfo: DHCP_RESERVED_SCOPE6,
 }
+impl Default for DHCP_OPTION_SCOPE_INFO6_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DHCP_OPTION_SCOPE_TYPE = i32;
 pub type DHCP_OPTION_SCOPE_TYPE6 = i32;
 pub type DHCP_OPTION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_OPTION_VALUE {
     pub OptionID: u32,
     pub Value: DHCP_OPTION_DATA,
@@ -1107,10 +1497,15 @@ pub struct DHCP_OPTION_VALUE_ARRAY {
     pub NumElements: u32,
     pub Values: *mut DHCP_OPTION_VALUE,
 }
+impl Default for DHCP_OPTION_VALUE_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1u32;
 pub const DHCP_OPT_ENUM_USE_CLASSNAME: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_PERF_STATS {
     pub dwNumPacketsReceived: u32,
     pub dwNumPacketsDuplicate: u32,
@@ -1145,11 +1540,21 @@ pub struct DHCP_POLICY {
     pub Description: windows_sys::core::PWSTR,
     pub Enabled: windows_sys::core::BOOL,
 }
+impl Default for DHCP_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_POLICY_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POLICY,
+}
+impl Default for DHCP_POLICY_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1165,11 +1570,21 @@ pub struct DHCP_POLICY_EX {
     pub Enabled: windows_sys::core::BOOL,
     pub Properties: *mut DHCP_PROPERTY_ARRAY,
 }
+impl Default for DHCP_POLICY_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_POLICY_EX_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POLICY_EX,
+}
+impl Default for DHCP_POLICY_EX_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DHCP_POLICY_FIELDS_TO_UPDATE = i32;
 pub type DHCP_POL_ATTR_TYPE = i32;
@@ -1186,14 +1601,24 @@ pub struct DHCP_POL_COND {
     pub Value: *mut u8,
     pub ValueLength: u32,
 }
+impl Default for DHCP_POL_COND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_POL_COND_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POL_COND,
 }
+impl Default for DHCP_POL_COND_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_POL_EXPR {
     pub ParentExpr: u32,
     pub Operator: DHCP_POL_LOGIC_OPER,
@@ -1203,6 +1628,11 @@ pub struct DHCP_POL_EXPR {
 pub struct DHCP_POL_EXPR_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POL_EXPR,
+}
+impl Default for DHCP_POL_EXPR_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DHCP_POL_LOGIC_OPER = i32;
 pub const DHCP_PROB_CONFLICT: u32 = 536870913u32;
@@ -1216,6 +1646,11 @@ pub struct DHCP_PROPERTY {
     pub Type: DHCP_PROPERTY_TYPE,
     pub Value: DHCP_PROPERTY_0,
 }
+impl Default for DHCP_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DHCP_PROPERTY_0 {
@@ -1225,11 +1660,21 @@ pub union DHCP_PROPERTY_0 {
     pub StringValue: windows_sys::core::PWSTR,
     pub BinaryValue: DHCP_BINARY_DATA,
 }
+impl Default for DHCP_PROPERTY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_PROPERTY_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_PROPERTY,
+}
+impl Default for DHCP_PROPERTY_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DHCP_PROPERTY_ID = i32;
 pub type DHCP_PROPERTY_TYPE = i32;
@@ -1239,21 +1684,26 @@ pub struct DHCP_RESERVATION_INFO_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut *mut DHCP_IP_RESERVATION_INFO,
 }
+impl Default for DHCP_RESERVATION_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_RESERVED_SCOPE {
     pub ReservedIpAddress: u32,
     pub ReservedIpSubnetAddress: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_RESERVED_SCOPE6 {
     pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
     pub ReservedIpSubnetAddress: DHCP_IPV6_ADDRESS,
 }
 pub type DHCP_SCAN_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_SCAN_ITEM {
     pub IpAddress: u32,
     pub ScanFlag: DHCP_SCAN_FLAG,
@@ -1264,11 +1714,21 @@ pub struct DHCP_SCAN_LIST {
     pub NumScanItems: u32,
     pub ScanItems: *mut DHCP_SCAN_ITEM,
 }
+impl Default for DHCP_SCAN_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SEARCH_INFO {
     pub SearchType: DHCP_SEARCH_INFO_TYPE,
     pub SearchInfo: DHCP_SEARCH_INFO_0,
+}
+impl Default for DHCP_SEARCH_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1276,6 +1736,11 @@ pub union DHCP_SEARCH_INFO_0 {
     pub ClientIpAddress: u32,
     pub ClientHardwareAddress: DHCP_BINARY_DATA,
     pub ClientName: windows_sys::core::PWSTR,
+}
+impl Default for DHCP_SEARCH_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DHCP_SEARCH_INFO_TYPE = i32;
 pub type DHCP_SEARCH_INFO_TYPE_V6 = i32;
@@ -1285,12 +1750,22 @@ pub struct DHCP_SEARCH_INFO_V6 {
     pub SearchType: DHCP_SEARCH_INFO_TYPE_V6,
     pub SearchInfo: DHCP_SEARCH_INFO_V6_0,
 }
+impl Default for DHCP_SEARCH_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DHCP_SEARCH_INFO_V6_0 {
     pub ClientIpAddress: DHCP_IPV6_ADDRESS,
     pub ClientDUID: DHCP_BINARY_DATA,
     pub ClientName: windows_sys::core::PWSTR,
+}
+impl Default for DHCP_SEARCH_INFO_V6_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DHCP_SEND_PACKET: u32 = 268435456u32;
 #[repr(C)]
@@ -1305,6 +1780,11 @@ pub struct DHCP_SERVER_CONFIG_INFO {
     pub RestoreFlag: u32,
     pub DatabaseCleanupInterval: u32,
     pub DebugFlag: u32,
+}
+impl Default for DHCP_SERVER_CONFIG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1323,8 +1803,13 @@ pub struct DHCP_SERVER_CONFIG_INFO_V4 {
     pub wszBootTableString: windows_sys::core::PWSTR,
     pub fAuditLog: windows_sys::core::BOOL,
 }
+impl Default for DHCP_SERVER_CONFIG_INFO_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DHCP_SERVER_CONFIG_INFO_V6 {
     pub UnicastFlag: windows_sys::core::BOOL,
     pub RapidCommitFlag: windows_sys::core::BOOL,
@@ -1356,6 +1841,11 @@ pub struct DHCP_SERVER_CONFIG_INFO_VQ {
     pub QuarDefFail: u32,
     pub QuarRuntimeStatus: windows_sys::core::BOOL,
 }
+impl Default for DHCP_SERVER_CONFIG_INFO_VQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SERVER_OPTIONS {
@@ -1385,17 +1875,32 @@ pub struct DHCP_SERVER_OPTIONS {
     pub DSDomainNameLen: u32,
     pub ScopeId: *mut u32,
 }
+impl Default for DHCP_SERVER_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SERVER_SPECIFIC_STRINGS {
     pub DefaultVendorClassName: windows_sys::core::PWSTR,
     pub DefaultUserClassName: windows_sys::core::PWSTR,
 }
+impl Default for DHCP_SERVER_SPECIFIC_STRINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_0,
+}
+impl Default for DHCP_SUBNET_ELEMENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1406,11 +1911,21 @@ pub union DHCP_SUBNET_ELEMENT_DATA_0 {
     pub ExcludeIpRange: *mut DHCP_IP_RANGE,
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
+impl Default for DHCP_SUBNET_ELEMENT_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V4 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V4_0,
+}
+impl Default for DHCP_SUBNET_ELEMENT_DATA_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1421,11 +1936,21 @@ pub union DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     pub ExcludeIpRange: *mut DHCP_IP_RANGE,
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
+impl Default for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V5 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V5_0,
+}
+impl Default for DHCP_SUBNET_ELEMENT_DATA_V5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1436,11 +1961,21 @@ pub union DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     pub ExcludeIpRange: *mut DHCP_IP_RANGE,
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
+impl Default for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V6 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE_V6,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V6_0,
+}
+impl Default for DHCP_SUBNET_ELEMENT_DATA_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1449,11 +1984,21 @@ pub union DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     pub ReservedIp: *mut DHCP_IP_RESERVATION_V6,
     pub ExcludeIpRange: *mut DHCP_IP_RANGE_V6,
 }
+impl Default for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA,
+}
+impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1461,17 +2006,32 @@ pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V4,
 }
+impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V5,
 }
+impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V6,
+}
+impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DHCP_SUBNET_ELEMENT_TYPE = i32;
 pub type DHCP_SUBNET_ELEMENT_TYPE_V6 = i32;
@@ -1485,6 +2045,11 @@ pub struct DHCP_SUBNET_INFO {
     pub PrimaryHost: DHCP_HOST_INFO,
     pub SubnetState: DHCP_SUBNET_STATE,
 }
+impl Default for DHCP_SUBNET_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_INFO_V6 {
@@ -1495,6 +2060,11 @@ pub struct DHCP_SUBNET_INFO_V6 {
     pub SubnetComment: windows_sys::core::PWSTR,
     pub State: u32,
     pub ScopeId: u32,
+}
+impl Default for DHCP_SUBNET_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1511,6 +2081,11 @@ pub struct DHCP_SUBNET_INFO_VQ {
     pub Reserved3: i64,
     pub Reserved4: i64,
 }
+impl Default for DHCP_SUBNET_INFO_VQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
 pub type DHCP_SUBNET_STATE = i32;
 #[repr(C)]
@@ -1519,6 +2094,11 @@ pub struct DHCP_SUPER_SCOPE_TABLE {
     pub cEntries: u32,
     pub pEntries: *mut DHCP_SUPER_SCOPE_TABLE_ENTRY,
 }
+impl Default for DHCP_SUPER_SCOPE_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
@@ -1526,6 +2106,11 @@ pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
     pub SuperScopeNumber: u32,
     pub NextInSuperScope: u32,
     pub SuperScopeName: windows_sys::core::PWSTR,
+}
+impl Default for DHCP_SUPER_SCOPE_TABLE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_FLAG_CLEANUP_EXPIRED: u32 = 4u32;
 pub const DNS_FLAG_DISABLE_PTR_UPDATE: u32 = 64u32;
@@ -1536,7 +2121,7 @@ pub const DNS_FLAG_UPDATE_DHCID: u32 = 32u32;
 pub const DNS_FLAG_UPDATE_DOWNLEVEL: u32 = 2u32;
 pub const DROPPACKET: QuarantineStatus = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DWORD_DWORD {
     pub DWord1: u32,
     pub DWord2: u32,
@@ -1847,7 +2432,7 @@ pub const RESOLUTION_INT: FSM_STATE = 8i32;
 pub const RESTRICTEDACCESS: QuarantineStatus = 1i32;
 pub const SAFEPERIOD: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCOPE_MIB_INFO {
     pub Subnet: u32,
     pub NumAddressesInuse: u32,
@@ -1855,7 +2440,7 @@ pub struct SCOPE_MIB_INFO {
     pub NumPendingOffers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCOPE_MIB_INFO_V5 {
     pub Subnet: u32,
     pub NumAddressesInuse: u32,
@@ -1863,7 +2448,7 @@ pub struct SCOPE_MIB_INFO_V5 {
     pub NumPendingOffers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCOPE_MIB_INFO_V6 {
     pub Subnet: DHCP_IPV6_ADDRESS,
     pub NumAddressesInuse: u64,
@@ -1871,7 +2456,7 @@ pub struct SCOPE_MIB_INFO_V6 {
     pub NumPendingAdvertises: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCOPE_MIB_INFO_VQ {
     pub Subnet: u32,
     pub NumAddressesInuse: u32,

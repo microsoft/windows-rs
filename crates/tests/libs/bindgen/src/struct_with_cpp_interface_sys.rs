@@ -11,6 +11,11 @@
 pub struct D3D12_RESOURCE_UAV_BARRIER {
     pub pResource: *mut core::ffi::c_void,
 }
+impl Default for D3D12_RESOURCE_UAV_BARRIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IID_ID3D12DeviceChild: windows_sys::core::GUID =
     windows_sys::core::GUID::from_u128(0x905db94b_a00c_4140_9df5_2b64ca9ea357);
 #[repr(C)]

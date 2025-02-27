@@ -99,11 +99,21 @@ pub struct ACTRL_ACCESSA {
     pub cEntries: u32,
     pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYA,
 }
+impl Default for ACTRL_ACCESSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_ACCESSW {
     pub cEntries: u32,
     pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYW,
+}
+impl Default for ACTRL_ACCESSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ACTRL_ACCESS_ALLOWED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 1u32;
 pub const ACTRL_ACCESS_DENIED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 2u32;
@@ -117,6 +127,11 @@ pub struct ACTRL_ACCESS_ENTRYA {
     pub Inheritance: super::ACE_FLAGS,
     pub lpInheritProperty: windows_sys::core::PSTR,
 }
+impl Default for ACTRL_ACCESS_ENTRYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_ACCESS_ENTRYW {
@@ -127,6 +142,11 @@ pub struct ACTRL_ACCESS_ENTRYW {
     pub Inheritance: super::ACE_FLAGS,
     pub lpInheritProperty: windows_sys::core::PWSTR,
 }
+impl Default for ACTRL_ACCESS_ENTRYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -134,11 +154,21 @@ pub struct ACTRL_ACCESS_ENTRY_LISTA {
     pub cEntries: u32,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYA,
 }
+impl Default for ACTRL_ACCESS_ENTRY_LISTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_ACCESS_ENTRY_LISTW {
     pub cEntries: u32,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYW,
+}
+impl Default for ACTRL_ACCESS_ENTRY_LISTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -146,11 +176,21 @@ pub struct ACTRL_ACCESS_INFOA {
     pub fAccessPermission: u32,
     pub lpAccessPermissionName: windows_sys::core::PSTR,
 }
+impl Default for ACTRL_ACCESS_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_ACCESS_INFOW {
     pub fAccessPermission: u32,
     pub lpAccessPermissionName: windows_sys::core::PWSTR,
+}
+impl Default for ACTRL_ACCESS_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ACTRL_ACCESS_NO_OPTIONS: u32 = 0u32;
 pub const ACTRL_ACCESS_PROTECTED: u32 = 1u32;
@@ -165,11 +205,21 @@ pub struct ACTRL_CONTROL_INFOA {
     pub lpControlId: windows_sys::core::PSTR,
     pub lpControlName: windows_sys::core::PSTR,
 }
+impl Default for ACTRL_CONTROL_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_CONTROL_INFOW {
     pub lpControlId: windows_sys::core::PWSTR,
     pub lpControlName: windows_sys::core::PWSTR,
+}
+impl Default for ACTRL_CONTROL_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ACTRL_DELETE: u32 = 134217728u32;
 pub const ACTRL_DIR_CREATE_CHILD: u32 = 4u32;
@@ -209,11 +259,21 @@ pub struct ACTRL_OVERLAPPED {
     pub Reserved2: u32,
     pub hEvent: super::super::Foundation::HANDLE,
 }
+impl Default for ACTRL_OVERLAPPED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ACTRL_OVERLAPPED_0 {
     pub Provider: *mut core::ffi::c_void,
     pub Reserved1: u32,
+}
+impl Default for ACTRL_OVERLAPPED_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ACTRL_PERM_1: u32 = 1u32;
 pub const ACTRL_PERM_10: u32 = 512u32;
@@ -247,12 +307,22 @@ pub struct ACTRL_PROPERTY_ENTRYA {
     pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTA,
     pub fListFlags: u32,
 }
+impl Default for ACTRL_PROPERTY_ENTRYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_PROPERTY_ENTRYW {
     pub lpProperty: windows_sys::core::PWSTR,
     pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTW,
     pub fListFlags: u32,
+}
+impl Default for ACTRL_PROPERTY_ENTRYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ACTRL_READ_CONTROL: u32 = 268435456u32;
 pub const ACTRL_REG_CREATE_CHILD: u32 = 4u32;
@@ -306,8 +376,13 @@ pub const AP_ParamTypeMask: i32 = 255i32;
 pub struct AUDIT_IP_ADDRESS {
     pub pIpAddress: [u8; 128],
 }
+impl Default for AUDIT_IP_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUDIT_OBJECT_TYPE {
     pub ObjectType: windows_sys::core::GUID,
     pub Flags: u16,
@@ -321,6 +396,11 @@ pub struct AUDIT_OBJECT_TYPES {
     pub Flags: u16,
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
 }
+impl Default for AUDIT_OBJECT_TYPES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUDIT_PARAM {
@@ -329,6 +409,11 @@ pub struct AUDIT_PARAM {
     pub Flags: u32,
     pub Anonymous1: AUDIT_PARAM_0,
     pub Anonymous2: AUDIT_PARAM_1,
+}
+impl Default for AUDIT_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -342,11 +427,21 @@ pub union AUDIT_PARAM_0 {
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPES,
     pub pIpAddress: *mut AUDIT_IP_ADDRESS,
 }
+impl Default for AUDIT_PARAM_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AUDIT_PARAM_1 {
     pub Data1: usize,
     pub LogonId_HighPart: i32,
+}
+impl Default for AUDIT_PARAM_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -355,6 +450,11 @@ pub struct AUDIT_PARAMS {
     pub Flags: u32,
     pub Count: u16,
     pub Parameters: *mut AUDIT_PARAM,
+}
+impl Default for AUDIT_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type AUDIT_PARAM_TYPE = i32;
 pub const AUDIT_TYPE_LEGACY: u32 = 1u32;
@@ -371,6 +471,11 @@ pub struct AUTHZ_ACCESS_REPLY {
     pub SaclEvaluationResults: *mut AUTHZ_GENERATE_RESULTS,
     pub Error: *mut u32,
 }
+impl Default for AUTHZ_ACCESS_REPLY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_ACCESS_REQUEST {
@@ -380,12 +485,17 @@ pub struct AUTHZ_ACCESS_REQUEST {
     pub ObjectTypeListLength: u32,
     pub OptionalArguments: *mut core::ffi::c_void,
 }
+impl Default for AUTHZ_ACCESS_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 pub type AUTHZ_AUDIT_EVENT_HANDLE = *mut core::ffi::c_void;
 pub type AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = i32;
 pub type AUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
     pub CategoryId: u16,
     pub AuditId: u16,
@@ -401,10 +511,20 @@ pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
     pub LinkId: super::super::Foundation::LUID,
     pub u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
 }
+impl Default for AUTHZ_AUDIT_EVENT_TYPE_OLD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AUTHZ_AUDIT_EVENT_TYPE_UNION {
     pub Legacy: AUTHZ_AUDIT_EVENT_TYPE_LEGACY,
+}
+impl Default for AUTHZ_AUDIT_EVENT_TYPE_UNION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: u32 = 2u32;
 pub type AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut core::ffi::c_void;
@@ -427,6 +547,11 @@ pub struct AUTHZ_INIT_INFO {
     pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
     pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
 }
+impl Default for AUTHZ_INIT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1u32;
 pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: u32 = 2u32;
 pub const AUTHZ_NO_ALLOC_STRINGS: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = 4u32;
@@ -437,6 +562,11 @@ pub const AUTHZ_NO_SUCCESS_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLA
 pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     pub szObjectTypeName: windows_sys::core::PWSTR,
     pub dwOffset: u32,
+}
+impl Default for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4u32;
 pub type AUTHZ_RESOURCE_MANAGER_FLAGS = u32;
@@ -455,6 +585,11 @@ pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub Options: windows_sys::core::PWSTR,
     pub ServerSpn: windows_sys::core::PWSTR,
 }
+impl Default for AUTHZ_RPC_INIT_INFO_CLIENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -464,10 +599,20 @@ pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     pub AttributeCount: u32,
     pub Attribute: AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0,
 }
+impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut AUTHZ_SECURITY_ATTRIBUTE_V1,
+}
+impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
@@ -478,12 +623,22 @@ pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub pName: windows_sys::core::PWSTR,
 }
+impl Default for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,
+}
+impl Default for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type AUTHZ_SECURITY_ATTRIBUTE_OPERATION = i32;
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 2i32;
@@ -509,6 +664,11 @@ pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
     pub ValueCount: u32,
     pub Values: AUTHZ_SECURITY_ATTRIBUTE_V1_0,
 }
+impl Default for AUTHZ_SECURITY_ATTRIBUTE_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
@@ -517,6 +677,11 @@ pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     pub ppString: *mut windows_sys::core::PWSTR,
     pub pFqbn: *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
+}
+impl Default for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = 2u32;
 pub type AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut core::ffi::c_void;
@@ -540,11 +705,21 @@ pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     pub dwObjectTypeNameCount: u32,
     pub ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
 }
+impl Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     pub pReserved: *mut core::ffi::c_void,
     pub pProviderGuid: *mut windows_sys::core::GUID,
+}
+impl Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16u32;
 pub const AZ_AZSTORE_DEFAULT_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = 15000i32;
@@ -672,7 +847,7 @@ pub const AzBizRuleContext: windows_sys::core::GUID = windows_sys::core::GUID::f
 pub const AzPrincipalLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
 pub const DENY_ACCESS: ACCESS_MODE = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXPLICIT_ACCESS_A {
     pub grfAccessPermissions: u32,
     pub grfAccessMode: ACCESS_MODE,
@@ -680,7 +855,7 @@ pub struct EXPLICIT_ACCESS_A {
     pub Trustee: TRUSTEE_A,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXPLICIT_ACCESS_W {
     pub grfAccessPermissions: u32,
     pub grfAccessMode: ACCESS_MODE,
@@ -688,7 +863,7 @@ pub struct EXPLICIT_ACCESS_W {
     pub Trustee: TRUSTEE_W,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FN_OBJECT_MGR_FUNCTS {
     pub Placeholder: u32,
 }
@@ -701,11 +876,21 @@ pub struct INHERITED_FROMA {
     pub GenerationGap: i32,
     pub AncestorName: windows_sys::core::PSTR,
 }
+impl Default for INHERITED_FROMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INHERITED_FROMW {
     pub GenerationGap: i32,
     pub AncestorName: windows_sys::core::PWSTR,
+}
+impl Default for INHERITED_FROMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const INHERITED_GRANDPARENT: u32 = 536870912u32;
 pub const INHERITED_PARENT: u32 = 268435456u32;
@@ -721,6 +906,11 @@ pub struct OBJECTS_AND_NAME_A {
     pub InheritedObjectTypeName: windows_sys::core::PSTR,
     pub ptstrName: windows_sys::core::PSTR,
 }
+impl Default for OBJECTS_AND_NAME_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OBJECTS_AND_NAME_W {
@@ -730,6 +920,11 @@ pub struct OBJECTS_AND_NAME_W {
     pub InheritedObjectTypeName: windows_sys::core::PWSTR,
     pub ptstrName: windows_sys::core::PWSTR,
 }
+impl Default for OBJECTS_AND_NAME_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OBJECTS_AND_SID {
@@ -737,6 +932,11 @@ pub struct OBJECTS_AND_SID {
     pub ObjectTypeGuid: windows_sys::core::GUID,
     pub InheritedObjectTypeGuid: windows_sys::core::GUID,
     pub pSid: *mut super::SID,
+}
+impl Default for OBJECTS_AND_SID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OLESCRIPT_E_SYNTAX: windows_sys::core::HRESULT = 0x80020101_u32 as _;
 pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> windows_sys::core::BOOL>;
@@ -934,6 +1134,11 @@ pub struct TRUSTEE_A {
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: windows_sys::core::PSTR,
 }
+impl Default for TRUSTEE_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TRUSTEE_ACCESSA {
@@ -942,6 +1147,11 @@ pub struct TRUSTEE_ACCESSA {
     pub fAccessFlags: u32,
     pub fReturnedAccess: u32,
 }
+impl Default for TRUSTEE_ACCESSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TRUSTEE_ACCESSW {
@@ -949,6 +1159,11 @@ pub struct TRUSTEE_ACCESSW {
     pub Access: u32,
     pub fAccessFlags: u32,
     pub fReturnedAccess: u32,
+}
+impl Default for TRUSTEE_ACCESSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TRUSTEE_ACCESS_ALL: i32 = -1i32;
 pub const TRUSTEE_ACCESS_ALLOWED: i32 = 1i32;
@@ -980,5 +1195,10 @@ pub struct TRUSTEE_W {
     pub TrusteeForm: TRUSTEE_FORM,
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: windows_sys::core::PWSTR,
+}
+impl Default for TRUSTEE_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const _AUTHZ_SS_MAXSIZE: u32 = 128u32;

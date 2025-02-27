@@ -243,11 +243,21 @@ pub struct ADDJOB_INFO_1A {
     pub Path: windows_sys::core::PSTR,
     pub JobId: u32,
 }
+impl Default for ADDJOB_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADDJOB_INFO_1W {
     pub Path: windows_sys::core::PWSTR,
     pub JobId: u32,
+}
+impl Default for ADDJOB_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ALREADY_REGISTERED: PrintAsyncNotifyError = 15i32;
 pub const ALREADY_UNREGISTERED: PrintAsyncNotifyError = 14i32;
@@ -262,7 +272,7 @@ pub const ASYNC_CALL_ALREADY_PARKED: PrintAsyncNotifyError = 12i32;
 pub const ASYNC_CALL_IN_PROGRESS: PrintAsyncNotifyError = 17i32;
 pub const ASYNC_NOTIFICATION_FAILURE: PrintAsyncNotifyError = 6i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATTRIBUTE_INFO_1 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -273,7 +283,7 @@ pub struct ATTRIBUTE_INFO_1 {
     pub dwDrvNumberOfCopies: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATTRIBUTE_INFO_2 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -285,7 +295,7 @@ pub struct ATTRIBUTE_INFO_2 {
     pub dwColorOptimization: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATTRIBUTE_INFO_3 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -299,7 +309,7 @@ pub struct ATTRIBUTE_INFO_3 {
     pub dmYResolution: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATTRIBUTE_INFO_4 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -332,6 +342,11 @@ pub struct BIDI_DATA {
     pub dwBidiType: u32,
     pub u: BIDI_DATA_0,
 }
+impl Default for BIDI_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BIDI_DATA_0 {
@@ -340,6 +355,11 @@ pub union BIDI_DATA_0 {
     pub sData: windows_sys::core::PWSTR,
     pub fData: f32,
     pub biData: BINARY_CONTAINER,
+}
+impl Default for BIDI_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BIDI_ENUM: BIDI_TYPE = 6i32;
 pub const BIDI_FLOAT: BIDI_TYPE = 2i32;
@@ -353,12 +373,22 @@ pub struct BIDI_REQUEST_CONTAINER {
     pub Count: u32,
     pub aData: [BIDI_REQUEST_DATA; 1],
 }
+impl Default for BIDI_REQUEST_CONTAINER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BIDI_REQUEST_DATA {
     pub dwReqNumber: u32,
     pub pSchema: windows_sys::core::PWSTR,
     pub data: BIDI_DATA,
+}
+impl Default for BIDI_REQUEST_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -368,6 +398,11 @@ pub struct BIDI_RESPONSE_CONTAINER {
     pub Count: u32,
     pub aData: [BIDI_RESPONSE_DATA; 1],
 }
+impl Default for BIDI_RESPONSE_CONTAINER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BIDI_RESPONSE_DATA {
@@ -375,6 +410,11 @@ pub struct BIDI_RESPONSE_DATA {
     pub dwReqNumber: u32,
     pub pSchema: windows_sys::core::PWSTR,
     pub data: BIDI_DATA,
+}
+impl Default for BIDI_RESPONSE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BIDI_STRING: BIDI_TYPE = 4i32;
 pub const BIDI_TEXT: BIDI_TYPE = 5i32;
@@ -384,6 +424,11 @@ pub type BIDI_TYPE = i32;
 pub struct BINARY_CONTAINER {
     pub cbBuf: u32,
     pub pData: *mut u8,
+}
+impl Default for BINARY_CONTAINER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BOOKLET_EDGE_LEFT: u32 = 0u32;
 pub const BOOKLET_EDGE_RIGHT: u32 = 1u32;
@@ -399,6 +444,11 @@ pub struct BranchOfficeJobData {
     pub JobId: u32,
     pub JobInfo: BranchOfficeJobData_0,
 }
+impl Default for BranchOfficeJobData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BranchOfficeJobData_0 {
@@ -408,11 +458,21 @@ pub union BranchOfficeJobData_0 {
     pub LogPipelineFailed: BranchOfficeJobDataPipelineFailed,
     pub LogOfflineFileFull: BranchOfficeLogOfflineFileFull,
 }
+impl Default for BranchOfficeJobData_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BranchOfficeJobDataContainer {
     pub cJobDataEntries: u32,
     pub JobData: [BranchOfficeJobData; 1],
+}
+impl Default for BranchOfficeJobDataContainer {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -430,12 +490,22 @@ pub struct BranchOfficeJobDataError {
     pub pJobError: windows_sys::core::PWSTR,
     pub pErrorDescription: windows_sys::core::PWSTR,
 }
+impl Default for BranchOfficeJobDataError {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BranchOfficeJobDataPipelineFailed {
     pub pDocumentName: windows_sys::core::PWSTR,
     pub pPrinterName: windows_sys::core::PWSTR,
     pub pExtraErrorInfo: windows_sys::core::PWSTR,
+}
+impl Default for BranchOfficeJobDataPipelineFailed {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -449,8 +519,13 @@ pub struct BranchOfficeJobDataPrinted {
     pub Size: i64,
     pub TotalPages: u32,
 }
+impl Default for BranchOfficeJobDataPrinted {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BranchOfficeJobDataRendered {
     pub Size: i64,
     pub ICMMethod: u32,
@@ -464,6 +539,11 @@ pub struct BranchOfficeJobDataRendered {
 #[derive(Clone, Copy)]
 pub struct BranchOfficeLogOfflineFileFull {
     pub pMachineName: windows_sys::core::PWSTR,
+}
+impl Default for BranchOfficeLogOfflineFileFull {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CC_BIG5: i32 = -10i32;
 pub const CC_CP437: i32 = -1i32;
@@ -526,11 +606,22 @@ pub struct COMPROPSHEETUI {
     pub OptItemVersion: u16,
     pub dwReserved: [usize; 4],
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for COMPROPSHEETUI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONFIG_INFO_DATA_1 {
     pub Reserved: [u8; 128],
     pub dwVersion: u32,
+}
+impl Default for CONFIG_INFO_DATA_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const COPYFILE_EVENT_ADD_PRINTER_CONNECTION: u32 = 3u32;
 pub const COPYFILE_EVENT_DELETE_PRINTER: u32 = 2u32;
@@ -547,6 +638,11 @@ pub struct CORE_PRINTER_DRIVERA {
     pub dwlDriverVersion: u64,
     pub szPackageID: [i8; 260],
 }
+impl Default for CORE_PRINTER_DRIVERA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CORE_PRINTER_DRIVERW {
@@ -554,6 +650,11 @@ pub struct CORE_PRINTER_DRIVERW {
     pub ftDriverDate: super::super::Foundation::FILETIME,
     pub dwlDriverVersion: u64,
     pub szPackageID: [u16; 260],
+}
+impl Default for CORE_PRINTER_DRIVERW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CPSFUNC_ADD_HPROPSHEETPAGE: u32 = 0u32;
 pub const CPSFUNC_ADD_PCOMPROPSHEETUI: u32 = 3u32;
@@ -603,12 +704,24 @@ pub struct CPSUICBPARAM {
     pub UserData: usize,
     pub Result: usize,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for CPSUICBPARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union CPSUICBPARAM_0 {
     pub OldSel: i32,
     pub pOldSel: *mut i8,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for CPSUICBPARAM_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CPSUICB_ACTION_ITEMS_APPLIED: u32 = 4u32;
 pub const CPSUICB_ACTION_NONE: u32 = 0u32;
@@ -633,6 +746,11 @@ pub struct CPSUIDATABLOCK {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
+impl Default for CPSUIDATABLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CPSUIF_ABOUT_CALLBACK: u32 = 4u32;
 pub const CPSUIF_ICONID_AS_HICON: u32 = 2u32;
 pub const CPSUIF_UPDATE_PERMISSION: u32 = 1u32;
@@ -647,7 +765,7 @@ pub const CUSTOMPARAM_ORIENTATION: u32 = 4u32;
 pub const CUSTOMPARAM_WIDTH: u32 = 0u32;
 pub const CUSTOMPARAM_WIDTHOFFSET: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CUSTOMSIZEPARAM {
     pub dwOrder: i32,
     pub lMinVal: i32,
@@ -662,13 +780,23 @@ pub const Compression_Small: EXpsCompressionOptions = 2i32;
 pub struct DATATYPES_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for DATATYPES_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DATATYPES_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
+impl Default for DATATYPES_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DATA_HEADER {
     pub dwSignature: u32,
     pub wSize: u16,
@@ -685,6 +813,11 @@ pub struct DELETE_PORT_DATA_1 {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
+impl Default for DELETE_PORT_DATA_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICEPROPERTYHEADER {
@@ -692,6 +825,11 @@ pub struct DEVICEPROPERTYHEADER {
     pub Flags: u16,
     pub hPrinter: super::super::Foundation::HANDLE,
     pub pszPrinterName: *mut i8,
+}
+impl Default for DEVICEPROPERTYHEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -704,6 +842,12 @@ pub struct DEVQUERYPRINT_INFO {
     pub pszErrorStr: windows_sys::core::PWSTR,
     pub cchErrorStr: u32,
     pub cchNeeded: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for DEVQUERYPRINT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DF_BKSP_OK: u32 = 64u32;
 pub const DF_NOITALIC: u32 = 1u32;
@@ -865,12 +1009,24 @@ pub struct DLGPAGE {
     pub IconID: usize,
     pub Anonymous: DLGPAGE_0,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for DLGPAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union DLGPAGE_0 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for DLGPAGE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DMPUB_BOOKLET_EDGE: u32 = 21u32;
 pub const DMPUB_COLOR: u32 = 6u32;
@@ -915,12 +1071,23 @@ pub struct DOCEVENT_CREATEDCPRE {
     pub pdm: *mut super::Gdi::DEVMODEW,
     pub bIC: windows_sys::core::BOOL,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for DOCEVENT_CREATEDCPRE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DOCEVENT_ESCAPE {
     pub iEscape: i32,
     pub cjInput: i32,
     pub pvInData: *mut core::ffi::c_void,
+}
+impl Default for DOCEVENT_ESCAPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -930,6 +1097,11 @@ pub struct DOCEVENT_FILTER {
     pub cElementsNeeded: u32,
     pub cElementsReturned: u32,
     pub aDocEventCall: [u32; 1],
+}
+impl Default for DOCEVENT_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DOCUMENTEVENT_ABORTDOC: u32 = 9u32;
 pub const DOCUMENTEVENT_CREATEDCPOST: u32 = 2u32;
@@ -979,6 +1151,12 @@ pub struct DOCUMENTPROPERTYHEADER {
     pub cbOut: u32,
     pub fMode: u32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for DOCUMENTPROPERTYHEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DOC_INFO_1A {
@@ -986,12 +1164,22 @@ pub struct DOC_INFO_1A {
     pub pOutputFile: windows_sys::core::PSTR,
     pub pDatatype: windows_sys::core::PSTR,
 }
+impl Default for DOC_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DOC_INFO_1W {
     pub pDocName: windows_sys::core::PWSTR,
     pub pOutputFile: windows_sys::core::PWSTR,
     pub pDatatype: windows_sys::core::PWSTR,
+}
+impl Default for DOC_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1002,6 +1190,11 @@ pub struct DOC_INFO_2A {
     pub dwMode: u32,
     pub JobId: u32,
 }
+impl Default for DOC_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DOC_INFO_2W {
@@ -1011,6 +1204,11 @@ pub struct DOC_INFO_2W {
     pub dwMode: u32,
     pub JobId: u32,
 }
+impl Default for DOC_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DOC_INFO_3A {
@@ -1018,6 +1216,11 @@ pub struct DOC_INFO_3A {
     pub pOutputFile: windows_sys::core::PSTR,
     pub pDatatype: windows_sys::core::PSTR,
     pub dwFlags: u32,
+}
+impl Default for DOC_INFO_3A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1027,6 +1230,11 @@ pub struct DOC_INFO_3W {
     pub pDatatype: windows_sys::core::PWSTR,
     pub dwFlags: u32,
 }
+impl Default for DOC_INFO_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DOC_INFO_INTERNAL {
@@ -1035,6 +1243,11 @@ pub struct DOC_INFO_INTERNAL {
     pub pDatatype: *mut i8,
     pub bLowILJob: windows_sys::core::BOOL,
     pub hTokenLowIL: super::super::Foundation::HANDLE,
+}
+impl Default for DOC_INFO_INTERNAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DOC_INFO_INTERNAL_LEVEL: u32 = 100u32;
 pub const DPD_DELETE_ALL_FILES: u32 = 4u32;
@@ -1054,10 +1267,20 @@ pub const DRIVER_EVENT_INITIALIZE: u32 = 1u32;
 pub struct DRIVER_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for DRIVER_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
+}
+impl Default for DRIVER_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1069,6 +1292,11 @@ pub struct DRIVER_INFO_2A {
     pub pDataFile: windows_sys::core::PSTR,
     pub pConfigFile: windows_sys::core::PSTR,
 }
+impl Default for DRIVER_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_INFO_2W {
@@ -1078,6 +1306,11 @@ pub struct DRIVER_INFO_2W {
     pub pDriverPath: windows_sys::core::PWSTR,
     pub pDataFile: windows_sys::core::PWSTR,
     pub pConfigFile: windows_sys::core::PWSTR,
+}
+impl Default for DRIVER_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1093,6 +1326,11 @@ pub struct DRIVER_INFO_3A {
     pub pMonitorName: windows_sys::core::PSTR,
     pub pDefaultDataType: windows_sys::core::PSTR,
 }
+impl Default for DRIVER_INFO_3A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_INFO_3W {
@@ -1106,6 +1344,11 @@ pub struct DRIVER_INFO_3W {
     pub pDependentFiles: windows_sys::core::PWSTR,
     pub pMonitorName: windows_sys::core::PWSTR,
     pub pDefaultDataType: windows_sys::core::PWSTR,
+}
+impl Default for DRIVER_INFO_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1122,6 +1365,11 @@ pub struct DRIVER_INFO_4A {
     pub pDefaultDataType: windows_sys::core::PSTR,
     pub pszzPreviousNames: windows_sys::core::PSTR,
 }
+impl Default for DRIVER_INFO_4A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_INFO_4W {
@@ -1137,6 +1385,11 @@ pub struct DRIVER_INFO_4W {
     pub pDefaultDataType: windows_sys::core::PWSTR,
     pub pszzPreviousNames: windows_sys::core::PWSTR,
 }
+impl Default for DRIVER_INFO_4W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_INFO_5A {
@@ -1150,6 +1403,11 @@ pub struct DRIVER_INFO_5A {
     pub dwConfigVersion: u32,
     pub dwDriverVersion: u32,
 }
+impl Default for DRIVER_INFO_5A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_INFO_5W {
@@ -1162,6 +1420,11 @@ pub struct DRIVER_INFO_5W {
     pub dwDriverAttributes: u32,
     pub dwConfigVersion: u32,
     pub dwDriverVersion: u32,
+}
+impl Default for DRIVER_INFO_5W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1184,6 +1447,11 @@ pub struct DRIVER_INFO_6A {
     pub pszHardwareID: windows_sys::core::PSTR,
     pub pszProvider: windows_sys::core::PSTR,
 }
+impl Default for DRIVER_INFO_6A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_INFO_6W {
@@ -1204,6 +1472,11 @@ pub struct DRIVER_INFO_6W {
     pub pszOEMUrl: windows_sys::core::PWSTR,
     pub pszHardwareID: windows_sys::core::PWSTR,
     pub pszProvider: windows_sys::core::PWSTR,
+}
+impl Default for DRIVER_INFO_6W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1234,6 +1507,11 @@ pub struct DRIVER_INFO_8A {
     pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
     pub dwlMinInboxDriverVerVersion: u64,
 }
+impl Default for DRIVER_INFO_8A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_INFO_8W {
@@ -1263,12 +1541,22 @@ pub struct DRIVER_INFO_8W {
     pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
     pub dwlMinInboxDriverVerVersion: u64,
 }
+impl Default for DRIVER_INFO_8W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DRIVER_KERNELMODE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_UPGRADE_INFO_1 {
     pub pPrinterName: *mut i8,
     pub pOldDriverDirectory: *mut i8,
+}
+impl Default for DRIVER_UPGRADE_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1286,6 +1574,11 @@ pub struct DRIVER_UPGRADE_INFO_2 {
     pub pMonitorName: *mut i8,
     pub pDefaultDataType: *mut i8,
     pub pszzPreviousNames: *mut i8,
+}
+impl Default for DRIVER_UPGRADE_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DRIVER_USERMODE: u32 = 2u32;
 pub const DSPRINT_PENDING: u32 = 2147483648u32;
@@ -1396,6 +1689,11 @@ pub struct EXTCHKBOX {
     pub wReserved: [u16; 4],
     pub dwReserved: [usize; 2],
 }
+impl Default for EXTCHKBOX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -1408,12 +1706,24 @@ pub struct EXTPUSH {
     pub Anonymous2: EXTPUSH_1,
     pub dwReserved: [usize; 3],
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for EXTPUSH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union EXTPUSH_0 {
     pub DlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
     pub pfnCallBack: super::super::Foundation::FARPROC,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for EXTPUSH_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -1422,8 +1732,14 @@ pub union EXTPUSH_1 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for EXTPUSH_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXTTEXTMETRIC {
     pub emSize: i16,
     pub emPointSize: i16,
@@ -1493,6 +1809,11 @@ pub struct FORM_INFO_1A {
     pub Size: super::super::Foundation::SIZE,
     pub ImageableArea: super::super::Foundation::RECTL,
 }
+impl Default for FORM_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FORM_INFO_1W {
@@ -1500,6 +1821,11 @@ pub struct FORM_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
     pub Size: super::super::Foundation::SIZE,
     pub ImageableArea: super::super::Foundation::RECTL,
+}
+impl Default for FORM_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1515,6 +1841,11 @@ pub struct FORM_INFO_2A {
     pub pDisplayName: windows_sys::core::PCSTR,
     pub wLangId: u16,
 }
+impl Default for FORM_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FORM_INFO_2W {
@@ -1529,13 +1860,18 @@ pub struct FORM_INFO_2W {
     pub pDisplayName: windows_sys::core::PCWSTR,
     pub wLangId: u16,
 }
+impl Default for FORM_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FORM_PRINTER: u32 = 2u32;
 pub const FORM_USER: u32 = 0u32;
 pub const FinalPageCount: PageCountType = 0i32;
 pub const Font_Normal: EXpsFontOptions = 0i32;
 pub const Font_Obfusticate: EXpsFontOptions = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GLYPHRUN {
     pub wcLow: u16,
     pub wGlyphCount: u16,
@@ -1851,7 +2187,7 @@ pub const IDS_CPSUI_WARNING: u32 = 64847u32;
 pub const IDS_CPSUI_WATERMARK: u32 = 64797u32;
 pub const IDS_CPSUI_YES: u32 = 64729u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INSERTPSUIPAGE_INFO {
     pub cbSize: u16,
     pub Type: u8,
@@ -1868,7 +2204,7 @@ pub const INSPSUIPAGE_MODE_LAST_CHILD: u32 = 3u32;
 pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: PrintAsyncNotifyError = 19i32;
 pub const INVALID_NOTIFICATION_TYPE: PrintAsyncNotifyError = 20i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INVOC {
     pub dwCount: u32,
     pub loOffset: u32,
@@ -1902,6 +2238,11 @@ pub struct ImgErrorInfo {
     pub userFallback: windows_sys::core::BSTR,
     pub exceptionID: u32,
 }
+impl Default for ImgErrorInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IntermediatePageCount: PageCountType = 1i32;
 pub const JOB_ACCESS_ADMINISTER: u32 = 16u32;
 pub const JOB_ACCESS_READ: u32 = 32u32;
@@ -1932,6 +2273,11 @@ pub struct JOB_INFO_1A {
     pub PagesPrinted: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
 }
+impl Default for JOB_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JOB_INFO_1W {
@@ -1948,6 +2294,11 @@ pub struct JOB_INFO_1W {
     pub TotalPages: u32,
     pub PagesPrinted: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
+}
+impl Default for JOB_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -1977,6 +2328,12 @@ pub struct JOB_INFO_2A {
     pub Time: u32,
     pub PagesPrinted: u32,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl Default for JOB_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[derive(Clone, Copy)]
@@ -2005,8 +2362,14 @@ pub struct JOB_INFO_2W {
     pub Time: u32,
     pub PagesPrinted: u32,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl Default for JOB_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JOB_INFO_3 {
     pub JobId: u32,
     pub NextJobId: u32,
@@ -2041,6 +2404,12 @@ pub struct JOB_INFO_4A {
     pub PagesPrinted: u32,
     pub SizeHigh: i32,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl Default for JOB_INFO_4A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[derive(Clone, Copy)]
@@ -2069,6 +2438,12 @@ pub struct JOB_INFO_4W {
     pub Time: u32,
     pub PagesPrinted: u32,
     pub SizeHigh: i32,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl Default for JOB_INFO_4W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const JOB_NOTIFY_FIELD_BYTES_PRINTED: u32 = 23u32;
 pub const JOB_NOTIFY_FIELD_DATATYPE: u32 = 5u32;
@@ -2120,6 +2495,12 @@ pub struct KERNDATA {
     pub dwKernPairNum: u32,
     pub KernPair: [super::super::Devices::Display::FD_KERNINGPAIR; 1],
 }
+#[cfg(feature = "Win32_Devices_Display")]
+impl Default for KERNDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = 23i32;
 pub const LPR: u32 = 2u32;
 #[repr(C)]
@@ -2128,6 +2509,11 @@ pub struct MAPTABLE {
     pub dwSize: u32,
     pub dwGlyphNum: u32,
     pub Trans: [TRANSDATA; 1],
+}
+impl Default for MAPTABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MAX_ADDRESS_STR_LEN: u32 = 13u32;
 pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = 22i32;
@@ -2157,10 +2543,15 @@ pub struct MESSAGEBOX_PARAMS {
     pub dwTimeout: u32,
     pub bWait: windows_sys::core::BOOL,
 }
+impl Default for MESSAGEBOX_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MIN_PRIORITY: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MONITOR {
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS,
     pub pfnOpenPort: PFN_PRINTING_OPENPORT,
@@ -2182,7 +2573,7 @@ pub struct MONITOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MONITOR2 {
     pub cbSize: u32,
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS2,
@@ -2210,7 +2601,7 @@ pub struct MONITOR2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MONITOREX {
     pub dwMonitorSize: u32,
     pub Monitor: MONITOR,
@@ -2226,8 +2617,14 @@ pub struct MONITORINIT {
     pub bLocal: windows_sys::core::BOOL,
     pub pszServerName: windows_sys::core::PCWSTR,
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for MONITORINIT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MONITORREG {
     pub cbSize: u32,
     pub fpCreateKey: isize,
@@ -2242,7 +2639,7 @@ pub struct MONITORREG {
     pub fpQueryValue: isize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MONITORUI {
     pub dwMonitorUISize: u32,
     pub pfnAddPortUI: isize,
@@ -2254,10 +2651,20 @@ pub struct MONITORUI {
 pub struct MONITOR_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for MONITOR_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MONITOR_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
+}
+impl Default for MONITOR_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2266,12 +2673,22 @@ pub struct MONITOR_INFO_2A {
     pub pEnvironment: windows_sys::core::PSTR,
     pub pDLLName: windows_sys::core::PSTR,
 }
+impl Default for MONITOR_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MONITOR_INFO_2W {
     pub pName: windows_sys::core::PWSTR,
     pub pEnvironment: windows_sys::core::PWSTR,
     pub pDLLName: windows_sys::core::PWSTR,
+}
+impl Default for MONITOR_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MS_PRINT_JOB_OUTPUT_FILE: windows_sys::core::PCWSTR = windows_sys::core::w!("MsPrintJobOutputFile");
 pub const MTYPE_ADD: u32 = 64u32;
@@ -2300,7 +2717,7 @@ pub const MXDCOP_SET_S0PAGE_RESOURCE: u32 = 30u32;
 pub const MXDCOP_SET_XPSPASSTHRU_MODE: u32 = 32u32;
 pub const MXDC_ESCAPE: u32 = 4122u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MXDC_ESCAPE_HEADER_T {
     pub cbInput: u32,
     pub cbOutput: u32,
@@ -2311,6 +2728,11 @@ pub struct MXDC_ESCAPE_HEADER_T {
 pub struct MXDC_GET_FILENAME_DATA_T {
     pub cbOutput: u32,
     pub wszData: [u16; 1],
+}
+impl Default for MXDC_GET_FILENAME_DATA_T {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = 1i32;
 pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = 3i32;
@@ -2327,8 +2749,13 @@ pub struct MXDC_PRINTTICKET_DATA_T {
     pub dwDataSize: u32,
     pub bData: [u8; 1],
 }
+impl Default for MXDC_PRINTTICKET_DATA_T {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MXDC_PRINTTICKET_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub printTicketData: MXDC_PRINTTICKET_DATA_T,
@@ -2349,14 +2776,19 @@ pub struct MXDC_S0PAGE_DATA_T {
     pub dwSize: u32,
     pub bData: [u8; 1],
 }
+impl Default for MXDC_S0PAGE_DATA_T {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub xpsS0PageData: MXDC_S0PAGE_DATA_T,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MXDC_S0PAGE_RESOURCE_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub xpsS0PageResourcePassthrough: MXDC_XPS_S0PAGE_RESOURCE_T,
@@ -2371,6 +2803,11 @@ pub struct MXDC_XPS_S0PAGE_RESOURCE_T {
     pub dwDataSize: u32,
     pub bData: [u8; 1],
 }
+impl Default for MXDC_XPS_S0PAGE_RESOURCE_T {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const NORMAL_PRINT: u32 = 0u32;
 pub type NOTIFICATION_CALLBACK_COMMANDS = i32;
 pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = 1i32;
@@ -2383,6 +2820,11 @@ pub struct NOTIFICATION_CONFIG_1 {
     pub fdwFlags: u32,
     pub pfnNotifyCallback: ROUTER_NOTIFY_CALLBACK,
     pub pContext: *mut core::ffi::c_void,
+}
+impl Default for NOTIFICATION_CONFIG_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = 8i32;
 pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = 1i32;
@@ -2417,6 +2859,12 @@ pub struct OEMCUIPPARAM {
     pub pOEMUserData: *mut core::ffi::c_void,
     pub OEMCUIPCallback: OEMCUIPCALLBACK,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for OEMCUIPPARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const OEMCUIP_DOCPROP: u32 = 1u32;
 pub const OEMCUIP_PRNPROP: u32 = 2u32;
 #[repr(C)]
@@ -2433,6 +2881,12 @@ pub struct OEMDMPARAM {
     pub pOEMDMOut: *mut core::ffi::c_void,
     pub cbBufSize: u32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for OEMDMPARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const OEMDM_CONVERT: u32 = 3u32;
 pub const OEMDM_DEFAULT: u32 = 2u32;
 pub const OEMDM_MERGE: u32 = 4u32;
@@ -2446,6 +2900,11 @@ pub struct OEMFONTINSTPARAM {
     pub hHeap: super::super::Foundation::HANDLE,
     pub dwFlags: u32,
     pub pFontInstallerName: windows_sys::core::PWSTR,
+}
+impl Default for OEMFONTINSTPARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OEMGDS_FREEMEM: u32 = 32769u32;
 pub const OEMGDS_JOBTIMEOUT: u32 = 32770u32;
@@ -2482,8 +2941,13 @@ pub struct OEMUIOBJ {
     pub cbSize: u32,
     pub pOemUIProcs: *mut OEMUIPROCS,
 }
+impl Default for OEMUIOBJ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OEMUIPROCS {
     pub DrvGetDriverSetting: PFN_DrvGetDriverSetting,
     pub DrvUpdateUISetting: PFN_DrvUpdateUISetting,
@@ -2504,8 +2968,14 @@ pub struct OEMUIPSPARAM {
     pub dwFlags: u32,
     pub pOemEntry: *mut core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for OEMUIPSPARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OEM_DMEXTRAHEADER {
     pub dwSize: u32,
     pub dwSignature: u32,
@@ -2521,6 +2991,11 @@ pub struct OIEXT {
     pub pHelpFile: *mut i8,
     pub dwReserved: [usize; 4],
 }
+impl Default for OIEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const OIEXTF_ANSI_STRING: u32 = 1u32;
 pub const OPTCF_HIDE: u32 = 1u32;
 pub const OPTCF_MASK: u32 = 1u32;
@@ -2533,6 +3008,11 @@ pub struct OPTCOMBO {
     pub pListItem: *mut OPTPARAM,
     pub Sel: i32,
     pub dwReserved: [u32; 3],
+}
+impl Default for OPTCOMBO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OPTIF_CALLBACK: i32 = 4i32;
 pub const OPTIF_CHANGED: i32 = 8i32;
@@ -2572,6 +3052,12 @@ pub struct OPTITEM {
     pub pOIExt: *mut OIEXT,
     pub dwReserved: [usize; 3],
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for OPTITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -2579,12 +3065,24 @@ pub union OPTITEM_0 {
     pub Sel: i32,
     pub pSel: *mut i8,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for OPTITEM_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union OPTITEM_1 {
     pub pExtChkBox: *mut EXTCHKBOX,
     pub pExtPush: *mut EXTPUSH,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for OPTITEM_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2596,6 +3094,11 @@ pub struct OPTPARAM {
     pub IconID: usize,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReserved: [usize; 2],
+}
+impl Default for OPTPARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OPTPF_DISABLED: u32 = 2u32;
 pub const OPTPF_HIDE: u32 = 1u32;
@@ -2620,6 +3123,11 @@ pub struct OPTTYPE {
     pub Style: u16,
     pub wReserved: [u16; 3],
     pub dwReserved: [usize; 3],
+}
+impl Default for OPTTYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OTS_LBCB_INCL_ITEM_NONE: u32 = 8u32;
 pub const OTS_LBCB_NO_ICON16_IN_ITEM: u32 = 16u32;
@@ -2700,6 +3208,11 @@ pub struct PORT_DATA_1 {
     pub dwSNMPEnabled: u32,
     pub dwSNMPDevIndex: u32,
 }
+impl Default for PORT_DATA_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PORT_DATA_2 {
@@ -2718,6 +3231,11 @@ pub struct PORT_DATA_2 {
     pub dwSNMPDevIndex: u32,
     pub dwPortMonitorMibIndex: u32,
 }
+impl Default for PORT_DATA_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PORT_DATA_LIST_1 {
@@ -2725,15 +3243,30 @@ pub struct PORT_DATA_LIST_1 {
     pub cPortData: u32,
     pub pPortData: [PORT_DATA_2; 1],
 }
+impl Default for PORT_DATA_LIST_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PORT_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for PORT_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PORT_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
+}
+impl Default for PORT_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2744,6 +3277,11 @@ pub struct PORT_INFO_2A {
     pub fPortType: u32,
     pub Reserved: u32,
 }
+impl Default for PORT_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PORT_INFO_2W {
@@ -2753,6 +3291,11 @@ pub struct PORT_INFO_2W {
     pub fPortType: u32,
     pub Reserved: u32,
 }
+impl Default for PORT_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PORT_INFO_3A {
@@ -2760,12 +3303,22 @@ pub struct PORT_INFO_3A {
     pub pszStatus: windows_sys::core::PSTR,
     pub dwSeverity: u32,
 }
+impl Default for PORT_INFO_3A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PORT_INFO_3W {
     pub dwStatus: u32,
     pub pszStatus: windows_sys::core::PWSTR,
     pub dwSeverity: u32,
+}
+impl Default for PORT_INFO_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PORT_STATUS_DOOR_OPEN: u32 = 7u32;
 pub const PORT_STATUS_NO_TONER: u32 = 6u32;
@@ -2853,11 +3406,21 @@ pub struct PRINTER_CONNECTION_INFO_1A {
     pub dwFlags: u32,
     pub pszDriverName: windows_sys::core::PSTR,
 }
+impl Default for PRINTER_CONNECTION_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_CONNECTION_INFO_1W {
     pub dwFlags: u32,
     pub pszDriverName: windows_sys::core::PWSTR,
+}
+impl Default for PRINTER_CONNECTION_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_CONNECTION_MISMATCH: u32 = 32u32;
 pub const PRINTER_CONNECTION_NO_UI: u32 = 64u32;
@@ -2873,6 +3436,12 @@ pub struct PRINTER_DEFAULTSA {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
     pub DesiredAccess: PRINTER_ACCESS_RIGHTS,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for PRINTER_DEFAULTSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -2880,6 +3449,12 @@ pub struct PRINTER_DEFAULTSW {
     pub pDatatype: windows_sys::core::PWSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEW,
     pub DesiredAccess: PRINTER_ACCESS_RIGHTS,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for PRINTER_DEFAULTSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_DELETE: PRINTER_ACCESS_RIGHTS = 65536u32;
 pub const PRINTER_DRIVER_CATEGORY_3D: u32 = 4096u32;
@@ -2927,6 +3502,11 @@ pub struct PRINTER_ENUM_VALUESA {
     pub pData: *mut u8,
     pub cbData: u32,
 }
+impl Default for PRINTER_ENUM_VALUESA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_ENUM_VALUESW {
@@ -2935,6 +3515,11 @@ pub struct PRINTER_ENUM_VALUESW {
     pub dwType: u32,
     pub pData: *mut u8,
     pub cbData: u32,
+}
+impl Default for PRINTER_ENUM_VALUESW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_ERROR_INFORMATION: u32 = 2147483648u32;
 pub const PRINTER_ERROR_JAM: u32 = 2u32;
@@ -2946,7 +3531,7 @@ pub const PRINTER_EVENT_ADD_CONNECTION: u32 = 1u32;
 pub const PRINTER_EVENT_ADD_CONNECTION_NO_UI: u32 = 9u32;
 pub const PRINTER_EVENT_ATTRIBUTES_CHANGED: u32 = 7u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTER_EVENT_ATTRIBUTES_INFO {
     pub cbSize: u32,
     pub dwOldAttributes: u32,
@@ -2970,6 +3555,11 @@ pub const PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: windows_sys::core::GUID = 
 pub struct PRINTER_HANDLE {
     pub Value: *mut core::ffi::c_void,
 }
+impl Default for PRINTER_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_INFO_1A {
@@ -2978,6 +3568,11 @@ pub struct PRINTER_INFO_1A {
     pub pName: windows_sys::core::PSTR,
     pub pComment: windows_sys::core::PSTR,
 }
+impl Default for PRINTER_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_INFO_1W {
@@ -2985,6 +3580,11 @@ pub struct PRINTER_INFO_1W {
     pub pDescription: windows_sys::core::PWSTR,
     pub pName: windows_sys::core::PWSTR,
     pub pComment: windows_sys::core::PWSTR,
+}
+impl Default for PRINTER_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -3012,6 +3612,12 @@ pub struct PRINTER_INFO_2A {
     pub cJobs: u32,
     pub AveragePPM: u32,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl Default for PRINTER_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[derive(Clone, Copy)]
@@ -3038,11 +3644,23 @@ pub struct PRINTER_INFO_2W {
     pub cJobs: u32,
     pub AveragePPM: u32,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl Default for PRINTER_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct PRINTER_INFO_3 {
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for PRINTER_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3051,12 +3669,22 @@ pub struct PRINTER_INFO_4A {
     pub pServerName: windows_sys::core::PSTR,
     pub Attributes: u32,
 }
+impl Default for PRINTER_INFO_4A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_INFO_4W {
     pub pPrinterName: windows_sys::core::PWSTR,
     pub pServerName: windows_sys::core::PWSTR,
     pub Attributes: u32,
+}
+impl Default for PRINTER_INFO_4W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3067,6 +3695,11 @@ pub struct PRINTER_INFO_5A {
     pub DeviceNotSelectedTimeout: u32,
     pub TransmissionRetryTimeout: u32,
 }
+impl Default for PRINTER_INFO_5A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_INFO_5W {
@@ -3076,8 +3709,13 @@ pub struct PRINTER_INFO_5W {
     pub DeviceNotSelectedTimeout: u32,
     pub TransmissionRetryTimeout: u32,
 }
+impl Default for PRINTER_INFO_5W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTER_INFO_6 {
     pub dwStatus: u32,
 }
@@ -3087,11 +3725,21 @@ pub struct PRINTER_INFO_7A {
     pub pszObjectGUID: windows_sys::core::PSTR,
     pub dwAction: u32,
 }
+impl Default for PRINTER_INFO_7A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_INFO_7W {
     pub pszObjectGUID: windows_sys::core::PWSTR,
     pub dwAction: u32,
+}
+impl Default for PRINTER_INFO_7W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3099,11 +3747,23 @@ pub struct PRINTER_INFO_7W {
 pub struct PRINTER_INFO_8A {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for PRINTER_INFO_8A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub struct PRINTER_INFO_8W {
     pub pDevMode: *mut super::Gdi::DEVMODEW,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for PRINTER_INFO_8W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3111,11 +3771,23 @@ pub struct PRINTER_INFO_8W {
 pub struct PRINTER_INFO_9A {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for PRINTER_INFO_9A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub struct PRINTER_INFO_9W {
     pub pDevMode: *mut super::Gdi::DEVMODEW,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for PRINTER_INFO_9W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_NOTIFY_CATEGORY_3D: u32 = 8192u32;
 pub const PRINTER_NOTIFY_CATEGORY_ALL: u32 = 4096u32;
@@ -3156,6 +3828,11 @@ pub struct PRINTER_NOTIFY_INFO {
     pub Count: u32,
     pub aData: [PRINTER_NOTIFY_INFO_DATA; 1],
 }
+impl Default for PRINTER_NOTIFY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_INFO_DATA {
@@ -3165,11 +3842,21 @@ pub struct PRINTER_NOTIFY_INFO_DATA {
     pub Id: u32,
     pub NotifyData: PRINTER_NOTIFY_INFO_DATA_0,
 }
+impl Default for PRINTER_NOTIFY_INFO_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PRINTER_NOTIFY_INFO_DATA_0 {
     pub adwData: [u32; 2],
     pub Data: PRINTER_NOTIFY_INFO_DATA_0_0,
+}
+impl Default for PRINTER_NOTIFY_INFO_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3177,10 +3864,15 @@ pub struct PRINTER_NOTIFY_INFO_DATA_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
 }
+impl Default for PRINTER_NOTIFY_INFO_DATA_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PRINTER_NOTIFY_INFO_DATA_COMPACT: u32 = 1u32;
 pub const PRINTER_NOTIFY_INFO_DISCARDED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTER_NOTIFY_INIT {
     pub Size: u32,
     pub Reserved: u32,
@@ -3194,6 +3886,11 @@ pub struct PRINTER_NOTIFY_OPTIONS {
     pub Count: u32,
     pub pTypes: *mut PRINTER_NOTIFY_OPTIONS_TYPE,
 }
+impl Default for PRINTER_NOTIFY_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PRINTER_NOTIFY_OPTIONS_REFRESH: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3205,19 +3902,24 @@ pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Count: u32,
     pub pFields: *mut u16,
 }
+impl Default for PRINTER_NOTIFY_OPTIONS_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PRINTER_NOTIFY_STATUS_ENDPOINT: u32 = 1u32;
 pub const PRINTER_NOTIFY_STATUS_INFO: u32 = 4u32;
 pub const PRINTER_NOTIFY_STATUS_POLL: u32 = 2u32;
 pub const PRINTER_NOTIFY_TYPE: u32 = 0u32;
 pub const PRINTER_OEMINTF_VERSION: u32 = 65536u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTER_OPTIONSA {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTER_OPTIONSW {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -3328,6 +4030,12 @@ pub struct PRINTIFI32 {
     pub ulPanoseCulture: u32,
     pub panose: super::Gdi::PANOSE,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for PRINTIFI32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -3340,8 +4048,14 @@ pub struct PRINTPROCESSOROPENDATA {
     pub pOutputFile: windows_sys::core::PWSTR,
     pub pPrinterName: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for PRINTPROCESSOROPENDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTPROCESSOR_CAPS_1 {
     pub dwLevel: u32,
     pub dwNupOptions: u32,
@@ -3349,7 +4063,7 @@ pub struct PRINTPROCESSOR_CAPS_1 {
     pub dwNumberOfCopies: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTPROCESSOR_CAPS_2 {
     pub dwLevel: u32,
     pub dwNupOptions: u32,
@@ -3366,13 +4080,23 @@ pub struct PRINTPROCESSOR_CAPS_2 {
 pub struct PRINTPROCESSOR_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for PRINTPROCESSOR_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTPROCESSOR_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
+impl Default for PRINTPROCESSOR_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTPROVIDOR {
     pub fpOpenPrinter: isize,
     pub fpSetJob: isize,
@@ -3491,7 +4215,7 @@ pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEX
 pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = 1i32;
 pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = 4i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINT_EXECUTION_DATA {
     pub context: PRINT_EXECUTION_CONTEXT,
     pub clientAppPID: u32,
@@ -3501,6 +4225,11 @@ pub struct PRINT_EXECUTION_DATA {
 pub struct PRINT_FEATURE_OPTION {
     pub pszFeature: windows_sys::core::PCSTR,
     pub pszOption: windows_sys::core::PCSTR,
+}
+impl Default for PRINT_FEATURE_OPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25df3b0e_74a9_47f5_80ce_79b4b1eb5c58);
 #[repr(C)]
@@ -3512,6 +4241,12 @@ pub struct PROPSHEETUI_GETICON_INFO {
     pub cxIcon: u16,
     pub cyIcon: u16,
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for PROPSHEETUI_GETICON_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3526,6 +4261,11 @@ pub struct PROPSHEETUI_INFO {
     pub UserData: usize,
     pub Result: usize,
 }
+impl Default for PROPSHEETUI_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -3537,12 +4277,24 @@ pub struct PROPSHEETUI_INFO_HEADER {
     pub hInst: super::super::Foundation::HINSTANCE,
     pub Anonymous: PROPSHEETUI_INFO_HEADER_0,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for PROPSHEETUI_INFO_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union PROPSHEETUI_INFO_HEADER_0 {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub IconID: usize,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for PROPSHEETUI_INFO_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PROPSHEETUI_INFO_VERSION: u32 = 256u32;
 pub const PROPSHEETUI_REASON_BEFORE_INIT: u32 = 5u32;
@@ -3561,6 +4313,11 @@ pub struct PROVIDOR_INFO_1A {
     pub pEnvironment: windows_sys::core::PSTR,
     pub pDLLName: windows_sys::core::PSTR,
 }
+impl Default for PROVIDOR_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_1W {
@@ -3568,21 +4325,41 @@ pub struct PROVIDOR_INFO_1W {
     pub pEnvironment: windows_sys::core::PWSTR,
     pub pDLLName: windows_sys::core::PWSTR,
 }
+impl Default for PROVIDOR_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_2A {
     pub pOrder: windows_sys::core::PSTR,
+}
+impl Default for PROVIDOR_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_2W {
     pub pOrder: windows_sys::core::PWSTR,
 }
+impl Default for PROVIDOR_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PSCRIPT5_PRIVATE_DEVMODE {
     pub wReserved: [u16; 57],
     pub wSize: u16,
+}
+impl Default for PSCRIPT5_PRIVATE_DEVMODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3592,6 +4369,11 @@ pub struct PSPINFO {
     pub hComPropSheet: super::super::Foundation::HANDLE,
     pub hCPSUIPage: super::super::Foundation::HANDLE,
     pub pfnComPropSheet: PFNCOMPROPSHEET,
+}
+impl Default for PSPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PSUIHDRF_DEFTITLE: u32 = 16u32;
 pub const PSUIHDRF_EXACT_PTITLE: u32 = 32u32;
@@ -3609,7 +4391,7 @@ pub const PSUIPAGEINSERT_PROPSHEETPAGE: u32 = 3u32;
 pub const PTSHIM_DEFAULT: SHIMOPTS = 0i32;
 pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PUBLISHERINFO {
     pub dwMode: u32,
     pub wMinoutlinePPEM: u16,
@@ -3644,17 +4426,32 @@ pub struct PrintNamedProperty {
     pub propertyName: windows_sys::core::PWSTR,
     pub propertyValue: PrintPropertyValue,
 }
+impl Default for PrintNamedProperty {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PrintPropertiesCollection {
     pub numberOfProperties: u32,
     pub propertiesCollection: *mut PrintNamedProperty,
 }
+impl Default for PrintPropertiesCollection {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PrintPropertyValue {
     pub ePropertyType: EPrintPropertyType,
     pub value: PrintPropertyValue_0,
+}
+impl Default for PrintPropertyValue {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3665,11 +4462,21 @@ pub union PrintPropertyValue_0 {
     pub propertyInt64: i64,
     pub propertyBlob: PrintPropertyValue_0_0,
 }
+impl Default for PrintPropertyValue_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PrintPropertyValue_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
+}
+impl Default for PrintPropertyValue_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PrintSchemaAsyncOperation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43b2f83d_10f2_48ab_831b_55fdbdbd34a4);
 pub type PrintSchemaConstrainedSetting = i32;
@@ -3721,15 +4528,20 @@ pub struct SETRESULT_INFO {
     pub hSetResult: super::super::Foundation::HANDLE,
     pub Result: super::super::Foundation::LRESULT,
 }
+impl Default for SETRESULT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SHIMOPTS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHOWUIPARAMS {
     pub UIType: UI_TYPE,
     pub MessageBoxParams: MESSAGEBOX_PARAMS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SIMULATE_CAPS_1 {
     pub dwLevel: u32,
     pub dwPageOrderFlags: u32,
@@ -3748,20 +4560,25 @@ pub struct SPLCLIENT_INFO_1 {
     pub dwMinorVersion: u32,
     pub wProcessorArchitecture: u16,
 }
+impl Default for SPLCLIENT_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SPLCLIENT_INFO_2_W2K {
     pub hSplPrinter: usize,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SPLCLIENT_INFO_2_WINXP {
     pub hSplPrinter: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SPLCLIENT_INFO_2_WINXP {
     pub hSplPrinter: u64,
 }
@@ -3779,6 +4596,11 @@ pub struct SPLCLIENT_INFO_3_VISTA {
     pub wProcessorArchitecture: u16,
     pub hSplPrinter: u64,
 }
+impl Default for SPLCLIENT_INFO_3_VISTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SPLCLIENT_INFO_INTERNAL {
@@ -3794,6 +4616,11 @@ pub struct SPLCLIENT_INFO_INTERNAL {
     pub hSplPrinter: u64,
     pub dwProcessId: u32,
     pub dwSessionId: u32,
+}
+impl Default for SPLCLIENT_INFO_INTERNAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SPLCLIENT_INFO_INTERNAL_LEVEL: u32 = 100u32;
 pub const SPLDS_ASSET_NUMBER: windows_sys::core::PCWSTR = windows_sys::core::w!("assetNumber");
@@ -3900,12 +4727,22 @@ pub struct TRANSDATA {
     pub ubType: u8,
     pub uCode: TRANSDATA_0,
 }
+impl Default for TRANSDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TRANSDATA_0 {
     pub sCode: i16,
     pub ubCode: u8,
     pub ubPairs: [u8; 2],
+}
+impl Default for TRANSDATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TTDOWNLOAD_BITMAP: u32 = 2u32;
 pub const TTDOWNLOAD_DONTCARE: u32 = 0u32;
@@ -3939,8 +4776,13 @@ pub struct UFF_FILEHEADER {
     pub dwFlags: u32,
     pub dwReserved: [u32; 4],
 }
+impl Default for UFF_FILEHEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UFF_FONTDIRECTORY {
     pub dwSignature: u32,
     pub wSize: u16,
@@ -3989,11 +4831,21 @@ pub struct UNIDRVINFO {
     pub UnSelectFont: INVOC,
     pub wReserved: [u16; 4],
 }
+impl Default for UNIDRVINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UNIDRV_PRIVATE_DEVMODE {
     pub wReserved: [u16; 4],
     pub wSize: u16,
+}
+impl Default for UNIDRV_PRIVATE_DEVMODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4009,10 +4861,15 @@ pub struct UNIFM_HDR {
     pub loKernPair: u32,
     pub dwReserved: [u32; 2],
 }
+impl Default for UNIFM_HDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const UNIFM_VERSION_1_0: u32 = 65536u32;
 pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = 5i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UNI_CODEPAGEINFO {
     pub dwCodePage: u32,
     pub SelectSymbolSet: INVOC,
@@ -4033,6 +4890,11 @@ pub struct UNI_GLYPHSETDATA {
     pub loMapTableOffset: u32,
     pub dwReserved: [u32; 2],
 }
+impl Default for UNI_GLYPHSETDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const UNI_GLYPHSETDATA_VERSION_1_0: u32 = 65536u32;
 pub const UNKNOWN_PROTOCOL: u32 = 0u32;
 pub const UPDP_CHECK_DRIVERSTORE: u32 = 4u32;
@@ -4050,8 +4912,13 @@ pub struct USERDATA {
     pub pKeyWordName: windows_sys::core::PSTR,
     pub dwReserved: [u32; 8],
 }
+impl Default for USERDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WIDTHRUN {
     pub wStartGlyph: u16,
     pub wGlyphCount: u16,
@@ -4063,6 +4930,11 @@ pub struct WIDTHTABLE {
     pub dwSize: u32,
     pub dwRunNum: u32,
     pub WidthRun: [WIDTHRUN; 1],
+}
+impl Default for WIDTHTABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WM_FI_FILENAME: u32 = 900u32;
 pub type XPSRAS_BACKGROUND_COLOR = i32;
@@ -4102,7 +4974,7 @@ pub const Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = 4i32;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type _CPSUICALLBACK = Option<unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _SPLCLIENT_INFO_2_V3 {
     pub hSplPrinter: u64,
 }

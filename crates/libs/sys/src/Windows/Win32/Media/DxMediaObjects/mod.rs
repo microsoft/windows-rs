@@ -51,6 +51,11 @@ pub struct DMO_MEDIA_TYPE {
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
+impl Default for DMO_MEDIA_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DMO_OUTPUT_DATA_BUFFER {
@@ -58,6 +63,11 @@ pub struct DMO_OUTPUT_DATA_BUFFER {
     pub dwStatus: u32,
     pub rtTimestamp: i64,
     pub rtTimelength: i64,
+}
+impl Default for DMO_OUTPUT_DATA_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DMO_OUTPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_OUTPUT_DATA_BUFFER_FLAGS = 8i32;
 pub const DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE: _DMO_OUTPUT_DATA_BUFFER_FLAGS = 16777216i32;
@@ -70,7 +80,7 @@ pub const DMO_OUTPUT_STREAMF_OPTIONAL: _DMO_OUTPUT_STREAM_INFO_FLAGS = 16i32;
 pub const DMO_OUTPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_OUTPUT_STREAM_INFO_FLAGS = 2i32;
 pub const DMO_OUTPUT_STREAMF_WHOLE_SAMPLES: _DMO_OUTPUT_STREAM_INFO_FLAGS = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DMO_PARTIAL_MEDIATYPE {
     pub r#type: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,

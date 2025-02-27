@@ -351,11 +351,21 @@ pub struct JET_BKINFO {
     pub genLow: u32,
     pub genHigh: u32,
 }
+impl Default for JET_BKINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_BKINFO_0 {
     pub logtimeMark: JET_LOGTIME,
     pub bklogtimeMark: JET_BKLOGTIME,
+}
+impl Default for JET_BKINFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -369,14 +379,24 @@ pub struct JET_BKLOGTIME {
     pub Anonymous1: JET_BKLOGTIME_0,
     pub Anonymous2: JET_BKLOGTIME_1,
 }
+impl Default for JET_BKLOGTIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_BKLOGTIME_0 {
     pub bFiller1: i8,
     pub Anonymous: JET_BKLOGTIME_0_0,
 }
+impl Default for JET_BKLOGTIME_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_BKLOGTIME_0_0 {
     pub _bitfield: u8,
 }
@@ -386,8 +406,13 @@ pub union JET_BKLOGTIME_1 {
     pub bFiller2: i8,
     pub Anonymous: JET_BKLOGTIME_1_0,
 }
+impl Default for JET_BKLOGTIME_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_BKLOGTIME_1_0 {
     pub _bitfield: u8,
 }
@@ -408,6 +433,11 @@ pub struct JET_COLUMNBASE_A {
     pub szBaseTableName: [i8; 256],
     pub szBaseColumnName: [i8; 256],
 }
+impl Default for JET_COLUMNBASE_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_COLUMNBASE_W {
@@ -423,6 +453,11 @@ pub struct JET_COLUMNBASE_W {
     pub szBaseTableName: [u16; 256],
     pub szBaseColumnName: [u16; 256],
 }
+impl Default for JET_COLUMNBASE_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_COLUMNCREATE_A {
@@ -436,6 +471,11 @@ pub struct JET_COLUMNCREATE_A {
     pub cp: u32,
     pub columnid: u32,
     pub err: i32,
+}
+impl Default for JET_COLUMNCREATE_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -451,8 +491,13 @@ pub struct JET_COLUMNCREATE_W {
     pub columnid: u32,
     pub err: i32,
 }
+impl Default for JET_COLUMNCREATE_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_COLUMNDEF {
     pub cbStruct: u32,
     pub columnid: u32,
@@ -466,7 +511,7 @@ pub struct JET_COLUMNDEF {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_COLUMNLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -494,6 +539,12 @@ pub struct JET_COMMIT_ID {
     pub reserved: i32,
     pub commitId: i64,
 }
+#[cfg(target_arch = "x86")]
+impl Default for JET_COMMIT_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -502,12 +553,23 @@ pub struct JET_COMMIT_ID {
     pub reserved: i32,
     pub commitId: i64,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for JET_COMMIT_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_CONDITIONALCOLUMN_A {
     pub cbStruct: u32,
     pub szColumnName: windows_sys::core::PSTR,
     pub grbit: u32,
+}
+impl Default for JET_CONDITIONALCOLUMN_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -516,11 +578,21 @@ pub struct JET_CONDITIONALCOLUMN_W {
     pub szColumnName: windows_sys::core::PWSTR,
     pub grbit: u32,
 }
+impl Default for JET_CONDITIONALCOLUMN_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_CONVERT_A {
     pub szOldDll: windows_sys::core::PSTR,
     pub Anonymous: JET_CONVERT_A_0,
+}
+impl Default for JET_CONVERT_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -528,8 +600,13 @@ pub union JET_CONVERT_A_0 {
     pub fFlags: u32,
     pub Anonymous: JET_CONVERT_A_0_0,
 }
+impl Default for JET_CONVERT_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_CONVERT_A_0_0 {
     pub _bitfield: u32,
 }
@@ -539,14 +616,24 @@ pub struct JET_CONVERT_W {
     pub szOldDll: windows_sys::core::PWSTR,
     pub Anonymous: JET_CONVERT_W_0,
 }
+impl Default for JET_CONVERT_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_CONVERT_W_0 {
     pub fFlags: u32,
     pub Anonymous: JET_CONVERT_W_0_0,
 }
+impl Default for JET_CONVERT_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_CONVERT_W_0_0 {
     pub _bitfield: u32,
 }
@@ -577,6 +664,11 @@ pub struct JET_DBINFOMISC {
     pub dwBuildNumber: u32,
     pub lSPNumber: i32,
     pub cbPageSize: u32,
+}
+impl Default for JET_DBINFOMISC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -618,6 +710,11 @@ pub struct JET_DBINFOMISC2 {
     pub logtimeBadChecksum: JET_LOGTIME,
     pub ulBadChecksumOld: u32,
 }
+impl Default for JET_DBINFOMISC2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_DBINFOMISC3 {
@@ -658,6 +755,11 @@ pub struct JET_DBINFOMISC3 {
     pub logtimeBadChecksum: JET_LOGTIME,
     pub ulBadChecksumOld: u32,
     pub genCommitted: u32,
+}
+impl Default for JET_DBINFOMISC3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -702,6 +804,11 @@ pub struct JET_DBINFOMISC4 {
     pub bkinfoCopyPrev: JET_BKINFO,
     pub bkinfoDiffPrev: JET_BKINFO,
 }
+impl Default for JET_DBINFOMISC4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_DBINFOUPGRADE {
@@ -713,14 +820,24 @@ pub struct JET_DBINFOUPGRADE {
     pub csecToUpgrade: u32,
     pub Anonymous: JET_DBINFOUPGRADE_0,
 }
+impl Default for JET_DBINFOUPGRADE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_DBINFOUPGRADE_0 {
     pub ulFlags: u32,
     pub Anonymous: JET_DBINFOUPGRADE_0_0,
 }
+impl Default for JET_DBINFOUPGRADE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_DBINFOUPGRADE_0_0 {
     pub _bitfield: u32,
 }
@@ -751,11 +868,21 @@ pub struct JET_ENUMCOLUMN {
     pub err: i32,
     pub Anonymous: JET_ENUMCOLUMN_0,
 }
+impl Default for JET_ENUMCOLUMN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_ENUMCOLUMN_0 {
     pub Anonymous1: JET_ENUMCOLUMN_0_0,
     pub Anonymous2: JET_ENUMCOLUMN_0_1,
+}
+impl Default for JET_ENUMCOLUMN_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -763,11 +890,21 @@ pub struct JET_ENUMCOLUMN_0_0 {
     pub cEnumColumnValue: u32,
     pub rgEnumColumnValue: *mut JET_ENUMCOLUMNVALUE,
 }
+impl Default for JET_ENUMCOLUMN_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_ENUMCOLUMN_0_1 {
     pub cbData: u32,
     pub pvData: *mut core::ffi::c_void,
+}
+impl Default for JET_ENUMCOLUMN_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -776,6 +913,11 @@ pub struct JET_ENUMCOLUMNID {
     pub ctagSequence: u32,
     pub rgtagSequence: *mut u32,
 }
+impl Default for JET_ENUMCOLUMNID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_ENUMCOLUMNVALUE {
@@ -783,6 +925,11 @@ pub struct JET_ENUMCOLUMNVALUE {
     pub err: i32,
     pub cbData: u32,
     pub pvData: *mut core::ffi::c_void,
+}
+impl Default for JET_ENUMCOLUMNVALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type JET_ERRCAT = i32;
 #[repr(C)]
@@ -794,6 +941,11 @@ pub struct JET_ERRINFOBASIC_W {
     pub rgCategoricalHierarchy: [u8; 8],
     pub lSourceLine: u32,
     pub rgszSourceFile: [u16; 64],
+}
+impl Default for JET_ERRINFOBASIC_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const JET_EventLoggingDisable: u32 = 0u32;
 pub const JET_EventLoggingLevelHigh: u32 = 75u32;
@@ -822,17 +974,32 @@ pub struct JET_INDEXCREATE2_A {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
+impl Default for JET_INDEXCREATE2_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+impl Default for JET_INDEXCREATE2_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
+}
+impl Default for JET_INDEXCREATE2_A_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -851,17 +1018,32 @@ pub struct JET_INDEXCREATE2_W {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
+impl Default for JET_INDEXCREATE2_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+impl Default for JET_INDEXCREATE2_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
+}
+impl Default for JET_INDEXCREATE2_W_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -880,11 +1062,21 @@ pub struct JET_INDEXCREATE3_A {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
+impl Default for JET_INDEXCREATE3_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_INDEXCREATE3_A_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
+}
+impl Default for JET_INDEXCREATE3_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -903,11 +1095,21 @@ pub struct JET_INDEXCREATE3_W {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
+impl Default for JET_INDEXCREATE3_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_INDEXCREATE3_W_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
+}
+impl Default for JET_INDEXCREATE3_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -925,17 +1127,32 @@ pub struct JET_INDEXCREATE_A {
     pub err: i32,
     pub cbKeyMost: u32,
 }
+impl Default for JET_INDEXCREATE_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+impl Default for JET_INDEXCREATE_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
+}
+impl Default for JET_INDEXCREATE_A_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -953,17 +1170,32 @@ pub struct JET_INDEXCREATE_W {
     pub err: i32,
     pub cbKeyMost: u32,
 }
+impl Default for JET_INDEXCREATE_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+impl Default for JET_INDEXCREATE_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
+}
+impl Default for JET_INDEXCREATE_W_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -972,6 +1204,12 @@ pub struct JET_INDEXID {
     pub cbStruct: u32,
     pub rgbIndexId: [u8; 12],
 }
+#[cfg(target_arch = "x86")]
+impl Default for JET_INDEXID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -979,9 +1217,15 @@ pub struct JET_INDEXID {
     pub cbStruct: u32,
     pub rgbIndexId: [u8; 16],
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for JET_INDEXID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_INDEXLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -1005,7 +1249,7 @@ pub struct JET_INDEXLIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_INDEXRANGE {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -1020,6 +1264,11 @@ pub struct JET_INDEX_COLUMN {
     pub cb: u32,
     pub grbit: u32,
 }
+impl Default for JET_INDEX_COLUMN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_INDEX_RANGE {
@@ -1027,6 +1276,11 @@ pub struct JET_INDEX_RANGE {
     pub cStartColumns: u32,
     pub rgEndColumns: *mut JET_INDEX_COLUMN,
     pub cEndColumns: u32,
+}
+impl Default for JET_INDEX_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type JET_INSTANCE = usize;
 #[repr(C)]
@@ -1040,6 +1294,12 @@ pub struct JET_INSTANCE_INFO_A {
     pub szDatabaseDisplayName: *mut *mut i8,
     pub szDatabaseSLVFileName_Obsolete: *mut *mut i8,
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_INSTANCE_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[derive(Clone, Copy)]
@@ -1051,6 +1311,12 @@ pub struct JET_INSTANCE_INFO_W {
     pub szDatabaseDisplayName: *mut *mut u16,
     pub szDatabaseSLVFileName_Obsolete: *mut *mut u16,
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_INSTANCE_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const JET_IOPriorityLow: u32 = 1u32;
 pub const JET_IOPriorityNormal: u32 = 0u32;
 pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = 2i32;
@@ -1058,7 +1324,7 @@ pub const JET_IndexCheckingMax: JET_INDEXCHECKING = 3i32;
 pub const JET_IndexCheckingOff: JET_INDEXCHECKING = 0i32;
 pub const JET_IndexCheckingOn: JET_INDEXCHECKING = 1i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_LGPOS {
     pub ib: u16,
     pub isec: u16,
@@ -1072,6 +1338,11 @@ pub struct JET_LOGINFO_A {
     pub ulGenHigh: u32,
     pub szBaseName: [i8; 4],
 }
+impl Default for JET_LOGINFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_LOGINFO_W {
@@ -1079,6 +1350,11 @@ pub struct JET_LOGINFO_W {
     pub ulGenLow: u32,
     pub ulGenHigh: u32,
     pub szBaseName: [u16; 4],
+}
+impl Default for JET_LOGINFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1092,14 +1368,24 @@ pub struct JET_LOGTIME {
     pub Anonymous1: JET_LOGTIME_0,
     pub Anonymous2: JET_LOGTIME_1,
 }
+impl Default for JET_LOGTIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union JET_LOGTIME_0 {
     pub bFiller1: i8,
     pub Anonymous: JET_LOGTIME_0_0,
 }
+impl Default for JET_LOGTIME_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_LOGTIME_0_0 {
     pub _bitfield: u8,
 }
@@ -1109,8 +1395,13 @@ pub union JET_LOGTIME_1 {
     pub bFiller2: i8,
     pub Anonymous: JET_LOGTIME_1_0,
 }
+impl Default for JET_LOGTIME_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_LOGTIME_1_0 {
     pub _bitfield: u8,
 }
@@ -1121,7 +1412,7 @@ pub const JET_MoveLast: u32 = 2147483647u32;
 pub const JET_MovePrevious: i32 = -1i32;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_OBJECTINFO {
     pub cbStruct: u32,
     pub objtyp: u32,
@@ -1134,7 +1425,7 @@ pub struct JET_OBJECTINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_OBJECTINFO {
     pub cbStruct: u32,
     pub objtyp: u32,
@@ -1147,7 +1438,7 @@ pub struct JET_OBJECTINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_OBJECTLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -1176,6 +1467,12 @@ pub struct JET_OPENTEMPORARYTABLE {
     pub cbVarSegMac: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_OPENTEMPORARYTABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[derive(Clone, Copy)]
@@ -1190,8 +1487,14 @@ pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbVarSegMac: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_OPENTEMPORARYTABLE2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_OPERATIONCONTEXT {
     pub ulUserID: u32,
     pub nOperationID: u8,
@@ -1210,7 +1513,7 @@ pub type JET_PFNREALLOC = Option<unsafe extern "system" fn(pvcontext: *const cor
 pub type JET_PFNSTATUS = Option<unsafe extern "system" fn(sesid: JET_SESID, snp: u32, snt: u32, pv: *const core::ffi::c_void) -> i32>;
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_RECORDLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -1218,7 +1521,7 @@ pub struct JET_RECORDLIST {
     pub columnidBookmark: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_RECPOS {
     pub cbStruct: u32,
     pub centriesLT: u32,
@@ -1227,7 +1530,7 @@ pub struct JET_RECPOS {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_RECPOS2 {
     pub cbStruct: u32,
     pub centriesLTDeprecated: u32,
@@ -1238,7 +1541,7 @@ pub struct JET_RECPOS2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_RECPOS2 {
     pub cbStruct: u32,
     pub centriesLTDeprecated: u32,
@@ -1249,7 +1552,7 @@ pub struct JET_RECPOS2 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_RECSIZE {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -1262,7 +1565,7 @@ pub struct JET_RECSIZE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_RECSIZE {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -1275,7 +1578,7 @@ pub struct JET_RECSIZE {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_RECSIZE2 {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -1291,7 +1594,7 @@ pub struct JET_RECSIZE2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_RECSIZE2 {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -1307,7 +1610,7 @@ pub struct JET_RECSIZE2 {
 }
 pub type JET_RELOP = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_RETINFO {
     pub cbStruct: u32,
     pub ibLongValue: u32,
@@ -1327,6 +1630,11 @@ pub struct JET_RETRIEVECOLUMN {
     pub columnidNextTagged: u32,
     pub err: i32,
 }
+impl Default for JET_RETRIEVECOLUMN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_RSTINFO_A {
@@ -1336,6 +1644,11 @@ pub struct JET_RSTINFO_A {
     pub lgposStop: JET_LGPOS,
     pub logtimeStop: JET_LOGTIME,
     pub pfnStatus: JET_PFNSTATUS,
+}
+impl Default for JET_RSTINFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1347,17 +1660,32 @@ pub struct JET_RSTINFO_W {
     pub logtimeStop: JET_LOGTIME,
     pub pfnStatus: JET_PFNSTATUS,
 }
+impl Default for JET_RSTINFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_RSTMAP_A {
     pub szDatabaseName: windows_sys::core::PSTR,
     pub szNewDatabaseName: windows_sys::core::PSTR,
 }
+impl Default for JET_RSTMAP_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_RSTMAP_W {
     pub szDatabaseName: windows_sys::core::PWSTR,
     pub szNewDatabaseName: windows_sys::core::PWSTR,
+}
+impl Default for JET_RSTMAP_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type JET_SESID = usize;
 #[repr(C)]
@@ -1371,8 +1699,13 @@ pub struct JET_SETCOLUMN {
     pub itagSequence: u32,
     pub err: i32,
 }
+impl Default for JET_SETCOLUMN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_SETINFO {
     pub cbStruct: u32,
     pub ibLongValue: u32,
@@ -1387,6 +1720,12 @@ pub struct JET_SETSYSPARAM_A {
     pub sz: windows_sys::core::PCSTR,
     pub err: i32,
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_SETSYSPARAM_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[derive(Clone, Copy)]
@@ -1396,6 +1735,12 @@ pub struct JET_SETSYSPARAM_W {
     pub sz: windows_sys::core::PCWSTR,
     pub err: i32,
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_SETSYSPARAM_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct JET_SIGNATURE {
@@ -1403,15 +1748,20 @@ pub struct JET_SIGNATURE {
     pub logtimeCreate: JET_LOGTIME,
     pub szComputerName: [i8; 16],
 }
+impl Default for JET_SIGNATURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_SNPROG {
     pub cbStruct: u32,
     pub cunitDone: u32,
     pub cunitTotal: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_SPACEHINTS {
     pub cbStruct: u32,
     pub ulInitialDensity: u32,
@@ -1441,6 +1791,12 @@ pub struct JET_TABLECREATE2_A {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_TABLECREATE2_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[derive(Clone, Copy)]
@@ -1459,6 +1815,12 @@ pub struct JET_TABLECREATE2_W {
     pub grbit: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
+}
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_TABLECREATE2_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -1482,6 +1844,12 @@ pub struct JET_TABLECREATE3_A {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_TABLECREATE3_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[derive(Clone, Copy)]
@@ -1503,6 +1871,12 @@ pub struct JET_TABLECREATE3_W {
     pub cbSeparateLV: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
+}
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_TABLECREATE3_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -1526,6 +1900,12 @@ pub struct JET_TABLECREATE4_A {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_TABLECREATE4_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[derive(Clone, Copy)]
@@ -1548,6 +1928,12 @@ pub struct JET_TABLECREATE4_W {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_TABLECREATE4_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[derive(Clone, Copy)]
@@ -1564,6 +1950,12 @@ pub struct JET_TABLECREATE_A {
     pub grbit: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
+}
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_TABLECREATE_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -1582,8 +1974,14 @@ pub struct JET_TABLECREATE_W {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+impl Default for JET_TABLECREATE_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_THREADSTATS {
     pub cbStruct: u32,
     pub cPageReferenced: u32,
@@ -1596,7 +1994,7 @@ pub struct JET_THREADSTATS {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: u32,
     pub cPageReferenced: u32,
@@ -1611,7 +2009,7 @@ pub struct JET_THREADSTATS2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: u32,
     pub cPageReferenced: u32,
@@ -1625,7 +2023,7 @@ pub struct JET_THREADSTATS2 {
     pub cPageCacheMiss: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_TUPLELIMITS {
     pub chLengthMin: u32,
     pub chLengthMax: u32,
@@ -1634,7 +2032,7 @@ pub struct JET_TUPLELIMITS {
     pub ichStart: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JET_UNICODEINDEX {
     pub lcid: u32,
     pub dwMapFlags: u32,
@@ -1645,6 +2043,11 @@ pub struct JET_UNICODEINDEX2 {
     pub szLocaleName: windows_sys::core::PWSTR,
     pub dwMapFlags: u32,
 }
+impl Default for JET_UNICODEINDEX2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_USERDEFINEDDEFAULT_A {
@@ -1653,6 +2056,11 @@ pub struct JET_USERDEFINEDDEFAULT_A {
     pub cbUserData: u32,
     pub szDependantColumns: windows_sys::core::PSTR,
 }
+impl Default for JET_USERDEFINEDDEFAULT_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_USERDEFINEDDEFAULT_W {
@@ -1660,6 +2068,11 @@ pub struct JET_USERDEFINEDDEFAULT_W {
     pub pbUserData: *mut u8,
     pub cbUserData: u32,
     pub szDependantColumns: windows_sys::core::PWSTR,
+}
+impl Default for JET_USERDEFINEDDEFAULT_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const JET_VERSION: u32 = 1280u32;
 pub const JET_bitAbortSnapshot: u32 = 1u32;

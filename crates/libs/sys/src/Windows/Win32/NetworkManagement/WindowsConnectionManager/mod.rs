@@ -14,6 +14,11 @@ pub struct NET_INTERFACE_CONTEXT {
     pub InterfaceIndex: u32,
     pub ConfigurationName: windows_sys::core::PWSTR,
 }
+impl Default for NET_INTERFACE_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NET_INTERFACE_CONTEXT_TABLE {
@@ -21,13 +26,18 @@ pub struct NET_INTERFACE_CONTEXT_TABLE {
     pub NumberOfEntries: u32,
     pub InterfaceContextArray: *mut NET_INTERFACE_CONTEXT,
 }
+impl Default for NET_INTERFACE_CONTEXT_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
 pub type ONDEMAND_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(param0: *const core::ffi::c_void)>;
 pub const WCM_API_VERSION: u32 = 1u32;
 pub const WCM_API_VERSION_1_0: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WCM_BILLING_CYCLE_INFO {
     pub StartDate: super::super::Foundation::FILETIME,
     pub Duration: WCM_TIME_INTERVAL,
@@ -37,7 +47,7 @@ pub type WCM_CONNECTION_COST = i32;
 pub const WCM_CONNECTION_COST_APPROACHINGDATALIMIT: WCM_CONNECTION_COST = 524288i32;
 pub const WCM_CONNECTION_COST_CONGESTED: WCM_CONNECTION_COST = 131072i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WCM_CONNECTION_COST_DATA {
     pub ConnectionCost: u32,
     pub CostSource: WCM_CONNECTION_COST_SOURCE,
@@ -54,7 +64,7 @@ pub const WCM_CONNECTION_COST_UNKNOWN: WCM_CONNECTION_COST = 0i32;
 pub const WCM_CONNECTION_COST_UNRESTRICTED: WCM_CONNECTION_COST = 1i32;
 pub const WCM_CONNECTION_COST_VARIABLE: WCM_CONNECTION_COST = 4i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WCM_DATAPLAN_STATUS {
     pub UsageData: WCM_USAGE_DATA,
     pub DataLimitInMegabytes: u32,
@@ -67,7 +77,7 @@ pub struct WCM_DATAPLAN_STATUS {
 pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
 pub type WCM_MEDIA_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WCM_POLICY_VALUE {
     pub fValue: windows_sys::core::BOOL,
     pub fIsGroupPolicy: windows_sys::core::BOOL,
@@ -79,15 +89,25 @@ pub struct WCM_PROFILE_INFO {
     pub AdapterGUID: windows_sys::core::GUID,
     pub Media: WCM_MEDIA_TYPE,
 }
+impl Default for WCM_PROFILE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WCM_PROFILE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub ProfileInfo: [WCM_PROFILE_INFO; 1],
 }
+impl Default for WCM_PROFILE_INFO_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WCM_PROPERTY = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WCM_TIME_INTERVAL {
     pub wYear: u16,
     pub wMonth: u16,
@@ -99,7 +119,7 @@ pub struct WCM_TIME_INTERVAL {
 }
 pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WCM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::FILETIME,

@@ -26,7 +26,7 @@ pub const CI_PROVIDER_ALL: u32 = 4294967295u32;
 pub const CI_PROVIDER_INDEXING_SERVICE: u32 = 2u32;
 pub const CI_PROVIDER_MSSEARCH: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CI_STATE {
     pub cbStruct: u32,
     pub cWordList: u32,
@@ -75,6 +75,12 @@ pub struct DBID {
     pub eKind: u32,
     pub uName: DBID_1,
 }
+#[cfg(target_arch = "x86")]
+impl Default for DBID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -82,12 +88,24 @@ pub union DBID_0 {
     pub guid: windows_sys::core::GUID,
     pub pguid: *mut windows_sys::core::GUID,
 }
+#[cfg(target_arch = "x86")]
+impl Default for DBID_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union DBID_1 {
     pub pwszName: windows_sys::core::PWSTR,
     pub ulPropid: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBID_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -97,6 +115,12 @@ pub struct DBID {
     pub eKind: u32,
     pub uName: DBID_1,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -104,12 +128,24 @@ pub union DBID_0 {
     pub guid: windows_sys::core::GUID,
     pub pguid: *mut windows_sys::core::GUID,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBID_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union DBID_1 {
     pub pwszName: windows_sys::core::PWSTR,
     pub ulPropid: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBID_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBKINDENUM = i32;
 pub const DBKIND_GUID: DBKINDENUM = 6i32;
@@ -154,7 +190,7 @@ pub const DBSETFUNC_ALL: u32 = 1u32;
 pub const DBSETFUNC_DISTINCT: u32 = 2u32;
 pub const DBSETFUNC_NONE: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILTERREGION {
     pub idChunk: u32,
     pub cwcStart: u32,
@@ -179,6 +215,12 @@ pub const FILTER_W_MONIKER_CLIPPED: windows_sys::core::HRESULT = 0x41704_u32 as 
 pub struct FULLPROPSPEC {
     pub guidPropSet: windows_sys::core::GUID,
     pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Default for FULLPROPSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
 pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
@@ -254,6 +296,12 @@ pub struct STAT_CHUNK {
     pub idChunkSource: u32,
     pub cwcStartSource: u32,
     pub cwcLenSource: u32,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Default for STAT_CHUNK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STAT_COALESCE_COMP_ALL_NOISE: u32 = 8192u32;
 pub const STAT_CONTENT_OUT_OF_DATE: u32 = 32u32;

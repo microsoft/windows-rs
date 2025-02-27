@@ -461,7 +461,7 @@ windows_targets::link!("user32.dll" "cdecl" fn wsprintfW(param0 : windows_sys::c
 windows_targets::link!("user32.dll" "system" fn wvsprintfA(param0 : windows_sys::core::PSTR, param1 : windows_sys::core::PCSTR, arglist : *const i8) -> i32);
 windows_targets::link!("user32.dll" "system" fn wvsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR, arglist : *const i8) -> i32);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACCEL {
     pub fVirt: ACCEL_VIRT_FLAGS,
     pub key: u16,
@@ -469,7 +469,7 @@ pub struct ACCEL {
 }
 pub type ACCEL_VIRT_FLAGS = u8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ALTTABINFO {
     pub cbSize: u32,
     pub cItems: i32,
@@ -483,7 +483,7 @@ pub struct ALTTABINFO {
 }
 pub type ANIMATE_WINDOW_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ANIMATIONINFO {
     pub cbSize: u32,
     pub iMinAnimate: i32,
@@ -502,7 +502,7 @@ pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = 3i32;
 pub const ARW_UP: i32 = 4i32;
 pub const ASFW_ANY: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUDIODESCRIPTION {
     pub cbSize: u32,
     pub Enabled: windows_sys::core::BOOL,
@@ -605,17 +605,32 @@ pub struct CBTACTIVATESTRUCT {
     pub fMouse: windows_sys::core::BOOL,
     pub hWndActive: super::super::Foundation::HWND,
 }
+impl Default for CBTACTIVATESTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CBT_CREATEWNDA {
     pub lpcs: *mut CREATESTRUCTA,
     pub hwndInsertAfter: super::super::Foundation::HWND,
 }
+impl Default for CBT_CREATEWNDA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CBT_CREATEWNDW {
     pub lpcs: *mut CREATESTRUCTW,
     pub hwndInsertAfter: super::super::Foundation::HWND,
+}
+impl Default for CBT_CREATEWNDW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CB_ADDSTRING: u32 = 323u32;
 pub const CB_DELETESTRING: u32 = 324u32;
@@ -660,7 +675,7 @@ pub const CB_SHOWDROPDOWN: u32 = 335u32;
 pub const CCHILDREN_SCROLLBAR: u32 = 5u32;
 pub const CCHILDREN_TITLEBAR: u32 = 5u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHANGEFILTERSTRUCT {
     pub cbSize: u32,
     pub ExtStatus: MSGFLTINFO_STATUS,
@@ -672,6 +687,11 @@ pub const CHILDID_SELF: u32 = 0u32;
 pub struct CLIENTCREATESTRUCT {
     pub hWindowMenu: super::super::Foundation::HANDLE,
     pub idFirstChild: u32,
+}
+impl Default for CLIENTCREATESTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CONSOLE_APPLICATION_16BIT: u32 = 0u32;
 pub const CONSOLE_CARET_SELECTION: u32 = 1u32;
@@ -696,6 +716,11 @@ pub struct CREATESTRUCTA {
     pub lpszClass: windows_sys::core::PCSTR,
     pub dwExStyle: WINDOW_EX_STYLE,
 }
+impl Default for CREATESTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CREATESTRUCTW {
@@ -711,6 +736,11 @@ pub struct CREATESTRUCTW {
     pub lpszName: windows_sys::core::PCWSTR,
     pub lpszClass: windows_sys::core::PCWSTR,
     pub dwExStyle: WINDOW_EX_STYLE,
+}
+impl Default for CREATESTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CSOUND_SYSTEM: u32 = 16u32;
 pub const CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = 4096u32;
@@ -742,9 +772,14 @@ pub struct CURSORINFO {
     pub hCursor: HCURSOR,
     pub ptScreenPos: super::super::Foundation::POINT,
 }
+impl Default for CURSORINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CURSORINFO_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CURSORSHAPE {
     pub xHotSpot: i32,
     pub yHotSpot: i32,
@@ -768,6 +803,11 @@ pub struct CWPRETSTRUCT {
     pub message: u32,
     pub hwnd: super::super::Foundation::HWND,
 }
+impl Default for CWPRETSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CWPSTRUCT {
@@ -775,6 +815,11 @@ pub struct CWPSTRUCT {
     pub wParam: super::super::Foundation::WPARAM,
     pub message: u32,
     pub hwnd: super::super::Foundation::HWND,
+}
+impl Default for CWPSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CWP_ALL: CWP_FLAGS = 0u32;
 pub type CWP_FLAGS = u32;
@@ -825,7 +870,7 @@ pub const DBT_VXDINITCOMPLETE: u32 = 35u32;
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 pub const DC_HASDEFID: u32 = 21323u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEBUGHOOKINFO {
     pub idThread: u32,
     pub idThreadInstaller: u32,
@@ -834,14 +879,14 @@ pub struct DEBUGHOOKINFO {
     pub code: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_EVENT_BECOMING_READY {
     pub Version: u32,
     pub Reason: u32,
     pub Estimated100msToReady: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_EVENT_EXTERNAL_REQUEST {
     pub Version: u32,
     pub DeviceClass: u32,
@@ -850,12 +895,12 @@ pub struct DEVICE_EVENT_EXTERNAL_REQUEST {
     pub SystemTime: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_EVENT_GENERIC_DATA {
     pub EventNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_EVENT_MOUNT {
     pub Version: u32,
     pub Flags: u32,
@@ -863,7 +908,7 @@ pub struct DEVICE_EVENT_MOUNT {
     pub FileSystemNameOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_EVENT_RBC_DATA {
     pub EventNumber: u32,
     pub SenseQualifier: u8,
@@ -885,6 +930,11 @@ pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
     pub dbcc_classguid: windows_sys::core::GUID,
     pub dbcc_name: [i8; 1],
 }
+impl Default for DEV_BROADCAST_DEVICEINTERFACE_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
@@ -894,8 +944,13 @@ pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
     pub dbcc_classguid: windows_sys::core::GUID,
     pub dbcc_name: [u16; 1],
 }
+impl Default for DEV_BROADCAST_DEVICEINTERFACE_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEV_BROADCAST_DEVNODE {
     pub dbcd_size: u32,
     pub dbcd_devicetype: u32,
@@ -914,6 +969,11 @@ pub struct DEV_BROADCAST_HANDLE {
     pub dbch_nameoffset: i32,
     pub dbch_data: [u8; 1],
 }
+impl Default for DEV_BROADCAST_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_HANDLE32 {
@@ -925,6 +985,11 @@ pub struct DEV_BROADCAST_HANDLE32 {
     pub dbch_eventguid: windows_sys::core::GUID,
     pub dbch_nameoffset: i32,
     pub dbch_data: [u8; 1],
+}
+impl Default for DEV_BROADCAST_HANDLE32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -938,8 +1003,13 @@ pub struct DEV_BROADCAST_HANDLE64 {
     pub dbch_nameoffset: i32,
     pub dbch_data: [u8; 1],
 }
+impl Default for DEV_BROADCAST_HANDLE64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEV_BROADCAST_HDR {
     pub dbch_size: u32,
     pub dbch_devicetype: DEV_BROADCAST_HDR_DEVICE_TYPE,
@@ -947,7 +1017,7 @@ pub struct DEV_BROADCAST_HDR {
 }
 pub type DEV_BROADCAST_HDR_DEVICE_TYPE = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEV_BROADCAST_NET {
     pub dbcn_size: u32,
     pub dbcn_devicetype: u32,
@@ -956,7 +1026,7 @@ pub struct DEV_BROADCAST_NET {
     pub dbcn_flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEV_BROADCAST_OEM {
     pub dbco_size: u32,
     pub dbco_devicetype: u32,
@@ -972,6 +1042,11 @@ pub struct DEV_BROADCAST_PORT_A {
     pub dbcp_reserved: u32,
     pub dbcp_name: [i8; 1],
 }
+impl Default for DEV_BROADCAST_PORT_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_PORT_W {
@@ -980,8 +1055,13 @@ pub struct DEV_BROADCAST_PORT_W {
     pub dbcp_reserved: u32,
     pub dbcp_name: [u16; 1],
 }
+impl Default for DEV_BROADCAST_PORT_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEV_BROADCAST_VOLUME {
     pub dbcv_size: u32,
     pub dbcv_devicetype: u32,
@@ -992,7 +1072,7 @@ pub struct DEV_BROADCAST_VOLUME {
 pub type DEV_BROADCAST_VOLUME_FLAGS = u16;
 pub const DIFFERENCE: u32 = 11u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_HEALTH_NOTIFICATION_DATA {
     pub DeviceGuid: windows_sys::core::GUID,
 }
@@ -1015,7 +1095,7 @@ pub const DLGC_WANTCHARS: u32 = 128u32;
 pub const DLGC_WANTMESSAGE: u32 = 4u32;
 pub const DLGC_WANTTAB: u32 = 2u32;
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DLGITEMTEMPLATE {
     pub style: u32,
     pub dwExtendedStyle: u32,
@@ -1027,7 +1107,7 @@ pub struct DLGITEMTEMPLATE {
 }
 pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DLGTEMPLATE {
     pub style: u32,
     pub dwExtendedStyle: u32,
@@ -1059,6 +1139,11 @@ pub struct DROPSTRUCT {
     pub dwData: usize,
     pub ptDrop: super::super::Foundation::POINT,
     pub dwControlData: u32,
+}
+impl Default for DROPSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DS_3DLOOK: i32 = 4i32;
 pub const DS_ABSALIGN: i32 = 1i32;
@@ -1127,6 +1212,11 @@ pub struct EVENTMSG {
     pub paramH: u32,
     pub time: u32,
     pub hwnd: super::super::Foundation::HWND,
+}
+impl Default for EVENTMSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EVENT_AIA_END: u32 = 45055u32;
 pub const EVENT_AIA_START: u32 = 40960u32;
@@ -1240,6 +1330,11 @@ pub struct FLASHWINFO {
     pub uCount: u32,
     pub dwTimeout: u32,
 }
+impl Default for FLASHWINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FLASHWINFO_FLAGS = u32;
 pub const FLASHW_ALL: FLASHWINFO_FLAGS = 3u32;
 pub const FLASHW_CAPTION: FLASHWINFO_FLAGS = 1u32;
@@ -1283,7 +1378,7 @@ pub const GESTUREVISUALIZATION_PRESSANDTAP: u32 = 4u32;
 pub const GESTUREVISUALIZATION_RIGHTTAP: u32 = 16u32;
 pub const GESTUREVISUALIZATION_TAP: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GETCLIPBMETADATA {
     pub Version: u32,
     pub IsDelayRendered: windows_sys::core::BOOL,
@@ -1307,7 +1402,7 @@ pub const GUID_IO_DEVICE_BECOMING_READY: windows_sys::core::GUID = windows_sys::
 pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd07433d0_a98e_11d2_917a_00a0c9068ff3);
 pub const GUID_IO_DISK_CLONE_ARRIVAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a61885b_7c39_43dd_9b56_b8ac22a549aa);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
     pub DiskNumber: u32,
 }
@@ -1351,6 +1446,11 @@ pub struct GUITHREADINFO {
     pub hwndCaret: super::super::Foundation::HWND,
     pub rcCaret: super::super::Foundation::RECT,
 }
+impl Default for GUITHREADINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type GUITHREADINFO_FLAGS = u32;
 pub const GUI_16BITTASK: u32 = 0u32;
 pub const GUI_CARETBLINKING: GUITHREADINFO_FLAGS = 1u32;
@@ -1390,6 +1490,11 @@ pub struct HARDWAREHOOKSTRUCT {
     pub message: u32,
     pub wParam: super::super::Foundation::WPARAM,
     pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for HARDWAREHOOKSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = -1i32 as _;
@@ -1525,6 +1630,12 @@ pub struct ICONINFO {
     pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
     pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for ICONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -1538,6 +1649,12 @@ pub struct ICONINFOEXA {
     pub wResID: u16,
     pub szModName: [i8; 260],
     pub szResName: [i8; 260],
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for ICONINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1553,9 +1670,15 @@ pub struct ICONINFOEXW {
     pub szModName: [u16; 260],
     pub szResName: [u16; 260],
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for ICONINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ICONMETRICSA {
     pub cbSize: u32,
     pub iHorzSpacing: i32,
@@ -1565,7 +1688,7 @@ pub struct ICONMETRICSA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ICONMETRICSW {
     pub cbSize: u32,
     pub iHorzSpacing: i32,
@@ -1653,8 +1776,13 @@ pub struct IndexedResourceQualifier {
     pub name: windows_sys::core::PWSTR,
     pub value: windows_sys::core::PWSTR,
 }
+impl Default for IndexedResourceQualifier {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KBDLLHOOKSTRUCT {
     pub vkCode: u32,
     pub scanCode: u32,
@@ -1832,6 +1960,11 @@ pub struct MDICREATESTRUCTA {
     pub style: WINDOW_STYLE,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for MDICREATESTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MDICREATESTRUCTW {
@@ -1845,12 +1978,22 @@ pub struct MDICREATESTRUCTW {
     pub style: WINDOW_STYLE,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for MDICREATESTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MDINEXTMENU {
     pub hmenuIn: HMENU,
     pub hmenuNext: HMENU,
     pub hwndNext: super::super::Foundation::HWND,
+}
+impl Default for MDINEXTMENU {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MDIS_ALLCHILDSTYLES: u32 = 1u32;
 pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = 1u32;
@@ -1866,8 +2009,13 @@ pub struct MENUBARINFO {
     pub hwndMenu: super::super::Foundation::HWND,
     pub _bitfield: i32,
 }
+impl Default for MENUBARINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MENUEX_TEMPLATE_HEADER {
     pub wVersion: u16,
     pub wOffset: u16,
@@ -1882,6 +2030,11 @@ pub struct MENUEX_TEMPLATE_ITEM {
     pub wFlags: u16,
     pub szText: [u16; 1],
 }
+impl Default for MENUEX_TEMPLATE_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MENUGETOBJECTINFO {
@@ -1890,6 +2043,11 @@ pub struct MENUGETOBJECTINFO {
     pub hmenu: HMENU,
     pub riid: *mut core::ffi::c_void,
     pub pvObj: *mut core::ffi::c_void,
+}
+impl Default for MENUGETOBJECTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MENUGETOBJECTINFO_FLAGS = u32;
 #[repr(C)]
@@ -1903,6 +2061,12 @@ pub struct MENUINFO {
     pub hbrBack: super::super::Graphics::Gdi::HBRUSH,
     pub dwContextHelpID: u32,
     pub dwMenuData: usize,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for MENUINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MENUINFO_MASK = u32;
 pub type MENUINFO_STYLE = u32;
@@ -1923,6 +2087,12 @@ pub struct MENUITEMINFOA {
     pub cch: u32,
     pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for MENUITEMINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -1940,6 +2110,12 @@ pub struct MENUITEMINFOW {
     pub cch: u32,
     pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for MENUITEMINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MENUITEMTEMPLATE {
@@ -1947,8 +2123,13 @@ pub struct MENUITEMTEMPLATE {
     pub mtID: u16,
     pub mtString: [u16; 1],
 }
+impl Default for MENUITEMTEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MENUITEMTEMPLATEHEADER {
     pub versionNumber: u16,
     pub offset: u16,
@@ -1958,11 +2139,21 @@ pub struct MENUITEMTEMPLATEHEADER {
 pub struct MENUTEMPLATEEX {
     pub Anonymous: MENUTEMPLATEEX_0,
 }
+impl Default for MENUTEMPLATEEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MENUTEMPLATEEX_0 {
     pub Menu: MENUTEMPLATEEX_0_0,
     pub MenuEx: MENUTEMPLATEEX_0_1,
+}
+impl Default for MENUTEMPLATEEX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1970,11 +2161,21 @@ pub struct MENUTEMPLATEEX_0_1 {
     pub mexHeader: MENUEX_TEMPLATE_HEADER,
     pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
 }
+impl Default for MENUTEMPLATEEX_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MENUTEMPLATEEX_0_0 {
     pub mitHeader: MENUITEMTEMPLATEHEADER,
     pub miTemplate: [MENUITEMTEMPLATE; 1],
+}
+impl Default for MENUTEMPLATEEX_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MENU_ITEM_FLAGS = u32;
 pub type MENU_ITEM_MASK = u32;
@@ -1983,7 +2184,7 @@ pub type MENU_ITEM_TYPE = u32;
 pub type MESSAGEBOX_RESULT = i32;
 pub type MESSAGEBOX_STYLE = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MESSAGE_RESOURCE_BLOCK {
     pub LowId: u32,
     pub HighId: u32,
@@ -1995,12 +2196,22 @@ pub struct MESSAGE_RESOURCE_DATA {
     pub NumberOfBlocks: u32,
     pub Blocks: [MESSAGE_RESOURCE_BLOCK; 1],
 }
+impl Default for MESSAGE_RESOURCE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MESSAGE_RESOURCE_ENTRY {
     pub Length: u16,
     pub Flags: u16,
     pub Text: [u8; 1],
+}
+impl Default for MESSAGE_RESOURCE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const METRICS_USEDEFAULT: i32 = -1i32;
 pub const MFS_CHECKED: MENU_ITEM_STATE = 8u32;
@@ -2064,7 +2275,7 @@ pub const MIM_MAXHEIGHT: MENUINFO_MASK = 1u32;
 pub const MIM_MENUDATA: MENUINFO_MASK = 8u32;
 pub const MIM_STYLE: MENUINFO_MASK = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIMIZEDMETRICS {
     pub cbSize: u32,
     pub iWidth: i32,
@@ -2075,7 +2286,7 @@ pub struct MINIMIZEDMETRICS {
 pub type MINIMIZEDMETRICS_ARRANGE = i32;
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINMAXINFO {
     pub ptReserved: super::super::Foundation::POINT,
     pub ptMaxSize: super::super::Foundation::POINT,
@@ -2123,8 +2334,13 @@ pub struct MOUSEHOOKSTRUCT {
     pub wHitTestCode: u32,
     pub dwExtraInfo: usize,
 }
+impl Default for MOUSEHOOKSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MOUSEHOOKSTRUCTEX {
     pub Base: MOUSEHOOKSTRUCT,
     pub mouseData: u32,
@@ -2141,6 +2357,11 @@ pub struct MSG {
     pub lParam: super::super::Foundation::LPARAM,
     pub time: u32,
     pub pt: super::super::Foundation::POINT,
+}
+impl Default for MSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_UI_Shell")]
 pub type MSGBOXCALLBACK = Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
@@ -2159,6 +2380,12 @@ pub struct MSGBOXPARAMSA {
     pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
 }
+#[cfg(feature = "Win32_UI_Shell")]
+impl Default for MSGBOXPARAMSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
 #[derive(Clone, Copy)]
@@ -2173,6 +2400,12 @@ pub struct MSGBOXPARAMSW {
     pub dwContextHelpId: usize,
     pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
+}
+#[cfg(feature = "Win32_UI_Shell")]
+impl Default for MSGBOXPARAMSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = 3u32;
 pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = 1u32;
@@ -2193,7 +2426,7 @@ pub const MSGF_SCROLLBAR: u32 = 5u32;
 pub const MSGF_USER: u32 = 4096u32;
 pub type MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MSLLHOOKSTRUCT {
     pub pt: super::super::Foundation::POINT,
     pub mouseData: u32,
@@ -2230,12 +2463,22 @@ pub const MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = 17432581i32;
 pub struct MrmResourceIndexerHandle {
     pub handle: *mut core::ffi::c_void,
 }
+impl Default for MrmResourceIndexerHandle {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MrmResourceIndexerMessage {
     pub severity: MrmResourceIndexerMessageSeverity,
     pub id: u32,
     pub text: windows_sys::core::PCWSTR,
+}
+impl Default for MrmResourceIndexerMessage {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MrmResourceIndexerMessageSeverity = i32;
 pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = 3i32;
@@ -2250,6 +2493,11 @@ pub struct NCCALCSIZE_PARAMS {
     pub rgrc: [super::super::Foundation::RECT; 3],
     pub lppos: *mut WINDOWPOS,
 }
+impl Default for NCCALCSIZE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const NFR_ANSI: u32 = 1u32;
 pub const NFR_UNICODE: u32 = 2u32;
 pub const NF_QUERY: u32 = 3u32;
@@ -2262,7 +2510,7 @@ pub const NID_MULTI_INPUT: u32 = 64u32;
 pub const NID_READY: u32 = 128u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NONCLIENTMETRICSA {
     pub cbSize: u32,
     pub iBorderWidth: i32,
@@ -2283,7 +2531,7 @@ pub struct NONCLIENTMETRICSA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NONCLIENTMETRICSW {
     pub cbSize: u32,
     pub iBorderWidth: i32,
@@ -2590,10 +2838,15 @@ pub struct SCROLLBARINFO {
     pub reserved: i32,
     pub rgstate: [u32; 6],
 }
+impl Default for SCROLLBARINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SCROLLBAR_COMMAND = i32;
 pub type SCROLLBAR_CONSTANTS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCROLLINFO {
     pub cbSize: u32,
     pub fMask: SCROLLINFO_MASK,
@@ -2634,6 +2887,11 @@ pub type SET_WINDOW_POS_FLAGS = u32;
 pub struct SHELLHOOKINFO {
     pub hwnd: super::super::Foundation::HWND,
     pub rc: super::super::Foundation::RECT,
+}
+impl Default for SHELLHOOKINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SHOW_FULLSCREEN: u32 = 3u32;
 pub const SHOW_ICONWINDOW: u32 = 2u32;
@@ -3071,7 +3329,7 @@ pub const STRSAFE_NO_TRUNCATION: u32 = 4096u32;
 pub const STRSAFE_NULL_ON_FAILURE: u32 = 2048u32;
 pub const STRSAFE_USE_SECURE_CRT: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STYLESTRUCT {
     pub styleOld: u32,
     pub styleNew: u32,
@@ -3133,6 +3391,11 @@ pub struct TITLEBARINFO {
     pub rcTitleBar: super::super::Foundation::RECT,
     pub rgstate: [u32; 6],
 }
+impl Default for TITLEBARINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TITLEBARINFOEX {
@@ -3140,6 +3403,11 @@ pub struct TITLEBARINFOEX {
     pub rcTitleBar: super::super::Foundation::RECT,
     pub rgstate: [u32; 6],
     pub rgrect: [super::super::Foundation::RECT; 6],
+}
+impl Default for TITLEBARINFOEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TKF_AVAILABLE: u32 = 2u32;
 pub const TKF_CONFIRMHOTKEY: u32 = 8u32;
@@ -3149,7 +3417,7 @@ pub const TKF_INDICATOR: u32 = 32u32;
 pub const TKF_TOGGLEKEYSON: u32 = 1u32;
 pub type TOOLTIP_DISMISS_FLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TOUCHPREDICTIONPARAMETERS {
     pub cbSize: u32,
     pub dwLatency: u32,
@@ -3175,7 +3443,7 @@ pub const TOUCH_MASK_NONE: u32 = 0u32;
 pub const TOUCH_MASK_ORIENTATION: u32 = 2u32;
 pub const TOUCH_MASK_PRESSURE: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TPMPARAMS {
     pub cbSize: u32,
     pub rcExclude: super::super::Foundation::RECT,
@@ -3228,12 +3496,18 @@ pub struct UPDATELAYEREDWINDOWINFO {
     pub dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
     pub prcDirty: *const super::super::Foundation::RECT,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for UPDATELAYEREDWINDOWINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type UPDATE_LAYERED_WINDOW_FLAGS = u32;
 pub const USER_DEFAULT_SCREEN_DPI: u32 = 96u32;
 pub const USER_TIMER_MAXIMUM: u32 = 2147483647u32;
 pub const USER_TIMER_MINIMUM: u32 = 10u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VolLockBroadcast {
     pub vlb_dbh: DEV_BROADCAST_HDR,
     pub vlb_owner: u32,
@@ -3270,7 +3544,7 @@ pub const WH_MSGFILTER: WINDOWS_HOOK_ID = -1i32;
 pub const WH_SHELL: WINDOWS_HOOK_ID = 10i32;
 pub const WH_SYSMSGFILTER: WINDOWS_HOOK_ID = 6i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINDOWINFO {
     pub cbSize: u32,
     pub rcWindow: super::super::Foundation::RECT,
@@ -3284,7 +3558,7 @@ pub struct WINDOWINFO {
     pub wCreatorVersion: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINDOWPLACEMENT {
     pub length: u32,
     pub flags: WINDOWPLACEMENT_FLAGS,
@@ -3304,6 +3578,11 @@ pub struct WINDOWPOS {
     pub cx: i32,
     pub cy: i32,
     pub flags: SET_WINDOW_POS_FLAGS,
+}
+impl Default for WINDOWPOS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WINDOWS_HOOK_ID = i32;
 pub type WINDOW_DISPLAY_AFFINITY = u32;
@@ -3603,6 +3882,12 @@ pub struct WNDCLASSA {
     pub lpszMenuName: windows_sys::core::PCSTR,
     pub lpszClassName: windows_sys::core::PCSTR,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for WNDCLASSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -3619,6 +3904,12 @@ pub struct WNDCLASSEXA {
     pub lpszMenuName: windows_sys::core::PCSTR,
     pub lpszClassName: windows_sys::core::PCSTR,
     pub hIconSm: HICON,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for WNDCLASSEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3637,6 +3928,12 @@ pub struct WNDCLASSEXW {
     pub lpszClassName: windows_sys::core::PCWSTR,
     pub hIconSm: HICON,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for WNDCLASSEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -3651,6 +3948,12 @@ pub struct WNDCLASSW {
     pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
     pub lpszMenuName: windows_sys::core::PCWSTR,
     pub lpszClassName: windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for WNDCLASSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WNDCLASS_STYLES = u32;
 pub type WNDENUMPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> windows_sys::core::BOOL>;
@@ -3736,7 +4039,7 @@ pub const WVR_VREDRAW: u32 = 512u32;
 pub const XBUTTON1: u16 = 1u16;
 pub const XBUTTON2: u16 = 2u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _DEV_BROADCAST_HEADER {
     pub dbcd_size: u32,
     pub dbcd_devicetype: u32,
@@ -3747,6 +4050,11 @@ pub struct _DEV_BROADCAST_HEADER {
 pub struct _DEV_BROADCAST_USERDEFINED {
     pub dbud_dbh: DEV_BROADCAST_HDR,
     pub dbud_szName: [i8; 1],
+}
+impl Default for _DEV_BROADCAST_USERDEFINED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const __WARNING_BANNED_API_USAGE: u32 = 28719u32;
 pub const __WARNING_CYCLOMATIC_COMPLEXITY: u32 = 28734u32;

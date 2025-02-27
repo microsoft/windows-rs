@@ -6,11 +6,16 @@ pub struct AVRF_BACKTRACE_INFORMATION {
     pub Index: u32,
     pub ReturnAddresses: [u64; 32],
 }
+impl Default for AVRF_BACKTRACE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const AVRF_ENUM_RESOURCES_FLAGS_DONT_RESOLVE_TRACES: VERIFIER_ENUM_RESOURCE_FLAGS = 2u32;
 pub const AVRF_ENUM_RESOURCES_FLAGS_SUSPEND: VERIFIER_ENUM_RESOURCE_FLAGS = 1u32;
 pub type AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK = Option<unsafe extern "system" fn(handleoperation: *mut AVRF_HANDLE_OPERATION, enumerationcontext: *mut core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AVRF_HANDLE_OPERATION {
     pub Handle: u64,
     pub ProcessId: u32,
@@ -32,6 +37,11 @@ pub struct AVRF_HEAP_ALLOCATION {
     pub HeapState: u32,
     pub HeapContext: u64,
     pub BackTraceInformation: *mut AVRF_BACKTRACE_INFORMATION,
+}
+impl Default for AVRF_HEAP_ALLOCATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const AVRF_MAX_TRACES: u32 = 32u32;
 pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = Option<unsafe extern "system" fn(resourcedescription: *mut core::ffi::c_void, enumerationcontext: *mut core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;

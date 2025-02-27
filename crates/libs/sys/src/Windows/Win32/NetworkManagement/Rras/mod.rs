@@ -311,6 +311,11 @@ pub struct AUTH_VALIDATION_EX {
     pub AuthInfoSize: u32,
     pub AuthInfo: [u8; 1],
 }
+impl Default for AUTH_VALIDATION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DO_NOT_ALLOW_NO_AUTH: u32 = 0u32;
 pub const ERROR_ACCESSING_TCPCFGDLL: u32 = 727u32;
 pub const ERROR_ACCT_DISABLED: u32 = 647u32;
@@ -593,7 +598,7 @@ pub const ET_Optional: u32 = 3u32;
 pub const ET_Require: u32 = 1u32;
 pub const ET_RequireMax: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GRE_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -601,7 +606,7 @@ pub struct GRE_CONFIG_PARAMS0 {
 pub type HRASCONN = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEV2_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -641,6 +646,11 @@ pub struct IKEV2_PROJECTION_INFO {
     pub dwCompressionAlgorithm: u32,
     pub dwEncryptionMethod: u32,
 }
+impl Default for IKEV2_PROJECTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEV2_PROJECTION_INFO2 {
@@ -661,6 +671,11 @@ pub struct IKEV2_PROJECTION_INFO2 {
     pub dwCompressionAlgorithm: u32,
     pub dwEncryptionMethod: u32,
 }
+impl Default for IKEV2_PROJECTION_INFO2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -675,6 +690,12 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub machineCertificateName: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub dwEncryptionType: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for IKEV2_TUNNEL_CONFIG_PARAMS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -693,6 +714,12 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwTotalEkus: u32,
     pub certificateEKUs: *mut MPR_CERT_EKU,
     pub machineCertificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for IKEV2_TUNNEL_CONFIG_PARAMS3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -713,17 +740,23 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub machineCertificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub dwMmSaLifeTime: u32,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for IKEV2_TUNNEL_CONFIG_PARAMS4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IPADDRESSLEN: u32 = 15u32;
 pub const IPV6_ADDRESS_LEN_IN_BYTES: u32 = 16u32;
 pub const IPXADDRESSLEN: u32 = 22u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct L2TP_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct L2TP_CONFIG_PARAMS1 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -739,6 +772,11 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwSaDataSizeForRenegotiation: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
+impl Default for L2TP_TUNNEL_CONFIG_PARAMS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
@@ -748,6 +786,11 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub dwSaDataSizeForRenegotiation: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub dwMmSaLifeTime: u32,
+}
+impl Default for L2TP_TUNNEL_CONFIG_PARAMS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MAXIPADRESSLEN: u32 = 64u32;
 pub const MAX_SSTP_HASH_SIZE: u32 = 32u32;
@@ -763,7 +806,7 @@ pub const METHOD_TYPE_ALL_METHODS: u32 = 4294967295u32;
 pub type MGM_ENUM_TYPES = i32;
 pub const MGM_FORWARD_STATE_FLAG: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MGM_IF_ENTRY {
     pub dwIfIndex: u32,
     pub dwIfNextHopAddr: u32,
@@ -775,7 +818,7 @@ pub const MGM_MFE_STATS_0: u32 = 1u32;
 pub const MGM_MFE_STATS_1: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub revision: u8,
     pub lpfnMprAdminGetIpAddressForUser: PMPRADMINGETIPADDRESSFORUSER,
@@ -813,7 +856,7 @@ pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_3: u32 = 3u32;
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: u32 = 4u32;
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: u32 = 5u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPRAPI_OBJECT_HEADER {
     pub revision: u8,
     pub r#type: u8,
@@ -836,7 +879,7 @@ pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1u32;
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -845,7 +888,7 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -907,11 +950,21 @@ pub struct MPR_CERT_EKU {
     pub IsEKUOID: windows_sys::core::BOOL,
     pub pwszEKU: windows_sys::core::PWSTR,
 }
+impl Default for MPR_CERT_EKU {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MPR_CREDENTIALSEX_0 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
+}
+impl Default for MPR_CREDENTIALSEX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -919,11 +972,21 @@ pub struct MPR_CREDENTIALSEX_1 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
 }
+impl Default for MPR_CREDENTIALSEX_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MPR_DEVICE_0 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
+}
+impl Default for MPR_DEVICE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -933,6 +996,11 @@ pub struct MPR_DEVICE_1 {
     pub szLocalPhoneNumber: [u16; 129],
     pub szAlternates: windows_sys::core::PWSTR,
 }
+impl Default for MPR_DEVICE_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1u32;
 pub const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2u32;
 pub type MPR_ET = u32;
@@ -941,7 +1009,7 @@ pub const MPR_ET_Optional: MPR_ET = 3u32;
 pub const MPR_ET_Require: MPR_ET = 1u32;
 pub const MPR_ET_RequireMax: MPR_ET = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPR_FILTER_0 {
     pub fEnable: windows_sys::core::BOOL,
 }
@@ -952,9 +1020,14 @@ pub struct MPR_IFTRANSPORT_0 {
     pub hIfTransport: super::super::Foundation::HANDLE,
     pub wszIfTransportName: [u16; 41],
 }
+impl Default for MPR_IFTRANSPORT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPR_IF_CUSTOMINFOEX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
@@ -962,7 +1035,7 @@ pub struct MPR_IF_CUSTOMINFOEX0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPR_IF_CUSTOMINFOEX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
@@ -970,7 +1043,7 @@ pub struct MPR_IF_CUSTOMINFOEX1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPR_IF_CUSTOMINFOEX2 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
@@ -987,6 +1060,11 @@ pub struct MPR_INTERFACE_0 {
     pub fUnReachabilityReasons: u32,
     pub dwLastError: u32,
 }
+impl Default for MPR_INTERFACE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MPR_INTERFACE_1 {
@@ -998,6 +1076,11 @@ pub struct MPR_INTERFACE_1 {
     pub fUnReachabilityReasons: u32,
     pub dwLastError: u32,
     pub lpwsDialoutHoursRestriction: windows_sys::core::PWSTR,
+}
+impl Default for MPR_INTERFACE_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1039,6 +1122,11 @@ pub struct MPR_INTERFACE_2 {
     pub lpbCustomAuthData: *mut u8,
     pub guidId: windows_sys::core::GUID,
     pub dwVpnStrategy: MPR_VS,
+}
+impl Default for MPR_INTERFACE_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1086,6 +1174,12 @@ pub struct MPR_INTERFACE_3 {
     pub ipv6addrDnsAlt: super::super::Networking::WinSock::IN6_ADDR,
     pub ipv6addr: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for MPR_INTERFACE_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2u32;
 pub const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4u32;
 pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16u32;
@@ -1100,6 +1194,11 @@ pub struct MPR_IPINIP_INTERFACE_0 {
     pub wszFriendlyName: [u16; 257],
     pub Guid: windows_sys::core::GUID,
 }
+impl Default for MPR_IPINIP_INTERFACE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MPR_MaxAreaCode: u32 = 10u32;
 pub const MPR_MaxCallbackNumber: u32 = 128u32;
 pub const MPR_MaxDeviceName: u32 = 128u32;
@@ -1113,7 +1212,7 @@ pub const MPR_MaxPhoneNumber: u32 = 128u32;
 pub const MPR_MaxUserData: u32 = 200u32;
 pub const MPR_MaxX25Address: u32 = 200u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPR_SERVER_0 {
     pub fLanOnlyMode: windows_sys::core::BOOL,
     pub dwUpTime: u32,
@@ -1121,7 +1220,7 @@ pub struct MPR_SERVER_0 {
     pub dwPortsInUse: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPR_SERVER_1 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
@@ -1129,7 +1228,7 @@ pub struct MPR_SERVER_1 {
     pub dwL2tpPortFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPR_SERVER_2 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
@@ -1140,7 +1239,7 @@ pub struct MPR_SERVER_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPR_SERVER_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -1152,7 +1251,7 @@ pub struct MPR_SERVER_EX0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPR_SERVER_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -1164,7 +1263,7 @@ pub struct MPR_SERVER_EX1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPR_SERVER_SET_CONFIG_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
@@ -1172,7 +1271,7 @@ pub struct MPR_SERVER_SET_CONFIG_EX0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MPR_SERVER_SET_CONFIG_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
@@ -1184,6 +1283,11 @@ pub struct MPR_TRANSPORT_0 {
     pub dwTransportId: u32,
     pub hTransport: super::super::Foundation::HANDLE,
     pub wszTransportName: [u16; 41],
+}
+impl Default for MPR_TRANSPORT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1197,6 +1301,12 @@ pub struct MPR_VPN_TRAFFIC_SELECTOR {
     pub addrStart: VPN_TS_IP_ADDRESS,
     pub addrEnd: VPN_TS_IP_ADDRESS,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for MPR_VPN_TRAFFIC_SELECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -1205,6 +1315,12 @@ pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub numTsr: u32,
     pub tsI: *mut MPR_VPN_TRAFFIC_SELECTOR,
     pub tsR: *mut MPR_VPN_TRAFFIC_SELECTOR,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for MPR_VPN_TRAFFIC_SELECTORS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = 7i32;
 pub const MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = 8i32;
@@ -1266,6 +1382,11 @@ pub struct PPP_ATCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 33],
 }
+impl Default for PPP_ATCP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PPP_CCP_COMPRESSION: u32 = 1u32;
 pub const PPP_CCP_ENCRYPTION128BIT: u32 = 64u32;
 pub const PPP_CCP_ENCRYPTION40BIT: u32 = 32u32;
@@ -1273,7 +1394,7 @@ pub const PPP_CCP_ENCRYPTION40BITOLD: u32 = 16u32;
 pub const PPP_CCP_ENCRYPTION56BIT: u32 = 128u32;
 pub const PPP_CCP_HISTORYLESS: u32 = 16777216u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PPP_CCP_INFO {
     pub dwError: u32,
     pub dwCompressionAlgorithm: u32,
@@ -1282,7 +1403,7 @@ pub struct PPP_CCP_INFO {
     pub dwRemoteOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PPP_INFO {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO,
@@ -1290,7 +1411,7 @@ pub struct PPP_INFO {
     pub at: PPP_ATCP_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PPP_INFO_2 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -1300,7 +1421,7 @@ pub struct PPP_INFO_2 {
     pub lcp: PPP_LCP_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PPP_INFO_3 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -1315,6 +1436,11 @@ pub struct PPP_IPCP_INFO {
     pub wszAddress: [u16; 16],
     pub wszRemoteAddress: [u16; 16],
 }
+impl Default for PPP_IPCP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPP_IPCP_INFO2 {
@@ -1323,6 +1449,11 @@ pub struct PPP_IPCP_INFO2 {
     pub wszRemoteAddress: [u16; 16],
     pub dwOptions: u32,
     pub dwRemoteOptions: u32,
+}
+impl Default for PPP_IPCP_INFO2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PPP_IPCP_VJ: u32 = 1u32;
 #[repr(C)]
@@ -1338,11 +1469,21 @@ pub struct PPP_IPV6_CP_INFO {
     pub bPrefix: [u8; 8],
     pub dwPrefixLength: u32,
 }
+impl Default for PPP_IPV6_CP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPP_IPXCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 23],
+}
+impl Default for PPP_IPXCP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PPP_LCP = u32;
 pub const PPP_LCP_3_DES: u32 = 32u32;
@@ -1360,7 +1501,7 @@ pub const PPP_LCP_GCM_AES_128: u32 = 512u32;
 pub const PPP_LCP_GCM_AES_192: u32 = 1024u32;
 pub const PPP_LCP_GCM_AES_256: u32 = 2048u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PPP_LCP_INFO {
     pub dwError: u32,
     pub dwAuthenticationProtocol: PPP_LCP,
@@ -1385,6 +1526,11 @@ pub const PPP_LCP_SSHF: u32 = 8u32;
 pub struct PPP_NBFCP_INFO {
     pub dwError: u32,
     pub wszWksta: [u16; 17],
+}
+impl Default for PPP_NBFCP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1417,6 +1563,11 @@ pub struct PPP_PROJECTION_INFO {
     pub dwCcpOptions: u32,
     pub dwRemoteCompressionAlgorithm: u32,
     pub dwCcpRemoteOptions: u32,
+}
+impl Default for PPP_PROJECTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1451,8 +1602,13 @@ pub struct PPP_PROJECTION_INFO2 {
     pub dwRemoteCompressionAlgorithm: u32,
     pub dwCcpRemoteOptions: u32,
 }
+impl Default for PPP_PROJECTION_INFO2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PPTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -1463,11 +1619,21 @@ pub struct PROJECTION_INFO {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO_0,
 }
+impl Default for PROJECTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROJECTION_INFO_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO,
+}
+impl Default for PROJECTION_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1475,11 +1641,21 @@ pub struct PROJECTION_INFO2 {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO2_0,
 }
+impl Default for PROJECTION_INFO2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROJECTION_INFO2_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO2,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO2,
+}
+impl Default for PROJECTION_INFO2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = 2i32;
 pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = 1i32;
@@ -1495,6 +1671,11 @@ pub struct RASADPARAMS {
     pub xDlg: i32,
     pub yDlg: i32,
 }
+impl Default for RASADPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RASADP_ConnectionQueryTimeout: u32 = 4u32;
 pub const RASADP_DisableConnectionQuery: u32 = 0u32;
 pub const RASADP_FailedConnectionTimeout: u32 = 3u32;
@@ -1508,6 +1689,11 @@ pub struct RASAMBA {
     pub szNetBiosError: [i8; 17],
     pub bLana: u8,
 }
+impl Default for RASAMBA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASAMBW {
@@ -1515,6 +1701,11 @@ pub struct RASAMBW {
     pub dwError: u32,
     pub szNetBiosError: [u16; 17],
     pub bLana: u8,
+}
+impl Default for RASAMBW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RASAPIVERSION = i32;
 pub const RASAPIVERSION_500: RASAPIVERSION = 1i32;
@@ -1529,6 +1720,11 @@ pub struct RASAUTODIALENTRYA {
     pub dwDialingLocation: u32,
     pub szEntry: [i8; 257],
 }
+impl Default for RASAUTODIALENTRYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASAUTODIALENTRYW {
@@ -1536,6 +1732,11 @@ pub struct RASAUTODIALENTRYW {
     pub dwFlags: u32,
     pub dwDialingLocation: u32,
     pub szEntry: [u16; 257],
+}
+impl Default for RASAUTODIALENTRYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RASBASE: u32 = 600u32;
 pub const RASBASEEND: u32 = 877u32;
@@ -1565,7 +1766,7 @@ pub const RASCN_Dormant: u32 = 16u32;
 pub const RASCN_EPDGPacketArrival: u32 = 64u32;
 pub const RASCN_ReConnection: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RASCOMMSETTINGS {
     pub dwSize: u32,
     pub bParity: u8,
@@ -1589,6 +1790,12 @@ pub struct RASCONNA {
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_sys::core::GUID,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RASCONNA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1605,6 +1812,12 @@ pub struct RASCONNA {
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_sys::core::GUID,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RASCONNA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type RASCONNSTATE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1620,6 +1833,12 @@ pub struct RASCONNSTATUSA {
     pub remoteEndPoint: RASTUNNELENDPOINT,
     pub rasconnsubstate: RASCONNSUBSTATE,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RASCONNSTATUSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -1633,6 +1852,12 @@ pub struct RASCONNSTATUSW {
     pub localEndPoint: RASTUNNELENDPOINT,
     pub remoteEndPoint: RASTUNNELENDPOINT,
     pub rasconnsubstate: RASCONNSUBSTATE,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RASCONNSTATUSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RASCONNSUBSTATE = i32;
 #[repr(C)]
@@ -1651,6 +1876,12 @@ pub struct RASCONNW {
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_sys::core::GUID,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RASCONNW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1667,6 +1898,12 @@ pub struct RASCONNW {
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_sys::core::GUID,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RASCONNW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASCREDENTIALSA {
@@ -1676,6 +1913,11 @@ pub struct RASCREDENTIALSA {
     pub szPassword: [i8; 257],
     pub szDomain: [i8; 16],
 }
+impl Default for RASCREDENTIALSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASCREDENTIALSW {
@@ -1684,6 +1926,11 @@ pub struct RASCREDENTIALSW {
     pub szUserName: [u16; 257],
     pub szPassword: [u16; 257],
     pub szDomain: [u16; 16],
+}
+impl Default for RASCREDENTIALSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RASCSS_DONE: u32 = 8192u32;
 pub const RASCSS_Dormant: RASCONNSUBSTATE = 1i32;
@@ -1725,7 +1972,7 @@ pub const RASCS_SubEntryDisconnected: RASCONNSTATE = 23i32;
 pub const RASCS_WaitForCallback: RASCONNSTATE = 17i32;
 pub const RASCS_WaitForModemReset: RASCONNSTATE = 16i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RASCTRYINFO {
     pub dwSize: u32,
     pub dwCountryID: u32,
@@ -1734,7 +1981,7 @@ pub struct RASCTRYINFO {
     pub dwCountryNameOffset: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: u32,
     pub pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
@@ -1750,12 +1997,22 @@ pub struct RASDEVINFOA {
     pub szDeviceType: [i8; 17],
     pub szDeviceName: [i8; 129],
 }
+impl Default for RASDEVINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASDEVINFOW {
     pub dwSize: u32,
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
+}
+impl Default for RASDEVINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1764,12 +2021,24 @@ pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RASDEVSPECIFICINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RASDEVSPECIFICINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -1784,6 +2053,11 @@ pub struct RASDIALDLG {
     pub reserved: usize,
     pub reserved2: usize,
 }
+impl Default for RASDIALDLG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RASDIALEVENT: windows_sys::core::PCSTR = windows_sys::core::s!("RasDialEvent");
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
@@ -1796,6 +2070,11 @@ pub struct RASDIALEXTENSIONS {
     pub RasEapInfo: RASEAPINFO,
     pub fSkipPppAuth: windows_sys::core::BOOL,
     pub RasDevSpecificInfo: RASDEVSPECIFICINFO,
+}
+impl Default for RASDIALEXTENSIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RASDIALFUNC = Option<unsafe extern "system" fn(param0: u32, param1: RASCONNSTATE, param2: u32)>;
 pub type RASDIALFUNC1 = Option<unsafe extern "system" fn(param0: HRASCONN, param1: u32, param2: RASCONNSTATE, param3: u32, param4: u32)>;
@@ -1816,6 +2095,12 @@ pub struct RASDIALPARAMSA {
     pub dwIfIndex: u32,
     pub szEncPassword: windows_sys::core::PSTR,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RASDIALPARAMSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1831,6 +2116,12 @@ pub struct RASDIALPARAMSA {
     pub dwCallbackId: usize,
     pub dwIfIndex: u32,
     pub szEncPassword: windows_sys::core::PSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RASDIALPARAMSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1848,6 +2139,12 @@ pub struct RASDIALPARAMSW {
     pub dwIfIndex: u32,
     pub szEncPassword: windows_sys::core::PWSTR,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RASDIALPARAMSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1863,6 +2160,12 @@ pub struct RASDIALPARAMSW {
     pub dwCallbackId: usize,
     pub dwIfIndex: u32,
     pub szEncPassword: windows_sys::core::PWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RASDIALPARAMSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RASDT_Atm: windows_sys::core::PCWSTR = windows_sys::core::w!("ATM");
 pub const RASDT_FrameRelay: windows_sys::core::PCWSTR = windows_sys::core::w!("FRAMERELAY");
@@ -1887,6 +2190,11 @@ pub struct RASEAPINFO {
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: *mut u8,
 }
+impl Default for RASEAPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASEAPUSERIDENTITYA {
@@ -1894,12 +2202,22 @@ pub struct RASEAPUSERIDENTITYA {
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
 }
+impl Default for RASEAPUSERIDENTITYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASEAPUSERIDENTITYW {
     pub szUserName: [u16; 257],
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
+}
+impl Default for RASEAPUSERIDENTITYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RASEDFLAG_CloneEntry: u32 = 4u32;
 pub const RASEDFLAG_IncomingConnection: u32 = 1024u32;
@@ -1981,6 +2299,12 @@ pub struct RASENTRYA {
     pub IdrType: IKEV2_ID_PAYLOAD_TYPE,
     pub fDisableIKEv2Fragmentation: windows_sys::core::BOOL,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RASENTRYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -1994,6 +2318,12 @@ pub struct RASENTRYDLGA {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
+}
+#[cfg(target_arch = "x86")]
+impl Default for RASENTRYDLGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2009,6 +2339,12 @@ pub struct RASENTRYDLGA {
     pub reserved: usize,
     pub reserved2: usize,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RASENTRYDLGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -2023,6 +2359,12 @@ pub struct RASENTRYDLGW {
     pub reserved: usize,
     pub reserved2: usize,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RASENTRYDLGW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2036,6 +2378,12 @@ pub struct RASENTRYDLGW {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RASENTRYDLGW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2045,6 +2393,11 @@ pub struct RASENTRYNAMEA {
     pub dwFlags: u32,
     pub szPhonebookPath: [i8; 261],
 }
+impl Default for RASENTRYNAMEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASENTRYNAMEW {
@@ -2052,6 +2405,11 @@ pub struct RASENTRYNAMEW {
     pub szEntryName: [u16; 257],
     pub dwFlags: u32,
     pub szPhonebookPath: [u16; 261],
+}
+impl Default for RASENTRYNAMEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -2118,6 +2476,12 @@ pub struct RASENTRYW {
     pub IdiType: IKEV2_ID_PAYLOAD_TYPE,
     pub IdrType: IKEV2_ID_PAYLOAD_TYPE,
     pub fDisableIKEv2Fragmentation: windows_sys::core::BOOL,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RASENTRYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RASENTRY_DIAL_MODE = u32;
 pub const RASEO2_AuthTypeIsOtp: u32 = 268435456u32;
@@ -2214,6 +2578,13 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub numIPv6ServerAddresses: u32,
     pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RASIKEV2_PROJECTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -2235,6 +2606,13 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub numIPv6ServerAddresses: u32,
     pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RASIKEV2_PROJECTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type RASIKEV_PROJECTION_INFO_FLAGS = u32;
 pub const RASIKEv2_AUTH_EAP: u32 = 2u32;
 pub const RASIKEv2_AUTH_MACHINECERTIFICATES: u32 = 1u32;
@@ -2243,7 +2621,7 @@ pub const RASIKEv2_FLAGS_BEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 2u32;
 pub const RASIKEv2_FLAGS_MOBIKESUPPORTED: RASIKEV_PROJECTION_INFO_FLAGS = 1u32;
 pub const RASIKEv2_FLAGS_SERVERBEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RASIPADDR {
     pub a: u8,
     pub b: u8,
@@ -2257,6 +2635,11 @@ pub struct RASIPXW {
     pub dwSize: u32,
     pub dwError: u32,
     pub szIpxAddress: [u16; 22],
+}
+impl Default for RASIPXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RASLCPAD_CHAP_MD5: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 5u32;
 pub const RASLCPAD_CHAP_MS: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 128u32;
@@ -2287,6 +2670,11 @@ pub struct RASNOUSERA {
     pub szPassword: [i8; 257],
     pub szDomain: [i8; 16],
 }
+impl Default for RASNOUSERA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASNOUSERW {
@@ -2296,6 +2684,11 @@ pub struct RASNOUSERW {
     pub szUserName: [u16; 257],
     pub szPassword: [u16; 257],
     pub szDomain: [u16; 16],
+}
+impl Default for RASNOUSERW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RASNOUSER_SmartCard: u32 = 1u32;
 pub const RASNP_Ip: u32 = 4u32;
@@ -2328,6 +2721,12 @@ pub struct RASPBDLGA {
     pub reserved: usize,
     pub reserved2: usize,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RASPBDLGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2342,6 +2741,12 @@ pub struct RASPBDLGA {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RASPBDLGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RASPBDLGFUNCA = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void)>;
 pub type RASPBDLGFUNCW = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void)>;
@@ -2360,6 +2765,12 @@ pub struct RASPBDLGW {
     pub reserved: usize,
     pub reserved2: usize,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RASPBDLGW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2375,8 +2786,14 @@ pub struct RASPBDLGW {
     pub reserved: usize,
     pub reserved2: usize,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RASPBDLGW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RASPPPCCP {
     pub dwSize: u32,
     pub dwError: u32,
@@ -2395,6 +2812,11 @@ pub struct RASPPPIPA {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
+impl Default for RASPPPIPA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASPPPIPV6 {
@@ -2404,6 +2826,11 @@ pub struct RASPPPIPV6 {
     pub bPeerInterfaceIdentifier: [u8; 8],
     pub bLocalCompressionProtocol: [u8; 2],
     pub bPeerCompressionProtocol: [u8; 2],
+}
+impl Default for RASPPPIPV6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2415,12 +2842,22 @@ pub struct RASPPPIPW {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
+impl Default for RASPPPIPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASPPPIPXA {
     pub dwSize: u32,
     pub dwError: u32,
     pub szIpxAddress: [i8; 22],
+}
+impl Default for RASPPPIPXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2441,6 +2878,11 @@ pub struct RASPPPLCPA {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
+impl Default for RASPPPLCPA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASPPPLCPW {
@@ -2460,6 +2902,11 @@ pub struct RASPPPLCPW {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
+impl Default for RASPPPLCPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASPPPNBFA {
@@ -2470,6 +2917,11 @@ pub struct RASPPPNBFA {
     pub szWorkstationName: [i8; 17],
     pub bLana: u8,
 }
+impl Default for RASPPPNBFA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASPPPNBFW {
@@ -2479,6 +2931,11 @@ pub struct RASPPPNBFW {
     pub szNetBiosError: [u16; 17],
     pub szWorkstationName: [u16; 17],
     pub bLana: u8,
+}
+impl Default for RASPPPNBFW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -2508,6 +2965,12 @@ pub struct RASPPP_PROJECTION_INFO {
     pub dwCcpOptions: u32,
     pub dwCcpServerOptions: u32,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RASPPP_PROJECTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = u32;
 pub type RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = u32;
 pub const RASPRIV2_DialinPolicy: u32 = 1u32;
@@ -2535,6 +2998,11 @@ pub struct RASSUBENTRYA {
     pub szLocalPhoneNumber: [i8; 129],
     pub dwAlternateOffset: u32,
 }
+impl Default for RASSUBENTRYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASSUBENTRYW {
@@ -2545,6 +3013,11 @@ pub struct RASSUBENTRYW {
     pub szLocalPhoneNumber: [u16; 129],
     pub dwAlternateOffset: u32,
 }
+impl Default for RASSUBENTRYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -2552,12 +3025,24 @@ pub struct RASTUNNELENDPOINT {
     pub dwType: u32,
     pub Anonymous: RASTUNNELENDPOINT_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RASTUNNELENDPOINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union RASTUNNELENDPOINT_0 {
     pub ipv4: super::super::Networking::WinSock::IN_ADDR,
     pub ipv6: super::super::Networking::WinSock::IN6_ADDR,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RASTUNNELENDPOINT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RASTUNNELENDPOINT_IPv4: u32 = 1u32;
 pub const RASTUNNELENDPOINT_IPv6: u32 = 2u32;
@@ -2573,6 +3058,12 @@ pub struct RASUPDATECONN {
     pub localEndPoint: RASTUNNELENDPOINT,
     pub remoteEndPoint: RASTUNNELENDPOINT,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RASUPDATECONN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_0 {
@@ -2585,6 +3076,11 @@ pub struct RAS_CONNECTION_0 {
     pub wszUserName: [u16; 257],
     pub wszLogonDomain: [u16; 16],
     pub wszRemoteComputer: [u16; 17],
+}
+impl Default for RAS_CONNECTION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2605,6 +3101,11 @@ pub struct RAS_CONNECTION_1 {
     pub dwCompressionRatioIn: u32,
     pub dwCompressionRatioOut: u32,
 }
+impl Default for RAS_CONNECTION_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_2 {
@@ -2613,6 +3114,11 @@ pub struct RAS_CONNECTION_2 {
     pub dwInterfaceType: ROUTER_INTERFACE_TYPE,
     pub guid: windows_sys::core::GUID,
     pub PppInfo2: PPP_INFO_2,
+}
+impl Default for RAS_CONNECTION_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2626,6 +3132,11 @@ pub struct RAS_CONNECTION_3 {
     pub PppInfo3: PPP_INFO_3,
     pub rasQuarState: RAS_QUARANTINE_STATE,
     pub timer: super::super::Foundation::FILETIME,
+}
+impl Default for RAS_CONNECTION_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2661,6 +3172,11 @@ pub struct RAS_CONNECTION_4 {
     pub hInterface: super::super::Foundation::HANDLE,
     pub dwDeviceType: u32,
 }
+impl Default for RAS_CONNECTION_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_EX {
@@ -2693,6 +3209,11 @@ pub struct RAS_CONNECTION_EX {
     pub ProjectionInfo: PROJECTION_INFO,
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
+}
+impl Default for RAS_CONNECTION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RAS_FLAGS = u32;
 pub const RAS_FLAGS_ARAP_CONNECTION: RAS_FLAGS = 16u32;
@@ -2733,6 +3254,11 @@ pub struct RAS_PORT_0 {
     pub wszDeviceName: [u16; 129],
     pub wszDeviceType: [u16; 17],
 }
+impl Default for RAS_PORT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAS_PORT_1 {
@@ -2752,6 +3278,11 @@ pub struct RAS_PORT_1 {
     pub dwBufferOverrunErr: u32,
     pub dwCompressionRatioIn: u32,
     pub dwCompressionRatioOut: u32,
+}
+impl Default for RAS_PORT_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2784,6 +3315,11 @@ pub struct RAS_PORT_2 {
     pub ullBytesRcvUncompressed: u64,
     pub ullBytesRcvCompressed: u64,
 }
+impl Default for RAS_PORT_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RAS_PORT_AUTHENTICATED: RAS_PORT_CONDITION = 5i32;
 pub const RAS_PORT_AUTHENTICATING: RAS_PORT_CONDITION = 4i32;
 pub const RAS_PORT_CALLING_BACK: RAS_PORT_CONDITION = 2i32;
@@ -2800,12 +3336,24 @@ pub struct RAS_PROJECTION_INFO {
     pub r#type: RASPROJECTION_INFO_TYPE,
     pub Anonymous: RAS_PROJECTION_INFO_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RAS_PROJECTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union RAS_PROJECTION_INFO_0 {
     pub ppp: RASPPP_PROJECTION_INFO,
     pub ikev2: RASIKEV2_PROJECTION_INFO,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RAS_PROJECTION_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RAS_QUARANTINE_STATE = i32;
 pub const RAS_QUAR_STATE_NORMAL: RAS_QUARANTINE_STATE = 0i32;
@@ -2819,8 +3367,13 @@ pub struct RAS_SECURITY_INFO {
     pub BytesReceived: u32,
     pub DeviceName: [i8; 129],
 }
+impl Default for RAS_SECURITY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RAS_STATS {
     pub dwSize: u32,
     pub dwBytesXmited: u32,
@@ -2846,11 +3399,21 @@ pub struct RAS_UPDATE_CONNECTION {
     pub wszLocalEndpointAddress: [u16; 65],
     pub wszRemoteEndpointAddress: [u16; 65],
 }
+impl Default for RAS_UPDATE_CONNECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAS_USER_0 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
+}
+impl Default for RAS_USER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2858,6 +3421,11 @@ pub struct RAS_USER_1 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
     pub bfPrivilege2: u8,
+}
+impl Default for RAS_USER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RCD_AllUsers: u32 = 1u32;
 pub const RCD_Eap: u32 = 2u32;
@@ -2883,7 +3451,7 @@ pub const REN_AllUsers: u32 = 1u32;
 pub const REN_User: u32 = 0u32;
 pub type ROUTER_CONNECTION_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwIntegrityMethod: u32,
     pub dwEncryptionMethod: u32,
@@ -2914,6 +3482,12 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub certificateName: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -2923,6 +3497,12 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub certificateName: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub certificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -2936,9 +3516,15 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwMmSaLifeTime: u32,
     pub vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS,
 }
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type ROUTER_INTERFACE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ROUTING_PROTOCOL_CONFIG {
     pub dwCallbackFlags: u32,
     pub pfnRpfCallback: PMGM_RPF_CALLBACK,
@@ -2970,8 +3556,13 @@ pub struct RTM_DEST_INFO {
     pub NumberOfViews: u32,
     pub ViewInfo: [RTM_DEST_INFO_0; 1],
 }
+impl Default for RTM_DEST_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RTM_DEST_INFO_0 {
     pub ViewId: i32,
     pub NumRoutes: u32,
@@ -2988,10 +3579,20 @@ pub struct RTM_ENTITY_EXPORT_METHODS {
     pub NumMethods: u32,
     pub Methods: [RTM_ENTITY_EXPORT_METHOD; 1],
 }
+impl Default for RTM_ENTITY_EXPORT_METHODS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTM_ENTITY_ID {
     pub Anonymous: RTM_ENTITY_ID_0,
+}
+impl Default for RTM_ENTITY_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2999,8 +3600,13 @@ pub union RTM_ENTITY_ID_0 {
     pub Anonymous: RTM_ENTITY_ID_0_0,
     pub EntityId: u64,
 }
+impl Default for RTM_ENTITY_ID_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RTM_ENTITY_ID_0_0 {
     pub EntityProtocolId: u32,
     pub EntityInstanceId: u32,
@@ -3012,12 +3618,22 @@ pub struct RTM_ENTITY_INFO {
     pub AddressFamily: u16,
     pub EntityId: RTM_ENTITY_ID,
 }
+impl Default for RTM_ENTITY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTM_ENTITY_METHOD_INPUT {
     pub MethodType: u32,
     pub InputSize: u32,
     pub InputData: [u8; 1],
+}
+impl Default for RTM_ENTITY_METHOD_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3026,6 +3642,11 @@ pub struct RTM_ENTITY_METHOD_OUTPUT {
     pub MethodStatus: u32,
     pub OutputSize: u32,
     pub OutputData: [u8; 1],
+}
+impl Default for RTM_ENTITY_METHOD_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = 0i32;
 pub const RTM_ENUM_ALL_DESTS: u32 = 0u32;
@@ -3053,6 +3674,11 @@ pub struct RTM_NET_ADDRESS {
     pub NumBits: u16,
     pub AddrBits: [u8; 16],
 }
+impl Default for RTM_NET_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RTM_NEXTHOP_CHANGE_NEW: u32 = 1u32;
 pub const RTM_NEXTHOP_FLAGS_DOWN: u32 = 2u32;
 pub const RTM_NEXTHOP_FLAGS_REMOTE: u32 = 1u32;
@@ -3067,24 +3693,34 @@ pub struct RTM_NEXTHOP_INFO {
     pub EntitySpecificInfo: *mut core::ffi::c_void,
     pub RemoteNextHop: isize,
 }
+impl Default for RTM_NEXTHOP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTM_NEXTHOP_LIST {
     pub NumNextHops: u16,
     pub NextHops: [isize; 1],
 }
+impl Default for RTM_NEXTHOP_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RTM_NEXTHOP_STATE_CREATED: u32 = 0u32;
 pub const RTM_NEXTHOP_STATE_DELETED: u32 = 1u32;
 pub const RTM_NOTIFY_ONLY_MARKED_DESTS: u32 = 65536u32;
 pub const RTM_NUM_CHANGE_TYPES: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RTM_PREF_INFO {
     pub Metric: u32,
     pub Preference: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RTM_REGN_PROFILE {
     pub MaxNextHopsInRoute: u32,
     pub MaxHandlesInEnum: u32,
@@ -3125,6 +3761,11 @@ pub struct RTM_ROUTE_INFO {
     pub EntitySpecificInfo: *mut core::ffi::c_void,
     pub NextHopsList: RTM_NEXTHOP_LIST,
 }
+impl Default for RTM_ROUTE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RTM_ROUTE_STATE_CREATED: u32 = 0u32;
 pub const RTM_ROUTE_STATE_DELETED: u32 = 2u32;
 pub const RTM_ROUTE_STATE_DELETING: u32 = 1u32;
@@ -3154,9 +3795,14 @@ pub struct SECURITY_MESSAGE {
     pub UserName: [i8; 257],
     pub Domain: [i8; 16],
 }
+impl Default for SECURITY_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SECURITY_MESSAGE_MSG_ID = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOURCE_GROUP_ENTRY {
     pub dwSourceAddr: u32,
     pub dwSourceMask: u32,
@@ -3165,14 +3811,14 @@ pub struct SOURCE_GROUP_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SSTP_CERT_INFO {
     pub isDefault: windows_sys::core::BOOL,
     pub certBlob: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SSTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -3187,12 +3833,24 @@ pub struct VPN_TS_IP_ADDRESS {
     pub Type: u16,
     pub Anonymous: VPN_TS_IP_ADDRESS_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for VPN_TS_IP_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union VPN_TS_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
     pub v6: super::super::Networking::WinSock::IN6_ADDR,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for VPN_TS_IP_ADDRESS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const VS_Default: u32 = 0u32;
 pub const VS_GREOnly: u32 = 9u32;

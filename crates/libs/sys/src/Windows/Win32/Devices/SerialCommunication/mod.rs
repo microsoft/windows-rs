@@ -73,6 +73,11 @@ pub struct SERENUM_PORT_DESC {
     pub PortAddress: i64,
     pub Reserved: [u16; 1],
 }
+impl Default for SERENUM_PORT_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERENUM_PORT_PARAMETERS {
@@ -85,6 +90,11 @@ pub struct SERENUM_PORT_PARAMETERS {
     pub NumberAxis: u16,
     pub Reserved: [u16; 3],
 }
+impl Default for SERENUM_PORT_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERIALCONFIG {
@@ -95,8 +105,13 @@ pub struct SERIALCONFIG {
     pub ProviderSize: u32,
     pub ProviderData: [u16; 1],
 }
+impl Default for SERIALCONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERIALPERF_STATS {
     pub ReceivedCount: u32,
     pub TransmittedCount: u32,
@@ -106,7 +121,7 @@ pub struct SERIALPERF_STATS {
     pub ParityErrorCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERIAL_BASIC_SETTINGS {
     pub Timeouts: SERIAL_TIMEOUTS,
     pub HandFlow: SERIAL_HANDFLOW,
@@ -114,12 +129,12 @@ pub struct SERIAL_BASIC_SETTINGS {
     pub TxFifo: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERIAL_BAUD_RATE {
     pub BaudRate: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERIAL_CHARS {
     pub EofChar: u8,
     pub ErrorChar: u8,
@@ -150,6 +165,11 @@ pub struct SERIAL_COMMPROP {
     pub ProvSpec2: u32,
     pub ProvChar: [u16; 1],
 }
+impl Default for SERIAL_COMMPROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SERIAL_EV_BREAK: u32 = 64u32;
 pub const SERIAL_EV_CTS: u32 = 8u32;
 pub const SERIAL_EV_DSR: u32 = 16u32;
@@ -164,7 +184,7 @@ pub const SERIAL_EV_RXCHAR: u32 = 1u32;
 pub const SERIAL_EV_RXFLAG: u32 = 2u32;
 pub const SERIAL_EV_TXEMPTY: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERIAL_HANDFLOW {
     pub ControlHandShake: u32,
     pub FlowReplace: u32,
@@ -172,7 +192,7 @@ pub struct SERIAL_HANDFLOW {
     pub XoffLimit: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERIAL_LINE_CONTROL {
     pub StopBits: u8,
     pub Parity: u8,
@@ -187,13 +207,13 @@ pub const SERIAL_PURGE_RXCLEAR: u32 = 8u32;
 pub const SERIAL_PURGE_TXABORT: u32 = 1u32;
 pub const SERIAL_PURGE_TXCLEAR: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERIAL_QUEUE_SIZE {
     pub InSize: u32,
     pub OutSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERIAL_STATUS {
     pub Errors: u32,
     pub HoldReasons: u32,
@@ -203,7 +223,7 @@ pub struct SERIAL_STATUS {
     pub WaitForImmediate: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERIAL_TIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -212,7 +232,7 @@ pub struct SERIAL_TIMEOUTS {
     pub WriteTotalTimeoutConstant: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERIAL_XOFF_COUNTER {
     pub Timeout: u32,
     pub Counter: i32,

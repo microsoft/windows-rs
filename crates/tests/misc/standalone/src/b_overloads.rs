@@ -7,7 +7,7 @@
 )]
 
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_RESACCESS {
     pub ae_ra_compname: u32,
     pub ae_ra_username: u32,

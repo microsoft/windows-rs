@@ -28,9 +28,14 @@ pub struct HEAPENTRY32 {
     pub th32ProcessID: u32,
     pub th32HeapID: usize,
 }
+impl Default for HEAPENTRY32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HEAPENTRY32_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HEAPLIST32 {
     pub dwSize: usize,
     pub th32ProcessID: u32,
@@ -57,6 +62,11 @@ pub struct MODULEENTRY32 {
     pub szModule: [i8; 256],
     pub szExePath: [i8; 260],
 }
+impl Default for MODULEENTRY32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MODULEENTRY32W {
@@ -70,6 +80,11 @@ pub struct MODULEENTRY32W {
     pub hModule: super::super::super::Foundation::HMODULE,
     pub szModule: [u16; 256],
     pub szExePath: [u16; 260],
+}
+impl Default for MODULEENTRY32W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -85,6 +100,11 @@ pub struct PROCESSENTRY32 {
     pub dwFlags: u32,
     pub szExeFile: [i8; 260],
 }
+impl Default for PROCESSENTRY32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESSENTRY32W {
@@ -99,6 +119,11 @@ pub struct PROCESSENTRY32W {
     pub dwFlags: u32,
     pub szExeFile: [u16; 260],
 }
+impl Default for PROCESSENTRY32W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const TH32CS_INHERIT: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 2147483648u32;
 pub const TH32CS_SNAPALL: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 15u32;
 pub const TH32CS_SNAPHEAPLIST: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 1u32;
@@ -107,7 +132,7 @@ pub const TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 16u32;
 pub const TH32CS_SNAPPROCESS: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 2u32;
 pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct THREADENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,

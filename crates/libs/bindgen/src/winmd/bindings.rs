@@ -50,14 +50,24 @@ pub struct IMAGE_COR20_HEADER {
     pub ExportAddressTableJumps: IMAGE_DATA_DIRECTORY,
     pub ManagedNativeHeader: IMAGE_DATA_DIRECTORY,
 }
+impl Default for IMAGE_COR20_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
 }
+impl Default for IMAGE_COR20_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
@@ -91,13 +101,18 @@ pub struct IMAGE_DOS_HEADER {
     pub e_res2: [u16; 10],
     pub e_lfanew: i32,
 }
+impl Default for IMAGE_DOS_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IMAGE_DOS_SIGNATURE: u16 = 23117u16;
 pub const IMAGE_FILE_32BIT_MACHINE: IMAGE_FILE_CHARACTERISTICS = 256u16;
 pub type IMAGE_FILE_CHARACTERISTICS = u16;
 pub const IMAGE_FILE_DLL: IMAGE_FILE_CHARACTERISTICS = 8192u16;
 pub const IMAGE_FILE_EXECUTABLE_IMAGE: IMAGE_FILE_CHARACTERISTICS = 2u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: IMAGE_FILE_MACHINE,
     pub NumberOfSections: u16,
@@ -147,6 +162,11 @@ pub struct IMAGE_OPTIONAL_HEADER32 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
+impl Default for IMAGE_OPTIONAL_HEADER32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
@@ -181,6 +201,11 @@ pub struct IMAGE_OPTIONAL_HEADER64 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
+impl Default for IMAGE_OPTIONAL_HEADER64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type IMAGE_OPTIONAL_HEADER_MAGIC = u16;
 pub type IMAGE_SECTION_CHARACTERISTICS = u32;
 #[repr(C)]
@@ -197,11 +222,21 @@ pub struct IMAGE_SECTION_HEADER {
     pub NumberOfLinenumbers: u16,
     pub Characteristics: IMAGE_SECTION_CHARACTERISTICS,
 }
+impl Default for IMAGE_SECTION_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_SECTION_HEADER_0 {
     pub PhysicalAddress: u32,
     pub VirtualSize: u32,
+}
+impl Default for IMAGE_SECTION_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IMAGE_SUBSYSTEM = u16;
 pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: IMAGE_SUBSYSTEM = 3u16;

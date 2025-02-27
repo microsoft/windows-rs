@@ -24,14 +24,24 @@ pub struct OVERLAPPED {
     pub Anonymous: OVERLAPPED_0,
     pub hEvent: HANDLE,
 }
+impl Default for OVERLAPPED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union OVERLAPPED_0 {
     pub Anonymous: OVERLAPPED_0_0,
     pub Pointer: *mut core::ffi::c_void,
 }
+impl Default for OVERLAPPED_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OVERLAPPED_0_0 {
     pub Offset: u32,
     pub OffsetHigh: u32,
@@ -43,11 +53,21 @@ pub struct SOCKADDR {
     pub sa_family: ADDRESS_FAMILY,
     pub sa_data: [i8; 14],
 }
+impl Default for SOCKADDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSABUF {
     pub len: u32,
     pub buf: PSTR,
+}
+impl Default for WSABUF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -59,6 +79,11 @@ pub struct WSAMSG {
     pub Control: WSABUF,
     pub dwFlags: u32,
 }
+impl Default for WSAMSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSASENDMSG {
@@ -67,4 +92,9 @@ pub struct WSASENDMSG {
     pub lpNumberOfBytesSent: *mut u32,
     pub lpOverlapped: *mut OVERLAPPED,
     pub lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
+}
+impl Default for WSASENDMSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

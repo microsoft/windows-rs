@@ -13,6 +13,11 @@ pub struct HID_XFER_PACKET {
     pub reportBufferLen: u32,
     pub reportId: u8,
 }
+impl Default for HID_XFER_PACKET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VHF_CONFIG {
@@ -36,4 +41,9 @@ pub struct VHF_CONFIG {
     pub EvtVhfCleanup: EVT_VHF_CLEANUP,
     pub HardwareIDsLength: u16,
     pub HardwareIDs: windows_sys::core::PWSTR,
+}
+impl Default for VHF_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

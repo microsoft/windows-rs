@@ -281,11 +281,21 @@ pub struct FWPM_ACTION0 {
     pub r#type: FWP_ACTION_TYPE,
     pub Anonymous: FWPM_ACTION0_0,
 }
+impl Default for FWPM_ACTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FWPM_ACTION0_0 {
     pub filterType: windows_sys::core::GUID,
     pub calloutKey: windows_sys::core::GUID,
+}
+impl Default for FWPM_ACTION0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWPM_ACTRL_ADD: u32 = 1u32;
 pub const FWPM_ACTRL_ADD_LINK: u32 = 2u32;
@@ -314,12 +324,17 @@ pub struct FWPM_CALLOUT0 {
     pub applicableLayer: windows_sys::core::GUID,
     pub calloutId: u32,
 }
+impl Default for FWPM_CALLOUT0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x779719a4_e695_47b6_a199_7999fec9163b);
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef9661b6_7c5e_48fd_a130_96678ceacc41);
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x18729c7a_2f62_4be0_966f_974b21b86df1);
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6c3fb801_daff_40e9_91e6_f7ff7e52f7d9);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_CALLOUT_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub calloutKey: windows_sys::core::GUID,
@@ -333,6 +348,11 @@ pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: windows_sys::c
 pub struct FWPM_CALLOUT_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
     pub layerKey: windows_sys::core::GUID,
+}
+impl Default for FWPM_CALLOUT_ENUM_TEMPLATE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWPM_CALLOUT_FLAG_PERSISTENT: u32 = 65536u32;
 pub const FWPM_CALLOUT_FLAG_REGISTERED: u32 = 262144u32;
@@ -377,6 +397,11 @@ pub struct FWPM_CALLOUT_SUBSCRIPTION0 {
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
+impl Default for FWPM_CALLOUT_SUBSCRIPTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FWPM_CALLOUT_TCP_CHIMNEY_ACCEPT_LAYER_V4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe183ecb2_3a7f_4b54_8ad9_76050ed880ca);
 pub const FWPM_CALLOUT_TCP_CHIMNEY_ACCEPT_LAYER_V6: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0378cf41_bf98_4603_81f2_7f12586079f6);
 pub const FWPM_CALLOUT_TCP_CHIMNEY_CONNECT_LAYER_V4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf3e10ab3_2c25_4279_ac36_c30fc181bec4);
@@ -400,12 +425,24 @@ pub struct FWPM_CLASSIFY_OPTION0 {
     pub r#type: FWP_CLASSIFY_OPTION_TYPE,
     pub value: FWP_VALUE0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_CLASSIFY_OPTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct FWPM_CLASSIFY_OPTIONS0 {
     pub numOptions: u32,
     pub options: *mut FWPM_CLASSIFY_OPTION0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_CLASSIFY_OPTIONS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWPM_CLASSIFY_OPTIONS_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 7i32;
 pub const FWPM_CONDITION_ALE_APP_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd78e1e87_8644_4ea5_9437_d809ecefc971);
@@ -562,11 +599,21 @@ pub struct FWPM_CONNECTION0 {
     pub bytesTransferredTotal: u64,
     pub startSysTime: super::super::Foundation::FILETIME,
 }
+impl Default for FWPM_CONNECTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FWPM_CONNECTION0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
+}
+impl Default for FWPM_CONNECTION0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -574,10 +621,15 @@ pub union FWPM_CONNECTION0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+impl Default for FWPM_CONNECTION0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FWPM_CONNECTION_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0)>;
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_CONNECTION_ENUM_TEMPLATE0 {
     pub connectionId: u64,
     pub flags: u32,
@@ -593,11 +645,21 @@ pub struct FWPM_CONNECTION_SUBSCRIPTION0 {
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
+impl Default for FWPM_CONNECTION_SUBSCRIPTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FWPM_DISPLAY_DATA0 {
     pub name: windows_sys::core::PWSTR,
     pub description: windows_sys::core::PWSTR,
+}
+impl Default for FWPM_DISPLAY_DATA0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = Option<unsafe extern "system" fn(notification: *mut core::ffi::c_void, context: *mut core::ffi::c_void)>;
 pub const FWPM_ENGINE_COLLECT_NET_EVENTS: FWPM_ENGINE_OPTION = 0i32;
@@ -618,6 +680,11 @@ pub struct FWPM_FIELD0 {
     pub fieldKey: *mut windows_sys::core::GUID,
     pub r#type: FWPM_FIELD_TYPE,
     pub dataType: FWP_DATA_TYPE,
+}
+impl Default for FWPM_FIELD0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWPM_FIELD_FLAGS: FWPM_FIELD_TYPE = 2i32;
 pub const FWPM_FIELD_IP_ADDRESS: FWPM_FIELD_TYPE = 1i32;
@@ -644,6 +711,12 @@ pub struct FWPM_FILTER0 {
     pub filterId: u64,
     pub effectiveWeight: FWP_VALUE0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_FILTER0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -651,8 +724,14 @@ pub union FWPM_FILTER0_0 {
     pub rawContext: u64,
     pub providerContextKey: windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_FILTER0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_FILTER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub filterKey: windows_sys::core::GUID,
@@ -667,6 +746,12 @@ pub struct FWPM_FILTER_CONDITION0 {
     pub matchType: FWP_MATCH_TYPE,
     pub conditionValue: FWP_CONDITION_VALUE0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_FILTER_CONDITION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -680,6 +765,12 @@ pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
     pub filterCondition: *mut FWPM_FILTER_CONDITION0,
     pub actionMask: u32,
     pub calloutKey: *mut windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_FILTER_ENUM_TEMPLATE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FWPM_FILTER_FLAGS = u32;
 pub const FWPM_FILTER_FLAG_BOOTTIME: FWPM_FILTER_FLAGS = 2u32;
@@ -704,6 +795,12 @@ pub struct FWPM_FILTER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_FILTER_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_FILTER_SUBSCRIPTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWPM_GENERAL_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 8i32;
 pub const FWPM_IPSEC_AUTHIP_MM_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 6i32;
@@ -730,6 +827,11 @@ pub struct FWPM_LAYER0 {
     pub field: *mut FWPM_FIELD0,
     pub defaultSubLayerKey: windows_sys::core::GUID,
     pub layerId: u16,
+}
+impl Default for FWPM_LAYER0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWPM_LAYER_ALE_AUTH_CONNECT_V4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc38d57d1_05a7_4c33_904f_7fbceee60e82);
 pub const FWPM_LAYER_ALE_AUTH_CONNECT_V4_DISCARD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd632a801_f5ba_4ad6_96e3_607017d9836a);
@@ -767,7 +869,7 @@ pub const FWPM_LAYER_EGRESS_VSWITCH_ETHERNET: windows_sys::core::GUID = windows_
 pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb92350b6_91f0_46b6_bdc4_871dfd4a7c98);
 pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V6: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1b2def23_1881_40bd_82f4_4254e63141cb);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_LAYER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
@@ -832,7 +934,7 @@ pub const FWPM_LAYER_RPC_PROXY_CONN: windows_sys::core::GUID = windows_sys::core
 pub const FWPM_LAYER_RPC_PROXY_IF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf8a38615_e12c_41ac_98df_121ad981aade);
 pub const FWPM_LAYER_RPC_UM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x75a89dda_95e4_40f3_adc7_7688a9c847e1);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_LAYER_STATISTICS0 {
     pub layerId: windows_sys::core::GUID,
     pub classifyPermitCount: u32,
@@ -854,12 +956,24 @@ pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
     pub r#type: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE,
     pub value: FWP_VALUE0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
     pub numSettings: u32,
     pub settings: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTING0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -868,6 +982,12 @@ pub struct FWPM_NET_EVENT0 {
     pub header: FWPM_NET_EVENT_HEADER0,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT0_0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -880,6 +1000,12 @@ pub union FWPM_NET_EVENT0_0 {
     pub ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
     pub idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -887,6 +1013,12 @@ pub struct FWPM_NET_EVENT1 {
     pub header: FWPM_NET_EVENT_HEADER1,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT1_0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -899,6 +1031,12 @@ pub union FWPM_NET_EVENT1_0 {
     pub ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
     pub idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -906,6 +1044,12 @@ pub struct FWPM_NET_EVENT2 {
     pub header: FWPM_NET_EVENT_HEADER2,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT2_0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -922,6 +1066,12 @@ pub union FWPM_NET_EVENT2_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -929,6 +1079,12 @@ pub struct FWPM_NET_EVENT3 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT3_0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -945,6 +1101,12 @@ pub union FWPM_NET_EVENT3_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -952,6 +1114,12 @@ pub struct FWPM_NET_EVENT4 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT4_0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -968,6 +1136,12 @@ pub union FWPM_NET_EVENT4_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT4_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -975,6 +1149,12 @@ pub struct FWPM_NET_EVENT5 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT5_0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -993,6 +1173,12 @@ pub union FWPM_NET_EVENT5_0 {
     pub lpmPacketArrival: *mut FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0,
 }
 #[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT5_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
 pub type FWPM_NET_EVENT_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, event: *const FWPM_NET_EVENT1)>;
 #[cfg(feature = "Win32_Security")]
 pub type FWPM_NET_EVENT_CALLBACK1 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, event: *const FWPM_NET_EVENT2)>;
@@ -1003,21 +1189,21 @@ pub type FWPM_NET_EVENT_CALLBACK3 = Option<unsafe extern "system" fn(context: *m
 #[cfg(feature = "Win32_Security")]
 pub type FWPM_NET_EVENT_CALLBACK4 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, event: *const FWPM_NET_EVENT5)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
     pub isLoopback: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_CAPABILITY_DROP0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
     pub isLoopback: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     pub filterId: u64,
     pub layerId: u16,
@@ -1028,13 +1214,13 @@ pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     pub isLoopback: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP0 {
     pub filterId: u64,
     pub layerId: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
     pub filterId: u64,
     pub layerId: u16,
@@ -1045,7 +1231,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
     pub isLoopback: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
     pub filterId: u64,
     pub layerId: u16,
@@ -1059,7 +1245,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
     pub vSwitchDestinationPort: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     pub localMacAddr: FWP_BYTE_ARRAY6,
     pub remoteMacAddr: FWP_BYTE_ARRAY6,
@@ -1089,6 +1275,12 @@ pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     pub endTime: super::super::Foundation::FILETIME,
     pub numFilterConditions: u32,
     pub filterCondition: *mut FWPM_FILTER_CONDITION0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWPM_NET_EVENT_FLAG_APP_ID_SET: u32 = 32u32;
 pub const FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET: u32 = 8192u32;
@@ -1120,6 +1312,12 @@ pub struct FWPM_NET_EVENT_HEADER0 {
     pub appId: FWP_BYTE_BLOB,
     pub userId: *mut super::super::Security::SID,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1127,12 +1325,24 @@ pub union FWPM_NET_EVENT_HEADER0_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER0_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1151,12 +1361,24 @@ pub struct FWPM_NET_EVENT_HEADER1 {
     pub userId: *mut super::super::Security::SID,
     pub Anonymous3: FWPM_NET_EVENT_HEADER1_2,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1165,11 +1387,23 @@ pub union FWPM_NET_EVENT_HEADER1_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_2 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1178,15 +1412,27 @@ pub struct FWPM_NET_EVENT_HEADER1_2_0 {
     pub reserved1: FWP_AF,
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER1_2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_2_0_0 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0_0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER1_2_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved2: FWP_BYTE_ARRAY6,
     pub reserved3: FWP_BYTE_ARRAY6,
@@ -1216,6 +1462,12 @@ pub struct FWPM_NET_EVENT_HEADER2 {
     pub addressFamily: FWP_AF,
     pub packageSid: *mut super::super::Security::SID,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1223,12 +1475,24 @@ pub union FWPM_NET_EVENT_HEADER2_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER2_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER2_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1251,6 +1515,12 @@ pub struct FWPM_NET_EVENT_HEADER3 {
     pub policyFlags: u64,
     pub effectiveName: FWP_BYTE_BLOB,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1258,12 +1528,24 @@ pub union FWPM_NET_EVENT_HEADER3_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER3_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_HEADER3_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1277,6 +1559,11 @@ pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     pub endCertHash: [u8; 20],
     pub mmId: u64,
     pub qmFilterId: u64,
+}
+impl Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1298,6 +1585,11 @@ pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     pub remotePrincipalGroupSids: *mut windows_sys::core::PWSTR,
     pub saTrafficType: IPSEC_TRAFFIC_TYPE,
 }
+impl Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2u32;
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1u32;
 #[repr(C)]
@@ -1313,6 +1605,11 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     pub endCertHash: [u8; 20],
     pub mmId: u64,
     pub mmFilterId: u64,
+}
+impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1333,6 +1630,11 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     pub localPrincipalGroupSids: *mut windows_sys::core::PWSTR,
     pub numRemotePrincipalGroupSids: u32,
     pub remotePrincipalGroupSids: *mut windows_sys::core::PWSTR,
+}
+impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1355,6 +1657,11 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     pub remotePrincipalGroupSids: *mut windows_sys::core::PWSTR,
     pub providerContextKey: *mut windows_sys::core::GUID,
 }
+impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: u32 = 1u32;
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: u32 = 2u32;
 #[repr(C)]
@@ -1371,17 +1678,35 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     pub Anonymous2: FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1,
     pub qmFilterId: u64,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1399,17 +1724,35 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     pub mmSaLuid: u64,
     pub mmProviderContextKey: windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1420,11 +1763,21 @@ pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     pub failureStatus: i32,
     pub direction: FWP_DIRECTION,
 }
+impl Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     pub publicHostV4Addr: u32,
     pub publicHostV6Addr: [u8; 16],
+}
+impl Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1432,8 +1785,13 @@ pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     pub internalHostV4Addr: u32,
     pub internalHostV6Addr: [u8; 16],
 }
+impl Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     pub failureStatus: i32,
     pub direction: FWP_DIRECTION,
@@ -1448,7 +1806,7 @@ pub const FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST: u32 = 2u32;
 pub const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: u32 = 1u32;
 pub const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     pub spi: u32,
 }
@@ -1459,6 +1817,12 @@ pub struct FWPM_NET_EVENT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_NET_EVENT_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_NET_EVENT_SUBSCRIPTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FWPM_NET_EVENT_TYPE = i32;
 pub const FWPM_NET_EVENT_TYPE_CAPABILITY_ALLOW: FWPM_NET_EVENT_TYPE = 8i32;
@@ -1482,8 +1846,13 @@ pub struct FWPM_PROVIDER0 {
     pub providerData: FWP_BYTE_BLOB,
     pub serviceName: windows_sys::core::PWSTR,
 }
+impl Default for FWPM_PROVIDER0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_PROVIDER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub providerKey: windows_sys::core::GUID,
@@ -1502,6 +1871,12 @@ pub struct FWPM_PROVIDER_CONTEXT0 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT0_0,
     pub providerContextId: u64,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_PROVIDER_CONTEXT0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1516,6 +1891,12 @@ pub union FWPM_PROVIDER_CONTEXT0_0 {
     pub dataBuffer: *mut FWP_BYTE_BLOB,
     pub classifyOptions: *mut FWPM_CLASSIFY_OPTIONS0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_PROVIDER_CONTEXT0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1528,6 +1909,12 @@ pub struct FWPM_PROVIDER_CONTEXT1 {
     pub r#type: FWPM_PROVIDER_CONTEXT_TYPE,
     pub Anonymous: FWPM_PROVIDER_CONTEXT1_0,
     pub providerContextId: u64,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_PROVIDER_CONTEXT1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1546,6 +1933,12 @@ pub union FWPM_PROVIDER_CONTEXT1_0 {
     pub ikeV2MmPolicy: *mut IKEEXT_POLICY1,
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_PROVIDER_CONTEXT1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1558,6 +1951,12 @@ pub struct FWPM_PROVIDER_CONTEXT2 {
     pub r#type: FWPM_PROVIDER_CONTEXT_TYPE,
     pub Anonymous: FWPM_PROVIDER_CONTEXT2_0,
     pub providerContextId: u64,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_PROVIDER_CONTEXT2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1577,6 +1976,12 @@ pub union FWPM_PROVIDER_CONTEXT2_0 {
     pub ikeV2MmPolicy: *mut IKEEXT_POLICY2,
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_PROVIDER_CONTEXT2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1589,6 +1994,12 @@ pub struct FWPM_PROVIDER_CONTEXT3 {
     pub r#type: FWPM_PROVIDER_CONTEXT_TYPE,
     pub Anonymous: FWPM_PROVIDER_CONTEXT3_0,
     pub providerContextId: u64,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_PROVIDER_CONTEXT3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1609,8 +2020,14 @@ pub union FWPM_PROVIDER_CONTEXT3_0 {
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
     pub networkConnectionPolicy: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_PROVIDER_CONTEXT3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub providerContextKey: windows_sys::core::GUID,
@@ -1623,6 +2040,11 @@ pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
     pub providerContextType: FWPM_PROVIDER_CONTEXT_TYPE,
 }
+impl Default for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2u32;
 pub const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: u32 = 1u32;
 pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_AUTHIP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb25ea800_0d02_46ed_92bd_7fa84bb73e9d);
@@ -1634,10 +2056,15 @@ pub struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
     pub flags: FWPM_SUBSCRIPTION_FLAGS,
     pub sessionKey: windows_sys::core::GUID,
 }
+impl Default for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FWPM_PROVIDER_CONTEXT_TYPE = i32;
 pub const FWPM_PROVIDER_CONTEXT_TYPE_MAX: FWPM_PROVIDER_CONTEXT_TYPE = 14i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_PROVIDER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
@@ -1656,6 +2083,11 @@ pub struct FWPM_PROVIDER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_PROVIDER_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
+}
+impl Default for FWPM_PROVIDER_SUBSCRIPTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWPM_PROVIDER_TCP_CHIMNEY_OFFLOAD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x896aa19e_9a34_4bcb_ae79_beb9127c84b9);
 pub const FWPM_PROVIDER_TCP_TEMPLATES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x76cfcd30_3394_432d_bed3_441ae50e63c3);
@@ -1678,8 +2110,14 @@ pub struct FWPM_SESSION0 {
     pub username: windows_sys::core::PWSTR,
     pub kernelMode: windows_sys::core::BOOL,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWPM_SESSION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_SESSION_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
@@ -1725,6 +2163,11 @@ pub struct FWPM_STATISTICS0 {
     pub reauthReasonEDPPolicyChanged: u64,
     pub reauthReasonProxyHandleChanged: u64,
 }
+impl Default for FWPM_STATISTICS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FWPM_SUBLAYER0 {
@@ -1735,8 +2178,13 @@ pub struct FWPM_SUBLAYER0 {
     pub providerData: FWP_BYTE_BLOB,
     pub weight: u16,
 }
+impl Default for FWPM_SUBLAYER0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_SUBLAYER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub subLayerKey: windows_sys::core::GUID,
@@ -1746,6 +2194,11 @@ pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(conte
 #[derive(Clone, Copy)]
 pub struct FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
+}
+impl Default for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWPM_SUBLAYER_FLAG_PERSISTENT: u32 = 1u32;
 pub const FWPM_SUBLAYER_INSPECTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x877519e1_e6a9_41a5_81b4_8c4f118e4a60);
@@ -1769,6 +2222,11 @@ pub struct FWPM_SUBLAYER_SUBSCRIPTION0 {
     pub flags: FWPM_SUBSCRIPTION_FLAGS,
     pub sessionKey: windows_sys::core::GUID,
 }
+impl Default for FWPM_SUBLAYER_SUBSCRIPTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FWPM_SUBLAYER_TCP_CHIMNEY_OFFLOAD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x337608b9_b7d5_4d5f_82f9_3618618bc058);
 pub const FWPM_SUBLAYER_TCP_TEMPLATES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x24421dcf_0ac5_4caa_9e14_50f6e3636af0);
 pub const FWPM_SUBLAYER_TEREDO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba69dc66_5176_4979_9c89_26a7b46a8327);
@@ -1782,12 +2240,22 @@ pub struct FWPM_SYSTEM_PORTS0 {
     pub numTypes: u32,
     pub types: *mut FWPM_SYSTEM_PORTS_BY_TYPE0,
 }
+impl Default for FWPM_SYSTEM_PORTS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FWPM_SYSTEM_PORTS_BY_TYPE0 {
     pub r#type: FWPM_SYSTEM_PORT_TYPE,
     pub numPorts: u32,
     pub ports: *mut u16,
+}
+impl Default for FWPM_SYSTEM_PORTS_BY_TYPE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FWPM_SYSTEM_PORTS_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, sysports: *const FWPM_SYSTEM_PORTS0)>;
 pub const FWPM_SYSTEM_PORT_IPHTTPS_IN: FWPM_SYSTEM_PORT_TYPE = 2i32;
@@ -1807,11 +2275,21 @@ pub struct FWPM_VSWITCH_EVENT0 {
     pub vSwitchId: windows_sys::core::PWSTR,
     pub Anonymous: FWPM_VSWITCH_EVENT0_0,
 }
+impl Default for FWPM_VSWITCH_EVENT0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FWPM_VSWITCH_EVENT0_0 {
     pub positionInfo: FWPM_VSWITCH_EVENT0_0_0,
     pub reorderInfo: FWPM_VSWITCH_EVENT0_0_1,
+}
+impl Default for FWPM_VSWITCH_EVENT0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1819,12 +2297,22 @@ pub struct FWPM_VSWITCH_EVENT0_0_0 {
     pub numvSwitchFilterExtensions: u32,
     pub vSwitchFilterExtensions: *mut windows_sys::core::PWSTR,
 }
+impl Default for FWPM_VSWITCH_EVENT0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FWPM_VSWITCH_EVENT0_0_1 {
     pub inRequiredPosition: windows_sys::core::BOOL,
     pub numvSwitchFilterExtensions: u32,
     pub vSwitchFilterExtensions: *mut windows_sys::core::PWSTR,
+}
+impl Default for FWPM_VSWITCH_EVENT0_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FWPM_VSWITCH_EVENT_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, vswitchevent: *const FWPM_VSWITCH_EVENT0) -> u32>;
 pub const FWPM_VSWITCH_EVENT_DISABLED_FOR_INSPECTION: FWPM_VSWITCH_EVENT_TYPE = 3i32;
@@ -1834,7 +2322,7 @@ pub const FWPM_VSWITCH_EVENT_FILTER_ENGINE_NOT_IN_REQUIRED_POSITION: FWPM_VSWITC
 pub const FWPM_VSWITCH_EVENT_FILTER_ENGINE_REORDER: FWPM_VSWITCH_EVENT_TYPE = 4i32;
 pub const FWPM_VSWITCH_EVENT_MAX: FWPM_VSWITCH_EVENT_TYPE = 5i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
@@ -1932,11 +2420,21 @@ pub const FWP_BYTEMAP_ARRAY64_SIZE: u32 = 8u32;
 pub struct FWP_BYTE_ARRAY16 {
     pub byteArray16: [u8; 16],
 }
+impl Default for FWP_BYTE_ARRAY16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FWP_BYTE_ARRAY16_TYPE: FWP_DATA_TYPE = 11i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FWP_BYTE_ARRAY6 {
     pub byteArray6: [u8; 6],
+}
+impl Default for FWP_BYTE_ARRAY6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWP_BYTE_ARRAY6_SIZE: u32 = 6u32;
 pub const FWP_BYTE_ARRAY6_TYPE: FWP_DATA_TYPE = 18i32;
@@ -1945,6 +2443,11 @@ pub const FWP_BYTE_ARRAY6_TYPE: FWP_DATA_TYPE = 18i32;
 pub struct FWP_BYTE_BLOB {
     pub size: u32,
     pub data: *mut u8,
+}
+impl Default for FWP_BYTE_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWP_BYTE_BLOB_TYPE: FWP_DATA_TYPE = 12i32;
 pub const FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY: u32 = 128u32;
@@ -2021,6 +2524,12 @@ pub struct FWP_CONDITION_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_CONDITION_VALUE0_0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWP_CONDITION_VALUE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -2046,6 +2555,12 @@ pub union FWP_CONDITION_VALUE0_0 {
     pub v4AddrMask: *mut FWP_V4_ADDR_AND_MASK,
     pub v6AddrMask: *mut FWP_V6_ADDR_AND_MASK,
     pub rangeValue: *mut FWP_RANGE0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWP_CONDITION_VALUE0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FWP_DATA_TYPE = i32;
 pub const FWP_DATA_TYPE_MAX: FWP_DATA_TYPE = 259i32;
@@ -2113,6 +2628,12 @@ pub struct FWP_RANGE0 {
     pub valueLow: FWP_VALUE0,
     pub valueHigh: FWP_VALUE0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWP_RANGE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FWP_RANGE_TYPE: FWP_DATA_TYPE = 258i32;
 pub const FWP_SECURITY_DESCRIPTOR_TYPE: FWP_DATA_TYPE = 14i32;
 pub const FWP_SID: FWP_DATA_TYPE = 13i32;
@@ -2127,6 +2648,12 @@ pub struct FWP_TOKEN_INFORMATION {
     pub restrictedSidCount: u32,
     pub restrictedSids: *mut super::super::Security::SID_AND_ATTRIBUTES,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWP_TOKEN_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FWP_TOKEN_INFORMATION_TYPE: FWP_DATA_TYPE = 15i32;
 pub const FWP_UINT16: FWP_DATA_TYPE = 2i32;
 pub const FWP_UINT32: FWP_DATA_TYPE = 3i32;
@@ -2134,7 +2661,7 @@ pub const FWP_UINT64: FWP_DATA_TYPE = 4i32;
 pub const FWP_UINT8: FWP_DATA_TYPE = 1i32;
 pub const FWP_UNICODE_STRING_TYPE: FWP_DATA_TYPE = 17i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWP_V4_ADDR_AND_MASK {
     pub addr: u32,
     pub mask: u32,
@@ -2146,6 +2673,11 @@ pub struct FWP_V6_ADDR_AND_MASK {
     pub addr: [u8; 16],
     pub prefixLength: u8,
 }
+impl Default for FWP_V6_ADDR_AND_MASK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FWP_V6_ADDR_MASK: FWP_DATA_TYPE = 257i32;
 pub const FWP_V6_ADDR_SIZE: u32 = 16u32;
 #[repr(C)]
@@ -2154,6 +2686,12 @@ pub const FWP_V6_ADDR_SIZE: u32 = 16u32;
 pub struct FWP_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_VALUE0_0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for FWP_VALUE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2178,6 +2716,12 @@ pub union FWP_VALUE0_0 {
     pub unicodeString: windows_sys::core::PWSTR,
     pub byteArray6: *mut FWP_BYTE_ARRAY6,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for FWP_VALUE0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FWP_VSWITCH_NETWORK_TYPE = i32;
 pub const FWP_VSWITCH_NETWORK_TYPE_EXTERNAL: FWP_VSWITCH_NETWORK_TYPE = 3i32;
 pub const FWP_VSWITCH_NETWORK_TYPE_INTERNAL: FWP_VSWITCH_NETWORK_TYPE = 2i32;
@@ -2191,6 +2735,11 @@ pub struct IKEEXT_AUTHENTICATION_METHOD0 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD0_0,
 }
+impl Default for IKEEXT_AUTHENTICATION_METHOD0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
@@ -2201,11 +2750,21 @@ pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
     pub sslAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0,
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
 }
+impl Default for IKEEXT_AUTHENTICATION_METHOD0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_AUTHENTICATION_METHOD1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD1_0,
+}
+impl Default for IKEEXT_AUTHENTICATION_METHOD1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2218,11 +2777,21 @@ pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
+impl Default for IKEEXT_AUTHENTICATION_METHOD1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_AUTHENTICATION_METHOD2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD2_0,
+}
+impl Default for IKEEXT_AUTHENTICATION_METHOD2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2236,6 +2805,11 @@ pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
+impl Default for IKEEXT_AUTHENTICATION_METHOD2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type IKEEXT_AUTHENTICATION_METHOD_TYPE = i32;
 pub const IKEEXT_AUTHENTICATION_METHOD_TYPE_MAX: IKEEXT_AUTHENTICATION_METHOD_TYPE = 13i32;
 pub const IKEEXT_CERTIFICATE: IKEEXT_AUTHENTICATION_METHOD_TYPE = 1i32;
@@ -2248,6 +2822,11 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION0_1,
     pub flags: IKEEXT_CERT_AUTH,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
@@ -2255,11 +2834,21 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     pub inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
+}
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2268,11 +2857,21 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     pub outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
+}
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2284,6 +2883,11 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     pub flags: IKEEXT_CERT_AUTH,
     pub localCertLocationUrl: FWP_BYTE_BLOB,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
@@ -2291,11 +2895,21 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     pub inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
+}
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2304,11 +2918,21 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     pub outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
+}
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2320,6 +2944,11 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     pub flags: IKEEXT_CERT_AUTH,
     pub localCertLocationUrl: FWP_BYTE_BLOB,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
@@ -2327,11 +2956,21 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
+}
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2339,11 +2978,21 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     pub inboundEnterpriseStoreArraySize: u32,
     pub inboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     pub inboundRootStoreArraySize: u32,
     pub inboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
+}
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2352,11 +3001,21 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
+}
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2364,21 +3023,31 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     pub outboundEnterpriseStoreArraySize: u32,
     pub outboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     pub outboundRootStoreArraySize: u32,
     pub outboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
+impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL0 {
     pub subjectName: FWP_BYTE_BLOB,
     pub certHash: FWP_BYTE_BLOB,
     pub flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL1 {
     pub subjectName: FWP_BYTE_BLOB,
     pub certHash: FWP_BYTE_BLOB,
@@ -2393,6 +3062,11 @@ pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
     pub eku: *mut IKEEXT_CERT_EKUS0,
     pub name: *mut IKEEXT_CERT_NAME0,
     pub flags: u32,
+}
+impl Default for IKEEXT_CERTIFICATE_CRITERIA0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IKEEXT_CERTIFICATE_ECDSA_P256: IKEEXT_AUTHENTICATION_METHOD_TYPE = 7i32;
 pub const IKEEXT_CERTIFICATE_ECDSA_P384: IKEEXT_AUTHENTICATION_METHOD_TYPE = 8i32;
@@ -2426,6 +3100,11 @@ pub struct IKEEXT_CERT_EKUS0 {
     pub numEku: u32,
     pub eku: *mut windows_sys::core::PSTR,
 }
+impl Default for IKEEXT_CERT_EKUS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type IKEEXT_CERT_FLAGS = u32;
 pub const IKEEXT_CERT_FLAG_DISABLE_REQUEST_PAYLOAD: IKEEXT_CERT_FLAGS = 2u32;
 pub const IKEEXT_CERT_FLAG_ENABLE_ACCOUNT_MAPPING: IKEEXT_CERT_FLAGS = 1u32;
@@ -2443,8 +3122,13 @@ pub struct IKEEXT_CERT_NAME0 {
     pub nameType: IKEEXT_CERT_CRITERIA_NAME_TYPE,
     pub certName: windows_sys::core::PWSTR,
 }
+impl Default for IKEEXT_CERT_NAME0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERT_ROOT_CONFIG0 {
     pub certData: FWP_BYTE_BLOB,
     pub flags: IKEEXT_CERT_FLAGS,
@@ -2456,7 +3140,7 @@ pub const IKEEXT_CIPHER_AES_256: IKEEXT_CIPHER_TYPE = 4i32;
 pub const IKEEXT_CIPHER_AES_GCM_128_16ICV: IKEEXT_CIPHER_TYPE = 5i32;
 pub const IKEEXT_CIPHER_AES_GCM_256_16ICV: IKEEXT_CIPHER_TYPE = 6i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CIPHER_ALGORITHM0 {
     pub algoIdentifier: IKEEXT_CIPHER_TYPE,
     pub keyLen: u32,
@@ -2466,7 +3150,7 @@ pub const IKEEXT_CIPHER_DES: IKEEXT_CIPHER_TYPE = 0i32;
 pub type IKEEXT_CIPHER_TYPE = i32;
 pub const IKEEXT_CIPHER_TYPE_MAX: IKEEXT_CIPHER_TYPE = 7i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_COMMON_STATISTICS0 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
@@ -2475,7 +3159,7 @@ pub struct IKEEXT_COMMON_STATISTICS0 {
     pub currentQueuedWorkitems: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_COMMON_STATISTICS1 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
@@ -2484,7 +3168,7 @@ pub struct IKEEXT_COMMON_STATISTICS1 {
     pub currentQueuedWorkitems: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_COOKIE_PAIR0 {
     pub initiator: u64,
     pub responder: u64,
@@ -2496,12 +3180,22 @@ pub struct IKEEXT_CREDENTIAL0 {
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL0_0,
 }
+impl Default for IKEEXT_CREDENTIAL0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL0_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL0,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
+}
+impl Default for IKEEXT_CREDENTIAL0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2510,12 +3204,22 @@ pub struct IKEEXT_CREDENTIAL1 {
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL1_0,
 }
+impl Default for IKEEXT_CREDENTIAL1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL1_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
+}
+impl Default for IKEEXT_CREDENTIAL1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2524,6 +3228,11 @@ pub struct IKEEXT_CREDENTIAL2 {
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL2_0,
 }
+impl Default for IKEEXT_CREDENTIAL2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL2_0 {
@@ -2531,11 +3240,21 @@ pub union IKEEXT_CREDENTIAL2_0 {
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
+impl Default for IKEEXT_CREDENTIAL2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIALS0 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR0,
+}
+impl Default for IKEEXT_CREDENTIALS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2543,11 +3262,21 @@ pub struct IKEEXT_CREDENTIALS1 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR1,
 }
+impl Default for IKEEXT_CREDENTIALS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIALS2 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR2,
+}
+impl Default for IKEEXT_CREDENTIALS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2555,17 +3284,32 @@ pub struct IKEEXT_CREDENTIAL_PAIR0 {
     pub localCredentials: IKEEXT_CREDENTIAL0,
     pub peerCredentials: IKEEXT_CREDENTIAL0,
 }
+impl Default for IKEEXT_CREDENTIAL_PAIR0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL_PAIR1 {
     pub localCredentials: IKEEXT_CREDENTIAL1,
     pub peerCredentials: IKEEXT_CREDENTIAL1,
 }
+impl Default for IKEEXT_CREDENTIAL_PAIR1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL_PAIR2 {
     pub localCredentials: IKEEXT_CREDENTIAL2,
     pub peerCredentials: IKEEXT_CREDENTIAL2,
+}
+impl Default for IKEEXT_CREDENTIAL_PAIR2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IKEEXT_DH_ECP_256: IKEEXT_DH_GROUP = 4i32;
 pub const IKEEXT_DH_ECP_384: IKEEXT_DH_GROUP = 5i32;
@@ -2579,7 +3323,7 @@ pub const IKEEXT_DH_GROUP_MAX: IKEEXT_DH_GROUP = 7i32;
 pub const IKEEXT_DH_GROUP_NONE: IKEEXT_DH_GROUP = 0i32;
 pub const IKEEXT_EAP: IKEEXT_AUTHENTICATION_METHOD_TYPE = 11i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_EAP_AUTHENTICATION0 {
     pub flags: IKEEXT_EAP_AUTHENTICATION_FLAGS,
 }
@@ -2593,6 +3337,11 @@ pub struct IKEEXT_EM_POLICY0 {
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
+impl Default for IKEEXT_EM_POLICY0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_EM_POLICY1 {
@@ -2600,12 +3349,22 @@ pub struct IKEEXT_EM_POLICY1 {
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD1,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
+impl Default for IKEEXT_EM_POLICY1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_EM_POLICY2 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD2,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
+}
+impl Default for IKEEXT_EM_POLICY2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IKEEXT_EM_SA_STATE = i32;
 pub const IKEEXT_EM_SA_STATE_AUTH_COMPLETE: IKEEXT_EM_SA_STATE = 3i32;
@@ -2619,7 +3378,7 @@ pub const IKEEXT_IMPERSONATION_MAX: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 2
 pub const IKEEXT_IMPERSONATION_NONE: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 0i32;
 pub const IKEEXT_IMPERSONATION_SOCKET_PRINCIPAL: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_INTEGRITY_ALGORITHM0 {
     pub algoIdentifier: IKEEXT_INTEGRITY_TYPE,
 }
@@ -2639,20 +3398,25 @@ pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     pub cgaModifier: FWP_BYTE_ARRAY16,
     pub cgaCollisionCount: u8,
 }
+impl Default for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
     pub totalSocketReceiveFailures: u32,
     pub totalSocketSendFailures: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
     pub totalSocketReceiveFailures: u32,
     pub totalSocketSendFailures: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     pub currentActiveMainModes: u32,
     pub totalMainModesStarted: u32,
@@ -2674,7 +3438,7 @@ pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     pub totalImpersonationMainModes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
     pub currentActiveMainModes: u32,
     pub totalMainModesStarted: u32,
@@ -2697,7 +3461,7 @@ pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
 }
 pub const IKEEXT_KERBEROS: IKEEXT_AUTHENTICATION_METHOD_TYPE = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION0 {
     pub flags: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS,
 }
@@ -2706,6 +3470,11 @@ pub struct IKEEXT_KERBEROS_AUTHENTICATION0 {
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1 {
     pub flags: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS,
     pub proxyServer: windows_sys::core::PWSTR,
+}
+impl Default for IKEEXT_KERBEROS_AUTHENTICATION1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IKEEXT_KERBEROS_AUTHENTICATION_FLAGS = u32;
 pub const IKEEXT_KERB_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS = 1u32;
@@ -2721,6 +3490,11 @@ pub struct IKEEXT_KEYMODULE_STATISTICS0 {
     pub quickModeNegotiationTime: u32,
     pub extendedModeNegotiationTime: u32,
 }
+impl Default for IKEEXT_KEYMODULE_STATISTICS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_KEYMODULE_STATISTICS1 {
@@ -2730,6 +3504,11 @@ pub struct IKEEXT_KEYMODULE_STATISTICS1 {
     pub mainModeNegotiationTime: u32,
     pub quickModeNegotiationTime: u32,
     pub extendedModeNegotiationTime: u32,
+}
+impl Default for IKEEXT_KEYMODULE_STATISTICS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IKEEXT_KEY_MODULE_AUTHIP: IKEEXT_KEY_MODULE_TYPE = 1i32;
 pub const IKEEXT_KEY_MODULE_IKE: IKEEXT_KEY_MODULE_TYPE = 0i32;
@@ -2749,9 +3528,14 @@ pub const IKEEXT_MM_SA_STATE_SSPI_SENT: IKEEXT_MM_SA_STATE = 2i32;
 pub struct IKEEXT_NAME_CREDENTIAL0 {
     pub principalName: windows_sys::core::PWSTR,
 }
+impl Default for IKEEXT_NAME_CREDENTIAL0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IKEEXT_NTLM_V2: IKEEXT_AUTHENTICATION_METHOD_TYPE = 5i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_NTLM_V2_AUTHENTICATION0 {
     pub flags: u32,
 }
@@ -2768,6 +3552,11 @@ pub struct IKEEXT_POLICY0 {
     pub flags: IKEEXT_POLICY_FLAG,
     pub maxDynamicFilters: u32,
 }
+impl Default for IKEEXT_POLICY0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_POLICY1 {
@@ -2780,6 +3569,11 @@ pub struct IKEEXT_POLICY1 {
     pub flags: IKEEXT_POLICY_FLAG,
     pub maxDynamicFilters: u32,
     pub retransmitDurationSecs: u32,
+}
+impl Default for IKEEXT_POLICY1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2794,6 +3588,11 @@ pub struct IKEEXT_POLICY2 {
     pub maxDynamicFilters: u32,
     pub retransmitDurationSecs: u32,
 }
+impl Default for IKEEXT_POLICY2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: u32 = 128u32;
 pub type IKEEXT_POLICY_FLAG = u32;
 pub const IKEEXT_POLICY_FLAG_DISABLE_DIAGNOSTICS: IKEEXT_POLICY_FLAG = 1u32;
@@ -2806,19 +3605,19 @@ pub const IKEEXT_POLICY_FLAG_SITE_TO_SITE: u32 = 32u32;
 pub const IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE: u32 = 256u32;
 pub const IKEEXT_PRESHARED_KEY: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
     pub presharedKey: FWP_BYTE_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     pub presharedKey: FWP_BYTE_BLOB,
     pub flags: IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS,
 }
 pub type IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_PROPOSAL0 {
     pub cipherAlgorithm: IKEEXT_CIPHER_ALGORITHM0,
     pub integrityAlgorithm: IKEEXT_INTEGRITY_ALGORITHM0,
@@ -2836,7 +3635,7 @@ pub const IKEEXT_QM_SA_STATE_MAX: IKEEXT_QM_SA_STATE = 4i32;
 pub const IKEEXT_QM_SA_STATE_NONE: IKEEXT_QM_SA_STATE = 0i32;
 pub const IKEEXT_RESERVED: IKEEXT_AUTHENTICATION_METHOD_TYPE = 12i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_RESERVED_AUTHENTICATION0 {
     pub flags: IKEEXT_RESERVED_AUTHENTICATION_FLAGS,
 }
@@ -2856,10 +3655,20 @@ pub struct IKEEXT_SA_DETAILS0 {
     pub ikePolicyKey: windows_sys::core::GUID,
     pub virtualIfTunnelId: u64,
 }
+impl Default for IKEEXT_SA_DETAILS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS0_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+}
+impl Default for IKEEXT_SA_DETAILS0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2876,10 +3685,20 @@ pub struct IKEEXT_SA_DETAILS1 {
     pub virtualIfTunnelId: u64,
     pub correlationKey: FWP_BYTE_BLOB,
 }
+impl Default for IKEEXT_SA_DETAILS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS1_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+}
+impl Default for IKEEXT_SA_DETAILS1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2896,10 +3715,20 @@ pub struct IKEEXT_SA_DETAILS2 {
     pub virtualIfTunnelId: u64,
     pub correlationKey: FWP_BYTE_BLOB,
 }
+impl Default for IKEEXT_SA_DETAILS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS2_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+}
+impl Default for IKEEXT_SA_DETAILS2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2909,6 +3738,12 @@ pub struct IKEEXT_SA_ENUM_TEMPLATE0 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
     pub localMainModeCertHash: FWP_BYTE_BLOB,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for IKEEXT_SA_ENUM_TEMPLATE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type IKEEXT_SA_ROLE = i32;
 pub const IKEEXT_SA_ROLE_INITIATOR: IKEEXT_SA_ROLE = 0i32;
 pub const IKEEXT_SA_ROLE_MAX: IKEEXT_SA_ROLE = 2i32;
@@ -2917,14 +3752,14 @@ pub const IKEEXT_SSL: IKEEXT_AUTHENTICATION_METHOD_TYPE = 4i32;
 pub const IKEEXT_SSL_ECDSA_P256: IKEEXT_AUTHENTICATION_METHOD_TYPE = 9i32;
 pub const IKEEXT_SSL_ECDSA_P384: IKEEXT_AUTHENTICATION_METHOD_TYPE = 10i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_STATISTICS0 {
     pub ikeStatistics: IKEEXT_KEYMODULE_STATISTICS0,
     pub authipStatistics: IKEEXT_KEYMODULE_STATISTICS0,
     pub commonStatistics: IKEEXT_COMMON_STATISTICS0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_STATISTICS1 {
     pub ikeStatistics: IKEEXT_KEYMODULE_STATISTICS1,
     pub authipStatistics: IKEEXT_KEYMODULE_STATISTICS1,
@@ -2939,17 +3774,32 @@ pub struct IKEEXT_TRAFFIC0 {
     pub Anonymous2: IKEEXT_TRAFFIC0_1,
     pub authIpFilterId: u64,
 }
+impl Default for IKEEXT_TRAFFIC0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_TRAFFIC0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
+impl Default for IKEEXT_TRAFFIC0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IKEEXT_TRAFFIC0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
+}
+impl Default for IKEEXT_TRAFFIC0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2959,8 +3809,13 @@ pub struct IPSEC_ADDRESS_INFO0 {
     pub numV6Addresses: u32,
     pub v6Addresses: *mut FWP_BYTE_ARRAY16,
 }
+impl Default for IPSEC_ADDRESS_INFO0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -2973,7 +3828,7 @@ pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     pub secureReceivesNotMatchingFilters: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -2987,7 +3842,7 @@ pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     pub totalDropPacketsInbound: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_AGGREGATE_SA_STATISTICS0 {
     pub activeSas: u32,
     pub pendingSaNegotiations: u32,
@@ -2998,7 +3853,7 @@ pub struct IPSEC_AGGREGATE_SA_STATISTICS0 {
     pub offloadedSas: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_AH_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub authenticationFailuresOnInbound: u32,
@@ -3009,7 +3864,7 @@ pub const IPSEC_AUTH_AES_128: IPSEC_AUTH_TYPE = 3i32;
 pub const IPSEC_AUTH_AES_192: IPSEC_AUTH_TYPE = 4i32;
 pub const IPSEC_AUTH_AES_256: IPSEC_AUTH_TYPE = 5i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     pub authTransform: IPSEC_AUTH_TRANSFORM0,
     pub cipherTransform: IPSEC_CIPHER_TRANSFORM0,
@@ -3031,8 +3886,13 @@ pub struct IPSEC_AUTH_TRANSFORM0 {
     pub authTransformId: IPSEC_AUTH_TRANSFORM_ID0,
     pub cryptoModuleId: *mut windows_sys::core::GUID,
 }
+impl Default for IPSEC_AUTH_TRANSFORM0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_AUTH_TRANSFORM_ID0 {
     pub authType: IPSEC_AUTH_TYPE,
     pub authConfig: u8,
@@ -3053,8 +3913,13 @@ pub struct IPSEC_CIPHER_TRANSFORM0 {
     pub cipherTransformId: IPSEC_CIPHER_TRANSFORM_ID0,
     pub cryptoModuleId: *mut windows_sys::core::GUID,
 }
+impl Default for IPSEC_CIPHER_TRANSFORM0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_CIPHER_TRANSFORM_ID0 {
     pub cipherType: IPSEC_CIPHER_TYPE,
     pub cipherConfig: u8,
@@ -3100,6 +3965,11 @@ pub struct IPSEC_DOSP_OPTIONS0 {
     pub publicV6AddrMask: FWP_V6_ADDR_AND_MASK,
     pub internalV6AddrMask: FWP_V6_ADDR_AND_MASK,
 }
+impl Default for IPSEC_DOSP_OPTIONS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3110,14 +3980,19 @@ pub struct IPSEC_DOSP_STATE0 {
     pub totalOutboundIPv6IPsecAuthPackets: u64,
     pub durationSecs: u32,
 }
+impl Default for IPSEC_DOSP_STATE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
     pub publicV6AddrMask: FWP_V6_ADDR_AND_MASK,
     pub internalV6AddrMask: FWP_V6_ADDR_AND_MASK,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_DOSP_STATISTICS0 {
     pub totalStateEntriesCreated: u64,
     pub currentStateEntries: u64,
@@ -3139,7 +4014,7 @@ pub struct IPSEC_DOSP_STATISTICS0 {
     pub currentInboundIPv6IPsecUnauthPerIPRateLimitQueues: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -3160,10 +4035,20 @@ pub struct IPSEC_GETSPI0 {
     pub Anonymous: IPSEC_GETSPI0_0,
     pub rngCryptoModuleID: *mut windows_sys::core::GUID,
 }
+impl Default for IPSEC_GETSPI0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_GETSPI0_0 {
     pub inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+}
+impl Default for IPSEC_GETSPI0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3173,10 +4058,20 @@ pub struct IPSEC_GETSPI1 {
     pub Anonymous: IPSEC_GETSPI1_0,
     pub rngCryptoModuleID: *mut windows_sys::core::GUID,
 }
+impl Default for IPSEC_GETSPI1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_GETSPI1_0 {
     pub inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+}
+impl Default for IPSEC_GETSPI1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3188,11 +4083,21 @@ pub struct IPSEC_ID0 {
     pub explicitCredentials: u64,
     pub logonId: u64,
 }
+impl Default for IPSEC_ID0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPSEC_KEYING_POLICY0 {
     pub numKeyMods: u32,
     pub keyModKeys: *mut windows_sys::core::GUID,
+}
+impl Default for IPSEC_KEYING_POLICY0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3201,15 +4106,20 @@ pub struct IPSEC_KEYING_POLICY1 {
     pub keyModKeys: *mut windows_sys::core::GUID,
     pub flags: u32,
 }
+impl Default for IPSEC_KEYING_POLICY1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_KEYMODULE_STATE0 {
     pub keyModuleKey: windows_sys::core::GUID,
     pub stateBlob: FWP_BYTE_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_KEY_MANAGER0 {
     pub keyManagerKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -3218,7 +4128,7 @@ pub struct IPSEC_KEY_MANAGER0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub reserved: windows_sys::core::GUID,
     pub flags: u32,
@@ -3272,12 +4182,22 @@ pub struct IPSEC_PROPOSAL0 {
     pub saTransforms: *mut IPSEC_SA_TRANSFORM0,
     pub pfsGroup: IPSEC_PFS_GROUP,
 }
+impl Default for IPSEC_PROPOSAL0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPSEC_SA0 {
     pub spi: u32,
     pub saTransformType: IPSEC_TRANSFORM_TYPE,
     pub Anonymous: IPSEC_SA0_0,
+}
+impl Default for IPSEC_SA0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3288,14 +4208,19 @@ pub union IPSEC_SA0_0 {
     pub espAuthAndCipherInformation: *mut IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0,
     pub espAuthFwInformation: *mut IPSEC_SA_AUTH_INFORMATION0,
 }
+impl Default for IPSEC_SA0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
     pub saCipherInformation: IPSEC_SA_CIPHER_INFORMATION0,
     pub saAuthInformation: IPSEC_SA_AUTH_INFORMATION0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_SA_AUTH_INFORMATION0 {
     pub authTransform: IPSEC_AUTH_TRANSFORM0,
     pub authKey: FWP_BYTE_BLOB,
@@ -3318,10 +4243,20 @@ pub struct IPSEC_SA_BUNDLE0 {
     pub mmSaId: u64,
     pub pfsGroup: IPSEC_PFS_GROUP,
 }
+impl Default for IPSEC_SA_BUNDLE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_SA_BUNDLE0_0 {
     pub peerV4PrivateAddress: u32,
+}
+impl Default for IPSEC_SA_BUNDLE0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3343,10 +4278,20 @@ pub struct IPSEC_SA_BUNDLE1 {
     pub saLookupContext: windows_sys::core::GUID,
     pub qmFilterId: u64,
 }
+impl Default for IPSEC_SA_BUNDLE1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_SA_BUNDLE1_0 {
     pub peerV4PrivateAddress: u32,
+}
+impl Default for IPSEC_SA_BUNDLE1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IPSEC_SA_BUNDLE_FLAGS = u32;
 pub const IPSEC_SA_BUNDLE_FLAG_ALLOW_NULL_TARGET_NAME_MATCH: IPSEC_SA_BUNDLE_FLAGS = 512u32;
@@ -3377,7 +4322,7 @@ pub const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH3: u32 = 1073741824u32;
 pub const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH4: u32 = 2147483648u32;
 pub const IPSEC_SA_BUNDLE_FLAG_USING_DICTATED_KEYS: u32 = 524288u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_SA_CIPHER_INFORMATION0 {
     pub cipherTransform: IPSEC_CIPHER_TRANSFORM0,
     pub cipherKey: FWP_BYTE_BLOB,
@@ -3390,6 +4335,12 @@ pub struct IPSEC_SA_CONTEXT0 {
     pub inboundSa: *mut IPSEC_SA_DETAILS0,
     pub outboundSa: *mut IPSEC_SA_DETAILS0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for IPSEC_SA_CONTEXT0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -3398,9 +4349,15 @@ pub struct IPSEC_SA_CONTEXT1 {
     pub inboundSa: *mut IPSEC_SA_DETAILS1,
     pub outboundSa: *mut IPSEC_SA_DETAILS1,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for IPSEC_SA_CONTEXT1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type IPSEC_SA_CONTEXT_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const IPSEC_SA_CONTEXT_CHANGE0)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_SA_CONTEXT_CHANGE0 {
     pub changeType: IPSEC_SA_CONTEXT_EVENT_TYPE0,
     pub saContextId: u64,
@@ -3411,6 +4368,12 @@ pub struct IPSEC_SA_CONTEXT_CHANGE0 {
 pub struct IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
     pub remoteSubNet: FWP_CONDITION_VALUE0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IPSEC_SA_CONTEXT_EVENT_ADD: IPSEC_SA_CONTEXT_EVENT_TYPE0 = 1i32;
 pub const IPSEC_SA_CONTEXT_EVENT_DELETE: IPSEC_SA_CONTEXT_EVENT_TYPE0 = 2i32;
@@ -3424,6 +4387,12 @@ pub struct IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -3435,11 +4404,23 @@ pub struct IPSEC_SA_DETAILS0 {
     pub Anonymous: IPSEC_SA_DETAILS0_0,
     pub transportFilter: *mut FWPM_FILTER0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for IPSEC_SA_DETAILS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union IPSEC_SA_DETAILS0_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for IPSEC_SA_DETAILS0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -3453,25 +4434,37 @@ pub struct IPSEC_SA_DETAILS1 {
     pub transportFilter: *mut FWPM_FILTER0,
     pub virtualIfTunnelInfo: IPSEC_VIRTUAL_IF_TUNNEL_INFO0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for IPSEC_SA_DETAILS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union IPSEC_SA_DETAILS1_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for IPSEC_SA_DETAILS1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_SA_ENUM_TEMPLATE0 {
     pub saDirection: FWP_DIRECTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_SA_IDLE_TIMEOUT0 {
     pub idleTimeoutSeconds: u32,
     pub idleTimeoutSecondsFailOver: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_SA_LIFETIME0 {
     pub lifetimeSeconds: u32,
     pub lifetimeKilobytes: u32,
@@ -3483,6 +4476,11 @@ pub struct IPSEC_SA_TRANSFORM0 {
     pub ipsecTransformType: IPSEC_TRANSFORM_TYPE,
     pub Anonymous: IPSEC_SA_TRANSFORM0_0,
 }
+impl Default for IPSEC_SA_TRANSFORM0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_SA_TRANSFORM0_0 {
@@ -3492,8 +4490,13 @@ pub union IPSEC_SA_TRANSFORM0_0 {
     pub espAuthAndCipherTransform: *mut IPSEC_AUTH_AND_CIPHER_TRANSFORM0,
     pub espAuthFwTransform: *mut IPSEC_AUTH_TRANSFORM0,
 }
+impl Default for IPSEC_SA_TRANSFORM0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_STATISTICS0 {
     pub aggregateSaStatistics: IPSEC_AGGREGATE_SA_STATISTICS0,
     pub espDropPacketStatistics: IPSEC_ESP_DROP_PACKET_STATISTICS0,
@@ -3503,7 +4506,7 @@ pub struct IPSEC_STATISTICS0 {
     pub outboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_STATISTICS1 {
     pub aggregateSaStatistics: IPSEC_AGGREGATE_SA_STATISTICS0,
     pub espDropPacketStatistics: IPSEC_ESP_DROP_PACKET_STATISTICS0,
@@ -3513,7 +4516,7 @@ pub struct IPSEC_STATISTICS1 {
     pub outboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS1,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_TOKEN0 {
     pub r#type: IPSEC_TOKEN_TYPE,
     pub principal: IPSEC_TOKEN_PRINCIPAL,
@@ -3542,11 +4545,21 @@ pub struct IPSEC_TRAFFIC0 {
     pub Anonymous3: IPSEC_TRAFFIC0_2,
     pub remotePort: u16,
 }
+impl Default for IPSEC_TRAFFIC0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
+}
+impl Default for IPSEC_TRAFFIC0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3554,11 +4567,21 @@ pub union IPSEC_TRAFFIC0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+impl Default for IPSEC_TRAFFIC0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC0_2 {
     pub ipsecFilterId: u64,
     pub tunnelPolicyId: u64,
+}
+impl Default for IPSEC_TRAFFIC0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3574,11 +4597,21 @@ pub struct IPSEC_TRAFFIC1 {
     pub localIfLuid: u64,
     pub realIfProfileId: u32,
 }
+impl Default for IPSEC_TRAFFIC1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC1_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
+}
+impl Default for IPSEC_TRAFFIC1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3586,11 +4619,21 @@ pub union IPSEC_TRAFFIC1_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+impl Default for IPSEC_TRAFFIC1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC1_2 {
     pub ipsecFilterId: u64,
     pub tunnelPolicyId: u64,
+}
+impl Default for IPSEC_TRAFFIC1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3602,17 +4645,32 @@ pub struct IPSEC_TRAFFIC_SELECTOR0 {
     pub Anonymous1: IPSEC_TRAFFIC_SELECTOR0_0,
     pub Anonymous2: IPSEC_TRAFFIC_SELECTOR0_1,
 }
+impl Default for IPSEC_TRAFFIC_SELECTOR0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC_SELECTOR0_0 {
     pub startV4Address: u32,
     pub startV6Address: [u8; 16],
 }
+impl Default for IPSEC_TRAFFIC_SELECTOR0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC_SELECTOR0_1 {
     pub endV4Address: u32,
     pub endV6Address: [u8; 16],
+}
+impl Default for IPSEC_TRAFFIC_SELECTOR0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3623,8 +4681,13 @@ pub struct IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     pub numRemoteTrafficSelectors: u32,
     pub remoteTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0,
 }
+impl Default for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_TRAFFIC_STATISTICS0 {
     pub encryptedByteCount: u64,
     pub authenticatedAHByteCount: u64,
@@ -3634,7 +4697,7 @@ pub struct IPSEC_TRAFFIC_STATISTICS0 {
     pub offloadByteCount: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_TRAFFIC_STATISTICS1 {
     pub encryptedByteCount: u64,
     pub authenticatedAHByteCount: u64,
@@ -3665,6 +4728,11 @@ pub struct IPSEC_TRANSPORT_POLICY0 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY0,
 }
+impl Default for IPSEC_TRANSPORT_POLICY0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPSEC_TRANSPORT_POLICY1 {
@@ -3674,6 +4742,11 @@ pub struct IPSEC_TRANSPORT_POLICY1 {
     pub ndAllowClearTimeoutSeconds: u32,
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY1,
+}
+impl Default for IPSEC_TRANSPORT_POLICY1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3685,17 +4758,32 @@ pub struct IPSEC_TRANSPORT_POLICY2 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY2,
 }
+impl Default for IPSEC_TRANSPORT_POLICY2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_ENDPOINT0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous: IPSEC_TUNNEL_ENDPOINT0_0,
 }
+impl Default for IPSEC_TUNNEL_ENDPOINT0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINT0_0 {
     pub v4Address: u32,
     pub v6Address: [u8; 16],
+}
+impl Default for IPSEC_TUNNEL_ENDPOINT0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3704,17 +4792,32 @@ pub struct IPSEC_TUNNEL_ENDPOINTS0 {
     pub Anonymous1: IPSEC_TUNNEL_ENDPOINTS0_0,
     pub Anonymous2: IPSEC_TUNNEL_ENDPOINTS0_1,
 }
+impl Default for IPSEC_TUNNEL_ENDPOINTS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
+impl Default for IPSEC_TUNNEL_ENDPOINTS0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
+}
+impl Default for IPSEC_TUNNEL_ENDPOINTS0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3724,17 +4827,32 @@ pub struct IPSEC_TUNNEL_ENDPOINTS1 {
     pub Anonymous2: IPSEC_TUNNEL_ENDPOINTS1_1,
     pub localIfLuid: u64,
 }
+impl Default for IPSEC_TUNNEL_ENDPOINTS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS1_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
+impl Default for IPSEC_TUNNEL_ENDPOINTS1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS1_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
+}
+impl Default for IPSEC_TUNNEL_ENDPOINTS1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3747,17 +4865,32 @@ pub struct IPSEC_TUNNEL_ENDPOINTS2 {
     pub numAddresses: u32,
     pub remoteAddresses: *mut IPSEC_TUNNEL_ENDPOINT0,
 }
+impl Default for IPSEC_TUNNEL_ENDPOINTS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS2_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
+impl Default for IPSEC_TUNNEL_ENDPOINTS2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS2_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
+}
+impl Default for IPSEC_TUNNEL_ENDPOINTS2_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3769,6 +4902,11 @@ pub struct IPSEC_TUNNEL_POLICY0 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY0,
 }
+impl Default for IPSEC_TUNNEL_POLICY0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_POLICY1 {
@@ -3778,6 +4916,11 @@ pub struct IPSEC_TUNNEL_POLICY1 {
     pub tunnelEndpoints: IPSEC_TUNNEL_ENDPOINTS1,
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY1,
+}
+impl Default for IPSEC_TUNNEL_POLICY1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3789,6 +4932,11 @@ pub struct IPSEC_TUNNEL_POLICY2 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY2,
     pub fwdPathSaLifetime: u32,
+}
+impl Default for IPSEC_TUNNEL_POLICY2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3804,14 +4952,19 @@ pub struct IPSEC_TUNNEL_POLICY3 {
     pub numTrafficSelectorPolicy: u32,
     pub trafficSelectorPolicies: *mut IPSEC_TRAFFIC_SELECTOR_POLICY0,
 }
+impl Default for IPSEC_TUNNEL_POLICY3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_V4_UDP_ENCAPSULATION0 {
     pub localUdpEncapPort: u16,
     pub remoteUdpEncapPort: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
     pub virtualIfTunnelId: u64,
     pub trafficSelectorId: u64,

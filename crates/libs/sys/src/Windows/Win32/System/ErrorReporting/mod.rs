@@ -75,6 +75,11 @@ pub struct WER_DUMP_CUSTOM_OPTIONS {
     pub dwOtherModuleFlags: u32,
     pub wzPreferredModuleList: [u16; 256],
 }
+impl Default for WER_DUMP_CUSTOM_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
@@ -91,6 +96,11 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
     pub wzPreferredModuleList: [u16; 256],
     pub dwPreferredModuleResetFlags: u32,
     pub dwOtherModuleResetFlags: u32,
+}
+impl Default for WER_DUMP_CUSTOM_OPTIONS_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -112,6 +122,11 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub hSnapshot: super::super::Foundation::HANDLE,
     pub dwThreadID: u32,
 }
+impl Default for WER_DUMP_CUSTOM_OPTIONS_V3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WER_DUMP_MASK_START: u32 = 1u32;
 pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
 pub type WER_DUMP_TYPE = i32;
@@ -121,6 +136,12 @@ pub type WER_DUMP_TYPE = i32;
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
     pub bClientPointers: windows_sys::core::BOOL,
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl Default for WER_EXCEPTION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WER_FAULT_REPORTING = u32;
 pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: WER_FAULT_REPORTING = 16u32;
@@ -180,6 +201,11 @@ pub struct WER_REPORT_INFORMATION {
     pub wzDescription: [u16; 512],
     pub hwndParent: super::super::Foundation::HWND,
 }
+impl Default for WER_REPORT_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WER_REPORT_INFORMATION_V3 {
@@ -193,6 +219,11 @@ pub struct WER_REPORT_INFORMATION_V3 {
     pub hwndParent: super::super::Foundation::HWND,
     pub wzNamespacePartner: [u16; 64],
     pub wzNamespaceGroup: [u16; 64],
+}
+impl Default for WER_REPORT_INFORMATION_V3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -210,6 +241,11 @@ pub struct WER_REPORT_INFORMATION_V4 {
     pub rgbApplicationIdentity: [u8; 16],
     pub hSnapshot: super::super::Foundation::HANDLE,
     pub hDeleteFilesImpersonationToken: super::super::Foundation::HANDLE,
+}
+impl Default for WER_REPORT_INFORMATION_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -229,8 +265,13 @@ pub struct WER_REPORT_INFORMATION_V5 {
     pub hDeleteFilesImpersonationToken: super::super::Foundation::HANDLE,
     pub submitResultMax: WER_SUBMIT_RESULT,
 }
+impl Default for WER_REPORT_INFORMATION_V5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WER_REPORT_METADATA_V1 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: windows_sys::core::GUID,
@@ -253,6 +294,11 @@ pub struct WER_REPORT_METADATA_V2 {
     pub SizeOfFileNames: u32,
     pub FileNames: windows_sys::core::PWSTR,
 }
+impl Default for WER_REPORT_METADATA_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WER_REPORT_METADATA_V3 {
@@ -274,17 +320,32 @@ pub struct WER_REPORT_METADATA_V3 {
     pub BucketIdString: [u16; 260],
     pub LegacyBucketId: u64,
 }
+impl Default for WER_REPORT_METADATA_V3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WER_REPORT_PARAMETER {
     pub Name: [u16; 129],
     pub Value: [u16; 260],
 }
+impl Default for WER_REPORT_PARAMETER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WER_REPORT_SIGNATURE {
     pub EventName: [u16; 65],
     pub Parameters: [WER_REPORT_PARAMETER; 10],
+}
+impl Default for WER_REPORT_SIGNATURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WER_REPORT_TYPE = i32;
 pub type WER_REPORT_UI = i32;
@@ -303,6 +364,12 @@ pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub pwszReportId: windows_sys::core::PCWSTR,
     pub bIsFatal: windows_sys::core::BOOL,
     pub dwReserved: u32,
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl Default for WER_RUNTIME_EXCEPTION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WER_SUBMIT_ADD_REGISTERED_DATA: WER_SUBMIT_FLAGS = 16u32;
 pub const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: WER_SUBMIT_FLAGS = 4096u32;

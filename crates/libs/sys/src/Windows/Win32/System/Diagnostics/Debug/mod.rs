@@ -432,14 +432,14 @@ pub const ACPI_FIRMWARE_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 464u32;
 pub const ACTIVE_EX_WORKER_THREAD_TERMINATION: BUGCHECK_ERROR = 233u32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRESS {
     pub Offset: u32,
     pub Segment: u16,
     pub Mode: ADDRESS_MODE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRESS64 {
     pub Offset: u64,
     pub Segment: u16,
@@ -452,8 +452,13 @@ pub union AER_BRIDGE_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_BRIDGE_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
 }
+impl Default for AER_BRIDGE_DESCRIPTOR_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -463,8 +468,13 @@ pub union AER_ENDPOINT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ENDPOINT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
 }
+impl Default for AER_ENDPOINT_DESCRIPTOR_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -474,8 +484,13 @@ pub union AER_ROOTPORT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ROOTPORT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
 }
+impl Default for AER_ROOTPORT_DESCRIPTOR_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -492,9 +507,15 @@ pub struct APC_CALLBACK_DATA {
     pub Reserved0: usize,
     pub Reserved1: usize,
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for APC_CALLBACK_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const APC_INDEX_MISMATCH: BUGCHECK_ERROR = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct API_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -520,6 +541,12 @@ pub struct ARM64_NT_CONTEXT {
     pub Wcr: [u32; 2],
     pub Wvr: [u64; 2],
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+impl Default for ARM64_NT_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -527,9 +554,15 @@ pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+impl Default for ARM64_NT_CONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -572,8 +605,13 @@ pub union ARM64_NT_NEON128 {
     pub H: [u16; 8],
     pub B: [u8; 16],
 }
+impl Default for ARM64_NT_NEON128 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ARM64_NT_NEON128_0 {
     pub Low: u64,
     pub High: i64,
@@ -730,6 +768,13 @@ pub struct CONTEXT {
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -781,12 +826,24 @@ pub struct CONTEXT {
     pub LastExceptionToRip: u64,
     pub LastExceptionFromRip: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union CONTEXT_0 {
     pub FltSave: XSAVE_FORMAT,
     pub Anonymous: CONTEXT_0_0,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for CONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -811,6 +868,12 @@ pub struct CONTEXT_0_0 {
     pub Xmm14: M128A,
     pub Xmm15: M128A,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for CONTEXT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -828,6 +891,12 @@ pub struct CONTEXT {
     pub Wcr: [u32; 2],
     pub Wvr: [u64; 2],
 }
+#[cfg(target_arch = "aarch64")]
+impl Default for CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -835,9 +904,15 @@ pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
     pub X: [u64; 31],
 }
+#[cfg(target_arch = "aarch64")]
+impl Default for CONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -937,10 +1012,20 @@ pub union CPU_INFORMATION {
     pub X86CpuInfo: CPU_INFORMATION_0,
     pub OtherCpuInfo: CPU_INFORMATION_1,
 }
+impl Default for CPU_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct CPU_INFORMATION_1 {
     pub ProcessorFeatures: [u64; 2],
+}
+impl Default for CPU_INFORMATION_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -949,6 +1034,11 @@ pub struct CPU_INFORMATION_0 {
     pub VersionInformation: u32,
     pub FeatureInformation: u32,
     pub AMDExtendedCpuFeatures: u32,
+}
+impl Default for CPU_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRASHDUMP_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 486u32;
 pub const CREATE_DELETE_LOCK_NOT_LOCKED: BUGCHECK_ERROR = 20u32;
@@ -968,6 +1058,12 @@ pub struct CREATE_PROCESS_DEBUG_INFO {
     pub lpImageName: *mut core::ffi::c_void,
     pub fUnicode: u16,
 }
+#[cfg(feature = "Win32_System_Threading")]
+impl Default for CREATE_PROCESS_DEBUG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CREATE_THREAD_DEBUG_EVENT: DEBUG_EVENT_CODE = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
@@ -976,6 +1072,12 @@ pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::super::super::Foundation::HANDLE,
     pub lpThreadLocalBase: *mut core::ffi::c_void,
     pub lpStartAddress: super::super::Threading::LPTHREAD_START_ROUTINE,
+}
+#[cfg(feature = "Win32_System_Threading")]
+impl Default for CREATE_THREAD_DEBUG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRITICAL_INITIALIZATION_FAILURE: BUGCHECK_ERROR = 317u32;
 pub const CRITICAL_OBJECT_TERMINATION: BUGCHECK_ERROR = 244u32;
@@ -995,6 +1097,11 @@ pub const DATA_COHERENCY_EXCEPTION: BUGCHECK_ERROR = 85u32;
 pub struct DBGHELP_DATA_REPORT_STRUCT {
     pub pBinPathNonExist: windows_sys::core::PCWSTR,
     pub pSymbolPathNonExist: windows_sys::core::PCWSTR,
+}
+impl Default for DBGHELP_DATA_REPORT_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DBGPROP_ATTRIB_ACCESS_FINAL: DBGPROP_ATTRIB_FLAGS = 32768i32;
 pub const DBGPROP_ATTRIB_ACCESS_PRIVATE: DBGPROP_ATTRIB_FLAGS = 8192i32;
@@ -1044,6 +1151,12 @@ pub struct DEBUG_EVENT {
     pub dwThreadId: u32,
     pub u: DEBUG_EVENT_0,
 }
+#[cfg(feature = "Win32_System_Threading")]
+impl Default for DEBUG_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
 #[derive(Clone, Copy)]
@@ -1057,6 +1170,12 @@ pub union DEBUG_EVENT_0 {
     pub UnloadDll: UNLOAD_DLL_DEBUG_INFO,
     pub DebugString: OUTPUT_DEBUG_STRING_INFO,
     pub RipInfo: RIP_INFO,
+}
+#[cfg(feature = "Win32_System_Threading")]
+impl Default for DEBUG_EVENT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DEBUG_EVENT_CODE = u32;
 pub const DEREF_UNKNOWN_LOGON_SESSION: BUGCHECK_ERROR = 70u32;
@@ -1087,6 +1206,13 @@ pub struct DISPATCHER_CONTEXT {
     pub ScopeIndex: u32,
     pub Fill0: u32,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for DISPATCHER_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -1104,6 +1230,13 @@ pub struct DISPATCHER_CONTEXT {
     pub ScopeIndex: u32,
     pub ControlPcIsUnwound: bool,
     pub NonVolatileRegisters: *mut u8,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for DISPATCHER_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DMA_COMMON_BUFFER_VECTOR_ERROR: BUGCHECK_ERROR = 476u32;
 pub const DMP_CONTEXT_RECORD_SIZE_32: u32 = 1200u32;
@@ -1153,8 +1286,13 @@ pub union DUMP_FILE_ATTRIBUTES {
     pub Anonymous: DUMP_FILE_ATTRIBUTES_0,
     pub Attributes: u32,
 }
+impl Default for DUMP_FILE_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DUMP_FILE_ATTRIBUTES_0 {
     pub _bitfield: u32,
 }
@@ -1200,11 +1338,21 @@ pub struct DUMP_HEADER32 {
     pub SystemTime: i64,
     pub _reserved3: [u8; 56],
 }
+impl Default for DUMP_HEADER32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DUMP_HEADER32_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR32,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
+}
+impl Default for DUMP_HEADER32_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1246,11 +1394,21 @@ pub struct DUMP_HEADER64 {
     pub BootId: u32,
     pub _reserved0: [u8; 4008],
 }
+impl Default for DUMP_HEADER64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DUMP_HEADER64_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR64,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
+}
+impl Default for DUMP_HEADER64_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
 pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
@@ -1276,6 +1434,11 @@ pub struct DebugPropertyInfo {
     pub m_dwAttrib: u32,
     pub m_pDebugProp: *mut core::ffi::c_void,
 }
+impl Default for DebugPropertyInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EFS_FATAL_ERROR: BUGCHECK_ERROR = 471u32;
 pub const ELAM_DRIVER_DETECTED_FATAL_ERROR: BUGCHECK_ERROR = 376u32;
 pub const EMPTY_THREAD_REAPER_LIST: BUGCHECK_ERROR = 19u32;
@@ -1299,7 +1462,7 @@ pub const EXCEPTION_CONTINUE_EXECUTION: i32 = -1i32;
 pub const EXCEPTION_CONTINUE_SEARCH: i32 = 0i32;
 pub const EXCEPTION_DEBUG_EVENT: DEBUG_EVENT_CODE = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXCEPTION_DEBUG_INFO {
     pub ExceptionRecord: EXCEPTION_RECORD,
     pub dwFirstChance: u32,
@@ -1313,6 +1476,12 @@ pub struct EXCEPTION_POINTERS {
     pub ExceptionRecord: *mut EXCEPTION_RECORD,
     pub ContextRecord: *mut CONTEXT,
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for EXCEPTION_POINTERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EXCEPTION_RECORD {
@@ -1323,6 +1492,11 @@ pub struct EXCEPTION_RECORD {
     pub NumberParameters: u32,
     pub ExceptionInformation: [usize; 15],
 }
+impl Default for EXCEPTION_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EXCEPTION_RECORD32 {
@@ -1332,6 +1506,11 @@ pub struct EXCEPTION_RECORD32 {
     pub ExceptionAddress: u32,
     pub NumberParameters: u32,
     pub ExceptionInformation: [u32; 15],
+}
+impl Default for EXCEPTION_RECORD32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1344,17 +1523,22 @@ pub struct EXCEPTION_RECORD64 {
     pub __unusedAlignment: u32,
     pub ExceptionInformation: [u64; 15],
 }
+impl Default for EXCEPTION_RECORD64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EXCEPTION_SCOPE_INVALID: BUGCHECK_ERROR = 333u32;
 pub const EXFAT_FILE_SYSTEM: BUGCHECK_ERROR = 300u32;
 pub const EXIT_PROCESS_DEBUG_EVENT: DEBUG_EVENT_CODE = 5u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXIT_PROCESS_DEBUG_INFO {
     pub dwExitCode: u32,
 }
 pub const EXIT_THREAD_DEBUG_EVENT: DEBUG_EVENT_CODE = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXIT_THREAD_DEBUG_INFO {
     pub dwExitCode: u32,
 }
@@ -1383,6 +1567,12 @@ pub struct ExtendedDebugPropertyInfo {
     pub varValue: super::super::Variant::VARIANT,
     pub plbValue: *mut core::ffi::c_void,
     pub pDebugExtProp: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for ExtendedDebugPropertyInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FACILITY_AAF: FACILITY_CODE = 18u32;
 pub const FACILITY_ACCELERATOR: FACILITY_CODE = 1536u32;
@@ -1558,7 +1748,7 @@ pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = 4096u32;
 pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = 512u32;
 pub type FORMAT_MESSAGE_OPTIONS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FPO_DATA {
     pub ulOffStart: u32,
     pub cbProcSize: u32,
@@ -1599,6 +1789,11 @@ pub struct IMAGEHLP_CBA_EVENT {
     pub desc: windows_sys::core::PSTR,
     pub object: *mut core::ffi::c_void,
 }
+impl Default for IMAGEHLP_CBA_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_CBA_EVENTW {
@@ -1606,6 +1801,11 @@ pub struct IMAGEHLP_CBA_EVENTW {
     pub code: u32,
     pub desc: windows_sys::core::PCWSTR,
     pub object: *mut core::ffi::c_void,
+}
+impl Default for IMAGEHLP_CBA_EVENTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IMAGEHLP_CBA_EVENT_SEVERITY = u32;
 #[repr(C)]
@@ -1615,6 +1815,11 @@ pub struct IMAGEHLP_CBA_READ_MEMORY {
     pub buf: *mut core::ffi::c_void,
     pub bytes: u32,
     pub bytesread: *mut u32,
+}
+impl Default for IMAGEHLP_CBA_READ_MEMORY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1628,6 +1833,12 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub Reparse: bool,
     pub hFile: super::super::super::Foundation::HANDLE,
 }
+#[cfg(target_arch = "x86")]
+impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
@@ -1639,6 +1850,11 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub Reparse: bool,
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
+}
+impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1652,6 +1868,11 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
 }
+impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -1661,6 +1882,12 @@ pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub Symbol: *mut IMAGEHLP_SYMBOL,
     pub SelectedSymbol: u32,
 }
+#[cfg(target_arch = "x86")]
+impl Default for IMAGEHLP_DUPLICATE_SYMBOL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
@@ -1668,6 +1895,11 @@ pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
     pub NumberOfDups: u32,
     pub Symbol: *mut IMAGEHLP_SYMBOL64,
     pub SelectedSymbol: u32,
+}
+impl Default for IMAGEHLP_DUPLICATE_SYMBOL64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IMAGEHLP_EXTENDED_OPTIONS = i32;
 pub const IMAGEHLP_GET_TYPE_INFO_CHILDREN: IMAGEHLP_GET_TYPE_INFO_FLAGS = 2u32;
@@ -1694,10 +1926,15 @@ pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub NumReqsValid: u32,
     pub ReqsValid: *mut u64,
 }
+impl Default for IMAGEHLP_GET_TYPE_INFO_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IMAGEHLP_GET_TYPE_INFO_UNCACHED: IMAGEHLP_GET_TYPE_INFO_FLAGS = 1u32;
 pub type IMAGEHLP_HD_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_JIT_SYMBOLMAP {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -1713,6 +1950,12 @@ pub struct IMAGEHLP_LINE {
     pub FileName: windows_sys::core::PSTR,
     pub Address: u32,
 }
+#[cfg(target_arch = "x86")]
+impl Default for IMAGEHLP_LINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_LINE64 {
@@ -1721,6 +1964,11 @@ pub struct IMAGEHLP_LINE64 {
     pub LineNumber: u32,
     pub FileName: windows_sys::core::PSTR,
     pub Address: u64,
+}
+impl Default for IMAGEHLP_LINE64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1732,6 +1980,12 @@ pub struct IMAGEHLP_LINEW {
     pub FileName: windows_sys::core::PSTR,
     pub Address: u64,
 }
+#[cfg(target_arch = "x86")]
+impl Default for IMAGEHLP_LINEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_LINEW64 {
@@ -1740,6 +1994,11 @@ pub struct IMAGEHLP_LINEW64 {
     pub LineNumber: u32,
     pub FileName: windows_sys::core::PWSTR,
     pub Address: u64,
+}
+impl Default for IMAGEHLP_LINEW64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1755,6 +2014,12 @@ pub struct IMAGEHLP_MODULE {
     pub ModuleName: [i8; 32],
     pub ImageName: [i8; 256],
     pub LoadedImageName: [i8; 256],
+}
+#[cfg(target_arch = "x86")]
+impl Default for IMAGEHLP_MODULE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1785,8 +2050,13 @@ pub struct IMAGEHLP_MODULE64 {
     pub MachineType: u32,
     pub Reserved: u32,
 }
+impl Default for IMAGEHLP_MODULE64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_MODULE64_EX {
     pub Module: IMAGEHLP_MODULE64,
     pub RegionFlags: u32,
@@ -1805,6 +2075,12 @@ pub struct IMAGEHLP_MODULEW {
     pub ModuleName: [u16; 32],
     pub ImageName: [u16; 256],
     pub LoadedImageName: [u16; 256],
+}
+#[cfg(target_arch = "x86")]
+impl Default for IMAGEHLP_MODULEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1835,8 +2111,13 @@ pub struct IMAGEHLP_MODULEW64 {
     pub MachineType: u32,
     pub Reserved: u32,
 }
+impl Default for IMAGEHLP_MODULEW64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_MODULEW64_EX {
     pub Module: IMAGEHLP_MODULEW64,
     pub RegionFlags: u32,
@@ -1868,6 +2149,11 @@ pub struct IMAGEHLP_STACK_FRAME {
     pub Virtual: windows_sys::core::BOOL,
     pub Reserved2: u32,
 }
+impl Default for IMAGEHLP_STACK_FRAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type IMAGEHLP_STATUS_REASON = i32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1880,6 +2166,12 @@ pub struct IMAGEHLP_SYMBOL {
     pub MaxNameLength: u32,
     pub Name: [i8; 1],
 }
+#[cfg(target_arch = "x86")]
+impl Default for IMAGEHLP_SYMBOL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOL64 {
@@ -1890,11 +2182,21 @@ pub struct IMAGEHLP_SYMBOL64 {
     pub MaxNameLength: u32,
     pub Name: [i8; 1],
 }
+impl Default for IMAGEHLP_SYMBOL64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL64,
     pub name: [i8; 2001],
+}
+impl Default for IMAGEHLP_SYMBOL64_PACKAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1907,6 +2209,12 @@ pub struct IMAGEHLP_SYMBOLW {
     pub MaxNameLength: u32,
     pub Name: [u16; 1],
 }
+#[cfg(target_arch = "x86")]
+impl Default for IMAGEHLP_SYMBOLW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOLW64 {
@@ -1917,11 +2225,21 @@ pub struct IMAGEHLP_SYMBOLW64 {
     pub MaxNameLength: u32,
     pub Name: [u16; 1],
 }
+impl Default for IMAGEHLP_SYMBOLW64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOLW64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW64,
     pub name: [u16; 2001],
+}
+impl Default for IMAGEHLP_SYMBOLW64_PACKAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1929,6 +2247,12 @@ pub struct IMAGEHLP_SYMBOLW64_PACKAGE {
 pub struct IMAGEHLP_SYMBOLW_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW,
     pub name: [u16; 2001],
+}
+#[cfg(target_arch = "x86")]
+impl Default for IMAGEHLP_SYMBOLW_PACKAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IMAGEHLP_SYMBOL_FUNCTION: u32 = 2048u32;
 pub const IMAGEHLP_SYMBOL_INFO_CONSTANT: u32 = 256u32;
@@ -1946,12 +2270,23 @@ pub struct IMAGEHLP_SYMBOL_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL,
     pub name: [i8; 2001],
 }
+#[cfg(target_arch = "x86")]
+impl Default for IMAGEHLP_SYMBOL_PACKAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOL_SRC {
     pub sizeofstruct: u32,
     pub r#type: u32,
     pub file: [i8; 260],
+}
+impl Default for IMAGEHLP_SYMBOL_SRC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IMAGEHLP_SYMBOL_THUNK: u32 = 8192u32;
 pub type IMAGEHLP_SYMBOL_TYPE_INFO = i32;
@@ -1963,19 +2298,29 @@ pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0,
 }
+impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0,
 }
+impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_COFF_SYMBOLS_HEADER {
     pub NumberOfSymbols: u32,
     pub LvaToFirstSymbol: u32,
@@ -2002,20 +2347,30 @@ pub struct IMAGE_COR20_HEADER {
     pub ExportAddressTableJumps: IMAGE_DATA_DIRECTORY,
     pub ManagedNativeHeader: IMAGE_DATA_DIRECTORY,
 }
+impl Default for IMAGE_COR20_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
 }
+impl Default for IMAGE_COR20_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DEBUG_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -2062,6 +2417,13 @@ pub struct IMAGE_DEBUG_INFORMATION {
     pub ReservedNumberOfDebugDirectories: u32,
     pub ReservedOriginalFunctionTableBaseAddress: u32,
     pub Reserved: [u32; 2],
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for IMAGE_DEBUG_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IMAGE_DEBUG_TYPE = u32;
 pub const IMAGE_DEBUG_TYPE_BORLAND: IMAGE_DEBUG_TYPE = 9u32;
@@ -2124,7 +2486,7 @@ pub const IMAGE_FILE_EXECUTABLE_IMAGE: IMAGE_FILE_CHARACTERISTICS = 2u16;
 pub const IMAGE_FILE_EXECUTABLE_IMAGE2: IMAGE_FILE_CHARACTERISTICS2 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: super::super::SystemInformation::IMAGE_FILE_MACHINE,
     pub NumberOfSections: u16,
@@ -2151,7 +2513,7 @@ pub const IMAGE_FILE_SYSTEM_2: IMAGE_FILE_CHARACTERISTICS2 = 4096u32;
 pub const IMAGE_FILE_UP_SYSTEM_ONLY: IMAGE_FILE_CHARACTERISTICS = 16384u16;
 pub const IMAGE_FILE_UP_SYSTEM_ONLY_2: IMAGE_FILE_CHARACTERISTICS2 = 16384u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_FUNCTION_ENTRY {
     pub StartingAddress: u32,
     pub EndingAddress: u32,
@@ -2164,14 +2526,24 @@ pub struct IMAGE_FUNCTION_ENTRY64 {
     pub EndingAddress: u64,
     pub Anonymous: IMAGE_FUNCTION_ENTRY64_0,
 }
+impl Default for IMAGE_FUNCTION_ENTRY64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub union IMAGE_FUNCTION_ENTRY64_0 {
     pub EndOfPrologue: u64,
     pub UnwindInfoAddress: u64,
 }
+impl Default for IMAGE_FUNCTION_ENTRY64_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     pub Flags: u16,
     pub Catalog: u16,
@@ -2179,7 +2551,7 @@ pub struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub Size: u32,
     pub TimeDateStamp: u32,
@@ -2232,7 +2604,7 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub GuardMemcpyFunctionPointer: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub Size: u32,
     pub TimeDateStamp: u32,
@@ -2286,7 +2658,7 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_NT_HEADERS32 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
@@ -2294,7 +2666,7 @@ pub struct IMAGE_NT_HEADERS32 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_NT_HEADERS64 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
@@ -2338,6 +2710,11 @@ pub struct IMAGE_OPTIONAL_HEADER32 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
+impl Default for IMAGE_OPTIONAL_HEADER32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
@@ -2372,10 +2749,15 @@ pub struct IMAGE_OPTIONAL_HEADER64 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
+impl Default for IMAGE_OPTIONAL_HEADER64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type IMAGE_OPTIONAL_HEADER_MAGIC = u16;
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_ROM_OPTIONAL_HEADER,
@@ -2398,6 +2780,11 @@ pub struct IMAGE_ROM_OPTIONAL_HEADER {
     pub CprMask: [u32; 4],
     pub GpValue: u32,
 }
+impl Default for IMAGE_ROM_OPTIONAL_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_RUNTIME_FUNCTION_ENTRY {
@@ -2405,11 +2792,21 @@ pub struct IMAGE_RUNTIME_FUNCTION_ENTRY {
     pub EndAddress: u32,
     pub Anonymous: IMAGE_RUNTIME_FUNCTION_ENTRY_0,
 }
+impl Default for IMAGE_RUNTIME_FUNCTION_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindInfoAddress: u32,
     pub UnwindData: u32,
+}
+impl Default for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IMAGE_SCN_ALIGN_1024BYTES: IMAGE_SECTION_CHARACTERISTICS = 11534336u32;
 pub const IMAGE_SCN_ALIGN_128BYTES: IMAGE_SECTION_CHARACTERISTICS = 8388608u32;
@@ -2465,11 +2862,21 @@ pub struct IMAGE_SECTION_HEADER {
     pub NumberOfLinenumbers: u16,
     pub Characteristics: IMAGE_SECTION_CHARACTERISTICS,
 }
+impl Default for IMAGE_SECTION_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_SECTION_HEADER_0 {
     pub PhysicalAddress: u32,
     pub VirtualSize: u32,
+}
+impl Default for IMAGE_SECTION_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IMAGE_SUBSYSTEM = u16;
 pub const IMAGE_SUBSYSTEM_EFI_APPLICATION: IMAGE_SUBSYSTEM = 10u16;
@@ -2543,6 +2950,11 @@ pub struct IPMI_OS_SEL_RECORD {
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
+impl Default for IPMI_OS_SEL_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IPMI_OS_SEL_RECORD_MASK: u32 = 65535u32;
 pub type IPMI_OS_SEL_RECORD_TYPE = i32;
 pub const IPMI_OS_SEL_RECORD_VERSION: u32 = 1u32;
@@ -2591,6 +3003,12 @@ pub struct KDHELP {
     pub StackLimit: u32,
     pub Reserved: [u32; 5],
 }
+#[cfg(target_arch = "x86")]
+impl Default for KDHELP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KDHELP64 {
@@ -2612,6 +3030,11 @@ pub struct KDHELP64 {
     pub RetpolineStubSize: u32,
     pub Reserved0: [u64; 2],
 }
+impl Default for KDHELP64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const KERNEL_APC_PENDING_DURING_EXIT: BUGCHECK_ERROR = 32u32;
 pub const KERNEL_AUTO_BOOST_INVALID_LOCK_RELEASE: BUGCHECK_ERROR = 354u32;
 pub const KERNEL_AUTO_BOOST_LOCK_ACQUISITION_WITH_RAISED_IRQL: BUGCHECK_ERROR = 402u32;
@@ -2632,7 +3055,7 @@ pub const KERNEL_WMI_INTERNAL: BUGCHECK_ERROR = 330u32;
 pub const KMODE_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = 30u32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Dummy: u32,
 }
@@ -2643,12 +3066,24 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Anonymous1: KNONVOLATILE_CONTEXT_POINTERS_0,
     pub Anonymous2: KNONVOLATILE_CONTEXT_POINTERS_1,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for KNONVOLATILE_CONTEXT_POINTERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [*mut M128A; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0_0,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2671,12 +3106,24 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm14: *mut M128A,
     pub Xmm15: *mut M128A,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [*mut u64; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_1_0,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2698,6 +3145,12 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub R13: *mut u64,
     pub R14: *mut u64,
     pub R15: *mut u64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
@@ -2724,6 +3177,12 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub D14: *mut u64,
     pub D15: *mut u64,
 }
+#[cfg(target_arch = "aarch64")]
+impl Default for KNONVOLATILE_CONTEXT_POINTERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const KernelMinidumpStatusCallback: MINIDUMP_CALLBACK_TYPE = 8i32;
 pub const LAST_CHANCE_CALLED_FROM_KMODE: BUGCHECK_ERROR = 21u32;
 #[repr(C)]
@@ -2733,19 +3192,29 @@ pub struct LDT_ENTRY {
     pub BaseLow: u16,
     pub HighWord: LDT_ENTRY_0,
 }
+impl Default for LDT_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union LDT_ENTRY_0 {
     pub Bytes: LDT_ENTRY_0_0,
     pub Bits: LDT_ENTRY_0_1,
 }
+impl Default for LDT_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
@@ -2774,6 +3243,13 @@ pub struct LOADED_IMAGE {
     pub Links: super::super::Kernel::LIST_ENTRY,
     pub SizeOfImage: u32,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+impl Default for LOADED_IMAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
@@ -2794,6 +3270,13 @@ pub struct LOADED_IMAGE {
     pub Links: super::super::Kernel::LIST_ENTRY,
     pub SizeOfImage: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+impl Default for LOADED_IMAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const LOADER_BLOCK_MISMATCH: BUGCHECK_ERROR = 256u32;
 pub const LOADER_ROLLBACK_DETECTED: BUGCHECK_ERROR = 406u32;
 pub const LOAD_DLL_DEBUG_EVENT: DEBUG_EVENT_CODE = 6u32;
@@ -2807,6 +3290,11 @@ pub struct LOAD_DLL_DEBUG_INFO {
     pub lpImageName: *mut core::ffi::c_void,
     pub fUnicode: u16,
 }
+impl Default for LOAD_DLL_DEBUG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const LOCKED_PAGES_TRACKER_CORRUPTION: BUGCHECK_ERROR = 217u32;
 pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = Option<unsafe extern "system" fn() -> u32>;
 pub const LPC_INITIALIZATION_FAILED: BUGCHECK_ERROR = 106u32;
@@ -2814,7 +3302,7 @@ pub const LPC_INITIALIZATION_FAILED: BUGCHECK_ERROR = 106u32;
 pub type LPTOP_LEVEL_EXCEPTION_FILTER = Option<unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32>;
 pub const LastReservedStream: MINIDUMP_STREAM_TYPE = 65535i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct M128A {
     pub Low: u64,
     pub High: i64,
@@ -2842,6 +3330,13 @@ pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+impl Default for MINIDUMP_CALLBACK_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
@@ -2849,6 +3344,13 @@ pub struct MINIDUMP_CALLBACK_INFORMATION {
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+impl Default for MINIDUMP_CALLBACK_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
@@ -2858,6 +3360,12 @@ pub struct MINIDUMP_CALLBACK_INPUT {
     pub ProcessHandle: super::super::super::Foundation::HANDLE,
     pub CallbackType: u32,
     pub Anonymous: MINIDUMP_CALLBACK_INPUT_0,
+}
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
+impl Default for MINIDUMP_CALLBACK_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
@@ -2876,11 +3384,23 @@ pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub VmPreRead: MINIDUMP_VM_PRE_READ_CALLBACK,
     pub VmPostRead: MINIDUMP_VM_POST_READ_CALLBACK,
 }
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
+impl Default for MINIDUMP_CALLBACK_INPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
     pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0,
+}
+#[cfg(feature = "Win32_System_Memory")]
+impl Default for MINIDUMP_CALLBACK_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
@@ -2897,37 +3417,43 @@ pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub Anonymous5: MINIDUMP_CALLBACK_OUTPUT_0_4,
     pub Status: windows_sys::core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Memory")]
+impl Default for MINIDUMP_CALLBACK_OUTPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
     pub MemoryBase: u64,
     pub MemorySize: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: windows_sys::core::BOOL,
     pub Cancel: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
     pub VmRegion: MINIDUMP_MEMORY_INFO,
     pub Continue: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
     pub VmQueryStatus: windows_sys::core::HRESULT,
     pub VmQueryResult: MINIDUMP_MEMORY_INFO,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: windows_sys::core::HRESULT,
     pub VmReadBytesCompleted: u32,
@@ -2936,7 +3462,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
 pub type MINIDUMP_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(callbackparam: *mut core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> windows_sys::core::BOOL>;
 pub type MINIDUMP_CALLBACK_TYPE = i32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_DIRECTORY {
     pub StreamType: u32,
     pub Location: MINIDUMP_LOCATION_DESCRIPTOR,
@@ -2952,6 +3478,11 @@ pub struct MINIDUMP_EXCEPTION {
     pub __unusedAlignment: u32,
     pub ExceptionInformation: [u64; 15],
 }
+impl Default for MINIDUMP_EXCEPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -2960,6 +3491,13 @@ pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
     pub ExceptionPointers: *mut EXCEPTION_POINTERS,
     pub ClientPointers: windows_sys::core::BOOL,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for MINIDUMP_EXCEPTION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2970,8 +3508,15 @@ pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ExceptionPointers: *mut EXCEPTION_POINTERS,
     pub ClientPointers: windows_sys::core::BOOL,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for MINIDUMP_EXCEPTION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION64 {
     pub ThreadId: u32,
     pub ExceptionRecord: u64,
@@ -2979,7 +3524,7 @@ pub struct MINIDUMP_EXCEPTION_INFORMATION64 {
     pub ClientPointers: windows_sys::core::BOOL,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_EXCEPTION_STREAM {
     pub ThreadId: u32,
     pub __alignment: u32,
@@ -2987,7 +3532,7 @@ pub struct MINIDUMP_EXCEPTION_STREAM {
     pub ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub MinimumAddress: u64,
     pub MaximumAddress: u64,
@@ -2996,7 +3541,7 @@ pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub SizeOfAlignPad: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
@@ -3006,7 +3551,7 @@ pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfAlignPad: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
@@ -3014,7 +3559,7 @@ pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub Reserved: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR {
     pub Handle: u64,
     pub TypeNameRva: u32,
@@ -3025,7 +3570,7 @@ pub struct MINIDUMP_HANDLE_DESCRIPTOR {
     pub PointerCount: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
     pub Handle: u64,
     pub TypeNameRva: u32,
@@ -3038,7 +3583,7 @@ pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
     pub Reserved0: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
     pub NextInfoRva: u32,
     pub InfoType: u32,
@@ -3046,7 +3591,7 @@ pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
 }
 pub type MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = i32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
@@ -3064,19 +3609,29 @@ pub struct MINIDUMP_HEADER {
     pub Anonymous: MINIDUMP_HEADER_0,
     pub Flags: u64,
 }
+impl Default for MINIDUMP_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MINIDUMP_HEADER_0 {
     pub Reserved: u32,
     pub TimeDateStamp: u32,
 }
+impl Default for MINIDUMP_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_INCLUDE_MODULE_CALLBACK {
     pub BaseOfImage: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
     pub ThreadId: u32,
 }
@@ -3088,14 +3643,19 @@ pub struct MINIDUMP_IO_CALLBACK {
     pub Buffer: *mut core::ffi::c_void,
     pub BufferBytes: u32,
 }
+impl Default for MINIDUMP_IO_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
     pub DataSize: u32,
     pub Rva: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR64 {
     pub DataSize: u64,
     pub Rva: u64,
@@ -3107,21 +3667,26 @@ pub struct MINIDUMP_MEMORY64_LIST {
     pub BaseRva: u64,
     pub MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR64; 1],
 }
+impl Default for MINIDUMP_MEMORY64_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR {
     pub StartOfMemoryRange: u64,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR64 {
     pub StartOfMemoryRange: u64,
     pub DataSize: u64,
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MEMORY_INFO {
     pub BaseAddress: u64,
     pub AllocationBase: u64,
@@ -3134,7 +3699,7 @@ pub struct MINIDUMP_MEMORY_INFO {
     pub __alignment2: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MEMORY_INFO_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
@@ -3146,6 +3711,11 @@ pub struct MINIDUMP_MEMORY_LIST {
     pub NumberOfMemoryRanges: u32,
     pub MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR; 1],
 }
+impl Default for MINIDUMP_MEMORY_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MINIDUMP_MISC1_PROCESSOR_POWER_INFO: u32 = 4u32;
 pub const MINIDUMP_MISC1_PROCESS_ID: MINIDUMP_MISC_INFO_FLAGS = 1u32;
 pub const MINIDUMP_MISC1_PROCESS_TIMES: MINIDUMP_MISC_INFO_FLAGS = 2u32;
@@ -3156,7 +3726,7 @@ pub const MINIDUMP_MISC3_TIMEZONE: u32 = 64u32;
 pub const MINIDUMP_MISC4_BUILDSTRING: u32 = 256u32;
 pub const MINIDUMP_MISC5_PROCESS_COOKIE: u32 = 512u32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MISC_INFO {
     pub SizeOfInfo: u32,
     pub Flags1: MINIDUMP_MISC_INFO_FLAGS,
@@ -3166,7 +3736,7 @@ pub struct MINIDUMP_MISC_INFO {
     pub ProcessKernelTime: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MISC_INFO_2 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -3182,7 +3752,7 @@ pub struct MINIDUMP_MISC_INFO_2 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MISC_INFO_3 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -3224,6 +3794,12 @@ pub struct MINIDUMP_MISC_INFO_4 {
     pub BuildString: [u16; 260],
     pub DbgBldStr: [u16; 40],
 }
+#[cfg(feature = "Win32_System_Time")]
+impl Default for MINIDUMP_MISC_INFO_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
@@ -3249,10 +3825,16 @@ pub struct MINIDUMP_MISC_INFO_5 {
     pub XStateData: XSTATE_CONFIG_FEATURE_MSC_INFO,
     pub ProcessCookie: u32,
 }
+#[cfg(feature = "Win32_System_Time")]
+impl Default for MINIDUMP_MISC_INFO_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type MINIDUMP_MISC_INFO_FLAGS = u32;
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MODULE {
     pub BaseOfImage: u64,
     pub SizeOfImage: u32,
@@ -3280,6 +3862,12 @@ pub struct MINIDUMP_MODULE_CALLBACK {
     pub MiscRecord: *mut core::ffi::c_void,
     pub SizeOfMiscRecord: u32,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for MINIDUMP_MODULE_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
@@ -3287,9 +3875,15 @@ pub struct MINIDUMP_MODULE_LIST {
     pub NumberOfModules: u32,
     pub Modules: [MINIDUMP_MODULE; 1],
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for MINIDUMP_MODULE_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MINIDUMP_PROCESS_VM_COUNTERS: u32 = 1u32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
     pub Revision: u16,
     pub PageFaultCount: u32,
@@ -3304,7 +3898,7 @@ pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
     pub PrivateUsage: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
     pub Revision: u16,
     pub Flags: u16,
@@ -3333,7 +3927,7 @@ pub const MINIDUMP_PROCESS_VM_COUNTERS_EX2: u32 = 8u32;
 pub const MINIDUMP_PROCESS_VM_COUNTERS_JOB: u32 = 16u32;
 pub const MINIDUMP_PROCESS_VM_COUNTERS_VIRTUALSIZE: u32 = 2u32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
     pub Offset: u64,
     pub Bytes: u32,
@@ -3347,12 +3941,17 @@ pub struct MINIDUMP_STRING {
     pub Length: u32,
     pub Buffer: [u16; 1],
 }
+impl Default for MINIDUMP_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MINIDUMP_SYSMEMINFO1_BASICPERF: u32 = 2u32;
 pub const MINIDUMP_SYSMEMINFO1_FILECACHE_TRANSITIONREPURPOSECOUNT_FLAGS: u32 = 1u32;
 pub const MINIDUMP_SYSMEMINFO1_PERF_CCTOTALDIRTYPAGES_CCDIRTYPAGETHRESHOLD: u32 = 4u32;
 pub const MINIDUMP_SYSMEMINFO1_PERF_RESIDENTAVAILABLEPAGES_SHAREDCOMMITPAGES: u32 = 8u32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
     pub TimerResolution: u32,
     pub PageSize: u32,
@@ -3366,7 +3965,7 @@ pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
     pub NumberOfProcessors: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     pub AvailablePages: u64,
     pub CommittedPages: u64,
@@ -3374,7 +3973,7 @@ pub struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     pub PeakCommitment: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     pub CurrentSize: u64,
     pub PeakSize: u64,
@@ -3402,6 +4001,12 @@ pub struct MINIDUMP_SYSTEM_INFO {
     pub Anonymous2: MINIDUMP_SYSTEM_INFO_1,
     pub Cpu: CPU_INFORMATION,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl Default for MINIDUMP_SYSTEM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[derive(Clone, Copy)]
@@ -3409,9 +4014,15 @@ pub union MINIDUMP_SYSTEM_INFO_0 {
     pub Reserved0: u16,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_0_0,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl Default for MINIDUMP_SYSTEM_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_INFO_0_0 {
     pub NumberOfProcessors: u8,
     pub ProductType: u8,
@@ -3423,15 +4034,21 @@ pub union MINIDUMP_SYSTEM_INFO_1 {
     pub Reserved1: u32,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_1_0,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl Default for MINIDUMP_SYSTEM_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_INFO_1_0 {
     pub SuiteMask: u16,
     pub Reserved2: u16,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub Revision: u16,
     pub Flags: u16,
@@ -3441,7 +4058,7 @@ pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub IdleProcessTime: u64,
     pub IoReadTransferCount: u64,
@@ -3523,7 +4140,7 @@ pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub SharedCommittedPages: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_THREAD {
     pub ThreadId: u32,
     pub SuspendCount: u32,
@@ -3545,6 +4162,13 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackBase: u64,
     pub StackEnd: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for MINIDUMP_THREAD_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -3558,8 +4182,15 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackBase: u64,
     pub StackEnd: u64,
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for MINIDUMP_THREAD_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_THREAD_EX {
     pub ThreadId: u32,
     pub SuspendCount: u32,
@@ -3584,6 +4215,13 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreBase: u64,
     pub BackingStoreEnd: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for MINIDUMP_THREAD_EX_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -3599,14 +4237,26 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreBase: u64,
     pub BackingStoreEnd: u64,
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for MINIDUMP_THREAD_EX_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX_LIST {
     pub NumberOfThreads: u32,
     pub Threads: [MINIDUMP_THREAD_EX; 1],
 }
+impl Default for MINIDUMP_THREAD_EX_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_THREAD_INFO {
     pub ThreadId: u32,
     pub DumpFlags: MINIDUMP_THREAD_INFO_DUMP_FLAGS,
@@ -3626,7 +4276,7 @@ pub const MINIDUMP_THREAD_INFO_INVALID_CONTEXT: MINIDUMP_THREAD_INFO_DUMP_FLAGS 
 pub const MINIDUMP_THREAD_INFO_INVALID_INFO: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 8u32;
 pub const MINIDUMP_THREAD_INFO_INVALID_TEB: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 32u32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_THREAD_INFO_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
@@ -3639,8 +4289,13 @@ pub struct MINIDUMP_THREAD_LIST {
     pub NumberOfThreads: u32,
     pub Threads: [MINIDUMP_THREAD; 1],
 }
+impl Default for MINIDUMP_THREAD_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_THREAD_NAME {
     pub ThreadId: u32,
     pub RvaOfThreadName: u64,
@@ -3651,15 +4306,20 @@ pub struct MINIDUMP_THREAD_NAME_LIST {
     pub NumberOfThreadNames: u32,
     pub ThreadNames: [MINIDUMP_THREAD_NAME; 1],
 }
+impl Default for MINIDUMP_THREAD_NAME_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_TOKEN_INFO_HEADER {
     pub TokenSize: u32,
     pub TokenId: u32,
     pub TokenHandle: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
     pub TokenListSize: u32,
     pub TokenListEntries: u32,
@@ -3668,7 +4328,7 @@ pub struct MINIDUMP_TOKEN_INFO_LIST {
 }
 pub type MINIDUMP_TYPE = i32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_UNLOADED_MODULE {
     pub BaseOfImage: u64,
     pub SizeOfImage: u32,
@@ -3677,14 +4337,14 @@ pub struct MINIDUMP_UNLOADED_MODULE {
     pub ModuleNameRva: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_USER_RECORD {
     pub Type: u32,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
@@ -3697,6 +4357,12 @@ pub struct MINIDUMP_USER_STREAM {
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
+impl Default for MINIDUMP_USER_STREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -3705,6 +4371,12 @@ pub struct MINIDUMP_USER_STREAM {
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for MINIDUMP_USER_STREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -3712,12 +4384,24 @@ pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
     pub UserStreamArray: *mut MINIDUMP_USER_STREAM,
 }
+#[cfg(target_arch = "x86")]
+impl Default for MINIDUMP_USER_STREAM_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
     pub UserStreamArray: *mut MINIDUMP_USER_STREAM,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for MINIDUMP_USER_STREAM_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MINIDUMP_VERSION: u32 = 42899u32;
 #[repr(C, packed(4))]
@@ -3729,6 +4413,11 @@ pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Completed: u32,
     pub Status: windows_sys::core::HRESULT,
 }
+impl Default for MINIDUMP_VM_POST_READ_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
@@ -3736,15 +4425,20 @@ pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
     pub Buffer: *mut core::ffi::c_void,
     pub Size: u32,
 }
+impl Default for MINIDUMP_VM_PRE_READ_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_VM_QUERY_CALLBACK {
     pub Offset: u64,
 }
 pub const MISALIGNED_POINTER_PARAMETER: BUGCHECK_ERROR = 502u32;
 pub const MISMATCHED_HAL: BUGCHECK_ERROR = 121u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MODLOAD_CVMISC {
     pub oCV: u32,
     pub cCV: usize,
@@ -3762,9 +4456,14 @@ pub struct MODLOAD_DATA {
     pub size: u32,
     pub flags: u32,
 }
+impl Default for MODLOAD_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type MODLOAD_DATA_TYPE = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MODLOAD_PDBGUID_PDBAGE {
     pub PdbGuid: windows_sys::core::GUID,
     pub PdbAge: u32,
@@ -3775,6 +4474,11 @@ pub struct MODULE_TYPE_INFO {
     pub dataLength: u16,
     pub leaf: u16,
     pub data: [u8; 1],
+}
+impl Default for MODULE_TYPE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MODULE_WRITE_FLAGS = i32;
 pub const MPSDRV_QUERY_USER: BUGCHECK_ERROR = 1073742318u32;
@@ -3900,7 +4604,7 @@ pub const OBJECT_ATTRIB_VALUE_READONLY: OBJECT_ATTRIB_FLAGS = 2048i32;
 pub const OBJECT_INITIALIZATION_FAILED: BUGCHECK_ERROR = 94u32;
 pub const OFS_FILE_SYSTEM: BUGCHECK_ERROR = 131u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OMAP {
     pub rva: u32,
     pub rvaTo: u32,
@@ -3914,6 +4618,11 @@ pub struct OUTPUT_DEBUG_STRING_INFO {
     pub lpDebugStringData: windows_sys::core::PSTR,
     pub fUnicode: u16,
     pub nDebugStringLength: u16,
+}
+impl Default for OUTPUT_DEBUG_STRING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PAGE_FAULT_BEYOND_END_OF_ALLOCATION: BUGCHECK_ERROR = 205u32;
 pub const PAGE_FAULT_IN_FREED_SPECIAL_POOL: BUGCHECK_ERROR = 204u32;
@@ -3972,6 +4681,11 @@ pub struct PHYSICAL_MEMORY_DESCRIPTOR32 {
     pub NumberOfPages: u32,
     pub Run: [PHYSICAL_MEMORY_RUN32; 1],
 }
+impl Default for PHYSICAL_MEMORY_DESCRIPTOR32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR64 {
@@ -3979,14 +4693,19 @@ pub struct PHYSICAL_MEMORY_DESCRIPTOR64 {
     pub NumberOfPages: u64,
     pub Run: [PHYSICAL_MEMORY_RUN64; 1],
 }
+impl Default for PHYSICAL_MEMORY_DESCRIPTOR64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PHYSICAL_MEMORY_RUN32 {
     pub BasePage: u32,
     pub PageCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PHYSICAL_MEMORY_RUN64 {
     pub BasePage: u64,
     pub PageCount: u64,
@@ -4105,7 +4824,7 @@ pub const RESTORE_LAST_ERROR_NAME_A: windows_sys::core::PCSTR = windows_sys::cor
 pub const RESTORE_LAST_ERROR_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("RestoreLastError");
 pub const RIP_EVENT: DEBUG_EVENT_CODE = 9u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RIP_INFO {
     pub dwError: u32,
     pub dwType: RIP_INFO_TYPE,
@@ -4196,11 +4915,21 @@ pub struct SOURCEFILE {
     pub ModBase: u64,
     pub FileName: windows_sys::core::PSTR,
 }
+impl Default for SOURCEFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOURCEFILEW {
     pub ModBase: u64,
     pub FileName: windows_sys::core::PWSTR,
+}
+impl Default for SOURCEFILEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION: BUGCHECK_ERROR = 193u32;
 pub const SPIN_LOCK_ALREADY_OWNED: BUGCHECK_ERROR = 15u32;
@@ -4220,6 +4949,11 @@ pub struct SRCCODEINFO {
     pub LineNumber: u32,
     pub Address: u64,
 }
+impl Default for SRCCODEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SRCCODEINFOW {
@@ -4230,6 +4964,11 @@ pub struct SRCCODEINFOW {
     pub FileName: [u16; 261],
     pub LineNumber: u32,
     pub Address: u64,
+}
+impl Default for SRCCODEINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SSRVACTION_CHECKSUMSTATUS: u32 = 8u32;
 pub const SSRVACTION_EVENT: u32 = 3u32;
@@ -4301,6 +5040,12 @@ pub struct STACKFRAME {
     pub KdHelp: KDHELP,
     pub AddrBStore: ADDRESS,
 }
+#[cfg(target_arch = "x86")]
+impl Default for STACKFRAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STACKFRAME64 {
@@ -4315,6 +5060,11 @@ pub struct STACKFRAME64 {
     pub Virtual: windows_sys::core::BOOL,
     pub Reserved: [u64; 3],
     pub KdHelp: KDHELP64,
+}
+impl Default for STACKFRAME64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4332,6 +5082,11 @@ pub struct STACKFRAME_EX {
     pub KdHelp: KDHELP64,
     pub StackFrameSize: u32,
     pub InlineFrameContext: u32,
+}
+impl Default for STACKFRAME_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STORAGE_DEVICE_ABNORMALITY_DETECTED: BUGCHECK_ERROR = 320u32;
 pub const STORAGE_MINIPORT_ERROR: BUGCHECK_ERROR = 240u32;
@@ -4359,6 +5114,11 @@ pub struct SYMBOL_INFO {
     pub MaxNameLen: u32,
     pub Name: [i8; 1],
 }
+impl Default for SYMBOL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYMBOL_INFOW {
@@ -4378,6 +5138,11 @@ pub struct SYMBOL_INFOW {
     pub MaxNameLen: u32,
     pub Name: [u16; 1],
 }
+impl Default for SYMBOL_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SYMBOL_INFO_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4385,11 +5150,21 @@ pub struct SYMBOL_INFO_PACKAGE {
     pub si: SYMBOL_INFO,
     pub name: [i8; 2001],
 }
+impl Default for SYMBOL_INFO_PACKAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYMBOL_INFO_PACKAGEW {
     pub si: SYMBOL_INFOW,
     pub name: [u16; 2001],
+}
+impl Default for SYMBOL_INFO_PACKAGEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SYMENUM_OPTIONS_DEFAULT: u32 = 1u32;
 pub const SYMENUM_OPTIONS_INLINE: u32 = 2u32;
@@ -4480,6 +5255,11 @@ pub struct SYMSRV_EXTENDED_OUTPUT_DATA {
     pub version: u32,
     pub filePtrMsg: [u16; 261],
 }
+impl Default for SYMSRV_EXTENDED_OUTPUT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYMSRV_INDEX_INFO {
@@ -4494,6 +5274,11 @@ pub struct SYMSRV_INDEX_INFO {
     pub sig: u32,
     pub age: u32,
 }
+impl Default for SYMSRV_INDEX_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYMSRV_INDEX_INFOW {
@@ -4507,6 +5292,11 @@ pub struct SYMSRV_INDEX_INFOW {
     pub guid: windows_sys::core::GUID,
     pub sig: u32,
     pub age: u32,
+}
+impl Default for SYMSRV_INDEX_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SYMSRV_VERSION: u32 = 2u32;
 pub const SYMSTOREOPT_ALT_INDEX: u32 = 16u32;
@@ -4572,6 +5362,11 @@ pub struct TI_FINDCHILDREN_PARAMS {
     pub Count: u32,
     pub Start: u32,
     pub ChildId: [u32; 1],
+}
+impl Default for TI_FINDCHILDREN_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TI_GET_ADDRESS: IMAGEHLP_SYMBOL_TYPE_INFO = 22i32;
 pub const TI_GET_ADDRESSOFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = 9i32;
@@ -4656,6 +5451,11 @@ pub const UNLOAD_DLL_DEBUG_EVENT: DEBUG_EVENT_CODE = 7u32;
 pub struct UNLOAD_DLL_DEBUG_INFO {
     pub lpBaseOfDll: *mut core::ffi::c_void,
 }
+impl Default for UNLOAD_DLL_DEBUG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const UNMOUNTABLE_BOOT_VOLUME: BUGCHECK_ERROR = 237u32;
 pub const UNSUPPORTED_INSTRUCTION_MODE: BUGCHECK_ERROR = 337u32;
 pub const UNSUPPORTED_PROCESSOR: BUGCHECK_ERROR = 93u32;
@@ -4672,6 +5472,12 @@ pub struct UNWIND_HISTORY_TABLE {
     pub HighAddress: usize,
     pub Entry: [UNWIND_HISTORY_TABLE_ENTRY; 12],
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for UNWIND_HISTORY_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4679,12 +5485,24 @@ pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_RUNTIME_FUNCTION_ENTRY,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for UNWIND_HISTORY_TABLE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY,
+}
+#[cfg(target_arch = "aarch64")]
+impl Default for UNWIND_HISTORY_TABLE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const UNWIND_ON_INVALID_STACK: BUGCHECK_ERROR = 427u32;
 pub const UNW_FLAG_CHAININFO: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = 4u32;
@@ -4735,11 +5553,21 @@ pub struct WAITCHAIN_NODE_INFO {
     pub ObjectStatus: WCT_OBJECT_STATUS,
     pub Anonymous: WAITCHAIN_NODE_INFO_0,
 }
+impl Default for WAITCHAIN_NODE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WAITCHAIN_NODE_INFO_0 {
     pub LockObject: WAITCHAIN_NODE_INFO_0_0,
     pub ThreadObject: WAITCHAIN_NODE_INFO_0_1,
+}
+impl Default for WAITCHAIN_NODE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4748,8 +5576,13 @@ pub struct WAITCHAIN_NODE_INFO_0_0 {
     pub Timeout: i64,
     pub Alertable: windows_sys::core::BOOL,
 }
+impl Default for WAITCHAIN_NODE_INFO_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WAITCHAIN_NODE_INFO_0_1 {
     pub ProcessId: u32,
     pub ThreadId: u32,
@@ -4786,6 +5619,11 @@ pub struct WHEA_AER_BRIDGE_DESCRIPTOR {
     pub SecondaryUncorrectableErrorSev: u32,
     pub SecondaryCapsAndControl: u32,
 }
+impl Default for WHEA_AER_BRIDGE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
@@ -4800,6 +5638,11 @@ pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
     pub UncorrectableErrorSeverity: u32,
     pub CorrectableErrorMask: u32,
     pub AdvancedCapsAndControl: u32,
+}
+impl Default for WHEA_AER_ENDPOINT_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4816,6 +5659,11 @@ pub struct WHEA_AER_ROOTPORT_DESCRIPTOR {
     pub CorrectableErrorMask: u32,
     pub AdvancedCapsAndControl: u32,
     pub RootErrorCommand: u32,
+}
+impl Default for WHEA_AER_ROOTPORT_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WHEA_BAD_PAGE_LIST_LOCATION: u32 = 15u32;
 pub const WHEA_BAD_PAGE_LIST_MAX_SIZE: u32 = 14u32;
@@ -4849,6 +5697,11 @@ pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub PacketStateBuffer: *mut u8,
     pub OpenHandles: i32,
 }
+impl Default for WHEA_DEVICE_DRIVER_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WHEA_DISABLE_DUMMY_WRITE: u32 = 6u32;
 pub const WHEA_DISABLE_OFFLINE: u32 = 0u32;
 #[repr(C, packed(1))]
@@ -4861,8 +5714,13 @@ pub struct WHEA_DRIVER_BUFFER_SET {
     pub SectionFriendlyName: *mut u8,
     pub Flags: *mut u8,
 }
+impl Default for WHEA_DRIVER_BUFFER_SET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
     pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
@@ -4882,6 +5740,11 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub CreatorId: windows_sys::core::GUID,
     pub PartitionId: windows_sys::core::GUID,
 }
+impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
@@ -4891,6 +5754,11 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub Reserved: [u8; 6],
     pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
+}
+impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = Option<unsafe extern "system" fn(errorsourcedesc: *mut core::ffi::c_void, maximumsectionlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[repr(C, packed(1))]
@@ -4908,6 +5776,11 @@ pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
     pub Flags: u32,
     pub Info: WHEA_ERROR_SOURCE_DESCRIPTOR_0,
 }
+impl Default for WHEA_ERROR_SOURCE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
@@ -4923,6 +5796,11 @@ pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     pub GenErrDescriptor: WHEA_GENERIC_ERROR_DESCRIPTOR,
     pub GenErrDescriptorV2: WHEA_GENERIC_ERROR_DESCRIPTOR_V2,
     pub DeviceDriverDescriptor: WHEA_DEVICE_DRIVER_DESCRIPTOR,
+}
+impl Default for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERBRIDGE: u32 = 8u32;
 pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERENDPOINT: u32 = 7u32;
@@ -4961,6 +5839,11 @@ pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
     pub ErrStatusAddress: i64,
     pub Notify: WHEA_NOTIFICATION_DESCRIPTOR,
 }
+impl Default for WHEA_GENERIC_ERROR_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
@@ -4983,23 +5866,28 @@ pub struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     pub ReadAckPreserveMask: u64,
     pub ReadAckWriteMask: u64,
 }
+impl Default for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WHEA_INTERNAL_ERROR: BUGCHECK_ERROR = 290u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_IPF_CMC_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
     pub Reserved: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_IPF_CPE_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
     pub Reserved: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_IPF_MCA_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
@@ -5019,6 +5907,11 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR {
     pub Flags: WHEA_NOTIFICATION_FLAGS,
     pub u: WHEA_NOTIFICATION_DESCRIPTOR_0,
 }
+impl Default for WHEA_NOTIFICATION_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
@@ -5031,8 +5924,13 @@ pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
     pub Sei: WHEA_NOTIFICATION_DESCRIPTOR_0_6,
     pub Gsiv: WHEA_NOTIFICATION_DESCRIPTOR_0_7,
 }
+impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5042,7 +5940,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5052,7 +5950,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5062,7 +5960,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5072,12 +5970,12 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     pub PollInterval: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5087,7 +5985,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5097,7 +5995,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5112,8 +6010,13 @@ pub union WHEA_NOTIFICATION_FLAGS {
     pub Anonymous: WHEA_NOTIFICATION_FLAGS_0,
     pub AsUSHORT: u16,
 }
+impl Default for WHEA_NOTIFICATION_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_NOTIFICATION_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -5135,14 +6038,24 @@ pub const WHEA_NOTIFY_ALL_OFFLINES: u32 = 16u32;
 pub struct WHEA_PCI_SLOT_NUMBER {
     pub u: WHEA_PCI_SLOT_NUMBER_0,
 }
+impl Default for WHEA_PCI_SLOT_NUMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PCI_SLOT_NUMBER_0 {
     pub bits: WHEA_PCI_SLOT_NUMBER_0_0,
     pub AsULONG: u32,
 }
+impl Default for WHEA_PCI_SLOT_NUMBER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
 }
@@ -5164,6 +6077,11 @@ pub struct WHEA_XPF_CMC_DESCRIPTOR {
     pub Notify: WHEA_NOTIFICATION_DESCRIPTOR,
     pub Banks: [WHEA_XPF_MC_BANK_DESCRIPTOR; 32],
 }
+impl Default for WHEA_XPF_CMC_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_MCE_DESCRIPTOR {
@@ -5174,6 +6092,11 @@ pub struct WHEA_XPF_MCE_DESCRIPTOR {
     pub MCG_Capability: u64,
     pub MCG_GlobalControl: u64,
     pub Banks: [WHEA_XPF_MC_BANK_DESCRIPTOR; 32],
+}
+impl Default for WHEA_XPF_MCE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5188,11 +6111,16 @@ pub struct WHEA_XPF_MC_BANK_DESCRIPTOR {
     pub MiscMsr: u32,
     pub ControlData: u64,
 }
+impl Default for WHEA_XPF_MC_BANK_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_AMD64MCA: u32 = 2u32;
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_IA32MCA: u32 = 0u32;
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_Intel64MCA: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_NMI_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: bool,
@@ -5252,6 +6180,11 @@ pub struct WOW64_CONTEXT {
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
 }
+impl Default for WOW64_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WOW64_CONTEXT_ALL: WOW64_CONTEXT_FLAGS = 65599u32;
 pub const WOW64_CONTEXT_CONTROL: WOW64_CONTEXT_FLAGS = 65537u32;
 pub const WOW64_CONTEXT_DEBUG_REGISTERS: WOW64_CONTEXT_FLAGS = 65552u32;
@@ -5273,6 +6206,11 @@ pub struct WOW64_DESCRIPTOR_TABLE_ENTRY {
     pub Selector: u32,
     pub Descriptor: WOW64_LDT_ENTRY,
 }
+impl Default for WOW64_DESCRIPTOR_TABLE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WOW64_FLOATING_SAVE_AREA {
@@ -5286,6 +6224,11 @@ pub struct WOW64_FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Cr0NpxState: u32,
 }
+impl Default for WOW64_FLOATING_SAVE_AREA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WOW64_LDT_ENTRY {
@@ -5293,19 +6236,29 @@ pub struct WOW64_LDT_ENTRY {
     pub BaseLow: u16,
     pub HighWord: WOW64_LDT_ENTRY_0,
 }
+impl Default for WOW64_LDT_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WOW64_LDT_ENTRY_0 {
     pub Bytes: WOW64_LDT_ENTRY_0_0,
     pub Bits: WOW64_LDT_ENTRY_0_1,
 }
+impl Default for WOW64_LDT_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WOW64_LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WOW64_LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
@@ -5387,8 +6340,13 @@ pub union XPF_MCE_FLAGS {
     pub Anonymous: XPF_MCE_FLAGS_0,
     pub AsULONG: u32,
 }
+impl Default for XPF_MCE_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XPF_MCE_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -5398,13 +6356,18 @@ pub union XPF_MC_BANK_FLAGS {
     pub Anonymous: XPF_MC_BANK_FLAGS_0,
     pub AsUCHAR: u8,
 }
+impl Default for XPF_MC_BANK_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XPF_MC_BANK_FLAGS_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XSAVE_AREA {
     pub LegacyState: XSAVE_FORMAT,
     pub Header: XSAVE_AREA_HEADER,
@@ -5415,6 +6378,11 @@ pub struct XSAVE_AREA_HEADER {
     pub Mask: u64,
     pub CompactionMask: u64,
     pub Reserved2: [u64; 6],
+}
+impl Default for XSAVE_AREA_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -5437,6 +6405,12 @@ pub struct XSAVE_FORMAT {
     pub XmmRegisters: [M128A; 8],
     pub Reserved4: [u8; 224],
 }
+#[cfg(target_arch = "x86")]
+impl Default for XSAVE_FORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -5458,6 +6432,12 @@ pub struct XSAVE_FORMAT {
     pub XmmRegisters: [M128A; 16],
     pub Reserved4: [u8; 96],
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for XSAVE_FORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct XSTATE_CONFIGURATION {
@@ -5475,14 +6455,24 @@ pub struct XSTATE_CONFIGURATION {
     pub AllNonLargeFeatureSize: u32,
     pub Spare: u32,
 }
+impl Default for XSTATE_CONFIGURATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union XSTATE_CONFIGURATION_0 {
     pub ControlFlags: u32,
     pub Anonymous: XSTATE_CONFIGURATION_0_0,
 }
+impl Default for XSTATE_CONFIGURATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XSTATE_CONFIGURATION_0_0 {
     pub _bitfield: u32,
 }
@@ -5493,6 +6483,11 @@ pub struct XSTATE_CONFIG_FEATURE_MSC_INFO {
     pub ContextSize: u32,
     pub EnabledFeatures: u64,
     pub Features: [XSTATE_FEATURE; 64],
+}
+impl Default for XSTATE_CONFIG_FEATURE_MSC_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -5506,6 +6501,12 @@ pub struct XSTATE_CONTEXT {
     pub Buffer: *mut core::ffi::c_void,
     pub Reserved3: u32,
 }
+#[cfg(target_arch = "x86")]
+impl Default for XSTATE_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -5516,8 +6517,14 @@ pub struct XSTATE_CONTEXT {
     pub Area: *mut XSAVE_AREA,
     pub Buffer: *mut core::ffi::c_void,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for XSTATE_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XSTATE_FEATURE {
     pub Offset: u32,
     pub Size: u32,

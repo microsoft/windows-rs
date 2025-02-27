@@ -45,13 +45,23 @@ pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: APPLY_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0,
 }
+impl Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0,
 }
+impl Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_sys::core::GUID,
     pub LeafSnapshotId: windows_sys::core::GUID,
@@ -78,19 +88,29 @@ pub struct ATTACH_VIRTUAL_DISK_PARAMETERS {
     pub Version: ATTACH_VIRTUAL_DISK_VERSION,
     pub Anonymous: ATTACH_VIRTUAL_DISK_PARAMETERS_0,
 }
+impl Default for ATTACH_VIRTUAL_DISK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: ATTACH_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: ATTACH_VIRTUAL_DISK_PARAMETERS_0_1,
 }
+impl Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub RestrictedOffset: u64,
     pub RestrictedLength: u64,
@@ -109,13 +129,23 @@ pub struct COMPACT_VIRTUAL_DISK_PARAMETERS {
     pub Version: COMPACT_VIRTUAL_DISK_VERSION,
     pub Anonymous: COMPACT_VIRTUAL_DISK_PARAMETERS_0,
 }
+impl Default for COMPACT_VIRTUAL_DISK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: COMPACT_VIRTUAL_DISK_PARAMETERS_0_0,
 }
+impl Default for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub Reserved: u32,
 }
@@ -141,6 +171,11 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS {
     pub Version: CREATE_VIRTUAL_DISK_VERSION,
     pub Anonymous: CREATE_VIRTUAL_DISK_PARAMETERS_0,
 }
+impl Default for CREATE_VIRTUAL_DISK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CREATE_VIRTUAL_DISK_PARAMETERS_0 {
@@ -148,6 +183,11 @@ pub union CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version2: CREATE_VIRTUAL_DISK_PARAMETERS_0_1,
     pub Version3: CREATE_VIRTUAL_DISK_PARAMETERS_0_2,
     pub Version4: CREATE_VIRTUAL_DISK_PARAMETERS_0_3,
+}
+impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -158,6 +198,11 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub SectorSizeInBytes: u32,
     pub ParentPath: windows_sys::core::PCWSTR,
     pub SourcePath: windows_sys::core::PCWSTR,
+}
+impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -173,6 +218,11 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
     pub SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
     pub ResiliencyGuid: windows_sys::core::GUID,
+}
+impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -190,6 +240,11 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub ResiliencyGuid: windows_sys::core::GUID,
     pub SourceLimitPath: windows_sys::core::PCWSTR,
     pub BackingStorageType: VIRTUAL_STORAGE_TYPE,
+}
+impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -210,6 +265,11 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     pub PmemAddressAbstractionType: windows_sys::core::GUID,
     pub DataAlignment: u64,
 }
+impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0u32;
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0u32;
 pub type CREATE_VIRTUAL_DISK_VERSION = i32;
@@ -227,13 +287,23 @@ pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: DELETE_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0,
 }
+impl Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0,
 }
+impl Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_sys::core::GUID,
 }
@@ -267,13 +337,23 @@ pub struct EXPAND_VIRTUAL_DISK_PARAMETERS {
     pub Version: EXPAND_VIRTUAL_DISK_VERSION,
     pub Anonymous: EXPAND_VIRTUAL_DISK_PARAMETERS_0,
 }
+impl Default for EXPAND_VIRTUAL_DISK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: EXPAND_VIRTUAL_DISK_PARAMETERS_0_0,
 }
+impl Default for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub NewSize: u64,
 }
@@ -289,15 +369,30 @@ pub struct FORK_VIRTUAL_DISK_PARAMETERS {
     pub Version: FORK_VIRTUAL_DISK_VERSION,
     pub Anonymous: FORK_VIRTUAL_DISK_PARAMETERS_0,
 }
+impl Default for FORK_VIRTUAL_DISK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FORK_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: FORK_VIRTUAL_DISK_PARAMETERS_0_0,
 }
+impl Default for FORK_VIRTUAL_DISK_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub ForkedVirtualDiskPath: windows_sys::core::PCWSTR,
+}
+impl Default for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FORK_VIRTUAL_DISK_VERSION = i32;
 pub const FORK_VIRTUAL_DISK_VERSION_1: FORK_VIRTUAL_DISK_VERSION = 1i32;
@@ -311,6 +406,11 @@ pub const GET_STORAGE_DEPENDENCY_FLAG_NONE: GET_STORAGE_DEPENDENCY_FLAG = 0i32;
 pub struct GET_VIRTUAL_DISK_INFO {
     pub Version: GET_VIRTUAL_DISK_INFO_VERSION,
     pub Anonymous: GET_VIRTUAL_DISK_INFO_0,
+}
+impl Default for GET_VIRTUAL_DISK_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -331,6 +431,11 @@ pub union GET_VIRTUAL_DISK_INFO_0 {
     pub VirtualDiskId: windows_sys::core::GUID,
     pub ChangeTrackingState: GET_VIRTUAL_DISK_INFO_0_3,
 }
+impl Default for GET_VIRTUAL_DISK_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
@@ -338,21 +443,31 @@ pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub NewerChanges: windows_sys::core::BOOL,
     pub MostRecentId: [u16; 1],
 }
+impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GET_VIRTUAL_DISK_INFO_0_1 {
     pub ParentResolved: windows_sys::core::BOOL,
     pub ParentLocationBuffer: [u16; 1],
 }
+impl Default for GET_VIRTUAL_DISK_INFO_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub LogicalSectorSize: u32,
     pub PhysicalSectorSize: u32,
     pub IsRemote: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GET_VIRTUAL_DISK_INFO_0_0 {
     pub VirtualSize: u64,
     pub PhysicalSize: u64,
@@ -385,19 +500,29 @@ pub struct MERGE_VIRTUAL_DISK_PARAMETERS {
     pub Version: MERGE_VIRTUAL_DISK_VERSION,
     pub Anonymous: MERGE_VIRTUAL_DISK_PARAMETERS_0,
 }
+impl Default for MERGE_VIRTUAL_DISK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: MERGE_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: MERGE_VIRTUAL_DISK_PARAMETERS_0_1,
 }
+impl Default for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MergeDepth: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub MergeSourceDepth: u32,
     pub MergeTargetDepth: u32,
@@ -418,15 +543,30 @@ pub struct MIRROR_VIRTUAL_DISK_PARAMETERS {
     pub Version: MIRROR_VIRTUAL_DISK_VERSION,
     pub Anonymous: MIRROR_VIRTUAL_DISK_PARAMETERS_0,
 }
+impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: MIRROR_VIRTUAL_DISK_PARAMETERS_0_0,
 }
+impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MirrorVirtualDiskPath: windows_sys::core::PCWSTR,
+}
+impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MIRROR_VIRTUAL_DISK_VERSION = i32;
 pub const MIRROR_VIRTUAL_DISK_VERSION_1: MIRROR_VIRTUAL_DISK_VERSION = 1i32;
@@ -441,6 +581,11 @@ pub struct MODIFY_VHDSET_PARAMETERS {
     pub Version: MODIFY_VHDSET_VERSION,
     pub Anonymous: MODIFY_VHDSET_PARAMETERS_0,
 }
+impl Default for MODIFY_VHDSET_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MODIFY_VHDSET_PARAMETERS_0 {
@@ -448,11 +593,21 @@ pub union MODIFY_VHDSET_PARAMETERS_0 {
     pub SnapshotId: windows_sys::core::GUID,
     pub DefaultFilePath: windows_sys::core::PCWSTR,
 }
+impl Default for MODIFY_VHDSET_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MODIFY_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_sys::core::GUID,
     pub SnapshotFilePath: windows_sys::core::PCWSTR,
+}
+impl Default for MODIFY_VHDSET_PARAMETERS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MODIFY_VHDSET_REMOVE_SNAPSHOT: MODIFY_VHDSET_VERSION = 2i32;
 pub const MODIFY_VHDSET_SNAPSHOT_PATH: MODIFY_VHDSET_VERSION = 1i32;
@@ -478,6 +633,11 @@ pub struct OPEN_VIRTUAL_DISK_PARAMETERS {
     pub Version: OPEN_VIRTUAL_DISK_VERSION,
     pub Anonymous: OPEN_VIRTUAL_DISK_PARAMETERS_0,
 }
+impl Default for OPEN_VIRTUAL_DISK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union OPEN_VIRTUAL_DISK_PARAMETERS_0 {
@@ -485,20 +645,25 @@ pub union OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version2: OPEN_VIRTUAL_DISK_PARAMETERS_0_1,
     pub Version3: OPEN_VIRTUAL_DISK_PARAMETERS_0_2,
 }
+impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RWDepth: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub GetInfoOnly: windows_sys::core::BOOL,
     pub ReadOnly: windows_sys::core::BOOL,
     pub ResiliencyGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub GetInfoOnly: windows_sys::core::BOOL,
     pub ReadOnly: windows_sys::core::BOOL,
@@ -514,7 +679,7 @@ pub const OPEN_VIRTUAL_DISK_VERSION_UNSPECIFIED: OPEN_VIRTUAL_DISK_VERSION = 0i3
 pub type QUERY_CHANGES_VIRTUAL_DISK_FLAG = i32;
 pub const QUERY_CHANGES_VIRTUAL_DISK_FLAG_NONE: QUERY_CHANGES_VIRTUAL_DISK_FLAG = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     pub ByteOffset: u64,
     pub ByteLength: u64,
@@ -528,10 +693,20 @@ pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
     pub Anonymous: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0,
 }
+impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0,
+}
+impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -546,19 +721,34 @@ pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub SenseInfo: *mut u8,
     pub Cdb: *mut u8,
 }
+impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
     pub Anonymous: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0,
 }
+impl Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     pub Version1: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0,
 }
+impl Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     pub ScsiStatus: u8,
     pub SenseInfoLength: u8,
@@ -577,13 +767,23 @@ pub struct RESIZE_VIRTUAL_DISK_PARAMETERS {
     pub Version: RESIZE_VIRTUAL_DISK_VERSION,
     pub Anonymous: RESIZE_VIRTUAL_DISK_PARAMETERS_0,
 }
+impl Default for RESIZE_VIRTUAL_DISK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: RESIZE_VIRTUAL_DISK_PARAMETERS_0_0,
 }
+impl Default for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub NewSize: u64,
 }
@@ -596,6 +796,11 @@ pub struct SET_VIRTUAL_DISK_INFO {
     pub Version: SET_VIRTUAL_DISK_INFO_VERSION,
     pub Anonymous: SET_VIRTUAL_DISK_INFO_0,
 }
+impl Default for SET_VIRTUAL_DISK_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SET_VIRTUAL_DISK_INFO_0 {
@@ -607,17 +812,32 @@ pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ChangeTrackingEnabled: windows_sys::core::BOOL,
     pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_1,
 }
+impl Default for SET_VIRTUAL_DISK_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SET_VIRTUAL_DISK_INFO_0_1 {
     pub LinkageId: windows_sys::core::GUID,
     pub ParentFilePath: windows_sys::core::PCWSTR,
 }
+impl Default for SET_VIRTUAL_DISK_INFO_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SET_VIRTUAL_DISK_INFO_0_0 {
     pub ChildDepth: u32,
     pub ParentFilePath: windows_sys::core::PCWSTR,
+}
+impl Default for SET_VIRTUAL_DISK_INFO_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE: SET_VIRTUAL_DISK_INFO_VERSION = 6i32;
 pub const SET_VIRTUAL_DISK_INFO_IDENTIFIER: SET_VIRTUAL_DISK_INFO_VERSION = 2i32;
@@ -635,14 +855,24 @@ pub struct STORAGE_DEPENDENCY_INFO {
     pub NumberEntries: u32,
     pub Anonymous: STORAGE_DEPENDENCY_INFO_0,
 }
+impl Default for STORAGE_DEPENDENCY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_DEPENDENCY_INFO_0 {
     pub Version1Entries: [STORAGE_DEPENDENCY_INFO_TYPE_1; 1],
     pub Version2Entries: [STORAGE_DEPENDENCY_INFO_TYPE_2; 1],
 }
+impl Default for STORAGE_DEPENDENCY_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
     pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
     pub ProviderSpecificFlags: u32,
@@ -660,6 +890,11 @@ pub struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
     pub DependentVolumeName: windows_sys::core::PWSTR,
     pub DependentVolumeRelativePath: windows_sys::core::PWSTR,
 }
+impl Default for STORAGE_DEPENDENCY_INFO_TYPE_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type STORAGE_DEPENDENCY_INFO_VERSION = i32;
 pub const STORAGE_DEPENDENCY_INFO_VERSION_1: STORAGE_DEPENDENCY_INFO_VERSION = 1i32;
 pub const STORAGE_DEPENDENCY_INFO_VERSION_2: STORAGE_DEPENDENCY_INFO_VERSION = 2i32;
@@ -673,13 +908,23 @@ pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: TAKE_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0,
 }
+impl Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0,
 }
+impl Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_sys::core::GUID,
 }
@@ -699,14 +944,14 @@ pub const VIRTUAL_DISK_ACCESS_READ: VIRTUAL_DISK_ACCESS_MASK = 851968i32;
 pub const VIRTUAL_DISK_ACCESS_WRITABLE: VIRTUAL_DISK_ACCESS_MASK = 3276800i32;
 pub const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VIRTUAL_DISK_PROGRESS {
     pub OperationStatus: u32,
     pub CurrentValue: u64,
     pub CompletionValue: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VIRTUAL_STORAGE_TYPE {
     pub DeviceId: u32,
     pub VendorId: windows_sys::core::GUID,

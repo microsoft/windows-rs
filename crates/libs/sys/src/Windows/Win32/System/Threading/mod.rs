@@ -395,7 +395,7 @@ pub const ABOVE_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32768u32;
 pub const ALL_PROCESSOR_GROUPS: u16 = 65535u16;
 pub type APC_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void, param2: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APP_MEMORY_INFORMATION {
     pub AvailableCommit: u64,
     pub PrivateCommitUsage: u64,
@@ -413,6 +413,11 @@ pub const BELOW_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 16384u32;
 #[derive(Clone, Copy)]
 pub struct CONDITION_VARIABLE {
     pub Ptr: *mut core::ffi::c_void,
+}
+impl Default for CONDITION_VARIABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CONDITION_VARIABLE_INIT: CONDITION_VARIABLE = CONDITION_VARIABLE { Ptr: core::ptr::null_mut() };
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
@@ -448,6 +453,12 @@ pub struct CRITICAL_SECTION {
     pub LockSemaphore: super::super::Foundation::HANDLE,
     pub SpinCount: usize,
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for CRITICAL_SECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -461,6 +472,12 @@ pub struct CRITICAL_SECTION_DEBUG {
     pub Flags: u32,
     pub CreatorBackTraceIndexHigh: u16,
     pub Identifier: u16,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for CRITICAL_SECTION_DEBUG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEBUG_ONLY_THIS_PROCESS: PROCESS_CREATION_FLAGS = 2u32;
 pub const DEBUG_PROCESS: PROCESS_CREATION_FLAGS = 1u32;
@@ -485,13 +502,18 @@ pub const INHERIT_PARENT_AFFINITY: PROCESS_CREATION_FLAGS = 65536u32;
 pub union INIT_ONCE {
     pub Ptr: *mut core::ffi::c_void,
 }
+impl Default for INIT_ONCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const INIT_ONCE_ASYNC: u32 = 2u32;
 pub const INIT_ONCE_CHECK_ONLY: u32 = 1u32;
 pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
 pub const INIT_ONCE_INIT_FAILED: u32 = 4u32;
 pub const INIT_ONCE_STATIC_INIT: INIT_ONCE = INIT_ONCE { Ptr: core::ptr::null_mut() };
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IO_COUNTERS {
     pub ReadOperationCount: u64,
     pub WriteOperationCount: u64,
@@ -510,7 +532,7 @@ pub type MACHINE_ATTRIBUTES = i32;
 pub type MEMORY_PRIORITY = u32;
 pub const MEMORY_PRIORITY_BELOW_NORMAL: MEMORY_PRIORITY = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MEMORY_PRIORITY_INFORMATION {
     pub MemoryPriority: MEMORY_PRIORITY,
 }
@@ -523,7 +545,7 @@ pub const MUTEX_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 1u32;
 pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 20i32;
 pub const NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OVERRIDE_PREFETCH_PARAMETER {
     pub Value: u32,
 }
@@ -551,6 +573,12 @@ pub struct PEB {
     pub Reserved12: [*mut core::ffi::c_void; 1],
     pub SessionId: u32,
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for PEB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -558,6 +586,12 @@ pub struct PEB_LDR_DATA {
     pub Reserved1: [u8; 8],
     pub Reserved2: [*mut core::ffi::c_void; 3],
     pub InMemoryOrderModuleList: super::Kernel::LIST_ENTRY,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for PEB_LDR_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PFLS_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(lpflsdata: *const core::ffi::c_void)>;
 pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 7u32;
@@ -634,6 +668,12 @@ pub struct PROCESS_BASIC_INFORMATION {
     pub UniqueProcessId: usize,
     pub InheritedFromUniqueProcessId: usize,
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for PROCESS_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PROCESS_CREATE_PROCESS: PROCESS_ACCESS_RIGHTS = 128u32;
 pub const PROCESS_CREATE_THREAD: PROCESS_ACCESS_RIGHTS = 2u32;
 pub type PROCESS_CREATION_FLAGS = u32;
@@ -644,7 +684,7 @@ pub type PROCESS_DEP_FLAGS = u32;
 pub const PROCESS_DEP_NONE: PROCESS_DEP_FLAGS = 0u32;
 pub const PROCESS_DUP_HANDLE: PROCESS_ACCESS_RIGHTS = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     pub TargetAddress: usize,
     pub Flags: usize,
@@ -657,8 +697,13 @@ pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     pub Reserved2: u32,
     pub Targets: *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET,
 }
+impl Default for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     pub BaseAddress: usize,
     pub Size: usize,
@@ -672,6 +717,11 @@ pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     pub Reserved2: u32,
     pub Ranges: *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE,
 }
+impl Default for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_INFORMATION {
@@ -680,9 +730,14 @@ pub struct PROCESS_INFORMATION {
     pub dwProcessId: u32,
     pub dwThreadId: u32,
 }
+impl Default for PROCESS_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PROCESS_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_LEAP_SECOND_INFO {
     pub Flags: u32,
     pub Reserved: u32,
@@ -691,14 +746,14 @@ pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1u32;
 pub const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MACHINE_INFORMATION {
     pub ProcessMachine: super::SystemInformation::IMAGE_FILE_MACHINE,
     pub Res0: u16,
     pub MachineAttributes: MACHINE_ATTRIBUTES,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_MEMORY_EXHAUSTION_INFO {
     pub Version: u16,
     pub Reserved: u16,
@@ -716,7 +771,7 @@ pub const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
 pub const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
 pub const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_POWER_THROTTLING_STATE {
     pub Version: u32,
     pub ControlMask: u32,
@@ -724,7 +779,7 @@ pub struct PROCESS_POWER_THROTTLING_STATE {
 }
 pub type PROCESS_PROTECTION_LEVEL = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_PROTECTION_LEVEL_INFORMATION {
     pub ProtectionLevel: PROCESS_PROTECTION_LEVEL,
 }
@@ -860,11 +915,21 @@ pub struct REASON_CONTEXT {
     pub Flags: POWER_REQUEST_CONTEXT_FLAGS,
     pub Reason: REASON_CONTEXT_0,
 }
+impl Default for REASON_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union REASON_CONTEXT_0 {
     pub Detailed: REASON_CONTEXT_0_0,
     pub SimpleReasonString: windows_sys::core::PWSTR,
+}
+impl Default for REASON_CONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -873,6 +938,11 @@ pub struct REASON_CONTEXT_0_0 {
     pub LocalizedReasonId: u32,
     pub ReasonStringCount: u32,
     pub ReasonStrings: *mut windows_sys::core::PWSTR,
+}
+impl Default for REASON_CONTEXT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RTL_CRITICAL_SECTION_ALL_FLAG_BITS: u32 = 4278190080u32;
 pub const RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT: u32 = 1u32;
@@ -889,6 +959,11 @@ pub struct RTL_USER_PROCESS_PARAMETERS {
     pub ImagePathName: super::super::Foundation::UNICODE_STRING,
     pub CommandLine: super::super::Foundation::UNICODE_STRING,
 }
+impl Default for RTL_USER_PROCESS_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type RTWQPERIODICCALLBACK = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 pub const RTWQ_MULTITHREADED_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 2i32;
 pub const RTWQ_STANDARD_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 0i32;
@@ -900,6 +975,11 @@ pub const SEMAPHORE_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u32;
 #[derive(Clone, Copy)]
 pub struct SRWLOCK {
     pub Ptr: *mut core::ffi::c_void,
+}
+impl Default for SRWLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SRWLOCK_INIT: SRWLOCK = SRWLOCK { Ptr: core::ptr::null_mut() };
 pub const STACK_SIZE_PARAM_IS_A_RESERVATION: THREAD_CREATION_FLAGS = 65536u32;
@@ -939,17 +1019,32 @@ pub struct STARTUPINFOA {
     pub hStdOutput: super::super::Foundation::HANDLE,
     pub hStdError: super::super::Foundation::HANDLE,
 }
+impl Default for STARTUPINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STARTUPINFOEXA {
     pub StartupInfo: STARTUPINFOA,
     pub lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
 }
+impl Default for STARTUPINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STARTUPINFOEXW {
     pub StartupInfo: STARTUPINFOW,
     pub lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
+}
+impl Default for STARTUPINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -973,6 +1068,11 @@ pub struct STARTUPINFOW {
     pub hStdOutput: super::super::Foundation::HANDLE,
     pub hStdError: super::super::Foundation::HANDLE,
 }
+impl Default for STARTUPINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type STARTUPINFOW_FLAGS = u32;
 pub type SYNCHRONIZATION_ACCESS_RIGHTS = u32;
 #[repr(C)]
@@ -983,6 +1083,11 @@ pub struct SYNCHRONIZATION_BARRIER {
     pub Reserved3: [usize; 2],
     pub Reserved4: u32,
     pub Reserved5: u32,
+}
+impl Default for SYNCHRONIZATION_BARRIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: u32 = 2u32;
 pub const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: u32 = 4u32;
@@ -1007,6 +1112,12 @@ pub struct TEB {
     pub Reserved6: [*mut core::ffi::c_void; 4],
     pub TlsExpansionSlots: *mut core::ffi::c_void,
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for TEB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type THREAD_ACCESS_RIGHTS = u32;
 pub const THREAD_ALL_ACCESS: THREAD_ACCESS_RIGHTS = 2097151u32;
 pub const THREAD_CREATE_RUN_IMMEDIATELY: THREAD_CREATION_FLAGS = 0u32;
@@ -1022,7 +1133,7 @@ pub const THREAD_MODE_BACKGROUND_END: THREAD_PRIORITY = 131072i32;
 pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
 pub const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct THREAD_POWER_THROTTLING_STATE {
     pub Version: u32,
     pub ControlMask: u32,
@@ -1070,14 +1181,24 @@ pub struct TP_CALLBACK_ENVIRON_V3 {
     pub CallbackPriority: TP_CALLBACK_PRIORITY,
     pub Size: u32,
 }
+impl Default for TP_CALLBACK_ENVIRON_V3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TP_CALLBACK_ENVIRON_V3_0 {
     pub Flags: u32,
     pub s: TP_CALLBACK_ENVIRON_V3_0_0,
 }
+impl Default for TP_CALLBACK_ENVIRON_V3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TP_CALLBACK_ENVIRON_V3_0_0 {
     pub _bitfield: u32,
 }
@@ -1088,7 +1209,7 @@ pub const TP_CALLBACK_PRIORITY_INVALID: TP_CALLBACK_PRIORITY = 3i32;
 pub const TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = 2i32;
 pub const TP_CALLBACK_PRIORITY_NORMAL: TP_CALLBACK_PRIORITY = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TP_POOL_STACK_INFORMATION {
     pub StackReserve: usize,
     pub StackCommit: usize,
@@ -1107,11 +1228,22 @@ pub struct UMS_SCHEDULER_STARTUP_INFO {
     pub SchedulerProc: PRTL_UMS_SCHEDULER_ENTRY_POINT,
     pub SchedulerParam: *mut core::ffi::c_void,
 }
+#[cfg(feature = "Win32_System_SystemServices")]
+impl Default for UMS_SCHEDULER_STARTUP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION {
     pub UmsVersion: u32,
     pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0,
+}
+impl Default for UMS_SYSTEM_THREAD_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1119,8 +1251,13 @@ pub union UMS_SYSTEM_THREAD_INFORMATION_0 {
     pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0_0,
     pub ThreadUmsFlags: u32,
 }
+impl Default for UMS_SYSTEM_THREAD_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     pub _bitfield: u32,
 }

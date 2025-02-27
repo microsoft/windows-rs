@@ -113,6 +113,12 @@ pub struct DWM_BLURBEHIND {
     pub hRgnBlur: super::Gdi::HRGN,
     pub fTransitionOnMaximized: windows_sys::core::BOOL,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for DWM_BLURBEHIND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DWM_CLOAKED_APP: u32 = 1u32;
 pub const DWM_CLOAKED_INHERITED: u32 = 4u32;
 pub const DWM_CLOAKED_SHELL: u32 = 2u32;
@@ -120,7 +126,7 @@ pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
 pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DWM_PRESENT_PARAMETERS {
     pub cbSize: u32,
     pub fQueue: windows_sys::core::BOOL,
@@ -140,7 +146,7 @@ pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = 0i32;
 pub type DWM_SYSTEMBACKDROP_TYPE = i32;
 pub type DWM_TAB_WINDOW_REQUIREMENTS = i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
     pub dwFlags: u32,
     pub rcDestination: super::super::Foundation::RECT,
@@ -150,7 +156,7 @@ pub struct DWM_THUMBNAIL_PROPERTIES {
     pub fSourceClientAreaOnly: windows_sys::core::BOOL,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DWM_TIMING_INFO {
     pub cbSize: u32,
     pub rateRefresh: UNSIGNED_RATIO,
@@ -212,7 +218,7 @@ pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = 10i32;
 pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = 7i32;
 pub const GT_TOUCH_TAP: GESTURE_TYPE = 5i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MilMatrix3x2D {
     pub S_11: f64,
     pub S_12: f64,
@@ -222,7 +228,7 @@ pub struct MilMatrix3x2D {
     pub DY: f64,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UNSIGNED_RATIO {
     pub uiNumerator: u32,
     pub uiDenominator: u32,

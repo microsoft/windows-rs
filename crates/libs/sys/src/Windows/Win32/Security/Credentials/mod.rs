@@ -137,6 +137,11 @@ pub struct BINARY_BLOB_CREDENTIAL_INFO {
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
 }
+impl Default for BINARY_BLOB_CREDENTIAL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = 3i32;
 pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = 5i32;
 #[repr(C)]
@@ -144,6 +149,11 @@ pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = 5i32;
 pub struct CERT_CREDENTIAL_INFO {
     pub cbSize: u32,
     pub rgbHashOfCert: [u8; 20],
+}
+impl Default for CERT_CREDENTIAL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_HASH_LENGTH: u32 = 20u32;
 #[repr(C)]
@@ -162,6 +172,11 @@ pub struct CREDENTIALA {
     pub TargetAlias: windows_sys::core::PSTR,
     pub UserName: windows_sys::core::PSTR,
 }
+impl Default for CREDENTIALA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CREDENTIALW {
@@ -178,6 +193,11 @@ pub struct CREDENTIALW {
     pub TargetAlias: windows_sys::core::PWSTR,
     pub UserName: windows_sys::core::PWSTR,
 }
+impl Default for CREDENTIALW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CREDENTIAL_ATTRIBUTEA {
@@ -186,6 +206,11 @@ pub struct CREDENTIAL_ATTRIBUTEA {
     pub ValueSize: u32,
     pub Value: *mut u8,
 }
+impl Default for CREDENTIAL_ATTRIBUTEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CREDENTIAL_ATTRIBUTEW {
@@ -193,6 +218,11 @@ pub struct CREDENTIAL_ATTRIBUTEW {
     pub Flags: u32,
     pub ValueSize: u32,
     pub Value: *mut u8,
+}
+impl Default for CREDENTIAL_ATTRIBUTEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -208,6 +238,11 @@ pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub CredTypeCount: u32,
     pub CredTypes: *mut u32,
 }
+impl Default for CREDENTIAL_TARGET_INFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CREDENTIAL_TARGET_INFORMATIONW {
@@ -222,6 +257,11 @@ pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub CredTypeCount: u32,
     pub CredTypes: *mut u32,
 }
+impl Default for CREDENTIAL_TARGET_INFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CREDSPP_SUBMIT_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -230,8 +270,13 @@ pub struct CREDSSP_CRED {
     pub pSchannelCred: *mut core::ffi::c_void,
     pub pSpnegoCred: *mut core::ffi::c_void,
 }
+impl Default for CREDSSP_CRED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREDSSP_CRED_EX {
     pub Type: CREDSPP_SUBMIT_TYPE,
     pub Version: u32,
@@ -285,6 +330,12 @@ pub struct CREDUI_INFOA {
     pub pszCaptionText: windows_sys::core::PCSTR,
     pub hbmBanner: super::super::Graphics::Gdi::HBITMAP,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CREDUI_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -294,6 +345,12 @@ pub struct CREDUI_INFOW {
     pub pszMessageText: windows_sys::core::PCWSTR,
     pub pszCaptionText: windows_sys::core::PCWSTR,
     pub hbmBanner: super::super::Graphics::Gdi::HBITMAP,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CREDUI_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
 pub const CREDUI_MAX_DOMAIN_TARGET_LENGTH: u32 = 337u32;
@@ -408,7 +465,7 @@ pub const CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = 51i32;
 pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
 pub const GUID_DEVINTERFACE_SMARTCARD_READER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KeyCredentialManagerInfo {
     pub containerId: windows_sys::core::GUID,
 }
@@ -458,6 +515,11 @@ pub struct OPENCARDNAMEA {
     pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
+impl Default for OPENCARDNAMEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OPENCARDNAMEW {
@@ -485,6 +547,11 @@ pub struct OPENCARDNAMEW {
     pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
+impl Default for OPENCARDNAMEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -507,6 +574,12 @@ pub struct OPENCARDNAME_EXA {
     pub nMaxCard: u32,
     pub dwActiveProtocol: u32,
     pub hCardHandle: usize,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for OPENCARDNAME_EXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -531,6 +604,12 @@ pub struct OPENCARDNAME_EXW {
     pub dwActiveProtocol: u32,
     pub hCardHandle: usize,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for OPENCARDNAME_EXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OPENCARD_SEARCH_CRITERIAA {
@@ -547,6 +626,11 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub pvUserData: *mut core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
+}
+impl Default for OPENCARD_SEARCH_CRITERIAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -565,6 +649,11 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
 }
+impl Default for OPENCARD_SEARCH_CRITERIAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct READER_SEL_REQUEST {
@@ -573,14 +662,24 @@ pub struct READER_SEL_REQUEST {
     pub MatchType: READER_SEL_REQUEST_MATCH_TYPE,
     pub Anonymous: READER_SEL_REQUEST_0,
 }
+impl Default for READER_SEL_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union READER_SEL_REQUEST_0 {
     pub ReaderAndContainerParameter: READER_SEL_REQUEST_0_0,
     pub SerialNumberParameter: READER_SEL_REQUEST_0_1,
 }
+impl Default for READER_SEL_REQUEST_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct READER_SEL_REQUEST_0_0 {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
@@ -590,7 +689,7 @@ pub struct READER_SEL_REQUEST_0_0 {
     pub dwCspFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct READER_SEL_REQUEST_0_1 {
     pub cbSerialNumberOffset: u32,
     pub cbSerialNumberLength: u32,
@@ -598,7 +697,7 @@ pub struct READER_SEL_REQUEST_0_1 {
 }
 pub type READER_SEL_REQUEST_MATCH_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct READER_SEL_RESPONSE {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
@@ -616,6 +715,11 @@ pub struct SCARD_ATRMASK {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
     pub rgbMask: [u8; 36],
+}
+impl Default for SCARD_ATRMASK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SCARD_ATR_LENGTH: u32 = 33u32;
 pub const SCARD_AUDIT_CHV_FAILURE: u32 = 0u32;
@@ -635,7 +739,7 @@ pub const SCARD_COLD_RESET: u32 = 1u32;
 pub const SCARD_DEFAULT_READERS: windows_sys::core::PCWSTR = windows_sys::core::w!("SCard$DefaultReaders\u{0}00");
 pub const SCARD_EJECT_CARD: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCARD_IO_REQUEST {
     pub dwProtocol: u32,
     pub cbPciLength: u32,
@@ -665,6 +769,11 @@ pub struct SCARD_READERSTATEA {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
 }
+impl Default for SCARD_READERSTATEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCARD_READERSTATEW {
@@ -674,6 +783,11 @@ pub struct SCARD_READERSTATEW {
     pub dwEventState: SCARD_STATE,
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
+}
+impl Default for SCARD_READERSTATEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SCARD_READER_CONFISCATES: u32 = 4u32;
 pub const SCARD_READER_CONTACTLESS: u32 = 8u32;
@@ -718,7 +832,7 @@ pub const SCARD_SWALLOWED: u32 = 3u32;
 pub const SCARD_SYSTEM_READERS: windows_sys::core::PCWSTR = windows_sys::core::w!("SCard$SystemReaders\u{0}00");
 pub const SCARD_T0_CMD_LENGTH: u32 = 5u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCARD_T0_COMMAND {
     pub bCla: u8,
     pub bIns: u8,
@@ -735,18 +849,28 @@ pub struct SCARD_T0_REQUEST {
     pub bSw2: u8,
     pub Anonymous: SCARD_T0_REQUEST_0,
 }
+impl Default for SCARD_T0_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SCARD_T0_REQUEST_0 {
     pub CmdBytes: SCARD_T0_COMMAND,
     pub rgbHeader: [u8; 5],
 }
+impl Default for SCARD_T0_REQUEST_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SCARD_T1_EPILOGUE_LENGTH: u32 = 2u32;
 pub const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1u32;
 pub const SCARD_T1_MAX_IFS: u32 = 254u32;
 pub const SCARD_T1_PROLOGUE_LENGTH: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCARD_T1_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
 }
@@ -774,7 +898,7 @@ pub const STATUS_PASSWORD_EXPIRED: super::super::Foundation::NTSTATUS = 0xC00000
 pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = 0xC0000224_u32 as _;
 pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = 0xC000006A_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecHandle {
     pub dwLower: usize,
     pub dwUpper: usize,
@@ -785,12 +909,22 @@ pub struct SecPkgContext_ClientCreds {
     pub AuthBufferLen: u32,
     pub AuthBuffer: *mut u8,
 }
+impl Default for SecPkgContext_ClientCreds {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const TS_SSP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("TSSSP");
 pub const TS_SSP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("TSSSP");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USERNAME_TARGET_CREDENTIAL_INFO {
     pub UserName: windows_sys::core::PWSTR,
+}
+impl Default for USERNAME_TARGET_CREDENTIAL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = 4i32;
 pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = 2i32;

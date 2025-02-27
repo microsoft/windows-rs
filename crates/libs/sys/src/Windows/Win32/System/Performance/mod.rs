@@ -191,6 +191,11 @@ pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_sys::core::PSTR,
 }
+impl Default for PDH_BROWSE_DLG_CONFIG_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
@@ -204,6 +209,11 @@ pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub CallBackStatus: i32,
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_sys::core::PSTR,
+}
+impl Default for PDH_BROWSE_DLG_CONFIG_HA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -219,6 +229,11 @@ pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_sys::core::PWSTR,
 }
+impl Default for PDH_BROWSE_DLG_CONFIG_HW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
@@ -232,6 +247,11 @@ pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub CallBackStatus: i32,
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_sys::core::PWSTR,
+}
+impl Default for PDH_BROWSE_DLG_CONFIG_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PDH_CALC_NEGATIVE_DENOMINATOR: u32 = 2147485654u32;
 pub const PDH_CALC_NEGATIVE_TIMEBASE: u32 = 2147485655u32;
@@ -257,12 +277,22 @@ pub struct PDH_COUNTER_INFO_A {
     pub szExplainText: windows_sys::core::PSTR,
     pub DataBuffer: [u32; 1],
 }
+impl Default for PDH_COUNTER_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PDH_COUNTER_INFO_A_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_A,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_A,
     pub Anonymous: PDH_COUNTER_INFO_A_0_0,
+}
+impl Default for PDH_COUNTER_INFO_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -273,6 +303,11 @@ pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szParentInstance: windows_sys::core::PSTR,
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PSTR,
+}
+impl Default for PDH_COUNTER_INFO_A_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -290,12 +325,22 @@ pub struct PDH_COUNTER_INFO_W {
     pub szExplainText: windows_sys::core::PWSTR,
     pub DataBuffer: [u32; 1],
 }
+impl Default for PDH_COUNTER_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PDH_COUNTER_INFO_W_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_W,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_W,
     pub Anonymous: PDH_COUNTER_INFO_W_0_0,
+}
+impl Default for PDH_COUNTER_INFO_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -307,6 +352,11 @@ pub struct PDH_COUNTER_INFO_W_0_0 {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PWSTR,
 }
+impl Default for PDH_COUNTER_INFO_W_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A {
@@ -317,6 +367,11 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PSTR,
 }
+impl Default for PDH_COUNTER_PATH_ELEMENTS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W {
@@ -326,6 +381,11 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub szParentInstance: windows_sys::core::PWSTR,
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PWSTR,
+}
+impl Default for PDH_COUNTER_PATH_ELEMENTS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PDH_CSTATUS_BAD_COUNTERNAME: u32 = 3221228480u32;
 pub const PDH_CSTATUS_INVALID_DATA: u32 = 3221228474u32;
@@ -346,6 +406,11 @@ pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
     pub dwItemId: u32,
     pub szInstanceName: windows_sys::core::PSTR,
 }
+impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
@@ -353,6 +418,11 @@ pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
     pub ObjectGUID: windows_sys::core::GUID,
     pub dwItemId: u32,
     pub szInstanceName: windows_sys::core::PWSTR,
+}
+impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PDH_DATA_SOURCE_IS_LOG_FILE: u32 = 3221228494u32;
 pub const PDH_DATA_SOURCE_IS_REAL_TIME: u32 = 3221228495u32;
@@ -371,6 +441,11 @@ pub struct PDH_FMT_COUNTERVALUE {
     pub CStatus: u32,
     pub Anonymous: PDH_FMT_COUNTERVALUE_0,
 }
+impl Default for PDH_FMT_COUNTERVALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PDH_FMT_COUNTERVALUE_0 {
@@ -380,17 +455,32 @@ pub union PDH_FMT_COUNTERVALUE_0 {
     pub AnsiStringValue: windows_sys::core::PCSTR,
     pub WideStringValue: windows_sys::core::PCWSTR,
 }
+impl Default for PDH_FMT_COUNTERVALUE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_A {
     pub szName: windows_sys::core::PSTR,
     pub FmtValue: PDH_FMT_COUNTERVALUE,
 }
+impl Default for PDH_FMT_COUNTERVALUE_ITEM_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_W {
     pub szName: windows_sys::core::PWSTR,
     pub FmtValue: PDH_FMT_COUNTERVALUE,
+}
+impl Default for PDH_FMT_COUNTERVALUE_ITEM_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PDH_FMT_DOUBLE: PDH_FMT = 512u32;
 pub const PDH_FMT_LARGE: PDH_FMT = 1024u32;
@@ -431,11 +521,21 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_A_0,
 }
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_A_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_A_0_1,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -448,6 +548,11 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlSampleInterval: u32,
     pub PdlLogStartTime: super::super::Foundation::FILETIME,
     pub PdlLogEndTime: super::super::Foundation::FILETIME,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -463,6 +568,11 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlLogHandle: u32,
     pub TlLogFileName: windows_sys::core::PSTR,
 }
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
@@ -476,11 +586,21 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_W_0,
 }
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_W_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_W_0_1,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -493,6 +613,11 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlSampleInterval: u32,
     pub PdlLogStartTime: super::super::Foundation::FILETIME,
     pub PdlLogEndTime: super::super::Foundation::FILETIME,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -507,6 +632,11 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlBuffersWritten: u32,
     pub TlLogHandle: u32,
     pub TlLogFileName: windows_sys::core::PWSTR,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PDH_LOG_TYPE = u32;
 pub const PDH_LOG_TYPE_BINARY: PDH_LOG_TYPE = 8u32;
@@ -556,7 +686,7 @@ pub const PDH_PLA_VALIDATION_ERROR: u32 = 3221228530u32;
 pub const PDH_PLA_VALIDATION_WARNING: u32 = 2147486707u32;
 pub const PDH_QUERY_PERF_DATA_TIMEOUT: u32 = 3221228542u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_RAW_COUNTER {
     pub CStatus: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -570,11 +700,21 @@ pub struct PDH_RAW_COUNTER_ITEM_A {
     pub szName: windows_sys::core::PSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
+impl Default for PDH_RAW_COUNTER_ITEM_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_RAW_COUNTER_ITEM_W {
     pub szName: windows_sys::core::PWSTR,
     pub RawValue: PDH_RAW_COUNTER,
+}
+impl Default for PDH_RAW_COUNTER_ITEM_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -583,6 +723,11 @@ pub struct PDH_RAW_LOG_RECORD {
     pub dwRecordType: PDH_LOG_TYPE,
     pub dwItems: u32,
     pub RawBytes: [u8; 1],
+}
+impl Default for PDH_RAW_LOG_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
 pub const PDH_RETRY: u32 = 2147485652u32;
@@ -605,9 +750,14 @@ pub struct PDH_STATISTICS {
     pub max: PDH_FMT_COUNTERVALUE,
     pub mean: PDH_FMT_COUNTERVALUE,
 }
+impl Default for PDH_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PDH_STRING_NOT_FOUND: u32 = 3221228500u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_TIME_INFO {
     pub StartTime: i64,
     pub EndTime: i64,
@@ -641,7 +791,7 @@ pub const PERF_COUNTERSET_FLAG_HISTORY: u32 = 8u32;
 pub const PERF_COUNTERSET_FLAG_INSTANCE: u32 = 16u32;
 pub const PERF_COUNTERSET_FLAG_MULTIPLE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTERSET_INFO {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub ProviderGuid: windows_sys::core::GUID,
@@ -649,7 +799,7 @@ pub struct PERF_COUNTERSET_INFO {
     pub InstanceType: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTERSET_INSTANCE {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub dwSize: u32,
@@ -659,7 +809,7 @@ pub struct PERF_COUNTERSET_INSTANCE {
 }
 pub const PERF_COUNTERSET_MULTI_INSTANCES: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTERSET_REG_INFO {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub CounterSetType: u32,
@@ -672,12 +822,12 @@ pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0u32;
 pub type PERF_COUNTER_AGGREGATE_FUNC = u32;
 pub const PERF_COUNTER_BASE: u32 = 196608u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_BLOCK {
     pub ByteLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_DATA {
     pub dwDataSize: u32,
     pub dwSize: u32,
@@ -697,9 +847,15 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterSize: u32,
     pub CounterOffset: u32,
 }
+#[cfg(target_arch = "x86")]
+impl Default for PERF_COUNTER_DEFINITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -715,7 +871,7 @@ pub struct PERF_COUNTER_DEFINITION {
 pub const PERF_COUNTER_ELAPSED: u32 = 262144u32;
 pub const PERF_COUNTER_FRACTION: u32 = 131072u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_HEADER {
     pub dwStatus: u32,
     pub dwType: PerfCounterDataType,
@@ -725,7 +881,7 @@ pub struct PERF_COUNTER_HEADER {
 pub const PERF_COUNTER_HISTOGRAM: u32 = 393216u32;
 pub const PERF_COUNTER_HISTOGRAM_TYPE: u32 = 2147483648u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_IDENTIFIER {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub Status: u32,
@@ -736,7 +892,7 @@ pub struct PERF_COUNTER_IDENTIFIER {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_IDENTITY {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub BufferSize: u32,
@@ -747,7 +903,7 @@ pub struct PERF_COUNTER_IDENTITY {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_INFO {
     pub CounterId: u32,
     pub Type: u32,
@@ -761,7 +917,7 @@ pub const PERF_COUNTER_PRECISION: u32 = 458752u32;
 pub const PERF_COUNTER_QUEUELEN: u32 = 327680u32;
 pub const PERF_COUNTER_RATE: u32 = 65536u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_REG_INFO {
     pub CounterId: u32,
     pub Type: u32,
@@ -794,8 +950,13 @@ pub struct PERF_DATA_BLOCK {
     pub SystemNameLength: u32,
     pub SystemNameOffset: u32,
 }
+impl Default for PERF_DATA_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_DATA_HEADER {
     pub dwTotalSize: u32,
     pub dwNumCounters: u32,
@@ -822,7 +983,7 @@ pub const PERF_ENUM_INSTANCES: u32 = 3u32;
 pub const PERF_ERROR_RETURN: PerfCounterDataType = 0i32;
 pub const PERF_FILTER: u32 = 9u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_INSTANCE_DEFINITION {
     pub ByteLength: u32,
     pub ParentObjectTitleIndex: u32,
@@ -832,7 +993,7 @@ pub struct PERF_INSTANCE_DEFINITION {
     pub NameLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_INSTANCE_HEADER {
     pub Size: u32,
     pub InstanceId: u32,
@@ -847,13 +1008,13 @@ pub const PERF_MULTIPLE_COUNTERS: PerfCounterDataType = 2i32;
 pub const PERF_MULTIPLE_INSTANCES: PerfCounterDataType = 4i32;
 pub const PERF_MULTI_COUNTER: u32 = 33554432u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_MULTI_COUNTERS {
     pub dwSize: u32,
     pub dwCounters: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_MULTI_INSTANCES {
     pub dwTotalSize: u32,
     pub dwInstances: u32,
@@ -883,9 +1044,15 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfTime: i64,
     pub PerfFreq: i64,
 }
+#[cfg(target_arch = "x86")]
+impl Default for PERF_OBJECT_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -912,6 +1079,11 @@ pub struct PERF_PROVIDER_CONTEXT {
     pub MemFreeRoutine: PERF_MEM_FREE,
     pub pMemContext: *mut core::ffi::c_void,
 }
+impl Default for PERF_PROVIDER_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PERF_PROVIDER_DRIVER: u32 = 2u32;
 pub const PERF_PROVIDER_KERNEL_MODE: u32 = 1u32;
 pub const PERF_PROVIDER_USER_MODE: u32 = 0u32;
@@ -932,13 +1104,13 @@ pub const PERF_SIZE_LARGE: u32 = 256u32;
 pub const PERF_SIZE_VARIABLE_LEN: u32 = 768u32;
 pub const PERF_SIZE_ZERO: u32 = 512u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_STRING_BUFFER_HEADER {
     pub dwSize: u32,
     pub dwCounters: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_STRING_COUNTER_HEADER {
     pub dwCounterId: u32,
     pub dwOffset: u32,

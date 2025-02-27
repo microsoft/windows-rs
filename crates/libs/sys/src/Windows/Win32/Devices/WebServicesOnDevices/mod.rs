@@ -87,11 +87,21 @@ pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknow
 pub struct REQUESTBODY_GetStatus {
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for REQUESTBODY_GetStatus {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REQUESTBODY_Renew {
     pub Expires: *mut WSD_EVENTING_EXPIRES,
     pub Any: *mut WSDXML_ELEMENT,
+}
+impl Default for REQUESTBODY_Renew {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -102,15 +112,30 @@ pub struct REQUESTBODY_Subscribe {
     pub Filter: *mut WSD_EVENTING_FILTER,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for REQUESTBODY_Subscribe {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REQUESTBODY_Unsubscribe {
     pub any: *mut WSDXML_ELEMENT,
 }
+impl Default for REQUESTBODY_Unsubscribe {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RESPONSEBODY_GetMetadata {
     pub Metadata: *mut WSD_METADATA_SECTION_LIST,
+}
+impl Default for RESPONSEBODY_GetMetadata {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -118,11 +143,21 @@ pub struct RESPONSEBODY_GetStatus {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
+impl Default for RESPONSEBODY_GetStatus {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RESPONSEBODY_Renew {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
+}
+impl Default for RESPONSEBODY_Renew {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -131,6 +166,11 @@ pub struct RESPONSEBODY_Subscribe {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
+impl Default for RESPONSEBODY_Subscribe {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RESPONSEBODY_SubscriptionEnd {
@@ -138,6 +178,11 @@ pub struct RESPONSEBODY_SubscriptionEnd {
     pub Status: windows_sys::core::PCWSTR,
     pub Reason: *mut WSD_LOCALIZED_STRING,
     pub Any: *mut WSDXML_ELEMENT,
+}
+impl Default for RESPONSEBODY_SubscriptionEnd {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SecureDirectedDiscovery: DeviceDiscoveryMechanism = 2i32;
 pub const TWO_WAY: WSDUdpMessageType = 1i32;
@@ -161,7 +206,7 @@ pub const WSDET_TRANSMISSION_FAILURE: WSDEventType = 3i32;
 pub type WSDEventType = i32;
 pub type WSDUdpMessageType = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSDUdpRetransmitParams {
     pub ulSendDelay: u32,
     pub ulRepeat: u32,
@@ -177,6 +222,11 @@ pub struct WSDXML_ATTRIBUTE {
     pub Name: *mut WSDXML_NAME,
     pub Value: windows_sys::core::PWSTR,
 }
+impl Default for WSDXML_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSDXML_ELEMENT {
@@ -186,17 +236,32 @@ pub struct WSDXML_ELEMENT {
     pub FirstChild: *mut WSDXML_NODE,
     pub PrefixMappings: *mut WSDXML_PREFIX_MAPPING,
 }
+impl Default for WSDXML_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSDXML_ELEMENT_LIST {
     pub Next: *mut WSDXML_ELEMENT_LIST,
     pub Element: *mut WSDXML_ELEMENT,
 }
+impl Default for WSDXML_ELEMENT_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSDXML_NAME {
     pub Space: *mut WSDXML_NAMESPACE,
     pub LocalName: windows_sys::core::PWSTR,
+}
+impl Default for WSDXML_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -206,6 +271,11 @@ pub struct WSDXML_NAMESPACE {
     pub Names: *mut WSDXML_NAME,
     pub NamesCount: u16,
     pub Encoding: u16,
+}
+impl Default for WSDXML_NAMESPACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -218,6 +288,11 @@ impl WSDXML_NODE {
     pub const ElementType: i32 = 0i32;
     pub const TextType: i32 = 1i32;
 }
+impl Default for WSDXML_NODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WSDXML_OP = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -227,17 +302,32 @@ pub struct WSDXML_PREFIX_MAPPING {
     pub Space: *mut WSDXML_NAMESPACE,
     pub Prefix: windows_sys::core::PWSTR,
 }
+impl Default for WSDXML_PREFIX_MAPPING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSDXML_TEXT {
     pub Node: WSDXML_NODE,
     pub Text: windows_sys::core::PWSTR,
 }
+impl Default for WSDXML_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSDXML_TYPE {
     pub Uri: windows_sys::core::PCWSTR,
     pub Table: *const u8,
+}
+impl Default for WSDXML_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -246,17 +336,32 @@ pub struct WSD_APP_SEQUENCE {
     pub SequenceId: windows_sys::core::PCWSTR,
     pub MessageNumber: u64,
 }
+impl Default for WSD_APP_SEQUENCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_BYE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_BYE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_CONFIG_ADDRESSES {
     pub addresses: *mut *mut core::ffi::c_void,
     pub dwAddressCount: u32,
+}
+impl Default for WSD_CONFIG_ADDRESSES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 10i32;
 pub const WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 9i32;
@@ -269,9 +374,14 @@ pub struct WSD_CONFIG_PARAM {
     pub pConfigData: *mut core::ffi::c_void,
     pub dwConfigDataSize: u32,
 }
+impl Default for WSD_CONFIG_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WSD_CONFIG_PARAM_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSD_DATETIME {
     pub isPositive: windows_sys::core::BOOL,
     pub year: u32,
@@ -290,7 +400,7 @@ pub const WSD_DEFAULT_EVENTING_ADDRESS: windows_sys::core::PCWSTR = windows_sys:
 pub const WSD_DEFAULT_HOSTING_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("http://*:5357/");
 pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("https://*:5358/");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSD_DURATION {
     pub isPositive: windows_sys::core::BOOL,
     pub year: u32,
@@ -311,11 +421,21 @@ pub struct WSD_ENDPOINT_REFERENCE {
     pub ServiceName: *mut WSDXML_NAME,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_ENDPOINT_REFERENCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_ENDPOINT_REFERENCE_LIST {
     pub Next: *mut WSD_ENDPOINT_REFERENCE_LIST,
     pub Element: *mut WSD_ENDPOINT_REFERENCE,
+}
+impl Default for WSD_ENDPOINT_REFERENCE_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -328,6 +448,11 @@ pub struct WSD_EVENT {
     pub Operation: *mut WSD_OPERATION,
     pub MessageParameters: *mut core::ffi::c_void,
 }
+impl Default for WSD_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_EVENTING_DELIVERY_MODE {
@@ -335,16 +460,31 @@ pub struct WSD_EVENTING_DELIVERY_MODE {
     pub Push: *mut WSD_EVENTING_DELIVERY_MODE_PUSH,
     pub Data: *mut core::ffi::c_void,
 }
+impl Default for WSD_EVENTING_DELIVERY_MODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_EVENTING_DELIVERY_MODE_PUSH {
     pub NotifyTo: *mut WSD_ENDPOINT_REFERENCE,
+}
+impl Default for WSD_EVENTING_DELIVERY_MODE_PUSH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_EVENTING_EXPIRES {
     pub Duration: *mut WSD_DURATION,
     pub DateTime: *mut WSD_DATETIME,
+}
+impl Default for WSD_EVENTING_EXPIRES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -353,10 +493,20 @@ pub struct WSD_EVENTING_FILTER {
     pub FilterAction: *mut WSD_EVENTING_FILTER_ACTION,
     pub Data: *mut core::ffi::c_void,
 }
+impl Default for WSD_EVENTING_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_EVENTING_FILTER_ACTION {
     pub Actions: *mut WSD_URI_LIST,
+}
+impl Default for WSD_EVENTING_FILTER_ACTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -365,11 +515,21 @@ pub struct WSD_HANDLER_CONTEXT {
     pub PVoid: *mut core::ffi::c_void,
     pub Unknown: *mut core::ffi::c_void,
 }
+impl Default for WSD_HANDLER_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_HEADER_RELATESTO {
     pub RelationshipType: *mut WSDXML_NAME,
     pub MessageID: windows_sys::core::PCWSTR,
+}
+impl Default for WSD_HEADER_RELATESTO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -381,11 +541,21 @@ pub struct WSD_HELLO {
     pub MetadataVersion: u64,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_HELLO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_HOST_METADATA {
     pub Host: *mut WSD_SERVICE_METADATA,
     pub Hosted: *mut WSD_SERVICE_METADATA_LIST,
+}
+impl Default for WSD_HOST_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -393,11 +563,21 @@ pub struct WSD_LOCALIZED_STRING {
     pub lang: windows_sys::core::PCWSTR,
     pub String: windows_sys::core::PCWSTR,
 }
+impl Default for WSD_LOCALIZED_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_LOCALIZED_STRING_LIST {
     pub Next: *mut WSD_LOCALIZED_STRING_LIST,
     pub Element: *mut WSD_LOCALIZED_STRING,
+}
+impl Default for WSD_LOCALIZED_STRING_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -409,11 +589,21 @@ pub struct WSD_METADATA_SECTION {
     pub Location: windows_sys::core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_METADATA_SECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_METADATA_SECTION_LIST {
     pub Next: *mut WSD_METADATA_SECTION_LIST,
     pub Element: *mut WSD_METADATA_SECTION,
+}
+impl Default for WSD_METADATA_SECTION_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -421,12 +611,22 @@ pub struct WSD_NAME_LIST {
     pub Next: *mut WSD_NAME_LIST,
     pub Element: *mut WSDXML_NAME,
 }
+impl Default for WSD_NAME_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_OPERATION {
     pub RequestType: *mut WSDXML_TYPE,
     pub ResponseType: *mut WSDXML_TYPE,
     pub RequestStubFunction: WSD_STUB_FUNCTION,
+}
+impl Default for WSD_OPERATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -436,12 +636,22 @@ pub struct WSD_PORT_TYPE {
     pub Operations: *mut WSD_OPERATION,
     pub ProtocolType: WSD_PROTOCOL_TYPE,
 }
+impl Default for WSD_PORT_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_PROBE {
     pub Types: *mut WSD_NAME_LIST,
     pub Scopes: *mut WSD_SCOPES,
     pub Any: *mut WSDXML_ELEMENT,
+}
+impl Default for WSD_PROBE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -453,17 +663,32 @@ pub struct WSD_PROBE_MATCH {
     pub MetadataVersion: u64,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_PROBE_MATCH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_PROBE_MATCHES {
     pub ProbeMatch: *mut WSD_PROBE_MATCH_LIST,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_PROBE_MATCHES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_PROBE_MATCH_LIST {
     pub Next: *mut WSD_PROBE_MATCH_LIST,
     pub Element: *mut WSD_PROBE_MATCH,
+}
+impl Default for WSD_PROBE_MATCH_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WSD_PROTOCOL_TYPE = i32;
 pub const WSD_PT_ALL: WSD_PROTOCOL_TYPE = 255i32;
@@ -476,10 +701,20 @@ pub const WSD_PT_UDP: WSD_PROTOCOL_TYPE = 1i32;
 pub struct WSD_REFERENCE_PARAMETERS {
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_REFERENCE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_REFERENCE_PROPERTIES {
     pub Any: *mut WSDXML_ELEMENT,
+}
+impl Default for WSD_REFERENCE_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -488,11 +723,21 @@ pub struct WSD_RELATIONSHIP_METADATA {
     pub Data: *mut WSD_HOST_METADATA,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_RELATIONSHIP_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_RESOLVE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
+}
+impl Default for WSD_RESOLVE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -504,17 +749,32 @@ pub struct WSD_RESOLVE_MATCH {
     pub MetadataVersion: u64,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_RESOLVE_MATCH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_RESOLVE_MATCHES {
     pub ResolveMatch: *mut WSD_RESOLVE_MATCH,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_RESOLVE_MATCHES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_SCOPES {
     pub MatchBy: windows_sys::core::PCWSTR,
     pub Scopes: *mut WSD_URI_LIST,
+}
+impl Default for WSD_SCOPES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -529,6 +789,12 @@ pub struct WSD_SECURITY_CERT_VALIDATION {
     pub pbCertHash: *mut u8,
     pub dwCertHashSize: u32,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for WSD_SECURITY_CERT_VALIDATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -538,6 +804,12 @@ pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub hCertMatchStore: super::super::Security::Cryptography::HCERTSTORE,
     pub hCertIssuerStore: super::super::Security::Cryptography::HCERTSTORE,
     pub dwCertCheckOptions: u32,
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for WSD_SECURITY_CERT_VALIDATION_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = 7i32;
 pub const WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = 8i32;
@@ -554,6 +826,12 @@ pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub hSigningCertStore: super::super::Security::Cryptography::HCERTSTORE,
     pub dwFlags: u32,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for WSD_SECURITY_SIGNATURE_VALIDATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 3i32;
 pub const WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 5i32;
 pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = 6i32;
@@ -567,11 +845,21 @@ pub struct WSD_SERVICE_METADATA {
     pub ServiceId: windows_sys::core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_SERVICE_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_SERVICE_METADATA_LIST {
     pub Next: *mut WSD_SERVICE_METADATA_LIST,
     pub Element: *mut WSD_SERVICE_METADATA,
+}
+impl Default for WSD_SERVICE_METADATA_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -582,22 +870,42 @@ pub struct WSD_SOAP_FAULT {
     pub Role: windows_sys::core::PCWSTR,
     pub Detail: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_SOAP_FAULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_SOAP_FAULT_CODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
 }
+impl Default for WSD_SOAP_FAULT_CODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_SOAP_FAULT_REASON {
     pub Text: *mut WSD_LOCALIZED_STRING_LIST,
+}
+impl Default for WSD_SOAP_FAULT_REASON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_SOAP_FAULT_SUBCODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
+}
+impl Default for WSD_SOAP_FAULT_SUBCODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -612,12 +920,22 @@ pub struct WSD_SOAP_HEADER {
     pub AppSequence: *mut WSD_APP_SEQUENCE,
     pub AnyHeaders: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_SOAP_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_SOAP_MESSAGE {
     pub Header: WSD_SOAP_HEADER,
     pub Body: *mut core::ffi::c_void,
     pub BodyType: *mut WSDXML_TYPE,
+}
+impl Default for WSD_SOAP_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: *mut core::ffi::c_void, session: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
 #[repr(C)]
@@ -628,6 +946,11 @@ pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub messageParameters: *mut core::ffi::c_void,
     pub results: *mut core::ffi::c_void,
 }
+impl Default for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_THIS_DEVICE_METADATA {
@@ -635,6 +958,11 @@ pub struct WSD_THIS_DEVICE_METADATA {
     pub FirmwareVersion: windows_sys::core::PCWSTR,
     pub SerialNumber: windows_sys::core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
+}
+impl Default for WSD_THIS_DEVICE_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -647,14 +975,29 @@ pub struct WSD_THIS_MODEL_METADATA {
     pub PresentationUrl: windows_sys::core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
 }
+impl Default for WSD_THIS_MODEL_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_UNKNOWN_LOOKUP {
     pub Any: *mut WSDXML_ELEMENT,
+}
+impl Default for WSD_UNKNOWN_LOOKUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_URI_LIST {
     pub Next: *mut WSD_URI_LIST,
     pub Element: windows_sys::core::PCWSTR,
+}
+impl Default for WSD_URI_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

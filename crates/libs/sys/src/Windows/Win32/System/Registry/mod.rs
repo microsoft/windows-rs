@@ -125,7 +125,7 @@ pub const DRIVERSIGN_BLOCKING: u32 = 2u32;
 pub const DRIVERSIGN_NONE: u32 = 0u32;
 pub const DRIVERSIGN_WARNING: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSKTLSYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -230,6 +230,11 @@ pub struct PVALUEA {
     pub pv_value_context: *mut core::ffi::c_void,
     pub pv_type: u32,
 }
+impl Default for PVALUEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PVALUEW {
@@ -237,6 +242,11 @@ pub struct PVALUEW {
     pub pv_valuelen: i32,
     pub pv_value_context: *mut core::ffi::c_void,
     pub pv_type: u32,
+}
+impl Default for PVALUEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const REGDF_CONFLICTDMA: u32 = 524288u32;
 pub const REGDF_CONFLICTIO: u32 = 65536u32;
@@ -1045,6 +1055,11 @@ pub struct REG_PROVIDER {
     pub pi_flags: u32,
     pub pi_key_context: *mut core::ffi::c_void,
 }
+impl Default for REG_PROVIDER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const REG_QWORD: REG_VALUE_TYPE = 11u32;
 pub const REG_QWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = 11u32;
 pub const REG_RESOURCE_LIST: REG_VALUE_TYPE = 8u32;
@@ -1091,6 +1106,11 @@ pub struct VALENTA {
     pub ve_valueptr: usize,
     pub ve_type: REG_VALUE_TYPE,
 }
+impl Default for VALENTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VALENTW {
@@ -1098,6 +1118,11 @@ pub struct VALENTW {
     pub ve_valuelen: u32,
     pub ve_valueptr: usize,
     pub ve_type: REG_VALUE_TYPE,
+}
+impl Default for VALENTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const VPDF_DISABLEPWRMGMT: u32 = 1u32;
 pub const VPDF_DISABLEPWRSTATUSPOLL: u32 = 8u32;
@@ -1111,4 +1136,9 @@ pub struct val_context {
     pub valuelen: i32,
     pub value_context: *mut core::ffi::c_void,
     pub val_buff_ptr: *mut core::ffi::c_void,
+}
+impl Default for val_context {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

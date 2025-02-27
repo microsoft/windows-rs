@@ -125,16 +125,31 @@ pub const DNSSEC_PROTOCOL_TLS: u32 = 1u32;
 pub struct DNS_AAAA_DATA {
     pub Ip6Address: IP6_ADDRESS,
 }
+impl Default for DNS_AAAA_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_ADDR {
     pub MaxSa: [i8; 32],
     pub Data: DNS_ADDR_0,
 }
+impl Default for DNS_ADDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DNS_ADDR_0 {
     pub DnsAddrUserDword: [u32; 8],
+}
+impl Default for DNS_ADDR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_ADDRESS_STRING_LENGTH: u32 = 65u32;
 #[repr(C, packed(1))]
@@ -151,9 +166,14 @@ pub struct DNS_ADDR_ARRAY {
     pub Reserved2: u32,
     pub AddrArray: [DNS_ADDR; 1],
 }
+impl Default for DNS_ADDR_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DNS_ADDR_MAX_SOCKADDR_LENGTH: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_APPLICATION_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -167,12 +187,17 @@ pub struct DNS_ATMA_DATA {
     pub AddressType: u8,
     pub Address: [u8; 20],
 }
+impl Default for DNS_ATMA_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DNS_ATMA_FORMAT_AESA: u32 = 2u32;
 pub const DNS_ATMA_FORMAT_E164: u32 = 1u32;
 pub const DNS_ATMA_MAX_ADDR_LENGTH: u32 = 20u32;
 pub const DNS_ATMA_MAX_RECORD_LENGTH: u32 = 21u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_A_DATA {
     pub IpAddress: u32,
 }
@@ -194,22 +219,42 @@ pub struct DNS_CONNECTION_IFINDEX_ENTRY {
     pub pwszConnectionName: windows_sys::core::PCWSTR,
     pub dwIfIndex: u32,
 }
+impl Default for DNS_CONNECTION_IFINDEX_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_IFINDEX_LIST {
     pub pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_ENTRY,
     pub nEntries: u32,
 }
+impl Default for DNS_CONNECTION_IFINDEX_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_NAME {
     pub wszName: [u16; 65],
+}
+impl Default for DNS_CONNECTION_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_NAME_LIST {
     pub cNames: u32,
     pub pNames: *mut DNS_CONNECTION_NAME,
+}
+impl Default for DNS_CONNECTION_NAME_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64u32;
 #[repr(C)]
@@ -223,11 +268,21 @@ pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub ppwszConnections: *const windows_sys::core::PCWSTR,
     pub dwPolicyEntryFlags: u32,
 }
+impl Default for DNS_CONNECTION_POLICY_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_POLICY_ENTRY_LIST {
     pub pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
     pub nEntries: u32,
+}
+impl Default for DNS_CONNECTION_POLICY_ENTRY_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1u32;
 pub type DNS_CONNECTION_POLICY_TAG = i32;
@@ -236,6 +291,11 @@ pub type DNS_CONNECTION_POLICY_TAG = i32;
 pub struct DNS_CONNECTION_PROXY_ELEMENT {
     pub Type: DNS_CONNECTION_PROXY_TYPE,
     pub Info: DNS_CONNECTION_PROXY_INFO,
+}
+impl Default for DNS_CONNECTION_PROXY_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -246,11 +306,21 @@ pub struct DNS_CONNECTION_PROXY_INFO {
     pub Switch: DNS_CONNECTION_PROXY_INFO_SWITCH,
     pub Anonymous: DNS_CONNECTION_PROXY_INFO_0,
 }
+impl Default for DNS_CONNECTION_PROXY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DNS_CONNECTION_PROXY_INFO_0 {
     pub Config: DNS_CONNECTION_PROXY_INFO_0_0,
     pub Script: DNS_CONNECTION_PROXY_INFO_0_1,
+}
+impl Default for DNS_CONNECTION_PROXY_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -262,12 +332,22 @@ pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
     pub pwszExtraInfo: windows_sys::core::PWSTR,
     pub Port: u16,
 }
+impl Default for DNS_CONNECTION_PROXY_INFO_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO_0_1 {
     pub pwszScript: windows_sys::core::PWSTR,
     pub pwszUsername: windows_sys::core::PWSTR,
     pub pwszPassword: windows_sys::core::PWSTR,
+}
+impl Default for DNS_CONNECTION_PROXY_INFO_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
@@ -278,6 +358,11 @@ pub struct DNS_CONNECTION_PROXY_INFO_EX {
     pub pwszConnectionName: windows_sys::core::PWSTR,
     pub fDirectConfiguration: windows_sys::core::BOOL,
     pub hConnection: super::super::Foundation::HANDLE,
+}
+impl Default for DNS_CONNECTION_PROXY_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: u32 = 1024u32;
 pub const DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH: u32 = 1024u32;
@@ -297,6 +382,11 @@ pub struct DNS_CONNECTION_PROXY_LIST {
     pub cProxies: u32,
     pub pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
 }
+impl Default for DNS_CONNECTION_PROXY_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DNS_CONNECTION_PROXY_TYPE = i32;
 pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = 1i32;
 pub const DNS_CONNECTION_PROXY_TYPE_NULL: DNS_CONNECTION_PROXY_TYPE = 0i32;
@@ -311,15 +401,30 @@ pub struct DNS_CUSTOM_SERVER {
     pub Anonymous1: DNS_CUSTOM_SERVER_0,
     pub Anonymous2: DNS_CUSTOM_SERVER_1,
 }
+impl Default for DNS_CUSTOM_SERVER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DNS_CUSTOM_SERVER_0 {
     pub pwszTemplate: windows_sys::core::PWSTR,
 }
+impl Default for DNS_CUSTOM_SERVER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DNS_CUSTOM_SERVER_1 {
     pub MaxSa: [i8; 32],
+}
+impl Default for DNS_CUSTOM_SERVER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_CUSTOM_SERVER_TYPE_DOH: u32 = 2u32;
 pub const DNS_CUSTOM_SERVER_TYPE_UDP: u32 = 1u32;
@@ -329,6 +434,11 @@ pub const DNS_CUSTOM_SERVER_UDP_FALLBACK: u32 = 1u32;
 pub struct DNS_DHCID_DATA {
     pub dwByteCount: u32,
     pub DHCID: [u8; 1],
+}
+impl Default for DNS_DHCID_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -340,9 +450,14 @@ pub struct DNS_DS_DATA {
     pub wPad: u16,
     pub Digest: [u8; 1],
 }
+impl Default for DNS_DS_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DNS_FREE_TYPE = i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_HEADER {
     pub Xid: u16,
     pub _bitfield1: u8,
@@ -353,7 +468,7 @@ pub struct DNS_HEADER {
     pub AdditionalCount: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_HEADER_EXT {
     pub _bitfield: u16,
     pub chRcode: u8,
@@ -369,8 +484,13 @@ pub struct DNS_KEY_DATA {
     pub wPad: u16,
     pub Key: [u8; 1],
 }
+impl Default for DNS_KEY_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_LOC_DATA {
     pub wVersion: u16,
     pub wSize: u16,
@@ -397,17 +517,32 @@ pub struct DNS_MESSAGE_BUFFER {
     pub MessageHead: DNS_HEADER,
     pub MessageBody: [i8; 1],
 }
+impl Default for DNS_MESSAGE_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_MINFO_DATAA {
     pub pNameMailbox: windows_sys::core::PSTR,
     pub pNameErrorsMailbox: windows_sys::core::PSTR,
 }
+impl Default for DNS_MINFO_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_MINFO_DATAW {
     pub pNameMailbox: windows_sys::core::PWSTR,
     pub pNameErrorsMailbox: windows_sys::core::PWSTR,
+}
+impl Default for DNS_MINFO_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -416,12 +551,22 @@ pub struct DNS_MX_DATAA {
     pub wPreference: u16,
     pub Pad: u16,
 }
+impl Default for DNS_MX_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_MX_DATAW {
     pub pNameExchange: windows_sys::core::PWSTR,
     pub wPreference: u16,
     pub Pad: u16,
+}
+impl Default for DNS_MX_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DNS_NAME_FORMAT = i32;
 #[repr(C)]
@@ -434,6 +579,11 @@ pub struct DNS_NAPTR_DATAA {
     pub pRegularExpression: windows_sys::core::PSTR,
     pub pReplacement: windows_sys::core::PSTR,
 }
+impl Default for DNS_NAPTR_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_NAPTR_DATAW {
@@ -444,6 +594,11 @@ pub struct DNS_NAPTR_DATAW {
     pub pRegularExpression: windows_sys::core::PWSTR,
     pub pReplacement: windows_sys::core::PWSTR,
 }
+impl Default for DNS_NAPTR_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_NSEC3PARAM_DATA {
@@ -453,6 +608,11 @@ pub struct DNS_NSEC3PARAM_DATA {
     pub bSaltLength: u8,
     pub bPad: [u8; 3],
     pub pbSalt: [u8; 1],
+}
+impl Default for DNS_NSEC3PARAM_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -465,6 +625,11 @@ pub struct DNS_NSEC3_DATA {
     pub wTypeBitMapsLength: u16,
     pub chData: [u8; 1],
 }
+impl Default for DNS_NSEC3_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_NSEC_DATAA {
@@ -472,6 +637,11 @@ pub struct DNS_NSEC_DATAA {
     pub wTypeBitMapsLength: u16,
     pub wPad: u16,
     pub TypeBitMaps: [u8; 1],
+}
+impl Default for DNS_NSEC_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -481,11 +651,21 @@ pub struct DNS_NSEC_DATAW {
     pub wPad: u16,
     pub TypeBitMaps: [u8; 1],
 }
+impl Default for DNS_NSEC_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_NULL_DATA {
     pub dwByteCount: u32,
     pub Data: [u8; 1],
+}
+impl Default for DNS_NULL_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -494,12 +674,22 @@ pub struct DNS_NXT_DATAA {
     pub wNumTypes: u16,
     pub wTypes: [u16; 1],
 }
+impl Default for DNS_NXT_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_NXT_DATAW {
     pub pNameNext: windows_sys::core::PWSTR,
     pub wNumTypes: u16,
     pub wTypes: [u16; 1],
+}
+impl Default for DNS_NXT_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_OPCODE_IQUERY: u32 = 1u32;
 pub const DNS_OPCODE_NOTIFY: u32 = 4u32;
@@ -513,6 +703,11 @@ pub struct DNS_OPT_DATA {
     pub wDataLength: u16,
     pub wPad: u16,
     pub Data: [u8; 1],
+}
+impl Default for DNS_OPT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
 pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
@@ -529,6 +724,11 @@ pub struct DNS_PROXY_INFORMATION {
     pub proxyInformationType: DNS_PROXY_INFORMATION_TYPE,
     pub proxyName: windows_sys::core::PWSTR,
 }
+impl Default for DNS_PROXY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = 1i32;
 pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = 0i32;
 pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = 3i32;
@@ -539,10 +739,20 @@ pub type DNS_PROXY_INFORMATION_TYPE = i32;
 pub struct DNS_PTR_DATAA {
     pub pNameHost: windows_sys::core::PSTR,
 }
+impl Default for DNS_PTR_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_PTR_DATAW {
     pub pNameHost: windows_sys::core::PWSTR,
+}
+impl Default for DNS_PTR_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: DNS_QUERY_OPTIONS = 1u32;
 pub const DNS_QUERY_ADDRCONFIG: DNS_QUERY_OPTIONS = 8192u32;
@@ -553,6 +763,11 @@ pub const DNS_QUERY_CACHE_ONLY: DNS_QUERY_OPTIONS = 16u32;
 #[derive(Clone, Copy)]
 pub struct DNS_QUERY_CANCEL {
     pub Reserved: [i8; 32],
+}
+impl Default for DNS_QUERY_CANCEL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_QUERY_DISABLE_IDN_ENCODING: DNS_QUERY_OPTIONS = 2097152u32;
 pub const DNS_QUERY_DNSSEC_CHECKING_DISABLED: DNS_QUERY_OPTIONS = 33554432u32;
@@ -571,6 +786,11 @@ pub type DNS_QUERY_OPTIONS = u32;
 #[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_CANCEL {
     pub reserved: [i8; 32],
+}
+impl Default for DNS_QUERY_RAW_CANCEL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DNS_QUERY_RAW_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(querycontext: *const core::ffi::c_void, queryresults: *const DNS_QUERY_RAW_RESULT)>;
 pub const DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: DNS_QUERY_OPTIONS = 1u32;
@@ -593,10 +813,20 @@ pub struct DNS_QUERY_RAW_REQUEST {
     pub protocol: u32,
     pub Anonymous: DNS_QUERY_RAW_REQUEST_0,
 }
+impl Default for DNS_QUERY_RAW_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DNS_QUERY_RAW_REQUEST_0 {
     pub maxSa: [i8; 32],
+}
+impl Default for DNS_QUERY_RAW_REQUEST_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_QUERY_RAW_REQUEST_VERSION1: DNS_QUERY_OPTIONS = 1u32;
 #[repr(C)]
@@ -613,10 +843,20 @@ pub struct DNS_QUERY_RAW_RESULT {
     pub protocol: u32,
     pub Anonymous: DNS_QUERY_RAW_RESULT_0,
 }
+impl Default for DNS_QUERY_RAW_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DNS_QUERY_RAW_RESULT_0 {
     pub maxSa: [i8; 32],
+}
+impl Default for DNS_QUERY_RAW_RESULT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_QUERY_RAW_RESULTS_VERSION1: DNS_QUERY_OPTIONS = 1u32;
 #[repr(C)]
@@ -630,6 +870,11 @@ pub struct DNS_QUERY_REQUEST {
     pub InterfaceIndex: u32,
     pub pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
     pub pQueryContext: *mut core::ffi::c_void,
+}
+impl Default for DNS_QUERY_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -647,6 +892,11 @@ pub struct DNS_QUERY_REQUEST3 {
     pub cCustomServers: u32,
     pub pCustomServers: *mut DNS_CUSTOM_SERVER,
 }
+impl Default for DNS_QUERY_REQUEST3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DNS_QUERY_REQUEST_VERSION1: DNS_QUERY_OPTIONS = 1u32;
 pub const DNS_QUERY_REQUEST_VERSION2: DNS_QUERY_OPTIONS = 2u32;
 pub const DNS_QUERY_REQUEST_VERSION3: DNS_QUERY_OPTIONS = 3u32;
@@ -659,6 +909,11 @@ pub struct DNS_QUERY_RESULT {
     pub QueryOptions: u64,
     pub pQueryRecords: *mut DNS_RECORDA,
     pub Reserved: *mut core::ffi::c_void,
+}
+impl Default for DNS_QUERY_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_QUERY_RESULTS_VERSION1: DNS_QUERY_OPTIONS = 1u32;
 pub const DNS_QUERY_RETURN_MESSAGE: DNS_QUERY_OPTIONS = 512u32;
@@ -707,6 +962,11 @@ pub struct DNS_RECORDA {
     pub dwTtl: u32,
     pub dwReserved: u32,
     pub Data: DNS_RECORDA_1,
+}
+impl Default for DNS_RECORDA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -798,11 +1058,21 @@ pub union DNS_RECORDA_1 {
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: *mut u8,
 }
+impl Default for DNS_RECORDA_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DNS_RECORDA_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
+}
+impl Default for DNS_RECORDA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -815,6 +1085,11 @@ pub struct DNS_RECORDW {
     pub dwTtl: u32,
     pub dwReserved: u32,
     pub Data: DNS_RECORDW_1,
+}
+impl Default for DNS_RECORDW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -906,14 +1181,24 @@ pub union DNS_RECORDW_1 {
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: *mut u8,
 }
+impl Default for DNS_RECORDW_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DNS_RECORDW_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
+impl Default for DNS_RECORDW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_RECORD_FLAGS {
     pub _bitfield: u32,
 }
@@ -930,11 +1215,21 @@ pub struct DNS_RECORD_OPTW {
     pub wReserved: u16,
     pub Data: DNS_RECORD_OPTW_1,
 }
+impl Default for DNS_RECORD_OPTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DNS_RECORD_OPTW_1 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
+}
+impl Default for DNS_RECORD_OPTW_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -942,12 +1237,22 @@ pub union DNS_RECORD_OPTW_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
+impl Default for DNS_RECORD_OPTW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_RRSET {
     pub pFirstRR: *mut DNS_RECORDA,
     pub pLastRR: *mut DNS_RECORDA,
+}
+impl Default for DNS_RRSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_RTYPE_A: u32 = 256u32;
 pub const DNS_RTYPE_A6: u32 = 9728u32;
@@ -1022,16 +1327,31 @@ pub struct DNS_SERVICE_BROWSE_REQUEST {
     pub Anonymous: DNS_SERVICE_BROWSE_REQUEST_0,
     pub pQueryContext: *mut core::ffi::c_void,
 }
+impl Default for DNS_SERVICE_BROWSE_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DNS_SERVICE_BROWSE_REQUEST_0 {
     pub pBrowseCallback: PDNS_SERVICE_BROWSE_CALLBACK,
     pub pBrowseCallbackV2: PDNS_QUERY_COMPLETION_ROUTINE,
 }
+impl Default for DNS_SERVICE_BROWSE_REQUEST_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SERVICE_CANCEL {
     pub reserved: *mut core::ffi::c_void,
+}
+impl Default for DNS_SERVICE_CANCEL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1048,6 +1368,11 @@ pub struct DNS_SERVICE_INSTANCE {
     pub values: *mut windows_sys::core::PWSTR,
     pub dwInterfaceIndex: u32,
 }
+impl Default for DNS_SERVICE_INSTANCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SERVICE_REGISTER_REQUEST {
@@ -1059,6 +1384,11 @@ pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub hCredentials: super::super::Foundation::HANDLE,
     pub unicastEnabled: windows_sys::core::BOOL,
 }
+impl Default for DNS_SERVICE_REGISTER_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SERVICE_RESOLVE_REQUEST {
@@ -1067,6 +1397,11 @@ pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub QueryName: windows_sys::core::PWSTR,
     pub pResolveCompletionCallback: PDNS_SERVICE_RESOLVE_COMPLETE,
     pub pQueryContext: *mut core::ffi::c_void,
+}
+impl Default for DNS_SERVICE_RESOLVE_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1082,6 +1417,11 @@ pub struct DNS_SIG_DATAA {
     pub pNameSigner: windows_sys::core::PSTR,
     pub Signature: [u8; 1],
 }
+impl Default for DNS_SIG_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SIG_DATAW {
@@ -1096,6 +1436,11 @@ pub struct DNS_SIG_DATAW {
     pub pNameSigner: windows_sys::core::PWSTR,
     pub Signature: [u8; 1],
 }
+impl Default for DNS_SIG_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SOA_DATAA {
@@ -1106,6 +1451,11 @@ pub struct DNS_SOA_DATAA {
     pub dwRetry: u32,
     pub dwExpire: u32,
     pub dwDefaultTtl: u32,
+}
+impl Default for DNS_SOA_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1118,6 +1468,11 @@ pub struct DNS_SOA_DATAW {
     pub dwExpire: u32,
     pub dwDefaultTtl: u32,
 }
+impl Default for DNS_SOA_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SRV_DATAA {
@@ -1126,6 +1481,11 @@ pub struct DNS_SRV_DATAA {
     pub wWeight: u16,
     pub wPort: u16,
     pub Pad: u16,
+}
+impl Default for DNS_SRV_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1136,6 +1496,11 @@ pub struct DNS_SRV_DATAW {
     pub wPort: u16,
     pub Pad: u16,
 }
+impl Default for DNS_SRV_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SVCB_DATA {
@@ -1144,11 +1509,21 @@ pub struct DNS_SVCB_DATA {
     pub cSvcParams: u16,
     pub pSvcParams: *mut DNS_SVCB_PARAM,
 }
+impl Default for DNS_SVCB_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM {
     pub wSvcParamKey: u16,
     pub Anonymous: DNS_SVCB_PARAM_0,
+}
+impl Default for DNS_SVCB_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1162,11 +1537,21 @@ pub union DNS_SVCB_PARAM_0 {
     pub pszDohPath: windows_sys::core::PSTR,
     pub pReserved: *mut core::ffi::c_void,
 }
+impl Default for DNS_SVCB_PARAM_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_ALPN {
     pub cIds: u16,
     pub rgIds: [DNS_SVCB_PARAM_ALPN_ID; 1],
+}
+impl Default for DNS_SVCB_PARAM_ALPN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1174,11 +1559,21 @@ pub struct DNS_SVCB_PARAM_ALPN_ID {
     pub cBytes: u8,
     pub pbId: *mut u8,
 }
+impl Default for DNS_SVCB_PARAM_ALPN_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_IPV4 {
     pub cIps: u16,
     pub rgIps: [u32; 1],
+}
+impl Default for DNS_SVCB_PARAM_IPV4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1186,11 +1581,21 @@ pub struct DNS_SVCB_PARAM_IPV6 {
     pub cIps: u16,
     pub rgIps: [IP6_ADDRESS; 1],
 }
+impl Default for DNS_SVCB_PARAM_IPV6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_MANDATORY {
     pub cMandatoryKeys: u16,
     pub rgwMandatoryKeys: [u16; 1],
+}
+impl Default for DNS_SVCB_PARAM_MANDATORY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DNS_SVCB_PARAM_TYPE = i32;
 #[repr(C)]
@@ -1198,6 +1603,11 @@ pub type DNS_SVCB_PARAM_TYPE = i32;
 pub struct DNS_SVCB_PARAM_UNKNOWN {
     pub cBytes: u16,
     pub pbSvcParamValue: [u8; 1],
+}
+impl Default for DNS_SVCB_PARAM_UNKNOWN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1215,6 +1625,11 @@ pub struct DNS_TKEY_DATAA {
     pub cAlgNameLength: u8,
     pub bPacketPointers: windows_sys::core::BOOL,
 }
+impl Default for DNS_TKEY_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_TKEY_DATAW {
@@ -1231,6 +1646,11 @@ pub struct DNS_TKEY_DATAW {
     pub cAlgNameLength: u8,
     pub bPacketPointers: windows_sys::core::BOOL,
 }
+impl Default for DNS_TKEY_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DNS_TKEY_MODE_DIFFIE_HELLMAN: u32 = 2u32;
 pub const DNS_TKEY_MODE_GSS: u32 = 3u32;
 pub const DNS_TKEY_MODE_RESOLVER_ASSIGN: u32 = 4u32;
@@ -1244,6 +1664,11 @@ pub struct DNS_TLSA_DATA {
     pub bCertificateAssociationDataLength: u16,
     pub bPad: [u8; 3],
     pub bCertificateAssociationData: [u8; 1],
+}
+impl Default for DNS_TLSA_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1261,6 +1686,11 @@ pub struct DNS_TSIG_DATAA {
     pub cAlgNameLength: u8,
     pub bPacketPointers: windows_sys::core::BOOL,
 }
+impl Default for DNS_TSIG_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_TSIG_DATAW {
@@ -1277,17 +1707,32 @@ pub struct DNS_TSIG_DATAW {
     pub cAlgNameLength: u8,
     pub bPacketPointers: windows_sys::core::BOOL,
 }
+impl Default for DNS_TSIG_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_TXT_DATAA {
     pub dwStringCount: u32,
     pub pStringArray: [windows_sys::core::PSTR; 1],
 }
+impl Default for DNS_TXT_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_TXT_DATAW {
     pub dwStringCount: u32,
     pub pStringArray: [windows_sys::core::PWSTR; 1],
+}
+impl Default for DNS_TXT_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DNS_TYPE = u16;
 pub const DNS_TYPE_A: DNS_TYPE = 1u16;
@@ -1364,6 +1809,11 @@ pub struct DNS_UNKNOWN_DATA {
     pub dwByteCount: u32,
     pub bData: [u8; 1],
 }
+impl Default for DNS_UNKNOWN_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DNS_UPDATE_CACHE_SECURITY_CONTEXT: u32 = 512u32;
 pub const DNS_UPDATE_FORCE_SECURITY_NEGO: u32 = 2048u32;
 pub const DNS_UPDATE_REMOTE_SERVER: u32 = 16384u32;
@@ -1391,6 +1841,11 @@ pub struct DNS_WINSR_DATAA {
     pub dwCacheTimeout: u32,
     pub pNameResultDomain: windows_sys::core::PSTR,
 }
+impl Default for DNS_WINSR_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_WINSR_DATAW {
@@ -1398,6 +1853,11 @@ pub struct DNS_WINSR_DATAW {
     pub dwLookupTimeout: u32,
     pub dwCacheTimeout: u32,
     pub pNameResultDomain: windows_sys::core::PWSTR,
+}
+impl Default for DNS_WINSR_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1408,16 +1868,21 @@ pub struct DNS_WINS_DATA {
     pub cWinsServerCount: u32,
     pub WinsServers: [u32; 1],
 }
+impl Default for DNS_WINS_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DNS_WINS_FLAG_LOCAL: u32 = 65536u32;
 pub const DNS_WINS_FLAG_SCOPE: u32 = 2147483648u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_WIRE_QUESTION {
     pub QuestionType: u16,
     pub QuestionClass: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_WIRE_RECORD {
     pub RecordType: u16,
     pub RecordClass: u16,
@@ -1430,6 +1895,11 @@ pub struct DNS_WKS_DATA {
     pub IpAddress: u32,
     pub chProtocol: u8,
     pub BitMask: [u8; 1],
+}
+impl Default for DNS_WKS_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DnsCharSetAnsi: DNS_CHARSET = 3i32;
 pub const DnsCharSetUnicode: DNS_CHARSET = 1i32;
@@ -1486,6 +1956,11 @@ pub struct IP4_ARRAY {
     pub AddrCount: u32,
     pub AddrArray: [u32; 1],
 }
+impl Default for IP4_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -1493,6 +1968,12 @@ pub union IP6_ADDRESS {
     pub IP6Dword: [u32; 4],
     pub IP6Word: [u16; 8],
     pub IP6Byte: [u8; 16],
+}
+#[cfg(target_arch = "x86")]
+impl Default for IP6_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1502,6 +1983,12 @@ pub union IP6_ADDRESS {
     pub IP6Dword: [u32; 4],
     pub IP6Word: [u16; 8],
     pub IP6Byte: [u8; 16],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for IP6_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65u32;
 pub const IP6_ADDRESS_STRING_LENGTH: u32 = 65u32;
@@ -1513,6 +2000,11 @@ pub struct MDNS_QUERY_HANDLE {
     pub pSubscription: *mut core::ffi::c_void,
     pub pWnfCallbackParams: *mut core::ffi::c_void,
     pub stateNameData: [u32; 2],
+}
+impl Default for MDNS_QUERY_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1527,6 +2019,11 @@ pub struct MDNS_QUERY_REQUEST {
     pub pQueryContext: *mut core::ffi::c_void,
     pub fAnswerReceived: windows_sys::core::BOOL,
     pub ulResendCount: u32,
+}
+impl Default for MDNS_QUERY_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PDNS_QUERY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
 pub type PDNS_SERVICE_BROWSE_CALLBACK = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pdnsrecord: *const DNS_RECORDW)>;
@@ -1550,15 +2047,30 @@ pub struct _DnsRecordOptA {
     pub wReserved: u16,
     pub Data: _DnsRecordOptA_1,
 }
+impl Default for _DnsRecordOptA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union _DnsRecordOptA_1 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
 }
+impl Default for _DnsRecordOptA_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union _DnsRecordOptA_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
+}
+impl Default for _DnsRecordOptA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

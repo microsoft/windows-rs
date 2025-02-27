@@ -72,18 +72,18 @@ pub const ExParamTypeMax: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 6i32;
 pub const ExParamTypeTlsRestrictions: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 3i32;
 pub const ExParamTypeTlsSessionTicketKeys: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 5i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP2_SETTINGS_LIMITS_PARAM {
     pub Http2MaxSettingsPerFrame: u32,
     pub Http2MaxSettingsPerMinute: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP2_WINDOW_SIZE_PARAM {
     pub Http2ReceiveWindowSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTPAPI_VERSION {
     pub HttpApiMajorVersion: u16,
     pub HttpApiMinorVersion: u16,
@@ -99,7 +99,7 @@ pub const HTTP_AUTH_EX_FLAG_CAPTURE_CREDENTIAL: u32 = 2u32;
 pub const HTTP_AUTH_EX_FLAG_ENABLE_KERBEROS_CREDENTIAL_CACHING: u32 = 1u32;
 pub type HTTP_AUTH_STATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_BANDWIDTH_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub MaxBandwidth: u32,
@@ -110,14 +110,19 @@ pub struct HTTP_BINDING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub RequestQueueHandle: super::super::Foundation::HANDLE,
 }
+impl Default for HTTP_BINDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_BYTE_RANGE {
     pub StartingOffset: u64,
     pub Length: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_CACHE_POLICY {
     pub Policy: HTTP_CACHE_POLICY_TYPE,
     pub SecondsToLive: u32,
@@ -133,12 +138,17 @@ pub struct HTTP_CHANNEL_BIND_INFO {
     pub ServiceNames: *mut *mut HTTP_SERVICE_BINDING_BASE,
     pub NumberOfServiceNames: u32,
 }
+impl Default for HTTP_CHANNEL_BIND_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK: u32 = 2u32;
 pub const HTTP_CHANNEL_BIND_PROXY: u32 = 1u32;
 pub const HTTP_CHANNEL_BIND_PROXY_COHOSTING: u32 = 32u32;
 pub const HTTP_CHANNEL_BIND_SECURE_CHANNEL_TOKEN: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_CONNECTION_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub MaxConnections: u32,
@@ -155,6 +165,11 @@ pub struct HTTP_COOKED_URL {
     pub pAbsPath: windows_sys::core::PCWSTR,
     pub pQueryString: windows_sys::core::PCWSTR,
 }
+impl Default for HTTP_COOKED_URL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER: u32 = 2u32;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: u32 = 8u32;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: u32 = 1u32;
@@ -166,11 +181,21 @@ pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     pub PropertyInfoLength: u32,
     pub PropertyInfo: *mut core::ffi::c_void,
 }
+impl Default for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK {
     pub DataChunkType: HTTP_DATA_CHUNK_TYPE,
     pub Anonymous: HTTP_DATA_CHUNK_0,
+}
+impl Default for HTTP_DATA_CHUNK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -181,11 +206,21 @@ pub union HTTP_DATA_CHUNK_0 {
     pub FromFragmentCacheEx: HTTP_DATA_CHUNK_0_3,
     pub Trailers: HTTP_DATA_CHUNK_0_4,
 }
+impl Default for HTTP_DATA_CHUNK_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_1 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub FileHandle: super::super::Foundation::HANDLE,
+}
+impl Default for HTTP_DATA_CHUNK_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -193,11 +228,21 @@ pub struct HTTP_DATA_CHUNK_0_3 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub pFragmentName: windows_sys::core::PCWSTR,
 }
+impl Default for HTTP_DATA_CHUNK_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_2 {
     pub FragmentNameLength: u16,
     pub pFragmentName: windows_sys::core::PCWSTR,
+}
+impl Default for HTTP_DATA_CHUNK_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -205,11 +250,21 @@ pub struct HTTP_DATA_CHUNK_0_0 {
     pub pBuffer: *mut core::ffi::c_void,
     pub BufferLength: u32,
 }
+impl Default for HTTP_DATA_CHUNK_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_4 {
     pub TrailerCount: u16,
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
+}
+impl Default for HTTP_DATA_CHUNK_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HTTP_DATA_CHUNK_TYPE = i32;
 pub type HTTP_DELEGATE_REQUEST_PROPERTY_ID = i32;
@@ -220,6 +275,11 @@ pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     pub PropertyInfoLength: u32,
     pub PropertyInfo: *mut core::ffi::c_void,
 }
+impl Default for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HTTP_DEMAND_CBT: u32 = 4u32;
 pub type HTTP_ENABLED_STATE = i32;
 #[repr(C)]
@@ -229,9 +289,14 @@ pub struct HTTP_ERROR_HEADERS_PARAM {
     pub HeaderCount: u16,
     pub Headers: *mut HTTP_UNKNOWN_HEADER,
 }
+impl Default for HTTP_ERROR_HEADERS_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTTP_FEATURE_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_FLOWRATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub MaxBandwidth: u32,
@@ -249,8 +314,13 @@ pub struct HTTP_KNOWN_HEADER {
     pub RawValueLength: u16,
     pub pRawValue: windows_sys::core::PCSTR,
 }
+impl Default for HTTP_KNOWN_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_LISTEN_ENDPOINT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub EnableSharing: bool,
@@ -278,10 +348,16 @@ pub struct HTTP_LOGGING_INFO {
     pub RolloverSize: u32,
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for HTTP_LOGGING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTTP_LOGGING_ROLLOVER_TYPE = i32;
 pub type HTTP_LOGGING_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_LOG_DATA {
     pub Type: HTTP_LOG_DATA_TYPE,
 }
@@ -319,6 +395,11 @@ pub struct HTTP_LOG_FIELDS_DATA {
     pub Win32Status: u32,
     pub MethodNum: HTTP_VERB,
     pub SubStatus: u16,
+}
+impl Default for HTTP_LOG_FIELDS_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_LOG_FIELD_BYTES_RECV: u32 = 8192u32;
 pub const HTTP_LOG_FIELD_BYTES_SENT: u32 = 4096u32;
@@ -362,6 +443,11 @@ pub struct HTTP_MULTIPLE_KNOWN_HEADERS {
     pub KnownHeaderCount: u16,
     pub KnownHeaders: *mut HTTP_KNOWN_HEADER,
 }
+impl Default for HTTP_MULTIPLE_KNOWN_HEADERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_PERFORMANCE_PARAM {
@@ -369,14 +455,19 @@ pub struct HTTP_PERFORMANCE_PARAM {
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
 }
+impl Default for HTTP_PERFORMANCE_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTTP_PERFORMANCE_PARAM_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_PROPERTY_FLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_PROTECTION_LEVEL_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub Level: HTTP_PROTECTION_LEVEL_TYPE,
@@ -388,25 +479,30 @@ pub struct HTTP_QOS_SETTING_INFO {
     pub QosType: HTTP_QOS_SETTING_TYPE,
     pub QosSetting: *mut core::ffi::c_void,
 }
+impl Default for HTTP_QOS_SETTING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTTP_QOS_SETTING_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     pub Freshness: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_QUERY_REQUEST_QUALIFIER_TCP {
     pub Freshness: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_QUIC_API_TIMINGS {
     pub ConnectionTimings: HTTP_QUIC_CONNECTION_API_TIMINGS,
     pub StreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_QUIC_CONNECTION_API_TIMINGS {
     pub OpenTime: u64,
     pub CloseTime: u64,
@@ -423,7 +519,7 @@ pub struct HTTP_QUIC_CONNECTION_API_TIMINGS {
     pub ControlStreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_QUIC_STREAM_API_TIMINGS {
     pub OpenCount: u64,
     pub OpenSum: u64,
@@ -445,7 +541,7 @@ pub struct HTTP_QUIC_STREAM_API_TIMINGS {
     pub SetCallbackHandlerSum: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_QUIC_STREAM_REQUEST_STATS {
     pub StreamWaitStart: u64,
     pub StreamWaitEnd: u64,
@@ -480,6 +576,11 @@ pub struct HTTP_REQUEST_AUTH_INFO {
     pub PackageNameLength: u16,
     pub pPackageName: windows_sys::core::PWSTR,
 }
+impl Default for HTTP_REQUEST_AUTH_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTTP_REQUEST_AUTH_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -488,6 +589,11 @@ pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
     pub ChannelToken: *mut u8,
     pub ChannelTokenSize: u32,
     pub Flags: u32,
+}
+impl Default for HTTP_REQUEST_CHANNEL_BIND_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_REQUEST_FLAG_HTTP2: u32 = 4u32;
 pub const HTTP_REQUEST_FLAG_HTTP3: u32 = 8u32;
@@ -502,12 +608,22 @@ pub struct HTTP_REQUEST_HEADERS {
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
     pub KnownHeaders: [HTTP_KNOWN_HEADER; 41],
 }
+impl Default for HTTP_REQUEST_HEADERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_INFO {
     pub InfoType: HTTP_REQUEST_INFO_TYPE,
     pub InfoLength: u32,
     pub pInfo: *mut core::ffi::c_void,
+}
+impl Default for HTTP_REQUEST_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HTTP_REQUEST_INFO_TYPE = i32;
 pub type HTTP_REQUEST_PROPERTY = i32;
@@ -517,11 +633,16 @@ pub struct HTTP_REQUEST_PROPERTY_SNI {
     pub Hostname: [u16; 256],
     pub Flags: u32,
 }
+impl Default for HTTP_REQUEST_PROPERTY_SNI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_NO_SNI: u32 = 2u32;
 pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_SNI_USED: u32 = 1u32;
 pub const HTTP_REQUEST_PROPERTY_SNI_HOST_MAX_LENGTH: u32 = 255u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_REQUEST_PROPERTY_STREAM_ERROR {
     pub ErrorCode: u32,
 }
@@ -532,6 +653,11 @@ pub struct HTTP_REQUEST_SIZING_INFO {
     pub RequestIndex: u32,
     pub RequestSizingCount: u32,
     pub RequestSizing: [u64; 5],
+}
+impl Default for HTTP_REQUEST_SIZING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_FIRST_REQUEST: u32 = 8u32;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TCP_FAST_OPEN: u32 = 1u32;
@@ -544,6 +670,11 @@ pub struct HTTP_REQUEST_TIMING_INFO {
     pub RequestTimingCount: u32,
     pub RequestTiming: [u64; 30],
 }
+impl Default for HTTP_REQUEST_TIMING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTTP_REQUEST_TIMING_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -553,6 +684,11 @@ pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
     pub EKM: *mut u8,
     pub EKMSize: u32,
     pub KeyType: u8,
+}
+impl Default for HTTP_REQUEST_TOKEN_BINDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -577,6 +713,12 @@ pub struct HTTP_REQUEST_V1 {
     pub RawConnectionId: u64,
     pub pSslInfo: *mut HTTP_SSL_INFO,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for HTTP_REQUEST_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -584,6 +726,12 @@ pub struct HTTP_REQUEST_V2 {
     pub Base: HTTP_REQUEST_V1,
     pub RequestInfoCount: u16,
     pub pRequestInfo: *mut HTTP_REQUEST_INFO,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for HTTP_REQUEST_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 2u32;
 pub const HTTP_RESPONSE_FLAG_MULTIPLE_ENCODINGS_AVAILABLE: u32 = 1u32;
@@ -596,12 +744,22 @@ pub struct HTTP_RESPONSE_HEADERS {
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
     pub KnownHeaders: [HTTP_KNOWN_HEADER; 30],
 }
+impl Default for HTTP_RESPONSE_HEADERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_INFO {
     pub Type: HTTP_RESPONSE_INFO_TYPE,
     pub Length: u32,
     pub pInfo: *mut core::ffi::c_void,
+}
+impl Default for HTTP_RESPONSE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: u32 = 1u32;
 pub type HTTP_RESPONSE_INFO_TYPE = i32;
@@ -617,12 +775,22 @@ pub struct HTTP_RESPONSE_V1 {
     pub EntityChunkCount: u16,
     pub pEntityChunks: *mut HTTP_DATA_CHUNK,
 }
+impl Default for HTTP_RESPONSE_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_V2 {
     pub Base: HTTP_RESPONSE_V1,
     pub ResponseInfoCount: u16,
     pub pResponseInfo: *mut HTTP_RESPONSE_INFO,
+}
+impl Default for HTTP_RESPONSE_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HTTP_SCHEME = i32;
 pub const HTTP_SEND_RESPONSE_FLAG_BUFFER_DATA: u32 = 4u32;
@@ -638,6 +806,11 @@ pub struct HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     pub RealmLength: u16,
     pub Realm: windows_sys::core::PWSTR,
 }
+impl Default for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
@@ -646,8 +819,13 @@ pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     pub RealmLength: u16,
     pub Realm: windows_sys::core::PWSTR,
 }
+impl Default for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub AuthSchemes: u32,
@@ -666,8 +844,13 @@ pub struct HTTP_SERVICE_BINDING_A {
     pub Buffer: windows_sys::core::PSTR,
     pub BufferSize: u32,
 }
+impl Default for HTTP_SERVICE_BINDING_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_BINDING_BASE {
     pub Type: HTTP_SERVICE_BINDING_TYPE,
 }
@@ -679,9 +862,14 @@ pub struct HTTP_SERVICE_BINDING_W {
     pub Buffer: windows_sys::core::PWSTR,
     pub BufferSize: u32,
 }
+impl Default for HTTP_SERVICE_BINDING_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTTP_SERVICE_CONFIG_CACHE_KEY = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_CACHE_KEY,
     pub ParamDesc: u32,
@@ -694,6 +882,12 @@ pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     pub AddrLength: u16,
     pub pAddress: *mut super::WinSock::SOCKADDR,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -701,23 +895,29 @@ pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     pub AddrCount: u32,
     pub AddrList: [super::WinSock::SOCKADDR_STORAGE; 1],
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTTP_SERVICE_CONFIG_QUERY_TYPE = i32;
 pub type HTTP_SERVICE_CONFIG_SETTING_KEY = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SETTING_KEY,
     pub ParamDesc: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
@@ -725,7 +925,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
@@ -734,7 +934,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
@@ -745,6 +945,12 @@ pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_HTTP2: u32 = 16u32;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_LEGACY_TLS: u32 = 1024u32;
@@ -767,9 +973,15 @@ pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: u32 = 1u32;
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY {
     pub pIpPort: *mut super::WinSock::SOCKADDR,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for HTTP_SERVICE_CONFIG_SSL_KEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     pub IpPort: super::WinSock::SOCKADDR_STORAGE,
 }
@@ -787,12 +999,22 @@ pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
     pub pDefaultSslCtlStoreName: windows_sys::core::PWSTR,
     pub DefaultFlags: u32,
 }
+impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
     pub Flags: u64,
     pub Anonymous: HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0,
+}
+impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -804,9 +1026,14 @@ pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     pub HttpErrorHeadersParam: HTTP_ERROR_HEADERS_PARAM,
     pub HttpTlsSessionTicketKeysParam: HTTP_TLS_SESSION_TICKET_KEYS_PARAM,
 }
+impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
@@ -814,7 +1041,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
@@ -823,7 +1050,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
@@ -835,6 +1062,12 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for HTTP_SERVICE_CONFIG_SSL_SET_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -842,9 +1075,15 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     pub IpPort: super::WinSock::SOCKADDR_STORAGE,
     pub Host: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
@@ -852,7 +1091,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
@@ -861,7 +1100,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
@@ -873,9 +1112,15 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTTP_SERVICE_CONFIG_TIMEOUT_KEY = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_TIMEOUT_KEY,
     pub ParamDesc: u16,
@@ -885,20 +1130,30 @@ pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET {
 pub struct HTTP_SERVICE_CONFIG_URLACL_KEY {
     pub pUrlPrefix: windows_sys::core::PWSTR,
 }
+impl Default for HTTP_SERVICE_CONFIG_URLACL_KEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_PARAM {
     pub pStringSecurityDescriptor: windows_sys::core::PWSTR,
 }
+impl Default for HTTP_SERVICE_CONFIG_URLACL_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
     pub dwToken: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_URLACL_PARAM,
@@ -912,6 +1167,11 @@ pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub Token: super::super::Foundation::HANDLE,
     pub CertDeniedByMapper: bool,
 }
+impl Default for HTTP_SSL_CLIENT_CERT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_SSL_INFO {
@@ -924,8 +1184,13 @@ pub struct HTTP_SSL_INFO {
     pub pClientCertInfo: *mut HTTP_SSL_CLIENT_CERT_INFO,
     pub SslClientCertNegotiated: u32,
 }
+impl Default for HTTP_SSL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_SSL_PROTOCOL_INFO {
     pub Protocol: u32,
     pub CipherType: u32,
@@ -937,13 +1202,13 @@ pub struct HTTP_SSL_PROTOCOL_INFO {
 }
 pub type HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_STATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub State: HTTP_ENABLED_STATE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_TIMEOUT_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub EntityBody: u16,
@@ -959,11 +1224,21 @@ pub struct HTTP_TLS_RESTRICTIONS_PARAM {
     pub RestrictionCount: u32,
     pub TlsRestrictions: *mut core::ffi::c_void,
 }
+impl Default for HTTP_TLS_RESTRICTIONS_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     pub SessionTicketKeyCount: u32,
     pub SessionTicketKeys: *mut core::ffi::c_void,
+}
+impl Default for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -971,6 +1246,12 @@ pub struct HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
 pub struct HTTP_TRANSPORT_ADDRESS {
     pub pRemoteAddress: *mut super::WinSock::SOCKADDR,
     pub pLocalAddress: *mut super::WinSock::SOCKADDR,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for HTTP_TRANSPORT_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -980,17 +1261,22 @@ pub struct HTTP_UNKNOWN_HEADER {
     pub pName: windows_sys::core::PCSTR,
     pub pRawValue: windows_sys::core::PCSTR,
 }
+impl Default for HTTP_UNKNOWN_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
 pub type HTTP_VERB = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
 pub const HTTP_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("HTTP/1.0");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_WSK_API_TIMINGS {
     pub ConnectCount: u64,
     pub ConnectSum: u64,
