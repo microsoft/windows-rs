@@ -20,7 +20,13 @@ use core::ptr::NonNull;
 pub trait ComObjectInner: Sized {
     /// The generated `<foo>_Impl` type (aka the "boxed" type or "outer" type).
     type Outer: IUnknownImpl<Impl = Self>;
+}
 
+/// Describes type that can be placed into a `ComObject`.
+///
+/// This trait is defined by types marked with `#[implement]`, unless those types are "aggregated"
+/// types (subclasses / derived classes).  Aggregated class implement `AggregatedIntoComObject`.
+pub trait IntoComObject: Sized + ComObjectInner {
     /// Moves an instance of this type into a new ComObject box and returns it.
     ///
     /// # Safety
@@ -40,6 +46,19 @@ pub trait ComObjectInner: Sized {
     /// This ensures that our requirement -- that safe Rust code never own a `<foo>_Impl` value
     /// directly -- is met.
     fn into_object(self) -> ComObject<Self>;
+}
+
+/// Describes a type that can be placed into a `ComObject`, where the type aggregates over
+/// another type.
+pub trait IntoAggregatedComObject: Sized + ComObjectInner {
+    /// The base type
+    type Base: ComObjectInner;
+
+    /// Moves an instance of this type into a new `ComObject` box and returns it.
+    ///
+    /// This has an `unsafe` signature because it requires an instance of the "outer" type of its
+    /// base class.
+    unsafe fn into_object(self, base: <Self::Base as ComObjectInner>::Outer) -> ComObject<Self>;
 }
 
 /// Describes the COM interfaces implemented by a specific COM object.
@@ -75,10 +94,60 @@ pub struct ComObject<T: ComObjectInner> {
     ptr: NonNull<T::Outer>,
 }
 
+/// This is a hand-rolled vtable for `ComObjectLayout<T>`.
+pub struct ComObjectVtbl {
+    /// QueryInterface impl
+    pub query_interface: unsafe fn(
+        *const Self,
+        iid: *const crate::GUID,
+        interface: *mut *mut ::core::ffi::c_void,
+    ) -> crate::HRESULT,
+
+    /// Destructor
+    pub drop_in_place: unsafe fn(*mut Self),
+}
+
 impl<T: ComObjectInner> ComObject<T> {
     /// Allocates a heap cell (box) and moves `value` into it. Returns a counted pointer to `value`.
-    pub fn new(value: T) -> Self {
+    pub fn new(value: T) -> Self
+    where
+        T: IntoComObject,
+    {
         T::into_object(value)
+    }
+
+    /// Allocates a heap cell (box) and moves `value` into it. Returns a counted pointer to `value`.
+    ///
+    /// The `base` object is _required_ to have a refcount of 1.
+    ///
+    /// # Panics
+    ///
+    /// * If `base` has a reference counter not equal to 1, this will panic.
+    pub fn new_aggregated(value: T, base: ComObject<T::Base>) -> Self
+    where
+        T: IntoAggregatedComObject,
+    {
+        unsafe {
+            let base_box: Box<<T::Base as ComObjectInner>::Outer> = base
+                .try_into_box()
+                .unwrap_or_else(|_| panic!("Base class should have a refcount of 1, but does not"));
+            let base_unwrapped = *base_box;
+            T::into_object(value, base_unwrapped)
+        }
+    }
+
+    unsafe fn try_into_box(self) -> Result<Box<T::Outer>, Self> {
+        if self.is_reference_count_one() {
+            let ptr = self.ptr;
+
+            unsafe {
+                let this_box = Box::from_raw(ptr.as_ptr());
+                core::mem::forget(self);
+                Ok(this_box)
+            }
+        } else {
+            Err(self)
+        }
     }
 
     /// Creates a new `ComObject` that points to an existing boxed instance.
@@ -221,7 +290,7 @@ impl<T: ComObjectInner> ComObject<T> {
     }
 }
 
-impl<T: ComObjectInner + Default> Default for ComObject<T> {
+impl<T: ComObjectInner + Default + IntoComObject> Default for ComObject<T> {
     fn default() -> Self {
         Self::new(T::default())
     }
@@ -230,7 +299,7 @@ impl<T: ComObjectInner + Default> Default for ComObject<T> {
 impl<T: ComObjectInner> Drop for ComObject<T> {
     fn drop(&mut self) {
         unsafe {
-            T::Outer::Release(self.ptr.as_ptr());
+            T::Outer::release_ref(self.ptr.as_ptr());
         }
     }
 }
@@ -239,7 +308,7 @@ impl<T: ComObjectInner> Clone for ComObject<T> {
     #[inline(always)]
     fn clone(&self) -> Self {
         unsafe {
-            self.ptr.as_ref().AddRef();
+            self.ptr.as_ref().add_ref();
             Self { ptr: self.ptr }
         }
     }
@@ -266,7 +335,7 @@ impl<T: ComObjectInner> Deref for ComObject<T> {
 // access to the contents of the object. Use get_mut() for dynamically-checked
 // exclusive access.
 
-impl<T: ComObjectInner> From<T> for ComObject<T> {
+impl<T: ComObjectInner + IntoComObject> From<T> for ComObject<T> {
     fn from(value: T) -> ComObject<T> {
         ComObject::new(value)
     }

@@ -32,7 +32,7 @@ mod tests;
 ///     }
 /// }
 ///
-/// let object: IValue = Value(123).into();
+/// let object: IValue = ComObject::new(Value(123)).into_interface();
 /// // Call interface methods...
 /// ```
 #[proc_macro_attribute]
@@ -48,14 +48,18 @@ fn implement_core(
     item_tokens: proc_macro2::TokenStream,
 ) -> proc_macro2::TokenStream {
     let attributes = syn::parse2::<ImplementAttributes>(attributes).unwrap();
-    let original_type = syn::parse2::<syn::ItemStruct>(item_tokens).unwrap();
+    let mut original_type = syn::parse2::<syn::ItemStruct>(item_tokens).unwrap();
 
     // Do a little thinking and assemble ImplementInputs.  We pass ImplementInputs to
     // all of our gen_* function.
+
+    let base_class_info = parse_base_class_info(&mut original_type).unwrap();
+
     let inputs = ImplementInputs {
         original_ident: original_type.ident.clone(),
         interface_chains: convert_implements_to_interface_chains(attributes.implement),
         trust_level: attributes.trust_level,
+        base_class_info,
         impl_ident: quote::format_ident!("{}_Impl", &original_type.ident),
         constraints: {
             if let Some(where_clause) = &original_type.generics.where_clause {
@@ -84,10 +88,12 @@ fn implement_core(
     tokens
 }
 
-/// This provides the inputs to the `gen_*` functions, which generate the proc macro output.
 struct ImplementInputs {
     /// The user's type that was marked with `#[implement]`.
     original_type: syn::ItemStruct,
+
+    /// Describes the base class, if any.
+    base_class_info: Option<BaseClassInfo>,
 
     /// The identifier for the user's original type definition.
     original_ident: syn::Ident,
@@ -122,6 +128,62 @@ struct InterfaceChain {
     vtable_const_ident: syn::Ident,
 
     implement: ImplementType,
+}
+
+struct BaseClassInfo {
+    field_ident: syn::Ident,
+    /// A type specifier for the `Base_Impl` type.
+    field_ty: syn::Type,
+}
+
+/// Check the user type definition for a field marked with `#[base]`. If we find one, then
+/// _remove_ the attribute from the field and return it.
+///
+/// If a field is marked with `#[base]`, then the type of that field must specify an "outer"
+/// implementation type, e.g. `Base_Impl`, _not_ a `Base` type. This function cannot verify that;
+/// instead, we generate code and rely on the compiler to verify our requirements.
+fn parse_base_class_info(
+    original_type: &mut syn::ItemStruct,
+) -> Result<Option<BaseClassInfo>, syn::Error> {
+    // Declaring a base class requires using named field syntax.
+    // We ignore struct definitions that don't use named field syntax (i.e. types and unit).
+    let syn::Fields::Named(ref mut named) = original_type.fields else {
+        return Ok(None);
+    };
+
+    let mut base_class_info: Option<BaseClassInfo> = None;
+
+    let mut new_fields = syn::punctuated::Punctuated::new();
+
+    for field_pair in core::mem::take(&mut named.named).into_pairs() {
+        let (mut field, field_punct) = field_pair.into_tuple();
+
+        let field_ident: syn::Ident = field.ident.clone().unwrap();
+        if let Some(base_attr_index) = field.attrs.iter().position(|a| a.path().is_ident("base")) {
+            if base_class_info.is_some() {
+                return Err(syn::Error::new(
+                    field_ident.span(),
+                    "cannot declare more than one field with #[base]",
+                ));
+            } else {
+                // Remove the attribute, so that it is not emitted later.
+                field.attrs.remove(base_attr_index);
+                base_class_info = Some(BaseClassInfo {
+                    field_ident,
+                    field_ty: field.ty,
+                });
+            }
+        } else {
+            // Normal field.
+            new_fields.push_value(field);
+            if let Some(p) = field_punct {
+                new_fields.push_punct(p);
+            }
+        }
+    }
+
+    named.named = new_fields;
+    Ok(base_class_info)
 }
 
 struct ImplementType {

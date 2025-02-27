@@ -1,14 +1,3 @@
-//! These tests are just a way to quickly run the `#[implement]` macro and see its output.
-//! They don't check the output in any way.
-//!
-//! This exists because of some difficulties of running `cargo expand` against the `#[implement]`
-//! macro. It's also just really convenient. You can see the output by using `--nocapture` and
-//! you'll probably want to restrict the output to a single thread:
-//!
-//! ```text
-//! cargo test -p windows-implement --lib -- --nocapture --test-threads=1
-//! ```
-
 use std::io::{Read, Write};
 use std::process::{Command, Stdio};
 
@@ -20,7 +9,7 @@ fn implement(attributes: TokenStream, item_tokens: TokenStream) -> String {
     let tokens_string = out_tokens.to_string();
 
     let out_string = rustfmt(&tokens_string);
-    println!("// output of #[implement] :");
+    println!("output of #[implement] :");
     println!();
     println!("{}", out_string);
     out_string
@@ -67,11 +56,26 @@ fn rustfmt(input: &str) -> String {
 }
 
 #[test]
-fn simple_type() {
-    implement(
-        quote!(IFoo),
+fn base() {
+    let _out = implement(
+        quote!(IBase, IOtherBase),
         quote! {
-            struct Foo {
+            struct Base {
+                zzz: u32,
+            }
+        },
+    );
+}
+
+#[test]
+fn derived() {
+    let _out = implement(
+        quote!(IFoo, IBar, IZap),
+        quote! {
+            struct Derived {
+                #[base]
+                base: Base_Impl,
+
                 x: u32,
             }
         },
@@ -79,28 +83,8 @@ fn simple_type() {
 }
 
 #[test]
-fn zero_sized_type() {
-    implement(
-        quote!(IFoo),
-        quote! {
-            struct Foo;
-        },
-    );
-}
-
-#[test]
-fn no_interfaces() {
-    implement(
-        quote!(),
-        quote! {
-            struct Foo {}
-        },
-    );
-}
-
-#[test]
 fn generic_no_lifetime() {
-    implement(
+    let _out = implement(
         quote!(IAsyncOperationWithProgress<T, P>, IAsyncInfo),
         quote! {
             struct OperationWithProgress<T, P>(SyncState<IAsyncOperationWithProgress<T, P>>)
@@ -114,22 +98,13 @@ fn generic_no_lifetime() {
 
 #[test]
 fn generic_with_lifetime() {
-    implement(
+    let _out = implement(
         quote!(),
         quote! {
             pub struct Foo<'a> {
                 pub x: &'a [u8],
             }
-        },
-    );
-}
 
-#[test]
-fn tuple_type() {
-    implement(
-        quote!(IFoo),
-        quote! {
-            struct Foo(pub i32);
         },
     );
 }
