@@ -158,24 +158,43 @@ impl Type {
 
     pub fn remap(type_name: TypeName) -> Remap {
         match type_name {
-            TypeName::GUID => Remap::Type(Self::GUID),
-            TypeName::HResult => Remap::Type(Self::HRESULT),
-            TypeName::HRESULT => Remap::Type(Self::HRESULT),
-            TypeName::PSTR => Remap::Type(Self::PSTR),
-            TypeName::PWSTR => Remap::Type(Self::PWSTR),
-            TypeName::HSTRING => Remap::Type(Self::String),
-            TypeName::BSTR => Remap::Type(Self::BSTR),
-            TypeName::IInspectable => Remap::Type(Self::Object),
-            TypeName::CHAR => Remap::Type(Self::I8),
-            TypeName::BOOLEAN => Remap::Type(Self::Bool),
-            TypeName::BOOL => Remap::Type(Self::BOOL),
-            TypeName::IUnknown => Remap::Type(Self::IUnknown),
-            TypeName::Type => Remap::Type(Self::Type),
-            TypeName::EventRegistrationToken => Remap::Type(Type::I64),
-            TypeName::EventRegistrationToken2 => Remap::Type(Type::I64),
+            TypeName("System", "Guid") => Remap::Type(Self::GUID),
+            TypeName("Windows.Win32.Foundation", "PSTR") => Remap::Type(Self::PSTR),
+            TypeName("Windows.Win32.Foundation", "PWSTR") => Remap::Type(Self::PWSTR),
+            TypeName("Windows.Win32.System.WinRT", "HSTRING") => Remap::Type(Self::String),
+            TypeName("Windows.Win32.Foundation", "BSTR") => Remap::Type(Self::BSTR),
+            TypeName("Windows.Win32.System.WinRT", "IInspectable") => Remap::Type(Self::Object),
+            TypeName("Windows.Win32.Foundation", "CHAR") => Remap::Type(Self::I8),
+            TypeName("Windows.Win32.Foundation", "BOOLEAN") => Remap::Type(Self::Bool),
+            TypeName("Windows.Win32.Foundation", "BOOL") => Remap::Type(Self::BOOL),
+            TypeName("Windows.Win32.System.Com", "IUnknown") => Remap::Type(Self::IUnknown),
+            TypeName("System", "Type") => Remap::Type(Self::Type),
 
-            TypeName::D2D_MATRIX_3X2_F => Remap::Name(TypeName::Matrix3x2),
-            TypeName::D3DMATRIX => Remap::Name(TypeName::Matrix4x4),
+            TypeName("Windows.Foundation", "HResult")
+            | TypeName("Windows.Win32.Foundation", "HRESULT") => Remap::Type(Self::HRESULT),
+
+            TypeName("Windows.Foundation", "EventRegistrationToken")
+            | TypeName("Windows.Win32.System.WinRT", "EventRegistrationToken") => {
+                Remap::Type(Type::I64)
+            }
+
+            TypeName("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F") => {
+                Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix3x2"))
+            }
+
+            TypeName("Windows.Win32.Graphics.Direct3D", "D3DMATRIX")
+            | TypeName("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_4X4_F") => {
+                Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix4x4"))
+            }
+
+            TypeName("Windows.Win32.Graphics.Direct2D.Common", "D2D_POINT_2F")
+            | TypeName("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_2F") => {
+                Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector2"))
+            }
+
+            TypeName("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_4F") => {
+                Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector4"))
+            }
 
             _ => Remap::None,
         }
