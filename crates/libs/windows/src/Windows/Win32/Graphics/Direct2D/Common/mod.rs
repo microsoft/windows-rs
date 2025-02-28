@@ -17,9 +17,9 @@ pub const D2D1_ALPHA_MODE_UNKNOWN: D2D1_ALPHA_MODE = D2D1_ALPHA_MODE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_BEZIER_SEGMENT {
-    pub point1: D2D_POINT_2F,
-    pub point2: D2D_POINT_2F,
-    pub point3: D2D_POINT_2F,
+    pub point1: windows_numerics::Vector2,
+    pub point2: windows_numerics::Vector2,
+    pub point3: windows_numerics::Vector2,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -203,47 +203,6 @@ pub struct D2D_MATRIX_4X3_F_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct D2D_MATRIX_4X4_F {
-    pub Anonymous: D2D_MATRIX_4X4_F_0,
-}
-impl Default for D2D_MATRIX_4X4_F {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D2D_MATRIX_4X4_F_0 {
-    pub Anonymous: D2D_MATRIX_4X4_F_0_0,
-    pub m: [f32; 16],
-}
-impl Default for D2D_MATRIX_4X4_F_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D2D_MATRIX_4X4_F_0_0 {
-    pub _11: f32,
-    pub _12: f32,
-    pub _13: f32,
-    pub _14: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _23: f32,
-    pub _24: f32,
-    pub _31: f32,
-    pub _32: f32,
-    pub _33: f32,
-    pub _34: f32,
-    pub _41: f32,
-    pub _42: f32,
-    pub _43: f32,
-    pub _44: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct D2D_MATRIX_5X4_F {
     pub Anonymous: D2D_MATRIX_5X4_F_0,
 }
@@ -289,12 +248,6 @@ pub struct D2D_MATRIX_5X4_F_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D2D_POINT_2F {
-    pub x: f32,
-    pub y: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D_POINT_2U {
     pub x: u32,
     pub y: u32,
@@ -329,24 +282,10 @@ pub struct D2D_SIZE_U {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D2D_VECTOR_2F {
-    pub x: f32,
-    pub y: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D_VECTOR_3F {
     pub x: f32,
     pub y: f32,
     pub z: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D2D_VECTOR_4F {
-    pub x: f32,
-    pub y: f32,
-    pub z: f32,
-    pub w: f32,
 }
 windows_core::imp::define_interface!(ID2D1SimplifiedGeometrySink, ID2D1SimplifiedGeometrySink_Vtbl, 0x2cd9069e_12e2_11dc_9fed_001143a055f9);
 windows_core::imp::interface_hierarchy!(ID2D1SimplifiedGeometrySink, windows_core::IUnknown);
@@ -357,10 +296,10 @@ impl ID2D1SimplifiedGeometrySink {
     pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
         unsafe { (windows_core::Interface::vtable(self).SetSegmentFlags)(windows_core::Interface::as_raw(self), vertexflags) }
     }
-    pub unsafe fn BeginFigure(&self, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
+    pub unsafe fn BeginFigure(&self, startpoint: windows_numerics::Vector2, figurebegin: D2D1_FIGURE_BEGIN) {
         unsafe { (windows_core::Interface::vtable(self).BeginFigure)(windows_core::Interface::as_raw(self), core::mem::transmute(startpoint), figurebegin) }
     }
-    pub unsafe fn AddLines(&self, points: &[D2D_POINT_2F]) {
+    pub unsafe fn AddLines(&self, points: &[windows_numerics::Vector2]) {
         unsafe { (windows_core::Interface::vtable(self).AddLines)(windows_core::Interface::as_raw(self), core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap()) }
     }
     pub unsafe fn AddBeziers(&self, beziers: &[D2D1_BEZIER_SEGMENT]) {
@@ -378,8 +317,8 @@ pub struct ID2D1SimplifiedGeometrySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFillMode: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_FILL_MODE),
     pub SetSegmentFlags: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_PATH_SEGMENT),
-    pub BeginFigure: unsafe extern "system" fn(*mut core::ffi::c_void, D2D_POINT_2F, D2D1_FIGURE_BEGIN),
-    pub AddLines: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D_POINT_2F, u32),
+    pub BeginFigure: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2, D2D1_FIGURE_BEGIN),
+    pub AddLines: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector2, u32),
     pub AddBeziers: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_BEZIER_SEGMENT, u32),
     pub EndFigure: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_FIGURE_END),
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -389,8 +328,8 @@ unsafe impl Sync for ID2D1SimplifiedGeometrySink {}
 pub trait ID2D1SimplifiedGeometrySink_Impl: windows_core::IUnknownImpl {
     fn SetFillMode(&self, fillmode: D2D1_FILL_MODE);
     fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT);
-    fn BeginFigure(&self, startpoint: &D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN);
-    fn AddLines(&self, points: *const D2D_POINT_2F, pointscount: u32);
+    fn BeginFigure(&self, startpoint: &windows_numerics::Vector2, figurebegin: D2D1_FIGURE_BEGIN);
+    fn AddLines(&self, points: *const windows_numerics::Vector2, pointscount: u32);
     fn AddBeziers(&self, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32);
     fn EndFigure(&self, figureend: D2D1_FIGURE_END);
     fn Close(&self) -> windows_core::Result<()>;
@@ -409,13 +348,13 @@ impl ID2D1SimplifiedGeometrySink_Vtbl {
                 ID2D1SimplifiedGeometrySink_Impl::SetSegmentFlags(this, core::mem::transmute_copy(&vertexflags))
             }
         }
-        unsafe extern "system" fn BeginFigure<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
+        unsafe extern "system" fn BeginFigure<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: windows_numerics::Vector2, figurebegin: D2D1_FIGURE_BEGIN) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1SimplifiedGeometrySink_Impl::BeginFigure(this, core::mem::transmute(&startpoint), core::mem::transmute_copy(&figurebegin))
             }
         }
-        unsafe extern "system" fn AddLines<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, points: *const D2D_POINT_2F, pointscount: u32) {
+        unsafe extern "system" fn AddLines<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, points: *const windows_numerics::Vector2, pointscount: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID2D1SimplifiedGeometrySink_Impl::AddLines(this, core::mem::transmute_copy(&points), core::mem::transmute_copy(&pointscount))
