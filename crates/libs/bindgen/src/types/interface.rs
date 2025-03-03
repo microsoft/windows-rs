@@ -129,9 +129,16 @@ impl Interface {
                 }
             });
 
+            let hide_vtbl = if writer.config.sys {
+                quote! {}
+            } else {
+                quote! { #[doc(hidden)] }
+            };
+
             quote! {
                 #cfg
                 #[repr(C)]
+                #hide_vtbl
                 pub struct #vtbl_name where #constraints {
                     pub base__: #core IInspectable_Vtbl,
                     #(#vtbl_methods)*
