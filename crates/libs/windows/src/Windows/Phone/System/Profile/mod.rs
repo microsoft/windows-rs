@@ -6,6 +6,7 @@ impl windows_core::RuntimeType for IRetailModeStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRetailModeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RetailModeEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

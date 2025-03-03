@@ -130,6 +130,7 @@ impl windows_core::RuntimeType for IAudioRoutingManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioRoutingManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAudioEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioRoutingEndpoint) -> windows_core::HRESULT,
@@ -143,6 +144,7 @@ impl windows_core::RuntimeType for IAudioRoutingManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioRoutingManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

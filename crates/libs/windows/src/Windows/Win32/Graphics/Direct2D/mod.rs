@@ -2324,6 +2324,7 @@ impl ID2D1AnalysisTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1AnalysisTransform_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProcessAnalysisResults: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -2404,6 +2405,7 @@ impl ID2D1Bitmap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Bitmap_Vtbl {
     pub base__: ID2D1Image_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -2543,6 +2545,7 @@ impl ID2D1Bitmap1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Bitmap1_Vtbl {
     pub base__: ID2D1Bitmap_Vtbl,
     pub GetColorContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
@@ -2666,6 +2669,7 @@ impl ID2D1BitmapBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1BitmapBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
     pub SetExtendModeX: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_EXTEND_MODE),
@@ -2773,6 +2777,7 @@ impl ID2D1BitmapBrush1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1BitmapBrush1_Vtbl {
     pub base__: ID2D1BitmapBrush_Vtbl,
     pub SetInterpolationMode1: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_INTERPOLATION_MODE),
@@ -2826,6 +2831,7 @@ impl ID2D1BitmapRenderTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1BitmapRenderTarget_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
     pub GetBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2876,6 +2882,7 @@ impl ID2D1BlendTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1BlendTransform_Vtbl {
     pub base__: ID2D1ConcreteTransform_Vtbl,
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_BLEND_DESCRIPTION),
@@ -2935,6 +2942,7 @@ impl ID2D1BorderTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1BorderTransform_Vtbl {
     pub base__: ID2D1ConcreteTransform_Vtbl,
     pub SetExtendModeX: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_EXTEND_MODE),
@@ -3010,6 +3018,7 @@ impl ID2D1BoundsAdjustmentTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1BoundsAdjustmentTransform_Vtbl {
     pub base__: ID2D1TransformNode_Vtbl,
     pub SetOutputBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT),
@@ -3069,6 +3078,7 @@ impl ID2D1Brush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Brush_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f32),
@@ -3143,6 +3153,7 @@ impl ID2D1ColorContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1ColorContext_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub GetColorSpace: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_COLOR_SPACE,
@@ -3209,6 +3220,7 @@ impl ID2D1ColorContext1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1ColorContext1_Vtbl {
     pub base__: ID2D1ColorContext_Vtbl,
     pub GetColorContextType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_COLOR_CONTEXT_TYPE,
@@ -3280,6 +3292,7 @@ impl ID2D1CommandList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1CommandList_Vtbl {
     pub base__: ID2D1Image_Vtbl,
     pub Stream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3449,6 +3462,7 @@ impl ID2D1CommandSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1CommandSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3739,6 +3753,7 @@ impl ID2D1CommandSink1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1CommandSink1_Vtbl {
     pub base__: ID2D1CommandSink_Vtbl,
     pub SetPrimitiveBlend1: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_PRIMITIVE_BLEND) -> windows_core::HRESULT,
@@ -3798,6 +3813,7 @@ impl ID2D1CommandSink2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1CommandSink2_Vtbl {
     pub base__: ID2D1CommandSink1_Vtbl,
     pub DrawInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3867,6 +3883,7 @@ impl ID2D1CommandSink3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1CommandSink3_Vtbl {
     pub base__: ID2D1CommandSink2_Vtbl,
     pub DrawSpriteBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, D2D1_BITMAP_INTERPOLATION_MODE, D2D1_SPRITE_OPTIONS) -> windows_core::HRESULT,
@@ -3908,6 +3925,7 @@ impl ID2D1CommandSink4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1CommandSink4_Vtbl {
     pub base__: ID2D1CommandSink3_Vtbl,
     pub SetPrimitiveBlend2: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_PRIMITIVE_BLEND) -> windows_core::HRESULT,
@@ -3953,6 +3971,7 @@ impl ID2D1CommandSink5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1CommandSink5_Vtbl {
     pub base__: ID2D1CommandSink4_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -4006,6 +4025,7 @@ impl ID2D1ComputeInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1ComputeInfo_Vtbl {
     pub base__: ID2D1RenderInfo_Vtbl,
     pub SetComputeShaderConstantBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -4071,6 +4091,7 @@ impl ID2D1ComputeTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1ComputeTransform_Vtbl {
     pub base__: ID2D1Transform_Vtbl,
     pub SetComputeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4124,6 +4145,7 @@ impl ID2D1ConcreteTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1ConcreteTransform_Vtbl {
     pub base__: ID2D1TransformNode_Vtbl,
     pub SetOutputBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION, D2D1_CHANNEL_DEPTH) -> windows_core::HRESULT,
@@ -4175,6 +4197,7 @@ impl ID2D1DCRenderTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DCRenderTarget_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4242,6 +4265,7 @@ impl ID2D1Device {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Device_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4346,6 +4370,7 @@ impl ID2D1Device1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Device1_Vtbl {
     pub base__: ID2D1Device_Vtbl,
     pub GetRenderingPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_RENDERING_PRIORITY,
@@ -4430,6 +4455,7 @@ impl ID2D1Device2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Device2_Vtbl {
     pub base__: ID2D1Device1_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4510,6 +4536,7 @@ impl ID2D1Device3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Device3_Vtbl {
     pub base__: ID2D1Device2_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4566,6 +4593,7 @@ impl ID2D1Device4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Device4_Vtbl {
     pub base__: ID2D1Device3_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4637,6 +4665,7 @@ impl ID2D1Device5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Device5_Vtbl {
     pub base__: ID2D1Device4_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4687,6 +4716,7 @@ impl ID2D1Device6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Device6_Vtbl {
     pub base__: ID2D1Device5_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4737,6 +4767,7 @@ impl ID2D1Device7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Device7_Vtbl {
     pub base__: ID2D1Device6_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_DEVICE_CONTEXT_OPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5021,6 +5052,7 @@ impl ID2D1DeviceContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DeviceContext_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -5544,6 +5576,7 @@ impl ID2D1DeviceContext1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DeviceContext1_Vtbl {
     pub base__: ID2D1DeviceContext_Vtbl,
     pub CreateFilledGeometryRealization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5697,6 +5730,7 @@ impl ID2D1DeviceContext2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DeviceContext2_Vtbl {
     pub base__: ID2D1DeviceContext1_Vtbl,
     pub CreateInk: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_INK_POINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5904,6 +5938,7 @@ impl ID2D1DeviceContext3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DeviceContext3_Vtbl {
     pub base__: ID2D1DeviceContext2_Vtbl,
     pub CreateSpriteBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6012,6 +6047,7 @@ impl ID2D1DeviceContext4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DeviceContext4_Vtbl {
     pub base__: ID2D1DeviceContext3_Vtbl,
     pub CreateSvgGlyphStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6160,6 +6196,7 @@ impl ID2D1DeviceContext5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DeviceContext5_Vtbl {
     pub base__: ID2D1DeviceContext4_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
@@ -6259,6 +6296,7 @@ impl ID2D1DeviceContext6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DeviceContext6_Vtbl {
     pub base__: ID2D1DeviceContext5_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6319,6 +6357,7 @@ impl ID2D1DeviceContext7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DeviceContext7_Vtbl {
     pub base__: ID2D1DeviceContext6_Vtbl,
     #[cfg(feature = "Win32_Graphics_DirectWrite")]
@@ -6408,6 +6447,7 @@ impl ID2D1DrawInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DrawInfo_Vtbl {
     pub base__: ID2D1RenderInfo_Vtbl,
     pub SetPixelShaderConstantBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -6488,6 +6528,7 @@ impl ID2D1DrawTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DrawTransform_Vtbl {
     pub base__: ID2D1Transform_Vtbl,
     pub SetDrawInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6544,6 +6585,7 @@ impl ID2D1DrawingStateBlock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DrawingStateBlock_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D1_DRAWING_STATE_DESCRIPTION),
@@ -6624,6 +6666,7 @@ impl ID2D1DrawingStateBlock1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1DrawingStateBlock1_Vtbl {
     pub base__: ID2D1DrawingStateBlock_Vtbl,
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D1_DRAWING_STATE_DESCRIPTION1),
@@ -6700,6 +6743,7 @@ impl ID2D1Effect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Effect_Vtbl {
     pub base__: ID2D1Properties_Vtbl,
     pub SetInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::BOOL),
@@ -6885,6 +6929,7 @@ impl ID2D1EffectContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1EffectContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDpi: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, *mut f32),
@@ -7205,6 +7250,7 @@ impl ID2D1EffectContext1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1EffectContext1_Vtbl {
     pub base__: ID2D1EffectContext_Vtbl,
     pub CreateLookupTable3D: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_BUFFER_PRECISION, *const u32, *const u8, u32, *const u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7262,6 +7308,7 @@ impl ID2D1EffectContext2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1EffectContext2_Vtbl {
     pub base__: ID2D1EffectContext1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7337,6 +7384,7 @@ impl ID2D1EffectImpl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1EffectImpl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7400,6 +7448,7 @@ impl ID2D1EllipseGeometry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1EllipseGeometry_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
     pub GetEllipse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D1_ELLIPSE),
@@ -7530,6 +7579,7 @@ impl ID2D1Factory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Factory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReloadSystemMetrics: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7851,6 +7901,7 @@ impl ID2D1Factory1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Factory1_Vtbl {
     pub base__: ID2D1Factory_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -8031,6 +8082,7 @@ impl ID2D1Factory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Factory2_Vtbl {
     pub base__: ID2D1Factory1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -8088,6 +8140,7 @@ impl ID2D1Factory3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Factory3_Vtbl {
     pub base__: ID2D1Factory2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -8145,6 +8198,7 @@ impl ID2D1Factory4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Factory4_Vtbl {
     pub base__: ID2D1Factory3_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -8202,6 +8256,7 @@ impl ID2D1Factory5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Factory5_Vtbl {
     pub base__: ID2D1Factory4_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -8259,6 +8314,7 @@ impl ID2D1Factory6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Factory6_Vtbl {
     pub base__: ID2D1Factory5_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -8316,6 +8372,7 @@ impl ID2D1Factory7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Factory7_Vtbl {
     pub base__: ID2D1Factory6_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -8373,6 +8430,7 @@ impl ID2D1Factory8 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Factory8_Vtbl {
     pub base__: ID2D1Factory7_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -8424,6 +8482,7 @@ impl ID2D1GdiInteropRenderTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1GdiInteropRenderTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -8492,6 +8551,7 @@ impl ID2D1GdiMetafile {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1GdiMetafile_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub Stream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8557,6 +8617,7 @@ impl ID2D1GdiMetafile1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1GdiMetafile1_Vtbl {
     pub base__: ID2D1GdiMetafile_Vtbl,
     pub GetDpi: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, *mut f32) -> windows_core::HRESULT,
@@ -8613,6 +8674,7 @@ impl ID2D1GdiMetafileSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1GdiMetafileSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProcessRecord: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -8651,6 +8713,7 @@ impl ID2D1GdiMetafileSink1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1GdiMetafileSink1_Vtbl {
     pub base__: ID2D1GdiMetafileSink_Vtbl,
     pub ProcessRecord: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -8778,6 +8841,7 @@ impl ID2D1Geometry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Geometry_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -8997,6 +9061,7 @@ impl ID2D1GeometryGroup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1GeometryGroup_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -9057,6 +9122,7 @@ impl core::ops::Deref for ID2D1GeometryRealization {
 }
 windows_core::imp::interface_hierarchy!(ID2D1GeometryRealization, windows_core::IUnknown, ID2D1Resource);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1GeometryRealization_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
@@ -9103,6 +9169,7 @@ impl ID2D1GeometrySink {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1GeometrySink_Vtbl {
     pub base__: Common::ID2D1SimplifiedGeometrySink_Vtbl,
     pub AddLine: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2),
@@ -9189,6 +9256,7 @@ impl ID2D1GradientMesh {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1GradientMesh_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub GetPatchCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -9255,6 +9323,7 @@ impl ID2D1GradientStopCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1GradientStopCollection_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub GetGradientStopCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -9342,6 +9411,7 @@ impl ID2D1GradientStopCollection1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1GradientStopCollection1_Vtbl {
     pub base__: ID2D1GradientStopCollection_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -9432,6 +9502,7 @@ impl ID2D1HwndRenderTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1HwndRenderTarget_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
     pub CheckWindowState: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_WINDOW_STATE,
@@ -9492,6 +9563,7 @@ impl core::ops::Deref for ID2D1Image {
 }
 windows_core::imp::interface_hierarchy!(ID2D1Image, windows_core::IUnknown, ID2D1Resource);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Image_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
@@ -9561,6 +9633,7 @@ impl ID2D1ImageBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1ImageBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
     pub SetImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -9698,6 +9771,7 @@ impl ID2D1ImageSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1ImageSource_Vtbl {
     pub base__: ID2D1Image_Vtbl,
     pub OfferResources: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9767,6 +9841,7 @@ impl ID2D1ImageSourceFromWic {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1ImageSourceFromWic_Vtbl {
     pub base__: ID2D1ImageSource_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -9881,6 +9956,7 @@ impl ID2D1Ink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Ink_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub SetStartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_INK_POINT),
@@ -10027,6 +10103,7 @@ impl ID2D1InkStyle {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1InkStyle_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub SetNibTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix3x2),
@@ -10100,6 +10177,7 @@ impl ID2D1Layer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Layer_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -10160,6 +10238,7 @@ impl ID2D1LinearGradientBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1LinearGradientBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
     pub SetStartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2),
@@ -10232,6 +10311,7 @@ impl core::ops::Deref for ID2D1LookupTable3D {
 }
 windows_core::imp::interface_hierarchy!(ID2D1LookupTable3D, windows_core::IUnknown, ID2D1Resource);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1LookupTable3D_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
@@ -10264,6 +10344,7 @@ impl ID2D1Mesh {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Mesh_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10308,6 +10389,7 @@ impl ID2D1Multithread {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Multithread_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
@@ -10374,6 +10456,7 @@ impl ID2D1OffsetTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1OffsetTransform_Vtbl {
     pub base__: ID2D1TransformNode_Vtbl,
     pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::POINT),
@@ -10443,6 +10526,7 @@ impl ID2D1PathGeometry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1PathGeometry_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -10538,6 +10622,7 @@ impl ID2D1PathGeometry1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1PathGeometry1_Vtbl {
     pub base__: ID2D1PathGeometry_Vtbl,
     pub ComputePointAndSegmentAtLength: unsafe extern "system" fn(*mut core::ffi::c_void, f32, u32, *const windows_numerics::Matrix3x2, f32, *mut D2D1_POINT_DESCRIPTION) -> windows_core::HRESULT,
@@ -10581,6 +10666,7 @@ impl ID2D1PrintControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1PrintControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
@@ -10669,6 +10755,7 @@ impl ID2D1Properties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Properties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPropertyCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -10834,6 +10921,7 @@ impl ID2D1RadialGradientBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1RadialGradientBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
     pub SetCenter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2),
@@ -10952,6 +11040,7 @@ impl ID2D1RectangleGeometry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1RectangleGeometry_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -10999,6 +11088,7 @@ impl ID2D1RenderInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1RenderInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetInputDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D2D1_INPUT_DESCRIPTION) -> windows_core::HRESULT,
@@ -11375,6 +11465,7 @@ impl ID2D1RenderTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1RenderTarget_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -12020,6 +12111,7 @@ impl ID2D1Resource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Resource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
@@ -12052,6 +12144,7 @@ impl ID2D1ResourceTexture {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1ResourceTexture_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32, *const u32, *const u32, u32, *const u8, u32) -> windows_core::HRESULT,
@@ -12091,6 +12184,7 @@ impl ID2D1RoundedRectangleGeometry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1RoundedRectangleGeometry_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -12144,6 +12238,7 @@ impl ID2D1SolidColorBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SolidColorBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -12209,6 +12304,7 @@ impl ID2D1SourceTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SourceTransform_Vtbl {
     pub base__: ID2D1Transform_Vtbl,
     pub SetRenderInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12276,6 +12372,7 @@ impl ID2D1SpriteBatch {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SpriteBatch_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -12389,6 +12486,7 @@ impl ID2D1StrokeStyle {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1StrokeStyle_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub GetStartCap: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_CAP_STYLE,
@@ -12502,6 +12600,7 @@ impl ID2D1StrokeStyle1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1StrokeStyle1_Vtbl {
     pub base__: ID2D1StrokeStyle_Vtbl,
     pub GetStrokeTransformType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D2D1_STROKE_TRANSFORM_TYPE,
@@ -12550,6 +12649,7 @@ impl ID2D1SvgAttribute {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SvgAttribute_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub GetElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
@@ -12679,6 +12779,7 @@ impl ID2D1SvgDocument {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SvgDocument_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -13033,6 +13134,7 @@ impl ID2D1SvgElement {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SvgElement_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
@@ -13381,6 +13483,7 @@ impl ID2D1SvgGlyphStyle {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SvgGlyphStyle_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub SetFill: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13485,6 +13588,7 @@ impl ID2D1SvgPaint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SvgPaint_Vtbl {
     pub base__: ID2D1SvgAttribute_Vtbl,
     pub SetPaintType: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_SVG_PAINT_TYPE) -> windows_core::HRESULT,
@@ -13617,6 +13721,7 @@ impl ID2D1SvgPathData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SvgPathData_Vtbl {
     pub base__: ID2D1SvgAttribute_Vtbl,
     pub RemoveSegmentDataAtEnd: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -13751,6 +13856,7 @@ impl ID2D1SvgPointCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SvgPointCollection_Vtbl {
     pub base__: ID2D1SvgAttribute_Vtbl,
     pub RemovePointsAtEnd: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -13834,6 +13940,7 @@ impl ID2D1SvgStrokeDashArray {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SvgStrokeDashArray_Vtbl {
     pub base__: ID2D1SvgAttribute_Vtbl,
     pub RemoveDashesAtEnd: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -13917,6 +14024,7 @@ impl ID2D1TessellationSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1TessellationSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddTriangles: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_TRIANGLE, u32),
@@ -13972,6 +14080,7 @@ impl ID2D1Transform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Transform_Vtbl {
     pub base__: ID2D1TransformNode_Vtbl,
     pub MapOutputRectToInputRects: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, *mut super::super::Foundation::RECT, u32) -> windows_core::HRESULT,
@@ -14074,6 +14183,7 @@ impl ID2D1TransformGraph {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1TransformGraph_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInputCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -14181,6 +14291,7 @@ impl ID2D1TransformNode {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1TransformNode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInputCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -14226,6 +14337,7 @@ impl ID2D1TransformedGeometry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1TransformedGeometry_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
     pub GetSourceGeometry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
@@ -14286,6 +14398,7 @@ impl ID2D1TransformedImageSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1TransformedImageSource_Vtbl {
     pub base__: ID2D1Image_Vtbl,
     pub GetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
@@ -14329,6 +14442,7 @@ impl ID2D1VertexBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1VertexBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, u32) -> windows_core::HRESULT,

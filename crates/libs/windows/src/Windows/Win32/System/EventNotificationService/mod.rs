@@ -59,6 +59,7 @@ impl ISensLogon {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISensLogon_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Logon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -172,6 +173,7 @@ impl ISensLogon2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISensLogon2_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Logon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -267,6 +269,7 @@ impl ISensNetwork {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISensNetwork_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ConnectionMade: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const SENS_QOCINFO) -> windows_core::HRESULT,
@@ -356,6 +359,7 @@ impl ISensOnNow {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISensOnNow_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub OnACPower: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,

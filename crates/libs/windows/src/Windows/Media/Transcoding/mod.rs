@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IMediaTranscoder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaTranscoder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTrimStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -38,6 +39,7 @@ impl windows_core::RuntimeType for IMediaTranscoder2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaTranscoder2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
@@ -52,6 +54,7 @@ impl windows_core::RuntimeType for IPrepareTranscodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrepareTranscodeResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CanTranscode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

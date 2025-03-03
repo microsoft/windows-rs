@@ -285,6 +285,7 @@ impl windows_core::RuntimeType for IGameBarStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameBarStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -299,6 +300,7 @@ impl windows_core::RuntimeType for IGameChatMessageReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameChatMessageReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -312,6 +314,7 @@ impl windows_core::RuntimeType for IGameChatOverlay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameChatOverlay_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesiredPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameChatOverlayPosition) -> windows_core::HRESULT,
@@ -323,6 +326,7 @@ impl windows_core::RuntimeType for IGameChatOverlayMessageSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameChatOverlayMessageSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -334,6 +338,7 @@ impl windows_core::RuntimeType for IGameChatOverlayStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameChatOverlayStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -346,6 +351,7 @@ impl windows_core::RuntimeType for IGameUIProviderActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameUIProviderActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]

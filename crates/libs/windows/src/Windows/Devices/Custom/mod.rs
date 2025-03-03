@@ -106,6 +106,7 @@ impl windows_core::RuntimeType for ICustomDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICustomDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -130,6 +131,7 @@ impl windows_core::RuntimeType for ICustomDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICustomDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -263,6 +265,7 @@ impl IIOControlCode_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIOControlCode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AccessMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IOControlAccessMode) -> windows_core::HRESULT,
@@ -276,6 +279,7 @@ impl windows_core::RuntimeType for IIOControlCodeFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIOControlCodeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateIOControlCode: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, IOControlAccessMode, IOControlBufferingMethod, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -285,6 +289,7 @@ impl windows_core::RuntimeType for IKnownDeviceTypesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKnownDeviceTypesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Unknown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,

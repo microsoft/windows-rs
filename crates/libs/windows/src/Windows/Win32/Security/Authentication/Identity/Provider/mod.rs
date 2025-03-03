@@ -34,6 +34,7 @@ impl AsyncIAssociatedIdentityProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIAssociatedIdentityProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_AssociateIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::super::Foundation::HWND) -> windows_core::HRESULT,
@@ -162,6 +163,7 @@ impl AsyncIConnectedIdentityProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIConnectedIdentityProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_ConnectIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -303,6 +305,7 @@ impl AsyncIIdentityAdvise {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIIdentityAdvise_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_IdentityUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -356,6 +359,7 @@ impl AsyncIIdentityAuthentication {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIIdentityAuthentication_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_SetIdentityCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -508,6 +512,7 @@ impl AsyncIIdentityProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIIdentityProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -780,6 +785,7 @@ impl AsyncIIdentityStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIIdentityStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_GetCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -949,6 +955,7 @@ impl AsyncIIdentityStoreEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIIdentityStoreEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_CreateConnectedIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -1029,6 +1036,7 @@ impl IAssociatedIdentityProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAssociatedIdentityProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1114,6 +1122,7 @@ impl IConnectedIdentityProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConnectedIdentityProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -1231,6 +1240,7 @@ impl IIdentityAdvise {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIdentityAdvise_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IdentityUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -1265,6 +1275,7 @@ impl IIdentityAuthentication {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIdentityAuthentication_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetIdentityCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -1367,6 +1378,7 @@ impl IIdentityProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIdentityProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -1536,6 +1548,7 @@ impl IIdentityStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIdentityStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1642,6 +1655,7 @@ impl IIdentityStoreEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIdentityStoreEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateConnectedIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,

@@ -51,6 +51,7 @@ impl IEnumWbemClassObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumWbemClassObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -150,6 +151,7 @@ impl IMofCompiler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMofCompiler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CompileFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, i32, i32, i32, *mut WBEM_COMPILE_STATUS_INFO) -> windows_core::HRESULT,
@@ -389,6 +391,7 @@ impl ISWbemDateTime {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemDateTime_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -916,6 +919,7 @@ impl ISWbemEventSource {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemEventSource_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub NextEvent: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -978,6 +982,7 @@ impl core::ops::Deref for ISWbemLastError {
 windows_core::imp::interface_hierarchy!(ISWbemLastError, windows_core::IUnknown, super::Com::IDispatch, ISWbemObject);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemLastError_Vtbl {
     pub base__: ISWbemObject_Vtbl,
 }
@@ -1025,6 +1030,7 @@ impl ISWbemLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemLocator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1120,6 +1126,7 @@ impl ISWbemMethod {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemMethod_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1248,6 +1255,7 @@ impl ISWbemMethodSet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemMethodSet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1345,6 +1353,7 @@ impl ISWbemNamedValue {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemNamedValue_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1462,6 +1471,7 @@ impl ISWbemNamedValueSet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemNamedValueSet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1781,6 +1791,7 @@ impl ISWbemObject {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemObject_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Put_: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2188,6 +2199,7 @@ impl ISWbemObjectEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemObjectEx_Vtbl {
     pub base__: ISWbemObject_Vtbl,
     pub Refresh_: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2379,6 +2391,7 @@ impl ISWbemObjectPath {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemObjectPath_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2729,6 +2742,7 @@ impl ISWbemObjectSet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemObjectSet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2866,6 +2880,7 @@ impl ISWbemPrivilege {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemPrivilege_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -3006,6 +3021,7 @@ impl ISWbemPrivilegeSet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemPrivilegeSet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3181,6 +3197,7 @@ impl ISWbemProperty {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemProperty_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3363,6 +3380,7 @@ impl ISWbemPropertySet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemPropertySet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3523,6 +3541,7 @@ impl ISWbemQualifier {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemQualifier_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3733,6 +3752,7 @@ impl ISWbemQualifierSet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemQualifierSet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3873,6 +3893,7 @@ impl ISWbemRefreshableItem {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemRefreshableItem_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -4048,6 +4069,7 @@ impl ISWbemRefresher {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemRefresher_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4233,6 +4255,7 @@ impl ISWbemSecurity {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemSecurity_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ImpersonationLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WbemImpersonationLevelEnum) -> windows_core::HRESULT,
@@ -4489,6 +4512,7 @@ impl ISWbemServices {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemServices_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4784,6 +4808,7 @@ impl ISWbemServicesEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemServicesEx_Vtbl {
     pub base__: ISWbemServices_Vtbl,
     pub Put: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4842,6 +4867,7 @@ impl ISWbemSink {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemSink_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4880,6 +4906,7 @@ impl core::ops::Deref for ISWbemSinkEvents {
 windows_core::imp::interface_hierarchy!(ISWbemSinkEvents, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemSinkEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
@@ -4910,6 +4937,7 @@ impl IUnsecuredApartment {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUnsecuredApartment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateObjectStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4972,6 +5000,7 @@ impl IWMIExtension {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMIExtension_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub WMIObjectPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5047,6 +5076,7 @@ impl IWbemAddressResolution {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemAddressResolution_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Resolve: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PWSTR, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
@@ -5086,6 +5116,7 @@ impl IWbemBackupRestore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemBackupRestore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Backup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
@@ -5133,6 +5164,7 @@ impl IWbemBackupRestoreEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemBackupRestoreEx_Vtbl {
     pub base__: IWbemBackupRestore_Vtbl,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5192,6 +5224,7 @@ impl IWbemCallResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemCallResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetResultObject: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5420,6 +5453,7 @@ impl IWbemClassObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemClassObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetQualifierSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5753,6 +5787,7 @@ impl IWbemClientConnectionTransport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemClientConnectionTransport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5810,6 +5845,7 @@ impl IWbemClientTransport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemClientTransport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5876,6 +5912,7 @@ impl IWbemConfigureRefresher {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemConfigureRefresher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddObjectByPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -5952,6 +5989,7 @@ impl IWbemConnectorLogin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemConnectorLogin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectorLogin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6001,6 +6039,7 @@ impl IWbemConstructClassObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemConstructClassObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetInheritanceChain: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -6107,6 +6146,7 @@ impl IWbemContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6266,6 +6306,7 @@ impl IWbemDecoupledBasicEventProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemDecoupledBasicEventProvider_Vtbl {
     pub base__: IWbemDecoupledRegistrar_Vtbl,
     pub GetSink: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6331,6 +6372,7 @@ impl IWbemDecoupledRegistrar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemDecoupledRegistrar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6379,6 +6421,7 @@ impl IWbemEventConsumerProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemEventConsumerProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindConsumer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6418,6 +6461,7 @@ impl IWbemEventProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemEventProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProvideEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -6451,6 +6495,7 @@ impl IWbemEventProviderQuerySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemEventProviderQuerySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NewQuery: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u16, *const u16) -> windows_core::HRESULT,
@@ -6493,6 +6538,7 @@ impl IWbemEventProviderSecurity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemEventProviderSecurity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AccessCheck: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *const u16, i32, *const u8) -> windows_core::HRESULT,
@@ -6544,6 +6590,7 @@ impl IWbemEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemEventSink_Vtbl {
     pub base__: IWbemObjectSink_Vtbl,
     pub SetSinkSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const u8) -> windows_core::HRESULT,
@@ -6619,6 +6666,7 @@ impl IWbemHiPerfEnum {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemHiPerfEnum_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddObjects: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *const i32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6729,6 +6777,7 @@ impl IWbemHiPerfProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemHiPerfProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryInstances: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6856,6 +6905,7 @@ impl IWbemLevel1Login {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemLevel1Login_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EstablishPosition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -6946,6 +6996,7 @@ impl IWbemLocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemLocator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7024,6 +7075,7 @@ impl IWbemObjectAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemObjectAccess_Vtbl {
     pub base__: IWbemClassObject_Vtbl,
     pub GetPropertyHandle: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -7159,6 +7211,7 @@ impl IWbemObjectSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemObjectSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Indicate: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7225,6 +7278,7 @@ impl IWbemObjectSinkEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemObjectSinkEx_Vtbl {
     pub base__: IWbemObjectSink_Vtbl,
     pub WriteMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7328,6 +7382,7 @@ impl IWbemObjectTextSrc {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemObjectTextSrc_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7504,6 +7559,7 @@ impl IWbemPath {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemPath_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -7830,6 +7886,7 @@ impl IWbemPathKeyList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemPathKeyList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7973,6 +8030,7 @@ impl IWbemPropertyProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemPropertyProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8033,6 +8091,7 @@ impl IWbemProviderIdentity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemProviderIdentity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetRegistrationObject: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8071,6 +8130,7 @@ impl IWbemProviderInit {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemProviderInit_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8101,6 +8161,7 @@ impl IWbemProviderInitSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemProviderInitSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -8165,6 +8226,7 @@ impl IWbemQualifierSet {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemQualifierSet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8295,6 +8357,7 @@ impl IWbemQuery {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemQuery_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Empty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8382,6 +8445,7 @@ impl IWbemRefresher {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemRefresher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -8575,6 +8639,7 @@ impl IWbemServices {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OpenNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WBEM_GENERIC_FLAG_TYPE, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8839,6 +8904,7 @@ impl IWbemShutdown {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemShutdown_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8878,6 +8944,7 @@ impl IWbemStatusCodeText {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemStatusCodeText_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetErrorCodeText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8932,6 +8999,7 @@ impl IWbemTransport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemTransport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8965,6 +9033,7 @@ impl IWbemUnboundObjectSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemUnboundObjectSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IndicateToConsumer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9008,6 +9077,7 @@ impl IWbemUnsecuredApartment {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemUnsecuredApartment_Vtbl {
     pub base__: IUnsecuredApartment_Vtbl,
     pub CreateSinkStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

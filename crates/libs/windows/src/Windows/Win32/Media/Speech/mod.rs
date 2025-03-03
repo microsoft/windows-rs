@@ -522,6 +522,7 @@ impl IEnumSpObjectTokens {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumSpObjectTokens_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -655,6 +656,7 @@ impl ISpAudio {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpAudio_Vtbl {
     pub base__: ISpStreamFormat_Vtbl,
     pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, SPAUDIOSTATE, u64) -> windows_core::HRESULT,
@@ -797,6 +799,7 @@ impl ISpCFGInterpreter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpCFGInterpreter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const *const core::ffi::c_void) -> windows_core::HRESULT,
@@ -852,6 +855,7 @@ impl ISpCFGInterpreterSite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpCFGInterpreterSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddTextReplacement: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHRASEREPLACEMENT) -> windows_core::HRESULT,
@@ -924,6 +928,7 @@ impl ISpContainerLexicon {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpContainerLexicon_Vtbl {
     pub base__: ISpLexicon_Vtbl,
     pub AddLexicon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -1033,6 +1038,7 @@ impl ISpDataKey {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpDataKey_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *const u8) -> windows_core::HRESULT,
@@ -1198,6 +1204,7 @@ impl ISpDisplayAlternates {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpDisplayAlternates_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDisplayAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPDISPLAYPHRASE, u32, *mut *mut SPDISPLAYPHRASE, *mut u32) -> windows_core::HRESULT,
@@ -1253,6 +1260,7 @@ impl ISpEnginePronunciation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpEnginePronunciation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Normalize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u16, *mut SPNORMALIZATIONLIST) -> windows_core::HRESULT,
@@ -1299,6 +1307,7 @@ impl ISpErrorLog {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpErrorLog_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddError: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::HRESULT, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -1332,6 +1341,7 @@ impl ISpEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPEVENT, u32) -> windows_core::HRESULT,
@@ -1386,6 +1396,7 @@ impl ISpEventSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpEventSource_Vtbl {
     pub base__: ISpNotifySource_Vtbl,
     pub SetInterest: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64) -> windows_core::HRESULT,
@@ -1443,6 +1454,7 @@ impl ISpEventSource2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpEventSource2_Vtbl {
     pub base__: ISpEventSource_Vtbl,
     pub GetEventsEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SPEVENTEX, *mut u32) -> windows_core::HRESULT,
@@ -1487,6 +1499,7 @@ impl ISpGramCompBackend {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpGramCompBackend_Vtbl {
     pub base__: ISpGrammarBuilder_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1569,6 +1582,7 @@ impl ISpGrammarBuilder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpGrammarBuilder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ResetGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
@@ -1680,6 +1694,7 @@ impl ISpGrammarBuilder2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpGrammarBuilder2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddTextSubset: unsafe extern "system" fn(*mut core::ffi::c_void, SPSTATEHANDLE, SPSTATEHANDLE, windows_core::PCWSTR, SPMATCHINGMODE) -> windows_core::HRESULT,
@@ -1730,6 +1745,7 @@ impl ISpGrammarCompiler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpGrammarCompiler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1775,6 +1791,7 @@ impl ISpITNProcessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpITNProcessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LoadITNGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -1841,6 +1858,7 @@ impl ISpLexicon {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpLexicon_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPronunciations: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, u32, *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT,
@@ -1942,6 +1960,7 @@ impl ISpMMSysAudio {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpMMSysAudio_Vtbl {
     pub base__: ISpAudio_Vtbl,
     pub GetDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2013,6 +2032,7 @@ impl ISpNotifyCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpNotifyCallback_Vtbl {
     pub NotifyCallback: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
@@ -2050,6 +2070,7 @@ impl ISpNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpNotifySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2104,6 +2125,7 @@ impl ISpNotifySource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpNotifySource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetNotifySink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2215,6 +2237,7 @@ impl ISpNotifyTranslator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpNotifyTranslator_Vtbl {
     pub base__: ISpNotifySink_Vtbl,
     pub InitWindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
@@ -2361,6 +2384,7 @@ impl ISpObjectToken {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpObjectToken_Vtbl {
     pub base__: ISpDataKey_Vtbl,
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
@@ -2536,6 +2560,7 @@ impl ISpObjectTokenCategory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpObjectTokenCategory_Vtbl {
     pub base__: ISpDataKey_Vtbl,
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
@@ -2671,6 +2696,7 @@ impl ISpObjectTokenEnumBuilder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpObjectTokenEnumBuilder_Vtbl {
     pub base__: IEnumSpObjectTokens_Vtbl,
     pub SetAttribs: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2751,6 +2777,7 @@ impl ISpObjectTokenInit {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpObjectTokenInit_Vtbl {
     pub base__: ISpObjectToken_Vtbl,
     pub InitFromDataKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2790,6 +2817,7 @@ impl ISpObjectWithToken {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpObjectWithToken_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetObjectToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2853,6 +2881,7 @@ impl ISpPhoneConverter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpPhoneConverter_Vtbl {
     pub base__: ISpObjectWithToken_Vtbl,
     pub PhoneToId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u16) -> windows_core::HRESULT,
@@ -2915,6 +2944,7 @@ impl ISpPhoneticAlphabetConverter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpPhoneticAlphabetConverter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLangId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -3002,6 +3032,7 @@ impl ISpPhoneticAlphabetSelection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpPhoneticAlphabetSelection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsAlphabetUPS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -3066,6 +3097,7 @@ impl ISpPhrase {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpPhrase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3160,6 +3192,7 @@ impl ISpPhrase2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpPhrase2_Vtbl {
     pub base__: ISpPhrase_Vtbl,
     pub GetXMLResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, SPXMLRESULTOPTIONS) -> windows_core::HRESULT,
@@ -3232,6 +3265,7 @@ impl ISpPhraseAlt {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpPhraseAlt_Vtbl {
     pub base__: ISpPhrase_Vtbl,
     pub GetAltInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -3302,6 +3336,7 @@ impl ISpPhraseBuilder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpPhraseBuilder_Vtbl {
     pub base__: ISpPhrase_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3404,6 +3439,7 @@ impl ISpPrivateEngineCallEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpPrivateEngineCallEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CallEngineSynchronize: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3471,6 +3507,7 @@ impl ISpProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPropertyNum: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
@@ -3614,6 +3651,7 @@ impl ISpRecoContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpRecoContext_Vtbl {
     pub base__: ISpEventSource_Vtbl,
     pub GetRecognizer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3843,6 +3881,7 @@ impl ISpRecoContext2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpRecoContext2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetGrammarOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -3980,6 +4019,7 @@ impl ISpRecoGrammar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpRecoGrammar_Vtbl {
     pub base__: ISpGrammarBuilder_Vtbl,
     pub GetGrammarId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -4222,6 +4262,7 @@ impl ISpRecoGrammar2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpRecoGrammar2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRules: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut SPRULE, *mut u32) -> windows_core::HRESULT,
@@ -4359,6 +4400,7 @@ impl ISpRecoResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpRecoResult_Vtbl {
     pub base__: ISpPhrase_Vtbl,
     pub GetResultTimes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPRECORESULTTIMES) -> windows_core::HRESULT,
@@ -4491,6 +4533,7 @@ impl ISpRecoResult2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpRecoResult2_Vtbl {
     pub base__: ISpRecoResult_Vtbl,
     pub CommitAlternate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4638,6 +4681,7 @@ impl ISpRecognizer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpRecognizer_Vtbl {
     pub base__: ISpProperties_Vtbl,
     pub SetRecognizer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4854,6 +4898,7 @@ impl ISpRecognizer2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpRecognizer2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EmulateRecognitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4912,6 +4957,7 @@ impl ISpRegDataKey {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpRegDataKey_Vtbl {
     pub base__: ISpDataKey_Vtbl,
     #[cfg(feature = "Win32_System_Registry")]
@@ -4965,6 +5011,7 @@ impl ISpResourceManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpResourceManager_Vtbl {
     pub base__: super::super::System::Com::IServiceProvider_Vtbl,
     pub SetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5013,6 +5060,7 @@ impl ISpSRAlternates {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpSRAlternates_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHRASEALTREQUEST, *mut *mut SPPHRASEALT, *mut u32) -> windows_core::HRESULT,
@@ -5064,6 +5112,7 @@ impl ISpSRAlternates2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpSRAlternates2_Vtbl {
     pub base__: ISpSRAlternates_Vtbl,
     pub CommitText: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHRASEALTREQUEST, windows_core::PCWSTR, SPCOMMITFLAGS) -> windows_core::HRESULT,
@@ -5226,6 +5275,7 @@ impl ISpSREngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpSREngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5589,6 +5639,7 @@ impl ISpSREngine2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpSREngine2_Vtbl {
     pub base__: ISpSREngine_Vtbl,
     pub PrivateCallImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5791,6 +5842,7 @@ impl ISpSREngineSite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpSREngineSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -6040,6 +6092,7 @@ impl ISpSREngineSite2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpSREngineSite2_Vtbl {
     pub base__: ISpSREngineSite_Vtbl,
     pub AddEventEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPEVENTEX, SPRECOCONTEXTHANDLE) -> windows_core::HRESULT,
@@ -6106,6 +6159,7 @@ impl ISpSerializeState {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpSerializeState_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSerializedState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32, u32) -> windows_core::HRESULT,
@@ -6180,6 +6234,7 @@ impl ISpShortcut {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpShortcut_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddShortcut: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, windows_core::PCWSTR, SPSHORTCUTTYPE) -> windows_core::HRESULT,
@@ -6313,6 +6368,7 @@ impl ISpStream {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpStream_Vtbl {
     pub base__: ISpStreamFormat_Vtbl,
     #[cfg(feature = "Win32_Media_Audio")]
@@ -6403,6 +6459,7 @@ impl ISpStreamFormat {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpStreamFormat_Vtbl {
     pub base__: super::super::System::Com::IStream_Vtbl,
     #[cfg(feature = "Win32_Media_Audio")]
@@ -6484,6 +6541,7 @@ impl ISpStreamFormatConverter {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpStreamFormatConverter_Vtbl {
     pub base__: ISpStreamFormat_Vtbl,
     pub SetBaseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
@@ -6594,6 +6652,7 @@ impl ISpTTSEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpTTSEngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_Audio")]
@@ -6675,6 +6734,7 @@ impl ISpTTSEngineSite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpTTSEngineSite_Vtbl {
     pub base__: ISpEventSink_Vtbl,
     pub GetActions: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -6770,6 +6830,7 @@ impl ISpTask {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpTask_Vtbl {
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const i32) -> windows_core::HRESULT,
 }
@@ -6843,6 +6904,7 @@ impl ISpTaskManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpTaskManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetThreadPoolInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPTMTHREADINFO) -> windows_core::HRESULT,
@@ -6981,6 +7043,7 @@ impl ISpThreadControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpThreadControl_Vtbl {
     pub base__: ISpNotifySink_Vtbl,
     pub StartThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::HWND) -> windows_core::HRESULT,
@@ -7097,6 +7160,7 @@ impl ISpThreadTask {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpThreadTask_Vtbl {
     pub InitThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub ThreadProc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HANDLE, super::super::Foundation::HANDLE, super::super::Foundation::HWND, *const i32) -> windows_core::HRESULT,
@@ -7168,6 +7232,7 @@ impl ISpTokenUI {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpTokenUI_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -7225,6 +7290,7 @@ impl ISpTranscript {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpTranscript_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTranscript: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -7384,6 +7450,7 @@ impl ISpVoice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpVoice_Vtbl {
     pub base__: ISpEventSource_Vtbl,
     pub SetOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -7669,6 +7736,7 @@ impl ISpXMLRecoResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpXMLRecoResult_Vtbl {
     pub base__: ISpRecoResult_Vtbl,
     pub GetXMLResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, SPXMLRESULTOPTIONS) -> windows_core::HRESULT,
@@ -7767,6 +7835,7 @@ impl ISpeechAudio {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechAudio_Vtbl {
     pub base__: ISpeechBaseStream_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7946,6 +8015,7 @@ impl ISpeechAudioBufferInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechAudioBufferInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub MinNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -8083,6 +8153,7 @@ impl ISpeechAudioFormat {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechAudioFormat_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechAudioFormatType) -> windows_core::HRESULT,
@@ -8222,6 +8293,7 @@ impl ISpeechAudioStatus {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechAudioStatus_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub FreeBufferSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -8368,6 +8440,7 @@ impl ISpeechBaseStream {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechBaseStream_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8487,6 +8560,7 @@ impl ISpeechCustomStream {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechCustomStream_Vtbl {
     pub base__: ISpeechBaseStream_Vtbl,
     pub BaseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8605,6 +8679,7 @@ impl ISpeechDataKey {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechDataKey_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8802,6 +8877,7 @@ impl ISpeechFileStream {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechFileStream_Vtbl {
     pub base__: ISpeechBaseStream_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpeechStreamFileMode, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -8887,6 +8963,7 @@ impl ISpeechGrammarRule {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechGrammarRule_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechRuleAttributes) -> windows_core::HRESULT,
@@ -9049,6 +9126,7 @@ impl ISpeechGrammarRuleState {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechGrammarRuleState_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Rule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9200,6 +9278,7 @@ impl ISpeechGrammarRuleStateTransition {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechGrammarRuleStateTransition_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechGrammarRuleStateTransitionType) -> windows_core::HRESULT,
@@ -9379,6 +9458,7 @@ impl ISpeechGrammarRuleStateTransitions {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechGrammarRuleStateTransitions_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -9503,6 +9583,7 @@ impl ISpeechGrammarRules {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechGrammarRules_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -9684,6 +9765,7 @@ impl ISpeechLexicon {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechLexicon_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub GenerationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -9840,6 +9922,7 @@ impl ISpeechLexiconPronunciation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechLexiconPronunciation_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechLexiconType) -> windows_core::HRESULT,
@@ -9971,6 +10054,7 @@ impl ISpeechLexiconPronunciations {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechLexiconPronunciations_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10075,6 +10159,7 @@ impl ISpeechLexiconWord {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechLexiconWord_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub LangId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10188,6 +10273,7 @@ impl ISpeechLexiconWords {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechLexiconWords_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10292,6 +10378,7 @@ impl ISpeechMMSysAudio {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechMMSysAudio_Vtbl {
     pub base__: ISpeechAudio_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10401,6 +10488,7 @@ impl ISpeechMemoryStream {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechMemoryStream_Vtbl {
     pub base__: ISpeechBaseStream_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10539,6 +10627,7 @@ impl ISpeechObjectToken {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechObjectToken_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10781,6 +10870,7 @@ impl ISpeechObjectTokenCategory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechObjectTokenCategory_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10912,6 +11002,7 @@ impl ISpeechObjectTokens {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechObjectTokens_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -11015,6 +11106,7 @@ impl ISpeechPhoneConverter {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhoneConverter_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub LanguageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -11137,6 +11229,7 @@ impl ISpeechPhraseAlternate {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseAlternate_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub RecoResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11259,6 +11352,7 @@ impl ISpeechPhraseAlternates {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseAlternates_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -11418,6 +11512,7 @@ impl ISpeechPhraseElement {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseElement_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AudioTimeOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -11669,6 +11764,7 @@ impl ISpeechPhraseElements {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseElements_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -11850,6 +11946,7 @@ impl ISpeechPhraseInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub LanguageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -12147,6 +12244,7 @@ impl ISpeechPhraseInfoBuilder {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseInfoBuilder_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -12218,6 +12316,7 @@ impl ISpeechPhraseProperties {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseProperties_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -12353,6 +12452,7 @@ impl ISpeechPhraseProperty {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseProperty_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12550,6 +12650,7 @@ impl ISpeechPhraseReplacement {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseReplacement_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub DisplayAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechDisplayAttributes) -> windows_core::HRESULT,
@@ -12663,6 +12764,7 @@ impl ISpeechPhraseReplacements {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseReplacements_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -12791,6 +12893,7 @@ impl ISpeechPhraseRule {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseRule_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12964,6 +13067,7 @@ impl ISpeechPhraseRules {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechPhraseRules_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -13167,6 +13271,7 @@ impl ISpeechRecoContext {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechRecoContext_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Recognizer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13596,6 +13701,7 @@ impl ISpeechRecoGrammar {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechRecoGrammar_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -13902,6 +14008,7 @@ impl ISpeechRecoResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechRecoResult_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub RecoContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14081,6 +14188,7 @@ impl ISpeechRecoResult2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechRecoResult2_Vtbl {
     pub base__: ISpeechRecoResult_Vtbl,
     pub SetTextFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -14192,6 +14300,7 @@ impl ISpeechRecoResultDispatch {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechRecoResultDispatch_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub RecoContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14428,6 +14537,7 @@ impl ISpeechRecoResultTimes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechRecoResultTimes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -14673,6 +14783,7 @@ impl ISpeechRecognizer {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechRecognizer_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub putref_Recognizer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15085,6 +15196,7 @@ impl ISpeechRecognizerStatus {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechRecognizerStatus_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AudioStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15225,6 +15337,7 @@ impl ISpeechResourceLoader {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechResourceLoader_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub LoadResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15323,6 +15436,7 @@ impl ISpeechTextSelectionInformation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechTextSelectionInformation_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SetActiveOffset: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -15621,6 +15735,7 @@ impl ISpeechVoice {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechVoice_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16136,6 +16251,7 @@ impl ISpeechVoiceStatus {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechVoiceStatus_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub CurrentStreamNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -16416,6 +16532,7 @@ impl ISpeechWaveFormatEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechWaveFormatEx_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub FormatTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
@@ -16634,6 +16751,7 @@ impl ISpeechXMLRecoResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechXMLRecoResult_Vtbl {
     pub base__: ISpeechRecoResult_Vtbl,
     pub GetXMLResult: unsafe extern "system" fn(*mut core::ffi::c_void, SPXMLRESULTOPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18461,6 +18579,7 @@ impl _ISpPrivateEngineCall {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct _ISpPrivateEngineCall_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CallEngine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -18508,6 +18627,7 @@ impl core::ops::Deref for _ISpeechRecoContextEvents {
 windows_core::imp::interface_hierarchy!(_ISpeechRecoContextEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _ISpeechRecoContextEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -18537,6 +18657,7 @@ impl core::ops::Deref for _ISpeechVoiceEvents {
 windows_core::imp::interface_hierarchy!(_ISpeechVoiceEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _ISpeechVoiceEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }

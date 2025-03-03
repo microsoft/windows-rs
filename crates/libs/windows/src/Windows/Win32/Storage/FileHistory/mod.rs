@@ -221,6 +221,7 @@ impl IFhConfigMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFhConfigMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LoadConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -416,6 +417,7 @@ impl IFhReassociation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFhReassociation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ValidateTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut FH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT,
@@ -497,6 +499,7 @@ impl IFhScopeIterator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFhScopeIterator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MoveToNextItem: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -554,6 +557,7 @@ impl IFhTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFhTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStringProperty: unsafe extern "system" fn(*mut core::ffi::c_void, FH_TARGET_PROPERTY_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

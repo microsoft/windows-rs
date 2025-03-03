@@ -12,6 +12,7 @@ impl IWsbApplicationAsync {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWsbApplicationAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -64,6 +65,7 @@ impl IWsbApplicationBackupSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWsbApplicationBackupSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CheckConsistency: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, *const windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -122,6 +124,7 @@ impl IWsbApplicationRestoreSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWsbApplicationRestoreSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PreRestore: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, bool) -> windows_core::HRESULT,

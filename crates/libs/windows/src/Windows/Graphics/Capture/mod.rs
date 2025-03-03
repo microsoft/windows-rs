@@ -404,6 +404,7 @@ impl windows_core::RuntimeType for IDirect3D11CaptureFrame {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3D11CaptureFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -418,6 +419,7 @@ impl windows_core::RuntimeType for IDirect3D11CaptureFrame2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3D11CaptureFrame2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DirtyRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -428,6 +430,7 @@ impl windows_core::RuntimeType for IDirect3D11CaptureFramePool {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3D11CaptureFramePool_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -448,6 +451,7 @@ impl windows_core::RuntimeType for IDirect3D11CaptureFramePoolStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3D11CaptureFramePoolStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -460,6 +464,7 @@ impl windows_core::RuntimeType for IDirect3D11CaptureFramePoolStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3D11CaptureFramePoolStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -472,6 +477,7 @@ impl windows_core::RuntimeType for IGraphicsCaptureAccessStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureAccessStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authorization_AppCapabilityAccess")]
@@ -484,6 +490,7 @@ impl windows_core::RuntimeType for IGraphicsCaptureItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -496,6 +503,7 @@ impl windows_core::RuntimeType for IGraphicsCaptureItemStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureItemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Composition")]
@@ -508,6 +516,7 @@ impl windows_core::RuntimeType for IGraphicsCaptureItemStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureItemStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI")]
@@ -521,6 +530,7 @@ impl windows_core::RuntimeType for IGraphicsCapturePicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCapturePicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PickSingleItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -530,6 +540,7 @@ impl windows_core::RuntimeType for IGraphicsCaptureSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartCapture: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -539,6 +550,7 @@ impl windows_core::RuntimeType for IGraphicsCaptureSession2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureSession2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCursorCaptureEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -549,6 +561,7 @@ impl windows_core::RuntimeType for IGraphicsCaptureSession3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureSession3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsBorderRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -559,6 +572,7 @@ impl windows_core::RuntimeType for IGraphicsCaptureSession4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureSession4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DirtyRegionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GraphicsCaptureDirtyRegionMode) -> windows_core::HRESULT,
@@ -569,6 +583,7 @@ impl windows_core::RuntimeType for IGraphicsCaptureSession5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureSession5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MinUpdateInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -579,6 +594,7 @@ impl windows_core::RuntimeType for IGraphicsCaptureSession6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureSession6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IncludeSecondaryWindows: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -589,6 +605,7 @@ impl windows_core::RuntimeType for IGraphicsCaptureSessionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureSessionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

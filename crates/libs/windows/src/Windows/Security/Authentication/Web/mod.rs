@@ -7,6 +7,7 @@ impl windows_core::RuntimeType for IWebAuthenticationBrokerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAuthenticationBrokerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AuthenticateWithCallbackUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, WebAuthenticationOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18,6 +19,7 @@ impl windows_core::RuntimeType for IWebAuthenticationBrokerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAuthenticationBrokerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AuthenticateAndContinue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34,6 +36,7 @@ impl windows_core::RuntimeType for IWebAuthenticationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAuthenticationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResponseData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

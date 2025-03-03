@@ -1019,6 +1019,7 @@ impl IAlternativeName {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAlternativeName_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub InitializeFromString: unsafe extern "system" fn(*mut core::ffi::c_void, AlternativeNameType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1171,6 +1172,7 @@ impl IAlternativeNames {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAlternativeNames_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1298,6 +1300,7 @@ impl IBinaryConverter {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBinaryConverter_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub StringToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1398,6 +1401,7 @@ impl IBinaryConverter2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBinaryConverter2_Vtbl {
     pub base__: IBinaryConverter_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1721,6 +1725,7 @@ impl ICEnroll {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICEnroll_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub createFilePKCS10: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2452,6 +2457,7 @@ impl ICEnroll2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICEnroll2_Vtbl {
     pub base__: ICEnroll_Vtbl,
     pub addCertTypeToRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2619,6 +2625,7 @@ impl ICEnroll3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICEnroll3_Vtbl {
     pub base__: ICEnroll2_Vtbl,
     pub InstallPKCS7: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2970,6 +2977,7 @@ impl ICEnroll4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICEnroll4_Vtbl {
     pub base__: ICEnroll3_Vtbl,
     pub SetPrivateKeyArchiveCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3437,6 +3445,7 @@ impl ICertAdmin {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertAdmin_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub IsValidCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3653,6 +3662,7 @@ impl ICertAdmin2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertAdmin2_Vtbl {
     pub base__: ICertAdmin_Vtbl,
     pub PublishCRLs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, i32) -> windows_core::HRESULT,
@@ -3865,6 +3875,7 @@ impl ICertConfig {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertConfig_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
@@ -3963,6 +3974,7 @@ impl ICertConfig2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertConfig2_Vtbl {
     pub base__: ICertConfig_Vtbl,
     pub SetSharedFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4037,6 +4049,7 @@ impl ICertEncodeAltName {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeAltName_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Decode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4177,6 +4190,7 @@ impl ICertEncodeAltName2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeAltName2_Vtbl {
     pub base__: ICertEncodeAltName_Vtbl,
     pub DecodeBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType) -> windows_core::HRESULT,
@@ -4281,6 +4295,7 @@ impl ICertEncodeBitString {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeBitString_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Decode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4385,6 +4400,7 @@ impl ICertEncodeBitString2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeBitString2_Vtbl {
     pub base__: ICertEncodeBitString_Vtbl,
     pub DecodeBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType) -> windows_core::HRESULT,
@@ -4501,6 +4517,7 @@ impl ICertEncodeCRLDistInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeCRLDistInfo_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Decode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4656,6 +4673,7 @@ impl ICertEncodeCRLDistInfo2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeCRLDistInfo2_Vtbl {
     pub base__: ICertEncodeCRLDistInfo_Vtbl,
     pub DecodeBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType) -> windows_core::HRESULT,
@@ -4742,6 +4760,7 @@ impl ICertEncodeDateArray {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeDateArray_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Decode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4858,6 +4877,7 @@ impl ICertEncodeDateArray2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeDateArray2_Vtbl {
     pub base__: ICertEncodeDateArray_Vtbl,
     pub DecodeBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType) -> windows_core::HRESULT,
@@ -4944,6 +4964,7 @@ impl ICertEncodeLongArray {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeLongArray_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Decode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5060,6 +5081,7 @@ impl ICertEncodeLongArray2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeLongArray2_Vtbl {
     pub base__: ICertEncodeLongArray_Vtbl,
     pub DecodeBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType) -> windows_core::HRESULT,
@@ -5152,6 +5174,7 @@ impl ICertEncodeStringArray {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeStringArray_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Decode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5283,6 +5306,7 @@ impl ICertEncodeStringArray2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertEncodeStringArray2_Vtbl {
     pub base__: ICertEncodeStringArray_Vtbl,
     pub DecodeBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType) -> windows_core::HRESULT,
@@ -5357,6 +5381,7 @@ impl ICertExit {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertExit_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut CERT_EXIT_EVENT_MASK) -> windows_core::HRESULT,
@@ -5437,6 +5462,7 @@ impl ICertExit2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertExit2_Vtbl {
     pub base__: ICertExit_Vtbl,
     pub GetManageModule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5490,6 +5516,7 @@ impl ICertGetConfig {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertGetConfig_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub GetConfig: unsafe extern "system" fn(*mut core::ffi::c_void, CERT_GET_CONFIG_FLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5551,6 +5578,7 @@ impl ICertManageModule {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertManageModule_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5643,6 +5671,7 @@ impl ICertPolicy {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPolicy_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5732,6 +5761,7 @@ impl ICertPolicy2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPolicy2_Vtbl {
     pub base__: ICertPolicy_Vtbl,
     pub GetManageModule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5812,6 +5842,7 @@ impl ICertProperties {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertProperties_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5955,6 +5986,7 @@ impl ICertProperty {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertProperty_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub InitializeFromCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6074,6 +6106,7 @@ impl ICertPropertyArchived {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertyArchived_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -6138,6 +6171,7 @@ impl ICertPropertyArchivedKeyHash {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertyArchivedKeyHash_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6206,6 +6240,7 @@ impl ICertPropertyAutoEnroll {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertyAutoEnroll_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6283,6 +6318,7 @@ impl ICertPropertyBackedUp {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertyBackedUp_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub InitializeFromCurrentTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -6375,6 +6411,7 @@ impl ICertPropertyDescription {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertyDescription_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6457,6 +6494,7 @@ impl ICertPropertyEnrollment {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertyEnrollment_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6612,6 +6650,7 @@ impl ICertPropertyEnrollmentPolicyServer {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertyEnrollmentPolicyServer_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EnrollmentPolicyServerPropertyFlags, X509EnrollmentAuthFlags, X509EnrollmentAuthFlags, PolicyServerUrlFlags, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6785,6 +6824,7 @@ impl ICertPropertyFriendlyName {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertyFriendlyName_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6856,6 +6896,7 @@ impl ICertPropertyKeyProvInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertyKeyProvInfo_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6923,6 +6964,7 @@ impl ICertPropertyRenewal {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertyRenewal_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7003,6 +7045,7 @@ impl ICertPropertyRequestOriginator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertyRequestOriginator_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7080,6 +7123,7 @@ impl ICertPropertySHA1Hash {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertPropertySHA1Hash_Vtbl {
     pub base__: ICertProperty_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7181,6 +7225,7 @@ impl ICertRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertRequest_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Submit: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -7359,6 +7404,7 @@ impl ICertRequest2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertRequest2_Vtbl {
     pub base__: ICertRequest_Vtbl,
     pub GetIssuedCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut CR_DISP) -> windows_core::HRESULT,
@@ -7511,6 +7557,7 @@ impl ICertRequest3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertRequest3_Vtbl {
     pub base__: ICertRequest2_Vtbl,
     pub SetCredential: unsafe extern "system" fn(*mut core::ffi::c_void, i32, X509EnrollmentAuthFlags, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7611,6 +7658,7 @@ impl ICertRequestD {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertRequestD_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut u32, *mut u32, windows_core::PCWSTR, *const CERTTRANSBLOB, *mut CERTTRANSBLOB, *mut CERTTRANSBLOB, *mut CERTTRANSBLOB) -> windows_core::HRESULT,
@@ -7700,6 +7748,7 @@ impl ICertRequestD2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertRequestD2_Vtbl {
     pub base__: ICertRequestD_Vtbl,
     pub Request2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, *mut u32, *mut u32, windows_core::PCWSTR, *const CERTTRANSBLOB, *mut CERTTRANSBLOB, *mut CERTTRANSBLOB, *mut CERTTRANSBLOB) -> windows_core::HRESULT,
@@ -7834,6 +7883,7 @@ impl ICertServerExit {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertServerExit_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub SetContext: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -8096,6 +8146,7 @@ impl ICertServerPolicy {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertServerPolicy_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub SetContext: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -8345,6 +8396,7 @@ impl ICertView {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertView_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub OpenConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8470,6 +8522,7 @@ impl ICertView2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertView2_Vtbl {
     pub base__: ICertView_Vtbl,
     pub SetTable: unsafe extern "system" fn(*mut core::ffi::c_void, CVRC_TABLE) -> windows_core::HRESULT,
@@ -8526,6 +8579,7 @@ impl ICertificateAttestationChallenge {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateAttestationChallenge_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8606,6 +8660,7 @@ impl ICertificateAttestationChallenge2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateAttestationChallenge2_Vtbl {
     pub base__: ICertificateAttestationChallenge_Vtbl,
     pub SetKeyContainerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8689,6 +8744,7 @@ impl ICertificatePolicies {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificatePolicies_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8814,6 +8870,7 @@ impl ICertificatePolicy {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificatePolicy_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8927,6 +8984,7 @@ impl ICertificationAuthorities {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificationAuthorities_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9065,6 +9123,7 @@ impl ICertificationAuthority {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificationAuthority_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9139,6 +9198,7 @@ impl ICryptAttribute {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICryptAttribute_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub InitializeFromObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9267,6 +9327,7 @@ impl ICryptAttributes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICryptAttributes_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9458,6 +9519,7 @@ impl ICspAlgorithm {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICspAlgorithm_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub GetAlgorithmOid: unsafe extern "system" fn(*mut core::ffi::c_void, i32, AlgorithmFlags, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9688,6 +9750,7 @@ impl ICspAlgorithms {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICspAlgorithms_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9927,6 +9990,7 @@ impl ICspInformation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICspInformation_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub InitializeFromName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10277,6 +10341,7 @@ impl ICspInformations {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICspInformations_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10508,6 +10573,7 @@ impl ICspStatus {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICspStatus_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10693,6 +10759,7 @@ impl ICspStatuses {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICspStatuses_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11117,6 +11184,7 @@ impl IEnroll {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnroll_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub createFilePKCS10WStr: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -11828,6 +11896,7 @@ impl IEnroll2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnroll2_Vtbl {
     pub base__: IEnroll_Vtbl,
     pub InstallPKCS7Blob: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::CRYPT_INTEGER_BLOB) -> windows_core::HRESULT,
@@ -12159,6 +12228,7 @@ impl IEnroll4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnroll4_Vtbl {
     pub base__: IEnroll2_Vtbl,
     pub SetThumbPrintWStr: unsafe extern "system" fn(*mut core::ffi::c_void, super::CRYPT_INTEGER_BLOB) -> windows_core::HRESULT,
@@ -12500,6 +12570,7 @@ impl IEnumCERTVIEWATTRIBUTE {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumCERTVIEWATTRIBUTE_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -12629,6 +12700,7 @@ impl IEnumCERTVIEWCOLUMN {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumCERTVIEWCOLUMN_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -12788,6 +12860,7 @@ impl IEnumCERTVIEWEXTENSION {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumCERTVIEWEXTENSION_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -12931,6 +13004,7 @@ impl IEnumCERTVIEWROW {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumCERTVIEWROW_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -13098,6 +13172,7 @@ impl INDESPolicy {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INDESPolicy_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13237,6 +13312,7 @@ impl IOCSPAdmin {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOCSPAdmin_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub OCSPServiceProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13528,6 +13604,7 @@ impl IOCSPCAConfiguration {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOCSPCAConfiguration_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Identifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13926,6 +14003,7 @@ impl IOCSPCAConfigurationCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOCSPCAConfigurationCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14077,6 +14155,7 @@ impl IOCSPProperty {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOCSPProperty_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14219,6 +14298,7 @@ impl IOCSPPropertyCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOCSPPropertyCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14413,6 +14493,7 @@ impl IObjectId {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectId_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub InitializeFromName: unsafe extern "system" fn(*mut core::ffi::c_void, CERTENROLL_OBJECTID) -> windows_core::HRESULT,
@@ -14580,6 +14661,7 @@ impl IObjectIds {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectIds_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14723,6 +14805,7 @@ impl IPolicyQualifier {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPolicyQualifier_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PolicyQualifierType) -> windows_core::HRESULT,
@@ -14857,6 +14940,7 @@ impl IPolicyQualifiers {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPolicyQualifiers_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15023,6 +15107,7 @@ impl ISignerCertificate {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISignerCertificate_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL, X509PrivateKeyVerify, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15232,6 +15317,7 @@ impl ISignerCertificates {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISignerCertificates_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15393,6 +15479,7 @@ impl ISmimeCapabilities {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmimeCapabilities_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15536,6 +15623,7 @@ impl ISmimeCapability {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmimeCapability_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -15628,6 +15716,7 @@ impl IX500DistinguishedName {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX500DistinguishedName_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Decode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, X500NameFlags) -> windows_core::HRESULT,
@@ -15729,6 +15818,7 @@ impl IX509Attribute {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509Attribute_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15831,6 +15921,7 @@ impl IX509AttributeArchiveKey {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509AttributeArchiveKey_Vtbl {
     pub base__: IX509Attribute_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -15941,6 +16032,7 @@ impl IX509AttributeArchiveKeyHash {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509AttributeArchiveKeyHash_Vtbl {
     pub base__: IX509Attribute_Vtbl,
     pub InitializeEncodeFromEncryptedKeyBlob: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16039,6 +16131,7 @@ impl IX509AttributeClientId {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509AttributeClientId_Vtbl {
     pub base__: IX509Attribute_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, RequestClientInfoClientId, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16176,6 +16269,7 @@ impl IX509AttributeCspProvider {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509AttributeCspProvider_Vtbl {
     pub base__: IX509Attribute_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, X509KeySpec, *mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16289,6 +16383,7 @@ impl IX509AttributeExtensions {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509AttributeExtensions_Vtbl {
     pub base__: IX509Attribute_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16369,6 +16464,7 @@ impl IX509AttributeOSVersion {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509AttributeOSVersion_Vtbl {
     pub base__: IX509Attribute_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16449,6 +16545,7 @@ impl IX509AttributeRenewalCertificate {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509AttributeRenewalCertificate_Vtbl {
     pub base__: IX509Attribute_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16547,6 +16644,7 @@ impl IX509Attributes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509Attributes_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16774,6 +16872,7 @@ impl IX509CertificateRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRequest_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext) -> windows_core::HRESULT,
@@ -17169,6 +17268,7 @@ impl IX509CertificateRequestCertificate {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRequestCertificate_Vtbl {
     pub base__: IX509CertificateRequestPkcs10_Vtbl,
     pub CheckPublicKeySignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17360,6 +17460,7 @@ impl IX509CertificateRequestCertificate2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRequestCertificate2_Vtbl {
     pub base__: IX509CertificateRequestCertificate_Vtbl,
     pub InitializeFromTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17566,6 +17667,7 @@ impl IX509CertificateRequestCmc {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRequestCmc_Vtbl {
     pub base__: IX509CertificateRequestPkcs7_Vtbl,
     pub InitializeFromInnerRequestTemplateName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17940,6 +18042,7 @@ impl IX509CertificateRequestCmc2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRequestCmc2_Vtbl {
     pub base__: IX509CertificateRequestCmc_Vtbl,
     pub InitializeFromTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18191,6 +18294,7 @@ impl IX509CertificateRequestPkcs10 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRequestPkcs10_Vtbl {
     pub base__: IX509CertificateRequest_Vtbl,
     pub InitializeFromTemplateName: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18627,6 +18731,7 @@ impl IX509CertificateRequestPkcs10V2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRequestPkcs10V2_Vtbl {
     pub base__: IX509CertificateRequestPkcs10_Vtbl,
     pub InitializeFromTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18773,6 +18878,7 @@ impl IX509CertificateRequestPkcs10V3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRequestPkcs10V3_Vtbl {
     pub base__: IX509CertificateRequestPkcs10V2_Vtbl,
     pub AttestPrivateKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -18961,6 +19067,7 @@ impl IX509CertificateRequestPkcs10V4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRequestPkcs10V4_Vtbl {
     pub base__: IX509CertificateRequestPkcs10V3_Vtbl,
     pub ClaimType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KeyAttestationClaimType) -> windows_core::HRESULT,
@@ -19080,6 +19187,7 @@ impl IX509CertificateRequestPkcs7 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRequestPkcs7_Vtbl {
     pub base__: IX509CertificateRequest_Vtbl,
     pub InitializeFromTemplateName: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19221,6 +19329,7 @@ impl IX509CertificateRequestPkcs7V2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRequestPkcs7V2_Vtbl {
     pub base__: IX509CertificateRequestPkcs7_Vtbl,
     pub InitializeFromTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19460,6 +19569,7 @@ impl IX509CertificateRevocationList {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRevocationList_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19918,6 +20028,7 @@ impl IX509CertificateRevocationListEntries {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRevocationListEntries_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20085,6 +20196,7 @@ impl IX509CertificateRevocationListEntry {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateRevocationListEntry_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -20220,6 +20332,7 @@ impl IX509CertificateTemplate {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateTemplate_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20296,6 +20409,7 @@ impl IX509CertificateTemplateWritable {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateTemplateWritable_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20439,6 +20553,7 @@ impl IX509CertificateTemplates {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509CertificateTemplates_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20627,6 +20742,7 @@ impl IX509EndorsementKey {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509EndorsementKey_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub ProviderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20911,6 +21027,7 @@ impl IX509Enrollment {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509Enrollment_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext) -> windows_core::HRESULT,
@@ -21265,6 +21382,7 @@ impl IX509Enrollment2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509Enrollment2_Vtbl {
     pub base__: IX509Enrollment_Vtbl,
     pub InitializeFromTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21378,6 +21496,7 @@ impl IX509EnrollmentHelper {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509EnrollmentHelper_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub AddPolicyServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, PolicyServerUrlFlags, X509EnrollmentAuthFlags, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21586,6 +21705,7 @@ impl IX509EnrollmentPolicyServer {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509EnrollmentPolicyServer_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, X509EnrollmentAuthFlags, super::super::super::Foundation::VARIANT_BOOL, X509CertificateEnrollmentContext) -> windows_core::HRESULT,
@@ -22005,6 +22125,7 @@ impl IX509EnrollmentStatus {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509EnrollmentStatus_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub AppendText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22190,6 +22311,7 @@ impl IX509EnrollmentWebClassFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509EnrollmentWebClassFactory_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub CreateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22264,6 +22386,7 @@ impl IX509Extension {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509Extension_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22377,6 +22500,7 @@ impl IX509ExtensionAlternativeNames {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509ExtensionAlternativeNames_Vtbl {
     pub base__: IX509Extension_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22457,6 +22581,7 @@ impl IX509ExtensionAuthorityKeyIdentifier {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509ExtensionAuthorityKeyIdentifier_Vtbl {
     pub base__: IX509Extension_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22543,6 +22668,7 @@ impl IX509ExtensionBasicConstraints {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509ExtensionBasicConstraints_Vtbl {
     pub base__: IX509Extension_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL, i32) -> windows_core::HRESULT,
@@ -22641,6 +22767,7 @@ impl IX509ExtensionCertificatePolicies {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509ExtensionCertificatePolicies_Vtbl {
     pub base__: IX509Extension_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22724,6 +22851,7 @@ impl IX509ExtensionEnhancedKeyUsage {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509ExtensionEnhancedKeyUsage_Vtbl {
     pub base__: IX509Extension_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22804,6 +22932,7 @@ impl IX509ExtensionKeyUsage {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509ExtensionKeyUsage_Vtbl {
     pub base__: IX509Extension_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, X509KeyUsageFlags) -> windows_core::HRESULT,
@@ -22887,6 +23016,7 @@ impl IX509ExtensionMSApplicationPolicies {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509ExtensionMSApplicationPolicies_Vtbl {
     pub base__: IX509Extension_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22970,6 +23100,7 @@ impl IX509ExtensionSmimeCapabilities {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509ExtensionSmimeCapabilities_Vtbl {
     pub base__: IX509Extension_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23050,6 +23181,7 @@ impl IX509ExtensionSubjectKeyIdentifier {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509ExtensionSubjectKeyIdentifier_Vtbl {
     pub base__: IX509Extension_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23145,6 +23277,7 @@ impl IX509ExtensionTemplate {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509ExtensionTemplate_Vtbl {
     pub base__: IX509Extension_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -23255,6 +23388,7 @@ impl IX509ExtensionTemplateName {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509ExtensionTemplateName_Vtbl {
     pub base__: IX509Extension_Vtbl,
     pub InitializeEncode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23368,6 +23502,7 @@ impl IX509Extensions {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509Extensions_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23505,6 +23640,7 @@ impl IX509MachineEnrollmentFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509MachineEnrollmentFactory_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub CreateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23567,6 +23703,7 @@ impl IX509NameValuePair {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509NameValuePair_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23671,6 +23808,7 @@ impl IX509NameValuePairs {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509NameValuePairs_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23811,6 +23949,7 @@ impl IX509PolicyServerListManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509PolicyServerListManager_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_ItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23990,6 +24129,7 @@ impl IX509PolicyServerUrl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509PolicyServerUrl_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, X509CertificateEnrollmentContext) -> windows_core::HRESULT,
@@ -24463,6 +24603,7 @@ impl IX509PrivateKey {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509PrivateKey_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25233,6 +25374,7 @@ impl IX509PrivateKey2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509PrivateKey2_Vtbl {
     pub base__: IX509PrivateKey_Vtbl,
     pub HardwareKeyUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut X509HardwareKeyUsageFlags) -> windows_core::HRESULT,
@@ -25427,6 +25569,7 @@ impl IX509PublicKey {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509PublicKey_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType) -> windows_core::HRESULT,
@@ -25669,6 +25812,7 @@ impl IX509SCEPEnrollment {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509SCEPEnrollment_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void, EncodingType) -> windows_core::HRESULT,
@@ -26013,6 +26157,7 @@ impl IX509SCEPEnrollment2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509SCEPEnrollment2_Vtbl {
     pub base__: IX509SCEPEnrollment_Vtbl,
     pub CreateChallengeAnswerMessage: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26165,6 +26310,7 @@ impl IX509SCEPEnrollmentHelper {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509SCEPEnrollmentHelper_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26344,6 +26490,7 @@ impl IX509SignatureInformation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IX509SignatureInformation_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub HashAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

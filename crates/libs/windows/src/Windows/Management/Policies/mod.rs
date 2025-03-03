@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for INamedPolicyData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INamedPolicyData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Area: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30,6 +31,7 @@ impl windows_core::RuntimeType for INamedPolicyStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INamedPolicyStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetPolicyFromPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

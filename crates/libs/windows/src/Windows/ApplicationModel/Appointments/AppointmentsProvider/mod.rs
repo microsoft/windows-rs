@@ -95,6 +95,7 @@ impl windows_core::RuntimeType for IAddAppointmentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAddAppointmentOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppointmentInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -109,6 +110,7 @@ impl windows_core::RuntimeType for IAppointmentsProviderLaunchActionVerbsStatics
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddAppointment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -121,6 +123,7 @@ impl windows_core::RuntimeType for IAppointmentsProviderLaunchActionVerbsStatics
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShowAppointmentDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -130,6 +133,7 @@ impl windows_core::RuntimeType for IRemoveAppointmentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoveAppointmentOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppointmentId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -145,6 +149,7 @@ impl windows_core::RuntimeType for IReplaceAppointmentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReplaceAppointmentOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppointmentId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

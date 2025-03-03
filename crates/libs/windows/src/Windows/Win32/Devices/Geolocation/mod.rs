@@ -972,6 +972,7 @@ impl ICivicAddressReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICivicAddressReport_Vtbl {
     pub base__: ILocationReport_Vtbl,
     pub GetAddressLine1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1118,6 +1119,7 @@ impl ICivicAddressReportFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICivicAddressReportFactory_Vtbl {
     pub base__: ILocationReportFactory_Vtbl,
     pub CivicAddressReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1166,6 +1168,7 @@ impl IDefaultLocation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDefaultLocation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1270,6 +1273,7 @@ impl IDispCivicAddressReport {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDispCivicAddressReport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AddressLine1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1461,6 +1465,7 @@ impl IDispLatLongReport {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDispLatLongReport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Latitude: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -1611,6 +1616,7 @@ impl ILatLongReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILatLongReport_Vtbl {
     pub base__: ILocationReport_Vtbl,
     pub GetLatitude: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -1727,6 +1733,7 @@ impl ILatLongReportFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILatLongReportFactory_Vtbl {
     pub base__: ILocationReportFactory_Vtbl,
     pub LatLongReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1807,6 +1814,7 @@ impl ILocation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterForReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, u32) -> windows_core::HRESULT,
@@ -1951,6 +1959,7 @@ impl ILocationEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocationEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnLocationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1996,6 +2005,7 @@ impl ILocationPower {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocationPower_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2050,6 +2060,7 @@ impl ILocationReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocationReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSensorID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -2166,6 +2177,7 @@ impl ILocationReportFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocationReportFactory_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub ListenForReports: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -2332,6 +2344,7 @@ impl core::ops::Deref for _ICivicAddressReportFactoryEvents {
 windows_core::imp::interface_hierarchy!(_ICivicAddressReportFactoryEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _ICivicAddressReportFactoryEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -2361,6 +2374,7 @@ impl core::ops::Deref for _ILatLongReportFactoryEvents {
 windows_core::imp::interface_hierarchy!(_ILatLongReportFactoryEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _ILatLongReportFactoryEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }

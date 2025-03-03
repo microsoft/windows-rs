@@ -1006,6 +1006,7 @@ impl DisplayPropertiesEventHandler {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct DisplayPropertiesEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1104,6 +1105,7 @@ impl windows_core::RuntimeType for IAdvancedColorInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdvancedColorInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentAdvancedColorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdvancedColorKind) -> windows_core::HRESULT,
@@ -1123,6 +1125,7 @@ impl windows_core::RuntimeType for IBrightnessOverride {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBrightnessOverride_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1145,6 +1148,7 @@ impl windows_core::RuntimeType for IBrightnessOverrideSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBrightnessOverrideSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesiredLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -1155,6 +1159,7 @@ impl windows_core::RuntimeType for IBrightnessOverrideSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBrightnessOverrideSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromLevel: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1166,6 +1171,7 @@ impl windows_core::RuntimeType for IBrightnessOverrideStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBrightnessOverrideStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefaultForSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1177,6 +1183,7 @@ impl windows_core::RuntimeType for IColorOverrideSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IColorOverrideSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesiredDisplayColorOverrideScenario: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayColorOverrideScenario) -> windows_core::HRESULT,
@@ -1186,6 +1193,7 @@ impl windows_core::RuntimeType for IColorOverrideSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IColorOverrideSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromDisplayColorOverrideScenario: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayColorOverrideScenario, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1195,6 +1203,7 @@ impl windows_core::RuntimeType for IDisplayEnhancementOverride {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayEnhancementOverride_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ColorOverrideSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1218,6 +1227,7 @@ impl windows_core::RuntimeType for IDisplayEnhancementOverrideCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayEnhancementOverrideCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsBrightnessControlSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1229,6 +1239,7 @@ impl windows_core::RuntimeType for IDisplayEnhancementOverrideCapabilitiesChange
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Capabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1238,6 +1249,7 @@ impl windows_core::RuntimeType for IDisplayEnhancementOverrideStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayEnhancementOverrideStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1247,6 +1259,7 @@ impl windows_core::RuntimeType for IDisplayInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayOrientations) -> windows_core::HRESULT,
@@ -1274,6 +1287,7 @@ impl windows_core::RuntimeType for IDisplayInformation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayInformation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RawPixelsPerViewPixel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -1283,6 +1297,7 @@ impl windows_core::RuntimeType for IDisplayInformation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayInformation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DiagonalSizeInInches: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1292,6 +1307,7 @@ impl windows_core::RuntimeType for IDisplayInformation4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayInformation4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ScreenWidthInRawPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1302,6 +1318,7 @@ impl windows_core::RuntimeType for IDisplayInformation5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayInformation5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAdvancedColorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1313,6 +1330,7 @@ impl windows_core::RuntimeType for IDisplayInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1329,6 +1347,7 @@ impl windows_core::RuntimeType for IDisplayPropertiesStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayPropertiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayOrientations) -> windows_core::HRESULT,
@@ -1358,6 +1377,7 @@ impl windows_core::RuntimeType for IDisplayServices {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayServices_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -1366,6 +1386,7 @@ impl windows_core::RuntimeType for IDisplayServicesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayServicesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FindAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut super::DisplayId) -> windows_core::HRESULT,

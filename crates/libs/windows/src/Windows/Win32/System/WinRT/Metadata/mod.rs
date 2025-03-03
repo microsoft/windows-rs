@@ -500,6 +500,7 @@ impl ICeeGen {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICeeGen_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EmitString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
@@ -665,6 +666,7 @@ impl IHostFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHostFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MarkToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -883,6 +885,7 @@ impl IMapToken {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapToken_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -961,6 +964,7 @@ impl IMetaDataAssemblyEmit {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataAssemblyEmit_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DefineAssembly: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, u32, windows_core::PCWSTR, *const ASSEMBLYMETADATA, u32, *mut u32) -> windows_core::HRESULT,
@@ -1125,6 +1129,7 @@ impl IMetaDataAssemblyImport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataAssemblyImport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAssemblyProps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *const core::ffi::c_void, *mut u32, *mut u32, windows_core::PWSTR, u32, *mut u32, *mut ASSEMBLYMETADATA, *mut u32) -> windows_core::HRESULT,
@@ -1293,6 +1298,7 @@ impl IMetaDataDispenser {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataDispenser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DefineScope: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1406,6 +1412,7 @@ impl IMetaDataDispenserEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataDispenserEx_Vtbl {
     pub base__: IMetaDataDispenser_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1725,6 +1732,7 @@ impl IMetaDataEmit {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataEmit_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetModuleProps: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2236,6 +2244,7 @@ impl IMetaDataEmit2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataEmit2_Vtbl {
     pub base__: IMetaDataEmit_Vtbl,
     pub DefineMethodSpec: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
@@ -2338,6 +2347,7 @@ impl IMetaDataError {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataError_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
@@ -2374,6 +2384,7 @@ impl IMetaDataFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UnmarkAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2644,6 +2655,7 @@ impl IMetaDataImport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataImport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CloseEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -3304,6 +3316,7 @@ impl IMetaDataImport2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataImport2_Vtbl {
     pub base__: IMetaDataImport_Vtbl,
     pub EnumGenericParams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
@@ -3400,6 +3413,7 @@ impl IMetaDataInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFileMapping: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const core::ffi::c_void, *mut u64, *mut u32) -> windows_core::HRESULT,
@@ -3484,6 +3498,7 @@ impl IMetaDataTables {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataTables_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStringHeapSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3688,6 +3703,7 @@ impl IMetaDataTables2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataTables2_Vtbl {
     pub base__: IMetaDataTables_Vtbl,
     pub GetMetaDataStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3736,6 +3752,7 @@ impl IMetaDataValidate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataValidate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ValidatorInit: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3778,6 +3795,7 @@ impl IMetaDataWinMDImport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataWinMDImport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUntransformedTypeRefProps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -3893,6 +3911,7 @@ impl IRoMetaDataLocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRoMetaDataLocator_Vtbl {
     pub Locate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -3977,6 +3996,7 @@ impl IRoSimpleMetaDataBuilder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRoSimpleMetaDataBuilder_Vtbl {
     pub SetWinRtInterface: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub SetDelegate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,

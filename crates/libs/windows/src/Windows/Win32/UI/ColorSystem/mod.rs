@@ -1256,6 +1256,7 @@ impl IDeviceModelPlugIn {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceModelPlugIn_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -1410,6 +1411,7 @@ impl IGamutMapModelPlugIn {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGamutMapModelPlugIn_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const GamutBoundaryDescription, *const GamutBoundaryDescription) -> windows_core::HRESULT,

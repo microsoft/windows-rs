@@ -554,6 +554,7 @@ impl IWinHttpRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinHttpRequest_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -840,6 +841,7 @@ impl IWinHttpRequestEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinHttpRequestEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnResponseStart: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void),

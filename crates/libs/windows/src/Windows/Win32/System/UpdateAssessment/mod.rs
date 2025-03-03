@@ -9,6 +9,7 @@ impl IWaaSAssessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWaaSAssessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOSUpdateAssessment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OSUpdateAssessment) -> windows_core::HRESULT,

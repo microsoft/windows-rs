@@ -132,6 +132,7 @@ impl IDxcAssembler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcAssembler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AssembleToContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -171,6 +172,7 @@ impl IDxcBlob {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcBlob_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBufferPointer: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
@@ -219,6 +221,7 @@ impl IDxcBlobEncoding {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcBlobEncoding_Vtbl {
     pub base__: IDxcBlob_Vtbl,
     pub GetEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut DXC_CP) -> windows_core::HRESULT,
@@ -258,6 +261,7 @@ impl IDxcBlobUtf16 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcBlobUtf16_Vtbl {
     pub base__: IDxcBlobEncoding_Vtbl,
     pub GetStringPointer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::PCWSTR,
@@ -309,6 +313,7 @@ impl IDxcBlobUtf8 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcBlobUtf8_Vtbl {
     pub base__: IDxcBlobEncoding_Vtbl,
     pub GetStringPointer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::PCSTR,
@@ -381,6 +386,7 @@ impl IDxcCompiler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcCompiler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Compile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::PCWSTR, u32, *const DxcDefine, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -480,6 +486,7 @@ impl IDxcCompiler2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcCompiler2_Vtbl {
     pub base__: IDxcCompiler_Vtbl,
     pub CompileWithDebug: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::PCWSTR, u32, *const DxcDefine, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut windows_core::PWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -522,6 +529,7 @@ impl IDxcCompiler3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcCompiler3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Compile: unsafe extern "system" fn(*mut core::ffi::c_void, *const DxcBuffer, *const windows_core::PCWSTR, u32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -576,6 +584,7 @@ impl IDxcCompilerArgs {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcCompilerArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetArguments: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut windows_core::PCWSTR,
@@ -663,6 +672,7 @@ impl IDxcContainerBuilder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcContainerBuilder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -759,6 +769,7 @@ impl IDxcContainerReflection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcContainerReflection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -867,6 +878,7 @@ impl IDxcExtraOutputs {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcExtraOutputs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOutputCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -915,6 +927,7 @@ impl IDxcIncludeHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcIncludeHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LoadSource: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1029,6 +1042,7 @@ impl IDxcLibrary {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcLibrary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1223,6 +1237,7 @@ impl IDxcLinker {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcLinker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterLibrary: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1286,6 +1301,7 @@ impl IDxcOperationResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcOperationResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -1370,6 +1386,7 @@ impl IDxcOptimizer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcOptimizer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAvailablePassCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1460,6 +1477,7 @@ impl IDxcOptimizerPass {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcOptimizerPass_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOptionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -1691,6 +1709,7 @@ impl IDxcPdbUtils {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcPdbUtils_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2060,6 +2079,7 @@ impl IDxcResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcResult_Vtbl {
     pub base__: IDxcOperationResult_Vtbl,
     pub HasOutput: unsafe extern "system" fn(*mut core::ffi::c_void, DXC_OUT_KIND) -> windows_core::BOOL,
@@ -2223,6 +2243,7 @@ impl IDxcUtils {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcUtils_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateBlobFromBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2439,6 +2460,7 @@ impl IDxcValidator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcValidator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2487,6 +2509,7 @@ impl IDxcValidator2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcValidator2_Vtbl {
     pub base__: IDxcValidator_Vtbl,
     pub ValidateWithDebug: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const DxcBuffer, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2529,6 +2552,7 @@ impl IDxcVersionInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcVersionInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -2583,6 +2607,7 @@ impl IDxcVersionInfo2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcVersionInfo2_Vtbl {
     pub base__: IDxcVersionInfo_Vtbl,
     pub GetCommitInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut i8) -> windows_core::HRESULT,
@@ -2616,6 +2641,7 @@ impl IDxcVersionInfo3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDxcVersionInfo3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCustomVersionString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut i8) -> windows_core::HRESULT,

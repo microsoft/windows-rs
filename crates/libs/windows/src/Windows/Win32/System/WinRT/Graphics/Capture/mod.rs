@@ -18,6 +18,7 @@ impl IGraphicsCaptureItemInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsCaptureItemInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::super::Foundation::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

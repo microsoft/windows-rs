@@ -313,6 +313,7 @@ impl ID2D1SimplifiedGeometrySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1SimplifiedGeometrySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFillMode: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_FILL_MODE),

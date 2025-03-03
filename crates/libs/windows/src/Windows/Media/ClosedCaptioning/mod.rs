@@ -192,6 +192,7 @@ impl windows_core::RuntimeType for IClosedCaptionPropertiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IClosedCaptionPropertiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FontColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ClosedCaptionColor) -> windows_core::HRESULT,
@@ -221,6 +222,7 @@ impl windows_core::RuntimeType for IClosedCaptionPropertiesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IClosedCaptionPropertiesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PropertiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,

@@ -1303,6 +1303,7 @@ impl IDirectWriterLock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectWriterLock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub WaitForWriteAccess: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -1366,6 +1367,7 @@ impl IEnumSTATPROPSETSTG {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumSTATPROPSETSTG_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut STATPROPSETSTG, *mut u32) -> windows_core::HRESULT,
@@ -1445,6 +1447,7 @@ impl IEnumSTATPROPSTG {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumSTATPROPSTG_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Variant")]
@@ -1529,6 +1532,7 @@ impl IEnumSTATSTG {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumSTATSTG_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::STATSTG, *mut u32) -> windows_core::HRESULT,
@@ -1610,6 +1614,7 @@ impl IFillLockBytes {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFillLockBytes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FillAppend: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -1700,6 +1705,7 @@ impl ILayoutStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILayoutStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LayoutScript: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::StorageLayout, u32, u32) -> windows_core::HRESULT,
@@ -1787,6 +1793,7 @@ impl ILockBytes {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILockBytes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadAt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -1876,6 +1883,7 @@ impl IMemoryAllocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMemoryAllocator_Vtbl {
     pub Allocate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> *mut core::ffi::c_void,
     pub Free: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -1955,6 +1963,7 @@ impl IPersistStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPersistStorage_Vtbl {
     pub base__: super::IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2045,6 +2054,7 @@ impl IPropertyBag {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertyBag_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2118,6 +2128,7 @@ impl IPropertyBag2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertyBag2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2223,6 +2234,7 @@ impl IPropertySetStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertySetStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2339,6 +2351,7 @@ impl IPropertyStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertyStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Variant")]
@@ -2489,6 +2502,7 @@ impl IRootStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRootStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SwitchToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2607,6 +2621,7 @@ impl IStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateStream: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::STGM, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -3548,6 +3548,7 @@ impl IImageList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3968,6 +3969,7 @@ impl IImageList2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageList2_Vtbl {
     pub base__: IImageList_Vtbl,
     pub Resize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,

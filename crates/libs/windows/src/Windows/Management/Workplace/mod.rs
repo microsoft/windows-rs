@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IMdmAllowPolicyStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMdmAllowPolicyStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsBrowserAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -15,6 +16,7 @@ impl windows_core::RuntimeType for IMdmPolicyStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMdmPolicyStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetMessagingSyncPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MessagingSyncPolicy) -> windows_core::HRESULT,
@@ -24,6 +26,7 @@ impl windows_core::RuntimeType for IWorkplaceSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkplaceSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsMicrosoftAccountOptional: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

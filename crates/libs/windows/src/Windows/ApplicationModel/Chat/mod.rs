@@ -2031,6 +2031,7 @@ impl windows_core::RuntimeType for IChatCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsOnline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2044,6 +2045,7 @@ impl windows_core::RuntimeType for IChatCapabilitiesManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatCapabilitiesManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCachedCapabilitiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2054,6 +2056,7 @@ impl windows_core::RuntimeType for IChatCapabilitiesManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatCapabilitiesManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCachedCapabilitiesForTransportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2064,6 +2067,7 @@ impl windows_core::RuntimeType for IChatConversation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatConversation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HasUnreadMessages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2090,6 +2094,7 @@ impl windows_core::RuntimeType for IChatConversation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatConversation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CanModifyParticipants: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2100,6 +2105,7 @@ impl windows_core::RuntimeType for IChatConversationReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatConversationReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadBatchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2110,6 +2116,7 @@ impl windows_core::RuntimeType for IChatConversationThreadingInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatConversationThreadingInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContactId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2163,6 +2170,7 @@ impl IChatItem_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ItemKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatItemKind) -> windows_core::HRESULT,
@@ -2172,6 +2180,7 @@ impl windows_core::RuntimeType for IChatMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Attachments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2197,6 +2206,7 @@ impl windows_core::RuntimeType for IChatMessage2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessage2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EstimatedDownloadSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -2233,6 +2243,7 @@ impl windows_core::RuntimeType for IChatMessage3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessage3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2242,6 +2253,7 @@ impl windows_core::RuntimeType for IChatMessage4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessage4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SyncId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2252,6 +2264,7 @@ impl windows_core::RuntimeType for IChatMessageAttachment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageAttachment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -2274,6 +2287,7 @@ impl windows_core::RuntimeType for IChatMessageAttachment2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageAttachment2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -2294,6 +2308,7 @@ impl windows_core::RuntimeType for IChatMessageAttachmentFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageAttachmentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -2306,6 +2321,7 @@ impl windows_core::RuntimeType for IChatMessageBlockingStatic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageBlockingStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MarkMessageAsBlockedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2315,6 +2331,7 @@ impl windows_core::RuntimeType for IChatMessageChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageChange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatMessageChangeType) -> windows_core::HRESULT,
@@ -2325,6 +2342,7 @@ impl windows_core::RuntimeType for IChatMessageChangeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageChangeReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AcceptChanges: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2336,6 +2354,7 @@ impl windows_core::RuntimeType for IChatMessageChangeTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageChangeTracker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2347,6 +2366,7 @@ impl windows_core::RuntimeType for IChatMessageChangedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageChangedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2356,6 +2376,7 @@ impl windows_core::RuntimeType for IChatMessageChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2365,6 +2386,7 @@ impl windows_core::RuntimeType for IChatMessageManager2Statics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageManager2Statics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RegisterTransportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2375,6 +2397,7 @@ impl windows_core::RuntimeType for IChatMessageManagerStatic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageManagerStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetTransportsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2387,6 +2410,7 @@ impl windows_core::RuntimeType for IChatMessageManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestSyncManagerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2396,6 +2420,7 @@ impl windows_core::RuntimeType for IChatMessageNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageNotificationTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChatMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2405,6 +2430,7 @@ impl windows_core::RuntimeType for IChatMessageNotificationTriggerDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageNotificationTriggerDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShouldDisplayToast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2417,6 +2443,7 @@ impl windows_core::RuntimeType for IChatMessageReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadBatchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2426,6 +2453,7 @@ impl windows_core::RuntimeType for IChatMessageReader2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageReader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadBatchWithCountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2435,6 +2463,7 @@ impl windows_core::RuntimeType for IChatMessageStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeTracker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2455,6 +2484,7 @@ impl windows_core::RuntimeType for IChatMessageStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ForwardMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2480,6 +2510,7 @@ impl windows_core::RuntimeType for IChatMessageStore3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageStore3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetMessageBySyncIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2489,6 +2520,7 @@ impl windows_core::RuntimeType for IChatMessageStoreChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageStoreChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2499,6 +2531,7 @@ impl windows_core::RuntimeType for IChatMessageTransport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageTransport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsAppSetAsNotificationProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2512,6 +2545,7 @@ impl windows_core::RuntimeType for IChatMessageTransport2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageTransport2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Configuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2522,6 +2556,7 @@ impl windows_core::RuntimeType for IChatMessageTransportConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageTransportConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxAttachmentCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -2538,6 +2573,7 @@ impl windows_core::RuntimeType for IChatMessageValidationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageValidationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxPartCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2550,6 +2586,7 @@ impl windows_core::RuntimeType for IChatQueryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatQueryOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SearchString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2560,6 +2597,7 @@ impl windows_core::RuntimeType for IChatRecipientDeliveryInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatRecipientDeliveryInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransportAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2579,6 +2617,7 @@ impl windows_core::RuntimeType for IChatSearchReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatSearchReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadBatchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2589,6 +2628,7 @@ impl windows_core::RuntimeType for IChatSyncConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatSyncConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSyncEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2601,6 +2641,7 @@ impl windows_core::RuntimeType for IChatSyncManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatSyncManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Configuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2621,6 +2662,7 @@ impl windows_core::RuntimeType for IRcsEndUserMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRcsEndUserMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransportId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2636,6 +2678,7 @@ impl windows_core::RuntimeType for IRcsEndUserMessageAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRcsEndUserMessageAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2645,6 +2688,7 @@ impl windows_core::RuntimeType for IRcsEndUserMessageAvailableEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRcsEndUserMessageAvailableEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsMessageAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2655,6 +2699,7 @@ impl windows_core::RuntimeType for IRcsEndUserMessageAvailableTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRcsEndUserMessageAvailableTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2665,6 +2710,7 @@ impl windows_core::RuntimeType for IRcsEndUserMessageManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRcsEndUserMessageManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MessageAvailableChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -2675,6 +2721,7 @@ impl windows_core::RuntimeType for IRcsManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRcsManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetEndUserMessageManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2687,6 +2734,7 @@ impl windows_core::RuntimeType for IRcsManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRcsManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransportListChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -2697,6 +2745,7 @@ impl windows_core::RuntimeType for IRcsServiceKindSupportedChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRcsServiceKindSupportedChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RcsServiceKind) -> windows_core::HRESULT,
@@ -2706,6 +2755,7 @@ impl windows_core::RuntimeType for IRcsTransport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRcsTransport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2723,6 +2773,7 @@ impl windows_core::RuntimeType for IRcsTransportConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRcsTransportConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxAttachmentCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -2737,6 +2788,7 @@ impl windows_core::RuntimeType for IRemoteParticipantComposingChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteParticipantComposingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransportId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -995,6 +995,7 @@ impl windows_core::RuntimeType for ICivicAddress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICivicAddress_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Country: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1008,6 +1009,7 @@ impl windows_core::RuntimeType for IGeoboundingBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeoboundingBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NorthwestCorner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BasicGeoposition) -> windows_core::HRESULT,
@@ -1021,6 +1023,7 @@ impl windows_core::RuntimeType for IGeoboundingBoxFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeoboundingBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, BasicGeoposition, BasicGeoposition, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1032,6 +1035,7 @@ impl windows_core::RuntimeType for IGeoboundingBoxStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeoboundingBoxStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCompute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1043,6 +1047,7 @@ impl windows_core::RuntimeType for IGeocircle {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeocircle_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Center: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BasicGeoposition) -> windows_core::HRESULT,
@@ -1053,6 +1058,7 @@ impl windows_core::RuntimeType for IGeocircleFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeocircleFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, BasicGeoposition, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1064,6 +1070,7 @@ impl windows_core::RuntimeType for IGeocoordinate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeocoordinate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -1089,6 +1096,7 @@ impl windows_core::RuntimeType for IGeocoordinateSatelliteData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeocoordinateSatelliteData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PositionDilutionOfPrecision: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1100,6 +1108,7 @@ impl windows_core::RuntimeType for IGeocoordinateSatelliteData2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeocoordinateSatelliteData2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GeometricDilutionOfPrecision: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1110,6 +1119,7 @@ impl windows_core::RuntimeType for IGeocoordinateWithPoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeocoordinateWithPoint_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Point: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1119,6 +1129,7 @@ impl windows_core::RuntimeType for IGeocoordinateWithPositionData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeocoordinateWithPositionData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PositionSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PositionSource) -> windows_core::HRESULT,
@@ -1129,6 +1140,7 @@ impl windows_core::RuntimeType for IGeocoordinateWithPositionSourceTimestamp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeocoordinateWithPositionSourceTimestamp_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PositionSourceTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1138,6 +1150,7 @@ impl windows_core::RuntimeType for IGeocoordinateWithRemoteSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeocoordinateWithRemoteSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsRemoteSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1147,6 +1160,7 @@ impl windows_core::RuntimeType for IGeolocator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeolocator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesiredAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PositionAccuracy) -> windows_core::HRESULT,
@@ -1168,6 +1182,7 @@ impl windows_core::RuntimeType for IGeolocator2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeolocator2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowFallbackToConsentlessPositions: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1177,6 +1192,7 @@ impl windows_core::RuntimeType for IGeolocatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeolocatorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1188,6 +1204,7 @@ impl windows_core::RuntimeType for IGeolocatorStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeolocatorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsDefaultGeopositionRecommended: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1199,6 +1216,7 @@ impl windows_core::RuntimeType for IGeolocatorWithScalarAccuracy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeolocatorWithScalarAccuracy_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesiredAccuracyInMeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1209,6 +1227,7 @@ impl windows_core::RuntimeType for IGeopath {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeopath_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Positions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1218,6 +1237,7 @@ impl windows_core::RuntimeType for IGeopathFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeopathFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1229,6 +1249,7 @@ impl windows_core::RuntimeType for IGeopoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeopoint_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BasicGeoposition) -> windows_core::HRESULT,
@@ -1238,6 +1259,7 @@ impl windows_core::RuntimeType for IGeopointFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeopointFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, BasicGeoposition, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1249,6 +1271,7 @@ impl windows_core::RuntimeType for IGeoposition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeoposition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Coordinate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1259,6 +1282,7 @@ impl windows_core::RuntimeType for IGeoposition2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeoposition2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VenueData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1349,6 +1373,7 @@ impl IGeoshape_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeoshape_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GeoshapeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GeoshapeType) -> windows_core::HRESULT,
@@ -1360,6 +1385,7 @@ impl windows_core::RuntimeType for IGeovisit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeovisit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1371,6 +1397,7 @@ impl windows_core::RuntimeType for IGeovisitMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeovisitMonitor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MonitoringScope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VisitMonitoringScope) -> windows_core::HRESULT,
@@ -1384,6 +1411,7 @@ impl windows_core::RuntimeType for IGeovisitMonitorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeovisitMonitorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetLastReportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1393,6 +1421,7 @@ impl windows_core::RuntimeType for IGeovisitStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeovisitStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Visit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1402,6 +1431,7 @@ impl windows_core::RuntimeType for IGeovisitTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeovisitTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadReports: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1411,6 +1441,7 @@ impl windows_core::RuntimeType for IPositionChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPositionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1420,6 +1451,7 @@ impl windows_core::RuntimeType for IStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStatusChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PositionStatus) -> windows_core::HRESULT,
@@ -1429,6 +1461,7 @@ impl windows_core::RuntimeType for IVenueData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVenueData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

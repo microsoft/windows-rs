@@ -85,6 +85,7 @@ impl windows_core::RuntimeType for IHolographicApplicationPreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHolographicApplicationPreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCurrentViewPresentedOnHolographicDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -101,6 +102,7 @@ impl windows_core::RuntimeType for IHolographicKeyboardPlacementOverridePreview 
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHolographicKeyboardPlacementOverridePreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Perception_Spatial")]
@@ -121,6 +123,7 @@ impl windows_core::RuntimeType for IHolographicKeyboardPlacementOverridePreviewS
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHolographicKeyboardPlacementOverridePreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

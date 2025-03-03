@@ -22,6 +22,7 @@ impl IFindSimilarResults {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFindSimilarResults_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -70,6 +71,7 @@ impl IRdcComparator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRdcComparator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut windows_core::BOOL, *mut RdcBufferPointer, *mut RdcNeedPointer, *mut RDC_ErrorCode) -> windows_core::HRESULT,
@@ -112,6 +114,7 @@ impl IRdcFileReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRdcFileReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFileSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -190,6 +193,7 @@ impl IRdcFileWriter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRdcFileWriter_Vtbl {
     pub base__: IRdcFileReader_Vtbl,
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut u8) -> windows_core::HRESULT,
@@ -253,6 +257,7 @@ impl IRdcGenerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRdcGenerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetGeneratorParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -316,6 +321,7 @@ impl IRdcGeneratorFilterMaxParameters {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRdcGeneratorFilterMaxParameters_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHorizonSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -403,6 +409,7 @@ impl IRdcGeneratorParameters {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRdcGeneratorParameters_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetGeneratorParametersType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GeneratorParametersType) -> windows_core::HRESULT,
@@ -517,6 +524,7 @@ impl IRdcLibrary {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRdcLibrary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ComputeDefaultRecursionDepth: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u32) -> windows_core::HRESULT,
@@ -646,6 +654,7 @@ impl IRdcSignatureReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRdcSignatureReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RDC_ErrorCode) -> windows_core::HRESULT,
@@ -700,6 +709,7 @@ impl IRdcSimilarityGenerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRdcSimilarityGenerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnableSimilarity: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -789,6 +799,7 @@ impl ISimilarity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISimilarity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateTable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL, *const u8, u32, *mut RdcCreatedTables) -> windows_core::HRESULT,
@@ -936,6 +947,7 @@ impl ISimilarityFileIdTable {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISimilarityFileIdTable_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateTable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL, *const u8, u32, *mut RdcCreatedTables) -> windows_core::HRESULT,
@@ -1047,6 +1059,7 @@ impl ISimilarityReportProgress {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISimilarityReportProgress_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReportProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -1077,6 +1090,7 @@ impl ISimilarityTableDumpState {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISimilarityTableDumpState_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNextData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut windows_core::BOOL, *mut SimilarityDumpData) -> windows_core::HRESULT,
@@ -1119,6 +1133,7 @@ impl ISimilarityTraitsMappedView {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISimilarityTraitsMappedView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1219,6 +1234,7 @@ impl ISimilarityTraitsMapping {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISimilarityTraitsMapping_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CloseMapping: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -1366,6 +1382,7 @@ impl ISimilarityTraitsTable {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISimilarityTraitsTable_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateTable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL, *const u8, *mut RdcCreatedTables) -> windows_core::HRESULT,

@@ -20,6 +20,7 @@ impl ITpmVirtualSmartCardManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITpmVirtualSmartCardManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateVirtualSmartCard: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u8, *const u8, u32, *const u8, u32, *const u8, u32, *const u8, u32, windows_core::BOOL, *mut core::ffi::c_void, *mut windows_core::PWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -116,6 +117,7 @@ impl ITpmVirtualSmartCardManager2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITpmVirtualSmartCardManager2_Vtbl {
     pub base__: ITpmVirtualSmartCardManager_Vtbl,
     pub CreateVirtualSmartCardWithPinPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u8, *const u8, u32, *const u8, u32, *const u8, u32, *const u8, u32, *const u8, u32, windows_core::BOOL, *mut core::ffi::c_void, *mut windows_core::PWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -200,6 +202,7 @@ impl ITpmVirtualSmartCardManager3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITpmVirtualSmartCardManager3_Vtbl {
     pub base__: ITpmVirtualSmartCardManager2_Vtbl,
     pub CreateVirtualSmartCardWithAttestation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u8, *const u8, u32, *const u8, u32, *const u8, u32, *const u8, u32, *const u8, u32, TPMVSC_ATTESTATION_TYPE, windows_core::BOOL, *mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -259,6 +262,7 @@ impl ITpmVirtualSmartCardManagerStatusCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReportProgress: unsafe extern "system" fn(*mut core::ffi::c_void, TPMVSCMGR_STATUS) -> windows_core::HRESULT,

@@ -699,6 +699,7 @@ impl IMarshal {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMarshal_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUnmarshalClass: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::ffi::c_void, u32, *const core::ffi::c_void, u32, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -790,6 +791,7 @@ impl core::ops::Deref for IMarshal2 {
 }
 windows_core::imp::interface_hierarchy!(IMarshal2, windows_core::IUnknown, IMarshal);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMarshal2_Vtbl {
     pub base__: IMarshal_Vtbl,
 }
@@ -820,6 +822,7 @@ impl IMarshalingStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMarshalingStream_Vtbl {
     pub base__: super::IStream_Vtbl,
     pub GetMarshalingContextAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, super::CO_MARSHALING_CONTEXT_ATTRIBUTES, *mut usize) -> windows_core::HRESULT,

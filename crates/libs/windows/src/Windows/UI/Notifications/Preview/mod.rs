@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IToastOcclusionManagerPreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastOcclusionManagerPreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetToastWindowMargin: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::WindowId, f64) -> windows_core::HRESULT,

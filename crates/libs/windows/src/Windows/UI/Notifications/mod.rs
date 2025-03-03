@@ -352,6 +352,7 @@ impl IAdaptiveNotificationContent_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveNotificationContent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdaptiveNotificationContentKind) -> windows_core::HRESULT,
@@ -362,6 +363,7 @@ impl windows_core::RuntimeType for IAdaptiveNotificationText {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveNotificationText_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -374,6 +376,7 @@ impl windows_core::RuntimeType for IBadgeNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBadgeNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -388,6 +391,7 @@ impl windows_core::RuntimeType for IBadgeNotificationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBadgeNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -400,6 +404,7 @@ impl windows_core::RuntimeType for IBadgeUpdateManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBadgeUpdateManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateBadgeUpdaterForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -415,6 +420,7 @@ impl windows_core::RuntimeType for IBadgeUpdateManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBadgeUpdateManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateBadgeUpdaterForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -430,6 +436,7 @@ impl windows_core::RuntimeType for IBadgeUpdateManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBadgeUpdateManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -442,6 +449,7 @@ impl windows_core::RuntimeType for IBadgeUpdater {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBadgeUpdater_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -455,6 +463,7 @@ impl windows_core::RuntimeType for IKnownAdaptiveNotificationHintsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKnownAdaptiveNotificationHintsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Style: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -469,6 +478,7 @@ impl windows_core::RuntimeType for IKnownAdaptiveNotificationTextStylesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKnownAdaptiveNotificationTextStylesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Caption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -496,6 +506,7 @@ impl windows_core::RuntimeType for IKnownNotificationBindingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKnownNotificationBindingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToastGeneric: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -505,6 +516,7 @@ impl windows_core::RuntimeType for INotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -517,6 +529,7 @@ impl windows_core::RuntimeType for INotificationBinding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INotificationBinding_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Template: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -531,6 +544,7 @@ impl windows_core::RuntimeType for INotificationData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INotificationData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Values: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -542,6 +556,7 @@ impl windows_core::RuntimeType for INotificationDataFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INotificationDataFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateNotificationDataWithValuesAndSequenceNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -552,6 +567,7 @@ impl windows_core::RuntimeType for INotificationVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INotificationVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -564,6 +580,7 @@ impl windows_core::RuntimeType for IScheduledTileNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScheduledTileNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -583,6 +600,7 @@ impl windows_core::RuntimeType for IScheduledTileNotificationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScheduledTileNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -595,6 +613,7 @@ impl windows_core::RuntimeType for IScheduledToastNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScheduledToastNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -612,6 +631,7 @@ impl windows_core::RuntimeType for IScheduledToastNotification2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScheduledToastNotification2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -626,6 +646,7 @@ impl windows_core::RuntimeType for IScheduledToastNotification3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScheduledToastNotification3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NotificationMirroring: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NotificationMirroring) -> windows_core::HRESULT,
@@ -638,6 +659,7 @@ impl windows_core::RuntimeType for IScheduledToastNotification4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScheduledToastNotification4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -648,6 +670,7 @@ impl windows_core::RuntimeType for IScheduledToastNotificationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScheduledToastNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -664,6 +687,7 @@ impl windows_core::RuntimeType for IScheduledToastNotificationShowingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScheduledToastNotificationShowingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -676,6 +700,7 @@ impl windows_core::RuntimeType for IShownTileNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IShownTileNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -685,6 +710,7 @@ impl windows_core::RuntimeType for ITileFlyoutNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileFlyoutNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -699,6 +725,7 @@ impl windows_core::RuntimeType for ITileFlyoutNotificationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileFlyoutNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -711,6 +738,7 @@ impl windows_core::RuntimeType for ITileFlyoutUpdateManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileFlyoutUpdateManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateTileFlyoutUpdaterForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -726,6 +754,7 @@ impl windows_core::RuntimeType for ITileFlyoutUpdater {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileFlyoutUpdater_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -740,6 +769,7 @@ impl windows_core::RuntimeType for ITileNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -756,6 +786,7 @@ impl windows_core::RuntimeType for ITileNotificationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -768,6 +799,7 @@ impl windows_core::RuntimeType for ITileUpdateManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileUpdateManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateTileUpdaterForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -783,6 +815,7 @@ impl windows_core::RuntimeType for ITileUpdateManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileUpdateManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateTileUpdaterForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -798,6 +831,7 @@ impl windows_core::RuntimeType for ITileUpdateManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileUpdateManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -810,6 +844,7 @@ impl windows_core::RuntimeType for ITileUpdater {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileUpdater_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -830,6 +865,7 @@ impl windows_core::RuntimeType for ITileUpdater2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileUpdater2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnableNotificationQueueForSquare150x150: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -841,6 +877,7 @@ impl windows_core::RuntimeType for IToastActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -850,6 +887,7 @@ impl windows_core::RuntimeType for IToastActivatedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastActivatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -862,6 +900,7 @@ impl windows_core::RuntimeType for IToastCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -877,6 +916,7 @@ impl windows_core::RuntimeType for IToastCollectionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastCollectionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -886,6 +926,7 @@ impl windows_core::RuntimeType for IToastCollectionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastCollectionManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SaveToastCollectionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -904,6 +945,7 @@ impl windows_core::RuntimeType for IToastDismissedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastDismissedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ToastDismissalReason) -> windows_core::HRESULT,
@@ -913,6 +955,7 @@ impl windows_core::RuntimeType for IToastFailedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastFailedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -922,6 +965,7 @@ impl windows_core::RuntimeType for IToastNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -942,6 +986,7 @@ impl windows_core::RuntimeType for IToastNotification2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotification2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -956,6 +1001,7 @@ impl windows_core::RuntimeType for IToastNotification3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotification3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NotificationMirroring: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NotificationMirroring) -> windows_core::HRESULT,
@@ -968,6 +1014,7 @@ impl windows_core::RuntimeType for IToastNotification4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotification4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -980,6 +1027,7 @@ impl windows_core::RuntimeType for IToastNotification6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotification6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExpiresOnReboot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -990,6 +1038,7 @@ impl windows_core::RuntimeType for IToastNotificationActionTriggerDetail {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationActionTriggerDetail_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Argument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1003,6 +1052,7 @@ impl windows_core::RuntimeType for IToastNotificationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -1015,6 +1065,7 @@ impl windows_core::RuntimeType for IToastNotificationHistory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationHistory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoveGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1030,6 +1081,7 @@ impl windows_core::RuntimeType for IToastNotificationHistory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationHistory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetHistory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1040,6 +1092,7 @@ impl windows_core::RuntimeType for IToastNotificationHistoryChangedTriggerDetail
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationHistoryChangedTriggerDetail_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ToastHistoryChangedType) -> windows_core::HRESULT,
@@ -1049,6 +1102,7 @@ impl windows_core::RuntimeType for IToastNotificationHistoryChangedTriggerDetail
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationHistoryChangedTriggerDetail2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CollectionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1058,6 +1112,7 @@ impl windows_core::RuntimeType for IToastNotificationManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateToastNotifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1073,6 +1128,7 @@ impl windows_core::RuntimeType for IToastNotificationManagerForUser2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationManagerForUser2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetToastNotifierForToastCollectionIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1085,6 +1141,7 @@ impl windows_core::RuntimeType for IToastNotificationManagerForUser3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationManagerForUser3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NotificationMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ToastNotificationMode) -> windows_core::HRESULT,
@@ -1096,6 +1153,7 @@ impl windows_core::RuntimeType for IToastNotificationManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateToastNotifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1110,6 +1168,7 @@ impl windows_core::RuntimeType for IToastNotificationManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub History: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1119,6 +1178,7 @@ impl windows_core::RuntimeType for IToastNotificationManagerStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationManagerStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -1132,6 +1192,7 @@ impl windows_core::RuntimeType for IToastNotificationManagerStatics5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationManagerStatics5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1141,6 +1202,7 @@ impl windows_core::RuntimeType for IToastNotifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotifier_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1155,6 +1217,7 @@ impl windows_core::RuntimeType for IToastNotifier2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotifier2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UpdateWithTagAndGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut NotificationUpdateResult) -> windows_core::HRESULT,
@@ -1165,6 +1228,7 @@ impl windows_core::RuntimeType for IToastNotifier3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotifier3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ScheduledToastNotificationShowing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1175,6 +1239,7 @@ impl windows_core::RuntimeType for IUserNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Notification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1190,6 +1255,7 @@ impl windows_core::RuntimeType for IUserNotificationChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserNotificationChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserNotificationChangedKind) -> windows_core::HRESULT,

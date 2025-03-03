@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for ISceneLightingEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISceneLightingEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AmbientAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -27,6 +28,7 @@ impl windows_core::RuntimeType for ISceneLightingEffect2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISceneLightingEffect2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReflectanceModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneLightingEffectReflectanceModel) -> windows_core::HRESULT,

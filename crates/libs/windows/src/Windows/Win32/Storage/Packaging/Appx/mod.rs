@@ -821,6 +821,7 @@ impl IAppxAppInstallerReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxAppInstallerReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
@@ -872,6 +873,7 @@ impl IAppxBlockMapBlock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBlockMapBlock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
@@ -941,6 +943,7 @@ impl IAppxBlockMapBlocksEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBlockMapBlocksEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1041,6 +1044,7 @@ impl IAppxBlockMapFile {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBlockMapFile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBlocks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1161,6 +1165,7 @@ impl IAppxBlockMapFilesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBlockMapFilesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1256,6 +1261,7 @@ impl IAppxBlockMapReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBlockMapReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1376,6 +1382,7 @@ impl IAppxBundleFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1465,6 +1472,7 @@ impl IAppxBundleFactory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1522,6 +1530,7 @@ impl IAppxBundleManifestOptionalBundleInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleManifestOptionalBundleInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPackageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1606,6 +1615,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1708,6 +1718,7 @@ impl IAppxBundleManifestPackageInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleManifestPackageInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPackageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE) -> windows_core::HRESULT,
@@ -1837,6 +1848,7 @@ impl IAppxBundleManifestPackageInfo2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleManifestPackageInfo2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIsPackageReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1909,6 +1921,7 @@ impl IAppxBundleManifestPackageInfo3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleManifestPackageInfo3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTargetDeviceFamilies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1948,6 +1961,7 @@ impl IAppxBundleManifestPackageInfo4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleManifestPackageInfo4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIsStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1999,6 +2013,7 @@ impl IAppxBundleManifestPackageInfoEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleManifestPackageInfoEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2084,6 +2099,7 @@ impl IAppxBundleManifestReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleManifestReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPackageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2162,6 +2178,7 @@ impl IAppxBundleManifestReader2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleManifestReader2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOptionalBundles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2228,6 +2245,7 @@ impl IAppxBundleReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFootprintFile: unsafe extern "system" fn(*mut core::ffi::c_void, APPX_BUNDLE_FOOTPRINT_FILE_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2335,6 +2353,7 @@ impl IAppxBundleWriter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2388,6 +2407,7 @@ impl IAppxBundleWriter2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleWriter2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2435,6 +2455,7 @@ impl IAppxBundleWriter3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleWriter3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2504,6 +2525,7 @@ impl IAppxBundleWriter4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxBundleWriter4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2576,6 +2598,7 @@ impl IAppxContentGroup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxContentGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -2641,6 +2664,7 @@ impl IAppxContentGroupFilesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxContentGroupFilesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -2719,6 +2743,7 @@ impl IAppxContentGroupMapReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxContentGroupMapReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRequiredGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2785,6 +2810,7 @@ impl IAppxContentGroupMapWriter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxContentGroupMapWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddAutomaticGroup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2851,6 +2877,7 @@ impl IAppxContentGroupsEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxContentGroupsEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2923,6 +2950,7 @@ impl IAppxDigestProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxDigestProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDigest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -2967,6 +2995,7 @@ impl IAppxEncryptedBundleWriter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxEncryptedBundleWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3020,6 +3049,7 @@ impl IAppxEncryptedBundleWriter2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxEncryptedBundleWriter2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3069,6 +3099,7 @@ impl IAppxEncryptedBundleWriter3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxEncryptedBundleWriter3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3128,6 +3159,7 @@ impl IAppxEncryptedPackageWriter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxEncryptedPackageWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3177,6 +3209,7 @@ impl IAppxEncryptedPackageWriter2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxEncryptedPackageWriter2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3283,6 +3316,7 @@ impl IAppxEncryptionFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxEncryptionFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3439,6 +3473,7 @@ impl IAppxEncryptionFactory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxEncryptionFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3516,6 +3551,7 @@ impl IAppxEncryptionFactory3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxEncryptionFactory3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3608,6 +3644,7 @@ impl IAppxEncryptionFactory4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxEncryptionFactory4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3663,6 +3700,7 @@ impl IAppxEncryptionFactory5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxEncryptionFactory5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3774,6 +3812,7 @@ impl IAppxFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3918,6 +3957,7 @@ impl IAppxFactory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4029,6 +4069,7 @@ impl IAppxFactory3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxFactory3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4138,6 +4179,7 @@ impl IAppxFile {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxFile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCompressionOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut APPX_COMPRESSION_OPTION) -> windows_core::HRESULT,
@@ -4258,6 +4300,7 @@ impl IAppxFilesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxFilesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4339,6 +4382,7 @@ impl IAppxManifestApplication {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestApplication_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -4408,6 +4452,7 @@ impl IAppxManifestApplicationsEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestApplicationsEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4492,6 +4537,7 @@ impl IAppxManifestCapabilitiesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestCapabilitiesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -4576,6 +4622,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -4660,6 +4707,7 @@ impl IAppxManifestDriverConstraint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestDriverConstraint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -4744,6 +4792,7 @@ impl IAppxManifestDriverConstraintsEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestDriverConstraintsEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4828,6 +4877,7 @@ impl IAppxManifestDriverDependenciesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestDriverDependenciesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4900,6 +4950,7 @@ impl IAppxManifestDriverDependency {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestDriverDependency_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDriverConstraints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4951,6 +5002,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5035,6 +5087,7 @@ impl IAppxManifestHostRuntimeDependency {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestHostRuntimeDependency_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -5107,6 +5160,7 @@ impl IAppxManifestHostRuntimeDependency2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestHostRuntimeDependency2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -5158,6 +5212,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5242,6 +5297,7 @@ impl IAppxManifestMainPackageDependency {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestMainPackageDependency_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -5326,6 +5382,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5404,6 +5461,7 @@ impl IAppxManifestOSPackageDependency {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestOSPackageDependency_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -5463,6 +5521,7 @@ impl IAppxManifestOptionalPackageInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestOptionalPackageInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIsOptionalPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -5532,6 +5591,7 @@ impl IAppxManifestPackageDependenciesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestPackageDependenciesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5616,6 +5676,7 @@ impl IAppxManifestPackageDependency {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestPackageDependency_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -5694,6 +5755,7 @@ impl IAppxManifestPackageDependency2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestPackageDependency2_Vtbl {
     pub base__: IAppxManifestPackageDependency_Vtbl,
     pub GetMaxMajorVersionTested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -5733,6 +5795,7 @@ impl IAppxManifestPackageDependency3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestPackageDependency3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIsOptional: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -5817,6 +5880,7 @@ impl IAppxManifestPackageId {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestPackageId_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -5970,6 +6034,7 @@ impl IAppxManifestPackageId2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestPackageId2_Vtbl {
     pub base__: IAppxManifestPackageId_Vtbl,
     pub GetArchitecture2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut APPX_PACKAGE_ARCHITECTURE2) -> windows_core::HRESULT,
@@ -6021,6 +6086,7 @@ impl IAppxManifestProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBoolValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -6090,6 +6156,7 @@ impl IAppxManifestQualifiedResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestQualifiedResource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -6174,6 +6241,7 @@ impl IAppxManifestQualifiedResourcesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestQualifiedResourcesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6298,6 +6366,7 @@ impl IAppxManifestReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPackageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6472,6 +6541,7 @@ impl IAppxManifestReader2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestReader2_Vtbl {
     pub base__: IAppxManifestReader_Vtbl,
     pub GetQualifiedResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6526,6 +6596,7 @@ impl IAppxManifestReader3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestReader3_Vtbl {
     pub base__: IAppxManifestReader2_Vtbl,
     pub GetCapabilitiesByCapabilityClass: unsafe extern "system" fn(*mut core::ffi::c_void, APPX_CAPABILITY_CLASS_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6592,6 +6663,7 @@ impl IAppxManifestReader4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestReader4_Vtbl {
     pub base__: IAppxManifestReader3_Vtbl,
     pub GetOptionalPackageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6634,6 +6706,7 @@ impl IAppxManifestReader5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestReader5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMainPackageDependencies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6673,6 +6746,7 @@ impl IAppxManifestReader6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestReader6_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIsNonQualifiedResourcePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -6727,6 +6801,7 @@ impl IAppxManifestReader7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestReader7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDriverDependencies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6811,6 +6886,7 @@ impl IAppxManifestResourcesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestResourcesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -6895,6 +6971,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6979,6 +7056,7 @@ impl IAppxManifestTargetDeviceFamily {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxManifestTargetDeviceFamily_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -7094,6 +7172,7 @@ impl IAppxPackageEditor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxPackageEditor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetWorkingDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -7220,6 +7299,7 @@ impl IAppxPackageReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxPackageReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBlockMap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7332,6 +7412,7 @@ impl IAppxPackageWriter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxPackageWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -7388,6 +7469,7 @@ impl IAppxPackageWriter2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxPackageWriter2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -7425,6 +7507,7 @@ impl IAppxPackageWriter3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxPackageWriter3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -7472,6 +7555,7 @@ impl IAppxPackagingDiagnosticEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxPackagingDiagnosticEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReportContextChange: unsafe extern "system" fn(*mut core::ffi::c_void, APPX_PACKAGING_CONTEXT_CHANGE_TYPE, i32, windows_core::PCSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -7517,6 +7601,7 @@ impl IAppxPackagingDiagnosticEventSinkManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxPackagingDiagnosticEventSinkManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSinkForProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7556,6 +7641,7 @@ impl IAppxSourceContentGroupMapReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppxSourceContentGroupMapReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRequiredGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

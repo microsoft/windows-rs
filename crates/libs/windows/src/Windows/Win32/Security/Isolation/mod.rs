@@ -110,6 +110,7 @@ impl IIsolatedAppLauncher {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedAppLauncher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Launch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const IsolatedAppLauncherTelemetryParameters) -> windows_core::HRESULT,
@@ -167,6 +168,7 @@ impl IIsolatedProcessLauncher {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedProcessLauncher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LaunchProcess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -259,6 +261,7 @@ impl IIsolatedProcessLauncher2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedProcessLauncher2_Vtbl {
     pub base__: IIsolatedProcessLauncher_Vtbl,
     pub LaunchProcess2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,

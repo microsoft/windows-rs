@@ -140,6 +140,7 @@ impl windows_core::RuntimeType for ICompositionDebugHeatMaps {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionDebugHeatMaps_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Hide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -152,6 +153,7 @@ impl windows_core::RuntimeType for ICompositionDebugSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionDebugSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HeatMaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -161,6 +163,7 @@ impl windows_core::RuntimeType for ICompositionDebugSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionDebugSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryGetSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

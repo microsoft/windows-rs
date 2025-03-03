@@ -362,6 +362,7 @@ pub type FNAPONOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(ppropertie
 windows_core::imp::define_interface!(IApoAcousticEchoCancellation, IApoAcousticEchoCancellation_Vtbl, 0x25385759_3236_4101_a943_25693dfb5d2d);
 windows_core::imp::interface_hierarchy!(IApoAcousticEchoCancellation, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApoAcousticEchoCancellation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -395,6 +396,7 @@ impl IApoAuxiliaryInputConfiguration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApoAuxiliaryInputConfiguration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddAuxiliaryInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8, *const APO_CONNECTION_DESCRIPTOR) -> windows_core::HRESULT,
@@ -452,6 +454,7 @@ impl IApoAuxiliaryInputRT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApoAuxiliaryInputRT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AcceptInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const APO_CONNECTION_PROPERTY),
@@ -485,6 +488,7 @@ impl IAudioDeviceModulesClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioDeviceModulesClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAudioDeviceModulesManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -533,6 +537,7 @@ impl IAudioMediaType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioMediaType_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsCompressedFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -646,6 +651,7 @@ impl IAudioProcessingObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -766,6 +772,7 @@ impl IAudioProcessingObjectConfiguration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectConfiguration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LockForProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *const APO_CONNECTION_DESCRIPTOR, u32, *const *const APO_CONNECTION_DESCRIPTOR) -> windows_core::HRESULT,
@@ -811,6 +818,7 @@ impl IAudioProcessingObjectLoggingService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectLoggingService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ApoLog: unsafe extern "system" fn(*mut core::ffi::c_void, APO_LOG_LEVEL, windows_core::PCWSTR),
@@ -845,6 +853,7 @@ impl IAudioProcessingObjectNotifications {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectNotifications_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetApoNotificationRegistrationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut APO_NOTIFICATION_DESCRIPTOR, *mut u32) -> windows_core::HRESULT,
@@ -899,6 +908,7 @@ impl IAudioProcessingObjectNotifications2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectNotifications2_Vtbl {
     pub base__: IAudioProcessingObjectNotifications_Vtbl,
     pub GetApoNotificationRegistrationInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, APO_NOTIFICATION_TYPE, *mut *mut APO_NOTIFICATION_DESCRIPTOR, *mut u32) -> windows_core::HRESULT,
@@ -941,6 +951,7 @@ impl IAudioProcessingObjectRT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectRT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub APOProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *const APO_CONNECTION_PROPERTY, u32, *mut *mut APO_CONNECTION_PROPERTY),
@@ -995,6 +1006,7 @@ impl IAudioProcessingObjectRTQueueService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectRTQueueService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRealTimeWorkQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1040,6 +1052,7 @@ impl IAudioProcessingObjectVBR {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectVBR_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CalcMaxInputFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -1089,6 +1102,7 @@ impl windows_core::RuntimeName for IAudioProcessingObjectVBR {}
 windows_core::imp::define_interface!(IAudioSystemEffects, IAudioSystemEffects_Vtbl, 0x5fa00f27_add6_499a_8a9d_6b98521fa75b);
 windows_core::imp::interface_hierarchy!(IAudioSystemEffects, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffects_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -1116,6 +1130,7 @@ impl IAudioSystemEffects2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffects2_Vtbl {
     pub base__: IAudioSystemEffects_Vtbl,
     pub GetEffectsList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut u32, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -1155,6 +1170,7 @@ impl IAudioSystemEffects3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffects3_Vtbl {
     pub base__: IAudioSystemEffects2_Vtbl,
     pub GetControllableSystemEffectsList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut AUDIO_SYSTEMEFFECT, *mut u32, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -1212,6 +1228,7 @@ impl IAudioSystemEffectsCustomFormats {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffectsCustomFormats_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFormatCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,

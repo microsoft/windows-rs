@@ -20,6 +20,7 @@ impl HostMessageReceivedCallback {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct HostMessageReceivedCallback_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -80,6 +81,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironment {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -102,6 +104,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironment2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PostMessageToReceiverAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -115,6 +118,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironment3 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetUserInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -129,6 +133,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironment4 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangePriority: unsafe extern "system" fn(*mut core::ffi::c_void, IsolatedWindowsEnvironmentCreationPriority) -> windows_core::HRESULT,
@@ -141,6 +146,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentCreateResult {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentCreateResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentCreateStatus) -> windows_core::HRESULT,
@@ -155,6 +161,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentCreateResult2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentCreateResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeCreationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, IsolatedWindowsEnvironmentCreationPriority) -> windows_core::HRESULT,
@@ -167,6 +174,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentFactory {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -182,6 +190,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentFile {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -196,6 +205,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentFile2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GuestPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -209,6 +219,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentHostStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentHostStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsReady: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -222,6 +233,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentLaunchFileResult {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentLaunchFileStatus) -> windows_core::HRESULT,
@@ -236,6 +248,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOptions {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnvironmentOwnerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -264,6 +277,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOptions2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WindowAnnotationOverride: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -277,6 +291,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOptions3 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowedClipboardFormatsToEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentAllowedClipboardFormats) -> windows_core::HRESULT,
@@ -294,6 +309,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOwnerRegistrationD
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShareableFolders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -309,6 +325,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOwnerRegistrationR
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentOwnerRegistrationStatus) -> windows_core::HRESULT,
@@ -322,6 +339,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOwnerRegistrationS
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -335,6 +353,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentPostMessageResult 
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentPostMessageResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentPostMessageStatus) -> windows_core::HRESULT,
@@ -348,6 +367,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentProcess {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentProcess_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentProcessState) -> windows_core::HRESULT,
@@ -364,6 +384,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFileRequestOp
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowWrite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -377,6 +398,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFileResult {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFileResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentShareFileStatus) -> windows_core::HRESULT,
@@ -391,6 +413,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFolderRequest
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowWrite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -404,6 +427,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFolderResult 
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentShareFolderStatus) -> windows_core::HRESULT,
@@ -417,6 +441,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentStartProcessResult
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentStartProcessResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentStartProcessStatus) -> windows_core::HRESULT,
@@ -431,6 +456,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentTelemetryParameter
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -444,6 +470,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentUserInfo {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentUserInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnvironmentUserSid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -458,6 +485,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentUserInfo2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentUserInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryWaitForSignInWithProgressAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -470,6 +498,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsHostMessengerStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsHostMessengerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PostMessageToReceiver: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -483,6 +512,7 @@ impl windows_core::RuntimeType for IIsolatedWindowsHostMessengerStatics2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedWindowsHostMessengerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RegisterHostMessageReceiver: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2003,6 +2033,7 @@ impl MessageReceivedCallback {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct MessageReceivedCallback_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT,

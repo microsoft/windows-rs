@@ -2183,6 +2183,7 @@ impl IAcousticEchoCancellationControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAcousticEchoCancellationControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetEchoCancellationRenderEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2216,6 +2217,7 @@ impl IActivateAudioInterfaceAsyncOperation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActivateAudioInterfaceAsyncOperation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetActivateResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2249,6 +2251,7 @@ impl IActivateAudioInterfaceCompletionHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActivateAudioInterfaceCompletionHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ActivateCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2291,6 +2294,7 @@ impl IAudioAmbisonicsControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioAmbisonicsControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const AMBISONICS_PARAMS, u32) -> windows_core::HRESULT,
@@ -2363,6 +2367,7 @@ impl IAudioAutoGainControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioAutoGainControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -2412,6 +2417,7 @@ impl core::ops::Deref for IAudioBass {
 }
 windows_core::imp::interface_hierarchy!(IAudioBass, windows_core::IUnknown, IPerChannelDbLevel);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioBass_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
@@ -2442,6 +2448,7 @@ impl IAudioCaptureClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioCaptureClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32, *mut u32, *mut u64, *mut u64) -> windows_core::HRESULT,
@@ -2505,6 +2512,7 @@ impl IAudioChannelConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioChannelConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetChannelConfig: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -2602,6 +2610,7 @@ impl IAudioClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, AUDCLNT_SHAREMODE, u32, i64, i64, *const WAVEFORMATEX, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -2773,6 +2782,7 @@ impl IAudioClient2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClient2_Vtbl {
     pub base__: IAudioClient_Vtbl,
     pub IsOffloadCapable: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_STREAM_CATEGORY, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -2842,6 +2852,7 @@ impl IAudioClient3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClient3_Vtbl {
     pub base__: IAudioClient2_Vtbl,
     pub GetSharedModeEnginePeriod: unsafe extern "system" fn(*mut core::ffi::c_void, *const WAVEFORMATEX, *mut u32, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -2893,6 +2904,7 @@ impl IAudioClientDuckingControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClientDuckingControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDuckingOptionsForCurrentStream: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_DUCKING_OPTIONS) -> windows_core::HRESULT,
@@ -2938,6 +2950,7 @@ impl IAudioClock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -3001,6 +3014,7 @@ impl IAudioClock2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClock2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDevicePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64) -> windows_core::HRESULT,
@@ -3031,6 +3045,7 @@ impl IAudioClockAdjustment {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClockAdjustment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSampleRate: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
@@ -3061,6 +3076,7 @@ impl IAudioEffectsChangedNotificationClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioEffectsChangedNotificationClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnAudioEffectsChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3106,6 +3122,7 @@ impl IAudioEffectsManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioEffectsManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterAudioEffectsChangedNotificationCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3175,6 +3192,7 @@ impl IAudioFormatEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioFormatEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3231,6 +3249,7 @@ impl IAudioInputSelector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioInputSelector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3285,6 +3304,7 @@ impl IAudioLoudness {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioLoudness_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -3334,6 +3354,7 @@ impl core::ops::Deref for IAudioMidrange {
 }
 windows_core::imp::interface_hierarchy!(IAudioMidrange, windows_core::IUnknown, IPerChannelDbLevel);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioMidrange_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
@@ -3361,6 +3382,7 @@ impl IAudioMute {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioMute_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMute: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -3411,6 +3433,7 @@ impl IAudioOutputSelector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioOutputSelector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3468,6 +3491,7 @@ impl IAudioPeakMeter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioPeakMeter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3528,6 +3552,7 @@ impl IAudioRenderClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioRenderClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut u8) -> windows_core::HRESULT,
@@ -3624,6 +3649,7 @@ impl IAudioSessionControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioSessionState) -> windows_core::HRESULT,
@@ -3780,6 +3806,7 @@ impl IAudioSessionControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionControl2_Vtbl {
     pub base__: IAudioSessionControl_Vtbl,
     pub GetSessionIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -3876,6 +3903,7 @@ impl IAudioSessionEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3954,6 +3982,7 @@ impl IAudioSessionEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnDisplayNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -4050,6 +4079,7 @@ impl IAudioSessionManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAudioSessionControl: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4138,6 +4168,7 @@ impl IAudioSessionManager2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionManager2_Vtbl {
     pub base__: IAudioSessionManager_Vtbl,
     pub GetSessionEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4216,6 +4247,7 @@ impl IAudioSessionNotification {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionNotification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSessionCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4255,6 +4287,7 @@ impl IAudioStateMonitor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioStateMonitor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterCallback: unsafe extern "system" fn(*mut core::ffi::c_void, PAudioStateMonitorCallback, *const core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -4330,6 +4363,7 @@ impl IAudioStreamVolume {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioStreamVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4411,6 +4445,7 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
@@ -4477,6 +4512,7 @@ impl IAudioSystemEffectsPropertyStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffectsPropertyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -4595,6 +4631,7 @@ impl core::ops::Deref for IAudioTreble {
 }
 windows_core::imp::interface_hierarchy!(IAudioTreble, windows_core::IUnknown, IPerChannelDbLevel);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioTreble_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
@@ -4616,6 +4653,7 @@ impl IAudioViewManagerService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioViewManagerService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAudioStreamWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
@@ -4655,6 +4693,7 @@ impl IAudioVolumeDuckNotification {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioVolumeDuckNotification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnVolumeDuckNotification: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -4698,6 +4737,7 @@ impl core::ops::Deref for IAudioVolumeLevel {
 }
 windows_core::imp::interface_hierarchy!(IAudioVolumeLevel, windows_core::IUnknown, IPerChannelDbLevel);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioVolumeLevel_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
@@ -4737,6 +4777,7 @@ impl IChannelAudioVolume {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChannelAudioVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4860,6 +4901,7 @@ impl IConnector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConnector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ConnectorType) -> windows_core::HRESULT,
@@ -4992,6 +5034,7 @@ impl IControlChangeNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IControlChangeNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -5031,6 +5074,7 @@ impl IControlInterface {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IControlInterface_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -5093,6 +5137,7 @@ impl IDeviceSpecificProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceSpecificProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -5202,6 +5247,7 @@ impl IDeviceTopology {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceTopology_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetConnectorCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5355,6 +5401,7 @@ impl IMMDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -5446,6 +5493,7 @@ impl IMMDeviceActivator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMDeviceActivator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -5491,6 +5539,7 @@ impl IMMDeviceCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMDeviceCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5571,6 +5620,7 @@ impl IMMDeviceEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMDeviceEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumAudioEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, EDataFlow, DEVICE_STATE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5661,6 +5711,7 @@ impl IMMEndpoint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMEndpoint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDataFlow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EDataFlow) -> windows_core::HRESULT,
@@ -5724,6 +5775,7 @@ impl IMMNotificationClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMNotificationClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnDeviceStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, DEVICE_STATE) -> windows_core::HRESULT,
@@ -5800,6 +5852,7 @@ impl IMessageFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMessageFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5929,6 +5982,7 @@ impl IPart {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPart_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -6139,6 +6193,7 @@ impl IPartsList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPartsList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6210,6 +6265,7 @@ impl IPerChannelDbLevel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPerChannelDbLevel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6315,6 +6371,7 @@ impl ISimpleAudioVolume {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISimpleAudioVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMasterVolume: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -6426,6 +6483,7 @@ impl ISpatialAudioClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStaticObjectPosition: unsafe extern "system" fn(*mut core::ffi::c_void, AudioObjectType, *mut f32, *mut f32, *mut f32) -> windows_core::HRESULT,
@@ -6570,6 +6628,7 @@ impl ISpatialAudioClient2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioClient2_Vtbl {
     pub base__: ISpatialAudioClient_Vtbl,
     pub IsOffloadCapable: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_STREAM_CATEGORY, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -6651,6 +6710,7 @@ impl ISpatialAudioMetadataClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ActivateSpatialAudioMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6759,6 +6819,7 @@ impl ISpatialAudioMetadataCopier {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataCopier_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6843,6 +6904,7 @@ impl ISpatialAudioMetadataItems {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataItems_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFrameCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -6948,6 +7010,7 @@ impl ISpatialAudioMetadataItemsBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataItemsBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachToBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32) -> windows_core::HRESULT,
@@ -7011,6 +7074,7 @@ impl ISpatialAudioMetadataReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7083,6 +7147,7 @@ impl ISpatialAudioMetadataWriter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7152,6 +7217,7 @@ impl ISpatialAudioObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObject_Vtbl {
     pub base__: ISpatialAudioObjectBase_Vtbl,
     pub SetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32) -> windows_core::HRESULT,
@@ -7209,6 +7275,7 @@ impl ISpatialAudioObjectBase {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectBase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -7302,6 +7369,7 @@ impl ISpatialAudioObjectForHrtf {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectForHrtf_Vtbl {
     pub base__: ISpatialAudioObjectBase_Vtbl,
     pub SetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32) -> windows_core::HRESULT,
@@ -7386,6 +7454,7 @@ impl ISpatialAudioObjectForMetadataCommands {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectForMetadataCommands_Vtbl {
     pub base__: ISpatialAudioObjectBase_Vtbl,
     pub WriteNextMetadataCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -7425,6 +7494,7 @@ impl ISpatialAudioObjectForMetadataItems {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectForMetadataItems_Vtbl {
     pub base__: ISpatialAudioObjectBase_Vtbl,
     pub GetSpatialAudioMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7470,6 +7540,7 @@ impl ISpatialAudioObjectRenderStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStream_Vtbl {
     pub base__: ISpatialAudioObjectRenderStreamBase_Vtbl,
     pub ActivateSpatialAudioObject: unsafe extern "system" fn(*mut core::ffi::c_void, AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7534,6 +7605,7 @@ impl ISpatialAudioObjectRenderStreamBase {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamBase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAvailableDynamicObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7636,6 +7708,7 @@ impl ISpatialAudioObjectRenderStreamForHrtf {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
     pub base__: ISpatialAudioObjectRenderStreamBase_Vtbl,
     pub ActivateSpatialAudioObjectForHrtf: unsafe extern "system" fn(*mut core::ffi::c_void, AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7690,6 +7763,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
     pub base__: ISpatialAudioObjectRenderStreamBase_Vtbl,
     pub ActivateSpatialAudioObjectForMetadataCommands: unsafe extern "system" fn(*mut core::ffi::c_void, AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7747,6 +7821,7 @@ impl ISpatialAudioObjectRenderStreamNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnAvailableDynamicObjectCountChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i64, u32) -> windows_core::HRESULT,
@@ -7775,6 +7850,7 @@ impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamNotify {}
 windows_core::imp::define_interface!(ISubunit, ISubunit_Vtbl, 0x82149a85_dba6_4487_86bb_ea8f7fefcc71);
 windows_core::imp::interface_hierarchy!(ISubunit, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISubunit_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }

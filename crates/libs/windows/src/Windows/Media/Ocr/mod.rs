@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IOcrEngine {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOcrEngine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
@@ -19,6 +20,7 @@ impl windows_core::RuntimeType for IOcrEngineStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOcrEngineStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxImageDimension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -41,6 +43,7 @@ impl windows_core::RuntimeType for IOcrLine {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOcrLine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Words: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51,6 +54,7 @@ impl windows_core::RuntimeType for IOcrResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOcrResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Lines: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -62,6 +66,7 @@ impl windows_core::RuntimeType for IOcrWord {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOcrWord_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BoundingRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,

@@ -8776,6 +8776,7 @@ impl IAdvancedMediaCapture {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdvancedMediaCapture_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAdvancedMediaCaptureSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8818,6 +8819,7 @@ impl IAdvancedMediaCaptureInitializationSettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdvancedMediaCaptureInitializationSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDirectxDeviceManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8851,6 +8853,7 @@ impl IAdvancedMediaCaptureSettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdvancedMediaCaptureSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDirectxDeviceManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8887,6 +8890,7 @@ impl IAudioSourceProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSourceProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProvideInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut f32) -> windows_core::HRESULT,
@@ -8926,6 +8930,7 @@ impl IClusterDetector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IClusterDetector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
@@ -9036,6 +9041,7 @@ impl ICodecAPI {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICodecAPI_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -9310,6 +9316,7 @@ impl ID3D12VideoDecodeCommandList {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecodeCommandList_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12CommandList_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9485,6 +9492,7 @@ impl ID3D12VideoDecodeCommandList1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecodeCommandList1_Vtbl {
     pub base__: ID3D12VideoDecodeCommandList_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -9551,6 +9559,7 @@ impl ID3D12VideoDecodeCommandList2 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecodeCommandList2_Vtbl {
     pub base__: ID3D12VideoDecodeCommandList1_Vtbl,
     pub SetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -9620,6 +9629,7 @@ impl ID3D12VideoDecodeCommandList3 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecodeCommandList3_Vtbl {
     pub base__: ID3D12VideoDecodeCommandList2_Vtbl,
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
@@ -9672,6 +9682,7 @@ impl ID3D12VideoDecoder {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecoder_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_VIDEO_DECODER_DESC),
@@ -9723,6 +9734,7 @@ impl ID3D12VideoDecoder1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecoder1_Vtbl {
     pub base__: ID3D12VideoDecoder_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9776,6 +9788,7 @@ impl ID3D12VideoDecoderHeap {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecoderHeap_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -9830,6 +9843,7 @@ impl ID3D12VideoDecoderHeap1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecoderHeap1_Vtbl {
     pub base__: ID3D12VideoDecoderHeap_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9890,6 +9904,7 @@ impl ID3D12VideoDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CheckFeatureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_FEATURE_VIDEO, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -9982,6 +9997,7 @@ impl ID3D12VideoDevice1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDevice1_Vtbl {
     pub base__: ID3D12VideoDevice_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -10081,6 +10097,7 @@ impl ID3D12VideoDevice2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDevice2_Vtbl {
     pub base__: ID3D12VideoDevice1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -10188,6 +10205,7 @@ impl ID3D12VideoDevice3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDevice3_Vtbl {
     pub base__: ID3D12VideoDevice2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -10319,6 +10337,7 @@ impl ID3D12VideoEncodeCommandList {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncodeCommandList_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12CommandList_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10514,6 +10533,7 @@ impl ID3D12VideoEncodeCommandList1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncodeCommandList1_Vtbl {
     pub base__: ID3D12VideoEncodeCommandList_Vtbl,
     pub InitializeExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
@@ -10583,6 +10603,7 @@ impl ID3D12VideoEncodeCommandList2 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncodeCommandList2_Vtbl {
     pub base__: ID3D12VideoEncodeCommandList1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -10649,6 +10670,7 @@ impl ID3D12VideoEncodeCommandList3 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncodeCommandList3_Vtbl {
     pub base__: ID3D12VideoEncodeCommandList2_Vtbl,
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
@@ -10716,6 +10738,7 @@ impl ID3D12VideoEncoder {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncoder_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetNodeMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -10842,6 +10865,7 @@ impl ID3D12VideoEncoderHeap {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncoderHeap_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetNodeMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -10957,6 +10981,7 @@ impl ID3D12VideoExtensionCommand {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoExtensionCommand_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC),
@@ -11028,6 +11053,7 @@ impl ID3D12VideoMotionEstimator {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoMotionEstimator_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11102,6 +11128,7 @@ impl ID3D12VideoMotionVectorHeap {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoMotionVectorHeap_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11226,6 +11253,7 @@ impl ID3D12VideoProcessCommandList {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessCommandList_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12CommandList_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11397,6 +11425,7 @@ impl ID3D12VideoProcessCommandList1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessCommandList1_Vtbl {
     pub base__: ID3D12VideoProcessCommandList_Vtbl,
     pub ProcessFrames1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, u32, *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1),
@@ -11460,6 +11489,7 @@ impl ID3D12VideoProcessCommandList2 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessCommandList2_Vtbl {
     pub base__: ID3D12VideoProcessCommandList1_Vtbl,
     pub SetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -11529,6 +11559,7 @@ impl ID3D12VideoProcessCommandList3 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessCommandList3_Vtbl {
     pub base__: ID3D12VideoProcessCommandList2_Vtbl,
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
@@ -11592,6 +11623,7 @@ impl ID3D12VideoProcessor {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessor_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetNodeMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -11679,6 +11711,7 @@ impl ID3D12VideoProcessor1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessor1_Vtbl {
     pub base__: ID3D12VideoProcessor_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11747,6 +11780,7 @@ impl IDXVAHD_Device {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXVAHD_Device_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -11886,6 +11920,7 @@ impl IDXVAHD_VideoProcessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXVAHD_VideoProcessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetVideoProcessBltState: unsafe extern "system" fn(*mut core::ffi::c_void, DXVAHD_BLT_STATE, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
@@ -11962,6 +11997,7 @@ impl IDirect3D9ExOverlayExtension {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3D9ExOverlayExtension_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -12011,6 +12047,7 @@ impl IDirect3DAuthenticatedChannel9 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3DAuthenticatedChannel9_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCertificateSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -12124,6 +12161,7 @@ impl IDirect3DCryptoSession9 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3DCryptoSession9_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCertificateSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -12248,6 +12286,7 @@ impl IDirect3DDevice9Video {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3DDevice9Video_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContentProtectionCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut D3DCONTENTPROTECTIONCAPS) -> windows_core::HRESULT,
@@ -12331,6 +12370,7 @@ impl IDirect3DDeviceManager9 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3DDeviceManager9_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -12434,6 +12474,7 @@ impl IDirectXVideoAccelerationService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoAccelerationService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -12496,6 +12537,7 @@ impl IDirectXVideoDecoder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoDecoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetVideoDecoderService: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12619,6 +12661,7 @@ impl IDirectXVideoDecoderService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoDecoderService_Vtbl {
     pub base__: IDirectXVideoAccelerationService_Vtbl,
     pub GetDecoderDeviceGuids: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -12703,6 +12746,7 @@ impl IDirectXVideoMemoryConfiguration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoMemoryConfiguration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAvailableSurfaceTypeByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DXVA2_SurfaceType) -> windows_core::HRESULT,
@@ -12781,6 +12825,7 @@ impl IDirectXVideoProcessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoProcessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetVideoProcessorService: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12932,6 +12977,7 @@ impl IDirectXVideoProcessorService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoProcessorService_Vtbl {
     pub base__: IDirectXVideoAccelerationService_Vtbl,
     pub RegisterVideoProcessorSoftwareDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
@@ -13076,6 +13122,7 @@ impl IEVRFilterConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEVRFilterConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetNumberOfStreams: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -13136,6 +13183,7 @@ impl IEVRFilterConfigEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEVRFilterConfigEx_Vtbl {
     pub base__: IEVRFilterConfig_Vtbl,
     pub SetConfigPrefs: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -13199,6 +13247,7 @@ impl IEVRTrustedVideoPlugin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEVRTrustedVideoPlugin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsInTrustedVideoMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -13277,6 +13326,7 @@ impl IEVRVideoStreamControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEVRVideoStreamControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetStreamActiveState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -13337,6 +13387,7 @@ impl IFileClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetObjectDiskSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -13418,6 +13469,7 @@ impl IFileIo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileIo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, FILE_ACCESSMODE, FILE_OPENMODE, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -13556,6 +13608,7 @@ impl IMF2DBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMF2DBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Lock2D: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut i32) -> windows_core::HRESULT,
@@ -13667,6 +13720,7 @@ impl IMF2DBuffer2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMF2DBuffer2_Vtbl {
     pub base__: IMF2DBuffer_Vtbl,
     pub Lock2DSize: unsafe extern "system" fn(*mut core::ffi::c_void, MF2DBuffer_LockFlags, *mut *mut u8, *mut i32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -13751,6 +13805,7 @@ impl IMFASFContentInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFContentInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHeaderSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -13938,6 +13993,7 @@ impl IMFASFIndexer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFIndexer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -14148,6 +14204,7 @@ impl IMFASFMultiplexer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFMultiplexer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14301,6 +14358,7 @@ impl IMFASFMutualExclusion {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFMutualExclusion_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -14520,6 +14578,7 @@ impl IMFASFProfile {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFProfile_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -14781,6 +14840,7 @@ impl IMFASFSplitter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFSplitter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14946,6 +15006,7 @@ impl IMFASFStreamConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFStreamConfig_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetStreamType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -15105,6 +15166,7 @@ impl IMFASFStreamPrioritization {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFStreamPrioritization_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -15255,6 +15317,7 @@ impl IMFASFStreamSelector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFStreamSelector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -15481,6 +15544,7 @@ impl IMFActivate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFActivate_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub ActivateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15541,6 +15605,7 @@ impl IMFAsyncCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAsyncCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -15592,6 +15657,7 @@ impl IMFAsyncCallbackLogging {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAsyncCallbackLogging_Vtbl {
     pub base__: IMFAsyncCallback_Vtbl,
     pub GetObjectPointer: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
@@ -15652,6 +15718,7 @@ impl IMFAsyncResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAsyncResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15870,6 +15937,7 @@ impl IMFAttributes {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAttributes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -16246,6 +16314,7 @@ impl IMFAudioMediaType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAudioMediaType_Vtbl {
     pub base__: IMFMediaType_Vtbl,
     #[cfg(feature = "Win32_Media_Audio")]
@@ -16312,6 +16381,7 @@ impl IMFAudioPolicy {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAudioPolicy_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetGroupingParam: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -16426,6 +16496,7 @@ impl IMFAudioStreamVolume {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAudioStreamVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -16510,6 +16581,7 @@ impl IMFBufferListNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFBufferListNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnAddSourceBuffer: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -16632,6 +16704,7 @@ impl IMFByteStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -16845,6 +16918,7 @@ impl IMFByteStreamBuffering {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamBuffering_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetBufferingParams: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFBYTESTREAM_BUFFERING_PARAMS) -> windows_core::HRESULT,
@@ -16896,6 +16970,7 @@ impl IMFByteStreamCacheControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamCacheControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StopBackgroundTransfer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16941,6 +17016,7 @@ impl IMFByteStreamCacheControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamCacheControl2_Vtbl {
     pub base__: IMFByteStreamCacheControl_Vtbl,
     pub GetByteRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut MF_BYTE_STREAM_CACHE_RANGE) -> windows_core::HRESULT,
@@ -17024,6 +17100,7 @@ impl IMFByteStreamHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -17102,6 +17179,7 @@ impl IMFByteStreamProxyClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamProxyClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateByteStreamProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17141,6 +17219,7 @@ impl IMFByteStreamTimeSeek {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamTimeSeek_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsTimeSeekSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -17213,6 +17292,7 @@ impl IMFCameraConfigurationManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraConfigurationManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LoadDefaults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17282,6 +17362,7 @@ impl IMFCameraControlDefaults {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraControlDefaults_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> MF_CAMERA_CONTROL_CONFIGURATION_TYPE,
@@ -17378,6 +17459,7 @@ impl IMFCameraControlDefaultsCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraControlDefaultsCollection_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetControlCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -17489,6 +17571,7 @@ impl IMFCameraControlMonitor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraControlMonitor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17561,6 +17644,7 @@ impl IMFCameraControlNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraControlNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnChange: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32),
@@ -17605,6 +17689,7 @@ impl IMFCameraOcclusionStateMonitor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraOcclusionStateMonitor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17659,6 +17744,7 @@ impl IMFCameraOcclusionStateReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraOcclusionStateReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOcclusionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -17698,6 +17784,7 @@ impl IMFCameraOcclusionStateReportCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraOcclusionStateReportCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnOcclusionStateReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17731,6 +17818,7 @@ impl IMFCameraSyncObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraSyncObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub WaitOnSignal: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -17806,6 +17894,7 @@ impl IMFCaptureEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureEngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17918,6 +18007,7 @@ impl IMFCaptureEngineClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureEngineClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17951,6 +18041,7 @@ impl IMFCaptureEngineOnEventCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureEngineOnEventCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17984,6 +18075,7 @@ impl IMFCaptureEngineOnSampleCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureEngineOnSampleCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18023,6 +18115,7 @@ impl IMFCaptureEngineOnSampleCallback2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureEngineOnSampleCallback2_Vtbl {
     pub base__: IMFCaptureEngineOnSampleCallback_Vtbl,
     pub OnSynchronizedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18065,6 +18158,7 @@ impl IMFCapturePhotoConfirmation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCapturePhotoConfirmation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPhotoConfirmationCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18143,6 +18237,7 @@ impl IMFCapturePhotoSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCapturePhotoSink_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
     pub SetOutputFileName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -18239,6 +18334,7 @@ impl IMFCapturePreviewSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCapturePreviewSink_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
     pub SetRenderHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -18392,6 +18488,7 @@ impl IMFCaptureRecordSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureRecordSink_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
     pub SetOutputByteStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -18492,6 +18589,7 @@ impl IMFCaptureSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOutputMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18571,6 +18669,7 @@ impl IMFCaptureSink2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureSink2_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
     pub SetOutputMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18664,6 +18763,7 @@ impl IMFCaptureSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCaptureDeviceSource: unsafe extern "system" fn(*mut core::ffi::c_void, MF_CAPTURE_ENGINE_DEVICE_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18847,6 +18947,7 @@ impl IMFCdmSuspendNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCdmSuspendNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18906,6 +19007,7 @@ impl IMFClock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFClock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClockCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -19002,6 +19104,7 @@ impl IMFClockConsumer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFClockConsumer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPresentationClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19062,6 +19165,7 @@ impl IMFClockStateSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFClockStateSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnClockStart: unsafe extern "system" fn(*mut core::ffi::c_void, i64, i64) -> windows_core::HRESULT,
@@ -19161,6 +19265,7 @@ impl IMFCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetElementCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -19294,6 +19399,7 @@ impl IMFContentDecryptionModule {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptionModule_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetContentEnabler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19419,6 +19525,7 @@ impl IMFContentDecryptionModuleAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptionModuleAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -19511,6 +19618,7 @@ impl IMFContentDecryptionModuleFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptionModuleFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::BOOL,
@@ -19601,6 +19709,7 @@ impl IMFContentDecryptionModuleSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptionModuleSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -19721,6 +19830,7 @@ impl IMFContentDecryptionModuleSessionCallbacks {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptionModuleSessionCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub KeyMessage: unsafe extern "system" fn(*mut core::ffi::c_void, MF_MEDIAKEYSESSION_MESSAGETYPE, *const u8, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -19766,6 +19876,7 @@ impl IMFContentDecryptorContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptorContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeHardwareKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -19826,6 +19937,7 @@ impl IMFContentEnabler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentEnabler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEnableType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -19928,6 +20040,7 @@ impl IMFContentProtectionDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentProtectionDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InvokeFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8, *mut u32, *mut u8) -> windows_core::HRESULT,
@@ -19982,6 +20095,7 @@ impl IMFContentProtectionManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentProtectionManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginEnableContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20027,6 +20141,7 @@ impl IMFD3D12SynchronizationObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFD3D12SynchronizationObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SignalEventOnFinalResourceRelease: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -20090,6 +20205,7 @@ impl IMFD3D12SynchronizationObjectCommands {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFD3D12SynchronizationObjectCommands_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -20165,6 +20281,7 @@ impl IMFDLNASinkInit {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDLNASinkInit_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -20198,6 +20315,7 @@ impl IMFDRMNetHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDRMNetHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProcessLicenseRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20255,6 +20373,7 @@ impl IMFDXGIBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDXGIBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetResource: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20345,6 +20464,7 @@ impl IMFDXGIDeviceManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDXGIDeviceManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CloseDeviceHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -20441,6 +20561,7 @@ impl IMFDXGIDeviceManagerSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDXGIDeviceManagerSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20483,6 +20604,7 @@ impl IMFDesiredSample {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDesiredSample_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDesiredSampleTimeAndDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64, *mut i64) -> windows_core::HRESULT,
@@ -20630,6 +20752,7 @@ impl IMFDeviceTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDeviceTransform_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20885,6 +21008,7 @@ impl IMFDeviceTransformCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDeviceTransformCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnBufferSent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -20930,6 +21054,7 @@ impl IMFExtendedCameraControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
@@ -21011,6 +21136,7 @@ impl IMFExtendedCameraController {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraController_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetExtendedCameraControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21056,6 +21182,7 @@ impl IMFExtendedCameraIntrinsicModel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraIntrinsicModel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFExtendedCameraIntrinsic_IntrinsicModel) -> windows_core::HRESULT,
@@ -21140,6 +21267,7 @@ impl IMFExtendedCameraIntrinsics {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraIntrinsics_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeFromBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -21239,6 +21367,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModel6KT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModel6KT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDistortionModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFCameraIntrinsic_DistortionModel6KT) -> windows_core::HRESULT,
@@ -21284,6 +21413,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModelArcTan {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTan_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDistortionModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFCameraIntrinsic_DistortionModelArcTan) -> windows_core::HRESULT,
@@ -21329,6 +21459,7 @@ impl IMFExtendedDRMTypeSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedDRMTypeSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsTypeSupportedEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut MF_MEDIA_ENGINE_CANPLAY) -> windows_core::HRESULT,
@@ -21368,6 +21499,7 @@ impl IMFFieldOfUseMFTUnlock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFFieldOfUseMFTUnlock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21414,6 +21546,7 @@ impl IMFFinalizableMediaSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFFinalizableMediaSink_Vtbl {
     pub base__: IMFMediaSink_Vtbl,
     pub BeginFinalize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21460,6 +21593,7 @@ impl IMFGetService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFGetService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21493,6 +21627,7 @@ impl IMFHDCPStatus {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFHDCPStatus_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Query: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_HDCP_STATUS, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -21624,6 +21759,7 @@ impl IMFHttpDownloadRequest {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFHttpDownloadRequest_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddHeader: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -21851,6 +21987,7 @@ impl IMFHttpDownloadSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFHttpDownloadSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetServer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -21914,6 +22051,7 @@ impl IMFHttpDownloadSessionProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFHttpDownloadSessionProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateHttpDownloadSession: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21959,6 +22097,7 @@ impl IMFImageSharingEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFImageSharingEngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22013,6 +22152,7 @@ impl IMFImageSharingEngineClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFImageSharingEngineClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstanceFromUDN: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22070,6 +22210,7 @@ impl IMFInputTrustAuthority {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFInputTrustAuthority_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDecrypter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22160,6 +22301,7 @@ impl IMFLocalMFTRegistration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFLocalMFTRegistration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterMFTs: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFT_REGISTRATION_INFO, u32) -> windows_core::HRESULT,
@@ -22208,6 +22350,7 @@ impl IMFMediaBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Lock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -22439,6 +22582,7 @@ impl IMFMediaEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22892,6 +23036,7 @@ impl IMFMediaEngineAudioEndpointId {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineAudioEndpointId_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAudioEndpointId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -22958,6 +23103,7 @@ impl IMFMediaEngineClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23030,6 +23176,7 @@ impl IMFMediaEngineClassFactory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineClassFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateMediaKeys2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23070,6 +23217,7 @@ impl IMFMediaEngineClassFactory3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineClassFactory3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -23115,6 +23263,7 @@ impl IMFMediaEngineClassFactory4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineClassFactory4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateContentDecryptionModuleFactory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23172,6 +23321,7 @@ impl IMFMediaEngineClassFactoryEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineClassFactoryEx_Vtbl {
     pub base__: IMFMediaEngineClassFactory_Vtbl,
     pub CreateMediaSourceExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23250,6 +23400,7 @@ impl IMFMediaEngineEME {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineEME_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Keys: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23297,6 +23448,7 @@ impl IMFMediaEngineEMENotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineEMENotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Encrypted: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut core::ffi::c_void),
@@ -23507,6 +23659,7 @@ impl IMFMediaEngineEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineEx_Vtbl {
     pub base__: IMFMediaEngine_Vtbl,
     pub SetSourceFromByteStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23986,6 +24139,7 @@ impl IMFMediaEngineExtension {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineExtension_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CanPlayType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut core::ffi::c_void, *mut MF_MEDIA_ENGINE_CANPLAY) -> windows_core::HRESULT,
@@ -24058,6 +24212,7 @@ impl IMFMediaEngineNeedKeyNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineNeedKeyNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NeedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32),
@@ -24088,6 +24243,7 @@ impl IMFMediaEngineNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EventNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, u32) -> windows_core::HRESULT,
@@ -24118,6 +24274,7 @@ impl IMFMediaEngineOPMInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineOPMInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOPMInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_MEDIA_ENGINE_OPM_STATUS, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -24178,6 +24335,7 @@ impl IMFMediaEngineProtectedContent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineProtectedContent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ShareResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24292,6 +24450,7 @@ impl IMFMediaEngineSrcElements {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineSrcElements_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -24400,6 +24559,7 @@ impl IMFMediaEngineSrcElementsEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineSrcElementsEx_Vtbl {
     pub base__: IMFMediaEngineSrcElements_Vtbl,
     pub AddElementEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24462,6 +24622,7 @@ impl IMFMediaEngineSupportsSourceTransfer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineSupportsSourceTransfer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ShouldTransferSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -24522,6 +24683,7 @@ impl IMFMediaEngineTransferSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineTransferSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TransferSourceToMediaEngine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24561,6 +24723,7 @@ impl IMFMediaEngineWebSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineWebSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ShouldDelayTheLoadEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
@@ -24627,6 +24790,7 @@ impl IMFMediaError {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaError_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void) -> u16,
@@ -24715,6 +24879,7 @@ impl IMFMediaEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEvent_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -24828,6 +24993,7 @@ impl IMFMediaEventGenerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEventGenerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24944,6 +25110,7 @@ impl IMFMediaEventQueue {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEventQueue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25067,6 +25234,7 @@ impl IMFMediaKeySession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeySession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, *mut u32) -> windows_core::HRESULT,
@@ -25175,6 +25343,7 @@ impl IMFMediaKeySession2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeySession2_Vtbl {
     pub base__: IMFMediaKeySession_Vtbl,
     pub get_KeyStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut MFMediaKeyStatus, *mut u32) -> windows_core::HRESULT,
@@ -25271,6 +25440,7 @@ impl IMFMediaKeySessionNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeySessionNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub KeyMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32),
@@ -25331,6 +25501,7 @@ impl IMFMediaKeySessionNotify2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeySessionNotify2_Vtbl {
     pub base__: IMFMediaKeySessionNotify_Vtbl,
     pub KeyMessage2: unsafe extern "system" fn(*mut core::ffi::c_void, MF_MEDIAKEYSESSION_MESSAGETYPE, *mut core::ffi::c_void, *const u8, u32),
@@ -25393,6 +25564,7 @@ impl IMFMediaKeySystemAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeySystemAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -25492,6 +25664,7 @@ impl IMFMediaKeys {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeys_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25591,6 +25764,7 @@ impl IMFMediaKeys2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeys2_Vtbl {
     pub base__: IMFMediaKeys_Vtbl,
     pub CreateSession2: unsafe extern "system" fn(*mut core::ffi::c_void, MF_MEDIAKEYSESSION_TYPE, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25700,6 +25874,7 @@ impl IMFMediaSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSession_Vtbl {
     pub base__: IMFMediaEventGenerator_Vtbl,
     pub SetTopology: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25844,6 +26019,7 @@ impl IMFMediaSharingEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSharingEngine_Vtbl {
     pub base__: IMFMediaEngine_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEVICE_INFO) -> windows_core::HRESULT,
@@ -25880,6 +26056,7 @@ impl IMFMediaSharingEngineClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSharingEngineClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25964,6 +26141,7 @@ impl IMFMediaSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -26105,6 +26283,7 @@ impl IMFMediaSinkPreroll {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSinkPreroll_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyPreroll: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -26166,6 +26345,7 @@ impl IMFMediaSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSource_Vtbl {
     pub base__: IMFMediaEventGenerator_Vtbl,
     pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -26271,6 +26451,7 @@ impl IMFMediaSource2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSource2_Vtbl {
     pub base__: IMFMediaSourceEx_Vtbl,
     pub SetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26325,6 +26506,7 @@ impl IMFMediaSourceEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourceEx_Vtbl {
     pub base__: IMFMediaSource_Vtbl,
     pub GetSourceAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26427,6 +26609,7 @@ impl IMFMediaSourceExtension {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourceExtension_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSourceBuffers: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<IMFSourceBufferList>,
@@ -26550,6 +26733,7 @@ impl IMFMediaSourceExtensionLiveSeekableRange {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourceExtensionLiveSeekableRange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLiveSeekableRange: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
@@ -26598,6 +26782,7 @@ impl IMFMediaSourceExtensionNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourceExtensionNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSourceOpen: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -26652,6 +26837,7 @@ impl IMFMediaSourcePresentationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourcePresentationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ForceEndOfPresentation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26688,6 +26874,7 @@ impl IMFMediaSourceTopologyProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourceTopologyProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMediaSourceTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26745,6 +26932,7 @@ impl IMFMediaStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaStream_Vtbl {
     pub base__: IMFMediaEventGenerator_Vtbl,
     pub GetMediaSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26823,6 +27011,7 @@ impl IMFMediaStream2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaStream2_Vtbl {
     pub base__: IMFMediaStream_Vtbl,
     pub SetStreamState: unsafe extern "system" fn(*mut core::ffi::c_void, MF_STREAM_STATE) -> windows_core::HRESULT,
@@ -26877,6 +27066,7 @@ impl IMFMediaStreamSourceSampleRequest {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaStreamSourceSampleRequest_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26928,6 +27118,7 @@ impl IMFMediaTimeRange {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaTimeRange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -27048,6 +27239,7 @@ impl IMFMediaType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaType_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetMajorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -27171,6 +27363,7 @@ impl IMFMediaTypeHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaTypeHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsMediaTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27319,6 +27512,7 @@ impl IMFMetadata {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMetadata_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -27451,6 +27645,7 @@ impl IMFMetadataProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMetadataProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMFMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27496,6 +27691,7 @@ impl IMFMuxStreamAttributesManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMuxStreamAttributesManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -27577,6 +27773,7 @@ impl IMFMuxStreamMediaTypeManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMuxStreamMediaTypeManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -27691,6 +27888,7 @@ impl IMFMuxStreamSampleManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMuxStreamSampleManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -27769,6 +27967,7 @@ impl IMFNetCredential {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetCredential_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetUser: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, windows_core::BOOL) -> windows_core::HRESULT,
@@ -27860,6 +28059,7 @@ impl IMFNetCredentialCache {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetCredentialCache_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCredential: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -27930,6 +28130,7 @@ impl IMFNetCredentialManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetCredentialManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginGetCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFNetCredentialManagerGetParam, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28005,6 +28206,7 @@ impl IMFNetCrossOriginSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetCrossOriginSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCrossOriginPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_CROSS_ORIGIN_POLICY) -> windows_core::HRESULT,
@@ -28093,6 +28295,7 @@ impl IMFNetProxyLocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetProxyLocator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindFirstProxy: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
@@ -28174,6 +28377,7 @@ impl IMFNetProxyLocatorFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetProxyLocatorFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateProxyLocator: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28222,6 +28426,7 @@ impl IMFNetResourceFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetResourceFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnRedirect: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -28282,6 +28487,7 @@ impl IMFNetSchemeHandlerConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetSchemeHandlerConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberOfSupportedProtocols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -28351,6 +28557,7 @@ impl IMFObjectReferenceStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFObjectReferenceStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SaveReference: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28414,6 +28621,7 @@ impl IMFOutputPolicy {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFOutputPolicy_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GenerateRequiredSchemas: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::GUID, *const windows_core::GUID, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28507,6 +28715,7 @@ impl IMFOutputSchema {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFOutputSchema_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetSchemaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -28585,6 +28794,7 @@ impl IMFOutputTrustAuthority {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFOutputTrustAuthority_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFPOLICYMANAGER_ACTION) -> windows_core::HRESULT,
@@ -28636,6 +28846,7 @@ impl IMFPMPClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMPClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPMPHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28669,6 +28880,7 @@ impl IMFPMPClientApp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMPClientApp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPMPHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28711,6 +28923,7 @@ impl IMFPMPHost {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMPHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LockProcess: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28781,6 +28994,7 @@ impl IMFPMPHostApp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMPHostApp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LockProcess: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28848,6 +29062,7 @@ impl IMFPMPServer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMPServer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LockProcess: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28998,6 +29213,7 @@ impl IMFPMediaItem {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMediaItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMediaPlayer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29445,6 +29661,7 @@ impl IMFPMediaPlayer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMediaPlayer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Play: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29878,6 +30095,7 @@ impl IMFPMediaPlayerCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMediaPlayerCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -29941,6 +30159,7 @@ impl IMFPluginControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPluginControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPreferredClsid: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -30037,6 +30256,7 @@ impl IMFPluginControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPluginControl2_Vtbl {
     pub base__: IMFPluginControl_Vtbl,
     pub SetPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, MF_PLUGIN_CONTROL_POLICY) -> windows_core::HRESULT,
@@ -30109,6 +30329,7 @@ impl IMFPresentationClock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPresentationClock_Vtbl {
     pub base__: IMFClock_Vtbl,
     pub SetTimeSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30241,6 +30462,7 @@ impl IMFPresentationDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPresentationDescriptor_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetStreamDescriptorCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -30334,6 +30556,7 @@ impl IMFPresentationTimeSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPresentationTimeSource_Vtbl {
     pub base__: IMFClock_Vtbl,
     pub GetUnderlyingClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30373,6 +30596,7 @@ impl IMFProtectedEnvironmentAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFProtectedEnvironmentAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
@@ -30429,6 +30653,7 @@ impl IMFQualityAdvise {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFQualityAdvise_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDropMode: unsafe extern "system" fn(*mut core::ffi::c_void, MF_QUALITY_DROP_MODE) -> windows_core::HRESULT,
@@ -30522,6 +30747,7 @@ impl IMFQualityAdvise2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFQualityAdvise2_Vtbl {
     pub base__: IMFQualityAdvise_Vtbl,
     pub NotifyQualityEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -30567,6 +30793,7 @@ impl IMFQualityAdviseLimits {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFQualityAdviseLimits_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMaximumDropMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_QUALITY_DROP_MODE) -> windows_core::HRESULT,
@@ -30654,6 +30881,7 @@ impl IMFQualityManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFQualityManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30735,6 +30963,7 @@ impl IMFRateControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRateControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetRate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, f32) -> windows_core::HRESULT,
@@ -30785,6 +31014,7 @@ impl IMFRateSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRateSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSlowestRate: unsafe extern "system" fn(*mut core::ffi::c_void, MFRATE_DIRECTION, windows_core::BOOL, *mut f32) -> windows_core::HRESULT,
@@ -30863,6 +31093,7 @@ impl IMFReadWriteClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFReadWriteClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstanceFromURL: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30914,6 +31145,7 @@ impl IMFRealTimeClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRealTimeClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterThreads: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -30974,6 +31206,7 @@ impl IMFRealTimeClientEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRealTimeClientEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterThreadsEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
@@ -31028,6 +31261,7 @@ impl IMFRelativePanelReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRelativePanelReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRelativePanel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -31089,6 +31323,7 @@ impl IMFRelativePanelWatcher {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRelativePanelWatcher_Vtbl {
     pub base__: IMFShutdown_Vtbl,
     pub BeginGetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31155,6 +31390,7 @@ impl IMFRemoteAsyncCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRemoteAsyncCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31188,6 +31424,7 @@ impl IMFRemoteDesktopPlugin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRemoteDesktopPlugin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UpdateTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31221,6 +31458,7 @@ impl IMFRemoteProxy {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRemoteProxy_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRemoteObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31285,6 +31523,7 @@ impl IMFSAMIStyle {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSAMIStyle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStyleCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -31401,6 +31640,7 @@ impl IMFSSLCertificateManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSSLCertificateManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -31548,6 +31788,7 @@ impl IMFSample {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSample_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetSampleFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -31749,6 +31990,7 @@ impl IMFSampleAllocatorControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSampleAllocatorControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDefaultAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31806,6 +32048,7 @@ impl IMFSampleGrabberSinkCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSampleGrabberSinkCallback_Vtbl {
     pub base__: IMFClockStateSink_Vtbl,
     pub OnSetPresentationClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31866,6 +32109,7 @@ impl IMFSampleGrabberSinkCallback2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSampleGrabberSinkCallback2_Vtbl {
     pub base__: IMFSampleGrabberSinkCallback_Vtbl,
     pub OnProcessSampleEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, i64, i64, *const u8, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31910,6 +32154,7 @@ impl IMFSampleOutputStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSampleOutputStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginWriteSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31979,6 +32224,7 @@ impl IMFSampleProtection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSampleProtection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInputProtectionVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -32080,6 +32326,7 @@ impl IMFSaveJob {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSaveJob_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginSave: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32165,6 +32412,7 @@ impl IMFSchemeHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSchemeHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -32225,6 +32473,7 @@ impl IMFSecureBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSecureBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -32264,6 +32513,7 @@ impl IMFSecureChannel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSecureChannel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -32307,6 +32557,7 @@ impl IMFSeekInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSeekInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -32361,6 +32612,7 @@ impl IMFSensorActivitiesReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorActivitiesReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -32433,6 +32685,7 @@ impl IMFSensorActivitiesReportCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorActivitiesReportCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnActivitiesReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32466,6 +32719,7 @@ impl IMFSensorActivityMonitor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorActivityMonitor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32519,6 +32773,7 @@ impl IMFSensorActivityReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorActivityReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -32636,6 +32891,7 @@ impl IMFSensorDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -32822,6 +33078,7 @@ impl IMFSensorGroup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolicLink: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, i32, *mut i32) -> windows_core::HRESULT,
@@ -32975,6 +33232,7 @@ impl IMFSensorProcessActivity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorProcessActivity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -33080,6 +33338,7 @@ impl IMFSensorProfile {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorProfile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProfileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SENSORPROFILEID) -> windows_core::HRESULT,
@@ -33170,6 +33429,7 @@ impl IMFSensorProfileCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorProfileCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProfileCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -33281,6 +33541,7 @@ impl IMFSensorStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorStream_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetMediaTypeCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -33381,6 +33642,7 @@ impl IMFSensorTransformFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorTransformFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFactoryAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33492,6 +33754,7 @@ impl IMFSequencerSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSequencerSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AppendTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -33573,6 +33836,7 @@ impl IMFSharingEngineClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSharingEngineClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33615,6 +33879,7 @@ impl IMFShutdown {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFShutdown_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33666,6 +33931,7 @@ impl IMFSignedLibrary {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSignedLibrary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProcedureAddress: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33711,6 +33977,7 @@ impl IMFSimpleAudioVolume {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSimpleAudioVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMasterVolume: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
@@ -33826,6 +34093,7 @@ impl IMFSinkWriter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSinkWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -33958,6 +34226,7 @@ impl IMFSinkWriterCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSinkWriterCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnFinalize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -34009,6 +34278,7 @@ impl IMFSinkWriterCallback2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSinkWriterCallback2_Vtbl {
     pub base__: IMFSinkWriterCallback_Vtbl,
     pub OnTransformChange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34061,6 +34331,7 @@ impl IMFSinkWriterEncoderConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSinkWriterEncoderConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTargetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34109,6 +34380,7 @@ impl IMFSinkWriterEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSinkWriterEx_Vtbl {
     pub base__: IMFSinkWriter_Vtbl,
     pub GetTransformForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34178,6 +34450,7 @@ impl IMFSourceBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUpdating: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
@@ -34319,6 +34592,7 @@ impl IMFSourceBufferAppendMode {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceBufferAppendMode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAppendMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> MF_MSE_APPEND_MODE,
@@ -34364,6 +34638,7 @@ impl IMFSourceBufferList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceBufferList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -34418,6 +34693,7 @@ impl IMFSourceBufferNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceBufferNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnUpdateStart: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -34490,6 +34766,7 @@ impl IMFSourceOpenMonitor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceOpenMonitor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSourceEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34564,6 +34841,7 @@ impl IMFSourceReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -34723,6 +35001,7 @@ impl IMFSourceReaderCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceReaderCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnReadSample: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32, u32, i64, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34783,6 +35062,7 @@ impl IMFSourceReaderCallback2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceReaderCallback2_Vtbl {
     pub base__: IMFSourceReaderCallback_Vtbl,
     pub OnTransformChange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34849,6 +35129,7 @@ impl IMFSourceReaderEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceReaderEx_Vtbl {
     pub base__: IMFSourceReader_Vtbl,
     pub SetNativeMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -34971,6 +35252,7 @@ impl IMFSourceResolver {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceResolver_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -35103,6 +35385,7 @@ impl IMFSpatialAudioObjectBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSpatialAudioObjectBuffer_Vtbl {
     pub base__: IMFMediaBuffer_Vtbl,
     pub SetID: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -35223,6 +35506,7 @@ impl IMFSpatialAudioSample {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSpatialAudioSample_Vtbl {
     pub base__: IMFSample_Vtbl,
     pub GetObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -35304,6 +35588,7 @@ impl IMFStreamDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFStreamDescriptor_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetStreamIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -35395,6 +35680,7 @@ impl IMFStreamSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFStreamSink_Vtbl {
     pub base__: IMFMediaEventGenerator_Vtbl,
     pub GetMediaSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35497,6 +35783,7 @@ impl IMFStreamingSinkConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFStreamingSinkConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartStreaming: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u64) -> windows_core::HRESULT,
@@ -35530,6 +35817,7 @@ impl IMFSystemId {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSystemId_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
@@ -35599,6 +35887,7 @@ impl IMFTimecodeTranslate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimecodeTranslate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -35763,6 +36052,7 @@ impl IMFTimedText {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedText_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterNotifications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35961,6 +36251,7 @@ impl IMFTimedTextBinary {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextBinary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -36006,6 +36297,7 @@ impl IMFTimedTextBouten {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextBouten_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBoutenType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_TIMED_TEXT_BOUTEN_TYPE) -> windows_core::HRESULT,
@@ -36120,6 +36412,7 @@ impl IMFTimedTextCue {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextCue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -36309,6 +36602,7 @@ impl IMFTimedTextCueList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextCueList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -36423,6 +36717,7 @@ impl IMFTimedTextFormattedText {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextFormattedText_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -36501,6 +36796,7 @@ impl IMFTimedTextNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TrackAdded: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
@@ -36645,6 +36941,7 @@ impl IMFTimedTextRegion {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextRegion_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -36846,6 +37143,7 @@ impl IMFTimedTextRuby {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextRuby_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRubyText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -36996,6 +37294,7 @@ impl IMFTimedTextStyle {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextStyle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -37218,6 +37517,7 @@ impl IMFTimedTextStyle2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextStyle2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRuby: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37356,6 +37656,7 @@ impl IMFTimedTextTrack {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextTrack_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -37539,6 +37840,7 @@ impl IMFTimedTextTrackList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextTrackList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -37615,6 +37917,7 @@ impl IMFTimer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i64, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37667,6 +37970,7 @@ impl IMFTopoLoader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopoLoader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37757,6 +38061,7 @@ impl IMFTopology {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopology_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetTopologyID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -37997,6 +38302,7 @@ impl IMFTopologyNode {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopologyNode_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub SetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38210,6 +38516,7 @@ impl IMFTopologyNodeAttributeEditor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopologyNodeAttributeEditor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UpdateNodeAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const MFTOPONODE_ATTRIBUTE_UPDATE) -> windows_core::HRESULT,
@@ -38240,6 +38547,7 @@ impl IMFTopologyServiceLookup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopologyServiceLookup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LookupService: unsafe extern "system" fn(*mut core::ffi::c_void, MF_SERVICE_LOOKUP_TYPE, u32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -38276,6 +38584,7 @@ impl IMFTopologyServiceLookupClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopologyServiceLookupClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitServicePointers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38322,6 +38631,7 @@ impl IMFTrackedSample {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTrackedSample_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38385,6 +38695,7 @@ impl IMFTranscodeProfile {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTranscodeProfile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAudioAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38502,6 +38813,7 @@ impl IMFTranscodeSinkInfoProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTranscodeSinkInfoProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetOutputFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -38676,6 +38988,7 @@ impl IMFTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTransform_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamLimits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -38970,6 +39283,7 @@ impl IMFTrustedInput {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTrustedInput_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInputTrustAuthority: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -39021,6 +39335,7 @@ impl IMFTrustedOutput {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTrustedOutput_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOutputTrustAuthorityCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -39100,6 +39415,7 @@ impl IMFVideoCaptureSampleAllocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoCaptureSampleAllocator_Vtbl {
     pub base__: IMFVideoSampleAllocator_Vtbl,
     pub InitializeCaptureSampleAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -39136,6 +39452,7 @@ impl IMFVideoDeviceID {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoDeviceID_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDeviceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -39233,6 +39550,7 @@ impl IMFVideoDisplayControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoDisplayControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNativeVideoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SIZE, *mut super::super::Foundation::SIZE) -> windows_core::HRESULT,
@@ -39446,6 +39764,7 @@ impl IMFVideoMediaType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoMediaType_Vtbl {
     pub base__: IMFMediaType_Vtbl,
     pub GetVideoFormat: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut MFVIDEOFORMAT,
@@ -39501,6 +39820,7 @@ impl IMFVideoMixerBitmap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoMixerBitmap_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
@@ -39582,6 +39902,7 @@ impl IMFVideoMixerControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoMixerControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetStreamZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -39666,6 +39987,7 @@ impl IMFVideoMixerControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoMixerControl2_Vtbl {
     pub base__: IMFVideoMixerControl_Vtbl,
     pub SetMixingPrefs: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -39714,6 +40036,7 @@ impl IMFVideoPositionMapper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoPositionMapper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MapOutputCoordinateToInputStream: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, u32, u32, *mut f32, *mut f32) -> windows_core::HRESULT,
@@ -39759,6 +40082,7 @@ impl IMFVideoPresenter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoPresenter_Vtbl {
     pub base__: IMFClockStateSink_Vtbl,
     pub ProcessMessage: unsafe extern "system" fn(*mut core::ffi::c_void, MFVP_MESSAGE_TYPE, usize) -> windows_core::HRESULT,
@@ -39859,6 +40183,7 @@ impl IMFVideoProcessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoProcessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAvailableVideoProcessorModes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -40048,6 +40373,7 @@ impl IMFVideoProcessorControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoProcessorControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetBorderColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFARGB) -> windows_core::HRESULT,
@@ -40141,6 +40467,7 @@ impl IMFVideoProcessorControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoProcessorControl2_Vtbl {
     pub base__: IMFVideoProcessorControl_Vtbl,
     pub SetRotationOverride: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -40219,6 +40546,7 @@ impl IMFVideoProcessorControl3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoProcessorControl3_Vtbl {
     pub base__: IMFVideoProcessorControl2_Vtbl,
     pub GetNaturalOutputType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -40289,6 +40617,7 @@ impl IMFVideoRenderer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoRenderer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -40322,6 +40651,7 @@ impl IMFVideoRendererEffectControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoRendererEffectControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnAppServiceConnectionEstablished: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -40373,6 +40703,7 @@ impl IMFVideoSampleAllocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoSampleAllocator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDirectXManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -40448,6 +40779,7 @@ impl IMFVideoSampleAllocatorCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoSampleAllocatorCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -40506,6 +40838,7 @@ impl IMFVideoSampleAllocatorEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoSampleAllocatorEx_Vtbl {
     pub base__: IMFVideoSampleAllocator_Vtbl,
     pub InitializeSampleAllocatorEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -40536,6 +40869,7 @@ impl IMFVideoSampleAllocatorNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoSampleAllocatorNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyRelease: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -40575,6 +40909,7 @@ impl IMFVideoSampleAllocatorNotifyEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoSampleAllocatorNotifyEx_Vtbl {
     pub base__: IMFVideoSampleAllocatorNotify_Vtbl,
     pub NotifyPrune: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -40661,6 +40996,7 @@ impl IMFVirtualCamera {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVirtualCamera_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub AddDeviceSourceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -40879,6 +41215,7 @@ impl IMFWorkQueueServices {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFWorkQueueServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginRegisterTopologyWorkQueuesWithMMCSS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41052,6 +41389,7 @@ impl IMFWorkQueueServicesEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFWorkQueueServicesEx_Vtbl {
     pub base__: IMFWorkQueueServices_Vtbl,
     pub GetTopologyWorkQueueMMCSSPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut i32) -> windows_core::HRESULT,
@@ -41127,6 +41465,7 @@ impl IOPMVideoOutput {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOPMVideoOutput_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartInitialization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OPM_RANDOM_NUMBER, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -41202,6 +41541,7 @@ impl IPlayToControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41249,6 +41589,7 @@ impl IPlayToControlWithCapabilities {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToControlWithCapabilities_Vtbl {
     pub base__: IPlayToControl_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PLAYTO_SOURCE_CREATEFLAGS) -> windows_core::HRESULT,
@@ -41291,6 +41632,7 @@ impl IPlayToSourceClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToSourceClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41369,6 +41711,7 @@ impl IToc {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToc_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TOC_DESCRIPTOR) -> windows_core::HRESULT,
@@ -41519,6 +41862,7 @@ impl ITocCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITocCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEntryCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -41618,6 +41962,7 @@ impl ITocEntry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITocEntry_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -41735,6 +42080,7 @@ impl ITocEntryList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITocEntryList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEntryCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -41843,6 +42189,7 @@ impl ITocParser {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITocParser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -41951,6 +42298,7 @@ impl IValidateBinding {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IValidateBinding_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const u8, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -41990,6 +42338,7 @@ impl IWMCodecLeakyBucket {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMCodecLeakyBucket_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetBufferSizeBits: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -42050,6 +42399,7 @@ impl IWMCodecOutputTimestamp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMCodecOutputTimestamp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNextOutputTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -42084,6 +42434,7 @@ impl IWMCodecPrivateData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMCodecPrivateData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_DxMediaObjects")]
@@ -42142,6 +42493,7 @@ impl IWMCodecProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMCodecProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_DxMediaObjects")]
@@ -42195,6 +42547,7 @@ impl IWMCodecStrings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMCodecStrings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_DxMediaObjects")]
@@ -42249,6 +42602,7 @@ impl IWMColorConvProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMColorConvProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -42291,6 +42645,7 @@ impl IWMColorLegalizerProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMColorLegalizerProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetColorLegalizerQuality: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -42330,6 +42685,7 @@ impl IWMFrameInterpProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMFrameInterpProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFrameRateIn: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -42396,6 +42752,7 @@ impl IWMInterlaceProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMInterlaceProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetProcessType: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -42450,6 +42807,7 @@ impl IWMResamplerProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMResamplerProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetHalfFilterLength: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -42504,6 +42862,7 @@ impl IWMResizerProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMResizerProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetResizerQuality: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -42573,6 +42932,7 @@ impl IWMSampleExtensionSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMSampleExtensionSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetUseSampleExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -42603,6 +42963,7 @@ impl IWMValidate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMValidate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -42636,6 +42997,7 @@ impl IWMVideoDecoderHurryup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMVideoDecoderHurryup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetHurryup: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -42692,6 +43054,7 @@ impl IWMVideoDecoderReconBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMVideoDecoderReconBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetReconstructedVideoFrameSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -42752,6 +43115,7 @@ impl IWMVideoForceKeyFrame {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMVideoForceKeyFrame_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -43202,6 +43566,7 @@ impl core::ops::Deref for MFASYNCRESULT {
 }
 windows_core::imp::interface_hierarchy!(MFASYNCRESULT, windows_core::IUnknown, IMFAsyncResult);
 #[repr(C)]
+#[doc(hidden)]
 pub struct MFASYNCRESULT_Vtbl {
     pub base__: IMFAsyncResult_Vtbl,
 }

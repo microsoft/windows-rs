@@ -166,6 +166,7 @@ impl IXpsDocumentPackageTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsDocumentPackageTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -257,6 +258,7 @@ impl IXpsDocumentPackageTarget3D {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsDocumentPackageTarget3D_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -329,6 +331,7 @@ impl IXpsOMBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMBrush_Vtbl {
     pub base__: IXpsOMShareable_Vtbl,
     pub GetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -451,6 +454,7 @@ impl IXpsOMCanvas {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMCanvas_Vtbl {
     pub base__: IXpsOMVisual_Vtbl,
     pub GetVisuals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -661,6 +665,7 @@ impl IXpsOMColorProfileResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMColorProfileResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -754,6 +759,7 @@ impl IXpsOMColorProfileResourceCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMColorProfileResourceCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1063,6 +1069,7 @@ impl IXpsOMCoreProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMCoreProperties_Vtbl {
     pub base__: IXpsOMPart_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1525,6 +1532,7 @@ impl IXpsOMDashCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMDashCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1679,6 +1687,7 @@ impl IXpsOMDictionary {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMDictionary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1880,6 +1889,7 @@ impl IXpsOMDocument {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMDocument_Vtbl {
     pub base__: IXpsOMPart_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2045,6 +2055,7 @@ impl IXpsOMDocumentCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMDocumentCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2162,6 +2173,7 @@ impl IXpsOMDocumentSequence {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMDocumentSequence_Vtbl {
     pub base__: IXpsOMPart_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2267,6 +2279,7 @@ impl IXpsOMDocumentStructureResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMDocumentStructureResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2363,6 +2376,7 @@ impl IXpsOMFontResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMFontResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2475,6 +2489,7 @@ impl IXpsOMFontResourceCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMFontResourceCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2640,6 +2655,7 @@ impl IXpsOMGeometry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMGeometry_Vtbl {
     pub base__: IXpsOMShareable_Vtbl,
     pub GetFigures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2847,6 +2863,7 @@ impl IXpsOMGeometryFigure {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMGeometryFigure_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3084,6 +3101,7 @@ impl IXpsOMGeometryFigureCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMGeometryFigureCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3318,6 +3336,7 @@ impl IXpsOMGlyphs {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMGlyphs_Vtbl {
     pub base__: IXpsOMVisual_Vtbl,
     pub GetUnicodeString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -3768,6 +3787,7 @@ impl IXpsOMGlyphsEditor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMGlyphsEditor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ApplyEdits: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4053,6 +4073,7 @@ impl IXpsOMGradientBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMGradientBrush_Vtbl {
     pub base__: IXpsOMBrush_Vtbl,
     pub GetGradientStops: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4233,6 +4254,7 @@ impl IXpsOMGradientStop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMGradientStop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4365,6 +4387,7 @@ impl IXpsOMGradientStopCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMGradientStopCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4488,6 +4511,7 @@ impl IXpsOMImageBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMImageBrush_Vtbl {
     pub base__: IXpsOMTileBrush_Vtbl,
     pub GetImageResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4599,6 +4623,7 @@ impl IXpsOMImageResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMImageResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4711,6 +4736,7 @@ impl IXpsOMImageResourceCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMImageResourceCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4849,6 +4875,7 @@ impl IXpsOMLinearGradientBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMLinearGradientBrush_Vtbl {
     pub base__: IXpsOMGradientBrush_Vtbl,
     pub GetStartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_POINT) -> windows_core::HRESULT,
@@ -4954,6 +4981,7 @@ impl IXpsOMMatrixTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMMatrixTransform_Vtbl {
     pub base__: IXpsOMShareable_Vtbl,
     pub GetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_MATRIX) -> windows_core::HRESULT,
@@ -5026,6 +5054,7 @@ impl IXpsOMNameCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMNameCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5417,6 +5446,7 @@ impl IXpsOMObjectFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMObjectFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreatePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6180,6 +6210,7 @@ impl IXpsOMObjectFactory1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMObjectFactory1_Vtbl {
     pub base__: IXpsOMObjectFactory_Vtbl,
     pub GetDocumentTypeFromFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
@@ -6470,6 +6501,7 @@ impl IXpsOMPackage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPackage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDocumentSequence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6646,6 +6678,7 @@ impl IXpsOMPackage1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPackage1_Vtbl {
     pub base__: IXpsOMPackage_Vtbl,
     pub GetDocumentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
@@ -6721,6 +6754,7 @@ impl IXpsOMPackageTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPackageTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -6796,6 +6830,7 @@ impl IXpsOMPackageWriter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPackageWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -6896,6 +6931,7 @@ impl IXpsOMPackageWriter3D {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPackageWriter3D_Vtbl {
     pub base__: IXpsOMPackageWriter_Vtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -7071,6 +7107,7 @@ impl IXpsOMPage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPage_Vtbl {
     pub base__: IXpsOMPart_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7393,6 +7430,7 @@ impl IXpsOMPage1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPage1_Vtbl {
     pub base__: IXpsOMPage_Vtbl,
     pub GetDocumentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
@@ -7536,6 +7574,7 @@ impl IXpsOMPageReference {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPageReference_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7809,6 +7848,7 @@ impl IXpsOMPageReferenceCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPageReferenceCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7910,6 +7950,7 @@ impl IXpsOMPart {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPart_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -7988,6 +8029,7 @@ impl IXpsOMPartResources {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPartResources_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFontResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8106,6 +8148,7 @@ impl IXpsOMPartUriCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPartUriCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -8412,6 +8455,7 @@ impl IXpsOMPath {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPath_Vtbl {
     pub base__: IXpsOMVisual_Vtbl,
     pub GetGeometry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8916,6 +8960,7 @@ impl IXpsOMPrintTicketResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMPrintTicketResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -9005,6 +9050,7 @@ impl IXpsOMRadialGradientBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMRadialGradientBrush_Vtbl {
     pub base__: IXpsOMGradientBrush_Vtbl,
     pub GetCenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_POINT) -> windows_core::HRESULT,
@@ -9131,6 +9177,7 @@ impl IXpsOMRemoteDictionaryResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMRemoteDictionaryResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
     pub GetDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9198,6 +9245,7 @@ impl IXpsOMRemoteDictionaryResource1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMRemoteDictionaryResource1_Vtbl {
     pub base__: IXpsOMRemoteDictionaryResource_Vtbl,
     pub GetDocumentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT,
@@ -9292,6 +9340,7 @@ impl IXpsOMRemoteDictionaryResourceCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMRemoteDictionaryResourceCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -9404,6 +9453,7 @@ impl core::ops::Deref for IXpsOMResource {
 }
 windows_core::imp::interface_hierarchy!(IXpsOMResource, windows_core::IUnknown, IXpsOMPart);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMResource_Vtbl {
     pub base__: IXpsOMPart_Vtbl,
 }
@@ -9437,6 +9487,7 @@ impl IXpsOMShareable {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMShareable_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9511,6 +9562,7 @@ impl IXpsOMSignatureBlockResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMSignatureBlockResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9623,6 +9675,7 @@ impl IXpsOMSignatureBlockResourceCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMSignatureBlockResourceCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -9755,6 +9808,7 @@ impl IXpsOMSolidColorBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMSolidColorBrush_Vtbl {
     pub base__: IXpsOMBrush_Vtbl,
     pub GetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_COLOR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9842,6 +9896,7 @@ impl IXpsOMStoryFragmentsResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMStoryFragmentsResource_Vtbl {
     pub base__: IXpsOMResource_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9922,6 +9977,7 @@ impl IXpsOMThumbnailGenerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMThumbnailGenerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -10024,6 +10080,7 @@ impl IXpsOMTileBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMTileBrush_Vtbl {
     pub base__: IXpsOMBrush_Vtbl,
     pub GetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10332,6 +10389,7 @@ impl IXpsOMVisual {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMVisual_Vtbl {
     pub base__: IXpsOMShareable_Vtbl,
     pub GetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10713,6 +10771,7 @@ impl IXpsOMVisualBrush {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMVisualBrush_Vtbl {
     pub base__: IXpsOMTileBrush_Vtbl,
     pub GetVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10845,6 +10904,7 @@ impl IXpsOMVisualCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsOMVisualCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -11001,6 +11061,7 @@ impl IXpsSignature {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsSignature_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSignatureId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -11240,6 +11301,7 @@ impl IXpsSignatureBlock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsSignatureBlock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRequests: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11360,6 +11422,7 @@ impl IXpsSignatureBlockCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsSignatureBlockCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -11435,6 +11498,7 @@ impl IXpsSignatureCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsSignatureCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -11574,6 +11638,7 @@ impl IXpsSignatureManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsSignatureManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LoadPackageFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -11821,6 +11886,7 @@ impl IXpsSignatureRequest {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsSignatureRequest_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIntent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -12007,6 +12073,7 @@ impl IXpsSignatureRequestCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsSignatureRequestCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -12167,6 +12234,7 @@ impl IXpsSigningOptions {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsSigningOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSignatureId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,

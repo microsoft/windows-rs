@@ -33,6 +33,7 @@ impl IADesktopP2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IADesktopP2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReReadWallpaper: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -111,6 +112,7 @@ impl IActiveDesktopP {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveDesktopP_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSafeMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -175,6 +177,7 @@ impl IBriefcaseInitiator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBriefcaseInitiator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -236,6 +239,7 @@ impl IEmptyVolumeCache {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEmptyVolumeCache_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Registry")]
@@ -328,6 +332,7 @@ impl IEmptyVolumeCache2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEmptyVolumeCache2_Vtbl {
     pub base__: IEmptyVolumeCache_Vtbl,
     #[cfg(feature = "Win32_System_Registry")]
@@ -373,6 +378,7 @@ impl IEmptyVolumeCacheCallBack {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEmptyVolumeCacheCallBack_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ScanProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -426,6 +432,7 @@ impl IReconcilableObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReconcilableObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -486,6 +493,7 @@ impl IReconcileInitiator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReconcileInitiator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAbortCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,

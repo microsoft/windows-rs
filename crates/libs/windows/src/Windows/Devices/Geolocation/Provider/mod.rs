@@ -60,6 +60,7 @@ impl windows_core::RuntimeType for IGeolocationProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeolocationProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsOverridden: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

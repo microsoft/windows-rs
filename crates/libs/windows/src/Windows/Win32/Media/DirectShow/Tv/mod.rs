@@ -817,6 +817,7 @@ impl IATSCChannelTuneRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IATSCChannelTuneRequest_Vtbl {
     pub base__: IChannelTuneRequest_Vtbl,
     pub MinorChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -885,6 +886,7 @@ impl IATSCComponentType {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IATSCComponentType_Vtbl {
     pub base__: IMPEG2ComponentType_Vtbl,
     pub Flags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -958,6 +960,7 @@ impl IATSCLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IATSCLocator_Vtbl {
     pub base__: IDigitalLocator_Vtbl,
     pub PhysicalChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -1050,6 +1053,7 @@ impl IATSCLocator2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IATSCLocator2_Vtbl {
     pub base__: IATSCLocator_Vtbl,
     pub ProgramNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -1145,6 +1149,7 @@ impl IATSCTuningSpace {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IATSCTuningSpace_Vtbl {
     pub base__: IAnalogTVTuningSpace_Vtbl,
     pub MinMinorChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -1338,6 +1343,7 @@ impl IATSC_EIT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IATSC_EIT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1564,6 +1570,7 @@ impl IATSC_ETT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IATSC_ETT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1718,6 +1725,7 @@ impl IATSC_MGT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IATSC_MGT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1956,6 +1964,7 @@ impl IATSC_STT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IATSC_STT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2233,6 +2242,7 @@ impl IATSC_VCT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IATSC_VCT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2640,6 +2650,7 @@ impl IAnalogAudioComponentType {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnalogAudioComponentType_Vtbl {
     pub base__: IComponentType_Vtbl,
     pub AnalogAudioMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::TVAudioMode) -> windows_core::HRESULT,
@@ -2708,6 +2719,7 @@ impl IAnalogLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnalogLocator_Vtbl {
     pub base__: ILocator_Vtbl,
     pub VideoStandard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::AnalogVideoStandard) -> windows_core::HRESULT,
@@ -2794,6 +2806,7 @@ impl IAnalogRadioTuningSpace {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnalogRadioTuningSpace_Vtbl {
     pub base__: ITuningSpace_Vtbl,
     pub MinFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -2910,6 +2923,7 @@ impl IAnalogRadioTuningSpace2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnalogRadioTuningSpace2_Vtbl {
     pub base__: IAnalogRadioTuningSpace_Vtbl,
     pub CountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3005,6 +3019,7 @@ impl IAnalogTVTuningSpace {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnalogTVTuningSpace_Vtbl {
     pub base__: ITuningSpace_Vtbl,
     pub MinChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3170,6 +3185,7 @@ impl IAtscContentAdvisoryDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAtscContentAdvisoryDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -3371,6 +3387,7 @@ impl IAtscPsipParser {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAtscPsipParser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3563,6 +3580,7 @@ impl IAttributeGet {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAttributeGet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3620,6 +3638,7 @@ impl IAttributeSet {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAttributeSet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAttrib: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const u8, u32) -> windows_core::HRESULT,
@@ -3655,6 +3674,7 @@ impl core::ops::Deref for IAuxInTuningSpace {
 windows_core::imp::interface_hierarchy!(IAuxInTuningSpace, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAuxInTuningSpace_Vtbl {
     pub base__: ITuningSpace_Vtbl,
 }
@@ -3696,6 +3716,7 @@ impl IAuxInTuningSpace2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAuxInTuningSpace2_Vtbl {
     pub base__: IAuxInTuningSpace_Vtbl,
     pub CountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3788,6 +3809,7 @@ impl IBDAComparable {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBDAComparable_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3915,6 +3937,7 @@ impl IBDACreateTuneRequestEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBDACreateTuneRequestEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3963,6 +3986,7 @@ impl IBDA_TIF_REGISTRATION {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBDA_TIF_REGISTRATION_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterTIFEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4045,6 +4069,7 @@ impl ICAT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICAT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4204,6 +4229,7 @@ impl ICaptionServiceDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICaptionServiceDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberOfServices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -4329,6 +4355,7 @@ impl IChannelIDTuneRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChannelIDTuneRequest_Vtbl {
     pub base__: ITuneRequest_Vtbl,
     pub ChannelID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4393,6 +4420,7 @@ impl IChannelTuneRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChannelTuneRequest_Vtbl {
     pub base__: ITuneRequest_Vtbl,
     pub Channel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -4493,6 +4521,7 @@ impl IComponent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComponent_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4719,6 +4748,7 @@ impl IComponentType {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComponentType_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ComponentCategory) -> windows_core::HRESULT,
@@ -5020,6 +5050,7 @@ impl IComponentTypes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComponentTypes_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -5231,6 +5262,7 @@ impl IComponents {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComponents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -5435,6 +5467,7 @@ impl IComponentsOld {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComponentsOld_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -5577,6 +5610,7 @@ impl ICreatePropBagOnRegKey {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreatePropBagOnRegKey_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Registry")]
@@ -5646,6 +5680,7 @@ impl IDTFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDTFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EvalRatObjOK: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -5784,6 +5819,7 @@ impl IDTFilter2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDTFilter2_Vtbl {
     pub base__: IDTFilter_Vtbl,
     pub ChallengeUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5865,6 +5901,7 @@ impl IDTFilter3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDTFilter3_Vtbl {
     pub base__: IDTFilter2_Vtbl,
     pub GetProtectionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProtType) -> windows_core::HRESULT,
@@ -5931,6 +5968,7 @@ impl IDTFilterConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDTFilterConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSecureChannelObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5972,6 +6010,7 @@ impl core::ops::Deref for IDTFilterEvents {
 windows_core::imp::interface_hierarchy!(IDTFilterEvents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDTFilterEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
@@ -5996,6 +6035,7 @@ impl IDTFilterLicenseRenewal {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDTFilterLicenseRenewal_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLicenseRenewalData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -6031,6 +6071,7 @@ impl core::ops::Deref for IDVBCLocator {
 windows_core::imp::interface_hierarchy!(IDVBCLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVBCLocator_Vtbl {
     pub base__: IDigitalLocator_Vtbl,
 }
@@ -6108,6 +6149,7 @@ impl IDVBSLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVBSLocator_Vtbl {
     pub base__: IDigitalLocator_Vtbl,
     pub SignalPolarisation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Polarisation) -> windows_core::HRESULT,
@@ -6326,6 +6368,7 @@ impl IDVBSLocator2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVBSLocator2_Vtbl {
     pub base__: IDVBSLocator_Vtbl,
     pub DiseqLNBSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LNB_Source) -> windows_core::HRESULT,
@@ -6574,6 +6617,7 @@ impl IDVBSTuningSpace {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVBSTuningSpace_Vtbl {
     pub base__: IDVBTuningSpace2_Vtbl,
     pub LowOscillator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -6792,6 +6836,7 @@ impl IDVBTLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVBTLocator_Vtbl {
     pub base__: IDigitalLocator_Vtbl,
     pub Bandwidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -7004,6 +7049,7 @@ impl IDVBTLocator2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVBTLocator2_Vtbl {
     pub base__: IDVBTLocator_Vtbl,
     pub PhysicalLayerPipeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -7090,6 +7136,7 @@ impl IDVBTuneRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVBTuneRequest_Vtbl {
     pub base__: ITuneRequest_Vtbl,
     pub ONID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -7206,6 +7253,7 @@ impl IDVBTuningSpace {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVBTuningSpace_Vtbl {
     pub base__: ITuningSpace_Vtbl,
     pub SystemType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DVBSystemType) -> windows_core::HRESULT,
@@ -7274,6 +7322,7 @@ impl IDVBTuningSpace2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVBTuningSpace2_Vtbl {
     pub base__: IDVBTuningSpace_Vtbl,
     pub NetworkID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -7401,6 +7450,7 @@ impl IDVB_BAT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVB_BAT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7632,6 +7682,7 @@ impl IDVB_DIT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVB_DIT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7792,6 +7843,7 @@ impl IDVB_EIT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVB_EIT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8113,6 +8165,7 @@ impl IDVB_EIT2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVB_EIT2_Vtbl {
     pub base__: IDVB_EIT_Vtbl,
     pub GetSegmentInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8) -> windows_core::HRESULT,
@@ -8246,6 +8299,7 @@ impl IDVB_NIT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVB_NIT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8528,6 +8582,7 @@ impl IDVB_RST {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVB_RST_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8745,6 +8800,7 @@ impl IDVB_SDT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVB_SDT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9082,6 +9138,7 @@ impl IDVB_SIT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVB_SIT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9310,6 +9367,7 @@ impl IDVB_ST {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVB_ST_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9382,6 +9440,7 @@ impl IDVB_TDT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVB_TDT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9454,6 +9513,7 @@ impl IDVB_TOT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDVB_TOT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9546,6 +9606,7 @@ impl core::ops::Deref for IDigitalCableLocator {
 windows_core::imp::interface_hierarchy!(IDigitalCableLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IATSCLocator, IATSCLocator2);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDigitalCableLocator_Vtbl {
     pub base__: IATSCLocator2_Vtbl,
 }
@@ -9596,6 +9657,7 @@ impl IDigitalCableTuneRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDigitalCableTuneRequest_Vtbl {
     pub base__: IATSCChannelTuneRequest_Vtbl,
     pub MajorChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -9715,6 +9777,7 @@ impl IDigitalCableTuningSpace {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDigitalCableTuningSpace_Vtbl {
     pub base__: IATSCTuningSpace_Vtbl,
     pub MinMajorChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -9843,6 +9906,7 @@ impl core::ops::Deref for IDigitalLocator {
 windows_core::imp::interface_hierarchy!(IDigitalLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDigitalLocator_Vtbl {
     pub base__: ILocator_Vtbl,
 }
@@ -9906,6 +9970,7 @@ impl IDvbCableDeliverySystemDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbCableDeliverySystemDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -10071,6 +10136,7 @@ impl IDvbComponentDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbComponentDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -10215,6 +10281,7 @@ impl IDvbContentDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbContentDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -10320,6 +10387,7 @@ impl IDvbContentIdentifierDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbContentIdentifierDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -10443,6 +10511,7 @@ impl IDvbDataBroadcastDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbDataBroadcastDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -10608,6 +10677,7 @@ impl IDvbDataBroadcastIDDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbDataBroadcastIDDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -10698,6 +10768,7 @@ impl IDvbDefaultAuthorityDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbDefaultAuthorityDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -10818,6 +10889,7 @@ impl IDvbExtendedEventDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbExtendedEventDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -11010,6 +11082,7 @@ impl IDvbFrequencyListDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbFrequencyListDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -11110,6 +11183,7 @@ impl core::ops::Deref for IDvbHDSimulcastLogicalChannelDescriptor {
 }
 windows_core::imp::interface_hierarchy!(IDvbHDSimulcastLogicalChannelDescriptor, windows_core::IUnknown, IDvbLogicalChannelDescriptor, IDvbLogicalChannelDescriptor2);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbHDSimulcastLogicalChannelDescriptor_Vtbl {
     pub base__: IDvbLogicalChannelDescriptor2_Vtbl,
 }
@@ -11173,6 +11247,7 @@ impl IDvbLinkageDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbLinkageDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -11359,6 +11434,7 @@ impl IDvbLogicalChannel2Descriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbLogicalChannel2Descriptor_Vtbl {
     pub base__: IDvbLogicalChannelDescriptor2_Vtbl,
     pub GetCountOfLists: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -11524,6 +11600,7 @@ impl IDvbLogicalChannelDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbLogicalChannelDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -11632,6 +11709,7 @@ impl IDvbLogicalChannelDescriptor2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbLogicalChannelDescriptor2_Vtbl {
     pub base__: IDvbLogicalChannelDescriptor_Vtbl,
     pub GetRecordLogicalChannelAndVisibility: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u16) -> windows_core::HRESULT,
@@ -11704,6 +11782,7 @@ impl IDvbMultilingualServiceNameDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbMultilingualServiceNameDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -11839,6 +11918,7 @@ impl IDvbNetworkNameDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbNetworkNameDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -11941,6 +12021,7 @@ impl IDvbParentalRatingDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbParentalRatingDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -12034,6 +12115,7 @@ impl IDvbPrivateDataSpecifierDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbPrivateDataSpecifierDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -12154,6 +12236,7 @@ impl IDvbSatelliteDeliverySystemDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbSatelliteDeliverySystemDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -12346,6 +12429,7 @@ impl IDvbServiceAttributeDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbServiceAttributeDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -12505,6 +12589,7 @@ impl IDvbServiceDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbServiceDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -12664,6 +12749,7 @@ impl IDvbServiceDescriptor2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbServiceDescriptor2_Vtbl {
     pub base__: IDvbServiceDescriptor_Vtbl,
     pub GetServiceProviderNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12745,6 +12831,7 @@ impl IDvbServiceListDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbServiceListDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -12868,6 +12955,7 @@ impl IDvbShortEventDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbShortEventDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -13048,6 +13136,7 @@ impl IDvbSiParser {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbSiParser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13300,6 +13389,7 @@ impl IDvbSiParser2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbSiParser2_Vtbl {
     pub base__: IDvbSiParser_Vtbl,
     pub GetEIT2: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *const u16, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13375,6 +13465,7 @@ impl IDvbSubtitlingDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbSubtitlingDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -13543,6 +13634,7 @@ impl IDvbTeletextDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbTeletextDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -13747,6 +13839,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -14029,6 +14122,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -14227,6 +14321,7 @@ impl IESCloseMmiEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IESCloseMmiEvent_Vtbl {
     pub base__: super::IESEvent_Vtbl,
     pub GetDialogNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -14273,6 +14368,7 @@ impl IESEventFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IESEventFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateESEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::GUID, u32, *const u8, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14312,6 +14408,7 @@ impl IESEventService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IESEventService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FireESEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14369,6 +14466,7 @@ impl IESEventServiceConfiguration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IESEventServiceConfiguration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14486,6 +14584,7 @@ impl IESFileExpiryDateEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IESFileExpiryDateEvent_Vtbl {
     pub base__: super::IESEvent_Vtbl,
     pub GetTunerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -14631,6 +14730,7 @@ impl IESIsdbCasResponseEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IESIsdbCasResponseEvent_Vtbl {
     pub base__: super::IESEvent_Vtbl,
     pub GetRequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -14791,6 +14891,7 @@ impl IESLicenseRenewalResultEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IESLicenseRenewalResultEvent_Vtbl {
     pub base__: super::IESEvent_Vtbl,
     pub GetCallersId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -15014,6 +15115,7 @@ impl IESOpenMmiEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IESOpenMmiEvent_Vtbl {
     pub base__: super::IESEvent_Vtbl,
     pub GetDialogNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -15131,6 +15233,7 @@ impl IESRequestTunerEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IESRequestTunerEvent_Vtbl {
     pub base__: super::IESEvent_Vtbl,
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -15228,6 +15331,7 @@ impl IESValueUpdatedEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IESValueUpdatedEvent_Vtbl {
     pub base__: super::IESEvent_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -15288,6 +15392,7 @@ impl IETFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IETFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EvalRatObjOK: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -15375,6 +15480,7 @@ impl IETFilterConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IETFilterConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitLicense: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -15428,6 +15534,7 @@ impl core::ops::Deref for IETFilterEvents {
 windows_core::imp::interface_hierarchy!(IETFilterEvents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IETFilterEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
@@ -15465,6 +15572,7 @@ impl IEnumComponentTypes {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumComponentTypes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -15550,6 +15658,7 @@ impl IEnumComponents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumComponents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -15634,6 +15743,7 @@ impl IEnumGuideDataProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumGuideDataProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -15713,6 +15823,7 @@ impl IEnumMSVidGraphSegment {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumMSVidGraphSegment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -15797,6 +15908,7 @@ impl IEnumStreamBufferRecordingAttrib {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumStreamBufferRecordingAttrib_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut STREAMBUFFER_ATTRIBUTE, *mut u32) -> windows_core::HRESULT,
@@ -15876,6 +15988,7 @@ impl IEnumTuneRequests {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTuneRequests_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -15961,6 +16074,7 @@ impl IEnumTuningSpaces {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTuningSpaces_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -16065,6 +16179,7 @@ impl IEvalRat {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEvalRat_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub get_BlockedRatingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, EnTvRat_System, EnTvRat_GenericLevel, *mut i32) -> windows_core::HRESULT,
@@ -16176,6 +16291,7 @@ impl IGenericDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGenericDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, i32) -> windows_core::HRESULT,
@@ -16266,6 +16382,7 @@ impl IGenericDescriptor2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGenericDescriptor2_Vtbl {
     pub base__: IGenericDescriptor_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u16) -> windows_core::HRESULT,
@@ -16313,6 +16430,7 @@ impl IGpnvsCommonBase {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpnvsCommonBase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetValueUpdateName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16390,6 +16508,7 @@ impl IGuideData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuideData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetServices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16546,6 +16665,7 @@ impl IGuideDataEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuideDataEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GuideDataAcquired: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16660,6 +16780,7 @@ impl IGuideDataLoader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuideDataLoader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16714,6 +16835,7 @@ impl IGuideDataProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuideDataProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16794,6 +16916,7 @@ impl core::ops::Deref for IISDBSLocator {
 windows_core::imp::interface_hierarchy!(IISDBSLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IDVBSLocator);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IISDBSLocator_Vtbl {
     pub base__: IDVBSLocator_Vtbl,
 }
@@ -16888,6 +17011,7 @@ impl IISDB_BIT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IISDB_BIT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17156,6 +17280,7 @@ impl IISDB_CDT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IISDB_CDT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u8) -> windows_core::HRESULT,
@@ -17382,6 +17507,7 @@ impl IISDB_EMM {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IISDB_EMM_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17548,6 +17674,7 @@ impl IISDB_LDT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IISDB_LDT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17810,6 +17937,7 @@ impl IISDB_NBIT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IISDB_NBIT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18056,6 +18184,7 @@ impl IISDB_SDT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IISDB_SDT_Vtbl {
     pub base__: IDVB_SDT_Vtbl,
     pub GetRecordEITUserDefinedFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
@@ -18207,6 +18336,7 @@ impl IISDB_SDTT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IISDB_SDTT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18594,6 +18724,7 @@ impl IIsdbAudioComponentDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbAudioComponentDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -18867,6 +18998,7 @@ impl IIsdbCAContractInformationDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbCAContractInformationDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -19056,6 +19188,7 @@ impl IIsdbCADescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbCADescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -19194,6 +19327,7 @@ impl IIsdbCAServiceDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbCAServiceDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -19365,6 +19499,7 @@ impl IIsdbComponentGroupDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbComponentGroupDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -19608,6 +19743,7 @@ impl IIsdbDataContentDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbDataContentDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -19797,6 +19933,7 @@ impl IIsdbDigitalCopyControlDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbDigitalCopyControlDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -19977,6 +20114,7 @@ impl IIsdbDownloadContentDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbDownloadContentDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -20280,6 +20418,7 @@ impl IIsdbEmergencyInformationDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbEmergencyInformationDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -20436,6 +20575,7 @@ impl IIsdbEventGroupDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbEventGroupDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -20586,6 +20726,7 @@ impl IIsdbHierarchicalTransmissionDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbHierarchicalTransmissionDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -20739,6 +20880,7 @@ impl IIsdbLogoTransmissionDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbLogoTransmissionDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -20910,6 +21052,7 @@ impl IIsdbSIParameterDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbSIParameterDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -21096,6 +21239,7 @@ impl IIsdbSeriesDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbSeriesDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -21294,6 +21438,7 @@ impl IIsdbSiParser2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbSiParser2_Vtbl {
     pub base__: IDvbSiParser2_Vtbl,
     pub GetSDT: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21468,6 +21613,7 @@ impl IIsdbTSInformationDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbTSInformationDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -21651,6 +21797,7 @@ impl IIsdbTerrestrialDeliverySystemDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -21797,6 +21944,7 @@ impl ILanguageComponentType {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILanguageComponentType_Vtbl {
     pub base__: IComponentType_Vtbl,
     pub LangID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -21921,6 +22069,7 @@ impl ILocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocator_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub CarrierFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -22166,6 +22315,7 @@ impl IMPEG2Component {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMPEG2Component_Vtbl {
     pub base__: IComponent_Vtbl,
     pub PID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -22282,6 +22432,7 @@ impl IMPEG2ComponentType {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMPEG2ComponentType_Vtbl {
     pub base__: ILanguageComponentType_Vtbl,
     pub StreamType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::MPEG2StreamType) -> windows_core::HRESULT,
@@ -22359,6 +22510,7 @@ impl IMPEG2TuneRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMPEG2TuneRequest_Vtbl {
     pub base__: ITuneRequest_Vtbl,
     pub TSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -22451,6 +22603,7 @@ impl IMPEG2TuneRequestFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMPEG2TuneRequestFactory_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub CreateTuneRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22485,6 +22638,7 @@ impl windows_core::RuntimeName for IMPEG2TuneRequestFactory {}
 windows_core::imp::define_interface!(IMPEG2TuneRequestSupport, IMPEG2TuneRequestSupport_Vtbl, 0x1b9d5fc3_5bbc_4b6c_bb18_b9d10e3eeebf);
 windows_core::imp::interface_hierarchy!(IMPEG2TuneRequestSupport, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMPEG2TuneRequestSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -22527,6 +22681,7 @@ impl IMPEG2_TIF_CONTROL {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMPEG2_TIF_CONTROL_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterTIF: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -22631,6 +22786,7 @@ impl IMSEventBinder {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSEventBinder_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Bind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -22735,6 +22891,7 @@ impl IMSVidAnalogTuner {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidAnalogTuner_Vtbl {
     pub base__: IMSVidTuner_Vtbl,
     pub Channel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -22905,6 +23062,7 @@ impl IMSVidAnalogTuner2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidAnalogTuner2_Vtbl {
     pub base__: IMSVidAnalogTuner_Vtbl,
     pub TVFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -22982,6 +23140,7 @@ impl core::ops::Deref for IMSVidAnalogTunerEvent {
 windows_core::imp::interface_hierarchy!(IMSVidAnalogTunerEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidTunerEvent);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidAnalogTunerEvent_Vtbl {
     pub base__: IMSVidTunerEvent_Vtbl,
 }
@@ -23032,6 +23191,7 @@ impl IMSVidAudioRenderer {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidAudioRenderer_Vtbl {
     pub base__: IMSVidOutputDevice_Vtbl,
     pub SetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -23145,6 +23305,7 @@ impl IMSVidAudioRendererDevices {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidAudioRendererDevices_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -23249,6 +23410,7 @@ impl core::ops::Deref for IMSVidAudioRendererEvent {
 windows_core::imp::interface_hierarchy!(IMSVidAudioRendererEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidAudioRendererEvent_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
 }
@@ -23305,6 +23467,7 @@ impl IMSVidAudioRendererEvent2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidAudioRendererEvent2_Vtbl {
     pub base__: IMSVidAudioRendererEvent_Vtbl,
     pub AVDecAudioDualMono: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23421,6 +23584,7 @@ impl IMSVidClosedCaptioning {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidClosedCaptioning_Vtbl {
     pub base__: IMSVidFeature_Vtbl,
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -23485,6 +23649,7 @@ impl IMSVidClosedCaptioning2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidClosedCaptioning2_Vtbl {
     pub base__: IMSVidClosedCaptioning_Vtbl,
     pub Service: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MSVidCCService) -> windows_core::HRESULT,
@@ -23546,6 +23711,7 @@ impl IMSVidClosedCaptioning3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidClosedCaptioning3_Vtbl {
     pub base__: IMSVidClosedCaptioning2_Vtbl,
     pub TeleTextFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23612,6 +23778,7 @@ impl IMSVidCompositionSegment {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidCompositionSegment_Vtbl {
     pub base__: IMSVidGraphSegment_Vtbl,
     pub Compose: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23895,6 +24062,7 @@ impl IMSVidCtl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidCtl_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub AutoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -24446,6 +24614,7 @@ impl core::ops::Deref for IMSVidDataServices {
 windows_core::imp::interface_hierarchy!(IMSVidDataServices, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidDataServices_Vtbl {
     pub base__: IMSVidFeature_Vtbl,
 }
@@ -24475,6 +24644,7 @@ impl core::ops::Deref for IMSVidDataServicesEvent {
 windows_core::imp::interface_hierarchy!(IMSVidDataServicesEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidDataServicesEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
@@ -24561,6 +24731,7 @@ impl IMSVidDevice {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidDevice_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24720,6 +24891,7 @@ impl IMSVidDevice2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidDevice2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DevicePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24770,6 +24942,7 @@ impl IMSVidDeviceEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidDeviceEvent_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub StateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -24834,6 +25007,7 @@ impl IMSVidEVR {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidEVR_Vtbl {
     pub base__: IMSVidVideoRenderer_Vtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -24926,6 +25100,7 @@ impl IMSVidEVREvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidEVREvent_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
     pub OnUserEvent: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -24979,6 +25154,7 @@ impl IMSVidEncoder {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidEncoder_Vtbl {
     pub base__: IMSVidFeature_Vtbl,
     pub VideoEncoderInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25041,6 +25217,7 @@ impl core::ops::Deref for IMSVidFeature {
 windows_core::imp::interface_hierarchy!(IMSVidFeature, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidFeature_Vtbl {
     pub base__: IMSVidDevice_Vtbl,
 }
@@ -25070,6 +25247,7 @@ impl core::ops::Deref for IMSVidFeatureEvent {
 windows_core::imp::interface_hierarchy!(IMSVidFeatureEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidFeatureEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
@@ -25132,6 +25310,7 @@ impl IMSVidFeatures {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidFeatures_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -25248,6 +25427,7 @@ impl IMSVidFilePlayback {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidFilePlayback_Vtbl {
     pub base__: IMSVidPlayback_Vtbl,
     pub FileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25309,6 +25489,7 @@ impl IMSVidFilePlayback2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidFilePlayback2_Vtbl {
     pub base__: IMSVidFilePlayback_Vtbl,
     pub Set_SourceFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25359,6 +25540,7 @@ impl core::ops::Deref for IMSVidFilePlaybackEvent {
 windows_core::imp::interface_hierarchy!(IMSVidFilePlaybackEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidFilePlaybackEvent_Vtbl {
     pub base__: IMSVidPlaybackEvent_Vtbl,
 }
@@ -25403,6 +25585,7 @@ impl IMSVidGenericSink {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidGenericSink_Vtbl {
     pub base__: IMSVidOutputDevice_Vtbl,
     pub SetSinkFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25477,6 +25660,7 @@ impl IMSVidGenericSink2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidGenericSink2_Vtbl {
     pub base__: IMSVidGenericSink_Vtbl,
     pub AddFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25596,6 +25780,7 @@ impl IMSVidGraphSegment {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidGraphSegment_Vtbl {
     pub base__: super::super::super::System::Com::IPersist_Vtbl,
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25849,6 +26034,7 @@ impl IMSVidGraphSegmentContainer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidGraphSegmentContainer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Graph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26056,6 +26242,7 @@ impl IMSVidGraphSegmentUserInput {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidGraphSegmentUserInput_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Click: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26171,6 +26358,7 @@ impl IMSVidInputDevice {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidInputDevice_Vtbl {
     pub base__: IMSVidDevice_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -26229,6 +26417,7 @@ impl core::ops::Deref for IMSVidInputDeviceEvent {
 windows_core::imp::interface_hierarchy!(IMSVidInputDeviceEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidInputDeviceEvent_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
@@ -26291,6 +26480,7 @@ impl IMSVidInputDevices {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidInputDevices_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -26395,6 +26585,7 @@ impl core::ops::Deref for IMSVidOutputDevice {
 windows_core::imp::interface_hierarchy!(IMSVidOutputDevice, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidOutputDevice_Vtbl {
     pub base__: IMSVidDevice_Vtbl,
 }
@@ -26424,6 +26615,7 @@ impl core::ops::Deref for IMSVidOutputDeviceEvent {
 windows_core::imp::interface_hierarchy!(IMSVidOutputDeviceEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidOutputDeviceEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
@@ -26486,6 +26678,7 @@ impl IMSVidOutputDevices {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidOutputDevices_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -26653,6 +26846,7 @@ impl IMSVidPlayback {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidPlayback_Vtbl {
     pub base__: IMSVidInputDevice_Vtbl,
     pub EnableResetOnStop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -26856,6 +27050,7 @@ impl IMSVidPlaybackEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidPlaybackEvent_Vtbl {
     pub base__: IMSVidInputDeviceEvent_Vtbl,
     pub EndOfMedia: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26948,6 +27143,7 @@ impl IMSVidRect {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidRect_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Top: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -27154,6 +27350,7 @@ impl IMSVidStreamBufferRecordingControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferRecordingControl_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -27327,6 +27524,7 @@ impl IMSVidStreamBufferSink {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSink_Vtbl {
     pub base__: IMSVidOutputDevice_Vtbl,
     pub get_ContentRecorder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27443,6 +27641,7 @@ impl IMSVidStreamBufferSink2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSink2_Vtbl {
     pub base__: IMSVidStreamBufferSink_Vtbl,
     pub UnlockProfile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27574,6 +27773,7 @@ impl IMSVidStreamBufferSink3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSink3_Vtbl {
     pub base__: IMSVidStreamBufferSink2_Vtbl,
     pub SetMinSeek: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -27852,6 +28052,7 @@ impl IMSVidStreamBufferSinkEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSinkEvent_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
     pub CertificateFailure: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27920,6 +28121,7 @@ impl IMSVidStreamBufferSinkEvent2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSinkEvent2_Vtbl {
     pub base__: IMSVidStreamBufferSinkEvent_Vtbl,
     pub EncryptionOn: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27976,6 +28178,7 @@ impl IMSVidStreamBufferSinkEvent3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSinkEvent3_Vtbl {
     pub base__: IMSVidStreamBufferSinkEvent2_Vtbl,
     pub LicenseChange: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -28020,6 +28223,7 @@ impl IMSVidStreamBufferSinkEvent4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSinkEvent4_Vtbl {
     pub base__: IMSVidStreamBufferSinkEvent3_Vtbl,
     pub WriteFailureClear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28091,6 +28295,7 @@ impl IMSVidStreamBufferSource {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSource_Vtbl {
     pub base__: IMSVidFilePlayback_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -28234,6 +28439,7 @@ impl IMSVidStreamBufferSource2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSource2_Vtbl {
     pub base__: IMSVidStreamBufferSource_Vtbl,
     pub put_RateEx: unsafe extern "system" fn(*mut core::ffi::c_void, f64, u32) -> windows_core::HRESULT,
@@ -28365,6 +28571,7 @@ impl IMSVidStreamBufferSourceEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSourceEvent_Vtbl {
     pub base__: IMSVidFilePlaybackEvent_Vtbl,
     pub CertificateFailure: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28484,6 +28691,7 @@ impl IMSVidStreamBufferSourceEvent2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSourceEvent2_Vtbl {
     pub base__: IMSVidStreamBufferSourceEvent_Vtbl,
     pub RateChange: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
@@ -28540,6 +28748,7 @@ impl IMSVidStreamBufferSourceEvent3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferSourceEvent3_Vtbl {
     pub base__: IMSVidStreamBufferSourceEvent2_Vtbl,
     pub BroadcastEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28647,6 +28856,7 @@ impl IMSVidStreamBufferV2SourceEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidStreamBufferV2SourceEvent_Vtbl {
     pub base__: IMSVidFilePlaybackEvent_Vtbl,
     pub RatingsChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28787,6 +28997,7 @@ impl IMSVidTuner {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidTuner_Vtbl {
     pub base__: IMSVidVideoInputDevice_Vtbl,
     pub Tune: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28876,6 +29087,7 @@ impl IMSVidTunerEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidTunerEvent_Vtbl {
     pub base__: IMSVidInputDeviceEvent_Vtbl,
     pub TuneChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28944,6 +29156,7 @@ impl IMSVidVMR9 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidVMR9_Vtbl {
     pub base__: IMSVidVideoRenderer_Vtbl,
     pub Allocator_ID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -29130,6 +29343,7 @@ impl IMSVidVRGraphSegment {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidVRGraphSegment_Vtbl {
     pub base__: IMSVidGraphSegment_Vtbl,
     pub Set_VMRendererMode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -29402,6 +29616,7 @@ impl core::ops::Deref for IMSVidVideoInputDevice {
 windows_core::imp::interface_hierarchy!(IMSVidVideoInputDevice, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidVideoInputDevice_Vtbl {
     pub base__: IMSVidInputDevice_Vtbl,
 }
@@ -29596,6 +29811,7 @@ impl IMSVidVideoRenderer {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidVideoRenderer_Vtbl {
     pub base__: IMSVidOutputDevice_Vtbl,
     pub CustomCompositorClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30057,6 +30273,7 @@ impl IMSVidVideoRenderer2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidVideoRenderer2_Vtbl {
     pub base__: IMSVidVideoRenderer_Vtbl,
     pub Allocator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30209,6 +30426,7 @@ impl IMSVidVideoRendererDevices {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidVideoRendererDevices_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -30319,6 +30537,7 @@ impl IMSVidVideoRendererEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidVideoRendererEvent_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
     pub OverlayUnavailable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30363,6 +30582,7 @@ impl IMSVidVideoRendererEvent2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidVideoRendererEvent2_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
     pub OverlayUnavailable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30845,6 +31065,7 @@ impl IMSVidWebDVD {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidWebDVD_Vtbl {
     pub base__: IMSVidPlayback_Vtbl,
     pub OnDVDEvent: unsafe extern "system" fn(*mut core::ffi::c_void, i32, isize, isize) -> windows_core::HRESULT,
@@ -32047,6 +32268,7 @@ impl IMSVidWebDVD2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidWebDVD2_Vtbl {
     pub base__: IMSVidWebDVD_Vtbl,
     pub get_Bookmark: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -32163,6 +32385,7 @@ impl IMSVidWebDVDAdm {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidWebDVDAdm_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub ChangePassword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32436,6 +32659,7 @@ impl IMSVidWebDVDEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidWebDVDEvent_Vtbl {
     pub base__: IMSVidPlaybackEvent_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -32687,6 +32911,7 @@ impl IMSVidXDS {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidXDS_Vtbl {
     pub base__: IMSVidFeature_Vtbl,
     pub ChannelChangeInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32737,6 +32962,7 @@ impl IMSVidXDSEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSVidXDSEvent_Vtbl {
     pub base__: IMSVidFeatureEvent_Vtbl,
     pub RatingChange: unsafe extern "system" fn(*mut core::ffi::c_void, EnTvRat_System, EnTvRat_GenericLevel, BfEnTvRat_GenericAttributes, EnTvRat_System, EnTvRat_GenericLevel, BfEnTvRat_GenericAttributes) -> windows_core::HRESULT,
@@ -32770,6 +32996,7 @@ impl IMceBurnerControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMceBurnerControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBurnerNoDecryption: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32815,6 +33042,7 @@ impl IMpeg2Data {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMpeg2Data_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSection: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u8, *const MPEG2_FILTER, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32890,6 +33118,7 @@ impl IMpeg2Stream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMpeg2Stream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, MPEG_REQUEST_TYPE, *mut core::ffi::c_void, *const MPEG_CONTEXT, u16, u8, *const MPEG2_FILTER, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -32947,6 +33176,7 @@ impl IMpeg2TableFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMpeg2TableFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddPID: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
@@ -33080,6 +33310,7 @@ impl IPAT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPAT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33257,6 +33488,7 @@ impl IPBDAAttributesDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPBDAAttributesDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -33332,6 +33564,7 @@ impl IPBDAEntitlementDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPBDAEntitlementDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -33410,6 +33643,7 @@ impl IPBDASiParser {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPBDASiParser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33530,6 +33764,7 @@ impl IPBDA_EIT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPBDA_EIT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
@@ -33719,6 +33954,7 @@ impl IPBDA_Services {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPBDA_Services_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
@@ -33873,6 +34109,7 @@ impl IPMT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPMT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34137,6 +34374,7 @@ impl IPSITables {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPSITables_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34180,6 +34418,7 @@ impl IPTFilterLicenseRenewal {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPTFilterLicenseRenewal_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RenewLicenses: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32, windows_core::BOOL) -> windows_core::HRESULT,
@@ -34244,6 +34483,7 @@ impl IPersistTuneXml {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPersistTuneXml_Vtbl {
     pub base__: super::super::super::System::Com::IPersist_Vtbl,
     pub InitNew: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34314,6 +34554,7 @@ impl IPersistTuneXmlUtility {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPersistTuneXmlUtility_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -34369,6 +34610,7 @@ impl IPersistTuneXmlUtility2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPersistTuneXmlUtility2_Vtbl {
     pub base__: IPersistTuneXmlUtility_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -34418,6 +34660,7 @@ impl IRegisterTuner {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRegisterTuner_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34478,6 +34721,7 @@ impl ISBE2Crossbar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISBE2Crossbar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnableDefaultMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -34562,6 +34806,7 @@ impl ISBE2EnumStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISBE2EnumStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SBE2_STREAM_DESC, *mut u32) -> windows_core::HRESULT,
@@ -34631,6 +34876,7 @@ impl ISBE2FileScan {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISBE2FileScan_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RepairFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -34661,6 +34907,7 @@ impl ISBE2GlobalEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISBE2GlobalEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, u32, u32, *mut windows_core::BOOL, *mut u32, *mut u8) -> windows_core::HRESULT,
@@ -34697,6 +34944,7 @@ impl ISBE2GlobalEvent2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISBE2GlobalEvent2_Vtbl {
     pub base__: ISBE2GlobalEvent_Vtbl,
     pub GetEventEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, u32, u32, *mut windows_core::BOOL, *mut u32, *mut u8, *mut i64) -> windows_core::HRESULT,
@@ -34744,6 +34992,7 @@ impl ISBE2MediaTypeProfile {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISBE2MediaTypeProfile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -34825,6 +35074,7 @@ impl ISBE2SpanningEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISBE2SpanningEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut u32, *mut u8) -> windows_core::HRESULT,
@@ -34864,6 +35114,7 @@ impl ISBE2StreamMap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISBE2StreamMap_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MapStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -35084,6 +35335,7 @@ impl ISCTE_EAS {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISCTE_EAS_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35548,6 +35800,7 @@ impl ISIInbandEPG {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISIInbandEPG_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartSIEPGScan: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35608,6 +35861,7 @@ impl ISIInbandEPGEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISIInbandEPGEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SIObjectEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -35656,6 +35910,7 @@ impl IScanningTuner {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScanningTuner_Vtbl {
     pub base__: ITuner_Vtbl,
     pub SeekUp: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35759,6 +36014,7 @@ impl IScanningTunerEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScanningTunerEx_Vtbl {
     pub base__: IScanningTuner_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -35891,6 +36147,7 @@ impl ISectionList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISectionList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, MPEG_REQUEST_TYPE, *mut core::ffi::c_void, *const MPEG_CONTEXT, u16, u8, *const MPEG2_FILTER, u32, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -36008,6 +36265,7 @@ impl IServiceLocationDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceLocationDescriptor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPCR_PID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -36125,6 +36383,7 @@ impl IStreamBufferConfigure {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferConfigure_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -36233,6 +36492,7 @@ impl IStreamBufferConfigure2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferConfigure2_Vtbl {
     pub base__: IStreamBufferConfigure_Vtbl,
     pub SetMultiplexedPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -36323,6 +36583,7 @@ impl IStreamBufferConfigure3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferConfigure3_Vtbl {
     pub base__: IStreamBufferConfigure2_Vtbl,
     pub SetStartRecConfig: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -36398,6 +36659,7 @@ impl IStreamBufferDataCounters {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferDataCounters_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SBE_PIN_DATA) -> windows_core::HRESULT,
@@ -36441,6 +36703,7 @@ impl IStreamBufferInitialize {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferInitialize_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Registry")]
@@ -36489,6 +36752,7 @@ impl core::ops::Deref for IStreamBufferMediaSeeking {
 }
 windows_core::imp::interface_hierarchy!(IStreamBufferMediaSeeking, windows_core::IUnknown, super::IMediaSeeking);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferMediaSeeking_Vtbl {
     pub base__: super::IMediaSeeking_Vtbl,
 }
@@ -36516,6 +36780,7 @@ impl IStreamBufferMediaSeeking2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferMediaSeeking2_Vtbl {
     pub base__: IStreamBufferMediaSeeking_Vtbl,
     pub SetRateEx: unsafe extern "system" fn(*mut core::ffi::c_void, f64, u32) -> windows_core::HRESULT,
@@ -36574,6 +36839,7 @@ impl IStreamBufferRecComp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferRecComp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -36664,6 +36930,7 @@ impl IStreamBufferRecordControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferRecordControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -36739,6 +37006,7 @@ impl IStreamBufferRecordingAttribute {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferRecordingAttribute_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, STREAMBUFFER_ATTR_DATATYPE, *const u8, u16) -> windows_core::HRESULT,
@@ -36835,6 +37103,7 @@ impl IStreamBufferSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LockProfile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -36898,6 +37167,7 @@ impl IStreamBufferSink2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferSink2_Vtbl {
     pub base__: IStreamBufferSink_Vtbl,
     pub UnlockProfile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36934,6 +37204,7 @@ impl IStreamBufferSink3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferSink3_Vtbl {
     pub base__: IStreamBufferSink2_Vtbl,
     pub SetAvailableFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -36967,6 +37238,7 @@ impl IStreamBufferSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStreamBufferSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetStreamSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37037,6 +37309,7 @@ impl ITSDT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITSDT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37204,6 +37477,7 @@ impl ITuneRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITuneRequest_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub TuningSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37358,6 +37632,7 @@ impl ITuneRequestInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITuneRequestInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -37506,6 +37781,7 @@ impl ITuneRequestInfoEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITuneRequestInfoEx_Vtbl {
     pub base__: ITuneRequestInfo_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -37609,6 +37885,7 @@ impl ITuner {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITuner_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -37783,6 +38060,7 @@ impl ITunerCap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITunerCap_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub get_SupportedNetworkTypes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -37837,6 +38115,7 @@ impl ITunerCapEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITunerCapEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Has608_708Caption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -37980,6 +38259,7 @@ impl ITuningSpace {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITuningSpace_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub UniqueName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38341,6 +38621,7 @@ impl ITuningSpaceContainer {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITuningSpaceContainer_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -38594,6 +38875,7 @@ impl ITuningSpaces {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITuningSpaces_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -38714,6 +38996,7 @@ impl IXDSCodec {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXDSCodec_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub XDSToRatObjOK: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -38825,6 +39108,7 @@ impl IXDSCodecConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXDSCodecConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSecureChannelObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38878,6 +39162,7 @@ impl core::ops::Deref for IXDSCodecEvents {
 windows_core::imp::interface_hierarchy!(IXDSCodecEvents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXDSCodecEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
@@ -38916,6 +39201,7 @@ impl IXDSToRat {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXDSToRat_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -40811,6 +41097,7 @@ impl core::ops::Deref for _IMSVidCtlEvents {
 windows_core::imp::interface_hierarchy!(_IMSVidCtlEvents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _IMSVidCtlEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }

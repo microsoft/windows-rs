@@ -55,6 +55,7 @@ impl IUriToStreamResolver_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUriToStreamResolver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -67,6 +68,7 @@ impl windows_core::RuntimeType for IWebErrorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebErrorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut WebErrorStatus) -> windows_core::HRESULT,

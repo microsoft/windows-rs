@@ -1418,6 +1418,7 @@ impl windows_core::RuntimeType for ICertificate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BuildChainAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1444,6 +1445,7 @@ impl windows_core::RuntimeType for ICertificate2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificate2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSecurityDeviceBound: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1458,6 +1460,7 @@ impl windows_core::RuntimeType for ICertificate3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificate3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPerUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1469,6 +1472,7 @@ impl windows_core::RuntimeType for ICertificateChain {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateChain_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChainValidationResult) -> windows_core::HRESULT,
@@ -1480,6 +1484,7 @@ impl windows_core::RuntimeType for ICertificateEnrollmentManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1491,6 +1496,7 @@ impl windows_core::RuntimeType for ICertificateEnrollmentManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UserCertificateEnrollmentManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1501,6 +1507,7 @@ impl windows_core::RuntimeType for ICertificateEnrollmentManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ImportPfxDataToKspWithParametersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1510,6 +1517,7 @@ impl windows_core::RuntimeType for ICertificateExtension {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateExtension_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ObjectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1525,6 +1533,7 @@ impl windows_core::RuntimeType for ICertificateFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1537,6 +1546,7 @@ impl windows_core::RuntimeType for ICertificateKeyUsages {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateKeyUsages_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EncipherOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1561,6 +1571,7 @@ impl windows_core::RuntimeType for ICertificateQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateQuery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnhancedKeyUsages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1578,6 +1589,7 @@ impl windows_core::RuntimeType for ICertificateQuery2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateQuery2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IncludeDuplicates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1592,6 +1604,7 @@ impl windows_core::RuntimeType for ICertificateRequestProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateRequestProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Subject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1618,6 +1631,7 @@ impl windows_core::RuntimeType for ICertificateRequestProperties2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateRequestProperties2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SmartcardReaderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1632,6 +1646,7 @@ impl windows_core::RuntimeType for ICertificateRequestProperties3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateRequestProperties3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurveName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1650,6 +1665,7 @@ impl windows_core::RuntimeType for ICertificateRequestProperties4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateRequestProperties4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SuppressedDefaults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1661,6 +1677,7 @@ impl windows_core::RuntimeType for ICertificateStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1671,6 +1688,7 @@ impl windows_core::RuntimeType for ICertificateStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1680,6 +1698,7 @@ impl windows_core::RuntimeType for ICertificateStoresStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateStoresStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FindAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1693,6 +1712,7 @@ impl windows_core::RuntimeType for ICertificateStoresStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICertificateStoresStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetUserStoreByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1702,6 +1722,7 @@ impl windows_core::RuntimeType for IChainBuildingParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChainBuildingParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnhancedKeyUsages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1722,6 +1743,7 @@ impl windows_core::RuntimeType for IChainValidationParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChainValidationParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CertificateChainPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CertificateChainPolicy) -> windows_core::HRESULT,
@@ -1740,6 +1762,7 @@ impl windows_core::RuntimeType for ICmsAttachedSignature {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICmsAttachedSignature_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Certificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1752,6 +1775,7 @@ impl windows_core::RuntimeType for ICmsAttachedSignatureFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICmsAttachedSignatureFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1764,6 +1788,7 @@ impl windows_core::RuntimeType for ICmsAttachedSignatureStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICmsAttachedSignatureStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1776,6 +1801,7 @@ impl windows_core::RuntimeType for ICmsDetachedSignature {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICmsDetachedSignature_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Certificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1790,6 +1816,7 @@ impl windows_core::RuntimeType for ICmsDetachedSignatureFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICmsDetachedSignatureFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1802,6 +1829,7 @@ impl windows_core::RuntimeType for ICmsDetachedSignatureStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICmsDetachedSignatureStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1814,6 +1842,7 @@ impl windows_core::RuntimeType for ICmsSignerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICmsSignerInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Certificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1827,6 +1856,7 @@ impl windows_core::RuntimeType for ICmsTimestampInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICmsTimestampInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SigningCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1838,6 +1868,7 @@ impl windows_core::RuntimeType for IKeyAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyAlgorithmNamesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Rsa: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1854,6 +1885,7 @@ impl windows_core::RuntimeType for IKeyAlgorithmNamesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyAlgorithmNamesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Ecdsa: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1864,6 +1896,7 @@ impl windows_core::RuntimeType for IKeyAttestationHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyAttestationHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DecryptTpmAttestationCredentialAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1874,6 +1907,7 @@ impl windows_core::RuntimeType for IKeyAttestationHelperStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyAttestationHelperStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DecryptTpmAttestationCredentialWithContainerNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1883,6 +1917,7 @@ impl windows_core::RuntimeType for IKeyStorageProviderNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyStorageProviderNamesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SoftwareKeyStorageProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1894,6 +1929,7 @@ impl windows_core::RuntimeType for IKeyStorageProviderNamesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyStorageProviderNamesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PassportKeyStorageProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1903,6 +1939,7 @@ impl windows_core::RuntimeType for IPfxImportParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPfxImportParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Exportable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ExportOption) -> windows_core::HRESULT,
@@ -1925,6 +1962,7 @@ impl windows_core::RuntimeType for IStandardCertificateStoreNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStandardCertificateStoreNamesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Personal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1936,6 +1974,7 @@ impl windows_core::RuntimeType for ISubjectAlternativeNameInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISubjectAlternativeNameInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EmailName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1950,6 +1989,7 @@ impl windows_core::RuntimeType for ISubjectAlternativeNameInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISubjectAlternativeNameInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EmailNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1965,6 +2005,7 @@ impl windows_core::RuntimeType for IUserCertificateEnrollmentManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserCertificateEnrollmentManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1977,6 +2018,7 @@ impl windows_core::RuntimeType for IUserCertificateEnrollmentManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserCertificateEnrollmentManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ImportPfxDataToKspWithParametersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1986,6 +2028,7 @@ impl windows_core::RuntimeType for IUserCertificateStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserCertificateStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAddAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

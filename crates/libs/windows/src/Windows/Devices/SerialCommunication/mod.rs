@@ -28,6 +28,7 @@ impl windows_core::RuntimeType for IErrorReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IErrorReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialError) -> windows_core::HRESULT,
@@ -37,6 +38,7 @@ impl windows_core::RuntimeType for IPinChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPinChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PinChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialPinChange) -> windows_core::HRESULT,
@@ -46,6 +48,7 @@ impl windows_core::RuntimeType for ISerialDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISerialDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BaudRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -93,6 +96,7 @@ impl windows_core::RuntimeType for ISerialDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISerialDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
