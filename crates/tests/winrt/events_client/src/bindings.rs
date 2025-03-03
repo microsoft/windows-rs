@@ -122,6 +122,7 @@ impl windows_core::RuntimeType for IClass {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Signal:
@@ -144,6 +145,7 @@ impl windows_core::RuntimeType for IClassStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IClassStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StaticSignal:

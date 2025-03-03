@@ -56,6 +56,7 @@ impl IJsonValidator_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJsonValidator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Validate: unsafe extern "system" fn(
@@ -117,6 +118,7 @@ impl IJsonValidatorFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJsonValidatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(

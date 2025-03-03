@@ -182,6 +182,7 @@ impl IActivatable_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActivatable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Property:
@@ -235,6 +236,7 @@ impl IActivatableFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActivatableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WithValue: unsafe extern "system" fn(
@@ -286,6 +288,7 @@ impl IComposable_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComposable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Property:
@@ -383,6 +386,7 @@ impl IComposableFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComposableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(

@@ -68,6 +68,7 @@ impl IStringable_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStringable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(
@@ -204,6 +205,7 @@ impl ITest_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Numerics: unsafe extern "system" fn(

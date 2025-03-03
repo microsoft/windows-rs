@@ -393,6 +393,7 @@ impl IA_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IA_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method:
@@ -458,6 +459,7 @@ impl IB_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IB_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MethodOne:
@@ -523,6 +525,7 @@ impl IC_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IC_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method:
@@ -588,6 +591,7 @@ impl ID_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method:
@@ -657,6 +661,7 @@ impl ID2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method: unsafe extern "system" fn(
@@ -731,6 +736,7 @@ impl IE_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IE_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MethodOne:
@@ -800,6 +806,7 @@ impl IE2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IE2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MethodThree: unsafe extern "system" fn(

@@ -54,6 +54,7 @@ impl IReference_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method: unsafe extern "system" fn(
