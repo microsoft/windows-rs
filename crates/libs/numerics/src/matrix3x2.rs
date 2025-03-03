@@ -42,6 +42,17 @@ impl Matrix3x2 {
             M32: center.Y - height * center.Y,
         }
     }
+    pub fn skew(angle_x: f32, angle_y: f32) -> Self {
+        Self::skew_around(angle_x, angle_y, Vector2::zero())
+    }
+    pub fn skew_around(angle_x: f32, angle_y: f32, center: Vector2) -> Self {
+        windows_link::link!("d2d1.dll" "system" fn D2D1MakeSkewMatrix(angle_x: f32, angle_y: f32, center: Vector2, matrix: *mut Matrix3x2));
+        let mut matrix = Self::default();
+        unsafe {
+            D2D1MakeSkewMatrix(angle_x, angle_y, center, &mut matrix);
+        }
+        matrix
+    }
     fn impl_add(&self, rhs: &Self) -> Self {
         Self {
             M11: self.M11 + rhs.M11,
