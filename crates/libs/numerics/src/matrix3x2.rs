@@ -29,17 +29,17 @@ impl Matrix3x2 {
         }
         matrix
     }
-    pub const fn scale(width: f32, height: f32) -> Self {
-        Self::scale_around(width, height, Vector2::zero())
+    pub const fn scale(scale_x: f32, scale_y: f32) -> Self {
+        Self::scale_around(scale_x, scale_y, Vector2::zero())
     }
-    pub const fn scale_around(width: f32, height: f32, center: Vector2) -> Self {
+    pub const fn scale_around(scale_x: f32, scale_y: f32, center: Vector2) -> Self {
         Self {
-            M11: width,
+            M11: scale_x,
             M12: 0.0,
             M21: 0.0,
-            M22: height,
-            M31: center.X - width * center.X,
-            M32: center.Y - height * center.Y,
+            M22: scale_y,
+            M31: center.X - scale_x * center.X,
+            M32: center.Y - scale_y * center.Y,
         }
     }
     pub fn skew(angle_x: f32, angle_y: f32) -> Self {
