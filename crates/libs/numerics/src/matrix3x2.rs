@@ -29,6 +29,19 @@ impl Matrix3x2 {
         }
         matrix
     }
+    pub const fn scale(width: f32, height: f32) -> Self {
+        Self::scale_around(width, height, Vector2::zero())
+    }
+    pub const fn scale_around(width: f32, height: f32, center: Vector2) -> Self {
+        Self {
+            M11: width,
+            M12: 0.0,
+            M21: 0.0,
+            M22: height,
+            M31: center.X - width * center.X,
+            M32: center.Y - height * center.Y,
+        }
+    }
     fn impl_add(&self, rhs: &Self) -> Self {
         Self {
             M11: self.M11 + rhs.M11,
