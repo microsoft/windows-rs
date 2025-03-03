@@ -32,10 +32,10 @@ impl Matrix3x2 {
         }
         matrix
     }
-    pub const fn scale(scale_x: f32, scale_y: f32) -> Self {
+    pub fn scale(scale_x: f32, scale_y: f32) -> Self {
         Self::scale_around(scale_x, scale_y, Vector2::zero())
     }
-    pub const fn scale_around(scale_x: f32, scale_y: f32, center: Vector2) -> Self {
+    pub fn scale_around(scale_x: f32, scale_y: f32, center: Vector2) -> Self {
         Self {
             M11: scale_x,
             M12: 0.0,

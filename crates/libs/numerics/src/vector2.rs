@@ -4,7 +4,7 @@ impl Vector2 {
     pub fn new(X: f32, Y: f32) -> Self {
         Self { X, Y }
     }
-    pub const fn zero() -> Self {
+    pub fn zero() -> Self {
         Self { X: 0f32, Y: 0f32 }
     }
     pub fn one() -> Self {
