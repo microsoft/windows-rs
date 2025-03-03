@@ -1899,6 +1899,7 @@ impl IActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ActivationKind) -> windows_core::HRESULT,
@@ -1973,6 +1974,7 @@ impl IActivatedEventArgsWithUser_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActivatedEventArgsWithUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -2046,6 +2048,7 @@ impl IApplicationViewActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApplicationViewActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentlyShownApplicationViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -2114,6 +2117,7 @@ impl IAppointmentsProviderActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppointmentsProviderActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2196,6 +2200,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -2281,6 +2286,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -2366,6 +2372,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -2491,6 +2498,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InstanceStartDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2591,6 +2599,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TimeToShow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
@@ -2645,6 +2654,7 @@ impl IBackgroundActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Background")]
@@ -2719,6 +2729,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConnectionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2794,6 +2805,7 @@ impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICachedFileUpdaterActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Provider")]
@@ -2890,6 +2902,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICameraSettingsActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VideoDeviceController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2959,6 +2972,7 @@ impl ICommandLineActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICommandLineActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2968,6 +2982,7 @@ impl windows_core::RuntimeType for ICommandLineActivationOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICommandLineActivationOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3040,6 +3055,7 @@ impl IContactActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3166,6 +3182,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactCallActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3276,6 +3293,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactMapActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -3409,6 +3427,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactMessageActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3490,6 +3509,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPanelActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -3572,6 +3592,7 @@ impl IContactPickerActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPickerActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Contacts_Provider")]
@@ -3701,6 +3722,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPostActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3832,6 +3854,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactVideoCallActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3905,6 +3928,7 @@ impl IContactsProviderActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactsProviderActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3980,6 +4004,7 @@ impl IContinuationActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContinuationActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -4076,6 +4101,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceInformationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4152,6 +4178,7 @@ impl IDevicePairingActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDevicePairingActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Enumeration")]
@@ -4237,6 +4264,7 @@ impl IDialReceiverActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDialReceiverActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4334,6 +4362,7 @@ impl IFileActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -4409,6 +4438,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4499,6 +4529,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Search")]
@@ -4577,6 +4608,7 @@ impl IFileOpenPickerActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileOpenPickerActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Pickers_Provider")]
@@ -4629,6 +4661,7 @@ impl IFileOpenPickerActivatedEventArgs2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4715,6 +4748,7 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -4793,6 +4827,7 @@ impl IFileSavePickerActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileSavePickerActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Pickers_Provider")]
@@ -4867,6 +4902,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4954,6 +4990,7 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileSavePickerContinuationEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -5043,6 +5080,7 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFolderPickerContinuationEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Search")]
@@ -5139,6 +5177,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5225,6 +5264,7 @@ impl ILaunchActivatedEventArgs2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILaunchActivatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TileActivatedInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5293,6 +5333,7 @@ impl ILockScreenActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILockScreenActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Info: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5379,6 +5420,7 @@ impl ILockScreenCallActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILockScreenCallActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Calls")]
@@ -5449,6 +5491,7 @@ impl IPhoneCallActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPhoneCallActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -5520,6 +5563,7 @@ impl IPickerReturnedActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPickerReturnedActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PickerOperationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5590,6 +5634,7 @@ impl IPrelaunchActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrelaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PrelaunchActivated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -5662,6 +5707,7 @@ impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrint3DWorkflowActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Printers_Extensions")]
@@ -5740,6 +5786,7 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintTaskSettingsActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Printers_Extensions")]
@@ -5811,6 +5858,7 @@ impl IProtocolActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProtocolActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5908,6 +5956,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5987,6 +6036,7 @@ impl IProtocolForResultsActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProtocolForResultsActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -6061,6 +6111,7 @@ impl IRestrictedLaunchActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRestrictedLaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SharedContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6154,6 +6205,7 @@ impl ISearchActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISearchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6208,6 +6260,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Search")]
@@ -6286,6 +6339,7 @@ impl IShareTargetActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IShareTargetActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
@@ -6298,6 +6352,7 @@ impl windows_core::RuntimeType for ISplashScreen {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISplashScreen_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ImageLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
@@ -6368,6 +6423,7 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStartupTaskActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6377,6 +6433,7 @@ impl windows_core::RuntimeType for ITileActivatedInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileActivatedInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Notifications")]
@@ -6477,6 +6534,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Argument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6556,6 +6614,7 @@ impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserDataAccountProviderActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
@@ -6631,6 +6690,7 @@ impl IViewSwitcherProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IViewSwitcherProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_ViewManagement")]
@@ -6706,6 +6766,7 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_SpeechRecognition")]
@@ -6833,6 +6894,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletActionActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ItemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6913,6 +6975,7 @@ impl IWebAccountProviderActivatedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web_Provider")]
@@ -6999,6 +7062,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web")]

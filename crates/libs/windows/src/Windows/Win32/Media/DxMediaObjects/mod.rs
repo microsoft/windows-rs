@@ -158,6 +158,7 @@ impl IDMOQualityControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDMOQualityControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetNow: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -233,6 +234,7 @@ impl IDMOVideoOutputOptimizations {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDMOVideoOutputOptimizations_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryOperationModePreferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -323,6 +325,7 @@ impl IEnumDMO {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDMO_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
@@ -398,6 +401,7 @@ impl IMediaBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -530,6 +534,7 @@ impl IMediaObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -779,6 +784,7 @@ impl IMediaObjectInPlace {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaObjectInPlace_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, i64, u32) -> windows_core::HRESULT,

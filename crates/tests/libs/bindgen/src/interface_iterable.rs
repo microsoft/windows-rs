@@ -87,6 +87,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIterable_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -308,6 +309,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIterator_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -796,6 +798,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVector_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,

@@ -703,6 +703,7 @@ impl windows_core::RuntimeType for IFileOpenPicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileOpenPicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ViewMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PickerViewMode) -> windows_core::HRESULT,
@@ -728,6 +729,7 @@ impl windows_core::RuntimeType for IFileOpenPicker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileOpenPicker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -748,6 +750,7 @@ impl windows_core::RuntimeType for IFileOpenPicker3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileOpenPicker3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -760,6 +763,7 @@ impl windows_core::RuntimeType for IFileOpenPickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileOpenPickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
@@ -772,6 +776,7 @@ impl windows_core::RuntimeType for IFileOpenPickerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileOpenPickerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -784,6 +789,7 @@ impl windows_core::RuntimeType for IFileOpenPickerWithOperationId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileOpenPickerWithOperationId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -796,6 +802,7 @@ impl windows_core::RuntimeType for IFileSavePicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileSavePicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SettingsIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -827,6 +834,7 @@ impl windows_core::RuntimeType for IFileSavePicker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileSavePicker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -843,6 +851,7 @@ impl windows_core::RuntimeType for IFileSavePicker3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileSavePicker3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -853,6 +862,7 @@ impl windows_core::RuntimeType for IFileSavePicker4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileSavePicker4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -865,6 +875,7 @@ impl windows_core::RuntimeType for IFileSavePickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileSavePickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -877,6 +888,7 @@ impl windows_core::RuntimeType for IFolderPicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFolderPicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ViewMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PickerViewMode) -> windows_core::HRESULT,
@@ -898,6 +910,7 @@ impl windows_core::RuntimeType for IFolderPicker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFolderPicker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -914,6 +927,7 @@ impl windows_core::RuntimeType for IFolderPicker3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFolderPicker3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -926,6 +940,7 @@ impl windows_core::RuntimeType for IFolderPickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFolderPickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]

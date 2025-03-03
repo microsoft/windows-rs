@@ -28,6 +28,7 @@ pub const EventObjectChange2: windows_core::GUID = windows_core::GUID::from_u128
 windows_core::imp::define_interface!(IDontSupportEventSubscription, IDontSupportEventSubscription_Vtbl, 0x784121f1_62a6_4b89_855f_d65f296de83a);
 windows_core::imp::interface_hierarchy!(IDontSupportEventSubscription, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDontSupportEventSubscription_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -61,6 +62,7 @@ impl IEnumEventObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumEventObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -193,6 +195,7 @@ impl IEventClass {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEventClass_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub EventClassID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -427,6 +430,7 @@ impl IEventClass2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEventClass2_Vtbl {
     pub base__: IEventClass_Vtbl,
     pub PublisherID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -580,6 +584,7 @@ impl IEventControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEventControl_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub SetPublisherFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -676,6 +681,7 @@ impl IEventObjectChange {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEventObjectChange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ChangedSubscription: unsafe extern "system" fn(*mut core::ffi::c_void, EOC_ChangeType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -730,6 +736,7 @@ impl IEventObjectChange2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEventObjectChange2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ChangedSubscription: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMEVENTSYSCHANGEINFO) -> windows_core::HRESULT,
@@ -807,6 +814,7 @@ impl IEventObjectCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEventObjectCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -941,6 +949,7 @@ impl IEventProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEventProperty_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1090,6 +1099,7 @@ impl IEventPublisher {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEventPublisher_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub PublisherID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1454,6 +1464,7 @@ impl IEventSubscription {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEventSubscription_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub SubscriptionID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1937,6 +1948,7 @@ impl IEventSystem {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEventSystem_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Query: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2051,6 +2063,7 @@ impl IFiringControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFiringControl_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub FireSubscription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2117,6 +2130,7 @@ impl IMultiInterfaceEventControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMultiInterfaceEventControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMultiInterfacePublisherFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2237,6 +2251,7 @@ impl IMultiInterfacePublisherFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMultiInterfacePublisherFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2288,6 +2303,7 @@ impl IPublisherFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPublisherFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,

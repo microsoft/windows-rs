@@ -204,6 +204,7 @@ impl windows_core::RuntimeType for IAppBroadcastingMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppBroadcastingMonitor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCurrentAppBroadcasting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -215,6 +216,7 @@ impl windows_core::RuntimeType for IAppBroadcastingStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppBroadcastingStatus_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CanStartBroadcast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -225,6 +227,7 @@ impl windows_core::RuntimeType for IAppBroadcastingStatusDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppBroadcastingStatusDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsAnyAppBroadcasting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -241,6 +244,7 @@ impl windows_core::RuntimeType for IAppBroadcastingUI {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppBroadcastingUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -251,6 +255,7 @@ impl windows_core::RuntimeType for IAppBroadcastingUIStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppBroadcastingUIStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -6,6 +6,7 @@ impl windows_core::RuntimeType for IWalletItemSystemStore {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletItemSystemStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25,6 +26,7 @@ impl windows_core::RuntimeType for IWalletItemSystemStore2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletItemSystemStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -38,6 +40,7 @@ impl windows_core::RuntimeType for IWalletManagerSystemStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletManagerSystemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

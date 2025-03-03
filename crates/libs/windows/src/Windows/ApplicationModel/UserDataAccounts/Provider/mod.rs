@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IUserDataAccountPartnerAccountInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserDataAccountPartnerAccountInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14,6 +15,7 @@ impl windows_core::RuntimeType for IUserDataAccountProviderAddAccountOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserDataAccountProviderAddAccountOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentKinds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UserDataAccountContentKinds) -> windows_core::HRESULT,
@@ -61,6 +63,7 @@ impl IUserDataAccountProviderOperation_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserDataAccountProviderOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserDataAccountProviderOperationKind) -> windows_core::HRESULT,
@@ -70,6 +73,7 @@ impl windows_core::RuntimeType for IUserDataAccountProviderResolveErrorsOperatio
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserDataAccountProviderResolveErrorsOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UserDataAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -80,6 +84,7 @@ impl windows_core::RuntimeType for IUserDataAccountProviderSettingsOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserDataAccountProviderSettingsOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UserDataAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

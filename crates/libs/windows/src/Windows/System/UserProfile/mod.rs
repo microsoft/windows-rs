@@ -409,6 +409,7 @@ impl windows_core::RuntimeType for IAdvertisingManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdvertisingManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AdvertisingId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -419,6 +420,7 @@ impl windows_core::RuntimeType for IAdvertisingManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdvertisingManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AdvertisingId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -428,6 +430,7 @@ impl windows_core::RuntimeType for IAdvertisingManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdvertisingManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -437,6 +440,7 @@ impl windows_core::RuntimeType for IAssignedAccessSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAssignedAccessSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -448,6 +452,7 @@ impl windows_core::RuntimeType for IAssignedAccessSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAssignedAccessSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -458,6 +463,7 @@ impl windows_core::RuntimeType for IDiagnosticsSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDiagnosticsSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CanUseDiagnosticsToTailorExperiences: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -468,6 +474,7 @@ impl windows_core::RuntimeType for IDiagnosticsSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDiagnosticsSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -478,6 +485,7 @@ impl windows_core::RuntimeType for IFirstSignInSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFirstSignInSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -486,6 +494,7 @@ impl windows_core::RuntimeType for IFirstSignInSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFirstSignInSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -495,6 +504,7 @@ impl windows_core::RuntimeType for IGlobalizationPreferencesForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGlobalizationPreferencesForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -513,6 +523,7 @@ impl windows_core::RuntimeType for IGlobalizationPreferencesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGlobalizationPreferencesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Calendars: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -530,6 +541,7 @@ impl windows_core::RuntimeType for IGlobalizationPreferencesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGlobalizationPreferencesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TrySetHomeGeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -540,6 +552,7 @@ impl windows_core::RuntimeType for IGlobalizationPreferencesStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGlobalizationPreferencesStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -549,6 +562,7 @@ impl windows_core::RuntimeType for ILockScreenImageFeedStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILockScreenImageFeedStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestSetImageFeedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -559,6 +573,7 @@ impl windows_core::RuntimeType for ILockScreenStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILockScreenStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OriginalImageFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -583,6 +598,7 @@ impl windows_core::RuntimeType for IUserInformationStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AccountPictureChangeEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -621,6 +637,7 @@ impl windows_core::RuntimeType for IUserProfilePersonalizationSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserProfilePersonalizationSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -637,6 +654,7 @@ impl windows_core::RuntimeType for IUserProfilePersonalizationSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserProfilePersonalizationSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

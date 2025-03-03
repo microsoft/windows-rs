@@ -87,6 +87,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIterable_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -308,6 +309,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIterator_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -591,6 +593,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVectorView_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -716,6 +719,7 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWwwFormUrlDecoderEntry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(
@@ -737,6 +741,7 @@ impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClass {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetFirstValueByName: unsafe extern "system" fn(
@@ -755,6 +760,7 @@ impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClassFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWwwFormUrlDecoder: unsafe extern "system" fn(

@@ -2184,6 +2184,7 @@ impl IRtwqAsyncCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRtwqAsyncCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -2244,6 +2245,7 @@ impl IRtwqAsyncResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRtwqAsyncResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2331,6 +2333,7 @@ impl IRtwqPlatformEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRtwqPlatformEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializationComplete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3120,6 +3123,7 @@ impl core::ops::Deref for RTWQASYNCRESULT {
 }
 windows_core::imp::interface_hierarchy!(RTWQASYNCRESULT, windows_core::IUnknown, IRtwqAsyncResult);
 #[repr(C)]
+#[doc(hidden)]
 pub struct RTWQASYNCRESULT_Vtbl {
     pub base__: IRtwqAsyncResult_Vtbl,
 }

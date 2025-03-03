@@ -215,6 +215,7 @@ impl windows_core::RuntimeType for IDevicePortalConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDevicePortalConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -227,6 +228,7 @@ impl windows_core::RuntimeType for IDevicePortalConnectionClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDevicePortalConnectionClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DevicePortalConnectionClosedReason) -> windows_core::HRESULT,
@@ -236,6 +238,7 @@ impl windows_core::RuntimeType for IDevicePortalConnectionRequestReceivedEventAr
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Web_Http")]
@@ -252,6 +255,7 @@ impl windows_core::RuntimeType for IDevicePortalConnectionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDevicePortalConnectionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_AppService")]
@@ -264,6 +268,7 @@ impl windows_core::RuntimeType for IDevicePortalWebSocketConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDevicePortalWebSocketConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
@@ -292,6 +297,7 @@ impl windows_core::RuntimeType for IDevicePortalWebSocketConnectionRequestReceiv
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsWebSocketUpgradeRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

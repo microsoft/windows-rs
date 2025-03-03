@@ -279,6 +279,7 @@ impl windows_core::RuntimeType for IAsyncCausalityTracerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAsyncCausalityTracerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TraceOperationCreation: unsafe extern "system" fn(*mut core::ffi::c_void, CausalityTraceLevel, CausalitySource, windows_core::GUID, u64, *mut core::ffi::c_void, u64) -> windows_core::HRESULT,
@@ -294,6 +295,7 @@ impl windows_core::RuntimeType for IErrorDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IErrorDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -305,6 +307,7 @@ impl windows_core::RuntimeType for IErrorDetailsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IErrorDetailsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromHResultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -365,6 +368,7 @@ impl IErrorReportingSettings_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IErrorReportingSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetErrorOptions: unsafe extern "system" fn(*mut core::ffi::c_void, ErrorOptions) -> windows_core::HRESULT,
@@ -527,6 +531,7 @@ impl IFileLoggingSession_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileLoggingSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -545,6 +550,7 @@ impl windows_core::RuntimeType for IFileLoggingSessionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileLoggingSessionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -554,6 +560,7 @@ impl windows_core::RuntimeType for ILogFileGeneratedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILogFileGeneratedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -566,6 +573,7 @@ impl windows_core::RuntimeType for ILoggingActivity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingActivity_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -576,6 +584,7 @@ impl windows_core::RuntimeType for ILoggingActivity2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingActivity2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Channel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -588,6 +597,7 @@ impl windows_core::RuntimeType for ILoggingActivityFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingActivityFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateLoggingActivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -769,6 +779,7 @@ impl ILoggingChannel_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingChannel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -786,6 +797,7 @@ impl windows_core::RuntimeType for ILoggingChannel2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingChannel2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -795,6 +807,7 @@ impl windows_core::RuntimeType for ILoggingChannelFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingChannelFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -807,6 +820,7 @@ impl windows_core::RuntimeType for ILoggingChannelFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingChannelFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -817,6 +831,7 @@ impl windows_core::RuntimeType for ILoggingChannelOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingChannelOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Group: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -827,6 +842,7 @@ impl windows_core::RuntimeType for ILoggingChannelOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingChannelOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -836,6 +852,7 @@ impl windows_core::RuntimeType for ILoggingFields {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingFields_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -959,6 +976,7 @@ impl windows_core::RuntimeType for ILoggingOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Keywords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -979,6 +997,7 @@ impl windows_core::RuntimeType for ILoggingOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithKeywords: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1107,6 +1126,7 @@ impl ILoggingSession_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1123,6 +1143,7 @@ impl windows_core::RuntimeType for ILoggingSessionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingSessionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1369,6 +1390,7 @@ impl ILoggingTarget_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILoggingTarget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1388,6 +1410,7 @@ impl windows_core::RuntimeType for ITracingStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITracingStatusChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

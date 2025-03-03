@@ -258,6 +258,7 @@ impl windows_core::RuntimeType for IContentIndexer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContentIndexer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -273,6 +274,7 @@ impl windows_core::RuntimeType for IContentIndexerQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContentIndexerQuery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -287,6 +289,7 @@ impl windows_core::RuntimeType for IContentIndexerQueryOperations {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContentIndexerQueryOperations_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateQueryWithSortOrderAndLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -298,6 +301,7 @@ impl windows_core::RuntimeType for IContentIndexerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContentIndexerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetIndexerWithName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -458,6 +462,7 @@ impl IIndexableContent_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIndexableContent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -479,6 +484,7 @@ impl windows_core::RuntimeType for IQueryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IQueryOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FileTypeFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -511,6 +517,7 @@ impl windows_core::RuntimeType for IQueryOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IQueryOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateCommonFileQuery: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -521,6 +528,7 @@ impl windows_core::RuntimeType for IQueryOptionsWithProviderFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IQueryOptionsWithProviderFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StorageProviderIdFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -530,6 +538,7 @@ impl windows_core::RuntimeType for IStorageFileQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageFileQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -546,6 +555,7 @@ impl windows_core::RuntimeType for IStorageFileQueryResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageFileQueryResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Data_Text", feature = "Storage_Streams"))]
@@ -964,6 +974,7 @@ impl IStorageFolderQueryOperations_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageFolderQueryOperations_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetIndexedStateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -995,6 +1006,7 @@ impl windows_core::RuntimeType for IStorageFolderQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageFolderQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetFoldersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1005,6 +1017,7 @@ impl windows_core::RuntimeType for IStorageItemQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageItemQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1015,6 +1028,7 @@ impl windows_core::RuntimeType for IStorageLibraryChangeTrackerTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageLibraryChangeTrackerTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Folder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1025,6 +1039,7 @@ impl windows_core::RuntimeType for IStorageLibraryContentChangedTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageLibraryContentChangedTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Folder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1231,6 +1246,7 @@ impl IStorageQueryResultBase_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageQueryResultBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetItemCountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1248,6 +1264,7 @@ impl windows_core::RuntimeType for IValueAndLanguage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IValueAndLanguage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

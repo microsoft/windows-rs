@@ -26,6 +26,7 @@ impl windows_core::RuntimeType for ICurrentTimeChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICurrentTimeChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -35,6 +36,7 @@ impl windows_core::RuntimeType for IMuteChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMuteChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -47,6 +49,7 @@ impl windows_core::RuntimeType for IPlayToConnection {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlayToConnectionState) -> windows_core::HRESULT,
@@ -65,6 +68,7 @@ impl windows_core::RuntimeType for IPlayToConnectionErrorEventArgs {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToConnectionErrorEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Code: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlayToConnectionError) -> windows_core::HRESULT,
@@ -78,6 +82,7 @@ impl windows_core::RuntimeType for IPlayToConnectionStateChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToConnectionStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PreviousState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlayToConnectionState) -> windows_core::HRESULT,
@@ -91,6 +96,7 @@ impl windows_core::RuntimeType for IPlayToConnectionTransferredEventArgs {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToConnectionTransferredEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PreviousSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -104,6 +110,7 @@ impl windows_core::RuntimeType for IPlayToManager {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -121,6 +128,7 @@ impl windows_core::RuntimeType for IPlayToManagerStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -131,6 +139,7 @@ impl windows_core::RuntimeType for IPlayToReceiver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToReceiver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PlayRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -186,6 +195,7 @@ impl windows_core::RuntimeType for IPlayToSource {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -201,6 +211,7 @@ impl windows_core::RuntimeType for IPlayToSourceDeferral {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToSourceDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -213,6 +224,7 @@ impl windows_core::RuntimeType for IPlayToSourceRequest {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToSourceRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
@@ -228,6 +240,7 @@ impl windows_core::RuntimeType for IPlayToSourceRequestedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToSourceRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SourceRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -240,6 +253,7 @@ impl windows_core::RuntimeType for IPlayToSourceSelectedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToSourceSelectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -259,6 +273,7 @@ impl windows_core::RuntimeType for IPlayToSourceWithPreferredSourceUri {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToSourceWithPreferredSourceUri_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PreferredSourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -269,6 +284,7 @@ impl windows_core::RuntimeType for IPlaybackRateChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlaybackRateChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Rate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -278,6 +294,7 @@ impl windows_core::RuntimeType for ISourceChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISourceChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -302,6 +319,7 @@ impl windows_core::RuntimeType for IVolumeChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVolumeChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Volume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,

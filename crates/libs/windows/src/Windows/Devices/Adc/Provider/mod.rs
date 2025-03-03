@@ -204,6 +204,7 @@ impl IAdcControllerProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdcControllerProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -259,6 +260,7 @@ impl IAdcProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdcProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

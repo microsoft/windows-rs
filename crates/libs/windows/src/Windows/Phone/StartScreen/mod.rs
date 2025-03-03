@@ -123,6 +123,7 @@ impl windows_core::RuntimeType for IDualSimTile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDualSimTile_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -137,6 +138,7 @@ impl windows_core::RuntimeType for IDualSimTileStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDualSimTileStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetTileForSim2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -215,6 +217,7 @@ impl IToastNotificationManagerStatics3_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Notifications")]

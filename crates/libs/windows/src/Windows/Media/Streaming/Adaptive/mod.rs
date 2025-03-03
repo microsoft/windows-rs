@@ -1197,6 +1197,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSource {
 }
 #[cfg(feature = "Media_Core")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsLive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1231,6 +1232,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AdvancedSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1240,6 +1242,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSource3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSource3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MinLiveOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1254,6 +1257,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceAdvancedSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceAdvancedSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllSegmentsIndependent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1268,6 +1272,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceCorrelatedTimes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceCorrelatedTimes_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1279,6 +1284,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceCreationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceCreationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdaptiveMediaSourceCreationStatus) -> windows_core::HRESULT,
@@ -1296,6 +1302,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceCreationResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceCreationResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -1305,6 +1312,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnosticAvailableEventA
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DiagnosticType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdaptiveMediaSourceDiagnosticType) -> windows_core::HRESULT,
@@ -1322,6 +1330,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnosticAvailableEventA
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -1331,6 +1340,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnosticAvailableEventA
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResourceDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1341,6 +1351,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnostics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnostics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DiagnosticAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1351,6 +1362,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadBitrateChangedEve
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OldValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1361,6 +1373,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadBitrateChangedEve
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdaptiveMediaSourceDownloadBitrateChangedReason) -> windows_core::HRESULT,
@@ -1370,6 +1383,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadCompletedEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResourceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdaptiveMediaSourceResourceType) -> windows_core::HRESULT,
@@ -1386,6 +1400,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadCompletedEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -1397,6 +1412,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadCompletedEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResourceDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1407,6 +1423,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadFailedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResourceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdaptiveMediaSourceResourceType) -> windows_core::HRESULT,
@@ -1423,6 +1440,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadFailedEventArgs2 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -1435,6 +1453,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadFailedEventArgs3 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResourceDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1445,6 +1464,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadRequestedDeferral
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1454,6 +1474,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadRequestedEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResourceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AdaptiveMediaSourceResourceType) -> windows_core::HRESULT,
@@ -1468,6 +1489,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadRequestedEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -1478,6 +1500,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadRequestedEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResourceDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1488,6 +1511,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1518,6 +1542,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResourceByteRangeOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1530,6 +1555,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadStatistics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadStatistics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentBytesReceivedCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -1542,6 +1568,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourcePlaybackBitrateChangedEve
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OldValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1553,6 +1580,7 @@ impl windows_core::RuntimeType for IAdaptiveMediaSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdaptiveMediaSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsContentTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

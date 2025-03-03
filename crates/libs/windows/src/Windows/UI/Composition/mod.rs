@@ -14441,6 +14441,7 @@ impl windows_core::RuntimeType for IAmbientLight {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAmbientLight_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Color: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
@@ -14451,6 +14452,7 @@ impl windows_core::RuntimeType for IAmbientLight2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAmbientLight2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Intensity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -14461,6 +14463,7 @@ impl windows_core::RuntimeType for IAnimationController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnimationController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PlaybackRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -14477,6 +14480,7 @@ impl windows_core::RuntimeType for IAnimationControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnimationControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxPlaybackRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -14520,6 +14524,7 @@ impl IAnimationObject_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnimationObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PopulatePropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14529,6 +14534,7 @@ impl windows_core::RuntimeType for IAnimationPropertyInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnimationPropertyInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AccessMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AnimationPropertyAccessMode) -> windows_core::HRESULT,
@@ -14539,6 +14545,7 @@ impl windows_core::RuntimeType for IAnimationPropertyInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnimationPropertyInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetResolvedCompositionObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14549,6 +14556,7 @@ impl windows_core::RuntimeType for IBackEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionEasingFunctionMode) -> windows_core::HRESULT,
@@ -14559,6 +14567,7 @@ impl windows_core::RuntimeType for IBooleanKeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBooleanKeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, f32, bool) -> windows_core::HRESULT,
@@ -14568,6 +14577,7 @@ impl windows_core::RuntimeType for IBounceEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBounceEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionEasingFunctionMode) -> windows_core::HRESULT,
@@ -14579,6 +14589,7 @@ impl windows_core::RuntimeType for IBounceScalarNaturalMotionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBounceScalarNaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Acceleration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -14591,6 +14602,7 @@ impl windows_core::RuntimeType for IBounceVector2NaturalMotionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBounceVector2NaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Acceleration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -14603,6 +14615,7 @@ impl windows_core::RuntimeType for IBounceVector3NaturalMotionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBounceVector3NaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Acceleration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -14615,6 +14628,7 @@ impl windows_core::RuntimeType for ICircleEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICircleEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionEasingFunctionMode) -> windows_core::HRESULT,
@@ -14624,6 +14638,7 @@ impl windows_core::RuntimeType for IColorKeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IColorKeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InterpolationColorSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionColorSpace) -> windows_core::HRESULT,
@@ -14636,6 +14651,7 @@ impl windows_core::RuntimeType for ICompositionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ClearAllParameters: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14658,6 +14674,7 @@ impl windows_core::RuntimeType for ICompositionAnimation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionAnimation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetBooleanParameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -14669,6 +14686,7 @@ impl windows_core::RuntimeType for ICompositionAnimation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionAnimation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InitialValueExpressions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14678,6 +14696,7 @@ impl windows_core::RuntimeType for ICompositionAnimation4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionAnimation4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetExpressionReferenceParameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14700,6 +14719,7 @@ impl ICompositionAnimationBase_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionAnimationBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14708,6 +14728,7 @@ impl windows_core::RuntimeType for ICompositionAnimationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionAnimationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14716,6 +14737,7 @@ impl windows_core::RuntimeType for ICompositionAnimationGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionAnimationGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -14728,6 +14750,7 @@ impl windows_core::RuntimeType for ICompositionBackdropBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionBackdropBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14736,6 +14759,7 @@ impl windows_core::RuntimeType for ICompositionBatchCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionBatchCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14744,6 +14768,7 @@ impl windows_core::RuntimeType for ICompositionBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14752,6 +14777,7 @@ impl windows_core::RuntimeType for ICompositionBrushFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionBrushFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14760,6 +14786,7 @@ impl windows_core::RuntimeType for ICompositionCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AreEffectsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -14772,6 +14799,7 @@ impl windows_core::RuntimeType for ICompositionCapabilitiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionCapabilitiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14781,6 +14809,7 @@ impl windows_core::RuntimeType for ICompositionClip {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionClip_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14789,6 +14818,7 @@ impl windows_core::RuntimeType for ICompositionClip2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionClip2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -14811,6 +14841,7 @@ impl windows_core::RuntimeType for ICompositionClipFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionClipFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14819,6 +14850,7 @@ impl windows_core::RuntimeType for ICompositionColorBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionColorBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Color: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
@@ -14829,6 +14861,7 @@ impl windows_core::RuntimeType for ICompositionColorGradientStop {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionColorGradientStop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Color: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
@@ -14841,6 +14874,7 @@ impl windows_core::RuntimeType for ICompositionColorGradientStopCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionColorGradientStopCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14849,6 +14883,7 @@ impl windows_core::RuntimeType for ICompositionCommitBatch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionCommitBatch_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -14861,6 +14896,7 @@ impl windows_core::RuntimeType for ICompositionContainerShape {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionContainerShape_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Shapes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14870,6 +14906,7 @@ impl windows_core::RuntimeType for ICompositionDrawingSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionDrawingSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
@@ -14887,6 +14924,7 @@ impl windows_core::RuntimeType for ICompositionDrawingSurface2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionDrawingSurface2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -14919,6 +14957,7 @@ impl windows_core::RuntimeType for ICompositionDrawingSurfaceFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionDrawingSurfaceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14927,6 +14966,7 @@ impl windows_core::RuntimeType for ICompositionEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14935,6 +14975,7 @@ impl windows_core::RuntimeType for ICompositionEasingFunctionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionEasingFunctionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14943,6 +14984,7 @@ impl windows_core::RuntimeType for ICompositionEasingFunctionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionEasingFunctionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Vector2, windows_numerics::Vector2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14962,6 +15004,7 @@ impl windows_core::RuntimeType for ICompositionEffectBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionEffectBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetSourceParameter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14972,6 +15015,7 @@ impl windows_core::RuntimeType for ICompositionEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14983,6 +15027,7 @@ impl windows_core::RuntimeType for ICompositionEffectSourceParameter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionEffectSourceParameter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14992,6 +15037,7 @@ impl windows_core::RuntimeType for ICompositionEffectSourceParameterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionEffectSourceParameterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Effects")]
@@ -15004,6 +15050,7 @@ impl windows_core::RuntimeType for ICompositionEllipseGeometry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionEllipseGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Center: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -15016,6 +15063,7 @@ impl windows_core::RuntimeType for ICompositionGeometricClip {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionGeometricClip_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Geometry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15028,6 +15076,7 @@ impl windows_core::RuntimeType for ICompositionGeometry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TrimEnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -15042,6 +15091,7 @@ impl windows_core::RuntimeType for ICompositionGeometryFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionGeometryFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15050,6 +15100,7 @@ impl windows_core::RuntimeType for ICompositionGradientBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionGradientBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -15077,6 +15128,7 @@ impl windows_core::RuntimeType for ICompositionGradientBrush2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionGradientBrush2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MappingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionMappingMode) -> windows_core::HRESULT,
@@ -15087,6 +15139,7 @@ impl windows_core::RuntimeType for ICompositionGradientBrushFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionGradientBrushFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15095,6 +15148,7 @@ impl windows_core::RuntimeType for ICompositionGraphicsDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionGraphicsDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
@@ -15109,6 +15163,7 @@ impl windows_core::RuntimeType for ICompositionGraphicsDevice2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionGraphicsDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
@@ -15125,6 +15180,7 @@ impl windows_core::RuntimeType for ICompositionGraphicsDevice3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionGraphicsDevice3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
@@ -15138,6 +15194,7 @@ impl windows_core::RuntimeType for ICompositionGraphicsDevice4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionGraphicsDevice4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
@@ -15150,6 +15207,7 @@ impl windows_core::RuntimeType for ICompositionLight {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionLight_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Targets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15159,6 +15217,7 @@ impl windows_core::RuntimeType for ICompositionLight2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionLight2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExclusionsFromTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15168,6 +15227,7 @@ impl windows_core::RuntimeType for ICompositionLight3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionLight3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -15178,6 +15238,7 @@ impl windows_core::RuntimeType for ICompositionLightFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionLightFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15186,6 +15247,7 @@ impl windows_core::RuntimeType for ICompositionLineGeometry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionLineGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -15198,6 +15260,7 @@ impl windows_core::RuntimeType for ICompositionLinearGradientBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionLinearGradientBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EndPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -15210,6 +15273,7 @@ impl windows_core::RuntimeType for ICompositionMaskBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionMaskBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15222,6 +15286,7 @@ impl windows_core::RuntimeType for ICompositionMipmapSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionMipmapSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LevelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -15244,6 +15309,7 @@ impl windows_core::RuntimeType for ICompositionNineGridBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionNineGridBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BottomInset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -15276,6 +15342,7 @@ impl windows_core::RuntimeType for ICompositionObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Compositor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15292,6 +15359,7 @@ impl windows_core::RuntimeType for ICompositionObject2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionObject2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Comment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15306,6 +15374,7 @@ impl windows_core::RuntimeType for ICompositionObject3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionObject3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -15318,6 +15387,7 @@ impl windows_core::RuntimeType for ICompositionObject4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionObject4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryGetAnimationController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15327,6 +15397,7 @@ impl windows_core::RuntimeType for ICompositionObject5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionObject5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartAnimationWithController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15336,6 +15407,7 @@ impl windows_core::RuntimeType for ICompositionObjectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionObjectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15344,6 +15416,7 @@ impl windows_core::RuntimeType for ICompositionObjectStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionObjectStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartAnimationWithIAnimationObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15354,6 +15427,7 @@ impl windows_core::RuntimeType for ICompositionPath {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionPath_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15362,6 +15436,7 @@ impl windows_core::RuntimeType for ICompositionPathFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionPathFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -15374,6 +15449,7 @@ impl windows_core::RuntimeType for ICompositionPathGeometry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionPathGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -15390,6 +15466,7 @@ impl windows_core::RuntimeType for ICompositionProjectedShadow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionProjectedShadow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BlurRadiusMultiplier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -15408,6 +15485,7 @@ impl windows_core::RuntimeType for ICompositionProjectedShadowCaster {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionProjectedShadowCaster_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Brush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15420,6 +15498,7 @@ impl windows_core::RuntimeType for ICompositionProjectedShadowCasterCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionProjectedShadowCasterCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -15435,6 +15514,7 @@ impl windows_core::RuntimeType for ICompositionProjectedShadowCasterCollectionSt
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionProjectedShadowCasterCollectionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxRespectedCasters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -15444,6 +15524,7 @@ impl windows_core::RuntimeType for ICompositionProjectedShadowReceiver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionProjectedShadowReceiver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReceivingVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15454,6 +15535,7 @@ impl windows_core::RuntimeType for ICompositionProjectedShadowReceiverUnorderedC
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15466,6 +15548,7 @@ impl windows_core::RuntimeType for ICompositionPropertySet {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionPropertySet_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InsertColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
@@ -15496,6 +15579,7 @@ impl windows_core::RuntimeType for ICompositionPropertySet2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionPropertySet2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InsertBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -15506,6 +15590,7 @@ impl windows_core::RuntimeType for ICompositionRadialGradientBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionRadialGradientBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EllipseCenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -15520,6 +15605,7 @@ impl windows_core::RuntimeType for ICompositionRectangleGeometry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionRectangleGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -15532,6 +15618,7 @@ impl windows_core::RuntimeType for ICompositionRoundedRectangleGeometry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionRoundedRectangleGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CornerRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -15546,6 +15633,7 @@ impl windows_core::RuntimeType for ICompositionScopedBatch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionScopedBatch_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -15561,6 +15649,7 @@ impl windows_core::RuntimeType for ICompositionShadow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionShadow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15569,6 +15658,7 @@ impl windows_core::RuntimeType for ICompositionShadowFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionShadowFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15577,6 +15667,7 @@ impl windows_core::RuntimeType for ICompositionShape {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionShape_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -15597,6 +15688,7 @@ impl windows_core::RuntimeType for ICompositionShapeFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionShapeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15605,6 +15697,7 @@ impl windows_core::RuntimeType for ICompositionSpriteShape {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionSpriteShape_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FillBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15691,6 +15784,7 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionSupportsSystemBackdrop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SystemBackdrop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15714,6 +15808,7 @@ impl ICompositionSurface_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15722,6 +15817,7 @@ impl windows_core::RuntimeType for ICompositionSurfaceBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionSurfaceBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BitmapInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionBitmapInterpolationMode) -> windows_core::HRESULT,
@@ -15740,6 +15836,7 @@ impl windows_core::RuntimeType for ICompositionSurfaceBrush2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionSurfaceBrush2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -15762,6 +15859,7 @@ impl windows_core::RuntimeType for ICompositionSurfaceBrush3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionSurfaceBrush3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SnapToPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -15812,6 +15910,7 @@ impl ICompositionSurfaceFacade_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionSurfaceFacade_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetRealSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15821,6 +15920,7 @@ impl windows_core::RuntimeType for ICompositionTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionTarget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Root: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15831,6 +15931,7 @@ impl windows_core::RuntimeType for ICompositionTargetFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionTargetFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15839,6 +15940,7 @@ impl windows_core::RuntimeType for ICompositionTexture {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionTexture_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -15871,6 +15973,7 @@ impl windows_core::RuntimeType for ICompositionTextureFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionTextureFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15879,6 +15982,7 @@ impl windows_core::RuntimeType for ICompositionTransform {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionTransform_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15887,6 +15991,7 @@ impl windows_core::RuntimeType for ICompositionTransformFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionTransformFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15895,6 +16000,7 @@ impl windows_core::RuntimeType for ICompositionViewBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionViewBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HorizontalAlignmentRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -15913,6 +16019,7 @@ impl windows_core::RuntimeType for ICompositionVirtualDrawingSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionVirtualDrawingSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -15925,6 +16032,7 @@ impl windows_core::RuntimeType for ICompositionVirtualDrawingSurfaceFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionVirtualDrawingSurfaceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15933,6 +16041,7 @@ impl windows_core::RuntimeType for ICompositionVisualSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionVisualSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SourceVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15947,6 +16056,7 @@ impl windows_core::RuntimeType for ICompositor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateColorKeyFrameAnimation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15985,6 +16095,7 @@ impl windows_core::RuntimeType for ICompositor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAmbientLight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16006,6 +16117,7 @@ impl windows_core::RuntimeType for ICompositor3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositor3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateHostBackdropBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16015,6 +16127,7 @@ impl windows_core::RuntimeType for ICompositor4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositor4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateColorGradientStop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16029,6 +16142,7 @@ impl windows_core::RuntimeType for ICompositor5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositor5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Comment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16060,6 +16174,7 @@ impl windows_core::RuntimeType for ICompositor6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositor6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateGeometricClip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16073,6 +16188,7 @@ impl windows_core::RuntimeType for ICompositor7 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositor7_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -16089,6 +16205,7 @@ impl windows_core::RuntimeType for ICompositor8 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositor8_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAnimationController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16098,6 +16215,7 @@ impl windows_core::RuntimeType for ICompositorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxGlobalPlaybackRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16108,6 +16226,7 @@ impl windows_core::RuntimeType for ICompositorWithBlurredWallpaperBackdropBrush 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositorWithBlurredWallpaperBackdropBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCreateBlurredWallpaperBackdropBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16117,6 +16236,7 @@ impl windows_core::RuntimeType for ICompositorWithProjectedShadow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositorWithProjectedShadow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateProjectedShadowCaster: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16128,6 +16248,7 @@ impl windows_core::RuntimeType for ICompositorWithRadialGradient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositorWithRadialGradient_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateRadialGradientBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16137,6 +16258,7 @@ impl windows_core::RuntimeType for ICompositorWithVisualSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositorWithVisualSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateVisualSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16146,6 +16268,7 @@ impl windows_core::RuntimeType for IContainerVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContainerVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Children: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16155,6 +16278,7 @@ impl windows_core::RuntimeType for IContainerVisualFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContainerVisualFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -16163,6 +16287,7 @@ impl windows_core::RuntimeType for ICubicBezierEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICubicBezierEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ControlPoint1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -16173,6 +16298,7 @@ impl windows_core::RuntimeType for IDelegatedInkTrailVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDelegatedInkTrailVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddTrailPoints: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const InkTrailPoint, *mut u32) -> windows_core::HRESULT,
@@ -16185,6 +16311,7 @@ impl windows_core::RuntimeType for IDelegatedInkTrailVisualStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDelegatedInkTrailVisualStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16195,6 +16322,7 @@ impl windows_core::RuntimeType for IDistantLight {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDistantLight_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Color: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
@@ -16209,6 +16337,7 @@ impl windows_core::RuntimeType for IDistantLight2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDistantLight2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Intensity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16219,6 +16348,7 @@ impl windows_core::RuntimeType for IDropShadow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDropShadow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BlurRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16237,6 +16367,7 @@ impl windows_core::RuntimeType for IDropShadow2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDropShadow2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SourcePolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionDropShadowSourcePolicy) -> windows_core::HRESULT,
@@ -16247,6 +16378,7 @@ impl windows_core::RuntimeType for IElasticEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IElasticEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionEasingFunctionMode) -> windows_core::HRESULT,
@@ -16258,6 +16390,7 @@ impl windows_core::RuntimeType for IExponentialEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExponentialEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionEasingFunctionMode) -> windows_core::HRESULT,
@@ -16268,6 +16401,7 @@ impl windows_core::RuntimeType for IExpressionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExpressionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Expression: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16278,6 +16412,7 @@ impl windows_core::RuntimeType for IImplicitAnimationCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImplicitAnimationCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -16286,6 +16421,7 @@ impl windows_core::RuntimeType for IInsetClip {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInsetClip_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BottomInset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16302,6 +16438,7 @@ impl windows_core::RuntimeType for IKeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DelayTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -16323,6 +16460,7 @@ impl windows_core::RuntimeType for IKeyFrameAnimation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyFrameAnimation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Direction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AnimationDirection) -> windows_core::HRESULT,
@@ -16333,6 +16471,7 @@ impl windows_core::RuntimeType for IKeyFrameAnimation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyFrameAnimation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DelayBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AnimationDelayBehavior) -> windows_core::HRESULT,
@@ -16343,6 +16482,7 @@ impl windows_core::RuntimeType for IKeyFrameAnimationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyFrameAnimationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -16351,6 +16491,7 @@ impl windows_core::RuntimeType for ILayerVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILayerVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Effect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16361,6 +16502,7 @@ impl windows_core::RuntimeType for ILayerVisual2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILayerVisual2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Shadow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16371,6 +16513,7 @@ impl windows_core::RuntimeType for ILinearEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILinearEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -16379,6 +16522,7 @@ impl windows_core::RuntimeType for INaturalMotionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DelayBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AnimationDelayBehavior) -> windows_core::HRESULT,
@@ -16393,6 +16537,7 @@ impl windows_core::RuntimeType for INaturalMotionAnimationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INaturalMotionAnimationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -16401,6 +16546,7 @@ impl windows_core::RuntimeType for IPathKeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPathKeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -16417,6 +16563,7 @@ impl windows_core::RuntimeType for IPointLight {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPointLight_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Color: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
@@ -16437,6 +16584,7 @@ impl windows_core::RuntimeType for IPointLight2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPointLight2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Intensity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16447,6 +16595,7 @@ impl windows_core::RuntimeType for IPointLight3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPointLight3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MinAttenuationCutoff: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16459,6 +16608,7 @@ impl windows_core::RuntimeType for IPowerEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPowerEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionEasingFunctionMode) -> windows_core::HRESULT,
@@ -16469,6 +16619,7 @@ impl windows_core::RuntimeType for IQuaternionKeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IQuaternionKeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -16485,6 +16636,7 @@ impl windows_core::RuntimeType for IRectangleClip {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRectangleClip_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Bottom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16509,6 +16661,7 @@ impl windows_core::RuntimeType for IRedirectVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRedirectVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16519,6 +16672,7 @@ impl windows_core::RuntimeType for IRenderingDeviceReplacedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRenderingDeviceReplacedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GraphicsDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16528,6 +16682,7 @@ impl windows_core::RuntimeType for IScalarKeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScalarKeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32) -> windows_core::HRESULT,
@@ -16538,6 +16693,7 @@ impl windows_core::RuntimeType for IScalarNaturalMotionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScalarNaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FinalValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16552,6 +16708,7 @@ impl windows_core::RuntimeType for IScalarNaturalMotionAnimationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScalarNaturalMotionAnimationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -16560,6 +16717,7 @@ impl windows_core::RuntimeType for IShapeVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IShapeVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Shapes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16571,6 +16729,7 @@ impl windows_core::RuntimeType for ISineEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISineEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CompositionEasingFunctionMode) -> windows_core::HRESULT,
@@ -16580,6 +16739,7 @@ impl windows_core::RuntimeType for ISpotLight {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpotLight_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConstantAttenuation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16612,6 +16772,7 @@ impl windows_core::RuntimeType for ISpotLight2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpotLight2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InnerConeIntensity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16624,6 +16785,7 @@ impl windows_core::RuntimeType for ISpotLight3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpotLight3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MinAttenuationCutoff: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16636,6 +16798,7 @@ impl windows_core::RuntimeType for ISpringScalarNaturalMotionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpringScalarNaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DampingRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16648,6 +16811,7 @@ impl windows_core::RuntimeType for ISpringVector2NaturalMotionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpringVector2NaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DampingRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16660,6 +16824,7 @@ impl windows_core::RuntimeType for ISpringVector3NaturalMotionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpringVector3NaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DampingRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
@@ -16672,6 +16837,7 @@ impl windows_core::RuntimeType for ISpriteVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpriteVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Brush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16682,6 +16848,7 @@ impl windows_core::RuntimeType for ISpriteVisual2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpriteVisual2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Shadow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16692,6 +16859,7 @@ impl windows_core::RuntimeType for IStepEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStepEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FinalStep: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -16710,6 +16878,7 @@ impl windows_core::RuntimeType for IVector2KeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVector2KeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -16720,6 +16889,7 @@ impl windows_core::RuntimeType for IVector2NaturalMotionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVector2NaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FinalValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16734,6 +16904,7 @@ impl windows_core::RuntimeType for IVector2NaturalMotionAnimationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVector2NaturalMotionAnimationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -16742,6 +16913,7 @@ impl windows_core::RuntimeType for IVector3KeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVector3KeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_numerics::Vector3) -> windows_core::HRESULT,
@@ -16752,6 +16924,7 @@ impl windows_core::RuntimeType for IVector3NaturalMotionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVector3NaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FinalValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16766,6 +16939,7 @@ impl windows_core::RuntimeType for IVector3NaturalMotionAnimationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVector3NaturalMotionAnimationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -16774,6 +16948,7 @@ impl windows_core::RuntimeType for IVector4KeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVector4KeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_numerics::Vector4) -> windows_core::HRESULT,
@@ -16784,6 +16959,7 @@ impl windows_core::RuntimeType for IVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AnchorPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -16831,6 +17007,7 @@ impl windows_core::RuntimeType for IVisual2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisual2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParentForTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16845,6 +17022,7 @@ impl windows_core::RuntimeType for IVisual3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisual3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsHitTestVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -16855,6 +17033,7 @@ impl windows_core::RuntimeType for IVisual4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisual4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPixelSnappingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -16865,6 +17044,7 @@ impl windows_core::RuntimeType for IVisualCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -16893,6 +17073,7 @@ impl IVisualElement_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -16938,6 +17119,7 @@ impl IVisualElement2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualElement2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetVisualInternal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16947,6 +17129,7 @@ impl windows_core::RuntimeType for IVisualFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -16955,6 +17138,7 @@ impl windows_core::RuntimeType for IVisualUnorderedCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualUnorderedCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,

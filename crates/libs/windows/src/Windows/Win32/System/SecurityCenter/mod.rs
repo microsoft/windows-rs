@@ -51,6 +51,7 @@ impl IWSCDefaultProduct {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSCDefaultProduct_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub SetDefaultProduct: unsafe extern "system" fn(*mut core::ffi::c_void, SECURITY_PRODUCT_TYPE, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -107,6 +108,7 @@ impl IWSCProductList {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSCProductList_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -223,6 +225,7 @@ impl IWscProduct {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWscProduct_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ProductName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -399,6 +402,7 @@ impl IWscProduct2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWscProduct2_Vtbl {
     pub base__: IWscProduct_Vtbl,
     pub AntivirusScanSubstatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT,
@@ -530,6 +534,7 @@ impl IWscProduct3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWscProduct3_Vtbl {
     pub base__: IWscProduct2_Vtbl,
     pub AntivirusDaysUntilExpired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,

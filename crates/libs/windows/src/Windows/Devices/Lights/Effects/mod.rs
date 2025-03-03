@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for ILampArrayBitmapEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayBitmapEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -20,6 +21,7 @@ impl windows_core::RuntimeType for ILampArrayBitmapEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayBitmapEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29,6 +31,7 @@ impl windows_core::RuntimeType for ILampArrayBitmapRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayBitmapRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SinceStarted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -42,6 +45,7 @@ impl windows_core::RuntimeType for ILampArrayBlinkEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayBlinkEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI")]
@@ -72,6 +76,7 @@ impl windows_core::RuntimeType for ILampArrayBlinkEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayBlinkEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -81,6 +86,7 @@ impl windows_core::RuntimeType for ILampArrayColorRampEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayColorRampEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI")]
@@ -103,6 +109,7 @@ impl windows_core::RuntimeType for ILampArrayColorRampEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayColorRampEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -112,6 +119,7 @@ impl windows_core::RuntimeType for ILampArrayCustomEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayCustomEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -126,6 +134,7 @@ impl windows_core::RuntimeType for ILampArrayCustomEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayCustomEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -186,6 +195,7 @@ impl ILampArrayEffect_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ZIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -196,6 +206,7 @@ impl windows_core::RuntimeType for ILampArrayEffectPlaylist {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayEffectPlaylist_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -215,6 +226,7 @@ impl windows_core::RuntimeType for ILampArrayEffectPlaylistStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayEffectPlaylistStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -226,6 +238,7 @@ impl windows_core::RuntimeType for ILampArraySolidEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArraySolidEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI")]
@@ -248,6 +261,7 @@ impl windows_core::RuntimeType for ILampArraySolidEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArraySolidEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -257,6 +271,7 @@ impl windows_core::RuntimeType for ILampArrayUpdateRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILampArrayUpdateRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SinceStarted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,

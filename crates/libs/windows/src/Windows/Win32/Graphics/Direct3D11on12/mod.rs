@@ -50,6 +50,7 @@ impl ID3D11On12Device {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D11On12Device_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -125,6 +126,7 @@ impl ID3D11On12Device1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D11On12Device1_Vtbl {
     pub base__: ID3D11On12Device_Vtbl,
     pub GetD3D12Device: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -180,6 +182,7 @@ impl ID3D11On12Device2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D11On12Device2_Vtbl {
     pub base__: ID3D11On12Device1_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]

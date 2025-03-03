@@ -1045,6 +1045,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Flags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1062,6 +1063,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementBytePattern {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementBytePattern_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DataType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -1082,6 +1084,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementBytePatternFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementBytePatternFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1094,6 +1097,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementDataSection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementDataSection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DataType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -1112,6 +1116,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementDataSectionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementDataSectionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1124,6 +1129,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementDataTypesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementDataTypesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Flags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -1154,6 +1160,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Advertisement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1165,6 +1172,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BluetoothLEAdvertisementPublisherStatus) -> windows_core::HRESULT,
@@ -1179,6 +1187,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisher2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisher2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PreferredTransmitPowerLevelInDBm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1195,6 +1204,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1204,6 +1214,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherStatusChang
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BluetoothLEAdvertisementPublisherStatus) -> windows_core::HRESULT,
@@ -1214,6 +1225,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherStatusChang
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SelectedTransmitPowerLevelInDBm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1223,6 +1235,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RawSignalStrengthInDBm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
@@ -1236,6 +1249,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementReceivedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementReceivedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BluetoothAddressType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothAddressType) -> windows_core::HRESULT,
@@ -1251,6 +1265,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MinSamplingInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -1276,6 +1291,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcher2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcher2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowExtendedAdvertisements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1286,6 +1302,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1295,6 +1312,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherStoppedEventA
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherStoppedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
@@ -1304,6 +1322,7 @@ impl windows_core::RuntimeType for IBluetoothLEManufacturerData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEManufacturerData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CompanyId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -1322,6 +1341,7 @@ impl windows_core::RuntimeType for IBluetoothLEManufacturerDataFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEManufacturerDataFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]

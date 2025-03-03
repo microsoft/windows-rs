@@ -165,6 +165,7 @@ impl windows_core::RuntimeType for ICustomSensor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICustomSensor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentReading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -180,6 +181,7 @@ impl windows_core::RuntimeType for ICustomSensor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICustomSensor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetReportLatency: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -191,6 +193,7 @@ impl windows_core::RuntimeType for ICustomSensorReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICustomSensorReading_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
@@ -201,6 +204,7 @@ impl windows_core::RuntimeType for ICustomSensorReading2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICustomSensorReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -210,6 +214,7 @@ impl windows_core::RuntimeType for ICustomSensorReadingChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICustomSensorReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -219,6 +224,7 @@ impl windows_core::RuntimeType for ICustomSensorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICustomSensorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -27,6 +27,7 @@ impl IWICImageEncoder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWICImageEncoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -103,6 +104,7 @@ impl IWICImagingFactory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWICImagingFactory2_Vtbl {
     pub base__: super::IWICImagingFactory_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D")]

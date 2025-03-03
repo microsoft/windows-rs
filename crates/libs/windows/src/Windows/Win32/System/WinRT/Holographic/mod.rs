@@ -47,6 +47,7 @@ impl IHolographicCameraInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHolographicCameraInterop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -161,6 +162,7 @@ impl IHolographicCameraRenderingParametersInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHolographicCameraRenderingParametersInterop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -253,6 +255,7 @@ impl IHolographicQuadLayerInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHolographicQuadLayerInterop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -357,6 +360,7 @@ impl IHolographicQuadLayerUpdateParametersInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHolographicQuadLayerUpdateParametersInterop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]

@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IPreallocatedWorkItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPreallocatedWorkItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RunAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12,6 +13,7 @@ impl windows_core::RuntimeType for IPreallocatedWorkItemFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPreallocatedWorkItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWorkItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23,6 +25,7 @@ impl windows_core::RuntimeType for ISignalNotifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISignalNotifier_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33,6 +36,7 @@ impl windows_core::RuntimeType for ISignalNotifierStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISignalNotifierStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AttachToEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -114,6 +118,7 @@ impl SignalHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct SignalHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, signalnotifier: *mut core::ffi::c_void, timedout: bool) -> windows_core::HRESULT,

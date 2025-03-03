@@ -216,6 +216,7 @@ impl windows_core::RuntimeType for IAutomationRemoteOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAutomationRemoteOperationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AutomationRemoteOperationStatus) -> windows_core::HRESULT,
@@ -266,6 +267,7 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICoreAutomationConnectionBoundObjectProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsComThreadingRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -275,6 +277,7 @@ impl windows_core::RuntimeType for ICoreAutomationRegistrarStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICoreAutomationRegistrarStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RegisterAnnotationType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut AutomationAnnotationTypeRegistration) -> windows_core::HRESULT,
@@ -285,6 +288,7 @@ impl windows_core::RuntimeType for ICoreAutomationRemoteOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICoreAutomationRemoteOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsOpcodeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut bool) -> windows_core::HRESULT,
@@ -298,6 +302,7 @@ impl windows_core::RuntimeType for ICoreAutomationRemoteOperation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICoreAutomationRemoteOperation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ImportConnectionBoundObject: unsafe extern "system" fn(*mut core::ffi::c_void, AutomationRemoteOperationOperandId, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -307,6 +312,7 @@ impl windows_core::RuntimeType for ICoreAutomationRemoteOperationContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICoreAutomationRemoteOperationContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetOperand: unsafe extern "system" fn(*mut core::ffi::c_void, AutomationRemoteOperationOperandId, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -372,6 +378,7 @@ impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, u32, *const AutomationRemoteOperationOperandId) -> windows_core::HRESULT,
@@ -382,6 +389,7 @@ impl windows_core::RuntimeType for IRemoteAutomationClientSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteAutomationClientSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -398,6 +406,7 @@ impl windows_core::RuntimeType for IRemoteAutomationClientSessionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteAutomationClientSessionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -408,6 +417,7 @@ impl windows_core::RuntimeType for IRemoteAutomationConnectionRequestedEventArgs
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteAutomationConnectionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LocalPipeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -418,6 +428,7 @@ impl windows_core::RuntimeType for IRemoteAutomationDisconnectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteAutomationDisconnectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LocalPipeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -427,6 +438,7 @@ impl windows_core::RuntimeType for IRemoteAutomationServerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteAutomationServerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportSession: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -436,6 +448,7 @@ impl windows_core::RuntimeType for IRemoteAutomationWindow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteAutomationWindow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AutomationProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

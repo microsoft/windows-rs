@@ -48,6 +48,7 @@ impl ICompositionFramePresentStatistics {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionFramePresentStatistics_Vtbl {
     pub base__: IPresentStatistics_Vtbl,
     pub GetContentTag: unsafe extern "system" fn(*mut core::ffi::c_void) -> usize,
@@ -135,6 +136,7 @@ impl IIndependentFlipFramePresentStatistics {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIndependentFlipFramePresentStatistics_Vtbl {
     pub base__: IPresentStatistics_Vtbl,
     pub GetOutputAdapterLUID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::LUID),
@@ -207,6 +209,7 @@ impl IPresentStatistics {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPresentStatistics_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPresentId: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
@@ -258,6 +261,7 @@ impl IPresentStatusPresentStatistics {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPresentStatusPresentStatistics_Vtbl {
     pub base__: IPresentStatistics_Vtbl,
     pub GetCompositionFrameId: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
@@ -309,6 +313,7 @@ impl IPresentationBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPresentationBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAvailableEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -363,6 +368,7 @@ impl IPresentationContent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPresentationContent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, usize),
@@ -402,6 +408,7 @@ impl IPresentationFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPresentationFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsPresentationSupported: unsafe extern "system" fn(*mut core::ffi::c_void) -> u8,
@@ -517,6 +524,7 @@ impl IPresentationManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPresentationManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddBufferFromResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -723,6 +731,7 @@ impl IPresentationSurface {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPresentationSurface_Vtbl {
     pub base__: IPresentationContent_Vtbl,
     pub SetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,

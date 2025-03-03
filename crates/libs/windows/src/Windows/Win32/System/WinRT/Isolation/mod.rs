@@ -9,6 +9,7 @@ impl IIsolatedEnvironmentInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedEnvironmentInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHostHwndInterop: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT,

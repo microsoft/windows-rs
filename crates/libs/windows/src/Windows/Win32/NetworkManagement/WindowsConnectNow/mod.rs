@@ -9,6 +9,7 @@ impl IWCNConnectNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWCNConnectNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -103,6 +104,7 @@ impl IWCNDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWCNDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPassword: unsafe extern "system" fn(*mut core::ffi::c_void, WCN_PASSWORD_TYPE, u32, *const u8) -> windows_core::HRESULT,

@@ -45,6 +45,7 @@ impl windows_core::RuntimeType for IContactPartnerProvisioningManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPartnerProvisioningManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AssociateNetworkAccountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -58,6 +59,7 @@ impl windows_core::RuntimeType for IContactPartnerProvisioningManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPartnerProvisioningManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AssociateSocialNetworkAccountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -67,6 +69,7 @@ impl windows_core::RuntimeType for IMessagePartnerProvisioningManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMessagePartnerProvisioningManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ImportSmsToSystemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, bool, bool, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

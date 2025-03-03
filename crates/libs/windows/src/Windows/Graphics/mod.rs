@@ -55,6 +55,7 @@ impl IGeometrySource2D_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeometrySource2D_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }

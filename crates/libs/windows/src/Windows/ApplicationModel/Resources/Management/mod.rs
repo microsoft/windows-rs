@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IIndexedResourceCandidate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIndexedResourceCandidate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IndexedResourceType) -> windows_core::HRESULT,
@@ -17,6 +18,7 @@ impl windows_core::RuntimeType for IIndexedResourceQualifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIndexedResourceQualifier_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub QualifierName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30,6 +32,7 @@ impl windows_core::RuntimeType for IResourceIndexer {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceIndexer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IndexFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -43,6 +46,7 @@ impl windows_core::RuntimeType for IResourceIndexerFactory {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceIndexerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateResourceIndexer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -55,6 +59,7 @@ impl windows_core::RuntimeType for IResourceIndexerFactory2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceIndexerFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateResourceIndexerWithExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

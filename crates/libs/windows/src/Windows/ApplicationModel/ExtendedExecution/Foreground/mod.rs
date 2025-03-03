@@ -142,6 +142,7 @@ impl windows_core::RuntimeType for IExtendedExecutionForegroundRevokedEventArgs 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExtendedExecutionForegroundRevokedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ExtendedExecutionForegroundRevokedReason) -> windows_core::HRESULT,
@@ -151,6 +152,7 @@ impl windows_core::RuntimeType for IExtendedExecutionForegroundSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExtendedExecutionForegroundSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

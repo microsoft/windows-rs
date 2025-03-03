@@ -2543,6 +2543,7 @@ impl core::ops::Deref for DebugBaseEventCallbacks {
 }
 windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacks, windows_core::IUnknown, IDebugEventCallbacks);
 #[repr(C)]
+#[doc(hidden)]
 pub struct DebugBaseEventCallbacks_Vtbl {
     pub base__: IDebugEventCallbacks_Vtbl,
 }
@@ -2565,6 +2566,7 @@ impl core::ops::Deref for DebugBaseEventCallbacksWide {
 }
 windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacksWide, windows_core::IUnknown, IDebugEventCallbacksWide);
 #[repr(C)]
+#[doc(hidden)]
 pub struct DebugBaseEventCallbacksWide_Vtbl {
     pub base__: IDebugEventCallbacksWide_Vtbl,
 }
@@ -2943,6 +2945,7 @@ impl ICodeAddressConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICodeAddressConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContainingSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2986,6 +2989,7 @@ impl IComparableConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComparableConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CompareObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3033,6 +3037,7 @@ impl IDataModelConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3231,6 +3236,7 @@ impl IDataModelManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3542,6 +3548,7 @@ impl IDataModelManager2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelManager2_Vtbl {
     pub base__: IDataModelManager_Vtbl,
     pub AcquireSubNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3631,6 +3638,7 @@ impl IDataModelNameBinder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelNameBinder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BindValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3740,6 +3748,7 @@ impl IDataModelScript {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScript_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3848,6 +3857,7 @@ impl IDataModelScriptClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, ErrorClass, windows_core::HRESULT, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
@@ -3926,6 +3936,7 @@ impl IDataModelScriptDebug {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebug_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDebugState: unsafe extern "system" fn(*mut core::ffi::c_void) -> ScriptDebugState,
@@ -4082,6 +4093,7 @@ impl IDataModelScriptDebug2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebug2_Vtbl {
     pub base__: IDataModelScriptDebug_Vtbl,
     pub SetBreakpointAtFunction: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4133,6 +4145,7 @@ impl IDataModelScriptDebugBreakpoint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugBreakpoint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
@@ -4217,6 +4230,7 @@ impl IDataModelScriptDebugBreakpointEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugBreakpointEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4265,6 +4279,7 @@ impl IDataModelScriptDebugClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyDebugEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const ScriptDebugEventInformation, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut ScriptExecutionKind) -> windows_core::HRESULT,
@@ -4301,6 +4316,7 @@ impl IDataModelScriptDebugStack {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugStack_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFrameCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
@@ -4385,6 +4401,7 @@ impl IDataModelScriptDebugStackFrame {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugStackFrame_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4505,6 +4522,7 @@ impl IDataModelScriptDebugVariableSetEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugVariableSetEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4552,6 +4570,7 @@ impl IDataModelScriptHostContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptHostContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyScriptChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ScriptChangeKind) -> windows_core::HRESULT,
@@ -4639,6 +4658,7 @@ impl IDataModelScriptManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDefaultNameBinder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4768,6 +4788,7 @@ impl IDataModelScriptProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4873,6 +4894,7 @@ impl IDataModelScriptProviderEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptProviderEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4933,6 +4955,7 @@ impl IDataModelScriptTemplate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptTemplate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5014,6 +5037,7 @@ impl IDataModelScriptTemplateEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptTemplateEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5061,6 +5085,7 @@ impl IDebugAdvanced {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugAdvanced_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -5127,6 +5152,7 @@ impl IDebugAdvanced2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugAdvanced2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -5253,6 +5279,7 @@ impl IDebugAdvanced3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugAdvanced3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -5409,6 +5436,7 @@ impl IDebugAdvanced4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugAdvanced4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -5619,6 +5647,7 @@ impl IDebugBreakpoint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugBreakpoint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5979,6 +6008,7 @@ impl IDebugBreakpoint2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugBreakpoint2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6381,6 +6411,7 @@ impl IDebugBreakpoint3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugBreakpoint3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6923,6 +6954,7 @@ impl IDebugClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -7685,6 +7717,7 @@ impl IDebugClient2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -8557,6 +8590,7 @@ impl IDebugClient3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -9502,6 +9536,7 @@ impl IDebugClient4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -10680,6 +10715,7 @@ impl IDebugClient5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -12173,6 +12209,7 @@ impl IDebugClient6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient6_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -13678,6 +13715,7 @@ impl IDebugClient7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -15198,6 +15236,7 @@ impl IDebugClient8 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient8_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -16647,6 +16686,7 @@ impl IDebugControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18164,6 +18204,7 @@ impl IDebugControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19852,6 +19893,7 @@ impl IDebugControl3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21993,6 +22035,7 @@ impl IDebugControl4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24671,6 +24714,7 @@ impl IDebugControl5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27409,6 +27453,7 @@ impl IDebugControl6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl6_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30174,6 +30219,7 @@ impl IDebugControl7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32106,6 +32152,7 @@ impl IDebugDataSpaces {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDataSpaces_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -32407,6 +32454,7 @@ impl IDebugDataSpaces2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDataSpaces2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -32793,6 +32841,7 @@ impl IDebugDataSpaces3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDataSpaces3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -33269,6 +33318,7 @@ impl IDebugDataSpaces4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDataSpaces4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -33763,6 +33813,7 @@ impl IDebugEventCallbacks {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugEventCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -33975,6 +34026,7 @@ impl IDebugEventCallbacksWide {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugEventCallbacksWide_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -34187,6 +34239,7 @@ impl IDebugEventContextCallbacks {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugEventContextCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -34384,6 +34437,7 @@ impl IDebugFAEntryTags {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugFAEntryTags_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE) -> FA_ENTRY_TYPE,
     pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, FA_ENTRY_TYPE) -> windows_core::HRESULT,
@@ -34506,6 +34560,7 @@ impl IDebugFailureAnalysis {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugFailureAnalysis_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFailureClass: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -34708,6 +34763,7 @@ impl IDebugFailureAnalysis2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugFailureAnalysis2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFailureClass: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -35122,6 +35178,7 @@ impl IDebugFailureAnalysis3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugFailureAnalysis3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFailureClass: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -35569,6 +35626,7 @@ impl IDebugHost {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHostDefinedInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35647,6 +35705,7 @@ impl IDebugHostBaseClass {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostBaseClass_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -35693,6 +35752,7 @@ impl IDebugHostConstant {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostConstant_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -35741,6 +35801,7 @@ impl IDebugHostContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsEqualTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -35799,6 +35860,7 @@ impl IDebugHostData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostData_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetLocationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocationKind) -> windows_core::HRESULT,
@@ -35877,6 +35939,7 @@ impl IDebugHostErrorSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostErrorSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, ErrorClass, windows_core::HRESULT, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -35920,6 +35983,7 @@ impl IDebugHostEvaluator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostEvaluator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EvaluateExpression: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35972,6 +36036,7 @@ impl IDebugHostEvaluator2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostEvaluator2_Vtbl {
     pub base__: IDebugHostEvaluator_Vtbl,
     pub AssignTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36012,6 +36077,7 @@ impl IDebugHostExtensibility {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostExtensibility_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateFunctionAlias: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36082,6 +36148,7 @@ impl IDebugHostField {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostField_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetLocationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocationKind) -> windows_core::HRESULT,
@@ -36202,6 +36269,7 @@ impl IDebugHostMemory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostMemory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, *mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
@@ -36289,6 +36357,7 @@ impl IDebugHostMemory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostMemory2_Vtbl {
     pub base__: IDebugHostMemory_Vtbl,
     pub LinearizeLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, *mut Location) -> windows_core::HRESULT,
@@ -36367,6 +36436,7 @@ impl IDebugHostModule {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostModule_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetImageName: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36481,6 +36551,7 @@ impl IDebugHostModule2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostModule2_Vtbl {
     pub base__: IDebugHostModule_Vtbl,
     pub FindContainingSymbolByRVA: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -36517,6 +36588,7 @@ impl IDebugHostModuleSignature {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostModuleSignature_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -36568,6 +36640,7 @@ impl IDebugHostPublic {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostPublic_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetLocationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocationKind) -> windows_core::HRESULT,
@@ -36628,6 +36701,7 @@ impl IDebugHostScriptHost {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostScriptHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36667,6 +36741,7 @@ impl IDebugHostStatus {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostStatus_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PollUserInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -36748,6 +36823,7 @@ impl IDebugHostSymbol {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostSymbol_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36886,6 +36962,7 @@ impl IDebugHostSymbol2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostSymbol2_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LanguageKind) -> windows_core::HRESULT,
@@ -36928,6 +37005,7 @@ impl IDebugHostSymbolEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostSymbolEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37037,6 +37115,7 @@ impl IDebugHostSymbols {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostSymbols_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateModuleSignature: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37268,6 +37347,7 @@ impl IDebugHostType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostType_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetTypeKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TypeKind) -> windows_core::HRESULT,
@@ -37592,6 +37672,7 @@ impl IDebugHostType2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostType2_Vtbl {
     pub base__: IDebugHostType_Vtbl,
     pub IsTypedef: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -37709,6 +37790,7 @@ impl IDebugHostTypeSignature {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostTypeSignature_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHashCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -37775,6 +37857,7 @@ impl IDebugInputCallbacks {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugInputCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -37820,6 +37903,7 @@ impl IDebugOutputCallbacks {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugOutputCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -37865,6 +37949,7 @@ impl IDebugOutputCallbacks2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugOutputCallbacks2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -37925,6 +38010,7 @@ impl IDebugOutputCallbacksWide {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugOutputCallbacksWide_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -37958,6 +38044,7 @@ impl IDebugOutputStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugOutputStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -37993,6 +38080,7 @@ impl IDebugPlmClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugPlmClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -38035,6 +38123,7 @@ impl IDebugPlmClient2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugPlmClient2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -38147,6 +38236,7 @@ impl IDebugPlmClient3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugPlmClient3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -38318,6 +38408,7 @@ impl IDebugRegisters {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugRegisters_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberRegisters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -38594,6 +38685,7 @@ impl IDebugRegisters2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugRegisters2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberRegisters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -38966,6 +39058,7 @@ impl IDebugSymbolGroup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbolGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberSymbols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -39188,6 +39281,7 @@ impl IDebugSymbolGroup2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbolGroup2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberSymbols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -39690,6 +39784,7 @@ impl IDebugSymbols {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbols_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -40512,6 +40607,7 @@ impl IDebugSymbols2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbols2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -41738,6 +41834,7 @@ impl IDebugSymbols3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbols3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -43645,6 +43742,7 @@ impl IDebugSymbols4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbols4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -45624,6 +45722,7 @@ impl IDebugSymbols5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbols5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -47147,6 +47246,7 @@ impl IDebugSystemObjects {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSystemObjects_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -47747,6 +47847,7 @@ impl IDebugSystemObjects2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSystemObjects2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -48452,6 +48553,7 @@ impl IDebugSystemObjects3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSystemObjects3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -49274,6 +49376,7 @@ impl IDebugSystemObjects4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSystemObjects4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -49915,6 +50018,7 @@ impl IDynamicConceptProviderConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDynamicConceptProviderConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetConcept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -50006,6 +50110,7 @@ impl IDynamicKeyProviderConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDynamicKeyProviderConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -50070,6 +50175,7 @@ impl IEquatableConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEquatableConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AreObjectsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -50156,6 +50262,7 @@ impl IHostDataModelAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHostDataModelAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDataModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50205,6 +50312,7 @@ impl IIndexableConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIndexableConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDimensionality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -50277,6 +50385,7 @@ impl IIterableConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIterableConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDefaultIndexDimensionality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -50334,6 +50443,7 @@ impl IKeyEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50399,6 +50509,7 @@ impl IKeyStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50471,6 +50582,7 @@ impl IModelIterator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelIterator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50543,6 +50655,7 @@ impl IModelKeyReference {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelKeyReference_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetKeyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50657,6 +50770,7 @@ impl IModelKeyReference2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelKeyReference2_Vtbl {
     pub base__: IModelKeyReference_Vtbl,
     pub OverrideContextObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50690,6 +50804,7 @@ impl IModelMethod {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelMethod_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50920,6 +51035,7 @@ impl IModelObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51373,6 +51489,7 @@ impl IModelPropertyAccessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelPropertyAccessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51494,6 +51611,7 @@ impl IPreferredRuntimeTypeConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPreferredRuntimeTypeConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CastToPreferredRuntimeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51533,6 +51651,7 @@ impl IRawEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51578,6 +51697,7 @@ impl IStringDisplayableConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStringDisplayableConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ToDisplayString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -26,6 +26,7 @@ impl IXMLGraphBuilder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXMLGraphBuilder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]

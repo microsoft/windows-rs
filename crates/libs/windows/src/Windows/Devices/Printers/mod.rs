@@ -5,6 +5,7 @@ impl windows_core::RuntimeType for IIppAttributeError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppAttributeError_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppAttributeErrorReason) -> windows_core::HRESULT,
@@ -16,6 +17,7 @@ impl windows_core::RuntimeType for IIppAttributeValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppAttributeValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppAttributeValueKind) -> windows_core::HRESULT,
@@ -46,6 +48,7 @@ impl windows_core::RuntimeType for IIppAttributeValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppAttributeValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateUnsupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -99,6 +102,7 @@ impl windows_core::RuntimeType for IIppIntegerRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppIntegerRange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -109,6 +113,7 @@ impl windows_core::RuntimeType for IIppIntegerRangeFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppIntegerRangeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -118,6 +123,7 @@ impl windows_core::RuntimeType for IIppPrintDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppPrintDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -138,6 +144,7 @@ impl windows_core::RuntimeType for IIppPrintDevice2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppPrintDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetMaxSupportedPdfSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -150,6 +157,7 @@ impl windows_core::RuntimeType for IIppPrintDevice3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppPrintDevice3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsIppFaxOutPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -159,6 +167,7 @@ impl windows_core::RuntimeType for IIppPrintDevice4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppPrintDevice4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppPrintDeviceKind) -> windows_core::HRESULT,
@@ -179,6 +188,7 @@ impl windows_core::RuntimeType for IIppPrintDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppPrintDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -191,6 +201,7 @@ impl windows_core::RuntimeType for IIppResolution {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppResolution_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -202,6 +213,7 @@ impl windows_core::RuntimeType for IIppResolutionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppResolutionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, IppResolutionUnit, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -211,6 +223,7 @@ impl windows_core::RuntimeType for IIppSetAttributesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppSetAttributesResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -221,6 +234,7 @@ impl windows_core::RuntimeType for IIppTextWithLanguage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppTextWithLanguage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -231,6 +245,7 @@ impl windows_core::RuntimeType for IIppTextWithLanguageFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIppTextWithLanguageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -240,6 +255,7 @@ impl windows_core::RuntimeType for IPageConfigurationSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPageConfigurationSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OrientationSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PageConfigurationSource) -> windows_core::HRESULT,
@@ -252,6 +268,7 @@ impl windows_core::RuntimeType for IPdlPassthroughProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPdlPassthroughProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SupportedPdlContentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -269,6 +286,7 @@ impl windows_core::RuntimeType for IPdlPassthroughTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPdlPassthroughTarget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PrintJobId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -283,6 +301,7 @@ impl windows_core::RuntimeType for IPrint3DDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrint3DDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PrintSchema: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -292,6 +311,7 @@ impl windows_core::RuntimeType for IPrint3DDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrint3DDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -302,6 +322,7 @@ impl windows_core::RuntimeType for IPrintSchema {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintSchema_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]

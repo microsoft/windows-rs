@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IPrint3DManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrint3DManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -13,6 +14,7 @@ impl windows_core::RuntimeType for IPrint3DManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrint3DManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23,6 +25,7 @@ impl windows_core::RuntimeType for IPrint3DTask {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrint3DTask_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38,6 +41,7 @@ impl windows_core::RuntimeType for IPrint3DTaskCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrint3DTaskCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Completion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Print3DTaskCompletion) -> windows_core::HRESULT,
@@ -48,6 +52,7 @@ impl windows_core::RuntimeType for IPrint3DTaskRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrint3DTaskRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateTask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -57,6 +62,7 @@ impl windows_core::RuntimeType for IPrint3DTaskRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrint3DTaskRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -66,6 +72,7 @@ impl windows_core::RuntimeType for IPrint3DTaskSourceChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrint3DTaskSourceChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -75,6 +82,7 @@ impl windows_core::RuntimeType for IPrint3DTaskSourceRequestedArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrint3DTaskSourceRequestedArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -84,6 +92,7 @@ impl windows_core::RuntimeType for IPrinting3D3MFPackage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3D3MFPackage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -120,6 +129,7 @@ impl windows_core::RuntimeType for IPrinting3D3MFPackage2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3D3MFPackage2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Compression: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Printing3DPackageCompression) -> windows_core::HRESULT,
@@ -130,6 +140,7 @@ impl windows_core::RuntimeType for IPrinting3D3MFPackageStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3D3MFPackageStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -142,6 +153,7 @@ impl windows_core::RuntimeType for IPrinting3DBaseMaterial {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DBaseMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -154,6 +166,7 @@ impl windows_core::RuntimeType for IPrinting3DBaseMaterialGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DBaseMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Bases: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -164,6 +177,7 @@ impl windows_core::RuntimeType for IPrinting3DBaseMaterialGroupFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DBaseMaterialGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -173,6 +187,7 @@ impl windows_core::RuntimeType for IPrinting3DBaseMaterialStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DBaseMaterialStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Abs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -183,6 +198,7 @@ impl windows_core::RuntimeType for IPrinting3DColorMaterial {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DColorMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -193,6 +209,7 @@ impl windows_core::RuntimeType for IPrinting3DColorMaterial2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DColorMaterial2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI")]
@@ -209,6 +226,7 @@ impl windows_core::RuntimeType for IPrinting3DColorMaterialGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DColorMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Colors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -219,6 +237,7 @@ impl windows_core::RuntimeType for IPrinting3DColorMaterialGroupFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DColorMaterialGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -228,6 +247,7 @@ impl windows_core::RuntimeType for IPrinting3DComponent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DComponent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -247,6 +267,7 @@ impl windows_core::RuntimeType for IPrinting3DComponentWithMatrix {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DComponentWithMatrix_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Component: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -259,6 +280,7 @@ impl windows_core::RuntimeType for IPrinting3DCompositeMaterial {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DCompositeMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Values: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -268,6 +290,7 @@ impl windows_core::RuntimeType for IPrinting3DCompositeMaterialGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Composites: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -279,6 +302,7 @@ impl windows_core::RuntimeType for IPrinting3DCompositeMaterialGroup2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroup2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BaseMaterialGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -289,6 +313,7 @@ impl windows_core::RuntimeType for IPrinting3DCompositeMaterialGroupFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -298,6 +323,7 @@ impl windows_core::RuntimeType for IPrinting3DFaceReductionOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DFaceReductionOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxReductionArea: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -312,6 +338,7 @@ impl windows_core::RuntimeType for IPrinting3DMaterial {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BaseGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -325,6 +352,7 @@ impl windows_core::RuntimeType for IPrinting3DMesh {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DMesh_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VertexCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -374,6 +402,7 @@ impl windows_core::RuntimeType for IPrinting3DMeshVerificationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DMeshVerificationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -385,6 +414,7 @@ impl windows_core::RuntimeType for IPrinting3DModel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DModel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Unit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Printing3DModelUnit) -> windows_core::HRESULT,
@@ -408,6 +438,7 @@ impl windows_core::RuntimeType for IPrinting3DModel2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DModel2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryPartialRepairAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -422,6 +453,7 @@ impl windows_core::RuntimeType for IPrinting3DModelTexture {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DModelTexture_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TextureResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -436,6 +468,7 @@ impl windows_core::RuntimeType for IPrinting3DMultiplePropertyMaterial {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaterialIndices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -445,6 +478,7 @@ impl windows_core::RuntimeType for IPrinting3DMultiplePropertyMaterialGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MultipleProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -456,6 +490,7 @@ impl windows_core::RuntimeType for IPrinting3DMultiplePropertyMaterialGroupFacto
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterialGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -465,6 +500,7 @@ impl windows_core::RuntimeType for IPrinting3DTexture2CoordMaterial {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Texture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -479,6 +515,7 @@ impl windows_core::RuntimeType for IPrinting3DTexture2CoordMaterialGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Texture2Coords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -489,6 +526,7 @@ impl windows_core::RuntimeType for IPrinting3DTexture2CoordMaterialGroup2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroup2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Texture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -499,6 +537,7 @@ impl windows_core::RuntimeType for IPrinting3DTexture2CoordMaterialGroupFactory 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -508,6 +547,7 @@ impl windows_core::RuntimeType for IPrinting3DTextureResource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DTextureResource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -823,6 +863,7 @@ impl Print3DTaskSourceRequestedHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct Print3DTaskSourceRequestedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,

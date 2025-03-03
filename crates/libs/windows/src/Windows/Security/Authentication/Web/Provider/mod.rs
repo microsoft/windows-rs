@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IWebAccountClientView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountClientView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ApplicationCallbackUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14,6 +15,7 @@ impl windows_core::RuntimeType for IWebAccountClientViewFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountClientViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, WebAccountClientViewType, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24,6 +26,7 @@ impl windows_core::RuntimeType for IWebAccountManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -72,6 +75,7 @@ impl windows_core::RuntimeType for IWebAccountManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PullCookiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -81,6 +85,7 @@ impl windows_core::RuntimeType for IWebAccountManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Security_Credentials", feature = "System"))]
@@ -105,6 +110,7 @@ impl windows_core::RuntimeType for IWebAccountManagerStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountManagerStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InvalidateAppCacheForAllAccountsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -118,6 +124,7 @@ impl windows_core::RuntimeType for IWebAccountMapManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountMapManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -142,6 +149,7 @@ impl windows_core::RuntimeType for IWebAccountProviderAddAccountOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderAddAccountOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -200,6 +208,7 @@ impl IWebAccountProviderBaseReportOperation_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderBaseReportOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -213,6 +222,7 @@ impl windows_core::RuntimeType for IWebAccountProviderDeleteAccountOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderDeleteAccountOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -225,6 +235,7 @@ impl windows_core::RuntimeType for IWebAccountProviderManageAccountOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderManageAccountOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -274,6 +285,7 @@ impl IWebAccountProviderOperation_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebAccountProviderOperationKind) -> windows_core::HRESULT,
@@ -283,6 +295,7 @@ impl windows_core::RuntimeType for IWebAccountProviderRetrieveCookiesOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderRetrieveCookiesOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Context: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -299,6 +312,7 @@ impl windows_core::RuntimeType for IWebAccountProviderSignOutAccountOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderSignOutAccountOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -375,6 +389,7 @@ impl IWebAccountProviderSilentReportOperation_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderSilentReportOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportUserInteractionRequired: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -425,6 +440,7 @@ impl IWebAccountProviderTokenObjects_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderTokenObjects_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -483,6 +499,7 @@ impl IWebAccountProviderTokenObjects2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderTokenObjects2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -598,6 +615,7 @@ impl IWebAccountProviderTokenOperation_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderTokenOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProviderRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -656,6 +674,7 @@ impl IWebAccountProviderUIReportOperation_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountProviderUIReportOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportUserCanceled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -665,6 +684,7 @@ impl windows_core::RuntimeType for IWebAccountScopeManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAccountScopeManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -685,6 +705,7 @@ impl windows_core::RuntimeType for IWebProviderTokenRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebProviderTokenRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]
@@ -707,6 +728,7 @@ impl windows_core::RuntimeType for IWebProviderTokenRequest2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebProviderTokenRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -719,6 +741,7 @@ impl windows_core::RuntimeType for IWebProviderTokenRequest3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebProviderTokenRequest3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ApplicationPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -730,6 +753,7 @@ impl windows_core::RuntimeType for IWebProviderTokenResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebProviderTokenResponse_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]
@@ -742,6 +766,7 @@ impl windows_core::RuntimeType for IWebProviderTokenResponseFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebProviderTokenResponseFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]

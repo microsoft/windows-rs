@@ -2254,6 +2254,7 @@ impl windows_core::RuntimeType for IDisplayAdapter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayAdapter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -2273,6 +2274,7 @@ impl windows_core::RuntimeType for IDisplayAdapter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayAdapter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsIndirectDisplayDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2283,6 +2285,7 @@ impl windows_core::RuntimeType for IDisplayAdapterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayAdapterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -2295,6 +2298,7 @@ impl windows_core::RuntimeType for IDisplayDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateScanoutSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2310,6 +2314,7 @@ impl windows_core::RuntimeType for IDisplayDevice2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -2322,6 +2327,7 @@ impl windows_core::RuntimeType for IDisplayDeviceRenderAdapter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayDeviceRenderAdapter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -2334,6 +2340,7 @@ impl windows_core::RuntimeType for IDisplayFence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayFence_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -2342,6 +2349,7 @@ impl windows_core::RuntimeType for IDisplayManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2369,6 +2377,7 @@ impl windows_core::RuntimeType for IDisplayManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryReadCurrentStateForModeQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2378,6 +2387,7 @@ impl windows_core::RuntimeType for IDisplayManager3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayManager3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateDisplayDeviceForIndirectAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2387,6 +2397,7 @@ impl windows_core::RuntimeType for IDisplayManagerChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayManagerChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2398,6 +2409,7 @@ impl windows_core::RuntimeType for IDisplayManagerDisabledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayManagerDisabledEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2409,6 +2421,7 @@ impl windows_core::RuntimeType for IDisplayManagerEnabledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayManagerEnabledEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2420,6 +2433,7 @@ impl windows_core::RuntimeType for IDisplayManagerPathsFailedOrInvalidatedEventA
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2431,6 +2445,7 @@ impl windows_core::RuntimeType for IDisplayManagerResultWithState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayManagerResultWithState_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayManagerResult) -> windows_core::HRESULT,
@@ -2442,6 +2457,7 @@ impl windows_core::RuntimeType for IDisplayManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayManagerOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2451,6 +2467,7 @@ impl windows_core::RuntimeType for IDisplayModeInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayModeInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -2480,6 +2497,7 @@ impl windows_core::RuntimeType for IDisplayModeInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayModeInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -2492,6 +2510,7 @@ impl windows_core::RuntimeType for IDisplayMuxDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayMuxDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2510,6 +2529,7 @@ impl windows_core::RuntimeType for IDisplayMuxDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayMuxDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2520,6 +2540,7 @@ impl windows_core::RuntimeType for IDisplayPath {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayPath_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub View: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2576,6 +2597,7 @@ impl windows_core::RuntimeType for IDisplayPath2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayPath2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
@@ -2592,6 +2614,7 @@ impl windows_core::RuntimeType for IDisplayPrimaryDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayPrimaryDescription_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2616,6 +2639,7 @@ impl windows_core::RuntimeType for IDisplayPrimaryDescriptionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayPrimaryDescriptionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -2628,6 +2652,7 @@ impl windows_core::RuntimeType for IDisplayPrimaryDescriptionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayPrimaryDescriptionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -2640,6 +2665,7 @@ impl windows_core::RuntimeType for IDisplayScanout {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayScanout_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -2648,6 +2674,7 @@ impl windows_core::RuntimeType for IDisplaySource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplaySource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -2665,6 +2692,7 @@ impl windows_core::RuntimeType for IDisplaySource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplaySource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplaySourceStatus) -> windows_core::HRESULT,
@@ -2676,6 +2704,7 @@ impl windows_core::RuntimeType for IDisplayState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayState_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2698,6 +2727,7 @@ impl windows_core::RuntimeType for IDisplayStateOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayStateOperationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayStateOperationStatus) -> windows_core::HRESULT,
@@ -2708,6 +2738,7 @@ impl windows_core::RuntimeType for IDisplaySurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplaySurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -2716,6 +2747,7 @@ impl windows_core::RuntimeType for IDisplayTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayTarget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Adapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2738,6 +2770,7 @@ impl windows_core::RuntimeType for IDisplayTask {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayTask_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetScanout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2748,6 +2781,7 @@ impl windows_core::RuntimeType for IDisplayTask2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayTask2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetSignal: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayTaskSignalKind, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2757,6 +2791,7 @@ impl windows_core::RuntimeType for IDisplayTaskPool {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayTaskPool_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateTask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2770,6 +2805,7 @@ impl windows_core::RuntimeType for IDisplayTaskPool2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayTaskPool2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryExecuteTask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2779,6 +2815,7 @@ impl windows_core::RuntimeType for IDisplayTaskResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayTaskResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PresentStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayPresentStatus) -> windows_core::HRESULT,
@@ -2790,6 +2827,7 @@ impl windows_core::RuntimeType for IDisplayView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Paths: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2809,6 +2847,7 @@ impl windows_core::RuntimeType for IDisplayWireFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayWireFormat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PixelEncoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayWireFormatPixelEncoding) -> windows_core::HRESULT,
@@ -2823,6 +2862,7 @@ impl windows_core::RuntimeType for IDisplayWireFormatFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayWireFormatFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayWireFormatPixelEncoding, i32, DisplayWireFormatColorSpace, DisplayWireFormatEotf, DisplayWireFormatHdrMetadata, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2832,6 +2872,7 @@ impl windows_core::RuntimeType for IDisplayWireFormatStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayWireFormatStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DisplayWireFormatPixelEncoding, i32, DisplayWireFormatColorSpace, DisplayWireFormatEotf, DisplayWireFormatHdrMetadata, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

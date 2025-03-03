@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IImageScanner {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageScanner_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26,6 +27,7 @@ impl windows_core::RuntimeType for IImageScannerFeederConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageScannerFeederConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CanAutoDetectPageSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -159,6 +161,7 @@ impl IImageScannerFormatConfiguration_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageScannerFormatConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DefaultFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerFormat) -> windows_core::HRESULT,
@@ -171,6 +174,7 @@ impl windows_core::RuntimeType for IImageScannerPreviewResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageScannerPreviewResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -181,6 +185,7 @@ impl windows_core::RuntimeType for IImageScannerScanResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageScannerScanResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -792,6 +797,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageScannerSourceConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MinScanArea: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
@@ -829,6 +835,7 @@ impl windows_core::RuntimeType for IImageScannerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageScannerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -1008,6 +1008,7 @@ impl IPropertyValue_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertyValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     Type: usize,
@@ -1530,6 +1531,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReference_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,

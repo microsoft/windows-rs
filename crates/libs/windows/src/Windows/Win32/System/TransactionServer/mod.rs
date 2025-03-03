@@ -36,6 +36,7 @@ impl ICatalog {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICatalog_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -131,6 +132,7 @@ impl IComponentUtil {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComponentUtil_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub InstallComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -211,6 +213,7 @@ impl IPackageUtil {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPackageUtil_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub InstallPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -279,6 +282,7 @@ impl IRemoteComponentUtil {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteComponentUtil_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub InstallRemoteComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -338,6 +342,7 @@ impl IRoleAssociationUtil {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRoleAssociationUtil_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub AssociateRole: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,

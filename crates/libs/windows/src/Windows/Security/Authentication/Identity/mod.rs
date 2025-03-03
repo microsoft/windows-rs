@@ -93,6 +93,7 @@ impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TenantId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -106,6 +107,7 @@ impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetRegistrationsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -115,6 +117,7 @@ impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationManagerSt
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

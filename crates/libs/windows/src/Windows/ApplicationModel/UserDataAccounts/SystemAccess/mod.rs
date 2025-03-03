@@ -610,6 +610,7 @@ impl windows_core::RuntimeType for IDeviceAccountConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceAccountConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AccountName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -650,6 +651,7 @@ impl windows_core::RuntimeType for IDeviceAccountConfiguration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceAccountConfiguration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -726,6 +728,7 @@ impl windows_core::RuntimeType for IUserDataAccountSystemAccessManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserDataAccountSystemAccessManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddAndShowDeviceAccountsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -735,6 +738,7 @@ impl windows_core::RuntimeType for IUserDataAccountSystemAccessManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserDataAccountSystemAccessManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SuppressLocalAccountWithAccountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

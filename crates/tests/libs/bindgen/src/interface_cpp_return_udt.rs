@@ -51,6 +51,7 @@ impl ID2D1Bitmap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Bitmap_Vtbl {
     pub base__: ID2D1Image_Vtbl,
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D_SIZE_F),
@@ -125,6 +126,7 @@ impl core::ops::Deref for ID2D1Image {
 }
 windows_core::imp::interface_hierarchy!(ID2D1Image, windows_core::IUnknown, ID2D1Resource);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Image_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
@@ -150,6 +152,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ID2D1Resource, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID2D1Resource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetFactory: usize,

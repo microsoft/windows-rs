@@ -58,6 +58,7 @@ impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct EventHandler_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,

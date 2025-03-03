@@ -46,6 +46,7 @@ impl AsyncIFtpAuthenticationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpAuthenticationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -100,6 +101,7 @@ impl AsyncIFtpAuthorizationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpAuthorizationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_GetUserAccessPermission: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -159,6 +161,7 @@ impl AsyncIFtpHomeDirectoryProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpHomeDirectoryProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_GetUserHomeDirectoryData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -210,6 +213,7 @@ impl AsyncIFtpLogProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpLogProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_Log: unsafe extern "system" fn(*mut core::ffi::c_void, *const LOGGING_PARAMETERS) -> windows_core::HRESULT,
@@ -258,6 +262,7 @@ impl AsyncIFtpPostprocessProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpPostprocessProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_HandlePostprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const POST_PROCESS_PARAMETERS) -> windows_core::HRESULT,
@@ -312,6 +317,7 @@ impl AsyncIFtpPreprocessProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpPreprocessProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_HandlePreprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const PRE_PROCESS_PARAMETERS) -> windows_core::HRESULT,
@@ -372,6 +378,7 @@ impl AsyncIFtpRoleProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpRoleProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_IsUserInRole: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -429,6 +436,7 @@ impl AsyncIMSAdminBaseSinkW {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIMSAdminBaseSinkW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_SinkNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const MD_CHANGE_OBJECT_W) -> windows_core::HRESULT,
@@ -1049,6 +1057,7 @@ impl IADMEXT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IADMEXT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1106,6 +1115,7 @@ impl IFtpAuthenticationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpAuthenticationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1145,6 +1155,7 @@ impl IFtpAuthorizationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpAuthorizationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUserAccessPermission: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut FTP_ACCESS) -> windows_core::HRESULT,
@@ -1189,6 +1200,7 @@ impl IFtpHomeDirectoryProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpHomeDirectoryProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUserHomeDirectoryData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -1225,6 +1237,7 @@ impl IFtpLogProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpLogProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Log: unsafe extern "system" fn(*mut core::ffi::c_void, *const LOGGING_PARAMETERS) -> windows_core::HRESULT,
@@ -1258,6 +1271,7 @@ impl IFtpPostprocessProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpPostprocessProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HandlePostprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const POST_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
@@ -1297,6 +1311,7 @@ impl IFtpPreprocessProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpPreprocessProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HandlePreprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const PRE_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
@@ -1334,6 +1349,7 @@ impl IFtpProviderConstruct {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpProviderConstruct_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1379,6 +1395,7 @@ impl IFtpRoleProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpRoleProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsUserInRole: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1551,6 +1568,7 @@ impl IMSAdminBase2W {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSAdminBase2W_Vtbl {
     pub base__: IMSAdminBaseW_Vtbl,
     pub BackupWithPasswd: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -1638,6 +1656,7 @@ impl IMSAdminBase3W {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSAdminBase3W_Vtbl {
     pub base__: IMSAdminBase2W_Vtbl,
     pub GetChildPaths: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
@@ -1671,6 +1690,7 @@ impl IMSAdminBaseSinkW {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSAdminBaseSinkW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SinkNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const MD_CHANGE_OBJECT_W) -> windows_core::HRESULT,
@@ -1884,6 +1904,7 @@ impl IMSAdminBaseW {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSAdminBaseW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2221,6 +2242,7 @@ impl IMSImpExpHelpW {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSImpExpHelpW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumeratePathsInFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,

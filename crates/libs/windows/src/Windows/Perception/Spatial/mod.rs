@@ -7,6 +7,7 @@ impl windows_core::RuntimeType for ISpatialAnchor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAnchor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CoordinateSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19,6 +20,7 @@ impl windows_core::RuntimeType for ISpatialAnchor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAnchor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemovedByUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -28,6 +30,7 @@ impl windows_core::RuntimeType for ISpatialAnchorExportSufficiency {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAnchorExportSufficiency_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsMinimallySufficient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -39,6 +42,7 @@ impl windows_core::RuntimeType for ISpatialAnchorExporter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAnchorExporter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAnchorExportSufficiencyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpatialAnchorExportPurpose, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -52,6 +56,7 @@ impl windows_core::RuntimeType for ISpatialAnchorExporterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAnchorExporterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -62,6 +67,7 @@ impl windows_core::RuntimeType for ISpatialAnchorManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAnchorManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -71,6 +77,7 @@ impl windows_core::RuntimeType for ISpatialAnchorRawCoordinateSystemAdjustedEven
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OldRawCoordinateSystemToNewRawCoordinateSystemTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT,
@@ -80,6 +87,7 @@ impl windows_core::RuntimeType for ISpatialAnchorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAnchorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCreateRelativeTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -94,6 +102,7 @@ impl windows_core::RuntimeType for ISpatialAnchorStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAnchorStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAllSavedAnchors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -109,6 +118,7 @@ impl windows_core::RuntimeType for ISpatialAnchorTransferManagerStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAnchorTransferManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -126,6 +136,7 @@ impl windows_core::RuntimeType for ISpatialBoundingVolume {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialBoundingVolume_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -134,6 +145,7 @@ impl windows_core::RuntimeType for ISpatialBoundingVolumeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialBoundingVolumeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpatialBoundingBox, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -152,6 +164,7 @@ impl windows_core::RuntimeType for ISpatialCoordinateSystem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialCoordinateSystem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryGetTransformTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -161,6 +174,7 @@ impl windows_core::RuntimeType for ISpatialEntity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialEntity_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -175,6 +189,7 @@ impl windows_core::RuntimeType for ISpatialEntityAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialEntityAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Entity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -184,6 +199,7 @@ impl windows_core::RuntimeType for ISpatialEntityFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialEntityFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithSpatialAnchor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -197,6 +213,7 @@ impl windows_core::RuntimeType for ISpatialEntityRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialEntityRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Entity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -206,6 +223,7 @@ impl windows_core::RuntimeType for ISpatialEntityStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialEntityStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -217,6 +235,7 @@ impl windows_core::RuntimeType for ISpatialEntityStoreStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialEntityStoreStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -230,6 +249,7 @@ impl windows_core::RuntimeType for ISpatialEntityUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialEntityUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Entity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -239,6 +259,7 @@ impl windows_core::RuntimeType for ISpatialEntityWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialEntityWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialEntityWatcherStatus) -> windows_core::HRESULT,
@@ -258,6 +279,7 @@ impl windows_core::RuntimeType for ISpatialLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialLocation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
@@ -281,6 +303,7 @@ impl windows_core::RuntimeType for ISpatialLocation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialLocation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AbsoluteAngularVelocityAxisAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
@@ -291,6 +314,7 @@ impl windows_core::RuntimeType for ISpatialLocator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialLocator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Locatability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialLocatability) -> windows_core::HRESULT,
@@ -325,6 +349,7 @@ impl windows_core::RuntimeType for ISpatialLocatorAttachedFrameOfReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialLocatorAttachedFrameOfReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RelativePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
@@ -346,6 +371,7 @@ impl windows_core::RuntimeType for ISpatialLocatorPositionalTrackingDeactivating
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Canceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -356,6 +382,7 @@ impl windows_core::RuntimeType for ISpatialLocatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialLocatorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -365,6 +392,7 @@ impl windows_core::RuntimeType for ISpatialStageFrameOfReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialStageFrameOfReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CoordinateSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -378,6 +406,7 @@ impl windows_core::RuntimeType for ISpatialStageFrameOfReferenceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialStageFrameOfReferenceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -390,6 +419,7 @@ impl windows_core::RuntimeType for ISpatialStationaryFrameOfReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialStationaryFrameOfReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CoordinateSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

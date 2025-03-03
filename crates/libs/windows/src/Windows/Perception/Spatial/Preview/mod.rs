@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for ISpatialGraphInteropFrameOfReferencePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialGraphInteropFrameOfReferencePreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CoordinateSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14,6 +15,7 @@ impl windows_core::RuntimeType for ISpatialGraphInteropPreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialGraphInteropPreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateCoordinateSystemForNode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29,6 +31,7 @@ impl windows_core::RuntimeType for ISpatialGraphInteropPreviewStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialGraphInteropPreviewStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCreateFrameOfReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

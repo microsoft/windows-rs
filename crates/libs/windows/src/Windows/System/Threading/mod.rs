@@ -5,6 +5,7 @@ impl windows_core::RuntimeType for IThreadPoolStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IThreadPoolStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RunAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16,6 +17,7 @@ impl windows_core::RuntimeType for IThreadPoolTimer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IThreadPoolTimer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Period: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -27,6 +29,7 @@ impl windows_core::RuntimeType for IThreadPoolTimerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IThreadPoolTimerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreatePeriodicTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -167,6 +170,7 @@ impl TimerDestroyedHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct TimerDestroyedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -235,6 +239,7 @@ impl TimerElapsedHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct TimerElapsedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -303,6 +308,7 @@ impl WorkItemHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct WorkItemHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, operation: *mut core::ffi::c_void) -> windows_core::HRESULT,

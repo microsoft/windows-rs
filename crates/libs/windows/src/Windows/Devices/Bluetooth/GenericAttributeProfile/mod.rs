@@ -3280,6 +3280,7 @@ impl windows_core::RuntimeType for IGattCharacteristic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattCharacteristic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -3313,6 +3314,7 @@ impl windows_core::RuntimeType for IGattCharacteristic2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattCharacteristic2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Service: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3326,6 +3328,7 @@ impl windows_core::RuntimeType for IGattCharacteristic3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattCharacteristic3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDescriptorsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3347,6 +3350,7 @@ impl windows_core::RuntimeType for IGattCharacteristicStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattCharacteristicStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -3359,6 +3363,7 @@ impl windows_core::RuntimeType for IGattCharacteristicUuidsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattCharacteristicUuidsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BatteryLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -3388,6 +3393,7 @@ impl windows_core::RuntimeType for IGattCharacteristicUuidsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattCharacteristicUuidsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AlertCategoryId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -3456,6 +3462,7 @@ impl windows_core::RuntimeType for IGattCharacteristicsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattCharacteristicsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,
@@ -3467,6 +3474,7 @@ impl windows_core::RuntimeType for IGattClientNotificationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattClientNotificationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SubscribedClient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3478,6 +3486,7 @@ impl windows_core::RuntimeType for IGattClientNotificationResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattClientNotificationResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BytesSent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -3487,6 +3496,7 @@ impl windows_core::RuntimeType for IGattDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattProtectionLevel) -> windows_core::HRESULT,
@@ -3505,6 +3515,7 @@ impl windows_core::RuntimeType for IGattDescriptor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattDescriptor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -3517,6 +3528,7 @@ impl windows_core::RuntimeType for IGattDescriptorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattDescriptorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -3529,6 +3541,7 @@ impl windows_core::RuntimeType for IGattDescriptorUuidsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattDescriptorUuidsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CharacteristicAggregateFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -3543,6 +3556,7 @@ impl windows_core::RuntimeType for IGattDescriptorsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattDescriptorsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,
@@ -3554,6 +3568,7 @@ impl windows_core::RuntimeType for IGattDeviceService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattDeviceService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -3573,6 +3588,7 @@ impl windows_core::RuntimeType for IGattDeviceService2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattDeviceService2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -3597,6 +3613,7 @@ impl windows_core::RuntimeType for IGattDeviceService3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattDeviceService3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Enumeration")]
@@ -3624,6 +3641,7 @@ impl windows_core::RuntimeType for IGattDeviceServiceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattDeviceServiceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3642,6 +3660,7 @@ impl windows_core::RuntimeType for IGattDeviceServiceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattDeviceServiceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromIdWithSharingModeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, GattSharingMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3655,6 +3674,7 @@ impl windows_core::RuntimeType for IGattDeviceServicesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattDeviceServicesResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,
@@ -3666,6 +3686,7 @@ impl windows_core::RuntimeType for IGattLocalCharacteristic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattLocalCharacteristic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -3701,6 +3722,7 @@ impl windows_core::RuntimeType for IGattLocalCharacteristicParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattLocalCharacteristicParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -3726,6 +3748,7 @@ impl windows_core::RuntimeType for IGattLocalCharacteristicResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattLocalCharacteristicResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Characteristic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3736,6 +3759,7 @@ impl windows_core::RuntimeType for IGattLocalDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattLocalDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -3755,6 +3779,7 @@ impl windows_core::RuntimeType for IGattLocalDescriptorParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattLocalDescriptorParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -3775,6 +3800,7 @@ impl windows_core::RuntimeType for IGattLocalDescriptorResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattLocalDescriptorResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Descriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3785,6 +3811,7 @@ impl windows_core::RuntimeType for IGattLocalService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattLocalService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -3796,6 +3823,7 @@ impl windows_core::RuntimeType for IGattPresentationFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattPresentationFormat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FormatType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -3809,6 +3837,7 @@ impl windows_core::RuntimeType for IGattPresentationFormatStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattPresentationFormatStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BluetoothSigAssignedNumbers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -3818,6 +3847,7 @@ impl windows_core::RuntimeType for IGattPresentationFormatStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattPresentationFormatStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromParts: unsafe extern "system" fn(*mut core::ffi::c_void, u8, i32, u16, u8, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3827,6 +3857,7 @@ impl windows_core::RuntimeType for IGattPresentationFormatTypesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattPresentationFormatTypesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Boolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -3862,6 +3893,7 @@ impl windows_core::RuntimeType for IGattProtocolErrorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattProtocolErrorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InvalidHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -3887,6 +3919,7 @@ impl windows_core::RuntimeType for IGattReadClientCharacteristicConfigurationDes
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,
@@ -3897,6 +3930,7 @@ impl windows_core::RuntimeType for IGattReadClientCharacteristicConfigurationDes
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3906,6 +3940,7 @@ impl windows_core::RuntimeType for IGattReadRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattReadRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3924,6 +3959,7 @@ impl windows_core::RuntimeType for IGattReadRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattReadRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3935,6 +3971,7 @@ impl windows_core::RuntimeType for IGattReadResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattReadResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,
@@ -3948,6 +3985,7 @@ impl windows_core::RuntimeType for IGattReadResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattReadResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3957,6 +3995,7 @@ impl windows_core::RuntimeType for IGattReliableWriteTransaction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattReliableWriteTransaction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -3970,6 +4009,7 @@ impl windows_core::RuntimeType for IGattReliableWriteTransaction2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattReliableWriteTransaction2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CommitWithResultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3979,6 +4019,7 @@ impl windows_core::RuntimeType for IGattRequestStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattRequestStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattRequestState) -> windows_core::HRESULT,
@@ -3989,6 +4030,7 @@ impl windows_core::RuntimeType for IGattServiceProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattServiceProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Service: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4004,6 +4046,7 @@ impl windows_core::RuntimeType for IGattServiceProviderAdvertisementStatusChange
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
@@ -4014,6 +4057,7 @@ impl windows_core::RuntimeType for IGattServiceProviderAdvertisingParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattServiceProviderAdvertisingParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetIsConnectable: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -4026,6 +4070,7 @@ impl windows_core::RuntimeType for IGattServiceProviderAdvertisingParameters2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattServiceProviderAdvertisingParameters2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -4042,6 +4087,7 @@ impl windows_core::RuntimeType for IGattServiceProviderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattServiceProviderResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
@@ -4052,6 +4098,7 @@ impl windows_core::RuntimeType for IGattServiceProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattServiceProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4061,6 +4108,7 @@ impl windows_core::RuntimeType for IGattServiceUuidsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattServiceUuidsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Battery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -4078,6 +4126,7 @@ impl windows_core::RuntimeType for IGattServiceUuidsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattServiceUuidsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AlertNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -4099,6 +4148,7 @@ impl windows_core::RuntimeType for IGattSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4117,6 +4167,7 @@ impl windows_core::RuntimeType for IGattSessionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattSessionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromDeviceIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4126,6 +4177,7 @@ impl windows_core::RuntimeType for IGattSessionStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattSessionStatusChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
@@ -4136,6 +4188,7 @@ impl windows_core::RuntimeType for IGattSubscribedClient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattSubscribedClient_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4148,6 +4201,7 @@ impl windows_core::RuntimeType for IGattValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -4161,6 +4215,7 @@ impl windows_core::RuntimeType for IGattWriteRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattWriteRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -4180,6 +4235,7 @@ impl windows_core::RuntimeType for IGattWriteRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattWriteRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4191,6 +4247,7 @@ impl windows_core::RuntimeType for IGattWriteResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattWriteResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,

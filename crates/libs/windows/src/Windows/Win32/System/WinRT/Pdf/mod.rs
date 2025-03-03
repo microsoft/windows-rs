@@ -31,6 +31,7 @@ impl IPdfRendererNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPdfRendererNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]

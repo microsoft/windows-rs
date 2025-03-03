@@ -1120,6 +1120,7 @@ impl windows_core::RuntimeType for IGuidanceAudioNotificationRequestedEventArgs 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceAudioNotificationRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AudioNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GuidanceAudioNotificationKind) -> windows_core::HRESULT,
@@ -1131,6 +1132,7 @@ impl windows_core::RuntimeType for IGuidanceLaneInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceLaneInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LaneMarkers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GuidanceLaneMarkers) -> windows_core::HRESULT,
@@ -1141,6 +1143,7 @@ impl windows_core::RuntimeType for IGuidanceManeuver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceManeuver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -1164,6 +1167,7 @@ impl windows_core::RuntimeType for IGuidanceMapMatchedCoordinate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceMapMatchedCoordinate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -1180,6 +1184,7 @@ impl windows_core::RuntimeType for IGuidanceNavigator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceNavigator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartNavigating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1222,6 +1227,7 @@ impl windows_core::RuntimeType for IGuidanceNavigator2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceNavigator2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AudioNotificationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1234,6 +1240,7 @@ impl windows_core::RuntimeType for IGuidanceNavigatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceNavigatorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1243,6 +1250,7 @@ impl windows_core::RuntimeType for IGuidanceNavigatorStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceNavigatorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UseAppProvidedVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1252,6 +1260,7 @@ impl windows_core::RuntimeType for IGuidanceReroutedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceReroutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Route: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1261,6 +1270,7 @@ impl windows_core::RuntimeType for IGuidanceRoadSegment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceRoadSegment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RoadName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1281,6 +1291,7 @@ impl windows_core::RuntimeType for IGuidanceRoadSegment2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceRoadSegment2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsScenic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1290,6 +1301,7 @@ impl windows_core::RuntimeType for IGuidanceRoadSignpost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceRoadSignpost_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExitNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1309,6 +1321,7 @@ impl windows_core::RuntimeType for IGuidanceRoute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceRoute_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -1330,6 +1343,7 @@ impl windows_core::RuntimeType for IGuidanceRouteStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceRouteStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CanCreateFromMapRoute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1340,6 +1354,7 @@ impl windows_core::RuntimeType for IGuidanceTelemetryCollector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceTelemetryCollector_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1355,6 +1370,7 @@ impl windows_core::RuntimeType for IGuidanceTelemetryCollectorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceTelemetryCollectorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1364,6 +1380,7 @@ impl windows_core::RuntimeType for IGuidanceUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidanceUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GuidanceMode) -> windows_core::HRESULT,

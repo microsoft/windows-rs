@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IProviderSpiConnectionSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProviderSpiConnectionSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChipSelectLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -21,6 +22,7 @@ impl windows_core::RuntimeType for IProviderSpiConnectionSettingsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProviderSpiConnectionSettingsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -73,6 +75,7 @@ impl ISpiControllerProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpiControllerProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -197,6 +200,7 @@ impl ISpiDeviceProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpiDeviceProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -248,6 +252,7 @@ impl ISpiProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpiProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

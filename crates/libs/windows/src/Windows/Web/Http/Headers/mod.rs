@@ -3840,6 +3840,7 @@ impl windows_core::RuntimeType for IHttpCacheDirectiveHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpCacheDirectiveHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxAge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3858,6 +3859,7 @@ impl windows_core::RuntimeType for IHttpChallengeHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpChallengeHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3869,6 +3871,7 @@ impl windows_core::RuntimeType for IHttpChallengeHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpChallengeHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3879,6 +3882,7 @@ impl windows_core::RuntimeType for IHttpChallengeHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpChallengeHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromScheme: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3889,6 +3893,7 @@ impl windows_core::RuntimeType for IHttpChallengeHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpChallengeHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3899,6 +3904,7 @@ impl windows_core::RuntimeType for IHttpConnectionOptionHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpConnectionOptionHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Token: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3908,6 +3914,7 @@ impl windows_core::RuntimeType for IHttpConnectionOptionHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpConnectionOptionHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3918,6 +3925,7 @@ impl windows_core::RuntimeType for IHttpConnectionOptionHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpConnectionOptionHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3927,6 +3935,7 @@ impl windows_core::RuntimeType for IHttpConnectionOptionHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpConnectionOptionHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3937,6 +3946,7 @@ impl windows_core::RuntimeType for IHttpContentCodingHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentCodingHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentCoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3946,6 +3956,7 @@ impl windows_core::RuntimeType for IHttpContentCodingHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentCodingHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3956,6 +3967,7 @@ impl windows_core::RuntimeType for IHttpContentCodingHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentCodingHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3965,6 +3977,7 @@ impl windows_core::RuntimeType for IHttpContentCodingHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentCodingHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3975,6 +3988,7 @@ impl windows_core::RuntimeType for IHttpContentCodingWithQualityHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentCodingWithQualityHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentCoding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3985,6 +3999,7 @@ impl windows_core::RuntimeType for IHttpContentCodingWithQualityHeaderValueColle
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentCodingWithQualityHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3995,6 +4010,7 @@ impl windows_core::RuntimeType for IHttpContentCodingWithQualityHeaderValueFacto
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentCodingWithQualityHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4005,6 +4021,7 @@ impl windows_core::RuntimeType for IHttpContentCodingWithQualityHeaderValueStati
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentCodingWithQualityHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4015,6 +4032,7 @@ impl windows_core::RuntimeType for IHttpContentDispositionHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentDispositionHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DispositionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4034,6 +4052,7 @@ impl windows_core::RuntimeType for IHttpContentDispositionHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentDispositionHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4043,6 +4062,7 @@ impl windows_core::RuntimeType for IHttpContentDispositionHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentDispositionHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4053,6 +4073,7 @@ impl windows_core::RuntimeType for IHttpContentHeaderCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentHeaderCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentDisposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4090,6 +4111,7 @@ impl windows_core::RuntimeType for IHttpContentRangeHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentRangeHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FirstBytePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4103,6 +4125,7 @@ impl windows_core::RuntimeType for IHttpContentRangeHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentRangeHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromLength: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4114,6 +4137,7 @@ impl windows_core::RuntimeType for IHttpContentRangeHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpContentRangeHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4124,6 +4148,7 @@ impl windows_core::RuntimeType for IHttpCookiePairHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpCookiePairHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4135,6 +4160,7 @@ impl windows_core::RuntimeType for IHttpCookiePairHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpCookiePairHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4145,6 +4171,7 @@ impl windows_core::RuntimeType for IHttpCookiePairHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpCookiePairHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4155,6 +4182,7 @@ impl windows_core::RuntimeType for IHttpCookiePairHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpCookiePairHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4165,6 +4193,7 @@ impl windows_core::RuntimeType for IHttpCredentialsHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpCredentialsHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4176,6 +4205,7 @@ impl windows_core::RuntimeType for IHttpCredentialsHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpCredentialsHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromScheme: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4186,6 +4216,7 @@ impl windows_core::RuntimeType for IHttpCredentialsHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpCredentialsHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4196,6 +4227,7 @@ impl windows_core::RuntimeType for IHttpDateOrDeltaHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpDateOrDeltaHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Date: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4206,6 +4238,7 @@ impl windows_core::RuntimeType for IHttpDateOrDeltaHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpDateOrDeltaHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4216,6 +4249,7 @@ impl windows_core::RuntimeType for IHttpExpectationHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpExpectationHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4228,6 +4262,7 @@ impl windows_core::RuntimeType for IHttpExpectationHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpExpectationHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4238,6 +4273,7 @@ impl windows_core::RuntimeType for IHttpExpectationHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpExpectationHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4248,6 +4284,7 @@ impl windows_core::RuntimeType for IHttpExpectationHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpExpectationHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4258,6 +4295,7 @@ impl windows_core::RuntimeType for IHttpLanguageHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpLanguageHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4268,6 +4306,7 @@ impl windows_core::RuntimeType for IHttpLanguageRangeWithQualityHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpLanguageRangeWithQualityHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LanguageRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4278,6 +4317,7 @@ impl windows_core::RuntimeType for IHttpLanguageRangeWithQualityHeaderValueColle
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpLanguageRangeWithQualityHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4288,6 +4328,7 @@ impl windows_core::RuntimeType for IHttpLanguageRangeWithQualityHeaderValueFacto
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpLanguageRangeWithQualityHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromLanguageRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4298,6 +4339,7 @@ impl windows_core::RuntimeType for IHttpLanguageRangeWithQualityHeaderValueStati
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpLanguageRangeWithQualityHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4308,6 +4350,7 @@ impl windows_core::RuntimeType for IHttpMediaTypeHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpMediaTypeHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CharSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4321,6 +4364,7 @@ impl windows_core::RuntimeType for IHttpMediaTypeHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpMediaTypeHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4330,6 +4374,7 @@ impl windows_core::RuntimeType for IHttpMediaTypeHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpMediaTypeHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4340,6 +4385,7 @@ impl windows_core::RuntimeType for IHttpMediaTypeWithQualityHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpMediaTypeWithQualityHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CharSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4355,6 +4401,7 @@ impl windows_core::RuntimeType for IHttpMediaTypeWithQualityHeaderValueCollectio
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpMediaTypeWithQualityHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4365,6 +4412,7 @@ impl windows_core::RuntimeType for IHttpMediaTypeWithQualityHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpMediaTypeWithQualityHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4375,6 +4423,7 @@ impl windows_core::RuntimeType for IHttpMediaTypeWithQualityHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpMediaTypeWithQualityHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4385,6 +4434,7 @@ impl windows_core::RuntimeType for IHttpMethodHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpMethodHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4395,6 +4445,7 @@ impl windows_core::RuntimeType for IHttpNameValueHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpNameValueHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4406,6 +4457,7 @@ impl windows_core::RuntimeType for IHttpNameValueHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpNameValueHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4416,6 +4468,7 @@ impl windows_core::RuntimeType for IHttpNameValueHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpNameValueHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4426,6 +4479,7 @@ impl windows_core::RuntimeType for IHttpProductHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpProductHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4436,6 +4490,7 @@ impl windows_core::RuntimeType for IHttpProductHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpProductHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4446,6 +4501,7 @@ impl windows_core::RuntimeType for IHttpProductHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpProductHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4456,6 +4512,7 @@ impl windows_core::RuntimeType for IHttpProductInfoHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpProductInfoHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Product: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4466,6 +4523,7 @@ impl windows_core::RuntimeType for IHttpProductInfoHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpProductInfoHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4476,6 +4534,7 @@ impl windows_core::RuntimeType for IHttpProductInfoHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpProductInfoHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromComment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4486,6 +4545,7 @@ impl windows_core::RuntimeType for IHttpProductInfoHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpProductInfoHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4496,6 +4556,7 @@ impl windows_core::RuntimeType for IHttpRequestHeaderCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpRequestHeaderCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Accept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4539,6 +4600,7 @@ impl windows_core::RuntimeType for IHttpResponseHeaderCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpResponseHeaderCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Age: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4563,6 +4625,7 @@ impl windows_core::RuntimeType for IHttpTransferCodingHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpTransferCodingHeaderValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4573,6 +4636,7 @@ impl windows_core::RuntimeType for IHttpTransferCodingHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpTransferCodingHeaderValueCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4583,6 +4647,7 @@ impl windows_core::RuntimeType for IHttpTransferCodingHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpTransferCodingHeaderValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4592,6 +4657,7 @@ impl windows_core::RuntimeType for IHttpTransferCodingHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpTransferCodingHeaderValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -190,6 +190,7 @@ impl windows_core::RuntimeType for IBasicProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBasicProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -201,6 +202,7 @@ impl windows_core::RuntimeType for IDocumentProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDocumentProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Author: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -215,6 +217,7 @@ impl windows_core::RuntimeType for IGeotagHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeotagHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Storage_Streams"))]
@@ -235,6 +238,7 @@ impl windows_core::RuntimeType for IImageProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Rating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -260,6 +264,7 @@ impl windows_core::RuntimeType for IMusicProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMusicProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Album: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -293,6 +298,7 @@ impl windows_core::RuntimeType for IStorageItemContentProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageItemContentProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetMusicPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -395,6 +401,7 @@ impl IStorageItemExtraProperties_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageItemExtraProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RetrievePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -406,6 +413,7 @@ impl windows_core::RuntimeType for IThumbnailProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IThumbnailProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OriginalWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -418,6 +426,7 @@ impl windows_core::RuntimeType for IVideoProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVideoProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Rating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,

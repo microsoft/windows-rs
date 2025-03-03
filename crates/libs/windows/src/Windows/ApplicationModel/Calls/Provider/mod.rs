@@ -6,6 +6,7 @@ impl windows_core::RuntimeType for IPhoneCallOrigin {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPhoneCallOrigin_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23,6 +24,7 @@ impl windows_core::RuntimeType for IPhoneCallOrigin2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPhoneCallOrigin2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36,6 +38,7 @@ impl windows_core::RuntimeType for IPhoneCallOrigin3 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPhoneCallOrigin3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -55,6 +58,7 @@ impl windows_core::RuntimeType for IPhoneCallOriginManagerStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPhoneCallOriginManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCurrentAppActiveCallOriginApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -69,6 +73,7 @@ impl windows_core::RuntimeType for IPhoneCallOriginManagerStatics2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPhoneCallOriginManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestSetAsActiveCallOriginAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -81,6 +86,7 @@ impl windows_core::RuntimeType for IPhoneCallOriginManagerStatics3 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPhoneCallOriginManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

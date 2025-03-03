@@ -93,6 +93,7 @@ impl IDynamicConceptProviderConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDynamicConceptProviderConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetConcept: unsafe extern "system" fn(
@@ -344,6 +345,7 @@ impl IKeyStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetKey: unsafe extern "system" fn(
@@ -787,6 +789,7 @@ impl IModelObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetContext: usize,

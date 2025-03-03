@@ -54,6 +54,7 @@ impl IEffectivePermission {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEffectivePermission_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEffectivePermission: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::super::PSID, windows_core::PCWSTR, super::super::PSECURITY_DESCRIPTOR, *mut *mut super::super::OBJECT_TYPE_LIST, *mut u32, *mut *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -122,6 +123,7 @@ impl IEffectivePermission2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEffectivePermission2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ComputeEffectivePermissionWithSecondarySecurity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::PSID, super::super::PSID, windows_core::PCWSTR, *mut SECURITY_OBJECT, u32, *const super::super::TOKEN_GROUPS, *const super::AUTHZ_SID_OPERATION, *const super::super::TOKEN_GROUPS, *const super::AUTHZ_SID_OPERATION, *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION, *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION, *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION, *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION, *mut EFFPERM_RESULT_LIST) -> windows_core::HRESULT,
@@ -223,6 +225,7 @@ impl ISecurityInformation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecurityInformation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetObjectInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SI_OBJECT_INFO) -> windows_core::HRESULT,
@@ -323,6 +326,7 @@ impl ISecurityInformation2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecurityInformation2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsDaclCanonical: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::ACL) -> windows_core::BOOL,
@@ -383,6 +387,7 @@ impl ISecurityInformation3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecurityInformation3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFullResourceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -431,6 +436,7 @@ impl ISecurityInformation4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecurityInformation4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSecondarySecurity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut SECURITY_OBJECT, *mut u32) -> windows_core::HRESULT,
@@ -461,6 +467,7 @@ impl ISecurityObjectTypeInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecurityObjectTypeInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInheritSource: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::ACL, *mut *mut super::INHERITED_FROMA) -> windows_core::HRESULT,

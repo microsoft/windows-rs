@@ -595,6 +595,7 @@ impl BackgroundTaskCanceledEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct BackgroundTaskCanceledEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT,
@@ -716,6 +717,7 @@ impl BackgroundTaskCompletedEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct BackgroundTaskCompletedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -839,6 +841,7 @@ impl BackgroundTaskProgressEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct BackgroundTaskProgressEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2065,6 +2068,7 @@ impl windows_core::RuntimeType for IActivitySensorTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActivitySensorTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Sensors")]
@@ -2083,6 +2087,7 @@ impl windows_core::RuntimeType for IActivitySensorTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActivitySensorTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2092,6 +2097,7 @@ impl windows_core::RuntimeType for IAlarmApplicationManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAlarmApplicationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2102,6 +2108,7 @@ impl windows_core::RuntimeType for IAppBroadcastTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppBroadcastTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetProviderInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2112,6 +2119,7 @@ impl windows_core::RuntimeType for IAppBroadcastTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppBroadcastTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAppBroadcastTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2121,6 +2129,7 @@ impl windows_core::RuntimeType for IAppBroadcastTriggerProviderInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppBroadcastTriggerProviderInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetDisplayNameResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2141,6 +2150,7 @@ impl windows_core::RuntimeType for IApplicationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApplicationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2154,6 +2164,7 @@ impl windows_core::RuntimeType for IApplicationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApplicationTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -2166,6 +2177,7 @@ impl windows_core::RuntimeType for IAppointmentStoreNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppointmentStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -2187,6 +2199,7 @@ impl IBackgroundCondition_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundCondition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -2195,6 +2208,7 @@ impl windows_core::RuntimeType for IBackgroundExecutionManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundExecutionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2209,6 +2223,7 @@ impl windows_core::RuntimeType for IBackgroundExecutionManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundExecutionManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessKindAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundAccessRequestKind, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2218,6 +2233,7 @@ impl windows_core::RuntimeType for IBackgroundExecutionManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundExecutionManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessKindForModernStandbyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundAccessRequestKind, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2259,6 +2275,7 @@ impl IBackgroundTask_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTask_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2268,6 +2285,7 @@ impl windows_core::RuntimeType for IBackgroundTaskBuilder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskBuilder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTaskEntryPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2283,6 +2301,7 @@ impl windows_core::RuntimeType for IBackgroundTaskBuilder2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskBuilder2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetCancelOnConditionLoss: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -2293,6 +2312,7 @@ impl windows_core::RuntimeType for IBackgroundTaskBuilder3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskBuilder3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetIsNetworkRequested: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -2303,6 +2323,7 @@ impl windows_core::RuntimeType for IBackgroundTaskBuilder4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskBuilder4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2313,6 +2334,7 @@ impl windows_core::RuntimeType for IBackgroundTaskBuilder5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskBuilder5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTaskEntryPointClsid: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -2322,6 +2344,7 @@ impl windows_core::RuntimeType for IBackgroundTaskBuilder6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskBuilder6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowRunningTaskInStandby: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2334,6 +2357,7 @@ impl windows_core::RuntimeType for IBackgroundTaskBuilderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskBuilderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsRunningTaskInStandbySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2343,6 +2367,7 @@ impl windows_core::RuntimeType for IBackgroundTaskCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -2353,6 +2378,7 @@ impl windows_core::RuntimeType for IBackgroundTaskDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2557,6 +2583,7 @@ impl IBackgroundTaskInstance_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskInstance_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -2674,6 +2701,7 @@ impl IBackgroundTaskInstance2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskInstance2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetThrottleCount: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTaskThrottleCounter, *mut u32) -> windows_core::HRESULT,
@@ -2785,6 +2813,7 @@ impl IBackgroundTaskInstance4_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskInstance4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -2797,6 +2826,7 @@ impl windows_core::RuntimeType for IBackgroundTaskProgressEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskProgressEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -2952,6 +2982,7 @@ impl IBackgroundTaskRegistration_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskRegistration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -3051,6 +3082,7 @@ impl IBackgroundTaskRegistration2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskRegistration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Trigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3144,6 +3176,7 @@ impl IBackgroundTaskRegistration3_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskRegistration3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3153,6 +3186,7 @@ impl windows_core::RuntimeType for IBackgroundTaskRegistration4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskRegistration4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskLastThrottledInStandbyTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
@@ -3163,6 +3197,7 @@ impl windows_core::RuntimeType for IBackgroundTaskRegistrationGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskRegistrationGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3179,6 +3214,7 @@ impl windows_core::RuntimeType for IBackgroundTaskRegistrationGroupFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskRegistrationGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3189,6 +3225,7 @@ impl windows_core::RuntimeType for IBackgroundTaskRegistrationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskRegistrationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllTasks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3198,6 +3235,7 @@ impl windows_core::RuntimeType for IBackgroundTaskRegistrationStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTaskRegistrationStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllTaskGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3221,6 +3259,7 @@ impl IBackgroundTrigger_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3229,6 +3268,7 @@ impl windows_core::RuntimeType for IBackgroundWorkCostStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundWorkCostStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentBackgroundWorkCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundWorkCostValue) -> windows_core::HRESULT,
@@ -3238,6 +3278,7 @@ impl windows_core::RuntimeType for IBackgroundWorkCostStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundWorkCostStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppEnergyUseLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnergyUseLevel) -> windows_core::HRESULT,
@@ -3249,6 +3290,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
@@ -3261,6 +3303,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTrigger2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PreferredTransmitPowerLevelInDBm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3277,6 +3320,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MinSamplingInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -3305,6 +3349,7 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowExtendedAdvertisements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -3315,6 +3360,7 @@ impl windows_core::RuntimeType for ICachedFileUpdaterTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICachedFileUpdaterTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3323,6 +3369,7 @@ impl windows_core::RuntimeType for ICachedFileUpdaterTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICachedFileUpdaterTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Provider")]
@@ -3340,6 +3387,7 @@ impl windows_core::RuntimeType for IChatMessageNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3348,6 +3396,7 @@ impl windows_core::RuntimeType for IChatMessageReceivedNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChatMessageReceivedNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3356,6 +3405,7 @@ impl windows_core::RuntimeType for ICommunicationBlockingAppSetAsActiveTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICommunicationBlockingAppSetAsActiveTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3364,6 +3414,7 @@ impl windows_core::RuntimeType for IContactStoreNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3372,6 +3423,7 @@ impl windows_core::RuntimeType for IContentPrefetchTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContentPrefetchTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -3381,6 +3433,7 @@ impl windows_core::RuntimeType for IContentPrefetchTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContentPrefetchTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3390,6 +3443,7 @@ impl windows_core::RuntimeType for ICustomSystemEventTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICustomSystemEventTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TriggerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3400,6 +3454,7 @@ impl windows_core::RuntimeType for ICustomSystemEventTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICustomSystemEventTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CustomSystemEventTriggerRecurrence, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3409,6 +3464,7 @@ impl windows_core::RuntimeType for IDeviceConnectionChangeTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceConnectionChangeTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3421,6 +3477,7 @@ impl windows_core::RuntimeType for IDeviceConnectionChangeTriggerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceConnectionChangeTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3433,6 +3490,7 @@ impl windows_core::RuntimeType for IDeviceManufacturerNotificationTrigger {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceManufacturerNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TriggerQualifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3446,6 +3504,7 @@ impl windows_core::RuntimeType for IDeviceManufacturerNotificationTriggerFactory
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceManufacturerNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3455,6 +3514,7 @@ impl windows_core::RuntimeType for IDeviceServicingTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceServicingTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAsyncSimple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3465,6 +3525,7 @@ impl windows_core::RuntimeType for IDeviceUseTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceUseTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAsyncSimple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3475,6 +3536,7 @@ impl windows_core::RuntimeType for IDeviceWatcherTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceWatcherTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3483,6 +3545,7 @@ impl windows_core::RuntimeType for IEmailStoreNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEmailStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3491,6 +3554,7 @@ impl windows_core::RuntimeType for IGattCharacteristicNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattCharacteristicNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
@@ -3503,6 +3567,7 @@ impl windows_core::RuntimeType for IGattCharacteristicNotificationTrigger2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattCharacteristicNotificationTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Bluetooth_Background")]
@@ -3515,6 +3580,7 @@ impl windows_core::RuntimeType for IGattCharacteristicNotificationTriggerFactory
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
@@ -3527,6 +3593,7 @@ impl windows_core::RuntimeType for IGattCharacteristicNotificationTriggerFactory
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))]
@@ -3539,6 +3606,7 @@ impl windows_core::RuntimeType for IGattServiceProviderTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattServiceProviderTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TriggerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3560,6 +3628,7 @@ impl windows_core::RuntimeType for IGattServiceProviderTriggerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattServiceProviderTriggerResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Trigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3573,6 +3642,7 @@ impl windows_core::RuntimeType for IGattServiceProviderTriggerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGattServiceProviderTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3582,6 +3652,7 @@ impl windows_core::RuntimeType for IGeovisitTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeovisitTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -3598,6 +3669,7 @@ impl windows_core::RuntimeType for ILocationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TriggerType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocationTriggerType) -> windows_core::HRESULT,
@@ -3607,6 +3679,7 @@ impl windows_core::RuntimeType for ILocationTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, LocationTriggerType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3616,6 +3689,7 @@ impl windows_core::RuntimeType for IMaintenanceTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMaintenanceTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FreshnessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3626,6 +3700,7 @@ impl windows_core::RuntimeType for IMaintenanceTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMaintenanceTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3635,6 +3710,7 @@ impl windows_core::RuntimeType for IMediaProcessingTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaProcessingTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3648,6 +3724,7 @@ impl windows_core::RuntimeType for INetworkOperatorHotspotAuthenticationTrigger 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkOperatorHotspotAuthenticationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3656,6 +3733,7 @@ impl windows_core::RuntimeType for INetworkOperatorNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkOperatorNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NetworkAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3665,6 +3743,7 @@ impl windows_core::RuntimeType for INetworkOperatorNotificationTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkOperatorNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3674,6 +3753,7 @@ impl windows_core::RuntimeType for IPhoneTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPhoneTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -3687,6 +3767,7 @@ impl windows_core::RuntimeType for IPhoneTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPhoneTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Calls_Background")]
@@ -3699,6 +3780,7 @@ impl windows_core::RuntimeType for IPushNotificationTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPushNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3708,6 +3790,7 @@ impl windows_core::RuntimeType for IRcsEndUserMessageAvailableTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRcsEndUserMessageAvailableTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3716,6 +3799,7 @@ impl windows_core::RuntimeType for IRfcommConnectionTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRfcommConnectionTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Bluetooth_Background")]
@@ -3753,6 +3837,7 @@ impl windows_core::RuntimeType for ISecondaryAuthenticationFactorAuthenticationT
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3761,6 +3846,7 @@ impl windows_core::RuntimeType for ISensorDataThresholdTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISensorDataThresholdTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3769,6 +3855,7 @@ impl windows_core::RuntimeType for ISensorDataThresholdTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISensorDataThresholdTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Sensors")]
@@ -3781,6 +3868,7 @@ impl windows_core::RuntimeType for ISmartCardTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_SmartCards")]
@@ -3793,6 +3881,7 @@ impl windows_core::RuntimeType for ISmartCardTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_SmartCards")]
@@ -3805,6 +3894,7 @@ impl windows_core::RuntimeType for ISmsMessageReceivedTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmsMessageReceivedTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Sms")]
@@ -3817,6 +3907,7 @@ impl windows_core::RuntimeType for ISocketActivityTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISocketActivityTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsWakeFromLowPowerSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -3826,6 +3917,7 @@ impl windows_core::RuntimeType for IStorageLibraryChangeTrackerTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageLibraryChangeTrackerTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -3838,6 +3930,7 @@ impl windows_core::RuntimeType for IStorageLibraryContentChangedTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageLibraryContentChangedTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -3846,6 +3939,7 @@ impl windows_core::RuntimeType for IStorageLibraryContentChangedTriggerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageLibraryContentChangedTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
@@ -3862,6 +3956,7 @@ impl windows_core::RuntimeType for ISystemCondition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISystemCondition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConditionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemConditionType) -> windows_core::HRESULT,
@@ -3871,6 +3966,7 @@ impl windows_core::RuntimeType for ISystemConditionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISystemConditionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, SystemConditionType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3880,6 +3976,7 @@ impl windows_core::RuntimeType for ISystemTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISystemTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -3890,6 +3987,7 @@ impl windows_core::RuntimeType for ISystemTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISystemTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, SystemTriggerType, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3899,6 +3997,7 @@ impl windows_core::RuntimeType for ITimeTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimeTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FreshnessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3909,6 +4008,7 @@ impl windows_core::RuntimeType for ITimeTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimeTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3918,6 +4018,7 @@ impl windows_core::RuntimeType for IToastNotificationActionTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationActionTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3927,6 +4028,7 @@ impl windows_core::RuntimeType for IToastNotificationHistoryChangedTriggerFactor
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToastNotificationHistoryChangedTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3936,6 +4038,7 @@ impl windows_core::RuntimeType for IUserNotificationChangedTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserNotificationChangedTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Notifications")]

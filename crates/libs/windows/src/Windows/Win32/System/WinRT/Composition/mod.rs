@@ -10,6 +10,7 @@ impl ICompositionCapabilitiesInteropFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionCapabilitiesInteropFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Composition")]
@@ -74,6 +75,7 @@ impl ICompositionDrawingSurfaceInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionDrawingSurfaceInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginDraw: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::RECT, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut super::super::super::Foundation::POINT) -> windows_core::HRESULT,
@@ -161,6 +163,7 @@ impl ICompositionDrawingSurfaceInterop2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionDrawingSurfaceInterop2_Vtbl {
     pub base__: ICompositionDrawingSurfaceInterop_Vtbl,
     pub CopySurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *const super::super::super::Foundation::RECT) -> windows_core::HRESULT,
@@ -200,6 +203,7 @@ impl ICompositionGraphicsDeviceInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionGraphicsDeviceInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRenderingDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -248,6 +252,7 @@ impl ICompositionTextureInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionTextureInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAvailableFence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -285,6 +290,7 @@ impl ICompositorDesktopInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositorDesktopInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "UI_Composition_Desktop")]
@@ -363,6 +369,7 @@ impl ICompositorInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositorInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "UI_Composition")]
@@ -460,6 +467,7 @@ impl ICompositorInterop2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositorInterop2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CheckCompositionTextureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -523,6 +531,7 @@ impl IDesktopWindowTargetInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDesktopWindowTargetInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Hwnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT,
@@ -560,6 +569,7 @@ impl IVisualInteractionSourceInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualInteractionSourceInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]

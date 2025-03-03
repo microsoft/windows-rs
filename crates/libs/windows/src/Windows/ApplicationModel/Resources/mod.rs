@@ -7,6 +7,7 @@ impl windows_core::RuntimeType for IResourceLoader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceLoader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16,6 +17,7 @@ impl windows_core::RuntimeType for IResourceLoader2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceLoader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetStringForUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25,6 +27,7 @@ impl windows_core::RuntimeType for IResourceLoaderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceLoaderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateResourceLoaderByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34,6 +37,7 @@ impl windows_core::RuntimeType for IResourceLoaderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceLoaderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetStringForReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -43,6 +47,7 @@ impl windows_core::RuntimeType for IResourceLoaderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceLoaderStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -55,6 +60,7 @@ impl windows_core::RuntimeType for IResourceLoaderStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceLoaderStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI")]
@@ -67,6 +73,7 @@ impl windows_core::RuntimeType for IResourceLoaderStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceLoaderStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefaultPriPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

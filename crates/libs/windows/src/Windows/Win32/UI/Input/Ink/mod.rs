@@ -6,6 +6,7 @@ impl IInkCommitRequestHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkCommitRequestHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCommitRequested: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -40,6 +41,7 @@ impl IInkD2DRenderer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkD2DRenderer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -74,6 +76,7 @@ impl IInkD2DRenderer2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkD2DRenderer2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, INK_HIGH_CONTRAST_ADJUSTMENT) -> windows_core::HRESULT,
@@ -122,6 +125,7 @@ impl IInkDesktopHost {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkDesktopHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueueWorkItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -173,6 +177,7 @@ impl IInkHostWorkItem {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkHostWorkItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -222,6 +227,7 @@ impl IInkPresenterDesktop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkPresenterDesktop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetRootVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,

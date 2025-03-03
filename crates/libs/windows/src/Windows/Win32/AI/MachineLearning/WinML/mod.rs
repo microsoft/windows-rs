@@ -49,6 +49,7 @@ impl IMLOperatorAttributes {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorAttributes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAttributeElementCount: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, MLOperatorAttributeType, *mut u32) -> windows_core::HRESULT,
@@ -124,6 +125,7 @@ impl IMLOperatorKernel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorKernel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Compute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -182,6 +184,7 @@ impl IMLOperatorKernelContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorKernelContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInputTensor: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -318,6 +321,7 @@ impl IMLOperatorKernelCreationContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorKernelCreationContext_Vtbl {
     pub base__: IMLOperatorAttributes_Vtbl,
     pub GetInputCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -447,6 +451,7 @@ impl IMLOperatorKernelFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorKernelFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateKernel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -494,6 +499,7 @@ impl IMLOperatorRegistry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorRegistry_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterOperatorSetSchema: unsafe extern "system" fn(*mut core::ffi::c_void, *const MLOperatorSetId, i32, *const *const MLOperatorSchemaDescription, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -569,6 +575,7 @@ impl IMLOperatorShapeInferenceContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorShapeInferenceContext_Vtbl {
     pub base__: IMLOperatorAttributes_Vtbl,
     pub GetInputCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -680,6 +687,7 @@ impl IMLOperatorShapeInferrer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorShapeInferrer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InferOutputShapes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -732,6 +740,7 @@ impl IMLOperatorTensor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorTensor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDimensionCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -837,6 +846,7 @@ impl IMLOperatorTensorShapeDescription {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorTensorShapeDescription_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInputTensorDimensionCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -942,6 +952,7 @@ impl IMLOperatorTypeInferenceContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorTypeInferenceContext_Vtbl {
     pub base__: IMLOperatorAttributes_Vtbl,
     pub GetInputCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -1029,6 +1040,7 @@ impl IMLOperatorTypeInferrer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLOperatorTypeInferrer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InferOutputTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1073,6 +1085,7 @@ impl IWinMLEvaluationContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinMLEvaluationContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1157,6 +1170,7 @@ impl IWinMLModel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinMLModel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut WINML_MODEL_DESC) -> windows_core::HRESULT,
@@ -1257,6 +1271,7 @@ impl IWinMLRuntime {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinMLRuntime_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LoadModel: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1329,6 +1344,7 @@ impl IWinMLRuntimeFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinMLRuntimeFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateRuntime: unsafe extern "system" fn(*mut core::ffi::c_void, WINML_RUNTIME_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

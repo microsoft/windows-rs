@@ -21,6 +21,7 @@ impl IPrintDocumentPageSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintDocumentPageSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_Xps_Printing")]
@@ -89,6 +90,7 @@ impl IPrintManagerInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintManagerInterop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -137,6 +139,7 @@ impl IPrintPreviewPageCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintPreviewPageCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Paginate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -193,6 +196,7 @@ impl IPrintWorkflowConfigurationNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintWorkflowConfigurationNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
@@ -284,6 +288,7 @@ impl IPrintWorkflowObjectModelSourceFileContentNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartXpsOMGeneration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -342,6 +347,7 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_Xps")]
@@ -413,6 +419,7 @@ impl IPrintWorkflowXpsReceiver {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintWorkflowXpsReceiver_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -500,6 +507,7 @@ impl IPrintWorkflowXpsReceiver2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintWorkflowXpsReceiver2_Vtbl {
     pub base__: IPrintWorkflowXpsReceiver_Vtbl,
     pub Failed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -544,6 +552,7 @@ impl IPrinting3DManagerInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrinting3DManagerInterop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -3687,6 +3687,7 @@ impl IDebugExtendedProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugExtendedProperty_Vtbl {
     pub base__: IDebugProperty_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3763,6 +3764,7 @@ impl IDebugProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DebugPropertyInfo) -> windows_core::HRESULT,
@@ -3853,6 +3855,7 @@ impl IDebugPropertyEnumType_All {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugPropertyEnumType_All_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3890,6 +3893,7 @@ impl core::ops::Deref for IDebugPropertyEnumType_Arguments {
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Arguments, windows_core::IUnknown, IDebugPropertyEnumType_All);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugPropertyEnumType_Arguments_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
@@ -3912,6 +3916,7 @@ impl core::ops::Deref for IDebugPropertyEnumType_Locals {
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Locals, windows_core::IUnknown, IDebugPropertyEnumType_All);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugPropertyEnumType_Locals_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
@@ -3934,6 +3939,7 @@ impl core::ops::Deref for IDebugPropertyEnumType_LocalsPlusArgs {
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_LocalsPlusArgs, windows_core::IUnknown, IDebugPropertyEnumType_All);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
@@ -3956,6 +3962,7 @@ impl core::ops::Deref for IDebugPropertyEnumType_Registers {
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Registers, windows_core::IUnknown, IDebugPropertyEnumType_All);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugPropertyEnumType_Registers_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
@@ -3996,6 +4003,7 @@ impl IEnumDebugExtendedPropertyInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4101,6 +4109,7 @@ impl IEnumDebugPropertyInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDebugPropertyInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DebugPropertyInfo, *mut u32) -> windows_core::HRESULT,
@@ -5506,6 +5515,7 @@ impl IObjectSafety {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectSafety_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterfaceSafetyOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -5587,6 +5597,7 @@ impl IPerPropertyBrowsing2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPerPropertyBrowsing2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDisplayString: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

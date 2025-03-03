@@ -99,6 +99,7 @@ impl IGpioControllerProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioControllerProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PinCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -325,6 +326,7 @@ impl IGpioPinProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioPinProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -344,6 +346,7 @@ impl windows_core::RuntimeType for IGpioPinProviderValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioPinProviderValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Edge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioPinEdge) -> windows_core::HRESULT,
@@ -353,6 +356,7 @@ impl windows_core::RuntimeType for IGpioPinProviderValueChangedEventArgsFactory 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioPinProviderValueChangedEventArgsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderGpioPinEdge, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -399,6 +403,7 @@ impl IGpioProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -12,6 +12,7 @@ impl IAudioFrameNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioFrameNative_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -48,6 +49,7 @@ impl IAudioFrameNativeFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioFrameNativeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -98,6 +100,7 @@ impl IVideoFrameNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVideoFrameNative_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -147,6 +150,7 @@ impl IVideoFrameNativeFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVideoFrameNativeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]

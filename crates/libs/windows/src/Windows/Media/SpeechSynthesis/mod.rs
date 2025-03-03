@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IInstalledVoicesStatic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInstalledVoicesStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllVoices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13,6 +14,7 @@ impl windows_core::RuntimeType for IInstalledVoicesStatic2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInstalledVoicesStatic2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TrySetDefaultVoiceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25,6 +27,7 @@ impl windows_core::RuntimeType for ISpeechSynthesisStream {
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechSynthesisStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Markers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34,6 +37,7 @@ impl windows_core::RuntimeType for ISpeechSynthesizer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechSynthesizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
@@ -52,6 +56,7 @@ impl windows_core::RuntimeType for ISpeechSynthesizer2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechSynthesizer2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -61,6 +66,7 @@ impl windows_core::RuntimeType for ISpeechSynthesizerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechSynthesizerOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IncludeWordBoundaryMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -73,6 +79,7 @@ impl windows_core::RuntimeType for ISpeechSynthesizerOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechSynthesizerOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AudioVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -87,6 +94,7 @@ impl windows_core::RuntimeType for ISpeechSynthesizerOptions3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechSynthesizerOptions3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppendedSilence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechAppendedSilence) -> windows_core::HRESULT,
@@ -99,6 +107,7 @@ impl windows_core::RuntimeType for IVoiceInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

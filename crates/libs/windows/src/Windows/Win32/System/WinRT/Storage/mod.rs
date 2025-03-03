@@ -139,6 +139,7 @@ impl IOplockBreakingHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOplockBreakingHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OplockBreaking: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -172,6 +173,7 @@ impl IRandomAccessStreamFileAccessMode {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRandomAccessStreamFileAccessMode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -215,6 +217,7 @@ impl IStorageFolderHandleAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageFolderHandleAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, HANDLE_CREATION_OPTIONS, HANDLE_ACCESS_OPTIONS, HANDLE_SHARING_OPTIONS, HANDLE_OPTIONS, *mut core::ffi::c_void, *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -257,6 +260,7 @@ impl IStorageItemHandleAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageItemHandleAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, HANDLE_ACCESS_OPTIONS, HANDLE_SHARING_OPTIONS, HANDLE_OPTIONS, *mut core::ffi::c_void, *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -293,6 +297,7 @@ impl IUnbufferedFileHandleOplockCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUnbufferedFileHandleOplockCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnBrokenCallback: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -332,6 +337,7 @@ impl IUnbufferedFileHandleProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUnbufferedFileHandleProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OpenUnbufferedFileHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,

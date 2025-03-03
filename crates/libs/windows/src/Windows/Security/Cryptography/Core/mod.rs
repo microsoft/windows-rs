@@ -970,6 +970,7 @@ impl windows_core::RuntimeType for IAsymmetricAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAsymmetricAlgorithmNamesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RsaPkcs1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -996,6 +997,7 @@ impl windows_core::RuntimeType for IAsymmetricAlgorithmNamesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAsymmetricAlgorithmNamesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EcdsaSha256: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1007,6 +1009,7 @@ impl windows_core::RuntimeType for IAsymmetricKeyAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAsymmetricKeyAlgorithmProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AlgorithmName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1033,6 +1036,7 @@ impl windows_core::RuntimeType for IAsymmetricKeyAlgorithmProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAsymmetricKeyAlgorithmProvider2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateKeyPairWithCurveName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1043,6 +1047,7 @@ impl windows_core::RuntimeType for IAsymmetricKeyAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAsymmetricKeyAlgorithmProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1052,6 +1057,7 @@ impl windows_core::RuntimeType for ICryptographicEngineStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICryptographicEngineStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1088,6 +1094,7 @@ impl windows_core::RuntimeType for ICryptographicEngineStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICryptographicEngineStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1116,6 +1123,7 @@ impl windows_core::RuntimeType for ICryptographicKey {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICryptographicKey_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub KeySize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1141,6 +1149,7 @@ impl windows_core::RuntimeType for IEccCurveNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEccCurveNamesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BrainpoolP160r1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1195,6 +1204,7 @@ impl windows_core::RuntimeType for IEncryptedAndAuthenticatedData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEncryptedAndAuthenticatedData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1211,6 +1221,7 @@ impl windows_core::RuntimeType for IHashAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHashAlgorithmNamesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Md5: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1224,6 +1235,7 @@ impl windows_core::RuntimeType for IHashAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHashAlgorithmProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AlgorithmName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1239,6 +1251,7 @@ impl windows_core::RuntimeType for IHashAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHashAlgorithmProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1248,6 +1261,7 @@ impl windows_core::RuntimeType for IHashComputation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHashComputation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1264,6 +1278,7 @@ impl windows_core::RuntimeType for IKeyDerivationAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyDerivationAlgorithmNamesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Pbkdf2Md5: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1287,6 +1302,7 @@ impl windows_core::RuntimeType for IKeyDerivationAlgorithmNamesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyDerivationAlgorithmNamesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CapiKdfMd5: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1300,6 +1316,7 @@ impl windows_core::RuntimeType for IKeyDerivationAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyDerivationAlgorithmProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AlgorithmName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1313,6 +1330,7 @@ impl windows_core::RuntimeType for IKeyDerivationAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyDerivationAlgorithmProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1322,6 +1340,7 @@ impl windows_core::RuntimeType for IKeyDerivationParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyDerivationParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1339,6 +1358,7 @@ impl windows_core::RuntimeType for IKeyDerivationParameters2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyDerivationParameters2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Capi1KdfTargetAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Capi1KdfTargetAlgorithm) -> windows_core::HRESULT,
@@ -1349,6 +1369,7 @@ impl windows_core::RuntimeType for IKeyDerivationParametersStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyDerivationParametersStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1369,6 +1390,7 @@ impl windows_core::RuntimeType for IKeyDerivationParametersStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyDerivationParametersStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BuildForCapi1Kdf: unsafe extern "system" fn(*mut core::ffi::c_void, Capi1KdfTargetAlgorithm, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1378,6 +1400,7 @@ impl windows_core::RuntimeType for IMacAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMacAlgorithmNamesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HmacMd5: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1392,6 +1415,7 @@ impl windows_core::RuntimeType for IMacAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMacAlgorithmProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AlgorithmName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1406,6 +1430,7 @@ impl windows_core::RuntimeType for IMacAlgorithmProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMacAlgorithmProvider2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1418,6 +1443,7 @@ impl windows_core::RuntimeType for IMacAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMacAlgorithmProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1427,6 +1453,7 @@ impl windows_core::RuntimeType for IPersistedKeyProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPersistedKeyProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -1443,6 +1470,7 @@ impl windows_core::RuntimeType for ISymmetricAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISymmetricAlgorithmNamesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesCbc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1470,6 +1498,7 @@ impl windows_core::RuntimeType for ISymmetricKeyAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISymmetricKeyAlgorithmProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AlgorithmName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1484,6 +1513,7 @@ impl windows_core::RuntimeType for ISymmetricKeyAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISymmetricKeyAlgorithmProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

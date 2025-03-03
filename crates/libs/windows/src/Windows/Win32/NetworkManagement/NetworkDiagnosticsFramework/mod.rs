@@ -229,6 +229,7 @@ impl INetDiagExtensibleHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetDiagExtensibleHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ResolveAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const HELPER_ATTRIBUTE, *mut u32, *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT,
@@ -325,6 +326,7 @@ impl INetDiagHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetDiagHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const HELPER_ATTRIBUTE) -> windows_core::HRESULT,
@@ -538,6 +540,7 @@ impl INetDiagHelperEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetDiagHelperEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReconfirmLowHealth: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const HypothesisResult, *mut windows_core::PWSTR, *mut DIAGNOSIS_STATUS) -> windows_core::HRESULT,
@@ -589,6 +592,7 @@ impl INetDiagHelperInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetDiagHelperInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAttributeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut HelperAttributeInfo) -> windows_core::HRESULT,
@@ -623,6 +627,7 @@ impl INetDiagHelperUtilFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetDiagHelperUtilFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateUtilityInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

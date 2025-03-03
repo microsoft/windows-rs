@@ -34,6 +34,7 @@ impl IGeometrySource2DInterop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGeometrySource2DInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D")]
@@ -131,6 +132,7 @@ impl IGraphicsEffectD2D1Interop {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsEffectD2D1Interop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEffectId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,

@@ -65,6 +65,7 @@ impl windows_core::RuntimeType for IApplicationProfileStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApplicationProfileStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Modes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ApplicationProfileModes) -> windows_core::HRESULT,

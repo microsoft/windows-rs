@@ -840,6 +840,7 @@ impl IActiveIME {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveIME_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Inquire: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut IMEINFO, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
@@ -1050,6 +1051,7 @@ impl IActiveIME2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveIME2_Vtbl {
     pub base__: IActiveIME_Vtbl,
     pub Sleep: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1405,6 +1407,7 @@ impl IActiveIMMApp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveIMMApp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AssociateContext: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, HIMC, *mut HIMC) -> windows_core::HRESULT,
@@ -2631,6 +2634,7 @@ impl IActiveIMMIME {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveIMMIME_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AssociateContext: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, HIMC, *mut HIMC) -> windows_core::HRESULT,
@@ -3715,6 +3719,7 @@ impl IActiveIMMMessagePumpOwner {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveIMMMessagePumpOwner_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3803,6 +3808,7 @@ impl IActiveIMMRegistrar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveIMMRegistrar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterIME: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -3857,6 +3863,7 @@ impl IEnumInputContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumInputContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3935,6 +3942,7 @@ impl IEnumRegisterWordA {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumRegisterWordA_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4013,6 +4021,7 @@ impl IEnumRegisterWordW {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumRegisterWordW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4085,6 +4094,7 @@ impl core::ops::Deref for IFEClassFactory {
 windows_core::imp::interface_hierarchy!(IFEClassFactory, windows_core::IUnknown, super::super::super::System::Com::IClassFactory);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFEClassFactory_Vtbl {
     pub base__: super::super::super::System::Com::IClassFactory_Vtbl,
 }
@@ -4118,6 +4128,7 @@ impl IFECommon {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFECommon_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsDefaultIME: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, i32) -> windows_core::HRESULT,
@@ -4359,6 +4370,7 @@ impl IFEDictionary {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFEDictionary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, *mut IMESHF) -> windows_core::HRESULT,
@@ -4554,6 +4566,7 @@ impl IFELanguage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFELanguage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4643,6 +4656,7 @@ impl IImePad {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImePad_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM) -> windows_core::HRESULT,
@@ -4692,6 +4706,7 @@ impl IImePadApplet {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImePadApplet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4771,6 +4786,7 @@ impl IImePlugInDictDictionaryList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImePlugInDictDictionaryList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4819,6 +4835,7 @@ impl IImeSpecifyApplets {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImeSpecifyApplets_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAppletIIDList: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut APPLETIDLIST) -> windows_core::HRESULT,

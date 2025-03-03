@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for ILocalCategoriesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocalCategoriesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BankAndCreditUnions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19,6 +20,7 @@ impl windows_core::RuntimeType for ILocalLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocalLocation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37,6 +39,7 @@ impl windows_core::RuntimeType for ILocalLocation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocalLocation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -48,6 +51,7 @@ impl windows_core::RuntimeType for ILocalLocationFinderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocalLocationFinderResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LocalLocations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -58,6 +62,7 @@ impl windows_core::RuntimeType for ILocalLocationFinderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocalLocationFinderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -70,6 +75,7 @@ impl windows_core::RuntimeType for ILocalLocationHoursOfOperationItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocalLocationHoursOfOperationItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Globalization")]
@@ -84,6 +90,7 @@ impl windows_core::RuntimeType for ILocalLocationRatingInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocalLocationRatingInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AggregateRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -95,6 +102,7 @@ impl windows_core::RuntimeType for IPlaceInfoHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlaceInfoHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromLocalLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

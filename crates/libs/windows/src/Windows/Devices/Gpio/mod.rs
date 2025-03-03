@@ -516,6 +516,7 @@ impl windows_core::RuntimeType for IGpioChangeCounter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioChangeCounter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetPolarity: unsafe extern "system" fn(*mut core::ffi::c_void, GpioChangePolarity) -> windows_core::HRESULT,
@@ -531,6 +532,7 @@ impl windows_core::RuntimeType for IGpioChangeCounterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioChangeCounterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -540,6 +542,7 @@ impl windows_core::RuntimeType for IGpioChangeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioChangeReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Capacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -562,6 +565,7 @@ impl windows_core::RuntimeType for IGpioChangeReaderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioChangeReaderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -572,6 +576,7 @@ impl windows_core::RuntimeType for IGpioController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PinCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -584,6 +589,7 @@ impl windows_core::RuntimeType for IGpioControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -593,6 +599,7 @@ impl windows_core::RuntimeType for IGpioControllerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioControllerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Gpio_Provider")]
@@ -606,6 +613,7 @@ impl windows_core::RuntimeType for IGpioPin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioPin_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -625,6 +633,7 @@ impl windows_core::RuntimeType for IGpioPinValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGpioPinValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Edge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GpioPinEdge) -> windows_core::HRESULT,

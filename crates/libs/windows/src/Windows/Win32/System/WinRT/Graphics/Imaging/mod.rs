@@ -11,6 +11,7 @@ impl ISoftwareBitmapNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISoftwareBitmapNative_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -56,6 +57,7 @@ impl ISoftwareBitmapNativeFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISoftwareBitmapNativeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Imaging")]

@@ -21,6 +21,7 @@ impl IUIApplication {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIApplication_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnViewChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, UI_VIEWTYPE, *mut core::ffi::c_void, UI_VIEWVERB, i32) -> windows_core::HRESULT,
@@ -111,6 +112,7 @@ impl IUICollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUICollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -214,6 +216,7 @@ impl IUICollectionChangedEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUICollectionChangedEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_COLLECTIONCHANGE, u32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -255,6 +258,7 @@ impl IUICommandHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUICommandHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -312,6 +316,7 @@ impl IUIContextualUI {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIContextualUI_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ShowAtLocation: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -342,6 +347,7 @@ impl IUIEventLogger {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIEventLogger_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnUIEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const UI_EVENTPARAMS),
@@ -375,6 +381,7 @@ impl IUIEventingManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIEventingManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetEventLogger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -440,6 +447,7 @@ impl IUIFramework {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIFramework_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -564,6 +572,7 @@ impl IUIImage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIImage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -610,6 +619,7 @@ impl IUIImageFromBitmap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIImageFromBitmap_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -669,6 +679,7 @@ impl IUIRibbon {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIRibbon_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -739,6 +750,7 @@ impl IUISimplePropertySet {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUISimplePropertySet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]

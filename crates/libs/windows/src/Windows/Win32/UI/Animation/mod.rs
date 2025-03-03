@@ -36,6 +36,7 @@ impl IUIAnimationInterpolator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationInterpolator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetInitialValueAndVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
@@ -180,6 +181,7 @@ impl IUIAnimationInterpolator2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationInterpolator2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDimension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -300,6 +302,7 @@ impl IUIAnimationLoopIterationChangeHandler2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationLoopIterationChangeHandler2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnLoopIterationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, usize, u32, u32) -> windows_core::HRESULT,
@@ -424,6 +427,7 @@ impl IUIAnimationManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateAnimationVariable: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -755,6 +759,7 @@ impl IUIAnimationManager2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationManager2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateAnimationVectorVariable: unsafe extern "system" fn(*mut core::ffi::c_void, *const f64, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1010,6 +1015,7 @@ impl IUIAnimationManagerEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationManagerEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnManagerStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_MANAGER_STATUS, UI_ANIMATION_MANAGER_STATUS) -> windows_core::HRESULT,
@@ -1040,6 +1046,7 @@ impl IUIAnimationManagerEventHandler2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationManagerEventHandler2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnManagerStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_MANAGER_STATUS, UI_ANIMATION_MANAGER_STATUS) -> windows_core::HRESULT,
@@ -1073,6 +1080,7 @@ impl IUIAnimationPrimitiveInterpolation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationPrimitiveInterpolation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddCubic: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f64, f32, f32, f32, f32) -> windows_core::HRESULT,
@@ -1119,6 +1127,7 @@ impl IUIAnimationPriorityComparison {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationPriorityComparison_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HasPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::HRESULT,
@@ -1153,6 +1162,7 @@ impl IUIAnimationPriorityComparison2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationPriorityComparison2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HasPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::HRESULT,
@@ -1267,6 +1277,7 @@ impl IUIAnimationStoryboard {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationStoryboard_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1558,6 +1569,7 @@ impl IUIAnimationStoryboard2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationStoryboard2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1777,6 +1789,7 @@ impl IUIAnimationStoryboardEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationStoryboardEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStoryboardStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_STORYBOARD_STATUS, UI_ANIMATION_STORYBOARD_STATUS) -> windows_core::HRESULT,
@@ -1828,6 +1841,7 @@ impl IUIAnimationStoryboardEventHandler2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationStoryboardEventHandler2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStoryboardStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_STORYBOARD_STATUS, UI_ANIMATION_STORYBOARD_STATUS) -> windows_core::HRESULT,
@@ -1897,6 +1911,7 @@ impl IUIAnimationTimer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationTimer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTimerUpdateHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_IDLE_BEHAVIOR) -> windows_core::HRESULT,
@@ -1990,6 +2005,7 @@ impl IUIAnimationTimerClientEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationTimerClientEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnTimerClientStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_TIMER_CLIENT_STATUS, UI_ANIMATION_TIMER_CLIENT_STATUS) -> windows_core::HRESULT,
@@ -2026,6 +2042,7 @@ impl IUIAnimationTimerEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationTimerEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnPreUpdate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2089,6 +2106,7 @@ impl IUIAnimationTimerUpdateHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationTimerUpdateHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut UI_ANIMATION_UPDATE_RESULT) -> windows_core::HRESULT,
@@ -2158,6 +2176,7 @@ impl IUIAnimationTransition {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationTransition_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetInitialValue: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -2248,6 +2267,7 @@ impl IUIAnimationTransition2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationTransition2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDimension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2353,6 +2373,7 @@ impl IUIAnimationTransitionFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationTransitionFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2395,6 +2416,7 @@ impl IUIAnimationTransitionFactory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationTransitionFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2500,6 +2522,7 @@ impl IUIAnimationTransitionLibrary {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationTransitionLibrary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstantaneousTransition: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2815,6 +2838,7 @@ impl IUIAnimationTransitionLibrary2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationTransitionLibrary2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstantaneousTransition: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3193,6 +3217,7 @@ impl IUIAnimationVariable {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationVariable_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -3501,6 +3526,7 @@ impl IUIAnimationVariable2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationVariable2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDimension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3820,6 +3846,7 @@ impl IUIAnimationVariableChangeHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationVariableChangeHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
@@ -3854,6 +3881,7 @@ impl IUIAnimationVariableChangeHandler2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationVariableChangeHandler2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const f64, *const f64, u32) -> windows_core::HRESULT,
@@ -3887,6 +3915,7 @@ impl IUIAnimationVariableCurveChangeHandler2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationVariableCurveChangeHandler2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCurveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3921,6 +3950,7 @@ impl IUIAnimationVariableIntegerChangeHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationVariableIntegerChangeHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnIntegerValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -3955,6 +3985,7 @@ impl IUIAnimationVariableIntegerChangeHandler2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAnimationVariableIntegerChangeHandler2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnIntegerValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const i32, *const i32, u32) -> windows_core::HRESULT,

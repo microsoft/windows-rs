@@ -125,6 +125,7 @@ impl windows_core::RuntimeType for IBattery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBattery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -137,6 +138,7 @@ impl windows_core::RuntimeType for IBatteryReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBatteryReport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChargeRateInMilliwatts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -153,6 +155,7 @@ impl windows_core::RuntimeType for IBatteryStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBatteryStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AggregateBattery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -164,6 +167,7 @@ impl windows_core::RuntimeType for IPowerGridData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPowerGridData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Severity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -174,6 +178,7 @@ impl windows_core::RuntimeType for IPowerGridForecast {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPowerGridForecast_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
@@ -185,6 +190,7 @@ impl windows_core::RuntimeType for IPowerGridForecastStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPowerGridForecastStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForecast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

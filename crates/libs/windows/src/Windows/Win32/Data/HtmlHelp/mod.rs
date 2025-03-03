@@ -491,6 +491,7 @@ impl IITDatabase {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IITDatabase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -628,6 +629,7 @@ impl IITPropList {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IITPropList_Vtbl {
     pub base__: super::super::System::Com::IPersistStreamInit_Vtbl,
     pub Set: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -916,6 +918,7 @@ impl IITResultSet {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IITResultSet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetColumnPriority: unsafe extern "system" fn(*mut core::ffi::c_void, i32, PRIORITY) -> windows_core::HRESULT,
@@ -1221,6 +1224,7 @@ impl IStemSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStemSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PutAltWord: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -1275,6 +1279,7 @@ impl IStemmerConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStemmerConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLocaleInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -1391,6 +1396,7 @@ impl IWordBreakerConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWordBreakerConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLocaleInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,

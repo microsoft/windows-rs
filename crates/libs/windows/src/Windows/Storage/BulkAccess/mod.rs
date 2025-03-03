@@ -986,6 +986,7 @@ impl windows_core::RuntimeType for IFileInformationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileInformationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1015,6 +1016,7 @@ impl windows_core::RuntimeType for IFileInformationFactoryFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileInformationFactoryFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
@@ -1270,6 +1272,7 @@ impl IStorageItemInformation_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageItemInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_FileProperties")]

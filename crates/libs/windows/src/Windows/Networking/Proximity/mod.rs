@@ -41,6 +41,7 @@ impl DeviceArrivedEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct DeviceArrivedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -109,6 +110,7 @@ impl DeviceDepartedEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct DeviceDepartedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -164,6 +166,7 @@ impl windows_core::RuntimeType for IConnectionRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConnectionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PeerInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -173,6 +176,7 @@ impl windows_core::RuntimeType for IPeerFinderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPeerFinderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowBluetooth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -203,6 +207,7 @@ impl windows_core::RuntimeType for IPeerFinderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPeerFinderStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Role: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PeerRole) -> windows_core::HRESULT,
@@ -222,6 +227,7 @@ impl windows_core::RuntimeType for IPeerInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPeerInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -231,6 +237,7 @@ impl windows_core::RuntimeType for IPeerInformation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPeerInformation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -244,6 +251,7 @@ impl windows_core::RuntimeType for IPeerInformationWithHostAndService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPeerInformationWithHostAndService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HostName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -254,6 +262,7 @@ impl windows_core::RuntimeType for IPeerWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPeerWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Added: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -275,6 +284,7 @@ impl windows_core::RuntimeType for IProximityDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProximityDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SubscribeForMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -305,6 +315,7 @@ impl windows_core::RuntimeType for IProximityDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProximityDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -316,6 +327,7 @@ impl windows_core::RuntimeType for IProximityMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProximityMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MessageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -331,6 +343,7 @@ impl windows_core::RuntimeType for ITriggeredConnectionStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITriggeredConnectionStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TriggeredConnectState) -> windows_core::HRESULT,
@@ -359,6 +372,7 @@ impl MessageReceivedHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct MessageReceivedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -427,6 +441,7 @@ impl MessageTransmittedHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct MessageTransmittedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, messageid: i64) -> windows_core::HRESULT,

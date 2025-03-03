@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IRemoteTextConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteTextConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -16,6 +17,7 @@ impl windows_core::RuntimeType for IRemoteTextConnection2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteTextConnection2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportPredictedKeyEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u16, RemoteKeyEventAttributes) -> windows_core::HRESULT,
@@ -25,6 +27,7 @@ impl windows_core::RuntimeType for IRemoteTextConnectionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteTextConnectionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34,6 +37,7 @@ impl windows_core::RuntimeType for IRemoteTextConnectionFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteTextConnectionFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, RemoteTextConnectionOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -181,6 +185,7 @@ impl RemoteTextConnectionDataHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct RemoteTextConnectionDataHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, pdudata_array_size: u32, pdudata: *const u8, result__: *mut bool) -> windows_core::HRESULT,

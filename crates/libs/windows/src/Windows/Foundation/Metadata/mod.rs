@@ -185,6 +185,7 @@ impl windows_core::RuntimeType for IApiInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApiInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsTypePresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

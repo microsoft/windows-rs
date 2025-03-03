@@ -56,6 +56,7 @@ impl IGraphicsEffect_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -79,6 +80,7 @@ impl IGraphicsEffectSource_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGraphicsEffectSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }

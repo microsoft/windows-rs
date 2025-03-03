@@ -340,6 +340,7 @@ impl windows_core::RuntimeType for ICompositionConditionalValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionConditionalValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Condition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -352,6 +353,7 @@ impl windows_core::RuntimeType for ICompositionConditionalValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionConditionalValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -374,6 +376,7 @@ impl ICompositionInteractionSource_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionInteractionSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -382,6 +385,7 @@ impl windows_core::RuntimeType for ICompositionInteractionSourceCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICompositionInteractionSourceCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -394,6 +398,7 @@ impl windows_core::RuntimeType for IInteractionSourceConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionSourceConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PositionXSourceMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InteractionSourceRedirectionMode) -> windows_core::HRESULT,
@@ -408,6 +413,7 @@ impl windows_core::RuntimeType for IInteractionTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTracker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InteractionSources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -449,6 +455,7 @@ impl windows_core::RuntimeType for IInteractionTracker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTracker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConfigureCenterPointXInertiaModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -459,6 +466,7 @@ impl windows_core::RuntimeType for IInteractionTracker3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTracker3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConfigureVector2PositionInertiaModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -468,6 +476,7 @@ impl windows_core::RuntimeType for IInteractionTracker4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTracker4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryUpdatePositionWithOption: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, InteractionTrackerClampingOption, *mut i32) -> windows_core::HRESULT,
@@ -479,6 +488,7 @@ impl windows_core::RuntimeType for IInteractionTracker5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTracker5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryUpdatePositionWithOption: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, InteractionTrackerClampingOption, InteractionTrackerPositionUpdateOption, *mut i32) -> windows_core::HRESULT,
@@ -488,6 +498,7 @@ impl windows_core::RuntimeType for IInteractionTrackerCustomAnimationStateEntere
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -497,6 +508,7 @@ impl windows_core::RuntimeType for IInteractionTrackerCustomAnimationStateEntere
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerCustomAnimationStateEnteredArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsFromBinding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -506,6 +518,7 @@ impl windows_core::RuntimeType for IInteractionTrackerIdleStateEnteredArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerIdleStateEnteredArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -515,6 +528,7 @@ impl windows_core::RuntimeType for IInteractionTrackerIdleStateEnteredArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerIdleStateEnteredArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsFromBinding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -524,6 +538,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaModifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInertiaModifier_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -532,6 +547,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaModifierFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInertiaModifierFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -540,6 +556,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaMotion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInertiaMotion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Condition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -552,6 +569,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaMotionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInertiaMotionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -561,6 +579,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaNaturalMotion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInertiaNaturalMotion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Condition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -573,6 +592,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaNaturalMotionStatic
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInertiaNaturalMotionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -582,6 +602,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaRestingValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInertiaRestingValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Condition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -594,6 +615,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaRestingValueStatics
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInertiaRestingValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -603,6 +625,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaStateEnteredArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ModifiedRestingPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -618,6 +641,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaStateEnteredArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsInertiaFromImpulse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -627,6 +651,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInertiaStateEnteredArgs3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsFromBinding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -636,6 +661,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInteractingStateEnteredArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInteractingStateEnteredArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -645,6 +671,7 @@ impl windows_core::RuntimeType for IInteractionTrackerInteractingStateEnteredArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerInteractingStateEnteredArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsFromBinding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -768,6 +795,7 @@ impl IInteractionTrackerOwner_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerOwner_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CustomAnimationStateEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -782,6 +810,7 @@ impl windows_core::RuntimeType for IInteractionTrackerRequestIgnoredArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerRequestIgnoredArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -791,6 +820,7 @@ impl windows_core::RuntimeType for IInteractionTrackerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -801,6 +831,7 @@ impl windows_core::RuntimeType for IInteractionTrackerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetBindingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, InteractionBindingAxisModes) -> windows_core::HRESULT,
@@ -811,6 +842,7 @@ impl windows_core::RuntimeType for IInteractionTrackerValuesChangedArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerValuesChangedArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
@@ -822,6 +854,7 @@ impl windows_core::RuntimeType for IInteractionTrackerVector2InertiaModifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaModifier_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -830,6 +863,7 @@ impl windows_core::RuntimeType for IInteractionTrackerVector2InertiaModifierFact
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaModifierFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -838,6 +872,7 @@ impl windows_core::RuntimeType for IInteractionTrackerVector2InertiaNaturalMotio
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaNaturalMotion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Condition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -850,6 +885,7 @@ impl windows_core::RuntimeType for IInteractionTrackerVector2InertiaNaturalMotio
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaNaturalMotionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -859,6 +895,7 @@ impl windows_core::RuntimeType for IVisualInteractionSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualInteractionSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPositionXRailsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -890,6 +927,7 @@ impl windows_core::RuntimeType for IVisualInteractionSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualInteractionSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeltaPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
@@ -909,6 +947,7 @@ impl windows_core::RuntimeType for IVisualInteractionSource3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualInteractionSource3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PointerWheelConfig: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -918,6 +957,7 @@ impl windows_core::RuntimeType for IVisualInteractionSourceObjectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualInteractionSourceObjectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -926,6 +966,7 @@ impl windows_core::RuntimeType for IVisualInteractionSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualInteractionSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -935,6 +976,7 @@ impl windows_core::RuntimeType for IVisualInteractionSourceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualInteractionSourceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromIVisualElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

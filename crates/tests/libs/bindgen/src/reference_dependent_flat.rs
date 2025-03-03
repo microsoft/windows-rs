@@ -60,6 +60,7 @@ pub mod Windows {
             }
         }
         #[repr(C)]
+        #[doc(hidden)]
         pub struct IClosable_Vtbl {
             pub base__: windows_core::IInspectable_Vtbl,
             pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -145,6 +146,7 @@ pub mod Windows {
             }
         }
         #[repr(C)]
+        #[doc(hidden)]
         pub struct IMemoryBuffer_Vtbl {
             pub base__: windows_core::IInspectable_Vtbl,
             pub CreateReference: unsafe extern "system" fn(

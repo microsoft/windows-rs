@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IPushNotificationChannel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPushNotificationChannel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16,6 +17,7 @@ impl windows_core::RuntimeType for IPushNotificationChannelManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPushNotificationChannelManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreatePushNotificationChannelForApplicationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31,6 +33,7 @@ impl windows_core::RuntimeType for IPushNotificationChannelManagerForUser2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPushNotificationChannelManagerForUser2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -47,6 +50,7 @@ impl windows_core::RuntimeType for IPushNotificationChannelManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreatePushNotificationChannelForApplicationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -58,6 +62,7 @@ impl windows_core::RuntimeType for IPushNotificationChannelManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -70,6 +75,7 @@ impl windows_core::RuntimeType for IPushNotificationChannelManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -79,6 +85,7 @@ impl windows_core::RuntimeType for IPushNotificationChannelManagerStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChannelsRevoked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -89,6 +96,7 @@ impl windows_core::RuntimeType for IPushNotificationChannelsRevokedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPushNotificationChannelsRevokedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -97,6 +105,7 @@ impl windows_core::RuntimeType for IPushNotificationReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPushNotificationReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetCancel: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -121,6 +130,7 @@ impl windows_core::RuntimeType for IRawNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -130,6 +140,7 @@ impl windows_core::RuntimeType for IRawNotification2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawNotification2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -140,6 +151,7 @@ impl windows_core::RuntimeType for IRawNotification3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawNotification3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]

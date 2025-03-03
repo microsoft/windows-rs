@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IMiracastReceiver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefaultSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30,6 +31,7 @@ impl windows_core::RuntimeType for IMiracastReceiverApplySettingsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverApplySettingsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MiracastReceiverApplySettingsStatus) -> windows_core::HRESULT,
@@ -40,6 +42,7 @@ impl windows_core::RuntimeType for IMiracastReceiverConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void, MiracastReceiverDisconnectReason) -> windows_core::HRESULT,
@@ -58,6 +61,7 @@ impl windows_core::RuntimeType for IMiracastReceiverConnectionCreatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverConnectionCreatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -69,6 +73,7 @@ impl windows_core::RuntimeType for IMiracastReceiverCursorImageChannel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverCursorImageChannel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -94,6 +99,7 @@ impl windows_core::RuntimeType for IMiracastReceiverCursorImageChannelSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverCursorImageChannelSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -112,6 +118,7 @@ impl windows_core::RuntimeType for IMiracastReceiverDisconnectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverDisconnectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -121,6 +128,7 @@ impl windows_core::RuntimeType for IMiracastReceiverGameControllerDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverGameControllerDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransmitInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -137,6 +145,7 @@ impl windows_core::RuntimeType for IMiracastReceiverInputDevices {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverInputDevices_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Keyboard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -147,6 +156,7 @@ impl windows_core::RuntimeType for IMiracastReceiverKeyboardDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverKeyboardDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransmitInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -161,6 +171,7 @@ impl windows_core::RuntimeType for IMiracastReceiverMediaSourceCreatedEventArgs 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverMediaSourceCreatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -176,6 +187,7 @@ impl windows_core::RuntimeType for IMiracastReceiverSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConnectionCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -196,6 +208,7 @@ impl windows_core::RuntimeType for IMiracastReceiverSessionStartResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverSessionStartResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MiracastReceiverSessionStartStatus) -> windows_core::HRESULT,
@@ -206,6 +219,7 @@ impl windows_core::RuntimeType for IMiracastReceiverSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -224,6 +238,7 @@ impl windows_core::RuntimeType for IMiracastReceiverStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverStatus_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ListeningStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MiracastReceiverListeningStatus) -> windows_core::HRESULT,
@@ -237,6 +252,7 @@ impl windows_core::RuntimeType for IMiracastReceiverStreamControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverStreamControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetVideoStreamSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -251,6 +267,7 @@ impl windows_core::RuntimeType for IMiracastReceiverVideoStreamSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastReceiverVideoStreamSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
@@ -269,6 +286,7 @@ impl windows_core::RuntimeType for IMiracastTransmitter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMiracastTransmitter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

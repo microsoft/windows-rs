@@ -141,6 +141,7 @@ impl IContact {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContact_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContactID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -237,6 +238,7 @@ impl IContactAggregationAggregate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAggregationAggregate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Save: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -396,6 +398,7 @@ impl IContactAggregationAggregateCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAggregationAggregateCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindFirst: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -567,6 +570,7 @@ impl IContactAggregationContact {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAggregationContact_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -842,6 +846,7 @@ impl IContactAggregationContactCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAggregationContactCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindFirst: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -989,6 +994,7 @@ impl IContactAggregationGroup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAggregationGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1148,6 +1154,7 @@ impl IContactAggregationGroupCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAggregationGroupCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindFirst: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1316,6 +1323,7 @@ impl IContactAggregationLink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAggregationLink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1566,6 +1574,7 @@ impl IContactAggregationLinkCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAggregationLinkCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindFirst: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1749,6 +1758,7 @@ impl IContactAggregationManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAggregationManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetVersionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -2100,6 +2110,7 @@ impl IContactAggregationServerPerson {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAggregationServerPerson_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2439,6 +2450,7 @@ impl IContactAggregationServerPersonCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAggregationServerPersonCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindFirst: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2562,6 +2574,7 @@ impl IContactCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2657,6 +2670,7 @@ impl IContactManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2833,6 +2847,7 @@ impl IContactProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -3001,6 +3016,7 @@ impl IContactPropertyCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPropertyCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,

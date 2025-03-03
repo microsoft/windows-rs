@@ -92,6 +92,7 @@ impl DeferralCompletedHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct DeferralCompletedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -210,6 +211,7 @@ impl IClosable_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IClosable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -224,6 +226,7 @@ impl windows_core::RuntimeType for IDeferral {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -238,6 +241,7 @@ impl windows_core::RuntimeType for IDeferralFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeferralFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(

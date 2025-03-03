@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IXsltProcessor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXsltProcessor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -15,6 +16,7 @@ impl windows_core::RuntimeType for IXsltProcessor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXsltProcessor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -27,6 +29,7 @@ impl windows_core::RuntimeType for IXsltProcessorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXsltProcessorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]

@@ -16,6 +16,7 @@ impl windows_core::RuntimeType for IJumpList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJumpList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28,6 +29,7 @@ impl windows_core::RuntimeType for IJumpListItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJumpListItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut JumpListItemKind) -> windows_core::HRESULT,
@@ -47,6 +49,7 @@ impl windows_core::RuntimeType for IJumpListItemStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJumpListItemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -57,6 +60,7 @@ impl windows_core::RuntimeType for IJumpListStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJumpListStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LoadCurrentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -67,6 +71,7 @@ impl windows_core::RuntimeType for ISecondaryTile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecondaryTile_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -156,6 +161,7 @@ impl windows_core::RuntimeType for ISecondaryTile2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecondaryTile2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetPhoneticName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -171,6 +177,7 @@ impl windows_core::RuntimeType for ISecondaryTileFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecondaryTileFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -188,6 +195,7 @@ impl windows_core::RuntimeType for ISecondaryTileFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecondaryTileFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMinimalTile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, TileSize, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -197,6 +205,7 @@ impl windows_core::RuntimeType for ISecondaryTileStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecondaryTileStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Exists: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -209,6 +218,7 @@ impl windows_core::RuntimeType for ISecondaryTileVisualElements {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecondaryTileVisualElements_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
@@ -249,6 +259,7 @@ impl windows_core::RuntimeType for ISecondaryTileVisualElements2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecondaryTileVisualElements2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetSquare71x71Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -259,6 +270,7 @@ impl windows_core::RuntimeType for ISecondaryTileVisualElements3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecondaryTileVisualElements3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetSquare44x44Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -269,6 +281,7 @@ impl windows_core::RuntimeType for ISecondaryTileVisualElements4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecondaryTileVisualElements4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MixedRealityModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -278,6 +291,7 @@ impl windows_core::RuntimeType for IStartScreenManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStartScreenManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -302,6 +316,7 @@ impl windows_core::RuntimeType for IStartScreenManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStartScreenManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContainsSecondaryTileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -312,6 +327,7 @@ impl windows_core::RuntimeType for IStartScreenManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStartScreenManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -325,6 +341,7 @@ impl windows_core::RuntimeType for ITileMixedRealityModel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileMixedRealityModel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -343,6 +360,7 @@ impl windows_core::RuntimeType for ITileMixedRealityModel2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITileMixedRealityModel2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetActivationBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, TileMixedRealityModelActivationBehavior) -> windows_core::HRESULT,
@@ -353,6 +371,7 @@ impl windows_core::RuntimeType for IVisualElementsRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualElementsRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VisualElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -365,6 +384,7 @@ impl windows_core::RuntimeType for IVisualElementsRequestDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualElementsRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -374,6 +394,7 @@ impl windows_core::RuntimeType for IVisualElementsRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVisualElementsRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

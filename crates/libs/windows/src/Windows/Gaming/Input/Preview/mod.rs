@@ -156,6 +156,7 @@ impl windows_core::RuntimeType for IGameControllerProviderInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameControllerProviderInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Gaming_Input_Custom")]
@@ -172,6 +173,7 @@ impl windows_core::RuntimeType for ILegacyGipGameControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILegacyGipGameControllerProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BatteryChargingState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameControllerBatteryChargingState) -> windows_core::HRESULT,
@@ -202,6 +204,7 @@ impl windows_core::RuntimeType for ILegacyGipGameControllerProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILegacyGipGameControllerProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

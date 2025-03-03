@@ -311,6 +311,7 @@ impl windows_core::RuntimeType for IContentLinkInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContentLinkInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -329,6 +330,7 @@ impl windows_core::RuntimeType for IFontWeights {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFontWeights_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -337,6 +339,7 @@ impl windows_core::RuntimeType for IFontWeightsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFontWeightsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Black: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FontWeight) -> windows_core::HRESULT,
@@ -356,6 +359,7 @@ impl windows_core::RuntimeType for IRichEditTextRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRichEditTextRange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentLinkInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1227,6 +1231,7 @@ impl ITextCharacterFormat_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextCharacterFormat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FormatEffect) -> windows_core::HRESULT,
@@ -1285,6 +1290,7 @@ impl windows_core::RuntimeType for ITextConstantsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextConstantsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AutoColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
@@ -1791,6 +1797,7 @@ impl ITextDocument_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextDocument_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CaretType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CaretType) -> windows_core::HRESULT,
@@ -1832,6 +1839,7 @@ impl windows_core::RuntimeType for ITextDocument2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextDocument2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AlignmentIncludesTrailingWhitespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1844,6 +1852,7 @@ impl windows_core::RuntimeType for ITextDocument3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextDocument3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ClearUndoRedoHistory: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1853,6 +1862,7 @@ impl windows_core::RuntimeType for ITextDocument4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextDocument4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetMath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2681,6 +2691,7 @@ impl ITextParagraphFormat_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextParagraphFormat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Alignment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ParagraphAlignment) -> windows_core::HRESULT,
@@ -3643,6 +3654,7 @@ impl ITextRange_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextRange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Character: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -4239,6 +4251,7 @@ impl ITextSelection_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextSelection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SelectionOptions) -> windows_core::HRESULT,

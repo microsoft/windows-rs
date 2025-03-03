@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IInkAnalysisInkBullet {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalysisInkBullet_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12,6 +13,7 @@ impl windows_core::RuntimeType for IInkAnalysisInkDrawing {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalysisInkDrawing_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DrawingKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkAnalysisDrawingKind) -> windows_core::HRESULT,
@@ -23,6 +25,7 @@ impl windows_core::RuntimeType for IInkAnalysisInkWord {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalysisInkWord_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33,6 +36,7 @@ impl windows_core::RuntimeType for IInkAnalysisLine {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalysisLine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -43,6 +47,7 @@ impl windows_core::RuntimeType for IInkAnalysisListItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalysisListItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -221,6 +226,7 @@ impl IInkAnalysisNode_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalysisNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -236,6 +242,7 @@ impl windows_core::RuntimeType for IInkAnalysisParagraph {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalysisParagraph_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -245,6 +252,7 @@ impl windows_core::RuntimeType for IInkAnalysisResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalysisResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkAnalysisStatus) -> windows_core::HRESULT,
@@ -254,6 +262,7 @@ impl windows_core::RuntimeType for IInkAnalysisRoot {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalysisRoot_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -264,6 +273,7 @@ impl windows_core::RuntimeType for IInkAnalysisWritingRegion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalysisWritingRegion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -273,6 +283,7 @@ impl windows_core::RuntimeType for IInkAnalyzer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalyzer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AnalysisRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -328,6 +339,7 @@ impl IInkAnalyzerFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkAnalyzerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAnalyzer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

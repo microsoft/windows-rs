@@ -144,6 +144,7 @@ impl windows_core::RuntimeType for IAnimationDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnimationDescription_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Animations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -157,6 +158,7 @@ impl windows_core::RuntimeType for IAnimationDescriptionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnimationDescriptionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, AnimationEffect, AnimationEffectTarget, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -166,6 +168,7 @@ impl windows_core::RuntimeType for IOpacityAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOpacityAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InitialOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -299,6 +302,7 @@ impl IPropertyAnimation_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertyAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PropertyAnimationType) -> windows_core::HRESULT,
@@ -312,6 +316,7 @@ impl windows_core::RuntimeType for IScaleAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScaleAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InitialScaleX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

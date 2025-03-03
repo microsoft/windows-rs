@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IPreviewBuildsManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPreviewBuildsManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ArePreviewBuildsAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -15,6 +16,7 @@ impl windows_core::RuntimeType for IPreviewBuildsManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPreviewBuildsManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25,6 +27,7 @@ impl windows_core::RuntimeType for IPreviewBuildsState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPreviewBuildsState_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -37,6 +40,7 @@ impl windows_core::RuntimeType for IWindowsUpdate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -69,6 +73,7 @@ impl windows_core::RuntimeType for IWindowsUpdateActionCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateActionCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -81,6 +86,7 @@ impl windows_core::RuntimeType for IWindowsUpdateActionProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateActionProgress_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -91,6 +97,7 @@ impl windows_core::RuntimeType for IWindowsUpdateActionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateActionResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
@@ -103,6 +110,7 @@ impl windows_core::RuntimeType for IWindowsUpdateAdministrator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateAdministrator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartAdministratorScan: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -117,6 +125,7 @@ impl windows_core::RuntimeType for IWindowsUpdateAdministratorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateAdministratorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetRegisteredAdministrator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -131,6 +140,7 @@ impl windows_core::RuntimeType for IWindowsUpdateApprovalData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateApprovalData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Seeker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -149,6 +159,7 @@ impl windows_core::RuntimeType for IWindowsUpdateAttentionRequiredInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateAttentionRequiredInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsUpdateAttentionRequiredReason) -> windows_core::HRESULT,
@@ -159,6 +170,7 @@ impl windows_core::RuntimeType for IWindowsUpdateAttentionRequiredReasonChangedE
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateAttentionRequiredReasonChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -169,6 +181,7 @@ impl windows_core::RuntimeType for IWindowsUpdateGetAdministratorResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateGetAdministratorResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Administrator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -179,6 +192,7 @@ impl windows_core::RuntimeType for IWindowsUpdateItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -195,6 +209,7 @@ impl windows_core::RuntimeType for IWindowsUpdateManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ScanningStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -222,6 +237,7 @@ impl windows_core::RuntimeType for IWindowsUpdateManagerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateManagerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -231,6 +247,7 @@ impl windows_core::RuntimeType for IWindowsUpdateProgressChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateProgressChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -241,6 +258,7 @@ impl windows_core::RuntimeType for IWindowsUpdateRestartRequestOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateRestartRequestOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -263,6 +281,7 @@ impl windows_core::RuntimeType for IWindowsUpdateRestartRequestOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateRestartRequestOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -272,6 +291,7 @@ impl windows_core::RuntimeType for IWindowsUpdateScanCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsUpdateScanCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

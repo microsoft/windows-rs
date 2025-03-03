@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IVoiceCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommand_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CommandName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17,6 +18,7 @@ impl windows_core::RuntimeType for IVoiceCommandCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VoiceCommandCompletionReason) -> windows_core::HRESULT,
@@ -26,6 +28,7 @@ impl windows_core::RuntimeType for IVoiceCommandConfirmationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandConfirmationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Confirmed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -35,6 +38,7 @@ impl windows_core::RuntimeType for IVoiceCommandContentTile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandContentTile_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -65,6 +69,7 @@ impl windows_core::RuntimeType for IVoiceCommandDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -76,6 +81,7 @@ impl windows_core::RuntimeType for IVoiceCommandDefinitionManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandDefinitionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -89,6 +95,7 @@ impl windows_core::RuntimeType for IVoiceCommandDisambiguationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandDisambiguationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SelectedItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -98,6 +105,7 @@ impl windows_core::RuntimeType for IVoiceCommandResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandResponse_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -113,6 +121,7 @@ impl windows_core::RuntimeType for IVoiceCommandResponseStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandResponseStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxSupportedVoiceCommandContentTiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -126,6 +135,7 @@ impl windows_core::RuntimeType for IVoiceCommandServiceConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandServiceConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetVoiceCommandAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -147,6 +157,7 @@ impl windows_core::RuntimeType for IVoiceCommandServiceConnectionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandServiceConnectionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_AppService")]
@@ -159,6 +170,7 @@ impl windows_core::RuntimeType for IVoiceCommandUserMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVoiceCommandUserMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

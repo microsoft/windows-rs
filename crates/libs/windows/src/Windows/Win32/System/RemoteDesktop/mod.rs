@@ -778,6 +778,7 @@ impl IADsTSUserEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IADsTSUserEx_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub TerminalServicesProfilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1180,6 +1181,7 @@ impl IAudioDeviceEndpoint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioDeviceEndpoint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, i64, u32) -> windows_core::HRESULT,
@@ -1274,6 +1276,7 @@ impl IAudioEndpoint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioEndpoint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_Audio")]
@@ -1373,6 +1376,7 @@ impl IAudioEndpointControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioEndpointControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1433,6 +1437,7 @@ impl IAudioEndpointRT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioEndpointRT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrentPadding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64, *mut AE_CURRENT_POSITION),
@@ -1500,6 +1505,7 @@ impl IAudioInputEndpointRT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioInputEndpointRT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_Audio_Apo")]
@@ -1564,6 +1570,7 @@ impl IAudioOutputEndpointRT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioOutputEndpointRT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOutputDataPointer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const AE_CURRENT_POSITION) -> usize,
@@ -1674,6 +1681,7 @@ impl IRemoteDesktopClient {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteDesktopClient_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1832,6 +1840,7 @@ impl IRemoteDesktopClientActions {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteDesktopClientActions_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub SuspendScreenUpdates: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1929,6 +1938,7 @@ impl IRemoteDesktopClientSettings {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteDesktopClientSettings_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ApplySettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2045,6 +2055,7 @@ impl IRemoteDesktopClientTouchPointer {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteDesktopClientTouchPointer_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -2148,6 +2159,7 @@ impl IRemoteSystemAdditionalInfoProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemAdditionalInfoProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAdditionalInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2178,6 +2190,7 @@ impl ITSGAccountingEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITSGAccountingEngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DoAccounting: unsafe extern "system" fn(*mut core::ffi::c_void, AAAccountingDataType, AAAccountingData) -> windows_core::HRESULT,
@@ -2217,6 +2230,7 @@ impl ITSGAuthenticateUserSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITSGAuthenticateUserSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnUserAuthenticated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, usize, super::super::Foundation::HANDLE_PTR) -> windows_core::HRESULT,
@@ -2283,6 +2297,7 @@ impl ITSGAuthenticationEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITSGAuthenticationEngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const u8, u32, usize, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2325,6 +2340,7 @@ impl ITSGAuthorizeConnectionSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITSGAuthorizeConnectionSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnConnectionAuthorized: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, windows_core::GUID, u32, *const u8, u32, u32, SESSION_TIMEOUT_ACTION_TYPE, AATrustClassID, *const u32) -> windows_core::HRESULT,
@@ -2355,6 +2371,7 @@ impl ITSGAuthorizeResourceSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITSGAuthorizeResourceSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnChannelAuthorized: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, windows_core::GUID, i32, *const *mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -2403,6 +2420,7 @@ impl ITSGPolicyEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITSGPolicyEngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AuthorizeConnection: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, AAAuthSchemes, *mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32, *const u8, u32, super::super::Foundation::HANDLE_PTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2487,6 +2505,7 @@ impl ITsSbBaseNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbBaseNotifySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -2613,6 +2632,7 @@ impl ITsSbClientConnection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbClientConnection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2867,6 +2887,7 @@ impl core::ops::Deref for ITsSbClientConnectionPropertySet {
 windows_core::imp::interface_hierarchy!(ITsSbClientConnectionPropertySet, windows_core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbClientConnectionPropertySet_Vtbl {
     pub base__: ITsSbPropertySet_Vtbl,
 }
@@ -2914,6 +2935,7 @@ impl ITsSbEnvironment {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbEnvironment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3006,6 +3028,7 @@ impl core::ops::Deref for ITsSbEnvironmentPropertySet {
 windows_core::imp::interface_hierarchy!(ITsSbEnvironmentPropertySet, windows_core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbEnvironmentPropertySet_Vtbl {
     pub base__: ITsSbPropertySet_Vtbl,
 }
@@ -3044,6 +3067,7 @@ impl ITsSbFilterPluginStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbFilterPluginStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3116,6 +3140,7 @@ impl ITsSbGenericNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbGenericNotifySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -3190,6 +3215,7 @@ impl ITsSbGlobalStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbGlobalStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3301,6 +3327,7 @@ impl ITsSbLoadBalanceResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbLoadBalanceResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TargetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3347,6 +3374,7 @@ impl ITsSbLoadBalancing {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbLoadBalancing_Vtbl {
     pub base__: ITsSbPlugin_Vtbl,
     pub GetMostSuitableTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3389,6 +3417,7 @@ impl ITsSbLoadBalancingNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbLoadBalancingNotifySink_Vtbl {
     pub base__: ITsSbBaseNotifySink_Vtbl,
     pub OnGetMostSuitableTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -3429,6 +3458,7 @@ impl ITsSbOrchestration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbOrchestration_Vtbl {
     pub base__: ITsSbPlugin_Vtbl,
     pub PrepareTargetForConnect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3471,6 +3501,7 @@ impl ITsSbOrchestrationNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbOrchestrationNotifySink_Vtbl {
     pub base__: ITsSbBaseNotifySink_Vtbl,
     pub OnReadyToConnect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3511,6 +3542,7 @@ impl ITsSbPlacement {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbPlacement_Vtbl {
     pub base__: ITsSbPlugin_Vtbl,
     pub QueryEnvironmentForTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3553,6 +3585,7 @@ impl ITsSbPlacementNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbPlacementNotifySink_Vtbl {
     pub base__: ITsSbBaseNotifySink_Vtbl,
     pub OnQueryEnvironmentCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3592,6 +3625,7 @@ impl ITsSbPlugin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbPlugin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3649,6 +3683,7 @@ impl ITsSbPluginNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbPluginNotifySink_Vtbl {
     pub base__: ITsSbBaseNotifySink_Vtbl,
     pub OnInitialized: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -3696,6 +3731,7 @@ impl core::ops::Deref for ITsSbPluginPropertySet {
 windows_core::imp::interface_hierarchy!(ITsSbPluginPropertySet, windows_core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbPluginPropertySet_Vtbl {
     pub base__: ITsSbPropertySet_Vtbl,
 }
@@ -3725,6 +3761,7 @@ impl core::ops::Deref for ITsSbPropertySet {
 windows_core::imp::interface_hierarchy!(ITsSbPropertySet, windows_core::IUnknown, super::Com::StructuredStorage::IPropertyBag);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbPropertySet_Vtbl {
     pub base__: super::Com::StructuredStorage::IPropertyBag_Vtbl,
 }
@@ -3818,6 +3855,7 @@ impl ITsSbProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateTargetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4046,6 +4084,7 @@ impl ITsSbProvisioning {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbProvisioning_Vtbl {
     pub base__: ITsSbPlugin_Vtbl,
     pub CreateVirtualMachines: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4124,6 +4163,7 @@ impl ITsSbProvisioningPluginNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbProvisioningPluginNotifySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnJobCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *const VM_NOTIFY_INFO) -> windows_core::HRESULT,
@@ -4217,6 +4257,7 @@ impl ITsSbResourceNotification {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbResourceNotification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifySessionChange: unsafe extern "system" fn(*mut core::ffi::c_void, TSSESSION_STATE, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4274,6 +4315,7 @@ impl ITsSbResourceNotificationEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbResourceNotificationEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifySessionChangeEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, TSSESSION_STATE) -> windows_core::HRESULT,
@@ -4326,6 +4368,7 @@ impl core::ops::Deref for ITsSbResourcePlugin {
 }
 windows_core::imp::interface_hierarchy!(ITsSbResourcePlugin, windows_core::IUnknown, ITsSbPlugin);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbResourcePlugin_Vtbl {
     pub base__: ITsSbPlugin_Vtbl,
 }
@@ -4488,6 +4531,7 @@ impl ITsSbResourcePluginStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbResourcePluginStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4830,6 +4874,7 @@ impl ITsSbServiceNotification {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbServiceNotification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyServiceFailure: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4950,6 +4995,7 @@ impl ITsSbSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5276,6 +5322,7 @@ impl ITsSbTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TargetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5545,6 +5592,7 @@ impl core::ops::Deref for ITsSbTargetPropertySet {
 windows_core::imp::interface_hierarchy!(ITsSbTargetPropertySet, windows_core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbTargetPropertySet_Vtbl {
     pub base__: ITsSbPropertySet_Vtbl,
 }
@@ -5621,6 +5669,7 @@ impl ITsSbTaskInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbTaskInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TargetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5798,6 +5847,7 @@ impl ITsSbTaskPlugin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbTaskPlugin_Vtbl {
     pub base__: ITsSbPlugin_Vtbl,
     pub InitializeTaskPlugin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5859,6 +5909,7 @@ impl ITsSbTaskPluginNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITsSbTaskPluginNotifySink_Vtbl {
     pub base__: ITsSbBaseNotifySink_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5928,6 +5979,7 @@ impl IWRdsEnhancedFastReconnectArbitrator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsEnhancedFastReconnectArbitrator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSessionForEnhancedFastReconnect: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32, u32, *mut i32) -> windows_core::HRESULT,
@@ -5980,6 +6032,7 @@ impl IWRdsGraphicsChannel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsGraphicsChannel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6049,6 +6102,7 @@ impl IWRdsGraphicsChannelEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsGraphicsChannelEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
@@ -6121,6 +6175,7 @@ impl IWRdsGraphicsChannelManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsGraphicsChannelManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, WRdsGraphicsChannelType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6255,6 +6310,7 @@ impl IWRdsProtocolConnection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsProtocolConnection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLogonErrorRedirector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6546,6 +6602,7 @@ impl IWRdsProtocolConnectionCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsProtocolConnectionCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnReady: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6624,6 +6681,7 @@ impl IWRdsProtocolConnectionSettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsProtocolConnectionSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetConnectionSetting: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const WTS_PROPERTY_VALUE) -> windows_core::HRESULT,
@@ -6675,6 +6733,7 @@ impl IWRdsProtocolLicenseConnection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsProtocolLicenseConnection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RequestLicensingCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WTS_LICENSE_CAPABILITIES, *mut u32) -> windows_core::HRESULT,
@@ -6747,6 +6806,7 @@ impl IWRdsProtocolListener {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsProtocolListener_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSettings: unsafe extern "system" fn(*mut core::ffi::c_void, WRDS_LISTENER_SETTING_LEVEL, *mut WRDS_LISTENER_SETTINGS) -> windows_core::HRESULT,
@@ -6810,6 +6870,7 @@ impl IWRdsProtocolListenerCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsProtocolListenerCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const WRDS_CONNECTION_SETTINGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6875,6 +6936,7 @@ impl IWRdsProtocolLogonErrorRedirector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsProtocolLogonErrorRedirector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnBeginPainting: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6983,6 +7045,7 @@ impl IWRdsProtocolManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsProtocolManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const WRDS_SETTINGS) -> windows_core::HRESULT,
@@ -7088,6 +7151,7 @@ impl IWRdsProtocolSettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsProtocolSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSettings: unsafe extern "system" fn(*mut core::ffi::c_void, WRDS_SETTING_TYPE, WRDS_SETTING_LEVEL, *mut WRDS_SETTINGS) -> windows_core::HRESULT,
@@ -7137,6 +7201,7 @@ impl IWRdsProtocolShadowCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsProtocolShadowCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StopShadow: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7192,6 +7257,7 @@ impl IWRdsProtocolShadowConnection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsProtocolShadowConnection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u8, u16, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7252,6 +7318,7 @@ impl IWRdsWddmIddProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsWddmIddProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHardwareId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -7321,6 +7388,7 @@ impl IWRdsWddmIddProps1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWRdsWddmIddProps1_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHardwareId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -7378,6 +7446,7 @@ impl IWTSBitmapRenderService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSBitmapRenderService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMappedRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7423,6 +7492,7 @@ impl IWTSBitmapRenderer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSBitmapRenderer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Render: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u32, u32, i32, u32, *const u8) -> windows_core::HRESULT,
@@ -7480,6 +7550,7 @@ impl IWTSBitmapRendererCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSBitmapRendererCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnTargetSizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::RECT) -> windows_core::HRESULT,
@@ -7514,6 +7585,7 @@ impl IWTSListener {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSListener_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -7559,6 +7631,7 @@ impl IWTSListenerCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSListenerCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnNewChannelConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7601,6 +7674,7 @@ impl IWTSPlugin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSPlugin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7664,6 +7738,7 @@ impl IWTSPluginServiceProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSPluginServiceProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7792,6 +7867,7 @@ impl IWTSProtocolConnection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSProtocolConnection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLogonErrorRedirector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8065,6 +8141,7 @@ impl IWTSProtocolConnectionCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSProtocolConnectionCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnReady: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8143,6 +8220,7 @@ impl IWTSProtocolLicenseConnection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSProtocolLicenseConnection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RequestLicensingCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WTS_LICENSE_CAPABILITIES, *mut u32) -> windows_core::HRESULT,
@@ -8209,6 +8287,7 @@ impl IWTSProtocolListener {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSProtocolListener_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartListen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8257,6 +8336,7 @@ impl IWTSProtocolListenerCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSProtocolListenerCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8322,6 +8402,7 @@ impl IWTSProtocolLogonErrorRedirector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSProtocolLogonErrorRedirector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnBeginPainting: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8418,6 +8499,7 @@ impl IWTSProtocolManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSProtocolManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateListener: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8500,6 +8582,7 @@ impl IWTSProtocolShadowCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSProtocolShadowCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StopShadow: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8555,6 +8638,7 @@ impl IWTSProtocolShadowConnection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSProtocolShadowConnection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u8, u16, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8635,6 +8719,7 @@ impl IWTSSBPlugin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSSBPlugin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -8725,6 +8810,7 @@ impl IWTSVirtualChannel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSVirtualChannel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8766,6 +8852,7 @@ impl IWTSVirtualChannelCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSVirtualChannelCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
@@ -8815,6 +8902,7 @@ impl IWTSVirtualChannelManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWTSVirtualChannelManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateListener: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8865,6 +8953,7 @@ impl IWorkspace {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspace_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -8944,6 +9033,7 @@ impl IWorkspace2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspace2_Vtbl {
     pub base__: IWorkspace_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -8992,6 +9082,7 @@ impl IWorkspace3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspace3_Vtbl {
     pub base__: IWorkspace2_Vtbl,
     pub GetClaimsToken2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, super::super::Foundation::RECT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9055,6 +9146,7 @@ impl IWorkspaceClientExt {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspaceClientExt_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetResourceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9127,6 +9219,7 @@ impl IWorkspaceRegistration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspaceRegistration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -9187,6 +9280,7 @@ impl IWorkspaceRegistration2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspaceRegistration2_Vtbl {
     pub base__: IWorkspaceRegistration_Vtbl,
     pub AddResourceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, windows_core::GUID) -> windows_core::HRESULT,
@@ -9238,6 +9332,7 @@ impl IWorkspaceReportMessage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspaceReportMessage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterErrorLogMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9324,6 +9419,7 @@ impl IWorkspaceResTypeRegistry {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspaceResTypeRegistry_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub AddResourceType: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9443,6 +9539,7 @@ impl IWorkspaceScriptable {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspaceScriptable_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub DisconnectWorkspace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9559,6 +9656,7 @@ impl IWorkspaceScriptable2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspaceScriptable2_Vtbl {
     pub base__: IWorkspaceScriptable_Vtbl,
     pub StartWorkspaceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -9615,6 +9713,7 @@ impl IWorkspaceScriptable3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspaceScriptable3_Vtbl {
     pub base__: IWorkspaceScriptable2_Vtbl,
     pub StartWorkspaceEx2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -9682,6 +9781,7 @@ impl ItsPubPlugin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ItsPubPlugin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetResourceList: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut i32, *mut *mut pluginResource) -> windows_core::HRESULT,
@@ -9808,6 +9908,7 @@ impl ItsPubPlugin2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ItsPubPlugin2_Vtbl {
     pub base__: ItsPubPlugin_Vtbl,
     pub GetResource2List: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut i32, *mut *mut pluginResource2) -> windows_core::HRESULT,
@@ -11752,6 +11853,7 @@ impl core::ops::Deref for _ITSWkspEvents {
 windows_core::imp::interface_hierarchy!(_ITSWkspEvents, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _ITSWkspEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }

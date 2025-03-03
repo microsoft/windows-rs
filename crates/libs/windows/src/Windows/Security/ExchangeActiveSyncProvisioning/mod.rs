@@ -472,6 +472,7 @@ impl windows_core::RuntimeType for IEasClientDeviceInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEasClientDeviceInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -486,6 +487,7 @@ impl windows_core::RuntimeType for IEasClientDeviceInformation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEasClientDeviceInformation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SystemHardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -496,6 +498,7 @@ impl windows_core::RuntimeType for IEasClientSecurityPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEasClientSecurityPolicy_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequireEncryption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -522,6 +525,7 @@ impl windows_core::RuntimeType for IEasComplianceResults {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEasComplianceResults_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Compliant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -539,6 +543,7 @@ impl windows_core::RuntimeType for IEasComplianceResults2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEasComplianceResults2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EncryptionProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasEncryptionProviderType) -> windows_core::HRESULT,
