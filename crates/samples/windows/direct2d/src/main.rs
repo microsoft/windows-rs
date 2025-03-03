@@ -241,7 +241,7 @@ impl Window {
         }
 
         unsafe {
-            target.SetTransform(&(Matrix3x2::rotation(angles.second, 0.0, 0.0) * translation));
+            target.SetTransform(&(Matrix3x2::rotation(angles.second) * translation));
 
             target.DrawLine(
                 Vector2::zero(),
@@ -251,7 +251,7 @@ impl Window {
                 &self.style,
             );
 
-            target.SetTransform(&(Matrix3x2::rotation(angles.minute, 0.0, 0.0) * translation));
+            target.SetTransform(&(Matrix3x2::rotation(angles.minute) * translation));
 
             target.DrawLine(
                 Vector2::zero(),
@@ -261,7 +261,7 @@ impl Window {
                 &self.style,
             );
 
-            target.SetTransform(&(Matrix3x2::rotation(angles.hour, 0.0, 0.0) * translation));
+            target.SetTransform(&(Matrix3x2::rotation(angles.hour) * translation));
 
             target.DrawLine(
                 Vector2::zero(),

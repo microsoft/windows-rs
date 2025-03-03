@@ -21,11 +21,14 @@ impl Matrix3x2 {
             M32: y,
         }
     }
-    pub fn rotation(angle: f32, x: f32, y: f32) -> Self {
+    pub fn rotation(angle: f32) -> Self {
+        Self::rotation_around(angle, Vector2::zero())
+    }
+    pub fn rotation_around(angle: f32, center: Vector2) -> Self {
         windows_link::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle: f32, center: Vector2, matrix: *mut Matrix3x2));
         let mut matrix = Self::default();
         unsafe {
-            D2D1MakeRotateMatrix(angle, Vector2::new(x, y), &mut matrix);
+            D2D1MakeRotateMatrix(angle, center, &mut matrix);
         }
         matrix
     }
